@@ -1,0 +1,18 @@
+[alias]
+  ms = config user.email \"maximbaz@microsoft.com\"
+[branch]
+  autosetuprebase = always
+[core]
+  autocrlf = input
+[merge]
+  conflictstyle = diff3
+  tool = vimdiff
+[mergetool]
+  keepBackup = false
+  prompt = false
+[push]
+  default = current
+[user]
+  email = git@maximbaz.com
+  name = Maxim Baz
+
