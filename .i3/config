@@ -1,0 +1,224 @@
+# Set font
+font pango: M+ 1m, FontAwesome, Ionicons, 8
+
+# Use AltGr as a modifier key
+exec-always --no-startup-id xmodmap -e "keycode 108 = Alt_R"
+exec-always --no-startup-id xmodmap -e "add Mod3 = Alt_R"
+set $mod Mod3
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Switch keyboard layout
+bindcode Mod1 + 50 exec ~/change_keyboard_layout.sh
+
+# Update monitor configuration
+bindsym $mod+Shift+o exec ~/fix-screens.sh
+
+# Start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start program launcher
+bindsym $mod+d exec synapse
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split
+bindsym $mod+Shift+v split h
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Workspaces
+
+# Hit workspace number again to return to previous workspace
+#workspace_auto_back_and_forth yes
+
+focus_follows_mouse no
+
+set $workspace1 workspace "1: Terminal"
+set $workspace2 workspace "2: Chrome"
+set $workspace3 workspace "3: Communications"
+set $workspace4 workspace "4: Chrome @ Microsoft"
+set $workspace5 workspace "5: IntelliJ"
+set $workspace6 workspace "6: Communications @ Microsoft"
+set $workspace7 workspace "7"
+set $workspace8 workspace "8: Emacs"
+set $workspace9 workspace "9: RDP"
+set $workspace0 workspace "10: Trash"
+
+# Bind workspaces to monitors
+$workspace1 output eDP1
+$workspace2 output eDP1
+$workspace3 output eDP1
+$workspace4 output eDP1
+$workspace5 output eDP1
+$workspace6 output DP1
+$workspace7 output eDP1
+$workspace8 output eDP1
+$workspace9 output DP1
+$workspace0 output eDP1
+
+# Switch to workspace
+bindsym $mod+1 $workspace1
+bindsym $mod+2 $workspace2
+bindsym $mod+3 $workspace3
+bindsym $mod+4 $workspace4
+bindsym $mod+5 $workspace5
+bindsym $mod+6 $workspace6
+bindsym $mod+7 $workspace7
+bindsym $mod+8 $workspace8
+bindsym $mod+9 $workspace9
+bindsym $mod+0 $workspace0
+
+# Move window to workspace
+bindsym $mod+Shift+1 move container to $workspace1
+bindsym $mod+Shift+2 move container to $workspace2
+bindsym $mod+Shift+3 move container to $workspace3
+bindsym $mod+Shift+4 move container to $workspace4
+bindsym $mod+Shift+5 move container to $workspace5
+bindsym $mod+Shift+6 move container to $workspace6
+bindsym $mod+Shift+7 move container to $workspace7
+bindsym $mod+Shift+8 move container to $workspace8
+bindsym $mod+Shift+9 move container to $workspace9
+bindsym $mod+Shift+0 move container to $workspace0
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+mode "Resize" {
+  bindsym Shift+h resize grow left 10 px or 10 ppt
+  bindsym h resize shrink right 10 px or 10 ppt
+  bindsym Shift+j resize grow down 10 px or 10 ppt
+  bindsym j resize shrink up 10 px or 10 ppt
+  bindsym Shift+k resize shrink down 10 px or 10 ppt
+  bindsym k resize grow up 10 px or 10 ppt
+  bindsym l resize grow right 10 px or 10 ppt
+  bindsym Shift+l resize shrink left 10 px or 10 ppt
+
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Shutdown, Suspend, Lock
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
+mode "$mode_system" {
+  bindsym l exec --no-startup-id ~/i3exit lock, mode "default"
+  bindsym e exec --no-startup-id ~/i3exit logout, mode "default"
+  bindsym s exec --no-startup-id ~/i3exit suspend, mode "default"
+  bindsym r exec --no-startup-id ~/i3exit reboot, mode "default"
+  bindsym h exec --no-startup-id ~/i3exit shutdown, mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"
+
+# Move workspaces between monitors
+set $mode_workspaces_monitors Move workspace
+mode "$mode_workspaces_monitors" {
+  bindsym h exec --no-startup-id i3-msg move workspace to output left, mode "default"
+  bindsym l exec --no-startup-id i3-msg move workspace to output right, mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+Shift+m mode $mode_workspaces_monitors
+
+# Bar
+bar {
+  colors {
+    # Whole color settings
+    background #000000
+    statusline #ffffff
+    separator  #666666
+
+    # Type             border  background font
+    focused_workspace  #008fff #007fff #ffffff
+    active_workspace   #333333 #5f676a #ffffff
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #aa0000 #990000 #ffffff
+  }
+
+  status_command py3status
+  position top
+  tray_output primary
+}
+
+
+# Specific window configuration
+for_window [window_role="pop-up"] floating enable
+for_window [class="Skype"] move container to $workspace3
+for_window [class="jetbrains-idea"] move container to $workspace5
+for_window [class="xfreerdp"] move container to $workspace9
+for_window [class="Emacs"] move container to $workspace8
+
+
+# Startup
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id gnome-keyring-daemon
+exec --no-startup-id gnome-sound-applet
+exec --no-startup-id xset -dpms
+exec --no-startup-id nm-applet
+exec --no-startup-id dropboxd
+exec --no-startup-id skype
+exec --no-startup-id fluxgui
+exec --no-startup-id copyq
+exec --no-startup-id shutter --min_at_startup
+
+exec --no-startup-id setxkbmap -layout "us" -variant "us-da"
+
+exec_always --no-startup-id xrandr --dpi 192
