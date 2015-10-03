@@ -17,14 +17,15 @@ link() {
   echo "$real_file <-> $link_file"
 }
 
-link ".tmux.conf"
-link ".gitconfig"
-
 link ".emacs.d/init.el"
 link ".emacs.d/custom.el"
 link ".emacs.d/configs"
 link ".emacs.d/snippets"
 
-link "dircolors.256dark"
+link ".gitconfig"
+link ".tmux.conf"
+link ".vimrc"
 link ".zsh"
 link ".zshrc"
+
+link "dircolors.256dark"
