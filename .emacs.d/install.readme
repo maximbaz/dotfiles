@@ -1,0 +1,17 @@
+All platforms
+-------------
+
+1. Symlink these to ~/.emacs.d/ (on Windows: C:\Users\maximbaz\AppData\Roaming\.emacs.d):
+  a) .emacs.d/init.el
+  b) .emacs.d/custom.el
+  c) .emacs.d/configs
+  d) .emacs.d/snippets
+
+
+Windows
+-------
+
+1. Install Git.
+2. Install MinGW (including MSYS).
+3. Install all packages from MinGW and MSYS.
+4. PREPEND PATH with: C:\MinGW\bin;C:\MinGW\msys\1.0\bin;C:\Program Files\Git\bin;C:\emacs\bin;
