@@ -25,3 +25,6 @@ link ".emacs.d/custom.el"
 link ".emacs.d/configs"
 link ".emacs.d/snippets"
 
+link "dircolors.256dark"
+link ".zsh"
+link ".zshrc"
