@@ -1,10 +1,8 @@
 # Set font
 font pango: M+ 1m, FontAwesome, Ionicons, 8
 
-# Use AltGr as a modifier key
-exec-always --no-startup-id xmodmap -e "keycode 108 = Alt_R"
-exec-always --no-startup-id xmodmap -e "add Mod3 = Alt_R"
-set $mod Mod3
+# Use Windows as a modifier key
+set $mod Mod4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
