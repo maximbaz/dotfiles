@@ -96,7 +96,19 @@ $workspace8 output eDP1
 $workspace9 output DP1
 $workspace0 output eDP1
 
-# Switch to workspace
+# Switch to workspace using keypad
+bindcode $mod+87 $workspace1
+bindcode $mod+88 $workspace2
+bindcode $mod+89 $workspace3
+bindcode $mod+83 $workspace4
+bindcode $mod+84 $workspace5
+bindcode $mod+85 $workspace6
+bindcode $mod+79 $workspace7
+bindcode $mod+80 $workspace8
+bindcode $mod+81 $workspace9
+bindcode $mod+90 $workspace0
+
+# Switch to workspace using number row
 bindsym $mod+1 $workspace1
 bindsym $mod+2 $workspace2
 bindsym $mod+3 $workspace3
@@ -108,7 +120,19 @@ bindsym $mod+8 $workspace8
 bindsym $mod+9 $workspace9
 bindsym $mod+0 $workspace0
 
-# Move window to workspace
+# Move window to workspace using keypad
+bindcode $mod+Shift+87 move container to $workspace1
+bindcode $mod+Shift+88 move container to $workspace2
+bindcode $mod+Shift+89 move container to $workspace3
+bindcode $mod+Shift+83 move container to $workspace4
+bindcode $mod+Shift+84 move container to $workspace5
+bindcode $mod+Shift+85 move container to $workspace6
+bindcode $mod+Shift+79 move container to $workspace7
+bindcode $mod+Shift+80 move container to $workspace8
+bindcode $mod+Shift+81 move container to $workspace9
+bindcode $mod+Shift+90 move container to $workspace0
+
+# Move window to workspace using number row
 bindsym $mod+Shift+1 move container to $workspace1
 bindsym $mod+Shift+2 move container to $workspace2
 bindsym $mod+Shift+3 move container to $workspace3
