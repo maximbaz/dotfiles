@@ -7,69 +7,69 @@ set $mod Mod4
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Switch keyboard layout
-bindcode Mod1 + 50 exec ~/change_keyboard_layout.sh
-
-# Update monitor configuration
-bindsym $mod+Shift+o exec ~/fix-screens.sh
+# Switch keyboard layout (Alt+Shift)
+bindcode Mod1+50 exec ~/change_keyboard_layout.sh
 
 # Start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# Kill focused window
-bindsym $mod+Shift+q kill
+# Kill focused window (q)
+bindcode $mod+Shift+24 kill
 
-# Start program launcher
-bindsym $mod+d exec synapse
+# Start program launcher (d)
+bindcode $mod+40 exec synapse
 
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# Change focus (h)(j)(k)(l)
+bindcode $mod+43 focus left
+bindcode $mod+44 focus down
+bindcode $mod+45 focus up
+bindcode $mod+46 focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+# Move focused window (h)(j)(k)(l)
+bindcode $mod+Shift+43 move left
+bindcode $mod+Shift+44 move down
+bindcode $mod+Shift+45 move up
+bindcode $mod+Shift+46 move right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split
-bindsym $mod+Shift+v split h
-bindsym $mod+v split v
+# Split (v)
+bindcode $mod+Shift+55 split h
+bindcode $mod+55 split v
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+# Enter fullscreen mode (f)
+bindcode $mod+41 fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Change container layout (s)(w)(e)
+bindcode $mod+39 layout stacking
+bindcode $mod+25 layout tabbed
+bindcode $mod+26 layout toggle split
 
-# toggle tiling / floating
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
+# Focus the parent container (a)
+bindcode $mod+38 focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
+# Focus the child container (a)
+bindcode $mod+Shift+38 focus child
+
+# Reload the configuration file (c)
+bindcode $mod+Shift+54 reload
+
+# Restart i3 inplace (r)
+bindcode $mod+Shift+27 restart
 
 # Workspaces
-
-# Hit workspace number again to return to previous workspace
-#workspace_auto_back_and_forth yes
 
 focus_follows_mouse no
 
@@ -145,60 +145,60 @@ bindsym $mod+Shift+9 move container to $workspace9
 bindsym $mod+Shift+0 move container to $workspace0
 
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
+# Resize window (r)
 mode "Resize" {
-  bindsym Shift+h resize grow left 10 px or 10 ppt
-  bindsym h resize shrink right 10 px or 10 ppt
-  bindsym Shift+j resize grow down 10 px or 10 ppt
-  bindsym j resize shrink up 10 px or 10 ppt
-  bindsym Shift+k resize shrink down 10 px or 10 ppt
-  bindsym k resize grow up 10 px or 10 ppt
-  bindsym l resize grow right 10 px or 10 ppt
-  bindsym Shift+l resize shrink left 10 px or 10 ppt
-
-  # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  # (h)
+  bindcode Shift+43 resize grow left 10 px or 10 ppt
+  bindcode 43 resize shrink right 10 px or 10 ppt
+  # (j)
+  bindcode Shift+44 resize grow down 10 px or 10 ppt
+  bindcode 44 resize shrink up 10 px or 10 ppt
+  # (k)
+  bindcode Shift+45 resize shrink down 10 px or 10 ppt
+  bindcode 45 resize grow up 10 px or 10 ppt
+  # (l)
+  bindcode 46 resize grow right 10 px or 10 ppt
+  bindcode Shift+46 resize shrink left 10 px or 10 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
+bindcode $mod+27 mode "resize"
 
-bindsym $mod+r mode "resize"
-
-# Shutdown, Suspend, Lock
+# Shutdown, Suspend, Lock (e)
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
 mode "$mode_system" {
-  bindsym l exec --no-startup-id ~/i3exit lock, mode "default"
-  bindsym e exec --no-startup-id ~/i3exit logout, mode "default"
-  bindsym s exec --no-startup-id ~/i3exit suspend, mode "default"
-  bindsym r exec --no-startup-id ~/i3exit reboot, mode "default"
-  bindsym h exec --no-startup-id ~/i3exit shutdown, mode "default"
+  # (l)
+  bindcode 46 exec --no-startup-id ~/i3exit lock, mode "default"
+  # (e)
+  bindcode 26 exec --no-startup-id ~/i3exit logout, mode "default"
+  # (s)
+  bindcode 39 exec --no-startup-id ~/i3exit suspend, mode "default"
+  # (r)
+  bindcode 27 exec --no-startup-id ~/i3exit reboot, mode "default"
+  # (h)
+  bindcode 43 exec --no-startup-id ~/i3exit shutdown, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindsym $mod+Shift+e mode "$mode_system"
+bindcode $mod+Shift+26 mode "$mode_system"
 
-# Move workspaces between monitors
+# Move workspaces between monitors (m)
 set $mode_workspaces_monitors Move workspace
 mode "$mode_workspaces_monitors" {
-  bindsym h exec --no-startup-id i3-msg move workspace to output left, mode "default"
-  bindsym l exec --no-startup-id i3-msg move workspace to output right, mode "default"
+  # (h)
+  bindcode 43 exec --no-startup-id i3-msg move workspace to output left, mode "default"
+  # (l)
+  bindcode 46 exec --no-startup-id i3-msg move workspace to output right, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindsym $mod+Shift+m mode $mode_workspaces_monitors
+bindcode $mod+Shift+58 mode $mode_workspaces_monitors
 
 # Bar
 bar {
