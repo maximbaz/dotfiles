@@ -11,7 +11,11 @@ source ~/.zsh/prompt.zsh
 source ~/.zsh/vi-mode.zsh
 
 # Load machine-specific configurations
-if [[ "$HOST" == "z0rch-x1" || "$HOST" == "crmdevvm-0037" ]]; then
+if [[ "$HOST" == "z0rch-x1" ]]; then
   source ~/.zsh/mse.zsh
 fi
 
+if [[ "$HOST" == "crmdevvm-0037" ]]; then
+  source ~/.zsh/mse.zsh
+  source ~/.zsh/autorun-tmux.zsh
+fi
