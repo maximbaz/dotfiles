@@ -9,6 +9,7 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/base.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/vi-mode.zsh
+source ~/.zsh/wm-specific.zsh
 
 # Load machine-specific configurations
 if [[ "$HOST" == "z0rch-x1" ]]; then
