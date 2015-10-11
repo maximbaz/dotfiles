@@ -32,7 +32,7 @@
           (setq-default
             interprogram-cut-function   nil
             interprogram-paste-function nil
-            x-select-enable-clipboard   nil))
+            select-enable-clipboard     nil))
 
         ;; Change cursor color depending on a mode
         (setq-default evil-emacs-state-cursor '("red" box))
