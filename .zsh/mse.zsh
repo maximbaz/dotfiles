@@ -1,5 +1,5 @@
 # Environment variables
-JAVA_HOME="/usr/lib/jvm/java-7-oracle"
+JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 M2_HOME="/usr/share/maven3"
 GRADLE_HOME="$HOME/gradle-2.4"
 JETTY_HOME="$HOME/jetty-9.2"
