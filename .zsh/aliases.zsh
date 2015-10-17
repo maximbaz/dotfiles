@@ -1,3 +1,4 @@
+alias sudo="sudo -E"
 alias vi="vim"
 alias emx="nohup emacs >&/dev/null & disown"
 alias vzsh="vim ~/.zshrc"
