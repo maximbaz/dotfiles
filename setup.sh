@@ -30,6 +30,9 @@ link ".config/sxhkd"
 
 link ".ghc/ghci.conf"
 
+link ".config/konsolerc"
+link ".local/share/konsole"
+
 link ".gitconfig"
 link ".tmux.conf"
 link ".vimrc"
