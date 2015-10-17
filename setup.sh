@@ -30,6 +30,7 @@ link ".ghc/ghci.conf"
 link ".gitconfig"
 link ".tmux.conf"
 link ".vimrc"
+link ".yaourtrc"
 link ".zsh"
 link ".zshrc"
 
