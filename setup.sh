@@ -11,7 +11,7 @@ link() {
   real_file="$(path "$dotfiles_dir/$1")"
   link_file="$(path "$HOME/$1")"
 
-  rm -f $link_file
+  rm -rf $link_file
   ln -s $real_file $link_file
 
   echo "$real_file <-> $link_file"
@@ -24,6 +24,9 @@ link ".emacs.d/snippets"
 
 link ".i3/config"
 link ".i3status.conf"
+
+link ".config/bspwm"
+link ".config/sxhkd"
 
 link ".ghc/ghci.conf"
 
