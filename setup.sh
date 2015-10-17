@@ -31,6 +31,7 @@ link ".gitconfig"
 link ".tmux.conf"
 link ".vimrc"
 link ".yaourtrc"
+link ".Xresources"
 link ".zsh"
 link ".zshrc"
 
