@@ -43,3 +43,6 @@ link ".zsh"
 link ".zshrc"
 
 link "dircolors.256dark"
+
+link ".config/synapse"
+
