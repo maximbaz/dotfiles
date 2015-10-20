@@ -25,9 +25,6 @@ link ".emacs.d/snippets"
 link ".i3/config"
 link ".i3status.conf"
 
-link ".config/bspwm"
-link ".config/sxhkd"
-
 link ".ghc/ghci.conf"
 
 link ".config/konsolerc"
