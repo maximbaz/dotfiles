@@ -12,7 +12,7 @@ source ~/.zsh/vi-mode.zsh
 source ~/.zsh/wm-specific.zsh
 
 # Load machine-specific configurations
-if [[ "$HOST" == "z0rch-x1" ]]; then
+if [[ "$HOST" == "maximbaz-x1" ]]; then
   source ~/.zsh/mse.zsh
 fi
 
@@ -20,3 +20,4 @@ if [[ "$HOST" == "crmdevvm-0037" ]]; then
   source ~/.zsh/mse.zsh
   source ~/.zsh/autorun-tmux.zsh
 fi
+
