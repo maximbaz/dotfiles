@@ -1,0 +1,24 @@
+# Beware! This file is rewritten by htop when settings are changed in the interface.
+# The parser is also very primitive, and not human-friendly.
+fields=0 48 46 47 1 
+sort_key=49
+sort_direction=1
+hide_threads=1
+hide_kernel_threads=1
+hide_userland_threads=1
+shadow_other_users=1
+show_thread_names=1
+highlight_base_name=1
+highlight_megabytes=1
+highlight_threads=1
+tree_view=0
+header_margin=1
+detailed_cpu_time=0
+cpu_count_from_zero=0
+update_process_names=0
+color_scheme=0
+delay=15
+left_meters=Uptime LeftCPUs Memory Tasks 
+left_meter_modes=2 1 1 2 
+right_meters=Clock RightCPUs Swap LoadAverage 
+right_meter_modes=2 1 1 2 

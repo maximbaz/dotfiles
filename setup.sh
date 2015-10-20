@@ -33,6 +33,8 @@ link ".ghc/ghci.conf"
 link ".config/konsolerc"
 link ".local/share/konsole"
 
+link ".config/htop"
+
 link ".compton.conf"
 link ".gitconfig"
 link ".tmux.conf"
