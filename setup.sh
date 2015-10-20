@@ -27,9 +27,6 @@ link ".i3status.conf"
 
 link ".ghc/ghci.conf"
 
-link ".config/konsolerc"
-link ".local/share/konsole"
-
 link ".config/htop"
 
 link ".compton.conf"
