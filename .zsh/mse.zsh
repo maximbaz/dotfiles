@@ -4,8 +4,7 @@ M2_HOME="/usr/share/maven3"
 GRADLE_HOME="$HOME/gradle-2.4"
 JETTY_HOME="$HOME/jetty-9.2"
 
-MAVEN_OPTS="-Xms1024m -Xmx4096m -XX:PermSize=1024m"
-
+export MAVEN_OPTS="-Xms1024m -Xmx4096m -XX:PermSize=1024m"
 
 # PATH extensions
 export PATH="$JAVA_HOME/bin:$PATH"
