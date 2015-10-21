@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-plugins=(git sudo cd-gitroot pantheon-terminal-notify vi-mode zsh-syntax-highlighting)
+plugins=(git sudo cd-gitroot pantheon-terminal-notify zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -8,7 +8,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/base.zsh
 source ~/.zsh/prompt.zsh
-source ~/.zsh/vi-mode.zsh
 source ~/.zsh/wm-specific.zsh
 
 # Load machine-specific configurations
