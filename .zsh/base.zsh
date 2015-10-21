@@ -33,3 +33,5 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="$HOME/miniconda3/bin:$PATH"
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
