@@ -34,9 +34,25 @@ if [ -f "$usermodmap" ]; then
   xmodmap "$usermodmap"
 fi
 
-xrandr --output eDP1 --off --output DP1 --primary --auto
-compton &
-feh --bg-fill ~/wallpaper.png
-sxhkd &
-exec bspwm
+
+xrandr --dpi 192                      # Set High DPI
+compton &                             # Enable composition
+start-pulseaudio-x11 &                # Pulse audio daemon
+
+numlockx &                            # Turn on NumLock
+unclutter &                           # Hide mouse when using keyboard
+
+copyq &                               # Clipboard manager
+dropboxd &                            # Dropbox
+feh --bg-fill ~/wallpaper.png &       # Set wallpaper
+nm-applet &                           # Network Manager applet
+pasystray &                           # PulseAudio manager (to select default sink)
+pnmixer &                             # PulseAudio mixer (to adjust volume)
+redshift-gtk &                        # Warm colors at night
+shutter --min_at_startup &            # Screenshot manager
+skype &                               # Skype
+udiskie --tray &                      # Automatically mount usb drives
+urxvt &                               # Terminal
+
+exec i3                               # WM
 
