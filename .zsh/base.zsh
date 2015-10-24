@@ -5,6 +5,7 @@ setopt RM_STAR_WAIT
 eval `dircolors ~/dircolors.256dark`
 
 # Some environment variables
+export VISUAL='vim'
 export EDITOR='vim'
 export XDG_CONFIG_HOME="$HOME/.config"
 export LANG=en_US.UTF-8
