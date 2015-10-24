@@ -42,6 +42,7 @@ start-pulseaudio-x11 &                # Pulse audio daemon
 numlockx &                            # Turn on NumLock
 unclutter &                           # Hide mouse when using keyboard
 
+~/bin/watch-gsimplecal.sh &           # Watch and kill gsimplecal if it is unfocused
 copyq &                               # Clipboard manager
 dropboxd &                            # Dropbox
 feh --bg-fill ~/wallpaper.png &       # Set wallpaper

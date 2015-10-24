@@ -17,6 +17,8 @@ link() {
   echo "$real_file <-> $link_file"
 }
 
+link "bin"
+
 link ".emacs.d/init.el"
 link ".emacs.d/custom.el"
 link ".emacs.d/configs"
