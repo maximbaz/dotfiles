@@ -1,11 +1,18 @@
 #!/bin/sh
 
-CURRENT="$(setxkbmap -query | grep layout | perl -pe 's/^layout: +([^ ]+)$/$1/')"
+reset=$1
 
-if [ "$CURRENT" = "us" ] ; then
-    setxkbmap -layout "ru"
+if [ "$reset" != "" ]; then
+  setxkbmap -layout "us"
 else
-    setxkbmap -layout "us"
-    # -variant "us-da"
+  current="$(setxkbmap -query | grep layout | perl -pe 's/^layout: +([^ ]+)$/$1/')"
+  if [ "$current" = "us" ] ; then
+    setxkbmap -layout "ru"
+  else
+    setxkbmap -layout "us" -variant "us-da"
+    if [ $? != 0 ]; then
+      setxkbmap -layout "us"
+    fi
+  fi
 fi
 

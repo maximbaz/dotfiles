@@ -1,7 +1,7 @@
 #!/bin/sh
 
 lock() {
-  setxkbmap -layout "us"
+  ~/bin/change-keyboard-layout.sh reset
   i3lock -f -l
 }
 
