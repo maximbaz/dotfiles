@@ -1,6 +1,7 @@
 set tab-size = 2
 set line-graphics = utf-8
 
+bind main B !git rebase -i %(commit)
 bind main L !git pull
 bind main P !git push
 
