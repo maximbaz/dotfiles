@@ -24,7 +24,6 @@ for_window    [class="jetbrains-idea"]     move container to $workspace5
 for_window    [class="xfreerdp"]           move container to $workspace9
 for_window    [class="Emacs"]              move container to $workspace8
 for_window    [class="Synapse"]            border none
-for_window    [instance="gsimplecal"]      move down 60px
 
 # Bar
 bar {

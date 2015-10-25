@@ -43,7 +43,6 @@ xset -dpms &                          # Prevent screen from turning off
 numlockx &                            # Turn on NumLock
 unclutter &                           # Hide mouse when using keyboard
 
-~/bin/watch-gsimplecal.sh &           # Watch and kill gsimplecal if it is unfocused
 copyq &                               # Clipboard manager
 dropboxd &                            # Dropbox
 feh --bg-fill ~/lib/wallpaper.png &   # Set wallpaper

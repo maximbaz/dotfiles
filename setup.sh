@@ -30,6 +30,7 @@ link ".i3status.conf"
 
 link ".ghc/ghci.conf"
 
+link ".config/gsimplecal"
 link ".config/htop"
 link ".config/dunst"
 link ".config/synapse"
