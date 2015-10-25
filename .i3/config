@@ -31,7 +31,7 @@ bar {
     # Whole color settings
     background #000000
     statusline #ffffff
-    separator  #666666
+    separator  #333333
 
     # Type             border  background font
     focused_workspace  #008fff #007fff #ffffff
