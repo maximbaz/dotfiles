@@ -42,7 +42,6 @@ bar {
 
   status_command py3status
   position top
-  tray_output primary
 }
 
 
