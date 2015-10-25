@@ -1,5 +1,5 @@
 [global]
-    font = Monospace 12
+    font = Noto Sans, Taskbar 18
 
     # HTML markup
     allow_markup = yes
@@ -53,11 +53,11 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-0+50"
+    geometry = "800x5-0+50"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = no
+    shrink = yes
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
@@ -83,7 +83,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = keyboard
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
