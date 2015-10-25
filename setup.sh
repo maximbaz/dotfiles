@@ -35,6 +35,7 @@ link ".config/htop"
 link ".config/dunst"
 link ".config/kalu"
 link ".config/synapse"
+link ".config/ranger/rc.conf"
 
 link ".compton.conf"
 link ".gitconfig"
