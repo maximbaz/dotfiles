@@ -31,6 +31,8 @@ link ".i3status.conf"
 link ".ghc/ghci.conf"
 
 link ".config/htop"
+link ".config/dunst"
+link ".config/synapse"
 
 link ".compton.conf"
 link ".gitconfig"
@@ -43,6 +45,4 @@ link ".zsh"
 link ".zshrc"
 
 link "dircolors.256dark"
-
-link ".config/synapse"
 
