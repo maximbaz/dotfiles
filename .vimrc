@@ -71,6 +71,8 @@
       NeoBundle 'slim-template/vim-slim'
       NeoBundle 'lcharlick/vim-coffee-script'
       NeoBundle 'travitch/hasksyn'
+      NeoBundle 'tmux-plugins/vim-tmux'
+      NeoBundle 'PotatoesMaster/i3-vim-syntax'
       NeoBundle 'z0rch/vim-markdown'
     " }}}
     " Snippets {{{
