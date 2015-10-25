@@ -54,7 +54,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # Switch keyboard layout (Alt+Shift)
-bindcode Mod1+50 exec ~/change_keyboard_layout.sh
+bindcode Mod1+50 exec ~/bin/change-keyboard-layout.sh
 
 # Start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
