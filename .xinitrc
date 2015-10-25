@@ -46,7 +46,7 @@ unclutter &                           # Hide mouse when using keyboard
 ~/bin/watch-gsimplecal.sh &           # Watch and kill gsimplecal if it is unfocused
 copyq &                               # Clipboard manager
 dropboxd &                            # Dropbox
-feh --bg-fill ~/wallpaper.png &       # Set wallpaper
+feh --bg-fill ~/lib/wallpaper.png &   # Set wallpaper
 nm-applet &                           # Network Manager applet
 pasystray &                           # PulseAudio manager (to select default sink)
 pnmixer &                             # PulseAudio mixer (to adjust volume)
