@@ -1,6 +1,10 @@
 set tab-size = 2
 set line-graphics = utf-8
 
-bind status C !git commit -v
+bind main L !git pull
+bind main P !git push
+
 bind refs n !@git checkout -b "%(prompt Enter branch name: )"
+
+bind status C !git commit -v
 
