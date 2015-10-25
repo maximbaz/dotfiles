@@ -18,6 +18,7 @@ link() {
 }
 
 link "bin"
+link "lib"
 
 link ".emacs.d/init.el"
 link ".emacs.d/custom.el"

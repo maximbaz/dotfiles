@@ -1,5 +1,51 @@
 # Set font
-font pango: M+ 1m, FontAwesome, Ionicons, 8
+font pango: Noto Sans, Taskbar 9
+
+# Set gaps
+for_window [class="^.*"] border pixel 1
+gaps inner 30
+gaps outer 0
+
+# Borders
+new_window pixel 1
+new_float pixel 1
+hide_edge_borders both
+
+# Colors
+client.focused #9fbc00 #dddddd #111111
+client.unfocused #444444 #444444 #315858
+client.focused_inactive #444444 #444444 #2c2c2f
+client.urgent #383a3b #383a3b #ee0000
+
+# Specific window configuration
+for_window    [window_role="pop-up"]       floating enable
+for_window    [class="Skype"]              move container to $workspace3
+for_window    [class="jetbrains-idea"]     move container to $workspace5
+for_window    [class="xfreerdp"]           move container to $workspace9
+for_window    [class="Emacs"]              move container to $workspace8
+for_window    [class="Synapse"]            border none
+for_window    [instance="gsimplecal"]      move down 60px
+
+# Bar
+bar {
+  colors {
+    # Whole color settings
+    background #000000
+    statusline #ffffff
+    separator  #666666
+
+    # Type             border  background font
+    focused_workspace  #008fff #007fff #ffffff
+    active_workspace   #333333 #5f676a #ffffff
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #aa0000 #990000 #ffffff
+  }
+
+  status_command py3status
+  position top
+  tray_output primary
+}
+
 
 # Use Windows as a modifier key
 set $mod Mod4
@@ -63,6 +109,13 @@ bindcode $mod+38 focus parent
 # Focus the child container (a)
 bindcode $mod+Shift+38 focus child
 
+# Media keys
+bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && ogg123 ~/alert.ogg
+bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && ogg123 ~/alert.ogg
+bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && ogg123 ~/alert.ogg
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 2
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
+
 # Reload the configuration file (c)
 bindcode $mod+Shift+54 reload
 
@@ -70,7 +123,6 @@ bindcode $mod+Shift+54 reload
 bindcode $mod+Shift+27 restart
 
 # Workspaces
-
 focus_follows_mouse no
 
 set $workspace1 workspace "1: Terminal"
@@ -200,47 +252,3 @@ mode "$mode_workspaces_monitors" {
 }
 bindcode $mod+Shift+58 mode $mode_workspaces_monitors
 
-# Bar
-bar {
-  colors {
-    # Whole color settings
-    background #000000
-    statusline #ffffff
-    separator  #666666
-
-    # Type             border  background font
-    focused_workspace  #008fff #007fff #ffffff
-    active_workspace   #333333 #5f676a #ffffff
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #aa0000 #990000 #ffffff
-  }
-
-  status_command py3status
-  position top
-  tray_output primary
-}
-
-
-# Specific window configuration
-for_window [window_role="pop-up"] floating enable
-for_window [class="Skype"] move container to $workspace3
-for_window [class="jetbrains-idea"] move container to $workspace5
-for_window [class="xfreerdp"] move container to $workspace9
-for_window [class="Emacs"] move container to $workspace8
-
-
-# Startup
-exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id gnome-keyring-daemon
-exec --no-startup-id gnome-sound-applet
-exec --no-startup-id xset -dpms
-exec --no-startup-id nm-applet
-exec --no-startup-id dropboxd
-exec --no-startup-id skype
-exec --no-startup-id fluxgui
-exec --no-startup-id copyq
-exec --no-startup-id shutter --min_at_startup
-
-exec --no-startup-id setxkbmap -layout "us" -variant "us-da"
-
-exec_always --no-startup-id xrandr --dpi 192
