@@ -217,7 +217,7 @@ mode "Resize" {
 bindcode $mod+27 mode "resize"
 
 # Shutdown, Suspend, Lock (e)
-set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown, (m) monitor reset
 mode "$mode_system" {
   # (l)
   bindcode 46 exec --no-startup-id ~/bin/i3exit.sh lock, mode "default"
@@ -229,6 +229,8 @@ mode "$mode_system" {
   bindcode 27 exec --no-startup-id ~/bin/i3exit.sh reboot, mode "default"
   # (h)
   bindcode 43 exec --no-startup-id ~/bin/i3exit.sh shutdown, mode "default"
+  # (m)
+  bindcode 58 exec --no-startup-id xrandr --auto, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
