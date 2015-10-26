@@ -1,9 +1,6 @@
 alias sudo="sudo -E"
 alias please='sudo $(fc -ln -1)'
 alias vi="vim"
-alias emx="nohup emacs >&/dev/null & disown"
-alias vzsh="vim ~/.zshrc"
-alias szsh="source ~/.zshrc"
 alias psg="ps aux | grep "
 
 # Git
