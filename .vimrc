@@ -236,10 +236,7 @@ NeoBundleCheck
     let NERDTreeShowBookmarks = 1
   " }}}
   " Pymode {{{
-    " let g:pymode_python = 'python3'
     let g:pymode_folding = 0
-    let g:pymode_rope = 0
-    let g:pymode_rope_completion = 0
     let g:pymode_rope_complete_on_dot = 0
     let g:pymode_rope_lookup_project = 0
     let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
@@ -483,6 +480,5 @@ NeoBundleCheck
   autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python        setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
