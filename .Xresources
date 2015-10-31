@@ -22,8 +22,8 @@ URxvt.color0:                   #000000
 URxvt.color8:                   #212121
 URxvt.color1:                   #B71C1C
 URxvt.color9:                   #C62828
-URxvt.color2:                   #1B5E20
-URxvt.color10:                  #2E7D32
+URxvt.color2:                   #2CBD36
+URxvt.color10:                  #15C721
 URxvt.color3:                   #F57F17
 URxvt.color11:                  #F9A825
 URxvt.color4:                   #1976D2
