@@ -198,8 +198,8 @@ bindsym $mod+Shift+0 move container to $workspace0
 # Resize window (r)
 mode "Resize" {
   # (h)
-  bindcode Shift+43 resize grow left 10 px or 10 ppt
-  bindcode 43 resize shrink right 10 px or 10 ppt
+  bindcode 43 resize grow left 10 px or 10 ppt
+  bindcode Shift+43 resize shrink right 10 px or 10 ppt
   # (j)
   bindcode Shift+44 resize grow down 10 px or 10 ppt
   bindcode 44 resize shrink up 10 px or 10 ppt
@@ -207,8 +207,8 @@ mode "Resize" {
   bindcode Shift+45 resize shrink down 10 px or 10 ppt
   bindcode 45 resize grow up 10 px or 10 ppt
   # (l)
-  bindcode 46 resize grow right 10 px or 10 ppt
-  bindcode Shift+46 resize shrink left 10 px or 10 ppt
+  bindcode Shift+46 resize grow right 10 px or 10 ppt
+  bindcode 46 resize shrink left 10 px or 10 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
