@@ -53,7 +53,6 @@
     " }}}
     " Python {{{
       NeoBundle 'klen/python-mode'
-      NeoBundle 'wmvanvliet/vim-ipython'
     "}}}
     " Ruby {{{
       NeoBundle 'tpope/vim-rails'
@@ -195,11 +194,6 @@ NeoBundleCheck
     let g:EasyMotion_move_highlight = 0
     let g:EasyMotion_skipfoldedline = 0
   " }}}
-  " IPython {{{
-    let g:ipy_completefunc     = 0
-    let g:ipy_cell_folding     = 0
-    let g:ipy_perform_mappings = 0
-  " }}}
   " NeoComplete {{{
     let g:neocomplete#enable_at_startup   = 1
     let g:neocomplete#enable_ignore_case  = 1
@@ -313,13 +307,6 @@ NeoBundleCheck
     nnoremap <Tab> >>
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
-  " }}}
-  " IPython {{{
-    nmap <Leader>ipr  <Plug>(IPython-RunLine)
-    vmap <Leader>ipr  <Plug>(IPython-RunLines)
-    nmap <Leader>ipc  <Plug>(IPython-RunCell)
-    nmap <Leader>ipf  <Plug>(IPython-RunFile)
-    nmap <Leader>ipfc <Plug>(IPython-EnableFoldByCell)
   " }}}
   " Hdevtools {{{
     nnoremap <F5> :HdevtoolsType<CR>
