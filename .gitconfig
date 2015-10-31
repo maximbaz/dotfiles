@@ -12,6 +12,9 @@
   prompt = false
 [push]
   default = current
+[rebase]
+  autostash = true
+  autosquash = true
 [user]
   email = git@maximbaz.com
   name = Maxim Baz
