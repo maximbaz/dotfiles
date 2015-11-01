@@ -47,7 +47,7 @@ link ".vimrc"
 link ".xinitrc"
 link ".Xresources"
 link ".yaourtrc"
-link ".zlogin"
+link ".zprofile"
 link ".zsh"
 link ".zshrc"
 
