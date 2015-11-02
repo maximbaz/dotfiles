@@ -46,6 +46,7 @@ unclutter &                           # Hide mouse when using keyboard
 copyq &                               # Clipboard manager
 feh --bg-fill ~/lib/wallpaper.png &   # Set wallpaper
 sleep 10s && kalu &                   # Watch for ArchLinux updates
+keynav &                              # Navigate mouse with keyboard
 nm-applet &                           # Network Manager applet
 pasystray &                           # PulseAudio manager (to select default sink)
 pnmixer &                             # PulseAudio mixer (to adjust volume)
