@@ -8,8 +8,12 @@ path() {
 dotfiles_dir="$(dirname $0)"
 
 link() {
-  real_file="$(path "$dotfiles_dir/$1")"
-  link_file="$(path "$HOME/$1")"
+  create_link "$dotfiles_dir/$1" "$HOME/$1"
+}
+
+create_link() {
+  real_file="$(path "$1")"
+  link_file="$(path "$2")"
 
   rm -rf $link_file
   ln -s $real_file $link_file
@@ -50,6 +54,9 @@ link ".yaourtrc"
 link ".zprofile"
 link ".zsh"
 link ".zshrc"
+
+create_link "$HOME/.vim" "$HOME/.config/nvim"
+create_link "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
 
 link "dircolors.256dark"
 
