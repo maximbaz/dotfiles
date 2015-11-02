@@ -43,7 +43,7 @@ mse-build-full() {
   LOG_FILE_ERR="/tmp/mse_build_`date +%Y-%m-%d_%H%M%S`_error.log"
   echo $LOG_FILE
 
-  BUILD_COMMAND="mvn -T 3 -Dgwt.compiler.localWorkers=3 -Dsindbad.profile=dev -P dev $* clean install"
+  BUILD_COMMAND="mvn -T 3 -Dgwt.compiler.localWorkers=3 -Dsindbad.profile=dev -Djava.awt.headless=true -P dev $* clean install"
   echo $BUILD_COMMAND > $LOG_FILE
   echo $BUILD_COMMAND > $LOG_FILE_ERR
 
