@@ -14,6 +14,8 @@ device-mapper
 dhcpcd
 dialog
 diffutils
+dkms
+dosfstools
 dropbox
 dropbox-cli
 dunst
@@ -43,6 +45,7 @@ google-chrome
 gradle
 grep
 groff
+grub
 gsimplecal
 gtk-theme-arc
 gvim-python3
@@ -63,6 +66,7 @@ jdk
 jdk7
 jfsutils
 kalu
+keynav-git
 less
 lib32-alsa-plugins
 lib32-cairo-infinality-ultimate
@@ -70,6 +74,7 @@ lib32-fontconfig-infinality-ultimate
 lib32-freetype2-infinality-ultimate
 lib32-libpulse
 lib32-mesa-libgl
+libtermkey-git
 libtool
 licenses
 linux
@@ -86,6 +91,7 @@ mdadm
 mediainfo
 mercurial
 nano
+neovim
 netctl
 network-manager-applet
 networkmanager
@@ -93,6 +99,7 @@ networkmanager-pptp
 ntp
 numlockx
 openssh
+os-prober
 pacman
 pasystray
 patch
@@ -107,6 +114,8 @@ psmisc
 pulseaudio
 pulseaudio-alsa
 py3status-git
+python-neovim
+python2-neovim
 ranger
 redshift
 reiserfsprogs
@@ -133,6 +142,7 @@ urxvt-perls
 usbutils
 util-linux
 vi
+virtualbox
 vorbis-tools
 w3m
 which
@@ -144,6 +154,7 @@ xorg-server
 xorg-server-utils
 xorg-xev
 xorg-xinit
+xorg-xprop
 yaourt
 zip
 zsh
