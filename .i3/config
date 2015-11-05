@@ -113,8 +113,8 @@ bindcode $mod+Shift+38 focus child
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/bin/alert-sound.sh
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/bin/alert-sound.sh
 bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/bin/alert-sound.sh
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 2
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Reload the configuration file (c)
 bindcode $mod+Shift+54 reload
