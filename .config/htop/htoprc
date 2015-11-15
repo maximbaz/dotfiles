@@ -1,7 +1,7 @@
 # Beware! This file is rewritten by htop when settings are changed in the interface.
 # The parser is also very primitive, and not human-friendly.
 fields=0 48 46 47 1 
-sort_key=49
+sort_key=46
 sort_direction=1
 hide_threads=1
 hide_kernel_threads=1
@@ -16,6 +16,7 @@ header_margin=1
 detailed_cpu_time=0
 cpu_count_from_zero=0
 update_process_names=0
+account_guest_in_cpu_meter=0
 color_scheme=0
 delay=15
 left_meters=Uptime LeftCPUs Memory Tasks 
