@@ -31,10 +31,9 @@ bindkey "^X^V" edit-command-line
 # Toggle sudo
 bindkey "^X^S" sudo-command-line
 
-# Common PATH extensions
+# Haskell configuration
 export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="$HOME/.rvm/bin:$PATH"
-export PATH="$HOME/miniconda3/bin:$PATH"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
+# Ruby configuration
+export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
