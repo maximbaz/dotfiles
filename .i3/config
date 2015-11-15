@@ -254,3 +254,21 @@ mode "$mode_workspaces_monitors" {
 }
 bindcode $mod+Shift+58 mode $mode_workspaces_monitors
 
+# Rotate external monitor (t)
+set $mode_rotate_external_monitor Rotate DP1 monitor (use arrow keys)
+mode "$mode_rotate_external_monitor" {
+  # (Up)
+  bindcode 111 exec --no-startup-id xrandr --output DP1 --rotate normal, mode "default"
+  # (Down)
+  bindcode 116 exec --no-startup-id xrandr --output DP1 --rotate inverted, mode "default"
+  # (Left)
+  bindcode 113 exec --no-startup-id xrandr --output DP1 --rotate left, mode "default"
+  # (Right)
+  bindcode 114 exec --no-startup-id xrandr --output DP1 --rotate right, mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindcode $mod+Shift+28 mode $mode_rotate_external_monitor
+
