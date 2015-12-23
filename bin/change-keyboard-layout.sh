@@ -16,3 +16,6 @@ else
   fi
 fi
 
+# Refresh py3status immediately
+killall -USR1 py3status
+
