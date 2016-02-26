@@ -21,6 +21,7 @@ client.urgent #383a3b #383a3b #ee0000
 for_window    [window_role="pop-up"]                             floating enable
 for_window    [class="Skype"]                                    move container to $workspace3
 for_window    [class="jetbrains-idea"]                           move container to $workspace5
+for_window    [class="jetbrains-studio"]                         move container to $workspace5
 for_window    [class="xfreerdp"]                                 move container to $workspace9
 for_window    [class="Emacs"]                                    move container to $workspace8
 for_window    [class="Synapse"]                                  border none
