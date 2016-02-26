@@ -1,0 +1,29 @@
+#!/bin/sh
+
+SOURCE="/home/maximbaz/Dropbox /home/maximbaz/private /home/maximbaz/.dotfiles"
+BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
+BACKUP_DIR="$BACKUP_PATH/$(date +%Y-%m-%d)"
+
+if [ ! -d $BACKUP_PATH ]; then
+  echo "Backup device '$BACKUP_PATH' does not exist, aborting."
+  exit 1
+fi
+
+if [ -d $BACKUP_DIR ]; then
+  read -p "Backup directory '$BACKUP_DIR' already exists, merge? [y/n] " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Aborted."
+    exit 1
+  fi
+fi
+
+echo -e "\nBackup STARTED\n\nSource(s):   $SOURCE\nDestination: $BACKUP_DIR\n"
+rsync -a --info=progress2 $SOURCE $BACKUP_DIR
+
+if [ "$?" -eq "0" ]; then
+  echo -e "\nBackup SUCCESSFUL"
+else
+  echo -e "\nBackup FAILED"
+  exit 1
+fi
