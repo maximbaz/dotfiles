@@ -128,14 +128,14 @@ focus_follows_mouse no
 
 set $workspace1 workspace "1: Terminal"
 set $workspace2 workspace "2: Chrome"
-set $workspace3 workspace "3: Communications"
-set $workspace4 workspace "4: Chrome @ Microsoft"
+set $workspace3 workspace "3: Chrome @ Microsoft"
+set $workspace4 workspace "4"
 set $workspace5 workspace "5: IntelliJ"
-set $workspace6 workspace "6: Communications @ Microsoft"
+set $workspace6 workspace "6"
 set $workspace7 workspace "7"
 set $workspace8 workspace "8: Emacs"
 set $workspace9 workspace "9: RDP"
-set $workspace0 workspace "10: Trash"
+set $workspace0 workspace "10: TeamViewer"
 
 # Bind workspaces to monitors
 $workspace1 output eDP1
