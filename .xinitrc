@@ -52,9 +52,7 @@ pasystray &                           # PulseAudio manager (to select default si
 pnmixer &                             # PulseAudio mixer (to adjust volume)
 redshift-gtk &                        # Warm colors at night
 shutter --min_at_startup &            # Screenshot manager
-skype &                               # Skype
 udiskie --smart-tray &                # Automatically mount usb drives
-urxvt &                               # Terminal
 
 exec i3                               # WM
 
