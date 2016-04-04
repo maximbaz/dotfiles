@@ -4,6 +4,7 @@
   autosetuprebase = always
 [core]
   autocrlf = input
+  filemode = true
 [merge]
   conflictstyle = diff3
   tool = vimdiff
