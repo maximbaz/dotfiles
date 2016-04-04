@@ -64,7 +64,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindcode $mod+Shift+24 kill
 
 # Start program launcher (d)
-bindcode $mod+40 exec synapse
+bindcode $mod+40 exec ~/bin/change-keyboard-layout.sh reset && synapse
 
 # Change focus (h)(j)(k)(l)
 bindcode $mod+43 focus left
