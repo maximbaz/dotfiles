@@ -13,13 +13,13 @@ case "$1" in
     i3-msg exit
     ;;
   suspend)
-    lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
+    lock && systemctl suspend
     ;;
   reboot)
-    dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
+    systemctl reboot
     ;;
   shutdown)
-    dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
+    systemctl poweroff
     ;;
   *)
     echo "Usage: $0 {lock|logout|suspend|reboot|shutdown}"
