@@ -43,6 +43,7 @@ xset s off -dpms &                    # Prevent screen from turning off
 numlockx &                            # Turn on NumLock
 unclutter &                           # Hide mouse when using keyboard
 
+albert &                              # Launcher
 copyq &                               # Clipboard manager
 feh --bg-fill ~/lib/wallpaper.png &   # Set wallpaper
 sleep 10s && kalu &                   # Watch for ArchLinux updates

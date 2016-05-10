@@ -24,6 +24,7 @@ for_window    [class="jetbrains-idea"]                           move container 
 for_window    [class="jetbrains-studio"]                         move container to $workspace5
 for_window    [class="xfreerdp"]                                 move container to $workspace9
 for_window    [class="Emacs"]                                    move container to $workspace8
+for_window    [class="albert"]                                   border none
 for_window    [instance="TeamViewer.exe"]                        floating enable, move container to $workspace0
 for_window    [instance="TeamViewer.exe" title="Free license"]   floating disable
 
