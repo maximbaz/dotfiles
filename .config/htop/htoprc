@@ -8,6 +8,7 @@ hide_kernel_threads=1
 hide_userland_threads=1
 shadow_other_users=1
 show_thread_names=1
+show_program_path=1
 highlight_base_name=1
 highlight_megabytes=1
 highlight_threads=1
