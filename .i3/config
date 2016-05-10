@@ -24,7 +24,6 @@ for_window    [class="jetbrains-idea"]                           move container 
 for_window    [class="jetbrains-studio"]                         move container to $workspace5
 for_window    [class="xfreerdp"]                                 move container to $workspace9
 for_window    [class="Emacs"]                                    move container to $workspace8
-for_window    [class="Synapse"]                                  border none
 for_window    [instance="TeamViewer.exe"]                        floating enable, move container to $workspace0
 for_window    [instance="TeamViewer.exe" title="Free license"]   floating disable
 
@@ -62,9 +61,6 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # Kill focused window (q)
 bindcode $mod+Shift+24 kill
-
-# Start program launcher (d)
-bindcode $mod+40 exec ~/bin/change-keyboard-layout.sh reset && synapse
 
 # Change focus (h)(j)(k)(l)
 bindcode $mod+43 focus left
