@@ -54,6 +54,7 @@ pnmixer &                             # PulseAudio mixer (to adjust volume)
 redshift-gtk &                        # Warm colors at night
 shutter --min_at_startup &            # Screenshot manager
 udiskie --smart-tray &                # Automatically mount usb drives
+telegram &                            # Messaging
 
 exec i3                               # WM
 
