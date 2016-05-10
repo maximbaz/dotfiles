@@ -2,7 +2,7 @@
 
 lock() {
   ~/bin/change-keyboard-layout.sh reset
-  i3lock -f -l
+  i3lock -f -c 000000
 }
 
 case "$1" in
