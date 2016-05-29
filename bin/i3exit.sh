@@ -10,16 +10,16 @@ case "$1" in
     lock
     ;;
   logout)
-    i3-msg exit
+    killall albert; i3-msg exit
     ;;
   suspend)
     lock && systemctl suspend
     ;;
   reboot)
-    systemctl reboot
+    killall albert; systemctl reboot
     ;;
   shutdown)
-    systemctl poweroff
+    killall albert; systemctl poweroff
     ;;
   *)
     echo "Usage: $0 {lock|logout|suspend|reboot|shutdown}"
