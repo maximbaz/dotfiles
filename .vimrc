@@ -147,8 +147,8 @@
     set guioptions+=c
     set guioptions-=T
     set guioptions-=m
-    hi Normal guibg=none ctermbg=none
-    hi LineNr guibg=none ctermbg=none
+    hi Normal guibg=NONE ctermbg=NONE
+    hi LineNr guibg=NONE ctermbg=NONE
   " }}}
   " Backup {{{
     let &history = 100
