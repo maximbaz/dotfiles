@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SOURCE="/home/maximbaz/Dropbox /home/maximbaz/private /home/maximbaz/.dotfiles"
 BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
@@ -20,10 +20,21 @@ fi
 
 echo -e "\nBackup STARTED\n\nSource(s):   $SOURCE\nDestination: $BACKUP_DIR\n"
 rsync -a --info=progress2 $SOURCE $BACKUP_DIR
+exitcode=$?
 
-if [ "$?" -eq "0" ]; then
+if [ "$exitcode" -eq "0" ]; then
   echo -e "\nBackup SUCCESSFUL"
 else
   echo -e "\nBackup FAILED"
-  exit 1
 fi
+
+echo -e "\n-------------------------------------------------------------------"
+
+echo -e "\nBackup size:\n"
+du -hs $BACKUP_DIR
+
+echo -e "\nRemaining disk space\n"
+df -kh $BACKUP_PATH
+
+exit $exitcode
+
