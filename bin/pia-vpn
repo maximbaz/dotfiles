@@ -1,0 +1,36 @@
+#!/bin/bash
+#/etc/NetworkManager/dispatcher.d/pia-vpn
+
+VPN_NAME="Sweden"
+ESSID=$(iwgetid -r)
+
+interface="$1"
+status=$2
+
+case $status in
+  up)
+    if [[ $ESSID != "MSFT"* ]]; then
+      nmcli con up id "$VPN_NAME"
+    fi
+    ;;
+  down)
+    if [[ $ESSID != "MSFT"* ]]; then
+      if nmcli con show --active | grep "$VPN_NAME"; then
+        nmcli con down id "$VPN_NAME"
+      fi
+    fi
+    ;;
+  vpn-up)
+    if [[ $interface == "tun0" ]]; then
+      echo -e "nameserver 209.222.18.222\nnameserver 209.222.18.218" > /etc/resolv.conf
+      chmod -w /etc/resolv.conf
+    fi
+    ;;
+  vpn-down)
+    chmod +w /etc/resolv.conf
+    if [[ $interface == "tun0" ]]; then
+      sudo -u maximbaz DISPLAY=:0 notify-send -u critical "VPN is down" "PIA is disconnected"
+    fi
+    ;;
+esac
+
