@@ -35,6 +35,7 @@ link ".i3status.conf"
 link ".ghc/ghci.conf"
 
 link ".config/albert/albert.conf"
+link ".config/copyq/copyq.conf"
 link ".config/dunst"
 link ".config/gsimplecal"
 link ".config/gtk-3.0"

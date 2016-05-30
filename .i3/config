@@ -26,6 +26,7 @@ for_window    [class="jetbrains-studio"]                         move container 
 for_window    [class="xfreerdp"]                                 move container to $workspace9
 for_window    [class="Emacs"]                                    move container to $workspace8
 for_window    [class="albert"]                                   border none
+for_window    [class="copyq"]                                    floating enable
 for_window    [instance="TeamViewer.exe"]                        floating enable, move container to $workspace0
 for_window    [instance="TeamViewer.exe" title="Free license"]   floating disable
 
@@ -120,6 +121,9 @@ bindcode $mod+Shift+54 reload
 
 # Restart i3 inplace (r)
 bindcode $mod+Shift+27 restart
+
+# Global hotkeys
+bindcode Ctrl+49 exec --no-startup-id copyq toggle
 
 # Workspaces
 focus_follows_mouse no
