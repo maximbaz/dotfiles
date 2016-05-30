@@ -35,5 +35,8 @@ bindkey "^X^S" sudo-command-line
 export PATH="$HOME/.cabal/bin:$PATH"
 
 # Ruby configuration
+if [ -f $HOME/.rvm/scripts/rvm ]; then
+  source $HOME/.rvm/scripts/rvm
+fi
 export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
