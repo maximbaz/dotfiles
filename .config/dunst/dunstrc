@@ -34,8 +34,8 @@
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
-    history = ctrl+grave
-    context = ctrl+shift+period
+    history =
+    context =
 
 [urgency_low]
     background = "#e8e8e8"
