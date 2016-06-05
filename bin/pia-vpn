@@ -22,15 +22,15 @@ case $status in
     ;;
   vpn-up)
     if [[ $interface == "tun0" ]]; then
+      chmod +w /etc/resolv.conf
       echo -e "nameserver 209.222.18.222\nnameserver 209.222.18.218" > /etc/resolv.conf
       chmod -w /etc/resolv.conf
     fi
     ;;
   vpn-down)
-    chmod +w /etc/resolv.conf
     if [[ $interface == "tun0" ]]; then
+      chmod +w /etc/resolv.conf
       sudo -u maximbaz DISPLAY=:0 notify-send -u critical "VPN is down" "PIA is disconnected"
     fi
     ;;
 esac
-
