@@ -1,263 +1,157 @@
-" First-priority configuration {{{
-  set nocompatible
-  let &encoding = "utf-8"
-  scriptencoding utf-8
-  set mousehide
-  autocmd!
-" }}}
-" Bundles {{{
+" Plugins {{{
   filetype off
-  " NeoBundle configuration {{{
-    if has("vim_starting")
-      set rtp+=~/.vim/bundle/neobundle.vim/
-    endif
-    let path = "~/.vim/bundle"
-    call neobundle#begin(expand(path))
-  " }}}
-  " Core plugins {{{
-    NeoBundleFetch 'Shougo/neobundle.vim'
+  set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-    NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \   'windows' : 'nmake -f make_msvc.mak nodebug=1',
-      \   'cygwin': 'make -f make_cygwin.mak',
-      \   'mac': 'make -f make_mac.mak',
-      \   'linux': 'make',
-      \   'unix': 'gmake',
-      \  }
-      \ }
-    NeoBundle 'Shougo/unite.vim'                " Fuzzy search on everything
-    NeoBundle 'bling/vim-airline'               " Nice bottom bar
-    NeoBundle 'tpope/vim-repeat'                " Repeat for plugins
-    NeoBundle 'tpope/vim-abolish'               " Substitute with Smart Case (:S//)
-    NeoBundle 'tomasr/molokai'                  " Nice color theme
-    NeoBundle 'scrooloose/nerdtree'             " Folder tree
-    NeoBundle 'Lokaltog/vim-easymotion'         " Move to any character
-    NeoBundle 'christoomey/vim-tmux-navigator'  " Easy navigation between TMUX and VIM splits
-    NeoBundle 'moll/vim-bbye'                   " Keep window when closing a buffer
-  " }}}
-  " Development {{{
-    NeoBundle 'scrooloose/syntastic'            " Linters
-    NeoBundle 'tomtom/tcomment_vim'             " Comment lines
-    " Haskell {{{
-      NeoBundle 'eagletmt/ghcmod-vim'
-      NeoBundle 'eagletmt/neco-ghc'
-      NeoBundle 'bitc/vim-hdevtools'
-    " }}}
-    " HTML {{{
-      NeoBundle 'othree/html5.vim'
-      NeoBundle 'mattn/emmet-vim'
-    " }}}
-    " Jade {{{
-      NeoBundle 'digitaltoad/vim-jade'
-    " }}}
-    " Python {{{
-      NeoBundle 'klen/python-mode'
-    "}}}
-    " Ruby {{{
-      NeoBundle 'tpope/vim-rails'
-      NeoBundle 'tpope/vim-endwise'
-    " }}}
-    " Rust {{{
-      NeoBundle 'wting/rust.vim'
-    " }}}
-    " Switch (true -> false, etc.) {{{
-      NeoBundle 'AndrewRadev/switch.vim'
-    " }}}
-    " Syntaxes {{{
-      NeoBundle 'elzr/vim-json'
-      NeoBundle 'ap/vim-css-color'
-      NeoBundle 'slim-template/vim-slim'
-      NeoBundle 'lcharlick/vim-coffee-script'
-      NeoBundle 'travitch/hasksyn'
-      NeoBundle 'tmux-plugins/vim-tmux'
-      NeoBundle 'PotatoesMaster/i3-vim-syntax'
-      NeoBundle 'z0rch/vim-markdown'
-    " }}}
-    " Snippets {{{
-      NeoBundle 'Shougo/neosnippet.vim'
-      NeoBundle 'honza/vim-snippets.git'
-    " }}}
-    " Version control systems {{{
-      NeoBundle 'tpope/vim-fugitive'
-      NeoBundle 'mhinz/vim-signify'
-    " }}}
-  " }}}
-   " Text editing {{{
-     NeoBundle 'godlygeek/tabular'              " Align text
-     NeoBundle 'Shougo/neocomplete.vim'         " Autocomplete
-     NeoBundle 'tpope/vim-surround'             " Surround
-     NeoBundle 'Raimondi/delimitMate'           " Automatically insert closing brackets
-     NeoBundle 'vim-scripts/LargeFile'          " Open large file
-   " }}}
-   call neobundle#end()
+  call dein#begin(expand('~/.vim/dein'))
+  call dein#add('Shougo/dein.vim')
+
+  call dein#add('morhetz/gruvbox')                                      " Nice color theme
+  call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
+  call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar
+
+  call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
+  call dein#add('tpope/vim-surround')                                   " Surround
+  call dein#add('tpope/vim-abolish')                                    " Substitute with Smart Case (:S//)
+  call dein#add('tpope/vim-speeddating')                                " Increment dates
+  call dein#add('tpope/vim-fugitive')                                   " Git integration
+  call dein#add('airblade/vim-gitgutter')                               " Git gutter
+  call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
+  call dein#add('Lokaltog/vim-easymotion')                              " Move to any character
+  call dein#add('christoomey/vim-tmux-navigator')                       " Easy navigation between TMUX and VIM splits
+  call dein#add('scrooloose/nerdtree')                                  " Folder tree
+  call dein#add('junegunn/fzf', { 'build': './install --bin' })
+  call dein#add('junegunn/fzf.vim')
+
+  call dein#add('jiangmiao/auto-pairs')                                 " Insert closing brackets automatically
+  call dein#add('tomtom/tcomment_vim')                                  " Comment lines
+  call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
+
+  call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
+  call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
+  call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})        " JS code navigation
+  call dein#add('carlitux/deoplete-ternjs')                             " Javascript autocomplete
+  call dein#add('osyo-manga/vim-monster')                               " Ruby autocomplete
+
+  call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
+  call dein#add('AndrewRadev/switch.vim')                               " Smart switch (true -> false, etc.)
+  call dein#add('mattn/emmet-vim')                                      " HTML editing
+
+  call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
+  call dein#add('PotatoesMaster/i3-vim-syntax')                         " i3 syntax
+  call dein#add('ap/vim-css-color')                                     " Colors in CSS
+
+  call dein#add('ludovicchabant/vim-gutentags')                         " Autogenerate CTags
+
+  call dein#add('jceb/vim-orgmode')                                     " Org Mode
+
+  call dein#add('neomake/neomake')                                      " Linter
+
+  call dein#end()
+
+  if dein#check_install()
+    call dein#install()
+  endif
+
 " }}}
 " Environment {{{
   " General {{{
-    syntax on
+    autocmd!
     filetype plugin indent on
-    set backspace=2
+    syntax on
     set scrolloff=5
     set sidescrolloff=10
-    set selection=inclusive
-    set selectmode=
+    set expandtab
+    set shiftwidth=2
+    set tabstop=2
     set virtualedit=all
     set diffopt+=iwhite
     set foldmethod=marker
-    set formatoptions+=j
-    set keymodel-=stopsel
-    set autoindent
     set cursorline
-    set cursorcolumn
     set hidden
-    set nohlsearch
     set ignorecase
-    set incsearch
+    set lazyredraw
     set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz,ЖжЭэХхЪъ;\:\;\"\'{[}]
     set linebreak
     set list
     set listchars=tab:»·,trail:·,nbsp:·
+    set mouse=
     set number
     set nrformats=
+    set nohlsearch
     set nostartofline
+    set noswapfile
     set relativenumber
     set ruler
     set smartcase
     set showcmd
-    set nospell
     set splitbelow
     set splitright
-    set wildmenu
-    set wrap
+    set updatetime=100
   "}}}
-  " Tabs {{{
-    set expandtab
-    set shiftwidth=2
-    set tabstop=2
-  " }}}
   " Theme {{{
-    colorscheme molokai
-    let &term="xterm-256color"
-    let &t_Co = 256
-    set t_ut=
-    let g:rehash256 = 1
-    let g:molokai_original = 1
-    let &background = "dark"
-    let &guifont = "Powerline\ Consolas\ 11"
+    colorscheme gruvbox
+    set background=dark
+    set guifont=Powerline\ Consolas\ 11
     set guioptions+=c
     set guioptions-=T
     set guioptions-=m
-    hi Normal guibg=NONE ctermbg=NONE
-    hi LineNr guibg=NONE ctermbg=NONE
-  " }}}
-  " Backup {{{
-    let &history = 100
-    let &undolevels = 100
-    set nobackup
-    set noswapfile
   " }}}
 " }}}
-NeoBundleCheck
 " Plugins configuration {{{
-  " Airline {{{
-    let &laststatus = "2"
+  " Vim-airline {{{
+    set laststatus=2
+    let g:airline_powerline_fonts = 1
+    let g:airline_theme = "gruvbox"
+
     if !exists("g:airline_symbols")
       let g:airline_symbols = {}
     endif
+    let g:airline_symbols.whitespace = "•"
 
-    let g:airline_powerline_fonts                   = 1
-    let g:airline_section_c                         = airline#section#create(["%{getcwd()}", g:airline_symbols.space, 'readonly'])
-    let g:airline_section_x                         = "%{&filetype}"
-    let g:airline#extensions#branch#empty_message   = "no git"
-    let g:airline#extensions#hunks#non_zero_only    = 1
+    let g:airline_section_c = airline#section#create(["%{getcwd()}", g:airline_symbols.space, 'readonly'])
+    let g:airline_section_x = "%{&filetype}"
+
+    let g:airline#extensions#branch#empty_message = "no git"
+    let g:airline#extensions#hunks#non_zero_only = 1
+    let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#buffer_nr_show = 1
-    let g:airline#extensions#tabline#enabled        = 1
     let g:airline#extensions#tabline#fnamecollapse  = 1
-    let g:airline#extensions#tabline#tab_nr_type    = 1
-    let g:airline_symbols.whitespace                = "•"
-    let g:airline_theme                             = "powerlineish"
-    let g:airline_loaded                            = 1
+    let g:airline#extensions#tabline#tab_nr_type = 1
   " }}}
   " EasyMotion {{{
     nmap s <Plug>(easymotion-s)
     xmap s <Plug>(easymotion-s)
-    omap z <Plug>(easymotion-s)
     nmap / <Plug>(easymotion-sn)
     xmap / <Plug>(easymotion-sn)
-    omap / <Plug>(easymotion-sn)
     nmap n <Plug>(easymotion-next)
     xmap n <Plug>(easymotion-next)
     nmap N <Plug>(easymotion-prev)
     xmap N <Plug>(easymotion-prev)
-    nmap L <Plug>(easymotion-bd-jk)
-    xmap L <Plug>(easymotion-bd-jk)
     let g:EasyMotion_move_highlight = 0
     let g:EasyMotion_skipfoldedline = 0
   " }}}
-  " NeoComplete {{{
-    let g:neocomplete#enable_at_startup   = 1
-    let g:neocomplete#enable_ignore_case  = 1
-    let g:neocomplete#enable_smart_case   = 0
-    let g:neocomplete#enable_refresh_always = 1 " TODO: only for python?
-
-    if !exists('g:neocomplete#force_omni_input_patterns')
-      let g:neocomplete#force_omni_input_patterns = {}
-    endif
-    let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+  " Deoplete {{{
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_smart_case = 1
   " }}}
-  " NeoSnippet {{{
-    " Plugin key-mappings.
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-    " SuperTab like snippets behavior.
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: "\<TAB>"
-
-    " For snippet_complete marker.
-    if has('conceal')
-      set conceallevel=2 concealcursor=i
-    endif
-
-    let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+  " Deoplete-jedi (Python completion) {{{
+    let deoplete#sources#jedi#show_docstring = 1
   " }}}
-  " Jedi-vim {{{
-    let g:jedi#popup_select_first   = 0
-    let g:jedi#completions_enabled    = 0
-    let g:jedi#auto_vim_configuration = 0
+  " Deoplete-ternjs (JS completion) {{{
+    let g:tern_request_timeout = 1
+    let g:tern#command = ["tern"]
+    let g:tern#arguments = ["--persistent"]
+  " }}}
+  " Vim-monster (Ruby completion) {{{
+    let g:monster#completion#rcodetools#backend = "async_rct_complete"
+    let g:deoplete#sources#omni#input_patterns = { "ruby" : '[^. *\t]\.\w*\|\h\w*::' }
+  " }}}
+  " Neomake (linter) {{{
+    let g:neomake_open_list = 2
   " }}}
   " NERDTree {{{
     let NERDTreeChDirMode   = 2
     let NERDTreeShowBookmarks = 1
-  " }}}
-  " Pymode {{{
-    let g:pymode_folding = 0
-    let g:pymode_rope_complete_on_dot = 0
-    let g:pymode_rope_lookup_project = 0
-    let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
-  " }}}
-  " Unite {{{
-    let s:unite_ignores = [
-      \ '\.git', '\.sass-cache', '\.cabal-sandbox', '/img/', '/tmp/' ]
-
-    call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', unite#get_all_sources('file_rec')['ignore_pattern'] .
-      \ join(s:unite_ignores, '\|'))
-
-    call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_project_ignore_files'])
-    call unite#filters#sorter_default#use(['sorter_rank'])
-    let g:unite_source_history_yank_enable = 1
-    " TODO silversearcher
-    " if executable('ag')
-    "   let g:unite_source_grep_command   = 'ag'
-    "   let g:unite_source_grep_default_opts  = '--line-numbers --nocolor --nogroup --hidden --smart-case'
-    "   let g:unite_source_grep_recursive_opt = ''
-    " endif
   " }}}
 " }}}
 " Keyboard shortcuts {{{
@@ -266,11 +160,9 @@ NeoBundleCheck
   vmap <Space> <Leader>
   " Base {{{
     nnoremap <Leader>w :w<CR>
-    nnoremap <Leader>qq ZZ
-
+    nnoremap U <C-R>
     nnoremap <Del> <nop>
     vnoremap <Del> <nop>
-
     nnoremap <Backspace> <nop>
     vnoremap <Backspace> <nop>
   " }}}
@@ -286,17 +178,11 @@ NeoBundleCheck
     nnoremap <silent> <Leader>json :%!python -m json.tool<CR>
     vnoremap <silent> <Leader>json :!python -m json.tool<CR>
   " }}}
-  " Go to definition {{{
-    nnoremap <C-g> <C-]>
-  " }}}
-  " Gundo {{{
-    nnoremap <F12> :GundoToggle<CR>
-  " }}}
   " Increment {{{
-    nnoremap <C-Up> <C-a>
-    nnoremap <C-Down> <C-x>
-    nnoremap <C-k> <C-a>
-    nnoremap <C-j> <C-x>
+    nmap <C-Up> <C-a>
+    nmap <C-Down> <C-x>
+    nmap <C-k> <C-a>
+    nmap <C-j> <C-x>
   " }}}
   " Indent / unindent {{{
     nnoremap <S-Tab> <<
@@ -305,38 +191,14 @@ NeoBundleCheck
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
   " }}}
-  " Hdevtools {{{
-    nnoremap <F5> :HdevtoolsType<CR>
-    nnoremap <F6> :HdevtoolsInfo<CR>
-  " }}}
-  " NeoBundle {{{
-    nnoremap <Leader>NBi :so $MYVIMRC<CR> :NeoBundleInstall<CR>
-    nnoremap <Leader>NBc :so $MYVIMRC<CR> :NeoBundleClean!<CR>
-    nnoremap <Leader>NBu :so $MYVIMRC<CR> :NeoBundleUpdate<CR>
-  " }}}
   " NERDTree {{{
-    nnoremap <F2> :NERDTreeToggle<CR>
-    nnoremap <F3> :NERDTreeFind<CR>
-
-    let g:NERDTreeMapActivateNode="<F3>"
-    let g:NERDTreeMapPreview="<F4>"
-  " }}}
-  " Paste & select {{{
-    nnoremap gp p`[v`]
-    vnoremap gp p`[v`]
-    nnoremap gP P`[v`]
-    vnoremap gP P`[v`]
-  " }}}
-  " Redo {{{
-    nnoremap U <C-R>
+    nnoremap <Leader>t :NERDTreeFind<CR>
+    nnoremap <Leader>T :NERDTreeToggle<CR>
+    let g:NERDTreeMapActivateNode="<Leader>t"
   " }}}
   " Scroll & navigation {{{
     " Select All {{{
       noremap  <Leader>v ggVG
-      inoremap <Leader>v <C-O>gg<C-O>VG
-      cnoremap <Leader>v <C-C>ggVG
-      onoremap <Leader>v <C-C>ggVG
-      snoremap <Leader>v <C-C>ggVG
       xnoremap <Leader>v <C-C>ggVG
     " }}}
     " PageUp / PageDown by half {{{
@@ -351,15 +213,6 @@ NeoBundleCheck
       nnoremap <silent> <C-PageUp> :bp<CR>
       nnoremap <silent> <C-PageDown> :bn<CR>
     " }}}
-    " Diff {{{
-       nnoremap <F7> [c
-       nnoremap <F8> ]c
-    " }}}
-  " }}}
-  " Set syntax {{{
-    nnoremap <silent> <Leader>Tmd :set filetype=markdown<CR>
-    nnoremap <silent> <Leader>Tpy :set filetype=python<CR>
-    nnoremap <silent> <Leader>Tru :set filetype=ruby<CR>
   " }}}
   " Smart HOME & END {{{
     nnoremap <silent><Home> :call SmartHome("n")<CR>
@@ -368,43 +221,18 @@ NeoBundleCheck
     inoremap <silent><End> <C-r>=SmartEnd("i")<CR>
     vnoremap <silent><Home> <Esc>:call SmartHome("v")<CR>
     vnoremap <silent><End> <Esc>:call SmartEnd("v")<CR>
-    " Tmux fixes {{{
-      if $TERM =~ '^screen-256color'
-        map  <Esc>OH <Home>
-        map! <Esc>OH <Home>
-        map  <Esc>[1~ <Home>
-        map! <Esc>[1~ <Home>
-        map  <Esc>OF <End>
-        map! <Esc>OF <End>
-        map  <Esc>[4~ <End>
-        map! <Esc>[4~ <End>
-      endif
-    " }}}
   " }}}
   " Switch {{{
     nnoremap <silent> - :Switch<CR>
   " }}}
-  " Tagbar {{{
-    nnoremap <silent> <F9> :TagbarToggle<CR>
-  " }}}
   " Trim whitespaces {{{
     nnoremap <silent> <F10> :call RemoveTrailingSpaces()<CR>
   " }}}
-  " Unite {{{
-    nnoremap <Leader>f :Unite -start-insert -auto-preview file_rec/async<CR>
-    nnoremap <Leader>y :Unite -start-insert history/yank<CR>
-    nnoremap <Leader>b :Unite -start-insert buffer<CR>
-    nnoremap <Leader>g :Unite -start-insert -auto-preview grep<CR>
-    nnoremap <Leader>r :UniteResume<CR>
-
-    function! s:unite_settings()
-      nmap <buffer> <Esc> <Plug>(unite_exit)
-    endfunction
-
-    autocmd FileType unite call s:unite_settings()
-  " }}}
-  " Write with sudo {{{
-    cmap w!! w !sudo tee > /dev/null %
+  " FZF (fuzzy navigation) {{{
+    nnoremap <silent> <Leader>f :Files<CR>
+    nnoremap <silent> <Leader>p :GFiles<CR>
+    nnoremap <silent> <Leader>b :Buffers<CR>
+    nnoremap <silent> <Leader>g :Ag<CR>
   " }}}
 " }}}
 " Functions {{{
@@ -475,10 +303,10 @@ NeoBundleCheck
   " }}}
 " }}}
 " AutoCmd {{{
-  autocmd BufWritePost *.hs :GhcModCheckAndLintAsync
-  autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
-  autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd BufEnter * silent! lcd %:p:h  " Make Vim CD in the directory of the opened file
+
+  " Highlight cursor line only in the active window
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 " }}}
+

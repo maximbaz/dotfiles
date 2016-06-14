@@ -1,6 +1,7 @@
 alias sudo="sudo -E"
 alias please='sudo $(fc -ln -1)'
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 alias psg="ps aux | grep "
 
 # Git
