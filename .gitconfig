@@ -5,6 +5,7 @@
 [core]
   autocrlf = input
   filemode = true
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
   conflictstyle = diff3
   tool = vimdiff
