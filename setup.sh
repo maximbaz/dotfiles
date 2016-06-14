@@ -42,6 +42,7 @@ link ".config/gtk-3.0"
 link ".config/htop"
 link ".config/kalu"
 link ".config/ranger/rc.conf"
+link ".config/sakura"
 
 link ".compton.conf"
 link ".gitconfig"
