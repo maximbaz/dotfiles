@@ -17,7 +17,7 @@ alias gdwh="gd --color-words HEAD"
 alias glog="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold red)%d%Creset %s %C(dim green)(%cr) %C(cyan)<%cn>%Creset' --abbrev-commit"
 alias gr="git reset"
 alias gs="git show"
-alias gcf="git commit --fixup HEAD"
+alias gf!="git commit --fixup"
 
 # Debian
 alias au="sudo apt-get update && sudo apt-get upgrade"
