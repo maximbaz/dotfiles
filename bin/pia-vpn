@@ -30,7 +30,6 @@ case $status in
   vpn-down)
     if [[ $interface == "tun0" ]]; then
       chmod +w /etc/resolv.conf
-      sudo -u maximbaz DISPLAY=:0 notify-send -u critical "VPN is down" "PIA is disconnected"
     fi
     ;;
 esac
