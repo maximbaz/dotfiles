@@ -30,5 +30,10 @@ alias cdr='cd-gitroot'
 hash -d db="~/Dropbox"
 
 # FZF aliases
-. /usr/share/fzf/key-bindings.zsh
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+  . /usr/share/fzf/key-bindings.zsh
+fi
 
+if [ -f /usr/share/fzf/completion.zsh ]; then
+  . /usr/share/fzf/completion.zsh
+fi
