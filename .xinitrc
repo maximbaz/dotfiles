@@ -40,6 +40,7 @@ compton &                             # Enable composition
 start-pulseaudio-x11 &                # Pulse audio daemon
 xset s off -dpms                      # Prevent screen from turning off
 xset r rate 250 45                    # Set keyboard repeat rate
+setxkbmap -option compose:ralt        # Enable digraphs
 
 numlockx &                            # Turn on NumLock
 unclutter &                           # Hide mouse when using keyboard

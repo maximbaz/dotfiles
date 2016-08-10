@@ -4,10 +4,7 @@ reset=$1
 current="$(setxkbmap -query | grep layout | perl -pe 's/^layout: +([^ ]+)$/$1/')"
 
 if [ "$reset" != "" ] || [ "$current" != "us" ]; then
-  setxkbmap -layout "us" -variant "us-da"
-  if [ $? != 0 ]; then
-    setxkbmap -layout "us"
-  fi
+  setxkbmap -layout "us"
 else
   setxkbmap -layout "ru"
 fi
