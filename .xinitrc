@@ -38,7 +38,7 @@ fi
 xrandr --dpi 192                      # Set High DPI
 compton &                             # Enable composition
 start-pulseaudio-x11 &                # Pulse audio daemon
-xset s off -dpms &                    # Prevent screen from turning off
+xset s off -dpms                      # Prevent screen from turning off
 xset r rate 250 45                    # Set keyboard repeat rate
 
 numlockx &                            # Turn on NumLock
