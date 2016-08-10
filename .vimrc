@@ -4,10 +4,12 @@
 
   call dein#begin(expand('~/.vim/dein'))
   call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
   call dein#add('morhetz/gruvbox')                                      " Nice color theme
   call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
-  call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar
+  call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
+  call dein#add('roman/golden-ratio')                                   " Automatic split sizing
 
   call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
   call dein#add('tpope/vim-surround')                                   " Surround
@@ -16,11 +18,16 @@
   call dein#add('tpope/vim-fugitive')                                   " Git integration
   call dein#add('airblade/vim-gitgutter')                               " Git gutter
   call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
-  call dein#add('Lokaltog/vim-easymotion')                              " Move to any character
+  call dein#add('haya14busa/incsearch.vim')                             " Incremental search
+  call dein#add('haya14busa/incsearch-fuzzy.vim')                       " Fuzzy incremental search
+  call dein#add('justinmk/vim-sneak')                                   " Improved F and T
+  call dein#add('t9md/vim-smalls')                                      " Quick jump anywhere
+  call dein#add('bronson/vim-visual-star-search')                       " Search for selection
   call dein#add('christoomey/vim-tmux-navigator')                       " Easy navigation between TMUX and VIM splits
   call dein#add('scrooloose/nerdtree')                                  " Folder tree
-  call dein#add('junegunn/fzf', { 'build': './install --bin' })
-  call dein#add('junegunn/fzf.vim')
+  call dein#add('airblade/vim-rooter')                                  " Change working directory to the project root
+  call dein#add('junegunn/fzf', {'build': './install --bin'})           " Fuzzy search - binary
+  call dein#add('junegunn/fzf.vim')                                     " Fuzzy search - vim plugin
 
   call dein#add('jiangmiao/auto-pairs')                                 " Insert closing brackets automatically
   call dein#add('tomtom/tcomment_vim')                                  " Comment lines
@@ -39,6 +46,8 @@
   call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
   call dein#add('PotatoesMaster/i3-vim-syntax')                         " i3 syntax
   call dein#add('ap/vim-css-color')                                     " Colors in CSS
+  call dein#add('vim-scripts/SyntaxRange')                              " A different syntax for a region of file
+  call dein#add('suan/vim-instant-markdown')                            " Instantly preview markdown
 
   call dein#add('ludovicchabant/vim-gutentags')                         " Autogenerate CTags
 
@@ -55,7 +64,6 @@
 " }}}
 " Environment {{{
   " General {{{
-    autocmd!
     filetype plugin indent on
     syntax on
     set scrolloff=5
@@ -77,16 +85,18 @@
     set mouse=
     set number
     set nrformats=
-    set nohlsearch
     set nostartofline
     set noswapfile
     set relativenumber
+    set report=0
     set ruler
     set smartcase
     set showcmd
+    set showmatch
     set splitbelow
     set splitright
     set updatetime=100
+    set wildmode=longest,list,full
   "}}}
   " Theme {{{
     colorscheme gruvbox
@@ -118,17 +128,43 @@
     let g:airline#extensions#tabline#fnamecollapse  = 1
     let g:airline#extensions#tabline#tab_nr_type = 1
   " }}}
-  " EasyMotion {{{
-    nmap s <Plug>(easymotion-s)
-    xmap s <Plug>(easymotion-s)
-    nmap / <Plug>(easymotion-sn)
-    xmap / <Plug>(easymotion-sn)
-    nmap n <Plug>(easymotion-next)
-    xmap n <Plug>(easymotion-next)
-    nmap N <Plug>(easymotion-prev)
-    xmap N <Plug>(easymotion-prev)
-    let g:EasyMotion_move_highlight = 0
-    let g:EasyMotion_skipfoldedline = 0
+  " Incsearch {{{
+    map / <Plug>(incsearch-forward)
+    map ? <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+
+    map z/ <Plug>(incsearch-fuzzy-/)
+    map z? <Plug>(incsearch-fuzzy-?)
+    map zg/ <Plug>(incsearch-fuzzy-stay)
+
+    let g:incsearch#auto_nohlsearch = 1
+    map n  <Plug>(incsearch-nohl-n)zv
+    map N  <Plug>(incsearch-nohl-N)zv
+    map *  <Plug>(incsearch-nohl-*)zv
+    map #  <Plug>(incsearch-nohl-#)zv
+    map g* <Plug>(incsearch-nohl-g*)zv
+    map g# <Plug>(incsearch-nohl-g#)zv
+  " }}}
+  " Sneak {{{
+    nmap f <Plug>Sneak_f
+    nmap F <Plug>Sneak_F
+    xmap f <Plug>Sneak_f
+    xmap F <Plug>Sneak_F
+    omap f <Plug>Sneak_f
+    omap F <Plug>Sneak_F
+
+    nmap t <Plug>Sneak_t
+    nmap T <Plug>Sneak_T
+    xmap t <Plug>Sneak_t
+    xmap T <Plug>Sneak_T
+    omap t <Plug>Sneak_t
+    omap T <Plug>Sneak_T
+  " }}}
+  " Smalls {{{
+    let g:smalls_auto_jump = 1
+    nmap s <Plug>(smalls)
+    xmap s <Plug>(smalls)
+    omap s <Plug>(smalls)
   " }}}
   " Deoplete {{{
     let g:deoplete#enable_at_startup = 1
@@ -145,6 +181,12 @@
   " Vim-monster (Ruby completion) {{{
     let g:monster#completion#rcodetools#backend = "async_rct_complete"
     let g:deoplete#sources#omni#input_patterns = { "ruby" : '[^. *\t]\.\w*\|\h\w*::' }
+  " }}}
+  " Org Mode {{{
+    let g:org_indent = 0
+    let g:org_agenda_files = ['~/Org/todo.org', '~/Org/microsoft.org']
+    let g:org_todo_keywords = [['TODO', 'NEXT', '|', 'DONE'], ['WAITING', '|', 'HOLD']]
+    let g:org_todo_keyword_faces = [['TODO', 'yellow'], ['NEXT', 'cyan'], ['WAITING', 'magenta'], ['HOLD', 'red']]
   " }}}
   " Neomake (linter) {{{
     let g:neomake_open_list = 2
@@ -165,10 +207,25 @@
     vnoremap <Del> <nop>
     nnoremap <Backspace> <nop>
     vnoremap <Backspace> <nop>
+    nnoremap Q <nop>
+  " }}}
+  " Yank line without spaces {{{
+    nnoremap Y my^yg_`y
+  " }}}
+  " Select most recent paste {{{
+    nnoremap gV `[v`]
   " }}}
   " Close buffer {{{
-    nnoremap <silent> <Leader>cc :Bd<CR>
-    nnoremap <silent> <Leader>CC :Bd!<CR>
+    nnoremap <Leader>cc :Bd<CR>
+    nnoremap <Leader>CC :Bd!<CR>
+    nnoremap <Leader>cw :close<CR>
+  " }}}
+  " Write with sudo {{{
+    cnoremap w!! w !sudo tee > /dev/null %
+  " }}}
+  " Scroll command history {{{
+    cnoremap <C-j> <Down>
+    cnoremap <C-k> <Up>
   " }}}
   " Edit .vimrc {{{
     nnoremap <silent> <Leader>ec :e $MYVIMRC<CR>
@@ -186,7 +243,6 @@
   " }}}
   " Indent / unindent {{{
     nnoremap <S-Tab> <<
-    inoremap <S-Tab> <C-o><<
     nnoremap <Tab> >>
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
@@ -195,6 +251,9 @@
     nnoremap <Leader>t :NERDTreeFind<CR>
     nnoremap <Leader>T :NERDTreeToggle<CR>
     let g:NERDTreeMapActivateNode="<Leader>t"
+  " }}}
+  " Neomake {{{
+    nnoremap <Leader>m :Neomake<CR>
   " }}}
   " Scroll & navigation {{{
     " Select All {{{
@@ -230,6 +289,7 @@
   " }}}
   " FZF (fuzzy navigation) {{{
     nnoremap <silent> <Leader>f :Files<CR>
+    nnoremap <silent> <Leader>F :Files ~<CR>
     nnoremap <silent> <Leader>p :GFiles<CR>
     nnoremap <silent> <Leader>b :Buffers<CR>
     nnoremap <silent> <Leader>g :Ag<CR>
@@ -301,12 +361,26 @@
       return ""
     endfunction
   " }}}
+  " Incsearch keymap fixes {{{
+    function! s:incsearch_keymap()
+      IncSearchNoreMap <C-j> <Down>
+      IncSearchNoreMap <C-k> <Up>
+    endfunction
+  " }}}
 " }}}
 " AutoCmd {{{
-  autocmd BufEnter * silent! lcd %:p:h  " Make Vim CD in the directory of the opened file
+  augroup cursorline-only-active-window
+    autocmd!
+    autocmd WinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+  augroup END
 
-  " Highlight cursor line only in the active window
-  autocmd WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
+  augroup incsearch-keymap
+    autocmd!
+    autocmd VimEnter * call s:incsearch_keymap()
+  augroup END
+
+  " TODO close quickfix windows with `qutoload/incsearch/config.vim`
+  " autocmd BufWinEnter * if &buftype == 'quickfix' | map q :cclose<CR> | endif
 " }}}
 
