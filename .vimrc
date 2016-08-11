@@ -10,6 +10,7 @@
   call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
   call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
   call dein#add('roman/golden-ratio')                                   " Automatic split sizing
+  call dein#add('osyo-manga/vim-anzu')                                  " Show search count
 
   call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
   call dein#add('tpope/vim-surround')                                   " Surround
@@ -22,7 +23,7 @@
   call dein#add('haya14busa/incsearch-fuzzy.vim')                       " Fuzzy incremental search
   call dein#add('justinmk/vim-sneak')                                   " Improved F and T
   call dein#add('t9md/vim-smalls')                                      " Quick jump anywhere
-  call dein#add('bronson/vim-visual-star-search')                       " Search for selection
+  call dein#add('haya14busa/vim-asterisk')                              " Star * improvements
   call dein#add('christoomey/vim-tmux-navigator')                       " Easy navigation between TMUX and VIM splits
   call dein#add('scrooloose/nerdtree')                                  " Folder tree
   call dein#add('airblade/vim-rooter')                                  " Change working directory to the project root
@@ -129,6 +130,8 @@
     let g:airline#extensions#tabline#tab_nr_type = 1
   " }}}
   " Incsearch {{{
+    let g:incsearch#auto_nohlsearch = 1
+
     map / <Plug>(incsearch-forward)
     map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
@@ -137,13 +140,14 @@
     map z? <Plug>(incsearch-fuzzy-?)
     map zg/ <Plug>(incsearch-fuzzy-stay)
 
-    let g:incsearch#auto_nohlsearch = 1
-    map n  <Plug>(incsearch-nohl-n)zv
-    map N  <Plug>(incsearch-nohl-N)zv
-    map *  <Plug>(incsearch-nohl-*)zv
-    map #  <Plug>(incsearch-nohl-#)zv
-    map g* <Plug>(incsearch-nohl-g*)zv
-    map g# <Plug>(incsearch-nohl-g#)zv
+    map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)zv
+    map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zv
+  " }}}
+  " Asterisk {{{
+    map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)zv
+    map #  <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)zv
+    map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)zv
+    map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)zv
   " }}}
   " Sneak {{{
     nmap f <Plug>Sneak_f
