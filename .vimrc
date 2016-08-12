@@ -134,44 +134,9 @@
   " }}}
   " Incsearch {{{
     let g:incsearch#auto_nohlsearch = 1
-
-    map / <Plug>(incsearch-forward)
-    map ? <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
-
-    map z/ <Plug>(incsearch-fuzzy-/)
-    map z? <Plug>(incsearch-fuzzy-?)
-    map zg/ <Plug>(incsearch-fuzzy-stay)
-
-    map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)zv
-    map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zv
-  " }}}
-  " Asterisk {{{
-    map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
-    map #  <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)
-    map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
-    map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
-  " }}}
-  " Sneak {{{
-    nmap f <Plug>Sneak_f
-    nmap F <Plug>Sneak_F
-    xmap f <Plug>Sneak_f
-    xmap F <Plug>Sneak_F
-    omap f <Plug>Sneak_f
-    omap F <Plug>Sneak_F
-
-    nmap t <Plug>Sneak_t
-    nmap T <Plug>Sneak_T
-    xmap t <Plug>Sneak_t
-    xmap T <Plug>Sneak_T
-    omap t <Plug>Sneak_t
-    omap T <Plug>Sneak_T
   " }}}
   " Smalls {{{
     let g:smalls_auto_jump = 1
-    nmap s <Plug>(smalls)
-    xmap s <Plug>(smalls)
-    omap s <Plug>(smalls)
   " }}}
   " Deoplete {{{
     let g:deoplete#enable_at_startup = 1
@@ -199,7 +164,7 @@
     let g:neomake_open_list = 2
   " }}}
   " NERDTree {{{
-    let NERDTreeChDirMode   = 2
+    let NERDTreeChDirMode = 2
     let NERDTreeShowBookmarks = 1
   " }}}
 " }}}
@@ -266,6 +231,24 @@
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
   " }}}
+  " Asterisk {{{
+    map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
+    map #  <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)
+    map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
+    map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
+  " }}}
+  " Incsearch {{{
+    map / <Plug>(incsearch-forward)
+    map ? <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+
+    map z/ <Plug>(incsearch-fuzzy-/)
+    map z? <Plug>(incsearch-fuzzy-?)
+    map zg/ <Plug>(incsearch-fuzzy-stay)
+
+    map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)zv
+    map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zv
+  " }}}
   " NERDTree {{{
     nnoremap <Leader>t :NERDTreeFind<CR>
     nnoremap <Leader>T :NERDTreeToggle<CR>
@@ -292,6 +275,11 @@
       nnoremap <silent> <C-PageDown> :bn<CR>
     " }}}
   " }}}
+  " Smalls {{{
+    nmap s <Plug>(smalls)
+    xmap s <Plug>(smalls)
+    omap s <Plug>(smalls)
+  " }}}
   " Smart HOME & END {{{
     nnoremap <silent><Home> :call SmartHome("n")<CR>
     nnoremap <silent><End> :call SmartEnd("n")<CR>
@@ -299,6 +287,21 @@
     inoremap <silent><End> <C-r>=SmartEnd("i")<CR>
     vnoremap <silent><Home> <Esc>:call SmartHome("v")<CR>
     vnoremap <silent><End> <Esc>:call SmartEnd("v")<CR>
+  " }}}
+  " Sneak {{{
+    nmap f <Plug>Sneak_f
+    nmap F <Plug>Sneak_F
+    xmap f <Plug>Sneak_f
+    xmap F <Plug>Sneak_F
+    omap f <Plug>Sneak_f
+    omap F <Plug>Sneak_F
+
+    nmap t <Plug>Sneak_t
+    nmap T <Plug>Sneak_T
+    xmap t <Plug>Sneak_t
+    xmap T <Plug>Sneak_T
+    omap t <Plug>Sneak_t
+    omap T <Plug>Sneak_T
   " }}}
   " Switch {{{
     nnoremap <silent> - :Switch<CR>
