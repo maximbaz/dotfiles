@@ -39,6 +39,7 @@
   call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})        " JS code navigation
   call dein#add('carlitux/deoplete-ternjs')                             " Javascript autocomplete
   call dein#add('osyo-manga/vim-monster')                               " Ruby autocomplete
+  call dein#add('wellle/tmux-complete.vim')                             " Autocomplete from Tmux panes
 
   call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
   call dein#add('AndrewRadev/switch.vim')                               " Smart switch (true -> false, etc.)
