@@ -217,7 +217,7 @@
     nnoremap Q <nop>
   " }}}
   " Yank line without spaces {{{
-    nnoremap Y my^yg_`y
+    nnoremap <expr> Y 'my^"'.v:register.v:count1.'yg_`y'
   " }}}
   " Repeat last substitute with flags {{{
     nnoremap & :&&<CR>
