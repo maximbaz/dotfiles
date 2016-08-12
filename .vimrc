@@ -385,7 +385,11 @@
     autocmd VimEnter * call s:incsearch_keymap()
   augroup END
 
-  " TODO close quickfix windows with `qutoload/incsearch/config.vim`
-  " autocmd BufWinEnter * if &buftype == 'quickfix' | map q :cclose<CR> | endif
+  augroup helper-windows-close
+    autocmd!
+    autocmd BufWinEnter * if &buftype == 'quickfix' | nnoremap <buffer> q :cclose <bar> :lclose <CR> | endif
+    autocmd BufWinEnter * if &buftype == 'help' | nnoremap <buffer> q :helpclose <CR> | endif
+    autocmd InsertLeave * pclose
+  augroup END
 " }}}
 
