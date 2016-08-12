@@ -246,6 +246,10 @@
     nnoremap <silent> <Leader>ec :e $MYVIMRC<CR>
     nnoremap <silent> <Leader>sc :so $MYVIMRC<CR>
   " }}}
+  " Navigate through visual lines {{{
+    nnoremap <expr> j v:count ? 'j' : 'gj'
+    nnoremap <expr> k v:count ? 'k' : 'gk'
+  " }}}
   " Format json {{{
     nnoremap <silent> <Leader>json :%!python -m json.tool<CR>
     vnoremap <silent> <Leader>json :!python -m json.tool<CR>
