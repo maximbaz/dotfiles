@@ -76,6 +76,7 @@
     set virtualedit=all
     set diffopt+=iwhite
     set foldmethod=marker
+    set complete+=kspell
     set cursorline
     set hidden
     set ignorecase
@@ -225,7 +226,11 @@
   " Select most recent paste {{{
     nnoremap gV `[v`]
   " }}}
-  " Close buffer {{{
+  " Navigate through autocompletion {{{
+    inoremap <C-j> <C-n>
+    inoremap <C-k> <C-p>
+  " }}}
+  " Close buffer and window {{{
     nnoremap <Leader>cc :Bd<CR>
     nnoremap <Leader>CC :Bd!<CR>
     nnoremap <Leader>cw :close<CR>
