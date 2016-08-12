@@ -95,6 +95,8 @@
     set smartcase
     set showcmd
     set showmatch
+    set spell
+    set spelllang=en,da,ru
     set splitbelow
     set splitright
     set updatetime=100
