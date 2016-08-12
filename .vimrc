@@ -147,10 +147,10 @@
     map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zv
   " }}}
   " Asterisk {{{
-    map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)zv
-    map #  <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)zv
-    map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)zv
-    map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)zv
+    map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
+    map #  <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)
+    map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
+    map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
   " }}}
   " Sneak {{{
     nmap f <Plug>Sneak_f
@@ -276,7 +276,7 @@
   " }}}
   " Scroll & navigation {{{
     " Select All {{{
-      noremap  <Leader>v ggVG
+      nnoremap <Leader>v ggVG
       xnoremap <Leader>v <C-C>ggVG
     " }}}
     " PageUp / PageDown by half {{{
