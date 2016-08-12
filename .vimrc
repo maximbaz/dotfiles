@@ -94,7 +94,6 @@
     set ruler
     set smartcase
     set showcmd
-    set showmatch
     set spell
     set spelllang=en,da,ru
     set splitbelow
@@ -218,6 +217,10 @@
   " }}}
   " Yank line without spaces {{{
     nnoremap Y my^yg_`y
+  " }}}
+  " Repeat last substitute with flags {{{
+    nnoremap & :&&<CR>
+    xnoremap & :&&<CR>
   " }}}
   " Select most recent paste {{{
     nnoremap gV `[v`]
