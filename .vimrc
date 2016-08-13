@@ -34,7 +34,7 @@
   call dein#add('jiangmiao/auto-pairs')                                 " Insert closing brackets automatically
   call dein#add('tomtom/tcomment_vim')                                  " Comment lines
   call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
-  call dein#add('matze/vim-move')                                       " Move selection up and down
+  call dein#add('t9md/vim-textmanip')                                   " Move selection up and down
 
   call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
   call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
@@ -325,6 +325,12 @@
   " }}}
   " Neomake {{{
     nnoremap <Leader>m :Neomake<CR>
+  " }}}
+  " TextManip {{{
+    nmap <A-j> <Plug>(textmanip-move-down)
+    nmap <A-k> <Plug>(textmanip-move-up)
+    xmap <A-j> <Plug>(textmanip-move-down)
+    xmap <A-k> <Plug>(textmanip-move-up)
   " }}}
   " Smalls {{{
     nmap s <Plug>(smalls)
