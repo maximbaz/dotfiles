@@ -179,7 +179,7 @@
   " }}}
   " Deoplete {{{
     let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#enable_refresh_always = 1
   " }}}
   " Deoplete-jedi (Python completion) {{{
     let deoplete#sources#jedi#show_docstring = 1
