@@ -18,7 +18,7 @@
   call dein#add('tpope/vim-surround')                                   " Surround
   call dein#add('tpope/vim-abolish')                                    " Substitute with Smart Case (:S//)
   call dein#add('tpope/vim-speeddating')                                " Increment dates
-  call dein#add('tpope/vim-fugitive')                                   " Git integration
+  call dein#add('tpope/vim-fugitive')                                   " TODO Git integration
   call dein#add('airblade/vim-gitgutter')                               " Git gutter
   call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
   call dein#add('haya14busa/incsearch.vim')                             " Incremental search
@@ -50,40 +50,9 @@
 
   call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
   call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
-  call dein#add('AndrewRadev/switch.vim')                               " Smart switch (true -> false, etc.)
-  call dein#add('mattn/emmet-vim')                                      " HTML editing
-  call dein#add('AndrewRadev/splitjoin.vim')                            " Toggle single-line and multi-line expressions
-
-  call dein#add('wellle/targets.vim')                                   " Add more targets to operate on
-  call dein#add('kana/vim-textobj-user')                                " Add user-defined text objects
-  call dein#add('jceb/vim-textobj-uri',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: URI
-  call dein#add('thinca/vim-textobj-between',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: between characters
-  call dein#add('zandrmartin/vim-textobj-blanklines',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: blank lines
-  call dein#add('glts/vim-textobj-comment',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: comments
-  call dein#add('kana/vim-textobj-datetime',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: date and time
-  call dein#add('kana/vim-textobj-fold',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: fold
-  call dein#add('gilligan/textobj-gitgutter',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: git gutter hunk
-  call dein#add('kana/vim-textobj-indent',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: similarly indented text
-  call dein#add('kana/vim-textobj-line',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: line
-  call dein#add('saaguero/vim-textobj-pastedtext',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: pasted text
-  call dein#add('paulhybryant/vim-textobj-path',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: file path
-  call dein#add('saihoooooooo/vim-textobj-space',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: space characters
-  call dein#add('Julian/vim-textobj-variable-segment',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: segments of variable_names
-  call dein#add('whatyouhide/vim-textobj-xmlattr',
-    \ {'depends': 'vim-textobj-user'})                                  " Text object: XML attributes
+  call dein#add('AndrewRadev/switch.vim')                               " TODO Smart switch (true -> false, etc.)
+  call dein#add('mattn/emmet-vim')                                      " TODO HTML editing
+  call dein#add('AndrewRadev/splitjoin.vim')                            " TODO Toggle single-line and multi-line expressions
 
   call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
   call dein#add('PotatoesMaster/i3-vim-syntax')                         " i3 syntax
@@ -94,6 +63,23 @@
   call dein#add('ludovicchabant/vim-gutentags')                         " Autogenerate CTags
   call dein#add('jceb/vim-orgmode')                                     " Org Mode
   call dein#add('neomake/neomake')                                      " Linter
+
+  call dein#add('wellle/targets.vim')                                                   " Add more targets to operate on
+  call dein#add('kana/vim-textobj-user')                                                " Add user-defined text objects
+  call dein#add('jceb/vim-textobj-uri', {'depends': 'vim-textobj-user'})                " TODO Text object: URI
+  call dein#add('thinca/vim-textobj-between', {'depends': 'vim-textobj-user'})          " TODO Text object: between characters
+  call dein#add('zandrmartin/vim-textobj-blanklines', {'depends': 'vim-textobj-user'})  " TODO Text object: blank lines
+  call dein#add('glts/vim-textobj-comment', {'depends': 'vim-textobj-user'})            " TODO Text object: comments
+  call dein#add('kana/vim-textobj-datetime', {'depends': 'vim-textobj-user'})           " TODO Text object: date and time
+  call dein#add('kana/vim-textobj-fold', {'depends': 'vim-textobj-user'})               " TODO Text object: fold
+  call dein#add('gilligan/textobj-gitgutter', {'depends': 'vim-textobj-user'})          " TODO Text object: git gutter hunk
+  call dein#add('kana/vim-textobj-indent', {'depends': 'vim-textobj-user'})             " TODO Text object: similarly indented text
+  call dein#add('kana/vim-textobj-line', {'depends': 'vim-textobj-user'})               " TODO Text object: line
+  call dein#add('saaguero/vim-textobj-pastedtext', {'depends': 'vim-textobj-user'})     " TODO Text object: pasted text
+  call dein#add('paulhybryant/vim-textobj-path', {'depends': 'vim-textobj-user'})       " TODO Text object: file path
+  call dein#add('saihoooooooo/vim-textobj-space', {'depends': 'vim-textobj-user'})      " TODO Text object: space characters
+  call dein#add('Julian/vim-textobj-variable-segment', {'depends': 'vim-textobj-user'}) " TODO Text object: segments of variable_names
+  call dein#add('whatyouhide/vim-textobj-xmlattr', {'depends': 'vim-textobj-user'})     " TODO Text object: XML attributes
 
   call dein#end()
 
@@ -166,9 +152,7 @@
     let g:airline#extensions#branch#empty_message = "no git"
     let g:airline#extensions#hunks#non_zero_only = 1
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#buffer_nr_show = 1
     let g:airline#extensions#tabline#fnamecollapse  = 1
-    let g:airline#extensions#tabline#tab_nr_type = 1
   " }}}
   " GitGutter {{{
     let g:gitgutter_map_keys = 0
@@ -245,6 +229,14 @@
     inoremap <C-j> <C-n>
     inoremap <C-k> <C-p>
 
+    " Scroll command history
+    cnoremap <C-j> <Down>
+    cnoremap <C-k> <Up>
+
+    " Increment
+    nmap <C-Up> <C-a>
+    nmap <C-Down> <C-x>
+
     " Close buffer and window
     nnoremap <silent> <Leader>cc :Bd<CR>
     nnoremap <silent> <Leader>CC :Bd!<CR>
@@ -252,10 +244,6 @@
 
     " Write with sudo
     cnoremap w!! w !sudo tee > /dev/null %
-
-    " Scroll command history
-    cnoremap <C-j> <Down>
-    cnoremap <C-k> <Up>
 
     " Edit .vimrc
     nnoremap <silent> <Leader>ec :e $MYVIMRC<CR>
@@ -268,10 +256,6 @@
     " Format json
     nnoremap <silent> <Leader>json :%!python -m json.tool<CR>
     vnoremap <silent> <Leader>json :!python -m json.tool<CR>
-
-    " Increment
-    nmap <C-Up> <C-a>
-    nmap <C-Down> <C-x>
 
     " Indent / unindent
     nnoremap <S-Tab> <<
@@ -295,12 +279,8 @@
     nnoremap <silent> <C-PageUp> :bp<CR>
     nnoremap <silent> <C-PageDown> :bn<CR>
 
-    " Dot in visual mode
-    xnoremap . :norm.<CR>
-
     " Fix 'gx' to support '?' in URLs
     nmap gx mxviugx<Esc>`x
-
   " }}}
   " Asterisk {{{
     map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
@@ -311,6 +291,13 @@
   " EasyAlign {{{
     nmap <Leader>= <Plug>(EasyAlign)
     xmap <Leader>= <Plug>(EasyAlign)
+  " }}}
+  " FZF (fuzzy navigation) {{{
+    nnoremap <silent> <Leader>f :Files<CR>
+    nnoremap <silent> <Leader>F :Files ~<CR>
+    nnoremap <silent> <Leader>p :GFiles<CR>
+    nnoremap <silent> <Leader>b :Buffers<CR>
+    nnoremap <silent> <Leader>g :Ag<CR>
   " }}}
   " GitGutter {{{
     nmap <Leader>hh <Plug>GitGutterNextHunk<Plug>GitGutterPreviewHunk<Bar>zv
@@ -331,19 +318,16 @@
     map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)zv
     map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zv
   " }}}
+  " Neomake {{{
+    nnoremap <Leader>m :Neomake<CR>
+  " }}}
   " NERDTree {{{
     nnoremap <Leader>t :NERDTreeFind<CR>
     nnoremap <Leader>T :NERDTreeToggle<CR>
     let g:NERDTreeMapActivateNode="<Leader>t"
   " }}}
-  " Neomake {{{
-    nnoremap <Leader>m :Neomake<CR>
-  " }}}
-  " TextManip {{{
-    nmap <A-j> <Plug>(textmanip-move-down)
-    nmap <A-k> <Plug>(textmanip-move-up)
-    xmap <A-j> <Plug>(textmanip-move-down)
-    xmap <A-k> <Plug>(textmanip-move-up)
+  " Repeat macro over visual selection {{{
+    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
   " }}}
   " Smalls {{{
     nmap s <Plug>(smalls)
@@ -357,9 +341,6 @@
     inoremap <silent><End> <C-r>=SmartEnd("i")<CR>
     vnoremap <silent><Home> <Esc>:call SmartHome("v")<CR>
     vnoremap <silent><End> <Esc>:call SmartEnd("v")<CR>
-  " }}}
-  " Repeat macro over visual selection {{{
-    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
   " }}}
   " Sneak {{{
     nmap f <Plug>Sneak_f
@@ -379,15 +360,14 @@
   " Switch {{{
     nnoremap <silent> - :Switch<CR>
   " }}}
+  " TextManip {{{
+    nmap <A-j> <Plug>(textmanip-move-down)
+    nmap <A-k> <Plug>(textmanip-move-up)
+    xmap <A-j> <Plug>(textmanip-move-down)
+    xmap <A-k> <Plug>(textmanip-move-up)
+  " }}}
   " Trim whitespaces {{{
     nnoremap <silent> <F10> :call RemoveTrailingSpaces()<CR>
-  " }}}
-  " FZF (fuzzy navigation) {{{
-    nnoremap <silent> <Leader>f :Files<CR>
-    nnoremap <silent> <Leader>F :Files ~<CR>
-    nnoremap <silent> <Leader>p :GFiles<CR>
-    nnoremap <silent> <Leader>b :Buffers<CR>
-    nnoremap <silent> <Leader>g :Ag<CR>
   " }}}
 " }}}
 " Functions {{{
