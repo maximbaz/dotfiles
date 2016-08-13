@@ -11,6 +11,7 @@
   call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
   call dein#add('roman/golden-ratio')                                   " Automatic split sizing
   call dein#add('osyo-manga/vim-anzu')                                  " Show search count
+  call dein#add('terryma/vim-smooth-scroll')                            " Smooth scroll
 
   call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
   call dein#add('tpope/vim-surround')                                   " Surround
@@ -33,6 +34,7 @@
   call dein#add('jiangmiao/auto-pairs')                                 " Insert closing brackets automatically
   call dein#add('tomtom/tcomment_vim')                                  " Comment lines
   call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
+  call dein#add('matze/vim-move')                                       " Move selection up and down
 
   call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
   call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
@@ -42,8 +44,41 @@
   call dein#add('wellle/tmux-complete.vim')                             " Autocomplete from Tmux panes
 
   call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
+  call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
   call dein#add('AndrewRadev/switch.vim')                               " Smart switch (true -> false, etc.)
   call dein#add('mattn/emmet-vim')                                      " HTML editing
+  call dein#add('AndrewRadev/splitjoin.vim')                            " Toggle single-line and multi-line expressions
+
+  call dein#add('wellle/targets.vim')                                   " Add more targets to operate on
+  call dein#add('kana/vim-textobj-user')                                " Add user-defined text objects
+  call dein#add('jceb/vim-textobj-uri',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: URI
+  call dein#add('thinca/vim-textobj-between',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: between characters
+  call dein#add('zandrmartin/vim-textobj-blanklines',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: blank lines
+  call dein#add('glts/vim-textobj-comment',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: comments
+  call dein#add('kana/vim-textobj-datetime',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: date and time
+  call dein#add('kana/vim-textobj-fold',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: fold
+  call dein#add('gilligan/textobj-gitgutter',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: git gutter hunk
+  call dein#add('kana/vim-textobj-indent',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: similarly indented text
+  call dein#add('kana/vim-textobj-line',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: line
+  call dein#add('saaguero/vim-textobj-pastedtext',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: pasted text
+  call dein#add('paulhybryant/vim-textobj-path',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: file path
+  call dein#add('saihoooooooo/vim-textobj-space',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: space characters
+  call dein#add('Julian/vim-textobj-variable-segment',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: segments of variable_names
+  call dein#add('whatyouhide/vim-textobj-xmlattr',
+    \ {'depends': 'vim-textobj-user'})                                  " Text object: XML attributes
 
   call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
   call dein#add('PotatoesMaster/i3-vim-syntax')                         " i3 syntax
@@ -54,6 +89,7 @@
   call dein#add('ludovicchabant/vim-gutentags')                         " Autogenerate CTags
 
   call dein#add('jceb/vim-orgmode')                                     " Org Mode
+  call dein#add('dhruvasagar/vim-table-mode')                           " Table mode
 
   call dein#add('neomake/neomake')                                      " Linter
 
@@ -112,7 +148,7 @@
   " }}}
 " }}}
 " Plugins configuration {{{
-  " Vim-airline {{{
+  " Airline {{{
     set laststatus=2
     let g:airline_powerline_fonts = 1
     let g:airline_theme = "gruvbox"
@@ -131,6 +167,9 @@
     let g:airline#extensions#tabline#buffer_nr_show = 1
     let g:airline#extensions#tabline#fnamecollapse  = 1
     let g:airline#extensions#tabline#tab_nr_type = 1
+  " }}}
+  " GitGutter {{{
+    let g:gitgutter_map_keys = 0
   " }}}
   " Incsearch {{{
     let g:incsearch#auto_nohlsearch = 1
@@ -167,69 +206,99 @@
     let NERDTreeChDirMode = 2
     let NERDTreeShowBookmarks = 1
   " }}}
+  " TComment {{{
+    let g:tcommentTextObjectInlineComment = ''
+  " }}}
 " }}}
 " Keyboard shortcuts {{{
-  let mapleader="\\"
-  nmap <Space> <Leader>
-  vmap <Space> <Leader>
   " Base {{{
+    let mapleader="\\"
+    nmap <Space> <Leader>
+    vmap <Space> <Leader>
+
+    " Write buffer
     nnoremap <Leader>w :w<CR>
+
+    " Better redo
     nnoremap U <C-R>
+
+    " Remove annoyance
     nnoremap <Del> <nop>
     vnoremap <Del> <nop>
     nnoremap <Backspace> <nop>
     vnoremap <Backspace> <nop>
     nnoremap Q <nop>
-  " }}}
-  " Yank line without spaces {{{
+
+    " Yank line without spaces
     nnoremap <expr> Y 'my^"'.v:register.v:count1.'yg_`y'
-  " }}}
-  " Repeat last substitute with flags {{{
+
+    " Repeat last substitute with flags
     nnoremap & :&&<CR>
     xnoremap & :&&<CR>
-  " }}}
-  " Select most recent paste {{{
-    nnoremap gV `[v`]
-  " }}}
-  " Navigate through autocompletion {{{
+
+    " Select most recent paste
+    nmap gV vgb
+
+    " Navigate through autocompletion
     inoremap <C-j> <C-n>
     inoremap <C-k> <C-p>
-  " }}}
-  " Close buffer and window {{{
-    nnoremap <Leader>cc :Bd<CR>
-    nnoremap <Leader>CC :Bd!<CR>
+
+    " Close buffer and window
+    nnoremap <silent> <Leader>cc :Bd<CR>
+    nnoremap <silent> <Leader>CC :Bd!<CR>
     nnoremap <Leader>cw :close<CR>
-  " }}}
-  " Write with sudo {{{
+
+    " Write with sudo
     cnoremap w!! w !sudo tee > /dev/null %
-  " }}}
-  " Scroll command history {{{
+
+    " Scroll command history
     cnoremap <C-j> <Down>
     cnoremap <C-k> <Up>
-  " }}}
-  " Edit .vimrc {{{
+
+    " Edit .vimrc
     nnoremap <silent> <Leader>ec :e $MYVIMRC<CR>
     nnoremap <silent> <Leader>sc :so $MYVIMRC<CR>
-  " }}}
-  " Navigate through visual lines {{{
+
+    " Navigate through visual lines
     nnoremap <expr> j v:count ? 'j' : 'gj'
     nnoremap <expr> k v:count ? 'k' : 'gk'
-  " }}}
-  " Format json {{{
+
+    " Format json
     nnoremap <silent> <Leader>json :%!python -m json.tool<CR>
     vnoremap <silent> <Leader>json :!python -m json.tool<CR>
-  " }}}
-  " Increment {{{
+
+    " Increment
     nmap <C-Up> <C-a>
     nmap <C-Down> <C-x>
-    nmap <C-k> <C-a>
-    nmap <C-j> <C-x>
-  " }}}
-  " Indent / unindent {{{
+
+    " Indent / unindent
     nnoremap <S-Tab> <<
     nnoremap <Tab> >>
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
+
+    " Select all
+    nnoremap <Leader>v ggVG
+    xnoremap <Leader>v <C-C>ggVG
+
+    " PageUp / PageDown by half of the screen
+    nnoremap <silent> <PageDown> :call smooth_scroll#down(&scroll, 0, 1)<CR>
+    nnoremap <silent> <PageUp> :call smooth_scroll#up(&scroll, 0, 1)<CR>
+
+    " Jump to previous / next cursor position
+    nnoremap <A-Left> <C-o>
+    nnoremap <A-Right> <C-i>
+
+    " Buffer navigation
+    nnoremap <silent> <C-PageUp> :bp<CR>
+    nnoremap <silent> <C-PageDown> :bn<CR>
+
+    " Dot in visual mode
+    xnoremap . :norm.<CR>
+
+    " Fix 'gx' to support '?' in URLs
+    nmap gx mxviugx<Esc>`x
+
   " }}}
   " Asterisk {{{
     map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
@@ -257,24 +326,6 @@
   " Neomake {{{
     nnoremap <Leader>m :Neomake<CR>
   " }}}
-  " Scroll & navigation {{{
-    " Select All {{{
-      nnoremap <Leader>v ggVG
-      xnoremap <Leader>v <C-C>ggVG
-    " }}}
-    " PageUp / PageDown by half {{{
-      nnoremap <PageDown> <C-d>
-      nnoremap <PageUp> <C-u>
-    " }}}
-    " Previous / next cursor position {{{
-      nnoremap <A-Left> <C-o>
-      nnoremap <A-Right> <C-i>
-    " }}}
-    " Windows {{{
-      nnoremap <silent> <C-PageUp> :bp<CR>
-      nnoremap <silent> <C-PageDown> :bn<CR>
-    " }}}
-  " }}}
   " Smalls {{{
     nmap s <Plug>(smalls)
     xmap s <Plug>(smalls)
@@ -287,6 +338,9 @@
     inoremap <silent><End> <C-r>=SmartEnd("i")<CR>
     vnoremap <silent><Home> <Esc>:call SmartHome("v")<CR>
     vnoremap <silent><End> <Esc>:call SmartEnd("v")<CR>
+  " }}}
+  " Repeat macro over visual selection {{{
+    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
   " }}}
   " Sneak {{{
     nmap f <Plug>Sneak_f
@@ -387,6 +441,12 @@
     function! s:incsearch_keymap()
       IncSearchNoreMap <C-j> <Down>
       IncSearchNoreMap <C-k> <Up>
+    endfunction
+  " }}}
+  " Repeat macro over visual selection {{{
+    function! ExecuteMacroOverVisualRange()
+      echo "@".getcmdline()
+      execute ":'<,'>normal @".nr2char(getchar())
     endfunction
   " }}}
 " }}}
