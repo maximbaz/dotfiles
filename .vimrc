@@ -14,6 +14,7 @@
   call dein#add('yonchu/accelerated-smooth-scroll')                     " Smooth scroll
 
   call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
+  call dein#add('vim-scripts/visualrepeat')                             " Repeat for plugins in visual mode
   call dein#add('tpope/vim-surround')                                   " Surround
   call dein#add('tpope/vim-abolish')                                    " Substitute with Smart Case (:S//)
   call dein#add('tpope/vim-speeddating')                                " Increment dates
@@ -37,11 +38,15 @@
   call dein#add('t9md/vim-textmanip')                                   " Move selection up and down
 
   call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
+  call dein#add('Shougo/neco-vim')                                      " Vim autocomplete
+  call dein#add('eagletmt/neco-ghc')                                    " Haskell autocomplete
   call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
-  call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})        " JS code navigation
   call dein#add('carlitux/deoplete-ternjs')                             " Javascript autocomplete
+  call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})        " JS code navigation
+  call dein#add('fishbullet/deoplete-ruby')                             " Ruby autocomplete
   call dein#add('osyo-manga/vim-monster')                               " Ruby autocomplete
   call dein#add('wellle/tmux-complete.vim')                             " Autocomplete from Tmux panes
+  call dein#add('Shougo/neoinclude.vim')                                " Included files autocomplete
 
   call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
   call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
@@ -87,10 +92,7 @@
   call dein#add('suan/vim-instant-markdown')                            " Instantly preview markdown
 
   call dein#add('ludovicchabant/vim-gutentags')                         " Autogenerate CTags
-
   call dein#add('jceb/vim-orgmode')                                     " Org Mode
-  call dein#add('dhruvasagar/vim-table-mode')                           " Table mode
-
   call dein#add('neomake/neomake')                                      " Linter
 
   call dein#end()
