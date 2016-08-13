@@ -9,9 +9,9 @@
   call dein#add('morhetz/gruvbox')                                      " Nice color theme
   call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
   call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
-  call dein#add('roman/golden-ratio')                                   " Automatic split sizing
+  call dein#add('roman/golden-ratio')                                   " Automatic split resizing
   call dein#add('osyo-manga/vim-anzu')                                  " Show search count
-  call dein#add('terryma/vim-smooth-scroll')                            " Smooth scroll
+  call dein#add('yonchu/accelerated-smooth-scroll')                     " Smooth scroll
 
   call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
   call dein#add('tpope/vim-surround')                                   " Surround
@@ -282,8 +282,8 @@
     xnoremap <Leader>v <C-C>ggVG
 
     " PageUp / PageDown by half of the screen
-    nnoremap <silent> <PageDown> :call smooth_scroll#down(&scroll, 0, 1)<CR>
-    nnoremap <silent> <PageUp> :call smooth_scroll#up(&scroll, 0, 1)<CR>
+    nmap <PageDown> <C-d>
+    nmap <PageUp> <C-u>
 
     " Jump to previous / next cursor position
     nnoremap <A-Left> <C-o>
