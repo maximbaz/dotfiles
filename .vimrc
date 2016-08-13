@@ -306,6 +306,17 @@
     map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
     map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
   " }}}
+  " EasyAlign {{{
+    nmap <Leader>= <Plug>(EasyAlign)
+    xmap <Leader>= <Plug>(EasyAlign)
+  " }}}
+  " GitGutter {{{
+    nmap <Leader>hh <Plug>GitGutterNextHunk<Plug>GitGutterPreviewHunk<Bar>zv
+    nmap <Leader>hH <Plug>GitGutterPrevHunk<Plug>GitGutterPreviewHunk<Bar>zv
+    nmap <Leader>ha <Plug>GitGutterStageHunk
+    nmap <Leader>hu <Plug>GitGutterUndoHunk
+    nmap <Leader>hp <Plug>GitGutterPreviewHunk
+  " }}}
   " Incsearch {{{
     map / <Plug>(incsearch-forward)
     map ? <Plug>(incsearch-backward)
