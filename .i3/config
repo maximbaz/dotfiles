@@ -1,21 +1,11 @@
 # Set font
 font pango: Noto Sans, Taskbar 9
 
-# Set gaps
-for_window [class="^.*"] border pixel 1
-gaps inner 30
-gaps outer 0
-
 # Borders
+for_window [class="^.*"] border pixel 1
 new_window pixel 1
-new_float pixel 1
+new_float pixel 0
 hide_edge_borders both
-
-# Colors
-client.focused #9fbc00 #dddddd #111111
-client.unfocused #444444 #444444 #315858
-client.focused_inactive #444444 #444444 #2c2c2f
-client.urgent #383a3b #383a3b #ee0000
 
 # Specific window configuration
 for_window    [window_role="pop-up"]                             floating enable
@@ -230,8 +220,6 @@ mode "$mode_system" {
   bindcode 27 exec --no-startup-id ~/bin/i3exit.sh reboot, mode "default"
   # (h)
   bindcode 43 exec --no-startup-id ~/bin/i3exit.sh shutdown, mode "default"
-  # (m)
-  bindcode 58 exec --no-startup-id xrandr --auto, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
