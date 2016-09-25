@@ -288,6 +288,9 @@
     map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
     map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
   " }}}
+  " Change tab size {{{
+    nnoremap <silent><Leader>cst :setlocal ts=4 sts=4 noet <bar> retab! <bar> setlocal ts=2 sts=2 et <bar> retab<CR>
+  " }}}
   " EasyAlign {{{
     nmap <Leader>= <Plug>(EasyAlign)
     xmap <Leader>= <Plug>(EasyAlign)
