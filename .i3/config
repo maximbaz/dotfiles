@@ -179,7 +179,7 @@ bindsym $mod+Shift+0 move container to $workspace0
 
 
 # Resize window (r)
-mode "Resize" {
+mode "Resize window" {
   # (h)
   bindcode 43            resize grow   left  10 px or 10 ppt
   bindcode Shift+43      resize shrink right 10 px or 10 ppt
@@ -208,7 +208,7 @@ mode "Resize" {
 bindcode $mod+27 mode "resize"
 
 # Shutdown, Suspend, Lock (e)
-set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown, (m) monitor reset
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
 mode "$mode_system" {
   # (l)
   bindcode 46 exec --no-startup-id ~/bin/i3exit.sh lock, mode "default"
@@ -228,7 +228,7 @@ mode "$mode_system" {
 bindcode $mod+Shift+26 mode "$mode_system"
 
 # Move workspaces between monitors (m)
-set $mode_workspaces_monitors Move workspace
+set $mode_workspaces_monitors Move workspace between monitors
 mode "$mode_workspaces_monitors" {
   # (h)
   bindcode 43 exec --no-startup-id i3-msg move workspace to output left, mode "default"
@@ -240,22 +240,4 @@ mode "$mode_workspaces_monitors" {
   bindsym Escape mode "default"
 }
 bindcode $mod+Shift+58 mode $mode_workspaces_monitors
-
-# Rotate external monitor (t)
-set $mode_rotate_external_monitor Rotate DP1 monitor (use arrow keys)
-mode "$mode_rotate_external_monitor" {
-  # (Up)
-  bindcode 111 exec --no-startup-id xrandr --output DP1 --rotate normal, mode "default"
-  # (Down)
-  bindcode 116 exec --no-startup-id xrandr --output DP1 --rotate inverted, mode "default"
-  # (Left)
-  bindcode 113 exec --no-startup-id xrandr --output DP1 --rotate left, mode "default"
-  # (Right)
-  bindcode 114 exec --no-startup-id xrandr --output DP1 --rotate right, mode "default"
-
-  # back to normal: Enter or Escape
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-bindcode $mod+Shift+28 mode $mode_rotate_external_monitor
 
