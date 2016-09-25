@@ -9,6 +9,9 @@ else
   setxkbmap -layout "ru"
 fi
 
+# Enable digraphs
+setxkbmap -option compose:ralt
+
 # Refresh py3status immediately
 killall -USR1 py3status
 
