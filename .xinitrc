@@ -58,6 +58,7 @@ redshift-gtk &                        # Warm colors at night
 shutter --min_at_startup &            # Screenshot manager
 udiskie --smart-tray &                # Automatically mount usb drives
 telegram-desktop &                    # Messaging
+~/bin/server_notify.pl &              # libnotify over ssh
 
 exec i3                               # WM
 
