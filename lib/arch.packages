@@ -37,7 +37,7 @@ docker
 dosfstools
 dropbox
 dropbox-cli
-dunst
+dunst-git
 e2fsprogs
 emacs
 encfs
@@ -120,6 +120,7 @@ maven
 mdadm
 mediainfo
 mercurial
+mpg123
 nano
 ncdu
 neovim
@@ -174,6 +175,7 @@ shadow
 shutter
 skype
 sshfs
+sshuttle
 sudo
 synergy
 sysfsutils
