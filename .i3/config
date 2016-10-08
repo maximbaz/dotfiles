@@ -179,7 +179,8 @@ bindsym $mod+Shift+0 move container to $workspace0
 
 
 # Resize window (r)
-mode "Resize window" {
+set $mode_resize Resize window
+mode "$mode_resize" {
   # (h)
   bindcode 43            resize grow   left  10 px or 10 ppt
   bindcode Shift+43      resize shrink right 10 px or 10 ppt
@@ -205,7 +206,7 @@ mode "Resize window" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindcode $mod+27 mode "resize"
+bindcode $mod+27 mode "$mode_resize"
 
 # Shutdown, Suspend, Lock (e)
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
