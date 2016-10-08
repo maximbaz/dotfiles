@@ -57,10 +57,10 @@ mse-build-full() {
   else
     notify_title="Build FAILURE"
     notify_urgency="critical"
-    notify_message="MSE build has failed.\\n\\n`tail $LOG_FILE`"
+    notify_message="MSE build has failed.\\n\\n`tail $LOG_FILE | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g'`"
   fi
 
-  notify-send -u $notify_urgency $notify_title $notify_message
+  ~/bin/client_notify.pl $notify_urgency $notify_title $notify_message
 
   tail $LOG_FILE
 }
