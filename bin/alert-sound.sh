@@ -1,4 +1,4 @@
 #!/bin/sh
 
-ogg123 ~/lib/alert.ogg
+mpg123 ~/lib/alert.mp3
 
