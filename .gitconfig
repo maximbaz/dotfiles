@@ -18,6 +18,5 @@
   autostash = true
   autosquash = true
 [user]
-  email = git@maximbaz.com
-  name = Maxim Baz
+  useConfigOnly = true
 
