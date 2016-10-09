@@ -1,6 +1,7 @@
 [global]
     alignment = left
     allow_markup = yes
+    plain_text = no
     bounce_freq = 0
     browser = /usr/bin/google-chrome-stable
     follow = keyboard
