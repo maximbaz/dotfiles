@@ -43,7 +43,11 @@ fi
 export PATH="$JAVA_HOME/bin:$PATH"
 
 # Maven configuration
-export MAVEN_OPTS="-Xms1024m -Xmx4096m -XX:PermSize=1024m"
+if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
+  export MAVEN_OPTS="-Xms1g -Xmx12g -XX:PermSize=1g"
+else
+  export MAVEN_OPTS="-Xms1g -Xmx4g -XX:PermSize=1g"
+fi
 export M2_HOME="/usr/share/maven3"
 export PATH="$M2_HOME/bin:$PATH"
 
