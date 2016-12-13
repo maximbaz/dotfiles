@@ -1,18 +1,3 @@
-# Environment variables
-JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-M2_HOME="/usr/share/maven3"
-GRADLE_HOME="$HOME/gradle-2.4"
-JETTY_HOME="$HOME/jetty-9.2"
-
-export MAVEN_OPTS="-Xms1024m -Xmx4096m -XX:PermSize=1024m"
-
-# PATH extensions
-export PATH="$JAVA_HOME/bin:$PATH"
-export PATH="$M2_HOME/bin:$PATH"
-export PATH="$GRADLE_HOME/bin:$PATH"
-export PATH="$JETTY_HOME/bin:$PATH"
-
-
 # Useful functions
 mse-get-properties() {
   ssh $1 "sudo sh -c 'cd /etc/sindbad/local; tar czf - *.properties'" | tar xzf -
@@ -64,5 +49,4 @@ mse-build-full() {
 
   tail $LOG_FILE
 }
-
 

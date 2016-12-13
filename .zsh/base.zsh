@@ -34,6 +34,27 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache --ignore .
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="command find -L . -fstype 'dev' -o -fstype 'proc' -prune -o -path '*/\\.git' -prune -o -type d -print 2> /dev/null | sed 1d | cut -b3-"
 
+# Java configuration
+if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
+  export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+else
+  export JAVA_HOME="/usr/lib/jvm/java-8-jdk"
+fi
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Maven configuration
+export MAVEN_OPTS="-Xms1024m -Xmx4096m -XX:PermSize=1024m"
+export M2_HOME="/usr/share/maven3"
+export PATH="$M2_HOME/bin:$PATH"
+
+# Gradle configuration
+export GRADLE_HOME="$HOME/gradle-2.4"
+export PATH="$GRADLE_HOME/bin:$PATH"
+
+# Jetty configuration
+export JETTY_HOME="$HOME/jetty-9.2"
+export PATH="$JETTY_HOME/bin:$PATH"
+
 # Haskell configuration
 export PATH="$HOME/.cabal/bin:$PATH"
 
