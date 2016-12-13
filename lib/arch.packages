@@ -6,6 +6,7 @@ android-sdk-build-tools
 android-sdk-platform-tools
 android-studio
 android-tools
+arc-gtk-theme
 autoconf
 automake
 bash
@@ -55,6 +56,7 @@ freerdp
 freetype2-infinality-ultimate
 fzf
 gawk
+geeqie
 gettext
 ghc
 ghc-mod
@@ -62,13 +64,14 @@ gimp
 git
 glibc
 gnome-keyring
+go
+go-tools
 google-chrome
 gradle
 grep
 groff
 grub
 gsimplecal
-gtk-theme-arc
 guvcview
 gvim
 gzip
@@ -149,10 +152,11 @@ pnmixer
 private-internet-access-vpn
 procps-ng
 psmisc
+pssh
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
-py3status-git
+py3status
 pycharm-community
 python-neovim
 python-pip
@@ -172,6 +176,7 @@ rxvt-unicode
 sakura
 sed
 shadow
+shellcheck
 shutter
 skype
 sshfs
@@ -206,6 +211,7 @@ w3m
 wget
 which
 wine
+wire-desktop
 wpa_supplicant
 xf86-input-synaptics
 xf86-video-intel
