@@ -9,7 +9,6 @@
   call dein#add('morhetz/gruvbox')                                      " Nice color theme
   call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
   call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
-  call dein#add('roman/golden-ratio')                                   " Automatic split resizing
   call dein#add('osyo-manga/vim-anzu')                                  " Show search count
   call dein#add('yonchu/accelerated-smooth-scroll')                     " Smooth scroll
 
