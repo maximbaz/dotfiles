@@ -43,3 +43,8 @@ if [ -f $HOME/.rvm/scripts/rvm ]; then
 fi
 export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
+
+# Go configuration
+export GOPATH=/home/maximbaz/.golang
+export PATH="$PATH:$GOPATH/bin"
+
