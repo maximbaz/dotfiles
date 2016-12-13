@@ -114,7 +114,6 @@
     set nrformats=
     set nostartofline
     set noswapfile
-    set relativenumber
     set report=0
     set ruler
     set smartcase
