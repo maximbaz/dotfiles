@@ -1,6 +1,3 @@
-# 10 second wait if you do something that will delete everything.
-setopt RM_STAR_WAIT
-
 # Set LS colors
 eval `dircolors ~/dircolors.256dark`
 
