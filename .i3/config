@@ -8,17 +8,14 @@ new_float pixel 0
 hide_edge_borders both
 
 # Specific window configuration
-for_window    [window_role="pop-up"]                             floating enable
-for_window    [class="Skype"]                                    move container to $workspace4
-for_window    [class="telegram-desktop"]                         move container to $workspace4
-for_window    [class="jetbrains-idea"]                           move container to $workspace5
-for_window    [class="jetbrains-studio"]                         move container to $workspace5
-for_window    [class="xfreerdp"]                                 move container to $workspace9
-for_window    [class="Emacs"]                                    move container to $workspace8
-for_window    [class="albert"]                                   border none
-for_window    [class="copyq"]                                    floating enable
-for_window    [instance="TeamViewer.exe"]                        floating enable, move container to $workspace0
-for_window    [instance="TeamViewer.exe" title="Free license"]   floating disable
+for_window    [window_role="pop-up"]         floating enable
+for_window    [class="albert"]               border none
+for_window    [class="copyq"]                floating enable
+for_window    [class="Wire"]                 move container to $workspace3
+for_window    [class="Thunderbird"]          move container to $workspace4
+for_window    [class="Slack"]                move container to $workspace6
+for_window    [instance="TeamViewer.exe"]    move container to $workspace9, floating enable
+for_window    [class="xfreerdp"]             move container to $workspace9
 
 # Bar
 bar {
