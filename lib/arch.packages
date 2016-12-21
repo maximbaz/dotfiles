@@ -17,7 +17,6 @@ blueman
 bluez
 bluez-firmware
 bluez-utils
-boinc
 bzip2
 cabal-install
 cairo-infinality-ultimate
@@ -38,7 +37,6 @@ docker
 dosfstools
 dropbox
 dropbox-cli
-dunst-git
 e2fsprogs
 emacs
 encfs
@@ -95,7 +93,6 @@ jfsutils
 jq
 kalu
 keepass
-keynav-git
 less
 lib32-alsa-plugins
 lib32-cairo-infinality-ultimate
@@ -134,6 +131,8 @@ networkmanager
 networkmanager-openvpn
 networkmanager-pptp
 nfs-utils
+notify-osd-customizable
+notifyconf
 npm
 ntp
 numlockx
@@ -167,6 +166,7 @@ python2-neovim
 python2-pip
 python2-pygame
 python2-pyparsing
+qdirstat
 qupzilla
 ranger
 redshift
@@ -179,6 +179,7 @@ shadow
 shellcheck
 shutter
 skype
+slack-desktop
 sshfs
 sshuttle
 sudo
@@ -190,6 +191,8 @@ teamviewer
 telegram-desktop-bin
 texinfo
 the_silver_searcher
+thunderbird
+thunderbird-enigmail
 tig
 tmux
 traceroute
