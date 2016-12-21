@@ -115,16 +115,16 @@ bindcode Ctrl+49 exec --no-startup-id copyq toggle
 # Workspaces
 focus_follows_mouse no
 
-set $workspace1 workspace "1"
-set $workspace2 workspace "2"
-set $workspace3 workspace "3"
-set $workspace4 workspace "4"
-set $workspace5 workspace "5"
-set $workspace6 workspace "6"
+set $workspace1 workspace "1: "
+set $workspace2 workspace "2: "
+set $workspace3 workspace "3: "
+set $workspace4 workspace "4: "
+set $workspace5 workspace "5: "
+set $workspace6 workspace "6: "
 set $workspace7 workspace "7"
 set $workspace8 workspace "8"
-set $workspace9 workspace "9"
-set $workspace0 workspace "10"
+set $workspace9 workspace "9: "
+set $workspace0 workspace "10: "
 
 # Switch to workspace using keypad
 bindcode $mod+87 $workspace1
