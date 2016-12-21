@@ -48,7 +48,7 @@ unclutter &                           # Hide mouse when using keyboard
 
 albert &                              # Launcher
 copyq &                               # Clipboard manager
-feh --bg-fill ~/lib/wallpaper.png &   # Set wallpaper
+feh --bg-fill ~/lib/wallpaper.jpg &   # Set wallpaper
 sleep 10s && kalu &                   # Watch for ArchLinux updates
 keynav &                              # Navigate mouse with keyboard
 nm-applet &                           # Network Manager applet
