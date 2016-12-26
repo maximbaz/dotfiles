@@ -93,6 +93,7 @@ jfsutils
 jq
 kalu
 keepass
+krita
 less
 lib32-alsa-plugins
 lib32-cairo-infinality-ultimate
@@ -132,7 +133,6 @@ networkmanager-openvpn
 networkmanager-pptp
 nfs-utils
 notify-osd-customizable
-notifyconf
 npm
 ntp
 numlockx
@@ -166,6 +166,7 @@ python2-neovim
 python2-pip
 python2-pygame
 python2-pyparsing
+python2-requests
 qdirstat
 qupzilla
 ranger
@@ -215,6 +216,7 @@ wget
 which
 wine
 wire-desktop
+wmctrl
 wpa_supplicant
 xf86-input-synaptics
 xf86-video-intel
