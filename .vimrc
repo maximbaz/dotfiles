@@ -59,8 +59,6 @@
   call dein#add('vim-scripts/SyntaxRange')                              " A different syntax for a region of file
   call dein#add('suan/vim-instant-markdown')                            " Instantly preview markdown
 
-  call dein#add('ludovicchabant/vim-gutentags')                         " Autogenerate CTags
-  call dein#add('jceb/vim-orgmode')                                     " Org Mode
   call dein#add('neomake/neomake')                                      " Linter
 
   call dein#add('wellle/targets.vim')                                                   " Add more targets to operate on
