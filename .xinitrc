@@ -50,14 +50,14 @@ albert &                              # Launcher
 copyq &                               # Clipboard manager
 feh --bg-fill ~/lib/wallpaper.jpg &   # Set wallpaper
 sleep 10s && kalu &                   # Watch for ArchLinux updates
-keynav &                              # Navigate mouse with keyboard
 nm-applet &                           # Network Manager applet
 pasystray &                           # PulseAudio manager (to select default sink)
 pnmixer &                             # PulseAudio mixer (to adjust volume)
 redshift-gtk &                        # Warm colors at night
 shutter --min_at_startup &            # Screenshot manager
 udiskie --smart-tray &                # Automatically mount usb drives
-telegram-desktop &                    # Messaging
+thunderbird &                         # Mail
+wire &                                # Messaging
 ~/bin/server_notify.pl &              # libnotify over ssh
 
 exec i3                               # WM
