@@ -48,7 +48,7 @@ if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
 else
   export MAVEN_OPTS="-Xms1g -Xmx4g -XX:PermSize=1g"
 fi
-export M2_HOME="/usr/share/maven3"
+export M3_HOME="/usr/share/maven3"
 export PATH="$M2_HOME/bin:$PATH"
 
 # Gradle configuration
