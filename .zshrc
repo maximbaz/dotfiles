@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-plugins=(git sudo zsh-completions zsh-syntax-highlighting)
+plugins=(encode64 git zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
