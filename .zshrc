@@ -7,6 +7,10 @@ source $ZSH/oh-my-zsh.sh
 rm -f $HOME/.zcompdump
 autoload -U compinit && compinit
 
+# Workaround for previewing imagines in ranger
+# https://bugs.launchpad.net/sakura/+bug/1625614
+export WINDOWID=$(($WINDOWID))
+
 # Load common configuration
 source ~/.zsh/aliases.zsh
 source ~/.zsh/base.zsh
