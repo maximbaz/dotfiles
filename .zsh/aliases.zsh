@@ -23,9 +23,6 @@ alias gf!="git commit --fixup"
 # Debian
 alias au="sudo apt-get update && sudo apt-get upgrade"
 
-# Plugin aliases
-alias cdr='cd-gitroot'
-
 # Directory aliases
 hash -d db="~/Dropbox"
 
