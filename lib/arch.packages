@@ -75,6 +75,7 @@ gvim
 gzip
 highlight
 htop
+httpie
 i3-wm
 i3lock
 i3status
@@ -122,6 +123,7 @@ mdadm
 mediainfo
 mercurial
 mpg123
+mtr
 nano
 ncdu
 neovim
@@ -162,18 +164,19 @@ python-pip
 python-pygame
 python-pyparsing
 python-six
+python-tqdm
 python2-neovim
 python2-pip
 python2-pygame
 python2-pyparsing
 python2-requests
+python2-tqdm
 qdirstat
 qupzilla
 ranger
 redshift
 reiserfsprogs
 rsync
-rxvt-unicode
 sakura
 sed
 shadow
@@ -202,10 +205,8 @@ udiskie
 unclutter
 unrar
 unzip
-urxvt-perls
 usbutils
 util-linux
-vagrant
 vi
 virtualbox
 virtualbox-ext-oracle
