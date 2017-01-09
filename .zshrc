@@ -15,7 +15,6 @@ export WINDOWID=$(($WINDOWID))
 source ~/.zsh/aliases.zsh
 source ~/.zsh/base.zsh
 source ~/.zsh/prompt.zsh
-source ~/.zsh/wm-specific.zsh
 
 # Load machine-specific configurations
 if [[ "$(hostname)" == "maximbaz-x1" ]]; then
