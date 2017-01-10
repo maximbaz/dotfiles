@@ -108,6 +108,7 @@ libappindicator-sharp
 libreoffice-still
 libtermkey
 libtool
+libva-intel-driver
 licenses
 linux
 linux-headers
@@ -123,6 +124,7 @@ mdadm
 mediainfo
 mercurial
 mpg123
+mpv
 mtr
 nano
 ncdu
@@ -182,7 +184,6 @@ sed
 shadow
 shellcheck
 shutter
-skype
 slack-desktop
 sshfs
 sshuttle
@@ -210,7 +211,6 @@ util-linux
 vi
 virtualbox
 virtualbox-ext-oracle
-vlc
 vorbis-tools
 w3m
 wget
@@ -228,5 +228,6 @@ xorg-xev
 xorg-xinit
 xorg-xprop
 yaourt
+youtube-dl
 zip
 zsh
