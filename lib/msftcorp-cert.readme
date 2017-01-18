@@ -1,3 +1,0 @@
-openssl pkcs12 -nocerts -in MSFTCORP-certificate.p12 -out userkey.pem
-openssl pkcs12 -nokeys -clcerts -in MSFTCORP-certificate.p12 -out usercert.pem
-
