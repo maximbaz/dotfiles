@@ -25,11 +25,6 @@ if [ "$(whoami)" != "root"  ]; then
   link "bin"
   link "lib"
 
-  link ".emacs.d/init.el"
-  link ".emacs.d/custom.el"
-  link ".emacs.d/configs"
-  link ".emacs.d/snippets"
-
   link ".i3/config"
   link ".i3status.conf"
 
