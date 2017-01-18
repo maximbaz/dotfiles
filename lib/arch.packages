@@ -45,7 +45,7 @@ feh
 file
 filesystem
 findutils
-firefox
+firefox-developer
 flex
 font-manager
 fontconfig-infinality-ultimate
@@ -173,7 +173,6 @@ python2-pygame
 python2-pyparsing
 python2-requests
 python2-tqdm
-qdirstat
 qupzilla
 ranger
 redshift
@@ -193,7 +192,6 @@ sysfsutils
 systemd-sysvcompat
 tar
 teamviewer
-telegram-desktop-bin
 texinfo
 the_silver_searcher
 thunderbird
@@ -227,6 +225,7 @@ xorg-server-utils
 xorg-xev
 xorg-xinit
 xorg-xprop
+xsel
 yaourt
 youtube-dl
 zip
