@@ -1,0 +1,32 @@
+# Set a folder with custom prompts
+fpath=($HOME/.zsh.prompts $fpath)
+
+# Color output
+zstyle ':prezto:*:*' color 'yes'
+
+# Set the Prezto modules
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'archive' \
+  'git' \
+  'pacman' \
+  'rsync' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt'
+
+# Auto convert .... to ../..
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+
+# Set the Pacman frontend.
+zstyle ':prezto:module:pacman' frontend 'yaourt'
+
+# Set the prompt theme to load.
+zstyle ':prezto:module:prompt' theme 'maximbaz'
+

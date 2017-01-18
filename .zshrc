@@ -1,20 +1,11 @@
-export ZSH=$HOME/.oh-my-zsh
+source "$HOME/.zprezto/init.zsh"
 
-plugins=(encode64 git zsh-completions zsh-syntax-highlighting)
+# Define a better hotkey to edit command in editor
+bindkey -M emacs "$key_info[Control]V$key_info[Control]V" edit-command-line
 
-source $ZSH/oh-my-zsh.sh
-
-rm -f $HOME/.zcompdump
-autoload -U compinit && compinit
-
-# Workaround for previewing imagines in ranger
-# https://bugs.launchpad.net/sakura/+bug/1625614
-export WINDOWID=$(($WINDOWID))
-
-# Load common configuration
-source ~/.zsh/aliases.zsh
-source ~/.zsh/base.zsh
-source ~/.zsh/prompt.zsh
+# Load generic configurations
+source ~/.zsh/aliases.base.zsh
+source ~/.zsh/aliases.git.zsh
 
 # Load machine-specific configurations
 if [[ "$(hostname)" == "maximbaz-x1" ]]; then

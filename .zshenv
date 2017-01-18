@@ -1,33 +1,11 @@
-# Set LS colors
-eval `dircolors ~/dircolors.256dark`
-
-# Some environment variables
-export VISUAL='nvim'
 export EDITOR='nvim'
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export VISUAL='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Better Up and Down keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[OA" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
-bindkey "^[OB" down-line-or-beginning-search
-
-# Edit command in vim
-autoload edit-command-line
-zle -N edit-command-line
-bindkey "^X^V" edit-command-line
-
-# Toggle sudo
-bindkey "^X^S" sudo-command-line
+# NeoVim configuration
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Better FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache --ignore .npm --ignore .gem --ignore .local -g ""'
@@ -72,4 +50,9 @@ export PATH="$PATH:$GEM_HOME/bin"
 # Go configuration
 export GOPATH=/home/maximbaz/.golang
 export PATH="$PATH:$GOPATH/bin"
+
+
+# Workaround for previewing imagines in ranger
+# https://bugs.launchpad.net/sakura/+bug/1625614
+export WINDOWID=$(($WINDOWID))
 
