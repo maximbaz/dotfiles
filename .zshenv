@@ -51,8 +51,3 @@ export PATH="$PATH:$GEM_HOME/bin"
 export GOPATH=/home/maximbaz/.golang
 export PATH="$PATH:$GOPATH/bin"
 
-
-# Workaround for previewing imagines in ranger
-# https://bugs.launchpad.net/sakura/+bug/1625614
-export WINDOWID=$(($WINDOWID))
-

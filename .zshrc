@@ -1,3 +1,8 @@
+# Workaround for previewing imagines in ranger
+# https://bugs.launchpad.net/sakura/+bug/1625614
+export WINDOWID=$(($WINDOWID))
+
+
 source "$HOME/.zprezto/init.zsh"
 
 # Define a better hotkey to edit command in editor
