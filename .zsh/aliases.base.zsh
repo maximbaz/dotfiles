@@ -1,7 +1,7 @@
 alias plz='sudo $(fc -ln -1)'
 alias psg='ps aux | grep '
 alias rm='nocorrect rm -rf'
-alias sudo='sudo -E'
+alias sudo='sudo -E '
 alias vi='nvim'
 alias vim='nvim'
 
