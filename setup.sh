@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 path() {
   mkdir -p "$(dirname "$1")"
