@@ -2,9 +2,10 @@
 ! Xft settings
 !----------------------------------------------------------
 
-Xft.dpi:                        192
-Xft.antialias:                  true
-Xft.rgba:                       rgb
-Xft.hinting:                    true
-Xft.hintstyle:                  hintslight
+Xft.antialias: true
+Xft.dpi: 192
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
 
