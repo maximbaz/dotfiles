@@ -49,7 +49,7 @@ mse-build-full() {
   echo $BUILD_COMMAND > $LOG_FILE_ERR
 
   echo "Build in progress..."
-  eval $BUILD_COMMAND >> $LOG_FILE 2>$LOG_FILE_ERR
+  eval $BUILD_COMMAND >> $LOG_FILE 2>>$LOG_FILE_ERR
 
   if [ $? = 0 ]; then
     notify_title="Build SUCCESS"
