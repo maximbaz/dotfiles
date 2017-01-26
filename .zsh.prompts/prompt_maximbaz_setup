@@ -114,7 +114,7 @@ prompt_maximbaz_precmd() {
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
   PROMPT='
 %{%f%b%k%}$(prompt_maximbaz_main)
-%B%F{blue}❯%f%b  '
+%B%F{blue}❯%f%b  ${editor_info[keymap]}'
 }
 
 prompt_maximbaz_setup() {
@@ -125,6 +125,8 @@ prompt_maximbaz_setup() {
 
   add-zsh-hook precmd prompt_maximbaz_precmd
 
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*' check-for-changes false
   zstyle ':vcs_info:git*' formats '%b'
@@ -132,3 +134,4 @@ prompt_maximbaz_setup() {
 }
 
 prompt_maximbaz_setup "$@"
+
