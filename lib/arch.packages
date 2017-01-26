@@ -85,6 +85,7 @@ keepass
 krita
 less
 lib32-alsa-plugins
+lib32-cairo
 lib32-libpulse
 lib32-mesa-libgl
 libappindicator-gtk2
