@@ -5,6 +5,7 @@ alias rm='nocorrect rm -rf'
 alias sudo='sudo -E '
 alias vi='nvim'
 alias vim='nvim'
+alias pacU='yaourt -Syyua --devel'
 
 
 # FZF aliases
