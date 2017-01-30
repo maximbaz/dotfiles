@@ -14,7 +14,6 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'archive' \
-  'git' \
   'pacman' \
   'rsync' \
   'syntax-highlighting' \
