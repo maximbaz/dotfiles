@@ -11,6 +11,7 @@ hide_edge_borders both
 for_window    [window_role="pop-up"]         floating enable
 for_window    [class="albert"]               border none
 for_window    [class="copyq"]                floating enable
+for_window    [class="Cerebro"]              floating enable, border none
 for_window    [class="Google-chrome"]        move container to $workspace2, title_format "Google Chrome"
 for_window    [class="Wire"]                 move container to $workspace3
 for_window    [class="Slack"]                move container to $workspace3
