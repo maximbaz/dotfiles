@@ -250,8 +250,8 @@
     nnoremap <expr> k v:count ? 'k' : 'gk'
 
     " Format json
-    nnoremap <silent> <Leader>json :%!python -m json.tool<CR>
-    vnoremap <silent> <Leader>json :!python -m json.tool<CR>
+    nnoremap <silent> <Leader>json :%!jq .<CR>
+    vnoremap <silent> <Leader>json :!jq .<CR>
 
     " Indent / unindent
     nnoremap <S-Tab> <<
