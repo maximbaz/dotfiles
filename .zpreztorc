@@ -20,6 +20,9 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt'
 
+# Load all custom modules
+source $HOME/.zsh.modules/**/init.zsh
+
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
