@@ -46,7 +46,6 @@ setxkbmap -option compose:ralt        # Enable digraphs
 numlockx &                            # Turn on NumLock
 unclutter &                           # Hide mouse when using keyboard
 
-albert &                              # Launcher
 cerebro &                             # Launcher
 copyq &                               # Clipboard manager
 feh --bg-fill ~/lib/wallpaper.jpg &   # Set wallpaper
