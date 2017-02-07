@@ -15,17 +15,17 @@ alias gbss='git bisect start'
 alias gc='git commit -v'
 alias gc!='git commit -v --amend'
 alias gcn!='git commit -v --no-edit --amend'
-alias gca='git add --all && git commit -v'
-alias gca!='git add --all && git commit -v --amend'
-alias gcan!='git add --all && git commit -v --amend --no-edit'
-alias gcamsg='git add --all && git commit -m'
-alias gcmsg='git commit -m'
+alias gac='git add --all && git commit -v'
+alias gac!='git add --all && git commit -v --amend'
+alias gacn!='git add --all && git commit -v --amend --no-edit'
+alias gacm='git add --all && git commit -m'
+alias gcm='git commit -m'
 alias gcf='git commit --fixup'
 
 alias gcl='git clone --recursive'
 
-alias gcm='git checkout master'
 alias gco='git checkout'
+alias gcom='git checkout master'
 alias gcob='git checkout -b'
 
 alias gd='git diff'
@@ -41,6 +41,7 @@ alias glogp='git log -p'
 alias gm='git merge'
 
 alias gp='git push'
+alias gpf='git push --force'
 alias gpu='git push -u'
 
 alias gr='git remote'
@@ -56,6 +57,7 @@ alias grbom='git rebase -i origin/master'
 
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
+alias grhh!='git add --all && git reset HEAD --hard'
 
 alias gs='git show'
 
