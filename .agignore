@@ -1,0 +1,16 @@
+.cache/
+.dropbox/
+.gem/
+.git/
+.gradle/
+.local/
+.m2/
+.mozilla/
+.node-gyp/
+.npm/
+.thunderbird/
+.wine/
+node_modules/
+
+*.class
+

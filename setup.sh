@@ -43,6 +43,7 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/redshift.conf"
   link ".config/sakura"
 
+  link ".agignore"
   link ".compton.conf"
   link ".gitconfig"
   link ".gtkrc-2.0"
@@ -66,6 +67,8 @@ fi
 
 if [ "$(whoami)" == "root"  ]; then
   create_link "/home/maximbaz/.config/nvim/init.vim" "/root/.config/nvim/init.vim"
+
+  create_link "$dotfiles_dir/.agignore" "/root/.agignore"
 
   create_link "/home/maximbaz/.zprezto" "/root/.zprezto"
   create_link "$dotfiles_dir/.zlogin" "/root/.zlogin"
