@@ -54,7 +54,7 @@ nm-applet &                           # Network Manager applet
 pasystray &                           # PulseAudio manager (to select default sink)
 pnmixer &                             # PulseAudio mixer (to adjust volume)
 redshift-gtk &                        # Warm colors at night
-shutter --min_at_startup &            # Screenshot manager
+hotshots &                            # Screenshot manager
 udiskie --smart-tray &                # Automatically mount usb drives
 thunderbird &                         # Mail
 wire &                                # Messaging
