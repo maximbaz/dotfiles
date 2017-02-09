@@ -32,7 +32,6 @@ if [ "$(whoami)" != "root"  ]; then
 
   link ".config/Cerebro/config.json"
   link ".config/copyq/copyq.conf"
-  link ".config/dunst"
   link ".config/gsimplecal"
   link ".config/gtk-3.0"
   link ".config/htop"
