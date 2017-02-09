@@ -1,5 +1,4 @@
 acpi
-albert
 arc-gtk-theme
 autoconf
 automake
@@ -61,6 +60,7 @@ gsimplecal
 gvim
 gzip
 highlight
+hotshots
 htop
 httpie
 i3-wm
@@ -151,6 +151,7 @@ pssh
 pulseaudio
 pulseaudio-alsa
 py3status
+python-keyutils
 python-neovim
 python-pip
 python-pygame
