@@ -11,6 +11,7 @@ bindkey -M emacs "$key_info[Control]V$key_info[Control]V" edit-command-line
 # Load generic configurations
 source ~/.zsh/aliases.base.zsh
 source ~/.zsh/aliases.git.zsh
+source ~/.zsh/fzf.zsh
 
 # Load machine-specific configurations
 if [[ "$(hostname)" == "maximbaz-x1" ]]; then

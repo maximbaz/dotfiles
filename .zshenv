@@ -7,11 +7,6 @@ export LC_ALL=en_US.UTF-8
 # NeoVim configuration
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-# Better FZF
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache --ignore .npm --ignore .gem --ignore .local -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="command find -L . -fstype 'dev' -o -fstype 'proc' -prune -o -path '*/\\.git' -prune -o -type d -print 2> /dev/null | sed 1d | cut -b3-"
-
 # Java configuration
 if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
   export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
