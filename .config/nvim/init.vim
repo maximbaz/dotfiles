@@ -125,7 +125,7 @@
   " Theme {{{
     colorscheme gruvbox
     set background=dark
-    set guifont=Powerline\ Consolas\ 11
+    set guifont=Consolas\ 11
     set guioptions+=c
     set guioptions-=T
     set guioptions-=m
