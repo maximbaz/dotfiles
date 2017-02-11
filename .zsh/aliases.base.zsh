@@ -1,4 +1,4 @@
-alias ag='ag --hidden'
+alias ag='ag --hidden -f'
 alias http-serve='python3 -m http.server'
 alias plz='sudo $(fc -ln -1)'
 alias psg='ps aux | grep '
