@@ -14,14 +14,13 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'archive' \
+  'base64' \
+  'fancy-ctrl-z' \
   'pacman' \
   'rsync' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
-
-# Load all custom modules
-source $HOME/.zsh.modules/**/init.zsh
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
