@@ -31,8 +31,8 @@ alias gcob='git checkout -b'
 alias gd='git diff'
 alias gds='git diff --cached'
 
-alias gf='git fetch'
-alias gl='git pull'
+alias gf='git fetch --tags'
+alias gl='git pull --tags'
 
 alias glog="git log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
 alias gloga="git log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
