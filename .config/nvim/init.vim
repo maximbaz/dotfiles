@@ -466,5 +466,10 @@
     autocmd BufWinEnter * if &buftype == 'help' | nnoremap <buffer> q :helpclose <CR> | endif
     autocmd InsertLeave * pclose
   augroup END
+
+  augroup reload-files-changed-outside
+    autocmd!
+    autocmd BufEnter,FocusGained * checktime
+  augroup END
 " }}}
 
