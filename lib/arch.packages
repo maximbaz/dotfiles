@@ -1,4 +1,5 @@
 acpi
+acpi_call
 arc-gtk-theme
 autoconf
 automake
@@ -45,7 +46,6 @@ geeqie
 gettext
 ghc
 ghc-mod
-gimp
 git
 glibc
 gnome-keyring
@@ -176,6 +176,7 @@ shellcheck
 slack-desktop
 sshfs
 sshuttle
+stack
 sudo
 synergy
 sysfsutils
@@ -187,7 +188,10 @@ the_silver_searcher
 thunderbird
 thunderbird-enigmail
 tig
+tlp
+tlp-rdw
 tmux
+tp_smapi
 traceroute
 transmission-qt
 udiskie
