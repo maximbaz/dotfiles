@@ -221,6 +221,20 @@
     " Select most recent paste
     nmap gV vgb
 
+    " Copy to system clipboard
+    nnoremap <Leader>y "+y
+    vnoremap <Leader>y "+y
+
+    " Paste from system clipboard
+    nnoremap <Leader>p "+p
+    vnoremap <Leader>p "+p
+    nnoremap <Leader>P "+P
+    vnoremap <Leader>P "+P
+
+    " Delete, not cut
+    nnoremap <Leader>d "_d
+    vnoremap <Leader>d "_d
+
     " Navigate through autocompletion
     inoremap <C-j> <C-n>
     inoremap <C-k> <C-p>
@@ -294,7 +308,6 @@
   " FZF (fuzzy navigation) {{{
     nnoremap <silent> <Leader>f :Files<CR>
     nnoremap <silent> <Leader>F :Files ~<CR>
-    nnoremap <silent> <Leader>p :GFiles<CR>
     nnoremap <silent> <Leader>b :Buffers<CR>
     nnoremap <silent> <Leader>g :Ag<CR>
   " }}}
