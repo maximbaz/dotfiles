@@ -98,6 +98,31 @@ prompt_time() {
   print -Pn " %* "
 }
 
+prompt_human_time_to_var() {
+  local human=" " total_seconds=$1 var=$2
+  local days=$(( total_seconds / 60 / 60 / 24 ))
+  local hours=$(( total_seconds / 60 / 60 % 24 ))
+  local minutes=$(( total_seconds / 60 % 60 ))
+  local seconds=$(( total_seconds % 60 ))
+  (( days > 0 )) && human+="${days}d "
+  (( hours > 0 )) && human+="${hours}h "
+  (( minutes > 0 )) && human+="${minutes}m "
+  human+="${seconds}s"
+
+  # store human readable time in variable as specified by caller
+  typeset -g "${var}"="${human}"
+}
+
+prompt_maximbaz_check_cmd_exec_time() {
+  integer elapsed
+  (( elapsed = SECONDS - ${prompt_maximbaz_cmd_timestamp:-$SECONDS} ))
+  prompt_maximbaz_cmd_exec_time=
+  (( elapsed >= 5 )) && {
+    prompt_human_time_to_var $elapsed "prompt_maximbaz_cmd_exec_time"
+  }
+  unset prompt_maximbaz_cmd_timestamp
+}
+
 ## Main prompt
 prompt_maximbaz_main() {
   CURRENT_BG='NONE'
@@ -110,20 +135,32 @@ prompt_maximbaz_main() {
 }
 
 prompt_maximbaz_precmd() {
+  prompt_maximbaz_check_cmd_exec_time
+
   vcs_info
+
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+  RPROMPT='%F{yellow}${prompt_maximbaz_cmd_exec_time}%f'
   PROMPT='
 %{%f%b%k%}$(prompt_maximbaz_main)
-%B%F{blue}❯%f%b  ${editor_info[keymap]}'
+%B%(?.%F{blue}.%F{red})❯%f%b  ${editor_info[keymap]}'
+}
+
+prompt_maximbaz_preexec() {
+  prompt_maximbaz_cmd_timestamp=$SECONDS
 }
 
 prompt_maximbaz_setup() {
+  # Don't display percentages when newline is missing
+  export PROMPT_EOL_MARK=''
+
   autoload -Uz add-zsh-hook
   autoload -Uz vcs_info
 
   prompt_opts=(cr subst percent)
 
   add-zsh-hook precmd prompt_maximbaz_precmd
+  add-zsh-hook preexec prompt_maximbaz_preexec
 
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
 
@@ -134,4 +171,3 @@ prompt_maximbaz_setup() {
 }
 
 prompt_maximbaz_setup "$@"
-
