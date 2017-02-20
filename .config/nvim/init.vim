@@ -26,7 +26,6 @@
   call dein#add('t9md/vim-smalls')                                      " Quick jump anywhere
   call dein#add('haya14busa/vim-asterisk')                              " Star * improvements
   call dein#add('christoomey/vim-tmux-navigator')                       " Easy navigation between TMUX and VIM splits
-  call dein#add('scrooloose/nerdtree')                                  " Folder tree
   call dein#add('airblade/vim-rooter')                                  " Change working directory to the project root
   call dein#add('junegunn/fzf', {'build': './install --bin'})           " Fuzzy search - binary
   call dein#add('junegunn/fzf.vim')                                     " Fuzzy search - vim plugin
@@ -38,7 +37,6 @@
 
   call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
   call dein#add('Shougo/neco-vim')                                      " Vim autocomplete
-  call dein#add('eagletmt/neco-ghc')                                    " Haskell autocomplete
   call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
   call dein#add('carlitux/deoplete-ternjs')                             " Javascript autocomplete
   call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})        " JS code navigation
@@ -49,15 +47,21 @@
 
   call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
   call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
-  call dein#add('AndrewRadev/switch.vim')                               " TODO Smart switch (true -> false, etc.)
   call dein#add('mattn/emmet-vim')                                      " TODO HTML editing
   call dein#add('AndrewRadev/splitjoin.vim')                            " TODO Toggle single-line and multi-line expressions
 
   call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
-  call dein#add('PotatoesMaster/i3-vim-syntax')                         " i3 syntax
   call dein#add('ap/vim-css-color')                                     " Colors in CSS
   call dein#add('vim-scripts/SyntaxRange')                              " A different syntax for a region of file
   call dein#add('suan/vim-instant-markdown')                            " Instantly preview markdown
+
+  call dein#add('neovimhaskell/haskell-vim')                            " Better syntax highlight and indentation
+  call dein#add('eagletmt/neco-ghc')                                    " Haskell autocomplete
+  call dein#add('eagletmt/ghcmod-vim')                                  " Ghc Mod
+  call dein#add('alx741/vim-hindent')                                   " Automatically format Haskell code
+  call dein#add('enomsg/vim-haskellConcealPlus')                        " Use unicode symbols for haskell keywords
+  call dein#add('Twinside/vim-hoogle')                                  " Query hoogle
+  call dein#add('mpickering/hlint-refactor-vim')                        " Fix lint issues
 
   call dein#add('neomake/neomake')                                      " Linter
 
@@ -162,6 +166,7 @@
   " Deoplete {{{
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#enable_refresh_always = 1
+    let g:deoplete#max_menu_width = 80
   " }}}
   " Deoplete-jedi (Python completion) {{{
     let deoplete#sources#jedi#show_docstring = 1
@@ -170,6 +175,18 @@
     let g:tern_request_timeout = 1
     let g:tern#command = ["tern"]
     let g:tern#arguments = ["--persistent"]
+  " }}}
+  " Haskell Conceal {{{
+    let hscoptions="𝐒𝐓𝐄𝐌wRTBQZDC"
+  " }}}
+  " Haskell vim {{{
+    let g:haskell_indent_disable = 1
+  " }}}
+  " Neco-ghc {{{
+    let g:necoghc_enable_detailed_browse = 1
+  " }}}
+  " Hlint refactor {{{
+    let g:hlintRefactor#disableDefaultKeybindings = 1
   " }}}
   " Vim-monster (Ruby completion) {{{
     let g:monster#completion#rcodetools#backend = "async_rct_complete"
@@ -183,10 +200,6 @@
   " }}}
   " Neomake (linter) {{{
     let g:neomake_open_list = 2
-  " }}}
-  " NERDTree {{{
-    let NERDTreeChDirMode = 2
-    let NERDTreeShowBookmarks = 1
   " }}}
   " TComment {{{
     let g:tcommentTextObjectInlineComment = ''
@@ -309,14 +322,24 @@
     nnoremap <silent> <Leader>f :Files<CR>
     nnoremap <silent> <Leader>F :Files ~<CR>
     nnoremap <silent> <Leader>b :Buffers<CR>
-    nnoremap <silent> <Leader>g :Ag<CR>
+    nnoremap <silent> <Leader>G :Ag<CR>
+  " }}}
+  " Ghc-mod {{{
+    nnoremap <silent> <leader>ht :w<CR>:GhcModType<CR>:GhcModTypeClear<CR>
+    nnoremap <silent> <leader>hT :w<CR>mh0:GhcModTypeInsert<CR>`h
+    nnoremap <silent> <leader>hi :w<CR>:GhcModInfo<CR>
+    nnoremap <silent> <leader>hI :HoogleInfo<CR>
   " }}}
   " GitGutter {{{
-    nmap <Leader>hh <Plug>GitGutterNextHunk<Plug>GitGutterPreviewHunk<Bar>zv
-    nmap <Leader>hH <Plug>GitGutterPrevHunk<Plug>GitGutterPreviewHunk<Bar>zv
-    nmap <Leader>ha <Plug>GitGutterStageHunk
-    nmap <Leader>hu <Plug>GitGutterUndoHunk
-    nmap <Leader>hp <Plug>GitGutterPreviewHunk
+    nmap ]c <Plug>GitGutterNextHunk<Plug>GitGutterPreviewHunk<Bar>zv
+    nmap [c <Plug>GitGutterPrevHunk<Plug>GitGutterPreviewHunk<Bar>zv
+    nmap <Leader>ga <Plug>GitGutterStageHunk
+    nmap <Leader>gu <Plug>GitGutterUndoHunk
+    nmap <Leader>gp <Plug>GitGutterPreviewHunk
+  " }}}
+  " Hlint refactor {{{
+    nnoremap <silent> <leader>hr :call ApplyOneSuggestion()<CR>
+    nnoremap <silent> <leader>hR :call ApplyAllSuggestions()<CR>
   " }}}
   " Incsearch {{{
     map / <Plug>(incsearch-forward)
@@ -331,12 +354,7 @@
     map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zv
   " }}}
   " Neomake {{{
-    nnoremap <Leader>m :Neomake<CR>
-  " }}}
-  " NERDTree {{{
-    nnoremap <Leader>t :NERDTreeFind<CR>
-    nnoremap <Leader>T :NERDTreeToggle<CR>
-    let g:NERDTreeMapActivateNode="<Leader>t"
+    nnoremap <Leader>m :w <bar> Neomake<CR>
   " }}}
   " Repeat macro over visual selection {{{
     xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
