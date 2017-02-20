@@ -1,4 +1,3 @@
 #!/bin/sh
 
-mpg123 ~/lib/alert.mp3
-
+mpg123 /home/maximbaz/lib/alert.mp3 >/dev/null 2>&1 &
