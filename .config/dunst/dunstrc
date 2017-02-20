@@ -1,0 +1,60 @@
+[global]
+    alignment = left
+    markup = full
+    plain_text = no
+    bounce_freq = 0
+    browser = /usr/bin/google-chrome-stable
+    follow = keyboard
+    font = Open Sans, Taskbar 19
+    format = "<b>%s</b>\n%b %p"
+    geometry = "700x5-40+200"
+    hide_duplicate_count = true
+    history_length = 20
+    horizontal_padding = 20
+    idle_threshold = 120
+    ignore_newline = no
+    indicate_hidden = yes
+    line_height = 0
+    monitor = 0
+    padding = 25
+    separator_color = "#000000"
+    separator_height = 3
+    show_age_threshold = -1
+    show_indicators = no
+    sort = yes
+    startup_notification = false
+    sticky_history = yes
+    word_wrap = yes
+    icon_position = left
+    max_icon_size = 128
+    icon_folders = /usr/share/icons/hicolor/scalable/apps:/usr/share/icons/hicolor/128x128/apps:/usr/share/icons/hicolor/256x256/apps
+
+[frame]
+    width = 1
+    color = "#353535"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history =
+    context =
+
+[urgency_low]
+    timeout = 10
+    background = "#353535"
+    foreground = "#eaeaea"
+    icon = /usr/share/icons/Adwaita/256x256/status/dialog-information.png
+
+[urgency_normal]
+    timeout = 10
+    background = "#353535"
+    foreground = "#eaeaea"
+    icon = /usr/share/icons/Adwaita/256x256/status/dialog-information.png
+
+[urgency_critical]
+    timeout = 0
+    background = "#4a3533"
+    foreground = "#eaeaea"
+    icon = /usr/share/icons/Adwaita/256x256/status/dialog-error.png
+
+# vim: ft=cfg
