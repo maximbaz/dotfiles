@@ -25,6 +25,7 @@ docker
 dosfstools
 dropbox
 dropbox-cli
+dunst-git
 e2fsprogs
 encfs
 fakeroot
@@ -59,7 +60,11 @@ grub
 gsimplecal
 gvim
 gzip
+haskell-apply-refact
 highlight
+hindent
+hlint
+hoogle
 hotshots
 htop
 httpie
@@ -126,7 +131,6 @@ networkmanager
 networkmanager-openvpn
 networkmanager-pptp
 nfs-utils
-notify-osd-customizable
 npm
 ntp
 numlockx
@@ -194,6 +198,7 @@ tmux
 tp_smapi
 traceroute
 transmission-qt
+trash-cli
 udiskie
 unclutter
 unrar
