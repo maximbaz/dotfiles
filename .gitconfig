@@ -3,6 +3,14 @@
   ms = !"git config user.name 'Maxim Baz'; git config user.email 'maximbaz@microsoft.com'"
 [branch]
   autosetuprebase = always
+[color "branch"]
+  current = green reverse
+  local = green
+  remote = yellow
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = red
 [core]
   autocrlf = input
   filemode = true
