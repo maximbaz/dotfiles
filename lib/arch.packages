@@ -11,7 +11,7 @@ byzanz
 cabal-install
 cairo
 calibre
-cerebro
+cerebro-git
 compton
 copyq
 cronie
@@ -71,6 +71,7 @@ httpie
 i3-wm
 i3lock
 i3status
+iftop
 inetutils
 inotify-tools
 intellij-idea-ultimate-edition
@@ -134,6 +135,7 @@ nfs-utils
 npm
 ntp
 numlockx
+odt2txt
 openal
 openssh
 os-prober
@@ -144,6 +146,7 @@ pavucontrol
 pciutils
 pcmciautils
 perl
+perl-try-tiny
 pidcat
 pkg-config
 pkgbrowser
