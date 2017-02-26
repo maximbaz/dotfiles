@@ -2,6 +2,7 @@ alias g='git'
 
 alias ga='git add'
 alias gaa='git add --all'
+alias gap='git add -p'
 
 alias gb='git branch'
 alias gbd='git branch -d'
