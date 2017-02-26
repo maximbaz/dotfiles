@@ -2,7 +2,9 @@
 
 lock() {
   ~/bin/change-keyboard-layout.sh reset
-  i3lock -f -c 000000
+  killall -u "$USER" -USR1 dunst
+  i3lock -e -f -n -c 000000
+  killall -u "$USER" -USR2 dunst
 }
 
 case "$1" in
