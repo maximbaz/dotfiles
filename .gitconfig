@@ -1,5 +1,6 @@
 [alias]
-  ms = config user.email \"maximbaz@microsoft.com\"
+  me = !"git config user.name 'Maxim Baz'; git config user.email 'git@maximbaz.com'"
+  ms = !"git config user.name 'Maxim Baz'; git config user.email 'maximbaz@microsoft.com'"
 [branch]
   autosetuprebase = always
 [core]
