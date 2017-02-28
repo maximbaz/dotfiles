@@ -35,6 +35,9 @@
   call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
   call dein#add('t9md/vim-textmanip')                                   " Move selection up and down
 
+  call dein#add('SirVer/ultisnips')                                     " Snippet engine
+  call dein#add('honza/vim-snippets')                                   " List of snippets
+
   call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
   call dein#add('Shougo/neco-vim')                                      " Vim autocomplete
   call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
@@ -205,6 +208,11 @@
   " TComment {{{
     let g:tcommentTextObjectInlineComment = ''
   " }}}
+  " UltiSnips {{{
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+  " }}}
 " }}}
 " Keyboard shortcuts {{{
   " Base {{{
@@ -284,8 +292,8 @@
     " Indent / unindent
     nnoremap <S-Tab> <<
     nnoremap <Tab> >>
-    vnoremap <Tab> >gv
-    vnoremap <S-Tab> <gv
+    xnoremap <Tab> >gv
+    xnoremap <S-Tab> <gv
 
     " Select all
     nnoremap <Leader>v ggVG
@@ -503,5 +511,9 @@
     autocmd!
     autocmd BufEnter,FocusGained * checktime
   augroup END
-" }}}
 
+  augroup fix-ultisnips-overriding-tab-visual-mode
+    autocmd!
+    autocmd VimEnter * xnoremap <Tab> >gv
+  augroup END
+" }}}
