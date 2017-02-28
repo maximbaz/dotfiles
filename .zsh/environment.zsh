@@ -4,6 +4,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Set chars treated as part of a word
+export WORDCHARS='*?.[]~&!#$%^(){}<>'
+
 # NeoVim configuration
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
