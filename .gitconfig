@@ -8,8 +8,8 @@
   local = green
   remote = yellow
 [color "status"]
-  added = yellow
-  changed = green
+  added = green
+  changed = yellow
   untracked = red
 [core]
   autocrlf = input
