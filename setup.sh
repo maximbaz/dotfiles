@@ -48,7 +48,6 @@ if [ "$(whoami)" != "root"  ]; then
   link ".compton.conf"
   link ".gitconfig"
   link ".gtkrc-2.0"
-  link ".notify-osd"
   link ".pylintrc"
   link ".tigrc"
   link ".tmux.conf"
