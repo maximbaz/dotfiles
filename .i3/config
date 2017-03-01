@@ -239,4 +239,3 @@ mode "$mode_workspaces_monitors" {
   bindsym Escape mode "default"
 }
 bindcode $mod+Shift+58 mode $mode_workspaces_monitors
-

@@ -14,4 +14,3 @@ setxkbmap -option compose:ralt
 
 # Refresh py3status immediately
 killall -USR1 py3status
-

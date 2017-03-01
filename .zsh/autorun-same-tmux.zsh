@@ -6,4 +6,3 @@ if [[ -z "$TMUX" ]]; then
     exec tmux attach
   fi
 fi
-

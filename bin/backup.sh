@@ -37,4 +37,3 @@ echo -e "\nRemaining disk space\n"
 df -kh $BACKUP_PATH
 
 exit $exitcode
-

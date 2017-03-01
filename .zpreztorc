@@ -30,4 +30,3 @@ zstyle ':prezto:module:pacman' frontend 'yaourt'
 
 # Set the prompt theme to load.
 zstyle ':prezto:module:prompt' theme 'maximbaz'
-

@@ -48,4 +48,3 @@ export PATH="$PATH:$GEM_HOME/bin"
 # Go configuration
 export GOPATH=/home/maximbaz/.golang
 export PATH="$PATH:$GOPATH/bin"
-

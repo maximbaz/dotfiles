@@ -65,4 +65,3 @@ mse-build-full() {
 
   tail $LOG_FILE
 }
-

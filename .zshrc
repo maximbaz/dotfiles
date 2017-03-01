@@ -19,4 +19,3 @@ if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
   source ~/.zsh/mse.zsh
   source ~/.zsh/autorun-same-tmux.zsh
 fi
-

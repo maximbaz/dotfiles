@@ -4,4 +4,3 @@
   autoload -U compinit && compinit
   zcompile "$ZCOMPDUMP"
 } &!
-

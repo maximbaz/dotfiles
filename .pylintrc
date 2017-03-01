@@ -1,4 +1,3 @@
 [MESSAGES CONTROL]
 # W0141 Used builtin function
 disable=R,C,W0141
-

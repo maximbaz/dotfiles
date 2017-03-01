@@ -21,4 +21,3 @@ _fzf_compgen_path() {
 export FZF_COMPLETION_TRIGGER=''
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
-

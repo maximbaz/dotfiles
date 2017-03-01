@@ -77,4 +77,3 @@ if [ "$(whoami)" == "root"  ]; then
   create_link "$dotfiles_dir/.zshenv" "/root/.zshenv"
   create_link "$dotfiles_dir/.zshrc" "/root/.zshrc"
 fi
-

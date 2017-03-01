@@ -61,4 +61,3 @@ wire &                                # Messaging
 ~/bin/server_notify.pl &              # libnotify over ssh
 
 exec i3                               # WM
-

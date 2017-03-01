@@ -10,4 +10,3 @@ alias sudo='sudo -E '
 alias vi='nvim'
 alias vim='nvim'
 alias pacU='yaourt -Syyua --devel'
-
