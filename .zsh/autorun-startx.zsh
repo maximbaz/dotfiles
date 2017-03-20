@@ -1,1 +1,2 @@
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+[[ -z $DISPLAY && "$(tty)" == "/dev/tty1" ]] && exec startx
+[[ -z $DISPLAY && "$(tty)" == "/dev/tty2" ]] && exec sway
