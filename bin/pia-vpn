@@ -9,16 +9,16 @@ status=$2
 
 case $status in
   up)
-    if [[ $ESSID != "MSFT"* ]]; then
+    if [[ ${interface::3} != "tun" && ${interface::5} != "docker" ]]; then
       nmcli con up id "$VPN_NAME"
     fi
+    killall -s USR1 py3status
     ;;
   down)
-    if [[ $ESSID != "MSFT"* ]]; then
-      if nmcli con show --active | grep "$VPN_NAME"; then
-        nmcli con down id "$VPN_NAME"
-      fi
+    if nmcli con show --active | grep "$VPN_NAME"; then
+      nmcli con down id "$VPN_NAME"
     fi
+    killall -s USR1 py3status
     ;;
   vpn-up)
     if [[ $interface == "tun0" ]]; then
@@ -26,10 +26,12 @@ case $status in
       echo -e "nameserver 209.222.18.222\nnameserver 209.222.18.218" > /etc/resolv.conf
       chmod -w /etc/resolv.conf
     fi
+    killall -s USR1 py3status
     ;;
   vpn-down)
     if [[ $interface == "tun0" ]]; then
       chmod +w /etc/resolv.conf
     fi
+    killall -s USR1 py3status
     ;;
 esac
