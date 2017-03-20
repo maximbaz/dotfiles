@@ -52,7 +52,6 @@ feh --bg-fill ~/lib/wallpaper.jpg &   # Set wallpaper
 sleep 10s && kalu &                   # Watch for ArchLinux updates
 nm-applet &                           # Network Manager applet
 pasystray &                           # PulseAudio manager (to select default sink)
-pnmixer &                             # PulseAudio mixer (to adjust volume)
 redshift-gtk &                        # Warm colors at night
 hotshots &                            # Screenshot manager
 udiskie --smart-tray &                # Automatically mount usb drives
