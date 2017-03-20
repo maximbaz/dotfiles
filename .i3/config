@@ -98,9 +98,9 @@ bindcode $mod+38 focus parent
 bindcode $mod+Shift+38 focus child
 
 # Media keys
-bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/bin/alert-sound.sh
-bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/bin/alert-sound.sh
-bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/bin/alert-sound.sh
+bindsym XF86AudioMute         exec --no-startup-id ~/bin/set-volume.sh mute
+bindsym XF86AudioRaiseVolume  exec --no-startup-id ~/bin/set-volume.sh +5
+bindsym XF86AudioLowerVolume  exec --no-startup-id ~/bin/set-volume.sh -5
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
