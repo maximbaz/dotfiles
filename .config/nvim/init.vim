@@ -257,6 +257,9 @@
     nnoremap <Leader>d "_d
     vnoremap <Leader>d "_d
 
+    " Paste in visual mode multiple times
+    xnoremap p pgvy
+
     " Navigate through autocompletion
     inoremap <C-j> <C-n>
     inoremap <C-k> <C-p>
