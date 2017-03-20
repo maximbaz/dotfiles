@@ -89,6 +89,12 @@ bindcode $mod+26 layout toggle split
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 # Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
