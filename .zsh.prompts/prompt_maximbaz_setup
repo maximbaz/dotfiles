@@ -11,6 +11,7 @@ DETACHED="\u27a6"
 CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
+CLOCKS=(🕛 🕧 🕐 🕜 🕑 🕝 🕒 🕞 🕓 🕟 🕔 🕠 🕕 🕡 🕖 🕢 🕗 🕣 🕘 🕤 🕙 🕥 🕚 🕦)
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -95,7 +96,25 @@ prompt_status() {
 # Display current time
 prompt_time() {
   prompt_segment $PRIMARY_FG white
-  print -Pn " %* "
+  print -Pn "%* "
+}
+
+prompt_analog_clock() {
+  local hhmm="$(date "+hh=%I mm=%M")"
+  local -i hh mm clock
+  eval ${hhmm//=0/=}
+  if (( mm < 15 )); then
+    mm=0
+  elif (( mm >= 15 )) && (( mm < 45 )); then
+    mm=30
+  else
+    hh=$(( hh + 1 ))
+    mm=0
+  fi
+  clock=$(( ((hh % 12) + (mm / 60.0)) / 12 * 24 + 1 ))
+
+  prompt_segment $PRIMARY_FG white
+  print -Pn " ${CLOCKS[clock]} "
 }
 
 prompt_human_time_to_var() {
@@ -126,6 +145,7 @@ prompt_maximbaz_check_cmd_exec_time() {
 ## Main prompt
 prompt_maximbaz_main() {
   CURRENT_BG='NONE'
+  prompt_analog_clock
   prompt_time
   prompt_status
   prompt_context
