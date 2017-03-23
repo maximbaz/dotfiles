@@ -1,1 +1,23 @@
-{"locale":"en-US","lang":"da","country":"DK","theme":"../dist/main/css/themes/dark.css","hotkey":"Command+d","showInTray":false,"firstStart":false,"developerMode":true,"cleanOnHide":false,"positions":{"4693561838479105":[635,302],"13761487533244416":[315,122]}}
+{
+  "locale": "en-US",
+  "lang": "da",
+  "country": "DK",
+  "theme": "../dist/main/css/themes/dark.css",
+  "hotkey": "Command+d",
+  "showInTray": false,
+  "firstStart": false,
+  "developerMode": true,
+  "cleanOnHide": false,
+  "skipDonateDialog": true,
+  "lastShownDonateDialog": 1490095630346,
+  "positions": {
+    "13761487533244416": [
+      315,
+      112
+    ],
+    "4693561838479105": [
+      635,
+      302
+    ]
+  }
+}
