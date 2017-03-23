@@ -159,6 +159,10 @@
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamecollapse  = 1
   " }}}
+  " FZF {{{
+    " Make :Ag not match file names, only file contents
+    command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+  " }}}
   " GitGutter {{{
     let g:gitgutter_map_keys = 0
   " }}}
