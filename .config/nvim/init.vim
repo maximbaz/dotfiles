@@ -2,7 +2,7 @@
   filetype off
   set runtimepath^=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
-  call dein#begin(expand('~/.vim/dein'))
+  call dein#begin(expand('~/.cache/dein'))
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
