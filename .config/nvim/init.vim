@@ -58,6 +58,8 @@
   call dein#add('vim-scripts/SyntaxRange')                              " A different syntax for a region of file
   call dein#add('suan/vim-instant-markdown')                            " Instantly preview markdown
 
+  call dein#add('mindriot101/vim-yapf')                                 " Automatically format Python code
+
   call dein#add('neovimhaskell/haskell-vim')                            " Better syntax highlight and indentation
   call dein#add('eagletmt/neco-ghc')                                    " Haskell autocomplete
   call dein#add('eagletmt/ghcmod-vim')                                  " Ghc Mod
@@ -519,4 +521,10 @@
     autocmd!
     autocmd VimEnter * xnoremap <Tab> >gv
   augroup END
+
+  augroup python-indent-yapf
+    autocmd!
+    autocmd BufWritePost *.py :Yapf
+  augroup END
+
 " }}}
