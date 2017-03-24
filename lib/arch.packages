@@ -3,19 +3,19 @@ acpi_call
 alacritty-git
 ansible
 arc-gtk-theme
-asar
 autoconf
 automake
 bind-tools
 binutils
 bison
 bluez-libs
+browserify
 browserpass
 byzanz
 cabal-install
 cairo
 calibre
-cerebro
+cerebro-git
 compton
 copyq
 cronie
@@ -196,7 +196,6 @@ ranger
 redshift
 reiserfsprogs
 rsync
-rxvt-unicode
 sakura
 screenkey
 sed
@@ -246,6 +245,7 @@ xdotool
 xf86-input-synaptics
 xf86-video-intel
 xfsprogs
+xloadimage
 xorg-server
 xorg-server-utils
 xorg-xev
@@ -254,6 +254,7 @@ xorg-xprop
 xrectsel
 xsel
 yaourt
+yapf
 yarn
 youtube-dl
 zip
