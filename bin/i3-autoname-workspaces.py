@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+
+import i3ipc
+import subprocess as proc
+import re
+import signal
+import sys
+
+WINDOW_ICONS = {
+    'sakura': '',
+    'google-chrome': '',
+    'wire': '',
+    'slack': '',
+    'thunderbird': '',
+    'cerebro': '',
+    'xfreerdp': '',
+}
+
+DEFAULT_ICON = ''
+
+
+def xprop(win_id, property):
+    try:
+        prop = proc.check_output(
+            ['xprop', '-id', str(win_id), property], stderr=proc.DEVNULL)
+        prop = prop.decode('utf-8')
+        return re.findall('"([^"]+)"', prop)
+    except proc.CalledProcessError as e:
+        print("Unable to get property for window '%d'" % win_id)
+        return None
+
+
+def icon_for_window(window):
+    classes = xprop(window.window, 'WM_CLASS')
+    if classes != None and len(classes) > 0:
+        for cls in classes:
+            cls = cls.lower()
+            if cls in WINDOW_ICONS:
+                return WINDOW_ICONS[cls]
+        print('No icon available for window with classes: %s' % str(classes))
+    return DEFAULT_ICON
+
+
+def rename_workspaces(i3):
+    ws_infos = i3.get_workspaces()
+    for ws_index, workspace in enumerate(i3.get_tree().workspaces()):
+        name_parts = parse_workspace_name(workspace.name)
+        name_parts['icons'] = '  '.join(
+            [icon_for_window(w) for w in workspace.leaves()]) + ' '
+
+        new_name = construct_workspace_name(name_parts)
+        i3.command('rename workspace "%s" to "%s"' % (workspace.name,
+                                                      new_name))
+
+
+def undo_window_renaming(i3):
+    for workspace in i3.get_tree().workspaces():
+        name_parts = parse_workspace_name(workspace.name)
+        name_parts['icons'] = None
+        new_name = construct_workspace_name(name_parts)
+        i3.command('rename workspace "%s" to "%s"' % (workspace.name,
+                                                      new_name))
+    i3.main_quit()
+    sys.exit(0)
+
+
+def parse_workspace_name(name):
+    return re.match('(?P<num>\d+):?(?P<shortname>\w+)? ?(?P<icons>.+)?',
+                    name).groupdict()
+
+
+def construct_workspace_name(parts):
+    new_name = str(parts['num'])
+    if parts['shortname'] or parts['icons']:
+        new_name += ':'
+
+        if parts['shortname']:
+            new_name += parts['shortname']
+
+        if parts['icons']:
+            new_name += ' ' + parts['icons']
+
+    return new_name
+
+
+if __name__ == '__main__':
+    i3 = i3ipc.Connection()
+
+    # exit gracefully when ctrl+c is pressed
+    for sig in [signal.SIGINT, signal.SIGTERM]:
+        signal.signal(sig, lambda signal, frame: undo_window_renaming(i3))
+
+    # call rename_workspaces() for relevant window events
+    def window_event_handler(i3, e):
+        if e.change in ['new', 'close', 'move']:
+            rename_workspaces(i3)
+
+    i3.on('window', window_event_handler)
+
+    rename_workspaces(i3)
+
+    i3.main()

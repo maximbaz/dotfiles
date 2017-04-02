@@ -1,16 +1,15 @@
 # Set font
-font pango: Noto Sans, Taskbar 9
+font pango: Taskbar, Cantarell 9
 
 # Borders
-for_window [class="^.*"] border pixel 1
-new_window pixel 1
+for_window [class="^.*"] border pixel 0
+new_window pixel 0
 new_float pixel 0
 hide_edge_borders both
 
 # Specific window configuration
 for_window    [window_role="pop-up"]         floating enable
 for_window    [class="copyq"]                floating enable
-for_window    [class="Cerebro"]              floating enable, border none
 for_window    [class="Google-chrome"]        move container to $workspace2, title_format "Google Chrome"
 for_window    [class="Wire"]                 move container to $workspace3
 for_window    [class="Slack"]                move container to $workspace3
@@ -18,23 +17,32 @@ for_window    [class="Thunderbird"]          move container to $workspace4
 for_window    [instance="TeamViewer.exe"]    move container to $workspace9, floating enable
 for_window    [class="xfreerdp"]             move container to $workspace9
 
+# Colors                  border     background    text       indicator    child_border
+client.focused            #3c3836    #3c3836       #aaaaaa    #2e9ef4      #285577
+client.focused_inactive   #3c3836    #3c3836       #aaaaaa    #484e50      #5f676a
+client.unfocused          #222222    #222222       #888888    #292d2e      #222222
+client.urgent             #b25b2c    #b25b2c       #ffffff    #b25b2c      #b25b2c
+client.placeholder        #000000    #0c0c0c       #ffffff    #000000      #0c0c0c
+
 # Bar
 bar {
   colors {
     # Whole color settings
-    background #000000
-    statusline #ffffff
-    separator  #333333
+    background #222222
+    statusline #cccccc
+    separator  #222222
 
-    # Type             border  background font
-    focused_workspace  #008fff #007fff #ffffff
-    active_workspace   #333333 #5f676a #ffffff
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #aa0000 #990000 #ffffff
+    # Type             border     background    font
+    focused_workspace  #3c3836    #3c3836       #aaaaaa
+  # active_workspace   #333333    #5f676a       #ffffff
+    inactive_workspace #222222    #222222       #888888
+    urgent_workspace   #b25b2c    #b25b2c       #dddddd
   }
 
+  separator_symbol "|"
   status_command py3status --dbus-notify
   position top
+  tray_output none
 }
 
 
@@ -123,16 +131,16 @@ bindcode Ctrl+49 exec --no-startup-id copyq toggle
 # Workspaces
 focus_follows_mouse no
 
-set $workspace1 workspace "1:  "
-set $workspace2 workspace "2:  "
-set $workspace3 workspace "3:  "
-set $workspace4 workspace "4:  "
-set $workspace5 workspace "5 "
-set $workspace6 workspace "6 "
-set $workspace7 workspace "7 "
-set $workspace8 workspace "8 "
-set $workspace9 workspace "9:  "
-set $workspace0 workspace "10:  "
+set $workspace1 workspace number 1
+set $workspace2 workspace number 2
+set $workspace3 workspace number 3
+set $workspace4 workspace number 4
+set $workspace5 workspace number 5
+set $workspace6 workspace number 6
+set $workspace7 workspace number 7
+set $workspace8 workspace number 8
+set $workspace9 workspace number 9
+set $workspace0 workspace number 10
 
 # Switch to workspace using keypad
 bindcode $mod+87 $workspace1
@@ -182,6 +190,8 @@ bindsym $mod+Shift+8 move container to $workspace8
 bindsym $mod+Shift+9 move container to $workspace9
 bindsym $mod+Shift+0 move container to $workspace0
 
+# Automatically rename workspaces
+exec_always ~/bin/i3-autoname-workspaces.py &
 
 # Resize window (r)
 set $mode_resize Resize window
