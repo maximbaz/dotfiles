@@ -132,8 +132,9 @@
     set wildmode=longest,list,full
   "}}}
   " Theme {{{
-    colorscheme gruvbox
+    set termguicolors
     set background=dark
+    colorscheme gruvbox
     set guifont=Consolas\ 11
     set guioptions+=c
     set guioptions-=T
