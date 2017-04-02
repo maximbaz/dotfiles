@@ -1,6 +1,9 @@
 acpi
 acpi_call
 alacritty-git
+android-sdk-platform-tools
+android-studio
+android-udev
 ansible
 arc-gtk-theme
 autoconf
@@ -64,6 +67,7 @@ grep
 groff
 grub
 gsimplecal
+gtk-theme-arc-grey-git
 gvim
 gzip
 haskell-apply-refact
@@ -80,6 +84,7 @@ hotshots
 htop
 httpie
 i3-wm
+i3ipc-python-git
 i3lock
 i3status
 iftop
@@ -154,7 +159,6 @@ os-prober
 pacman
 pamixer
 pass
-pasystray
 patch
 pavucontrol
 pciutils
@@ -182,6 +186,8 @@ python-six
 python-tqdm
 python-tzlocal
 python2-asn1crypto
+python2-attrs
+python2-automat
 python2-neovim
 python2-pip
 python2-pygame
@@ -224,6 +230,7 @@ traceroute
 transmission-qt
 trash-cli
 tree
+ttf-font-awesome
 udiskie
 unclutter
 unrar
