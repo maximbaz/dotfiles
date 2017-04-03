@@ -4,6 +4,7 @@ CURRENT_BG='NONE'
 PRIMARY_FG=black
 
 # Characters
+PROMPT_CHAR="❯"
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
 BRANCH="\ue0a0"
@@ -163,7 +164,7 @@ prompt_maximbaz_precmd() {
   RPROMPT='%F{yellow}${prompt_maximbaz_cmd_exec_time}%f'
   PROMPT='
 %{%f%b%k%}$(prompt_maximbaz_main)
-%B%(?.%F{blue}.%F{red})❯%f%b  ${editor_info[keymap]}'
+%B%(?.%F{blue}.%F{red})${PROMPT_CHAR}%f%b  ${editor_info[keymap]}'
 }
 
 prompt_maximbaz_preexec() {
