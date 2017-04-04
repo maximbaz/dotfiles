@@ -48,7 +48,7 @@ unclutter &                           # Hide mouse when using keyboard
 
 cerebro --disable-gpu &               # Launcher
 copyq &                               # Clipboard manager
-feh --bg-fill ~/lib/wallpaper.jpg &   # Set wallpaper
+~/bin/update-wallpaper.sh &           # Set wallpaper
 sleep 10s && kalu &                   # Watch for ArchLinux updates
 nm-applet &                           # Network Manager applet
 redshift-gtk &                        # Warm colors at night
