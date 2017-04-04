@@ -220,6 +220,9 @@
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
   " }}}
+  " Yapf {{{
+    let g:yapf_style = 'pep8'
+  " }}}
 " }}}
 " Keyboard shortcuts {{{
   " Base {{{
