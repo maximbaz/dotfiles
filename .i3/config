@@ -116,8 +116,8 @@ bindcode $mod+Shift+38 focus child
 bindsym XF86AudioMute         exec --no-startup-id ~/bin/set-volume.sh mute
 bindsym XF86AudioRaiseVolume  exec --no-startup-id ~/bin/set-volume.sh +5
 bindsym XF86AudioLowerVolume  exec --no-startup-id ~/bin/set-volume.sh -5
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/set-brightness.sh inc
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/set-brightness.sh dec
 
 # Reload the configuration file (c)
 bindcode $mod+Shift+54 reload
