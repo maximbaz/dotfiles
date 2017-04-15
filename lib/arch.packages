@@ -18,7 +18,7 @@ byzanz
 cabal-install
 cairo
 calibre
-cerebro-git
+cerebro
 compton
 copyq
 cronie
@@ -88,6 +88,7 @@ i3ipc-python-git
 i3lock
 i3status
 iftop
+imagemagick
 inetutils
 inotify-tools
 intellij-idea-ultimate-edition
@@ -174,7 +175,7 @@ psmisc
 pssh
 pulseaudio
 pulseaudio-alsa
-py3status-git
+py3status
 python-keyutils
 python-neovim
 python-netifaces
@@ -255,6 +256,7 @@ xfsprogs
 xloadimage
 xorg-server
 xorg-server-utils
+xorg-xdpyinfo
 xorg-xev
 xorg-xinit
 xorg-xprop
