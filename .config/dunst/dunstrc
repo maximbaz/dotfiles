@@ -5,7 +5,7 @@
     bounce_freq = 0
     browser = /usr/bin/google-chrome-stable
     follow = keyboard
-    font = Open Sans, Taskbar 19
+    font = Open Sans, Taskbar 10
     format = "<b>%s</b>\n%b %p"
     geometry = "700x5-40+200"
     hide_duplicate_count = true
