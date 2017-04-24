@@ -55,7 +55,7 @@ redshift-gtk &                        # Warm colors at night
 hotshots &                            # Screenshot manager
 udiskie --smart-tray &                # Automatically mount usb drives
 thunderbird &                         # Mail
-wire &                                # Messaging
+wire-desktop &                        # Messaging
 ~/bin/server_notify.pl &              # libnotify over ssh
 
 exec i3                               # WM
