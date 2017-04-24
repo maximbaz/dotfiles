@@ -42,7 +42,6 @@ feh
 file
 filesystem
 findutils
-firefox-developer
 flex
 font-manager
 fontconfig
@@ -169,6 +168,7 @@ perl-try-tiny
 pidcat
 pkg-config
 pkgbrowser
+prettier
 private-internet-access-vpn
 procps-ng
 psmisc
