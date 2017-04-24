@@ -44,6 +44,8 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/redshift.conf"
   link ".config/sakura"
 
+  link ".local/share/fonts"
+
   link ".agignore"
   link ".compton.conf"
   link ".gitconfig"
