@@ -25,7 +25,7 @@ else
   export MAVEN_OPTS="-Xms1g -Xmx4g -XX:PermSize=1g"
 fi
 export M3_HOME="/usr/share/maven3"
-export PATH="$M2_HOME/bin:$PATH"
+export PATH="$M3_HOME/bin:$PATH"
 
 # Gradle configuration
 export GRADLE_HOME="$HOME/gradle-2.4"
@@ -42,8 +42,10 @@ export PATH="$HOME/.cabal/bin:$PATH"
 if [ -f $HOME/.rvm/scripts/rvm ]; then
   source $HOME/.rvm/scripts/rvm
 fi
-export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+if hash ruby 2>/dev/null; then
+  export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
+  export PATH="$PATH:$GEM_HOME/bin"
+fi
 
 # Go configuration
 export GOPATH=/home/maximbaz/.golang
