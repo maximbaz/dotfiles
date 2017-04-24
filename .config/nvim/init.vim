@@ -33,18 +33,17 @@
   call dein#add('jiangmiao/auto-pairs')                                 " Insert closing brackets automatically
   call dein#add('tomtom/tcomment_vim')                                  " Comment lines
   call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
-  call dein#add('t9md/vim-textmanip')                                   " Move selection up and down
+  call dein#add('vim-scripts/VisIncr')                                  " Generate increasing number column
 
   call dein#add('SirVer/ultisnips')                                     " Snippet engine
   call dein#add('honza/vim-snippets')                                   " List of snippets
 
   call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
   call dein#add('Shougo/neco-vim')                                      " Vim autocomplete
+  call dein#add('eagletmt/neco-ghc')                                    " Haskell autocomplete
   call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
   call dein#add('carlitux/deoplete-ternjs')                             " Javascript autocomplete
-  call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})        " JS code navigation
   call dein#add('fishbullet/deoplete-ruby')                             " Ruby autocomplete
-  call dein#add('osyo-manga/vim-monster')                               " Ruby autocomplete
   call dein#add('wellle/tmux-complete.vim')                             " Autocomplete from Tmux panes
   call dein#add('Shougo/neoinclude.vim')                                " Included files autocomplete
 
@@ -58,12 +57,10 @@
   call dein#add('vim-scripts/SyntaxRange')                              " A different syntax for a region of file
   call dein#add('suan/vim-instant-markdown')                            " Instantly preview markdown
 
-  call dein#add('mindriot101/vim-yapf')                                 " Automatically format Python code
+  call dein#add('sbdchd/neoformat')                                     " Automatically format code
 
   call dein#add('neovimhaskell/haskell-vim')                            " Better syntax highlight and indentation
-  call dein#add('eagletmt/neco-ghc')                                    " Haskell autocomplete
   call dein#add('eagletmt/ghcmod-vim')                                  " Ghc Mod
-  call dein#add('alx741/vim-hindent')                                   " Automatically format Haskell code
   call dein#add('enomsg/vim-haskellConcealPlus')                        " Use unicode symbols for haskell keywords
   call dein#add('Twinside/vim-hoogle')                                  " Query hoogle
   call dein#add('mpickering/hlint-refactor-vim')                        " Fix lint issues
@@ -199,16 +196,6 @@
   " Hlint refactor {{{
     let g:hlintRefactor#disableDefaultKeybindings = 1
   " }}}
-  " Vim-monster (Ruby completion) {{{
-    let g:monster#completion#rcodetools#backend = "async_rct_complete"
-    let g:deoplete#sources#omni#input_patterns = { "ruby" : '[^. *\t]\.\w*\|\h\w*::' }
-  " }}}
-  " Org Mode {{{
-    let g:org_indent = 0
-    let g:org_agenda_files = ['~/Org/todo.org', '~/Org/microsoft.org']
-    let g:org_todo_keywords = [['TODO', 'NEXT', '|', 'DONE'], ['WAITING', '|', 'HOLD']]
-    let g:org_todo_keyword_faces = [['TODO', 'yellow'], ['NEXT', 'cyan'], ['WAITING', 'magenta'], ['HOLD', 'red']]
-  " }}}
   " Neomake (linter) {{{
     let g:neomake_open_list = 2
   " }}}
@@ -219,9 +206,6 @@
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-  " }}}
-  " Yapf {{{
-    let g:yapf_style = 'pep8'
   " }}}
 " }}}
 " Keyboard shortcuts {{{
@@ -297,10 +281,6 @@
     " Navigate through visual lines
     nnoremap <expr> j v:count ? 'j' : 'gj'
     nnoremap <expr> k v:count ? 'k' : 'gk'
-
-    " Format json
-    nnoremap <silent> <Leader>json :%!jq -S .<CR>
-    vnoremap <silent> <Leader>json :!jq -S .<CR>
 
     " Indent / unindent
     nnoremap <S-Tab> <<
@@ -488,6 +468,21 @@
       return ""
     endfunction
   " }}}
+  " Toggle automatic code formatting {{{
+    function! ToggleAutoFormatCode()
+      if !exists('#AutoFormatCode#BufWritePre')
+        augroup AutoFormatCode
+          autocmd!
+          autocmd BufWritePre * Neoformat
+        augroup END
+      else
+        augroup AutoFormatCode
+          autocmd!
+        augroup END
+      endif
+    endfunction
+    call ToggleAutoFormatCode() " Enable by default
+  " }}}
   " Incsearch keymap fixes {{{
     function! s:incsearch_keymap()
       IncSearchNoreMap <C-j> <Down>
@@ -529,10 +524,4 @@
     autocmd!
     autocmd VimEnter * xnoremap <Tab> >gv
   augroup END
-
-  augroup python-indent-yapf
-    autocmd!
-    autocmd BufWritePost *.py :Yapf
-  augroup END
-
 " }}}
