@@ -34,6 +34,7 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/copyq/copyq.conf"
   link ".config/dunst"
   link ".config/fontconfig/conf.d/30-infinality-custom.conf"
+  link ".config/fontconfig/conf.d/70-emojione-color.conf"
   link ".config/gsimplecal"
   link ".config/gtk-3.0"
   link ".config/htop"
