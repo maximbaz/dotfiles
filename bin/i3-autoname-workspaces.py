@@ -14,6 +14,7 @@ WINDOW_ICONS = {
     'thunderbird': '',
     'cerebro': '',
     'xfreerdp': '',
+    'teamviewer': '',
 }
 
 DEFAULT_ICON = ''
