@@ -30,6 +30,7 @@ if [ "$(whoami)" != "root"  ]; then
 
   link ".ghc/ghci.conf"
 
+  link ".config/alacritty/alacritty.yml"
   link ".config/Cerebro/config.json"
   link ".config/copyq/copyq.conf"
   link ".config/dunst"
