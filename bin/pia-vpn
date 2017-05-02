@@ -2,14 +2,14 @@
 #/etc/NetworkManager/dispatcher.d/pia-vpn
 
 VPN_NAME="Sweden"
-ESSID=$(iwgetid -r)
+ESSID=$(iwgetid -r | tr '[:upper:]' '[:lower:]')
 
 interface="$1"
 status=$2
 
 case $status in
   up)
-    if [[ ${interface::3} != "tun" && ${interface::5} != "docker" ]]; then
+    if [[ ${interface::3} != "tun" && ${interface::5} != "docker" && ${ESSID::5} != "nokia" ]]; then
       nmcli con up id "$VPN_NAME"
     fi
     killall -s USR1 py3status
