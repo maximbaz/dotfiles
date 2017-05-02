@@ -155,6 +155,7 @@ numlockx
 odt2txt
 openal
 openssh
+openssl-1.0
 os-prober
 pacman
 pamixer
@@ -239,13 +240,10 @@ unzip
 usbutils
 util-linux
 vi
-virtualbox
-virtualbox-ext-oracle
 vorbis-tools
 w3m
 wget
 which
-wine
 wire-desktop
 wmctrl
 wpa_supplicant
