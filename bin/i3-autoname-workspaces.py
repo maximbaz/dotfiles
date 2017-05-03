@@ -8,6 +8,7 @@ import sys
 
 WINDOW_ICONS = {
     'sakura': '',
+    'alacritty': '',
     'google-chrome': '',
     'wire': '',
     'slack': '',
