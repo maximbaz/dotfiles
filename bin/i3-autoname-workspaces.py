@@ -11,6 +11,7 @@ WINDOW_ICONS = {
     'alacritty': '',
     'google-chrome': '',
     'wire': '',
+    'wireinternal': '',
     'slack': '',
     'thunderbird': '',
     'cerebro': '',
