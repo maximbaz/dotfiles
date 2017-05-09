@@ -29,6 +29,7 @@ diff-so-fancy
 diffutils
 dkms
 docker
+docker-machine-kvm
 dosfstools
 dropbox
 dropbox-cli
@@ -101,6 +102,7 @@ jq
 kalu
 keepass
 krita
+kubectl-bin
 less
 lib32-alsa-plugins
 lib32-cairo
@@ -115,6 +117,7 @@ libappindicator-gtk2
 libappindicator-gtk3
 libappindicator-sharp
 libglvnd
+libnghttp2
 libnm
 libreoffice-still
 libtermkey
@@ -136,6 +139,7 @@ maven
 mdadm
 mediainfo
 mercurial
+minikube
 mpg123
 mpv
 mtr
@@ -198,6 +202,7 @@ python2-pytz
 python2-requests
 python2-tqdm
 python2-tzlocal
+qemu
 qt5-multimedia
 qt5-speech
 ranger
@@ -244,7 +249,7 @@ vorbis-tools
 w3m
 wget
 which
-wire-desktop
+wire-desktop-beta
 wmctrl
 wpa_supplicant
 xdotool
