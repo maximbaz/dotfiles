@@ -131,6 +131,7 @@
   " Theme {{{
     set termguicolors
     set background=dark
+    let g:gruvbox_italic=1
     colorscheme gruvbox
     set guifont=Consolas\ 11
     set guioptions+=c
