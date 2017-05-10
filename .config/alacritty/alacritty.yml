@@ -20,6 +20,13 @@ dimensions:
   columns: 80
   lines: 24
 
+# Adds this many blank pixels of padding around the window
+# Units are physical pixels; this is not DPI aware.
+# (change requires restart)
+padding:
+  x: 0
+  y: 0
+
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
 dpi:
@@ -182,7 +189,11 @@ key_bindings:
   - { key: Home,                          chars: "\x1b[1~",  mode: ~AppCursor  }
   - { key: End,                           chars: "\x1bOF",   mode: AppCursor   }
   - { key: End,                           chars: "\x1b[4~",  mode: ~AppCursor  }
+  - { key: PageUp,   mods: Shift,         chars: "\x1b[5;2~"                   }
+  - { key: PageUp,   mods: Control,       chars: "\x1b[5;5~"                   }
   - { key: PageUp,                        chars: "\x1b[5~"                     }
+  - { key: PageDown, mods: Shift,         chars: "\x1b[6;2~"                   }
+  - { key: PageDown, mods: Control,       chars: "\x1b[6;5~"                   }
   - { key: PageDown,                      chars: "\x1b[6~"                     }
   - { key: Left,     mods: Shift,         chars: "\x1b[1;2D"                   }
   - { key: Left,     mods: Control,       chars: "\x1b[1;5D"                   }
@@ -220,8 +231,7 @@ key_bindings:
   - { key: Back,                          chars: "\x7f"                        }
   - { key: Back,     mods: Alt,           chars: "\x1b\x7f"                    }
   - { key: Insert,                        chars: "\x1b[2~"                     }
-  - { key: Delete,                        chars: "\x1b[3~",  mode: AppKeypad   }
-  - { key: Delete,                        chars: "\x1b[P",   mode: ~AppKeypad  }
+  - { key: Delete,                        chars: "\x1b[3~"                     }
 
 # Mouse bindings
 #
