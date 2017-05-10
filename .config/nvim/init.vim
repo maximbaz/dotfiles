@@ -121,7 +121,7 @@
     set ruler
     set smartcase
     set showcmd
-    set spell
+    set nospell
     set spelllang=en,da,ru
     set splitbelow
     set splitright
