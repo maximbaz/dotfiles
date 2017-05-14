@@ -5,8 +5,10 @@ alias gaa='git add --all'
 alias gap='git add -p'
 
 alias gb='git branch'
-alias gbd='git branch -d'
+alias gbd='git branch -D'
 alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+alias gbo='git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD) $(git symbolic-ref --short HEAD)'
+alias gbu='git branch --set-upstream-to=upstream/$(git symbolic-ref --short HEAD) $(git symbolic-ref --short HEAD)'
 
 alias gbsb='git bisect bad'
 alias gbsg='git bisect good'
