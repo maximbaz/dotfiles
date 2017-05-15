@@ -58,12 +58,10 @@ if [ "$(whoami)" != "root"  ]; then
   link ".xinitrc"
   link ".Xresources"
   link ".yaourtrc"
-  link ".zlogin"
   link ".zpreztorc"
   link ".zprofile"
   link ".zsh"
   link ".zsh.prompts"
-  link ".zshenv"
   link ".zshrc"
 fi
 
@@ -74,10 +72,8 @@ if [ "$(whoami)" == "root"  ]; then
   create_link "$dotfiles_dir/.agignore" "/root/.agignore"
 
   create_link "/home/maximbaz/.zprezto" "/root/.zprezto"
-  create_link "$dotfiles_dir/.zlogin" "/root/.zlogin"
   create_link "$dotfiles_dir/.zpreztorc" "/root/.zpreztorc"
   create_link "$dotfiles_dir/.zsh" "/root/.zsh"
   create_link "$dotfiles_dir/.zsh.prompts" "/root/.zsh.prompts"
-  create_link "$dotfiles_dir/.zshenv" "/root/.zshenv"
   create_link "$dotfiles_dir/.zshrc" "/root/.zshrc"
 fi
