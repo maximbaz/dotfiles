@@ -45,6 +45,7 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/ranger/rc.conf"
   link ".config/redshift.conf"
   link ".config/sakura"
+  link ".config/systemd/user/tmux.service"
 
   link ".local/share/fonts"
 
