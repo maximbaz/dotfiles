@@ -11,6 +11,7 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/environment.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/git.zsh
+source ~/.zsh.kubectl.completion
 
 # Load machine-specific configurations
 if [[ "$(hostname)" == "maximbaz-x1" ]]; then
