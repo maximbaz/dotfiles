@@ -1,5 +1,4 @@
-BUILD_NOCONFIRM=1
-EDITFILES=0
+NOCONFIRM=1
 
 # $ sudo visudo
 # Cmnd_Alias PACMAN = /usr/bin/pacman, /usr/bin/yaourt
