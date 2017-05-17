@@ -231,7 +231,7 @@ thunderbird-enigmail
 tig
 tlp
 tlp-rdw
-tmux
+tmux-git
 tp_smapi
 traceroute
 transmission-qt
@@ -258,14 +258,14 @@ xf86-video-intel
 xfsprogs
 xloadimage
 xorg-server
-xorg-server-utils
-xorg-xdpyinfo
+xorg-xbacklight
 xorg-xev
 xorg-xinit
 xorg-xprop
+xorg-xrandr
 xrectsel
 xsel
-yaourt
+yaourt-git
 yapf
 yarn
 youtube-dl
