@@ -17,7 +17,6 @@ zstyle ':prezto:load' pmodule \
   'base64' \
   'fancy-ctrl-z' \
   'fasd' \
-  'pacman' \
   'rsync' \
   'zsh-autopair' \
   'zsh-notify' \
@@ -27,9 +26,6 @@ zstyle ':prezto:load' pmodule \
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
-
-# Set the Pacman frontend.
-zstyle ':prezto:module:pacman' frontend 'yaourt'
 
 # Set the prompt theme to load.
 zstyle ':prezto:module:prompt' theme 'maximbaz'

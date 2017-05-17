@@ -1,0 +1,10 @@
+alias pac='yaourt'
+alias pacs='pac --sort w'
+alias paci='pac -S'
+alias pacie='paci --edit --confirm' # Remove --confirm after https://github.com/archlinuxfr/yaourt/issues/325
+alias pacf='pac -U'
+alias pacu='pac -Syyua --devel'
+alias pacr='pac -Rns'
+alias pacq='pac -Si'
+alias pacol='pac -Qdt'
+alias pacor='pacr $(pac -Qdtq)'
