@@ -16,8 +16,9 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'base64' \
   'fancy-ctrl-z' \
-  'fasd' \
   'rsync' \
+  'z' \
+  'fz' \
   'zsh-autopair' \
   'zsh-notify' \
   'syntax-highlighting' \
