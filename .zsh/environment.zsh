@@ -48,5 +48,5 @@ if hash ruby 2>/dev/null; then
 fi
 
 # Go configuration
-export GOPATH=/home/maximbaz/.golang
+export GOPATH=/home/maximbaz/.go
 export PATH="$PATH:$GOPATH/bin"
