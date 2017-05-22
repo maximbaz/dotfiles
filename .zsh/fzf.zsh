@@ -8,6 +8,7 @@ if [ -f /usr/share/fzf/completion.zsh ]; then
 fi
 
 # Better FZF
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND_EXCLUSIONS=$(sed -e '/^$/,$d' ~/.agignore | while read -r line; do printf "-path '*/%s' -o " "${line:0:-1}"; done | sed 's/ -o $//')
