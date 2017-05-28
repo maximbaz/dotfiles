@@ -32,7 +32,6 @@ docker
 docker-machine-kvm
 dosfstools
 dropbox
-dropbox-cli
 dunst-git
 e2fsprogs
 encfs
