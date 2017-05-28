@@ -1,5 +1,3 @@
-# Workaround for https://github.com/jwilm/alacritty/issues/471
-export WINDOWID=$(xdotool getactivewindow)
 
 source "$HOME/.zprezto/init.zsh"
 
