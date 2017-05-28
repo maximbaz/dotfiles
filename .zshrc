@@ -1,4 +1,7 @@
+# Initial configuration
+source ~/.zsh/environment.zsh
 
+# Load prezto
 source "$HOME/.zprezto/init.zsh"
 
 # Define a better hotkey to edit command in editor
@@ -6,7 +9,6 @@ bindkey -M emacs "$key_info[Control]V$key_info[Control]V" edit-command-line
 
 # Load custom configurations
 source ~/.zsh/aliases.zsh
-source ~/.zsh/environment.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/git.zsh
 source ~/.zsh/pacman.zsh

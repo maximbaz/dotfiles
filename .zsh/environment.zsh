@@ -10,6 +10,10 @@ export WORDCHARS='*?.[]~&!#$%^(){}<>'
 # NeoVim configuration
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+# FZ configuration
+export FZ_CMD=j
+export FZ_SUBDIR_CMD=jj
+
 # Java configuration
 if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
   export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
