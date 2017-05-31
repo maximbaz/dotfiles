@@ -7,16 +7,16 @@ import signal
 import sys
 
 WINDOW_ICONS = {
-    'sakura': '',
-    'alacritty': '',
-    'google-chrome': '',
-    'wire': '',
-    'wireinternal': '',
-    'slack': '',
-    'thunderbird': '',
-    'cerebro': '',
-    'xfreerdp': '',
-    'teamviewer': '',
+    'sakura': '',
+    'alacritty': '',
+    'google-chrome': '',
+    'wire': '',
+    'wireinternal': '',
+    'slack': '',
+    'thunderbird': '',
+    'cerebro': '',
+    'xfreerdp': '',
+    'teamviewer': '',
 }
 
 DEFAULT_ICON = ''
