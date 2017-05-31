@@ -1,8 +1,17 @@
 # vim:ft=zsh ts=2 sw=2 sts=2
 
+# Colors
+TIME_BG=236
+TIME_FG=white
+CONTEXT_BG=white
+CONTEXT_FG=black
+GIT_FG=black
+DIR_BG=blue
+DIR_FG=black
+STATUS_BG=236
+STATUS_FG=default
+
 CURRENT_BG='NONE'
-PRIMARY_FG=black
-CLOCK_BG=236
 
 # Characters
 PROMPT_CHAR="❯"
@@ -48,7 +57,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ -n "$SSH_CONNECTION" ]]; then
-    prompt_segment white $PRIMARY_FG " %n@%m "
+    prompt_segment $CONTEXT_BG $CONTEXT_FG " %n@%m "
   fi
 }
 
@@ -72,14 +81,14 @@ prompt_git() {
     else
       ref="$DETACHED ${ref/.../}"
     fi
-    prompt_segment $color $PRIMARY_FG
+    prompt_segment $color $GIT_FG
     print -Pn " $ref"
   fi
 }
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue $PRIMARY_FG ' %~ '
+  prompt_segment $DIR_BG $DIR_FG ' %~ '
 }
 
 # Status:
@@ -92,12 +101,12 @@ prompt_status() {
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
 
-  [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
+  [[ -n "$symbols" ]] && prompt_segment $STATUS_BG $STATUS_FG " $symbols "
 }
 
 # Display current time
 prompt_time() {
-  prompt_segment $CLOCK_BG white
+  prompt_segment $TIME_BG $TIME_FG
   print -Pn "%* "
 }
 
@@ -115,7 +124,7 @@ prompt_analog_clock() {
   fi
   clock=$(( ((hh % 12) + (mm / 60.0)) / 12 * 24 + 1 ))
 
-  prompt_segment $CLOCK_BG white
+  prompt_segment $TIME_BG $TIME_FG
   print -Pn " ${CLOCKS[clock]} "
 }
 
