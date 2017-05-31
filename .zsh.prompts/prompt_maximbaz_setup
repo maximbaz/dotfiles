@@ -2,6 +2,7 @@
 
 CURRENT_BG='NONE'
 PRIMARY_FG=black
+CLOCK_BG=236
 
 # Characters
 PROMPT_CHAR="❯"
@@ -96,7 +97,7 @@ prompt_status() {
 
 # Display current time
 prompt_time() {
-  prompt_segment $PRIMARY_FG white
+  prompt_segment $CLOCK_BG white
   print -Pn "%* "
 }
 
@@ -114,7 +115,7 @@ prompt_analog_clock() {
   fi
   clock=$(( ((hh % 12) + (mm / 60.0)) / 12 * 24 + 1 ))
 
-  prompt_segment $PRIMARY_FG white
+  prompt_segment $CLOCK_BG white
   print -Pn " ${CLOCKS[clock]} "
 }
 

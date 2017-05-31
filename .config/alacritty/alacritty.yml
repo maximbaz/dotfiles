@@ -87,17 +87,12 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-# Colors (Tomorrow Night Bright)
+# Colors (Gruvbox dark)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    background: '0x282828'
+    foreground: '0xebdbb2'
 
   # Normal colors
   normal:
@@ -108,7 +103,7 @@ colors:
     blue:    '0x458588'
     magenta: '0xb16286'
     cyan:    '0x689d6a'
-    white:   '0xa49581'
+    white:   '0xa89984'
 
   # Bright colors
   bright:
