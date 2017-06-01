@@ -17,26 +17,35 @@ for_window    [class="Thunderbird"]          move container to $workspace4
 for_window    [instance="TeamViewer.exe"]    move container to $workspace9, floating enable
 for_window    [class="xfreerdp"]             move container to $workspace9
 
-# Colors                  border     background    text       indicator    child_border
-client.focused            #3c3836    #3c3836       #aaaaaa    #2e9ef4      #285577
-client.focused_inactive   #3c3836    #3c3836       #aaaaaa    #484e50      #5f676a
-client.unfocused          #222222    #222222       #888888    #292d2e      #222222
-client.urgent             #b25b2c    #b25b2c       #ffffff    #b25b2c      #b25b2c
-client.placeholder        #000000    #0c0c0c       #ffffff    #000000      #0c0c0c
+# Color scheme (Gruvbox dark)
+set $color_normal_white  #a89984
+set $color_bright_white  #ebdbb2
+set $color_normal_gray   #222222
+set $color_bright_gray   #3c3836
+set $color_bright_yellow #d79921
+set $color_normal_black  #282828
+set $color_unused        #ff0000
+
+# Colors                  border                 background             text                   indicator       child_border
+client.focused            $color_bright_gray     $color_bright_gray     $color_bright_white    $color_unused   $color_unused
+client.focused_inactive   $color_bright_gray     $color_bright_gray     $color_bright_white    $color_unused   $color_unused
+client.unfocused          $color_normal_gray     $color_normal_gray     $color_normal_white    $color_unused   $color_unused
+client.urgent             $color_bright_yellow   $color_bright_yellow   $color_bright_white    $color_unused   $color_unused
+client.placeholder        $color_unused          $color_unused          $color_unused          $color_unused   $color_unused
 
 # Bar
 bar {
   colors {
     # Whole color settings
-    background #222222
-    statusline #cccccc
-    separator  #222222
+    background $color_normal_gray
+    separator  $color_normal_gray
+    statusline $color_bright_white
 
-    # Type             border     background    font
-    focused_workspace  #3c3836    #3c3836       #aaaaaa
-  # active_workspace   #333333    #5f676a       #ffffff
-    inactive_workspace #222222    #222222       #888888
-    urgent_workspace   #b25b2c    #b25b2c       #dddddd
+    # Type             border                 background              font
+    focused_workspace  $color_bright_gray     $color_bright_gray      $color_bright_white
+    active_workspace   $color_unused          $color_unused           $color_unused
+    inactive_workspace $color_normal_gray     $color_normal_gray      $color_normal_white
+    urgent_workspace   $color_bright_yellow   $color_bright_yellow    $color_normal_black
   }
 
   separator_symbol "|"
