@@ -22,3 +22,6 @@ fi
 
 new=$(( current + increment ))
 xbacklight -set $new
+
+# Refresh py3status immediately
+killall -USR1 py3status
