@@ -1,10 +1,7 @@
-alias pac='yaourt'
-alias pacs='pac --sort w'
+alias pac='yay'
 alias paci='pac -S'
-alias pacie='paci --edit --confirm' # Remove --confirm after https://github.com/archlinuxfr/yaourt/issues/325
 alias pacf='pac -U'
-alias pacu='pac -Syyua --devel'
+alias pacu='pac -Syu; killall -USR1 py3status'
 alias pacr='pac -Rns'
 alias pacq='pac -Si'
-alias pacol='pac -Qdt'
-alias pacor='pacr $(pac -Qdtq)'
+alias pacR='pac -Cd'
