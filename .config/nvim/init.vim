@@ -102,6 +102,7 @@
     set tabstop=2
     set virtualedit=all
     set diffopt+=iwhite
+    let &fillchars="vert:|,fold:-,diff: "
     set foldmethod=marker
     set complete+=kspell
     set cursorline
