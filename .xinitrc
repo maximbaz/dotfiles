@@ -49,8 +49,7 @@ unclutter &                           # Hide mouse when using keyboard
 cerebro --disable-gpu &               # Launcher
 copyq &                               # Clipboard manager
 ~/bin/update-wallpaper.sh &           # Set wallpaper
-nm-applet &                           # Network Manager applet
-redshift-gtk &                        # Warm colors at night
+redshift &                            # Warm colors at night
 hotshots &                            # Screenshot manager
 udiskie --smart-tray &                # Automatically mount usb drives
 thunderbird &                         # Mail
