@@ -12,7 +12,7 @@ env:
   # Note that some xterm terminfo databases don't declare support for italics.
   # You can verify this by checking for the presence of `smso` and `sitm` in
   # `infocmp xterm-256color`.
-  TERM: xterm-256color
+  TERM: alacritty-256color
 
 # Window dimensions in character columns and lines
 # (changes require restart)
