@@ -40,7 +40,6 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/gsimplecal"
   link ".config/gtk-3.0"
   link ".config/htop"
-  link ".config/kalu"
   link ".config/mpv/mpv.conf"
   link ".config/nvim/init.vim"
   link ".config/ranger/rc.conf"
