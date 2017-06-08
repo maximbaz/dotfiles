@@ -17,10 +17,12 @@
   pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
   conflictstyle = diff3
-  tool = vimdiff
+  tool = nvimdiff
 [mergetool]
   keepBackup = false
   prompt = false
+[mergetool "nvimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [push]
   default = current
 [rebase]
