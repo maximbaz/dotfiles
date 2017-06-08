@@ -10,7 +10,7 @@
   call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
   call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
   call dein#add('osyo-manga/vim-anzu')                                  " Show search count
-  call dein#add('yonchu/accelerated-smooth-scroll')                     " Smooth scroll
+  call dein#add('yuttie/comfortable-motion.vim')                        " Smooth scroll
 
   call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
   call dein#add('vim-scripts/visualrepeat')                             " Repeat for plugins in visual mode
