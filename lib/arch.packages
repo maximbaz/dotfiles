@@ -1,6 +1,7 @@
 acpi
 acpi_call
 alacritty-git
+alacritty-terminfo-git
 android-sdk-platform-tools
 android-studio
 android-udev
@@ -18,9 +19,10 @@ byzanz
 cabal-install
 cairo
 calibre
-cerebro
+cerebro-git
 compton
 copyq
+cower
 cronie
 cryptsetup
 dhcpcd
@@ -97,7 +99,6 @@ jdk7
 jetty
 jfsutils
 jq
-kalu
 keepass
 krita
 kubectl-bin
