@@ -60,7 +60,6 @@ if [ "$(whoami)" != "root"  ]; then
   link ".tmux.conf"
   link ".xinitrc"
   link ".Xresources"
-  link ".yaourtrc"
   link ".zpreztorc"
   link ".zprofile"
   link ".zsh"
