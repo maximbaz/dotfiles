@@ -99,7 +99,6 @@ jdk7
 jetty
 jfsutils
 jq
-keepass
 krita
 kubectl-bin
 less
@@ -230,7 +229,7 @@ thunderbird-enigmail
 tig
 tlp
 tlp-rdw
-tmux-git
+tmux
 tp_smapi
 traceroute
 transmission-qt
@@ -264,7 +263,6 @@ xorg-xprop
 xorg-xrandr
 xrectsel
 xsel
-yaourt-git
 yapf
 yarn
 yay
