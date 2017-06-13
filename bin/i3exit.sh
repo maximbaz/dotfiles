@@ -1,21 +1,34 @@
-#!/bin/sh
+#!/bin/zsh
 
-lock() {
+before_lock() {
   ~/bin/change-keyboard-layout.sh reset
   killall -u "$USER" -USR1 dunst
-  i3lock -e -f -n -c 000000
+  killall compton
+}
+
+lock() {
+  i3lock -efnc 000000
+}
+
+after_lock() {
+  compton &!
   killall -u "$USER" -USR2 dunst
 }
 
 case "$1" in
   lock)
+    before_lock
     lock
+    after_lock
     ;;
   logout)
     i3-msg exit
     ;;
   suspend)
-    systemctl suspend; lock
+    before_lock
+    systemctl suspend
+    lock
+    after_lock
     ;;
   reboot)
     systemctl reboot
