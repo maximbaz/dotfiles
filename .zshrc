@@ -1,4 +1,5 @@
 # Initial configuration
+source /etc/zsh/zprofile
 source ~/.zsh/environment.zsh
 
 # Load prezto
