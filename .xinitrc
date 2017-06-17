@@ -35,25 +35,26 @@ if [ -f "$usermodmap" ]; then
 fi
 
 
-xrandr --dpi 192                      # Set High DPI
-compton &                             # Enable composition
-start-pulseaudio-x11 &                # Pulse audio daemon
-xset s off -dpms                      # Prevent screen from turning off
-xset r rate 250 45                    # Set keyboard repeat rate
-xset m 3/1 4                          # Set mouse cursor speed
-setxkbmap -option compose:ralt        # Enable digraphs
+xrandr --dpi 192                                           # Set High DPI
+xcalib -d :0 ~/lib/ThinkPad_X1_WQHD_LP140QH1_SPA2.icm      # Calibrate screen
+compton &                                                  # Enable composition
+start-pulseaudio-x11 &                                     # Pulse audio daemon
+xset s off -dpms                                           # Prevent screen from turning off
+xset r rate 250 45                                         # Set keyboard repeat rate
+xset m 3/1 4                                               # Set mouse cursor speed
+setxkbmap -option compose:ralt                             # Enable digraphs
 
-numlockx &                            # Turn on NumLock
-unclutter &                           # Hide mouse when using keyboard
+numlockx &                                                 # Turn on NumLock
+unclutter &                                                # Hide mouse when using keyboard
 
-cerebro --disable-gpu &               # Launcher
-copyq &                               # Clipboard manager
-~/bin/update-wallpaper.sh &           # Set wallpaper
-redshift &                            # Warm colors at night
-hotshots &                            # Screenshot manager
-udiskie --smart-tray &                # Automatically mount usb drives
-thunderbird &                         # Mail
-wire-desktop &                        # Messaging
-~/bin/server_notify.pl &              # libnotify over ssh
+cerebro --disable-gpu &                                    # Launcher
+copyq &                                                    # Clipboard manager
+~/bin/update-wallpaper.sh &                                # Set wallpaper
+redshift &                                                 # Warm colors at night
+hotshots &                                                 # Screenshot manager
+udiskie --smart-tray &                                     # Automatically mount usb drives
+thunderbird &                                              # Mail
+wire-desktop &                                             # Messaging
+~/bin/server_notify.pl &                                   # libnotify over ssh
 
-exec i3                               # WM
+exec i3                                                    # WM
