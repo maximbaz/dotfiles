@@ -10,6 +10,7 @@ WINDOW_ICONS = {
     'sakura': '',
     'alacritty': '',
     'google-chrome': '',
+    'chromium': '',
     'wire': '',
     'wireinternal': '',
     'slack': '',

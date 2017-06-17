@@ -32,6 +32,7 @@ if [ "$(whoami)" != "root"  ]; then
 
   link ".config/alacritty/alacritty.yml"
   link ".config/Cerebro/config.json"
+  link ".config/chromium-flags.conf"
   link ".config/copyq/copyq.conf"
   link ".config/dunst"
   link ".config/fontconfig/conf.d/30-infinality-custom.conf"

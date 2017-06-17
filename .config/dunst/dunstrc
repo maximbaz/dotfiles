@@ -3,7 +3,7 @@
     markup = full
     plain_text = no
     bounce_freq = 0
-    browser = /usr/bin/google-chrome-stable
+    browser = /usr/bin/chromium
     follow = keyboard
     font = Open Sans, Taskbar 10
     format = "<b>%s</b>\n%b %p"
