@@ -27,6 +27,6 @@ $ sudo visudo
 # cron
 
 ```
-0    18 * * * /home/maximbaz/bin/backup-arch-packages.sh
+0    18 * * * /home/maximbaz/bin/backup-pacman-list.sh
 */5  *  * * * /home/maximbaz/bin/update-wallpaper.sh
 ```
