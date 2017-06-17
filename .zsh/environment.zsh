@@ -48,9 +48,9 @@ if [ -f $HOME/.rvm/scripts/rvm ]; then
 fi
 if hash ruby 2>/dev/null; then
   export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
-  export PATH="$PATH:$GEM_HOME/bin"
+  export PATH="$GEM_HOME/bin:$PATH"
 fi
 
 # Go configuration
 export GOPATH=/home/maximbaz/.go
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$GOPATH/bin:$PATH"
