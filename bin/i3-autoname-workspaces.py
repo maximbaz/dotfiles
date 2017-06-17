@@ -16,6 +16,7 @@ WINDOW_ICONS = {
     'slack': '',
     'thunderbird': '',
     'cerebro': '',
+    'mpv': '',
     'xfreerdp': '',
     'teamviewer': '',
 }
