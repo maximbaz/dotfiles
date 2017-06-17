@@ -7,6 +7,8 @@ android-studio
 android-udev
 ansible
 arc-gtk-theme
+archlinuxcn-keyring
+argyllcms
 autoconf
 automake
 bind-tools
@@ -19,7 +21,8 @@ byzanz
 cabal-install
 cairo
 calibre
-cerebro-git
+cerebro
+chromium-vaapi-bin
 compton
 copyq
 cower
@@ -159,6 +162,7 @@ openal
 openssh
 openssl-1.0
 os-prober
+p7zip
 pacman
 pamixer
 pass
@@ -250,6 +254,7 @@ which
 wire-desktop-beta
 wmctrl
 wpa_supplicant
+xcalib
 xdotool
 xf86-input-synaptics
 xf86-video-intel
