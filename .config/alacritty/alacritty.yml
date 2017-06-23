@@ -116,6 +116,17 @@ colors:
     cyan:    '0x8ec07c'
     white:   '0xebdbb2'
 
+  # Dim colors
+  dim:
+    black:   '0x32302f' # it's a guess
+    red:     '0x9d0006'
+    green:   '0x79740e'
+    yellow:  '0xb57614'
+    blue:    '0x076678'
+    magenta: '0x8f3f71'
+    cyan:    '0x427b58'
+    white:   '0x907f66' # it's a guess
+
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
