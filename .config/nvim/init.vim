@@ -278,6 +278,10 @@
     inoremap <C-j> <C-n>
     inoremap <C-k> <C-p>
 
+    " Navigate through location list
+    nmap <C-n> :lnext<CR>
+    nmap <C-p> :lprev<CR>
+
     " Scroll command history
     cnoremap <C-j> <Down>
     cnoremap <C-k> <Up>
@@ -514,6 +518,18 @@
       echo "@".getcmdline()
       execute ":'<,'>normal @".nr2char(getchar())
     endfunction
+  " }}}
+" }}}
+" Commands {{{
+  " Loop cnext / cprev / lnext / lprev {{{
+    command! Cnext try | cnext | catch | cfirst | catch | endtry
+    command! Cprev try | cprev | catch | clast | catch | endtry
+    command! Lnext try | lnext | catch | lfirst | catch | endtry
+    command! Lprev try | lprev | catch | llast | catch | endtry
+    cabbrev cnext Cnext
+    cabbrev cprev CPrev
+    cabbrev lnext Lnext
+    cabbrev lprev Lprev
   " }}}
 " }}}
 " AutoCmd {{{
