@@ -505,6 +505,7 @@
         augroup END
       endif
     endfunction
+    command! ToggleAutoFormatCode :call ToggleAutoFormatCode()
     call ToggleAutoFormatCode() " Enable by default
   " }}}
   " Incsearch keymap fixes {{{
