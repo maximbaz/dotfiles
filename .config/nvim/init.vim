@@ -11,6 +11,7 @@
   call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
   call dein#add('osyo-manga/vim-anzu')                                  " Show search count
   call dein#add('yuttie/comfortable-motion.vim')                        " Smooth scroll
+  call dein#add('tpope/vim-sleuth')                                     " Automatically detect tabs vs spaces
 
   call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
   call dein#add('vim-scripts/visualrepeat')                             " Repeat for plugins in visual mode
@@ -46,6 +47,7 @@
   call dein#add('fishbullet/deoplete-ruby')                             " Ruby autocomplete
   call dein#add('wellle/tmux-complete.vim')                             " Autocomplete from Tmux panes
   call dein#add('Shougo/neoinclude.vim')                                " Included files autocomplete
+  call dein#add('zchee/deoplete-go', {'build': 'make'})                 " Go autocomplete
 
   call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
   call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
@@ -64,6 +66,7 @@
   call dein#add('enomsg/vim-haskellConcealPlus')                        " Use unicode symbols for haskell keywords
   call dein#add('Twinside/vim-hoogle')                                  " Query hoogle
   call dein#add('mpickering/hlint-refactor-vim')                        " Fix lint issues
+  call dein#add('fatih/vim-go')                                         " Go development
 
   call dein#add('neomake/neomake')                                      " Linter
 
@@ -163,6 +166,20 @@
   " FZF {{{
     " Make :Ag not match file names, only file contents
     command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+  " }}}
+  " Go {{{
+    let g:go_fmt_autosave = 0   " This is already done by Neoformat
+    let g:go_auto_type_info = 1 " Show type of anything under cursor
+    let g:go_updatetime = 0     " Do not override updatetime
+
+    let g:go_highlight_build_constraints = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_generate_tags = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_types = 1
   " }}}
   " GitGutter {{{
     let g:gitgutter_map_keys = 0
