@@ -75,6 +75,7 @@ iftop
 imagemagick
 inetutils
 inotify-tools
+intel-ucode
 iproute2
 iputils
 jfsutils
