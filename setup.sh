@@ -77,6 +77,7 @@ if [ "$(whoami)" != "root"  ]; then
 
   root_link "etc/private-internet-access/pia.conf"
   root_link "etc/sysctl.d/10-swappiness.conf"
+  root_link "etc/sysctl.d/99-idea.conf"
 
   sudo sysctl --system
 fi
