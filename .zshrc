@@ -15,7 +15,7 @@ source ~/.zsh/git.zsh
 source ~/.zsh/pacman.zsh
 
 # Load machine-specific configurations
-if [[ "$(hostname)" == "maximbaz-x1" ]]; then
+if [[ "$(hostname)" =~ "desktop-" ]]; then
   source ~/.zsh/mse.zsh
   source ~/.zsh/autorun-tmux.zsh
 fi

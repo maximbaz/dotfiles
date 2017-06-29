@@ -6,6 +6,6 @@
 } &!
 
 # Load machine-specific initialization
-if [[ "$(hostname)" == "maximbaz-x1" ]]; then
+if [[ "$(hostname)" =~ "desktop-" ]]; then
   source ~/.zsh/autorun-startx.zsh
 fi
