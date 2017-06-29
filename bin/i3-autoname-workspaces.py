@@ -19,6 +19,7 @@ WINDOW_ICONS = {
     'mpv': '',
     'xfreerdp': '',
     'teamviewer': '',
+    'jetbrains-idea': '',
 }
 
 DEFAULT_ICON = ''
