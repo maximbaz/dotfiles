@@ -54,3 +54,6 @@ fi
 # Go configuration
 export GOPATH=/home/maximbaz/.go
 export PATH="$GOPATH/bin:$PATH"
+
+# NPM configuration
+export PATH="$HOME/.node_modules/bin:$PATH"
