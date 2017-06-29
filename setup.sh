@@ -53,6 +53,8 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/ranger/rc.conf"
   link ".config/redshift.conf"
   link ".config/systemd/user/tmux.service"
+  link ".config/systemd/user/wallpaper.service"
+  link ".config/systemd/user/wallpaper.timer"
   link ".config/TheHive"
   link ".config/transmission/settings.json"
 
@@ -76,6 +78,9 @@ if [ "$(whoami)" != "root"  ]; then
 
   systemctl --user enable tmux.service
   systemctl --user start tmux.service
+
+  systemctl --user enable wallpaper.timer
+  systemctl --user start wallpaper.timer
 
   root_link "etc/private-internet-access/pia.conf"
   root_link "etc/sysctl.d/10-swappiness.conf"
