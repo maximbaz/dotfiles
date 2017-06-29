@@ -3,7 +3,7 @@
 !----------------------------------------------------------
 
 Xft.antialias: true
-Xft.dpi: 192
+Xft.dpi: 240
 Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault

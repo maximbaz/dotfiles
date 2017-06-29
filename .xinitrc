@@ -35,8 +35,8 @@ if [ -f "$usermodmap" ]; then
 fi
 
 
-xrandr --dpi 192                                           # Set High DPI
-xcalib -d :0 ~/lib/ThinkPad_X1_WQHD_LP140QH1_SPA2.icm      # Calibrate screen
+xrandr --dpi 240                                           # Set High DPI
+xcalib ~/lib/dell_xps15.icm                                # Calibrate screen
 compton &                                                  # Enable composition
 start-pulseaudio-x11 &                                     # Pulse audio daemon
 xset s off -dpms                                           # Prevent screen from turning off

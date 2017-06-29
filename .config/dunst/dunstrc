@@ -7,7 +7,7 @@
     follow = keyboard
     font = Open Sans, Taskbar 10
     format = "<b>%s</b>\n%b %p"
-    geometry = "700x5-40+200"
+    geometry = "1500x5-40+200"
     hide_duplicate_count = true
     history_length = 20
     horizontal_padding = 20
