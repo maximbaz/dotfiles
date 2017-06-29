@@ -75,6 +75,9 @@ if [ "$(whoami)" != "root"  ]; then
   link ".zsh.prompts"
   link ".zshrc"
 
+  systemctl --user enable tmux.service
+  systemctl --user start tmux.service
+
   root_link "etc/private-internet-access/pia.conf"
   root_link "etc/sysctl.d/10-swappiness.conf"
   root_link "etc/sysctl.d/99-idea.conf"
