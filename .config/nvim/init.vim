@@ -57,7 +57,8 @@
   call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
   call dein#add('ap/vim-css-color')                                     " Colors in CSS
   call dein#add('vim-scripts/SyntaxRange')                              " A different syntax for a region of file
-  call dein#add('suan/vim-instant-markdown')                            " Instantly preview markdown
+  call dein#add('suan/vim-instant-markdown',
+        \ {'build': 'npm -g install instant-markdown-d'})               " Instantly preview markdown
 
   call dein#add('sbdchd/neoformat')                                     " Automatically format code
 
