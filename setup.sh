@@ -1,18 +1,31 @@
 #!/bin/bash
 
+set -e
+
 dotfiles_dir="$(dirname $0)"
 
 link() {
   create_link "$dotfiles_dir/$1" "$HOME/$1"
 }
 
+systemd_service_link() {
+  link ".config/systemd/user/$1.service"
+  systemctl --user enable "$1.service"
+  systemctl --user start "$1.service"
+}
+
+systemd_timer_link() {
+  link ".config/systemd/user/$1.service"
+  link ".config/systemd/user/$1.timer"
+  systemctl --user enable "$1.timer"
+  systemctl --user start "$1.timer"
+}
+
 root_link() {
-  sudo bash -c "$(declare -f create_link); $(declare -f path); create_link "$dotfiles_dir/$1" "/$1""
+  sudo bash -c "set -e; $(declare -f create_link); $(declare -f path); create_link "$dotfiles_dir/$1" "/$1""
 }
 
 create_link() {
-  set -e
-
   real_file="$(path "$1")"
   link_file="$(path "$2")"
 
@@ -52,9 +65,6 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/nvim/init.vim"
   link ".config/ranger/rc.conf"
   link ".config/redshift.conf"
-  link ".config/systemd/user/tmux.service"
-  link ".config/systemd/user/wallpaper.service"
-  link ".config/systemd/user/wallpaper.timer"
   link ".config/TheHive"
   link ".config/transmission/settings.json"
 
@@ -76,11 +86,9 @@ if [ "$(whoami)" != "root"  ]; then
   link ".zsh.prompts"
   link ".zshrc"
 
-  systemctl --user enable tmux.service
-  systemctl --user start tmux.service
-
-  systemctl --user enable wallpaper.timer
-  systemctl --user start wallpaper.timer
+  systemd_service_link "tmux"
+  systemd_timer_link "pacman-backup"
+  systemd_timer_link "wallpaper"
 
   root_link "etc/NetworkManager/dispatcher.d/pia-vpn"
   root_link "etc/private-internet-access/pia.conf"
