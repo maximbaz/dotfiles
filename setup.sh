@@ -1,17 +1,18 @@
 #!/bin/bash
 
-path() {
-  mkdir -p "$(dirname "$1")"
-  echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
-}
-
 dotfiles_dir="$(dirname $0)"
 
 link() {
   create_link "$dotfiles_dir/$1" "$HOME/$1"
 }
 
+root_link() {
+  sudo bash -c "$(declare -f create_link); $(declare -f path); create_link "$dotfiles_dir/$1" "/$1""
+}
+
 create_link() {
+  set -e
+
   real_file="$(path "$1")"
   link_file="$(path "$2")"
 
@@ -19,6 +20,11 @@ create_link() {
   ln -s $real_file $link_file
 
   echo "$real_file <-> $link_file"
+}
+
+path() {
+  mkdir -p "$(dirname "$1")"
+  echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
 }
 
 if [ "$(whoami)" != "root"  ]; then
@@ -68,6 +74,8 @@ if [ "$(whoami)" != "root"  ]; then
   link ".zsh"
   link ".zsh.prompts"
   link ".zshrc"
+
+  root_link "etc/private-internet-access/pia.conf"
 fi
 
 
