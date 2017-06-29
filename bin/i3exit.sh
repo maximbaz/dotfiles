@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 before_lock() {
   ~/bin/change-keyboard-layout.sh reset

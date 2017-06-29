@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$#" -ne 1 ]; then
   echo -e "Usage examples:\n$0 inc\n$0 dec" >&2

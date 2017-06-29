@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SOURCE_PATH="mail:/home/user-data/backup/encrypted/"
 BACKUP_PATH="/home/maximbaz/decrypted/backup/mail/"
