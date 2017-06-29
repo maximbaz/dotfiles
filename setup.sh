@@ -78,6 +78,7 @@ if [ "$(whoami)" != "root"  ]; then
   root_link "etc/private-internet-access/pia.conf"
   root_link "etc/sysctl.d/10-swappiness.conf"
   root_link "etc/sysctl.d/99-idea.conf"
+  root_link "etc/X11/xorg.conf.d/30-touchpad.conf"
 
   sudo sysctl --system
 fi
