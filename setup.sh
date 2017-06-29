@@ -52,7 +52,6 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/nvim/init.vim"
   link ".config/ranger/rc.conf"
   link ".config/redshift.conf"
-  link ".config/sakura"
   link ".config/systemd/user/tmux.service"
   link ".config/TheHive"
   link ".config/transmission/settings.json"

@@ -67,7 +67,6 @@ bindcode Mod1+50 exec ~/bin/change-keyboard-layout.sh
 
 # Start a terminal
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec sakura
 
 # Kill focused window (q)
 bindcode $mod+Shift+24 kill

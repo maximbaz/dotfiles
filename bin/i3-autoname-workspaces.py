@@ -7,7 +7,6 @@ import signal
 import sys
 
 WINDOW_ICONS = {
-    'sakura': '',
     'alacritty': '',
     'google-chrome': '',
     'chromium': '',
