@@ -82,6 +82,7 @@ if [ "$(whoami)" != "root"  ]; then
   systemctl --user enable wallpaper.timer
   systemctl --user start wallpaper.timer
 
+  root_link "etc/NetworkManager/dispatcher.d/pia-vpn"
   root_link "etc/private-internet-access/pia.conf"
   root_link "etc/sysctl.d/10-swappiness.conf"
   root_link "etc/sysctl.d/99-idea.conf"
