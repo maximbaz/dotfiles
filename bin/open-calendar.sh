@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 gsimplecal &
 
@@ -8,7 +8,7 @@ while [ $(xdotool search --class Gsimplecal | wc -l) -lt 2 ]; do
 done
 
 screen_width=$(xrandr | grep current | sed -r 's/^.*current ([0-9]+).*/\1/')
-x_pos=$(( screen_width - 620 ))
-y_pos=38
+x_pos=$(( screen_width - 750 ))
+y_pos=45
 
 i3-msg "[class=\"Gsimplecal\"] move absolute position $x_pos $y_pos"
