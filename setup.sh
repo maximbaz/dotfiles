@@ -106,7 +106,8 @@ fi
 
 
 if [ "$(whoami)" == "root"  ]; then
-  create_link "/home/maximbaz/.config/nvim/init.vim" "/root/.config/nvim/init.vim"
+  create_link "$dotfiles_dir/.config/nvim/init.vim" "/root/.config/nvim/init.vim"
+  create_link "/home/maximbaz/.cache/dein" "/root/.cache/dein"
 
   create_link "$dotfiles_dir/.agignore" "/root/.agignore"
 
