@@ -2,7 +2,7 @@
 
 set -e
 
-dotfiles_dir="$(dirname $0)"
+dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
 
 link() {
   create_link "$dotfiles_dir/$1" "$HOME/$1"
@@ -21,23 +21,30 @@ systemd_timer_link() {
   systemctl --user start "$1.timer"
 }
 
-root_link() {
-  sudo bash -c "set -e; $(declare -f create_link); $(declare -f path); create_link "$dotfiles_dir/$1" "/$1""
-}
-
 create_link() {
-  real_file="$(path "$1")"
-  link_file="$(path "$2")"
+  orig_file="$1"
+  dest_file="$2"
 
-  rm -rf $link_file
-  ln -s $real_file $link_file
+  mkdir -p "$(dirname "$orig_file")"
+  mkdir -p "$(dirname "$dest_file")"
 
-  echo "$real_file <-> $link_file"
+  rm -rf $dest_file
+  ln -s $orig_file $dest_file
+
+  echo "$dest_file -> $orig_file"
 }
 
-path() {
-  mkdir -p "$(dirname "$1")"
-  echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
+root_copy() {
+  orig_file="$dotfiles_dir/$1"
+  dest_file="/$1"
+
+  sudo mkdir -p "$(dirname "$orig_file")"
+  sudo mkdir -p "$(dirname "$dest_file")"
+
+  sudo rm -rf $dest_file
+  sudo cp -R "$orig_file" "$dest_file"
+
+  echo "$dest_file <= $orig_file"
 }
 
 if [ "$(whoami)" != "root"  ]; then
@@ -90,14 +97,14 @@ if [ "$(whoami)" != "root"  ]; then
   systemd_timer_link "pacman-backup"
   systemd_timer_link "wallpaper"
 
-  root_link "etc/NetworkManager/dispatcher.d/pia-vpn"
-  root_link "etc/private-internet-access/pia.conf"
-  root_link "etc/sysctl.d/10-swappiness.conf"
-  root_link "etc/sysctl.d/99-idea.conf"
-  root_link "etc/systemd/system/getty@tty1.service.d/override.conf"
-  root_link "etc/systemd/system/reflector.service"
-  root_link "etc/systemd/system/reflector.timer"
-  root_link "etc/X11/xorg.conf.d/30-touchpad.conf"
+  root_copy "etc/NetworkManager/dispatcher.d/pia-vpn"
+  root_copy "etc/private-internet-access/pia.conf"
+  root_copy "etc/sysctl.d/10-swappiness.conf"
+  root_copy "etc/sysctl.d/99-idea.conf"
+  root_copy "etc/systemd/system/getty@tty1.service.d/override.conf"
+  root_copy "etc/systemd/system/reflector.service"
+  root_copy "etc/systemd/system/reflector.timer"
+  root_copy "etc/X11/xorg.conf.d/30-touchpad.conf"
 
   sudo sysctl --system
   sudo systemctl enable reflector.timer
