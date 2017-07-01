@@ -23,5 +23,4 @@ case "$1" in
     ;;
 esac
 
-/home/maximbaz/bin/alert-sound.sh
 killall -s USR1 py3status
