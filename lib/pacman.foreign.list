@@ -1,3 +1,4 @@
+aic94xx-firmware
 alacritty-git
 alacritty-terminfo-git
 browserpass
@@ -7,7 +8,6 @@ copyq
 cower
 dropbox
 dunst-git
-font-manager
 fonts-meta-extended-lt
 gtk-theme-arc-grey-git
 haskell-apply-refact
@@ -19,13 +19,14 @@ jetty
 prettier
 private-internet-access-vpn
 py3status
-python-tzlocal
 python2-tzlocal
+python-tzlocal
 screenkey
 slack-desktop
 teamviewer
 thunderbird-enigmail
 ttf-font-awesome
+wd719x-firmware
 wire-desktop-beta
 xcalib
 xrectsel
