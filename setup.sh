@@ -3,6 +3,7 @@
 set -e
 
 dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
+cd "$dotfiles_dir"
 
 link() {
   create_link "$dotfiles_dir/$1" "$HOME/$1"
@@ -45,6 +46,12 @@ root_copy() {
   sudo cp -R "$orig_file" "$dest_file"
 
   echo "$dest_file <= $orig_file"
+}
+
+sudo_systemd_enable_start() {
+  echo "systemctl enable & start: $1"
+  sudo systemctl enable "$1"
+  sudo systemctl start "$1"
 }
 
 if [ "$(whoami)" != "root"  ]; then
@@ -97,6 +104,13 @@ if [ "$(whoami)" != "root"  ]; then
   systemd_timer_link "pacman-backup"
   systemd_timer_link "wallpaper"
 
+  # Disable dropbox autoupdate
+  rm -rf ~/.dropbox-dist
+  install -dm0 ~/.dropbox-dist
+
+  # Do not get bugged by position changes stored in this config
+  git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
+
   root_copy "etc/NetworkManager/dispatcher.d/pia-vpn"
   root_copy "etc/private-internet-access/pia.conf"
   root_copy "etc/sysctl.d/10-swappiness.conf"
@@ -107,8 +121,17 @@ if [ "$(whoami)" != "root"  ]; then
   root_copy "etc/X11/xorg.conf.d/30-touchpad.conf"
 
   sudo sysctl --system
-  sudo systemctl enable reflector.timer
-  sudo systemctl start reflector.timer
+
+  sudo_systemd_enable_start "reflector.timer"
+  sudo_systemd_enable_start "NetworkManager.service"
+  sudo_systemd_enable_start "NetworkManager-wait-online.service"
+  sudo_systemd_enable_start "dropbox@maximbaz"
+
+  # tlp
+  sudo_systemd_enable_start "tlp"
+  sudo_systemd_enable_start "tlp-sleep"
+  sudo_systemd_enable_start "NetworkManager-dispatcher.service"
+  sudo systemctl mask "systemd-rfkill.service"
 fi
 
 
