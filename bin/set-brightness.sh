@@ -5,7 +5,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-printf -v current %.0f $(xbacklight)
+printf -v current %.0f $(light)
 if [ "$1" == "dec" ]; then
   if (( current <= 5 )); then
     increment=-1
@@ -21,7 +21,7 @@ else
 fi
 
 new=$(( current + increment ))
-xbacklight -set $new
+light -S $new
 
 # Refresh py3status immediately
 killall -USR1 py3status
