@@ -5,56 +5,63 @@ set -e
 dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
 cd "$dotfiles_dir"
 
-link() {
-  create_link "$dotfiles_dir/$1" "$HOME/$1"
-}
+assign() {
+  op="$1"
+  if [[ "$op" != "link" && "$op" != "copy" ]]; then
+    echo "Unknown operation: $op"
+    exit 1
+  fi
 
-systemd_service_link() {
-  link ".config/systemd/user/$1.service"
-  systemctl --user enable "$1.service"
-  systemctl --user start "$1.service"
-}
-
-systemd_timer_link() {
-  link ".config/systemd/user/$1.service"
-  link ".config/systemd/user/$1.timer"
-  systemctl --user enable "$1.timer"
-  systemctl --user start "$1.timer"
-}
-
-create_link() {
-  orig_file="$1"
-  dest_file="$2"
+  orig_file="$2"
+  dest_file="$3"
 
   mkdir -p "$(dirname "$orig_file")"
   mkdir -p "$(dirname "$dest_file")"
 
-  rm -rf $dest_file
-  ln -s $orig_file $dest_file
+  rm -rf "$dest_file"
 
-  echo "$dest_file -> $orig_file"
+  if [[ "$op" == "link" ]]; then
+    ln -s "$orig_file" "$dest_file"
+    echo "$dest_file -> $orig_file"
+  else
+    cp -R "$orig_file" "$dest_file"
+    echo "$dest_file <= $orig_file"
+  fi
 }
 
-root_copy() {
-  orig_file="$dotfiles_dir/$1"
-  dest_file="/$1"
-
-  sudo mkdir -p "$(dirname "$orig_file")"
-  sudo mkdir -p "$(dirname "$dest_file")"
-
-  sudo rm -rf $dest_file
-  sudo cp -R "$orig_file" "$dest_file"
-
-  echo "$dest_file <= $orig_file"
+link() {
+  assign "link" "$dotfiles_dir/$1" "$HOME/$1"
 }
 
-sudo_systemd_enable_start() {
-  echo "systemctl enable & start: $1"
-  sudo systemctl enable "$1"
-  sudo systemctl start "$1"
+copy() {
+  assign "copy" "$dotfiles_dir/$1" "/$1"
 }
 
-if [ "$(whoami)" != "root"  ]; then
+systemctl_enable_start() {
+  if [ "$#" -eq 1 ]; then
+    target="system"
+    name="$1"
+  else
+    target="$1"
+    name="$2"
+  fi
+  if [[ "$target" == "user" ]]; then
+    echo "systemctl --user enable & start "$name""
+    systemctl --user enable "$name"
+    systemctl --user start  "$name"
+  else
+    echo "systemctl enable & start "$name""
+    systemctl enable "$name"
+    systemctl start  "$name"
+  fi
+}
+
+
+if [ "$(whoami)" != "root" ]; then
+  echo "======================================="
+  echo "Setting up dotfiles for current user..."
+  echo "======================================="
+
   link "bin"
   link "lib"
 
@@ -82,6 +89,12 @@ if [ "$(whoami)" != "root"  ]; then
   link ".config/TheHive"
   link ".config/transmission/settings.json"
 
+  link ".config/systemd/user/tmux.service"
+  link ".config/systemd/user/pacman-backup.service"
+  link ".config/systemd/user/pacman-backup.timer"
+  link ".config/systemd/user/wallpaper.service"
+  link ".config/systemd/user/wallpaper.timer"
+
   link ".local/share/fonts"
 
   link ".agignore"
@@ -100,50 +113,82 @@ if [ "$(whoami)" != "root"  ]; then
   link ".zsh.prompts"
   link ".zshrc"
 
-  systemd_service_link "tmux"
-  systemd_timer_link "pacman-backup"
-  systemd_timer_link "wallpaper"
+  echo ""
+  echo "================================="
+  echo "Enabling and starting services..."
+  echo "================================="
 
-  # Disable dropbox autoupdate
+  systemctl_enable_start "user" "tmux.service"
+  systemctl_enable_start "user" "pacman-backup.timer"
+  systemctl_enable_start "user" "wallpaper.timer"
+
+  echo ""
+  echo "======================================="
+  echo "Finishing various user configuration..."
+  echo "======================================="
+
+  echo "Disabling Dropbox autoupdate"
   rm -rf ~/.dropbox-dist
   install -dm0 ~/.dropbox-dist
 
-  # Do not get bugged by position changes stored in this config
+  echo "Ignoring further changes to HotShots config"
   git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
 
-  root_copy "etc/NetworkManager/dispatcher.d/pia-vpn"
-  root_copy "etc/private-internet-access/pia.conf"
-  root_copy "etc/sysctl.d/10-swappiness.conf"
-  root_copy "etc/sysctl.d/99-idea.conf"
-  root_copy "etc/systemd/system/getty@tty1.service.d/override.conf"
-  root_copy "etc/systemd/system/reflector.service"
-  root_copy "etc/systemd/system/reflector.timer"
-  root_copy "etc/X11/xorg.conf.d/30-touchpad.conf"
-
-  sudo sysctl --system
-
-  sudo_systemd_enable_start "reflector.timer"
-  sudo_systemd_enable_start "NetworkManager.service"
-  sudo_systemd_enable_start "NetworkManager-wait-online.service"
-  sudo_systemd_enable_start "dropbox@maximbaz"
-
-  # tlp
-  sudo_systemd_enable_start "tlp"
-  sudo_systemd_enable_start "tlp-sleep"
-  sudo_systemd_enable_start "NetworkManager-dispatcher.service"
-  sudo systemctl mask "systemd-rfkill.service"
+  echo ""
+  echo "====================================="
+  echo "Switching to root user to continue..."
+  echo "====================================="
+  echo "..."
+  sudo su -s "$0"
+  exit
 fi
 
 
-if [ "$(whoami)" == "root"  ]; then
-  create_link "$dotfiles_dir/.config/nvim/init.vim" "/root/.config/nvim/init.vim"
-  create_link "/home/maximbaz/.cache/dein" "/root/.cache/dein"
+if [ "$(whoami)" == "root" ]; then
+  echo ""
+  echo "==============================="
+  echo "Setting up dotfiles for root..."
+  echo "==============================="
 
-  create_link "$dotfiles_dir/.agignore" "/root/.agignore"
+  assign "link" "/home/maximbaz/.cache/dein" "/root/.cache/dein"
+  assign "link" "/home/maximbaz/.zprezto" "/root/.zprezto"
 
-  create_link "/home/maximbaz/.zprezto" "/root/.zprezto"
-  create_link "$dotfiles_dir/.zpreztorc" "/root/.zpreztorc"
-  create_link "$dotfiles_dir/.zsh" "/root/.zsh"
-  create_link "$dotfiles_dir/.zsh.prompts" "/root/.zsh.prompts"
-  create_link "$dotfiles_dir/.zshrc" "/root/.zshrc"
+  link ".agignore"
+  link ".config/nvim/init.vim"
+  link ".zpreztorc"
+  link ".zsh"
+  link ".zsh.prompts"
+  link ".zshrc"
+
+  echo ""
+  echo "=========================="
+  echo "Setting up /etc configs..."
+  echo "=========================="
+
+  copy "etc/NetworkManager/dispatcher.d/pia-vpn"
+  copy "etc/private-internet-access/pia.conf"
+  copy "etc/sysctl.d/10-swappiness.conf"
+  copy "etc/sysctl.d/99-idea.conf"
+  copy "etc/systemd/system/getty@tty1.service.d/override.conf"
+  copy "etc/systemd/system/reflector.service"
+  copy "etc/systemd/system/reflector.timer"
+  copy "etc/X11/xorg.conf.d/30-touchpad.conf"
+
+  echo ""
+  echo "================================="
+  echo "Enabling and starting services..."
+  echo "================================="
+
+  sysctl --system > /dev/null
+
+  systemctl_enable_start "system" "reflector.timer"
+  systemctl_enable_start "system" "NetworkManager.service"
+  systemctl_enable_start "system" "NetworkManager-wait-online.service"
+  systemctl_enable_start "system" "dropbox@maximbaz.service"
+
+  # tlp
+  systemctl_enable_start "system" "tlp.service"
+  systemctl_enable_start "system" "tlp-sleep.service"
+  systemctl_enable_start "system" "NetworkManager-dispatcher.service"
+  systemctl mask "systemd-rfkill.service"
 fi
