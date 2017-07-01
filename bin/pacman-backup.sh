@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-pacman -Qnqe > ~/lib/pacman.native.list
-pacman -Qmqe > ~/lib/pacman.foreign.list
+comm -23 <(pacman -Qnqe | sort) <(pacman -Qgq base base-devel | sort) > ~/lib/pacman.native.list
+pacman -Qmqe | sort > ~/lib/pacman.foreign.list
