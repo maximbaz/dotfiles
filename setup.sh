@@ -192,6 +192,9 @@ if [ "$(whoami)" == "root" ]; then
   sed -i "s/#\?\(TotalDownload\)/\1/" /etc/pacman.conf
   sed -i "s/#\?\(VerbosePkgLists\)/\1/" /etc/pacman.conf
 
+  echo "Configuring makepkg"
+  sed -i "s|#\?\(BUILDDIR\)=.*|\1=/tmp/makepkg|" /etc/makepkg.conf
+
   echo ""
   echo "================================="
   echo "Enabling and starting services..."
