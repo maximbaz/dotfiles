@@ -184,6 +184,11 @@ if [ "$(whoami)" == "root" ]; then
   echo "Setting limit to journal logs size"
   sed -i "s/#\?\(SystemMaxUse\)=.*/\1=300M/" /etc/systemd/journald.conf
 
+  echo "Enabling various pacman options"
+  sed -i "s/#\?\(Color\)/\1/" /etc/pacman.conf
+  sed -i "s/#\?\(TotalDownload\)/\1/" /etc/pacman.conf
+  sed -i "s/#\?\(VerbosePkgLists\)/\1/" /etc/pacman.conf
+
   echo ""
   echo "================================="
   echo "Enabling and starting services..."
