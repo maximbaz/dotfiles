@@ -127,6 +127,9 @@ if [ "$(whoami)" != "root" ]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
+  echo "Cloning Prezto if needed..."
+  [ ! -d "$HOME/.zprezto" ] && git clone --recursive https://github.com/maximbaz/prezto.git "$HOME/.zprezto" > /dev/null 2>&1
+
   echo "Disabling Dropbox autoupdate"
   rm -rf ~/.dropbox-dist
   install -dm0 ~/.dropbox-dist
