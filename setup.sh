@@ -177,6 +177,14 @@ if [ "$(whoami)" == "root" ]; then
   copy "etc/X11/xorg.conf.d/30-touchpad.conf"
 
   echo ""
+  echo "======================================="
+  echo "Finishing various user configuration..."
+  echo "======================================="
+
+  echo "Setting limit to journal logs size"
+  sed -i "s/#\?\(SystemMaxUse\)=.*/\1=300M/" /etc/systemd/journald.conf
+
+  echo ""
   echo "================================="
   echo "Enabling and starting services..."
   echo "================================="
