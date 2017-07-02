@@ -1,0 +1,6 @@
+[Unit]
+Description=Pacman cache cleanup
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/paccache -r

@@ -170,6 +170,8 @@ if [ "$(whoami)" == "root" ]; then
   copy "etc/sysctl.d/10-swappiness.conf"
   copy "etc/sysctl.d/99-idea.conf"
   copy "etc/systemd/system/getty@tty1.service.d/override.conf"
+  copy "etc/systemd/system/paccache.service"
+  copy "etc/systemd/system/paccache.timer"
   copy "etc/systemd/system/reflector.service"
   copy "etc/systemd/system/reflector.timer"
   copy "etc/X11/xorg.conf.d/30-touchpad.conf"
@@ -181,6 +183,7 @@ if [ "$(whoami)" == "root" ]; then
 
   sysctl --system > /dev/null
 
+  systemctl_enable_start "system" "paccache.timer"
   systemctl_enable_start "system" "reflector.timer"
   systemctl_enable_start "system" "NetworkManager.service"
   systemctl_enable_start "system" "NetworkManager-wait-online.service"
