@@ -184,6 +184,9 @@ if [ "$(whoami)" == "root" ]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
+  echo "Allowing to run some apps with sudo without password"
+  sed -zi "s|\(%wheel ALL=(ALL) ALL\)\n[^\n]*|\1\n%wheel ALL=(ALL) NOPASSWD:SETENV: /usr/bin/pacman, /usr/bin/umount|" /etc/sudoers
+
   echo "Setting limit to journal logs size"
   sed -i "s/#\?\(SystemMaxUse\)=.*/\1=300M/" /etc/systemd/journald.conf
 
