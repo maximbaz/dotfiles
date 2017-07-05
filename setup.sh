@@ -210,6 +210,7 @@ if [ "$(whoami)" == "root" ]; then
   systemctl_enable_start "system" "NetworkManager.service"
   systemctl_enable_start "system" "NetworkManager-wait-online.service"
   systemctl_enable_start "system" "dropbox@maximbaz.service"
+  systemctl_enable_start "system" "docker.service"
 
   # tlp
   systemctl_enable_start "system" "tlp.service"
