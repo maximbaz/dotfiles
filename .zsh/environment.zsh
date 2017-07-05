@@ -14,6 +14,10 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export FZ_CMD=j
 export FZ_SUBDIR_CMD=jj
 
+# Pass configuration
+export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
+export PASSWORD_STORE_GENERATED_LENGTH=40
+
 # Java configuration
 if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
   export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
