@@ -8,7 +8,7 @@ status=$2
 
 case $status in
   up)
-    if [[ ${interface::3} != "tun" && ${interface::5} != "docker" && ${ESSID::5} != "nokia" ]]; then
+    if [[ ${interface::3} != "tun" && ${interface::5} != "docker" && ${ESSID::5} != "mobile" ]]; then
       nmcli con up id "$VPN_NAME"
     fi
     killall -s USR1 py3status
