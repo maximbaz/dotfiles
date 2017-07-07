@@ -2,7 +2,6 @@ browserify
 byzanz
 calibre
 compton
-dialog
 diff-so-fancy
 docker
 efibootmgr
@@ -79,13 +78,13 @@ tmux
 transmission-qt
 tree
 udiskie
+ufw
 unclutter
 unrar
 unzip
 w3m
 wget
 wmctrl
-wpa_supplicant
 xdotool
 xorg-server
 xorg-xinit
