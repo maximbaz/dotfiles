@@ -88,6 +88,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/redshift.conf"
   link ".config/TheHive"
   link ".config/transmission/settings.json"
+  link ".config/yay/config.json"
 
   link ".config/systemd/user/tmux.service"
   link ".config/systemd/user/pacman-backup.service"
