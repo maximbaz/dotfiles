@@ -181,6 +181,27 @@ if [ "$(whoami)" == "root" ]; then
   copy "etc/X11/xorg.conf.d/30-touchpad.conf"
 
   echo ""
+  echo "================================="
+  echo "Enabling and starting services..."
+  echo "================================="
+
+  sysctl --system > /dev/null
+
+  systemctl_enable_start "system" "paccache.timer"
+  systemctl_enable_start "system" "reflector.timer"
+  systemctl_enable_start "system" "NetworkManager.service"
+  systemctl_enable_start "system" "NetworkManager-wait-online.service"
+  systemctl_enable_start "system" "dropbox@maximbaz.service"
+  systemctl_enable_start "system" "docker.service"
+  systemctl_enable_start "system" "ufw.service"
+
+  # tlp
+  systemctl_enable_start "system" "tlp.service"
+  systemctl_enable_start "system" "tlp-sleep.service"
+  systemctl_enable_start "system" "NetworkManager-dispatcher.service"
+  systemctl mask "systemd-rfkill.service"
+
+  echo ""
   echo "======================================="
   echo "Finishing various user configuration..."
   echo "======================================="
@@ -199,23 +220,9 @@ if [ "$(whoami)" == "root" ]; then
   echo "Configuring makepkg"
   sed -i "s|#\?\(BUILDDIR\)=.*|\1=/tmp/makepkg|" /etc/makepkg.conf
 
-  echo ""
-  echo "================================="
-  echo "Enabling and starting services..."
-  echo "================================="
-
-  sysctl --system > /dev/null
-
-  systemctl_enable_start "system" "paccache.timer"
-  systemctl_enable_start "system" "reflector.timer"
-  systemctl_enable_start "system" "NetworkManager.service"
-  systemctl_enable_start "system" "NetworkManager-wait-online.service"
-  systemctl_enable_start "system" "dropbox@maximbaz.service"
-  systemctl_enable_start "system" "docker.service"
-
-  # tlp
-  systemctl_enable_start "system" "tlp.service"
-  systemctl_enable_start "system" "tlp-sleep.service"
-  systemctl_enable_start "system" "NetworkManager-dispatcher.service"
-  systemctl mask "systemd-rfkill.service"
+  echo "Configuring firewall"
+  if [[ "$(ufw status | grep -o '[^ ]\+$')" != "active" ]]; then
+    ufw default reject
+    ufw enable
+  fi
 fi
