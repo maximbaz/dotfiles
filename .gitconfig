@@ -23,6 +23,9 @@
   prompt = false
 [mergetool "nvimdiff"]
   cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[diff "gpg"]
+  binary = true
+  textconv = gpg2 --decrypt --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
 [push]
   default = current
 [rebase]
