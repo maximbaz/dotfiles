@@ -1,10 +1,13 @@
 browserify
 byzanz
 calibre
+cargo
 compton
 diff-so-fancy
 docker
+dunst
 efibootmgr
+electrum
 encfs
 expect
 feh
@@ -60,6 +63,7 @@ pulseaudio
 pulseaudio-alsa
 python2-neovim
 python-neovim
+python-pip
 ranger
 redshift
 reflector
