@@ -35,7 +35,7 @@ if [ -f "$usermodmap" ]; then
 fi
 
 
-xrandr --dpi 240                                           # Set High DPI
+xrandr --dpi 210                                           # Set High DPI
 xcalib ~/lib/dell_xps15.icm                                # Calibrate screen
 compton &                                                  # Enable composition
 start-pulseaudio-x11 &                                     # Pulse audio daemon

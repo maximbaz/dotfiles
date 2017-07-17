@@ -5,7 +5,7 @@ display=$(xrandr --listactivemonitors | grep '0:' | grep -o '[^ ]*$')
 if [ "$#" -eq 1 ]; then
   dpi="$1"
 elif [[ "$display" == "eDP-1" ]]; then
-  dpi=240
+  dpi=210
 else
   dpi=192
 fi
