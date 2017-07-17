@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -34,6 +34,11 @@ if [ -f "$usermodmap" ]; then
   xmodmap "$usermodmap"
 fi
 
+# Load environment variables for GUI apps
+
+source ~/.zsh/environment.zsh
+
+# Initial configuration and autostart some apps
 
 xrandr --dpi 210                                           # Set High DPI
 xcalib ~/lib/dell_xps15.icm                                # Calibrate screen
