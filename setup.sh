@@ -178,6 +178,7 @@ if [ "$(whoami)" == "root" ]; then
   copy "etc/systemd/system/paccache.timer"
   copy "etc/systemd/system/reflector.service"
   copy "etc/systemd/system/reflector.timer"
+  copy "etc/udev/rules.d/81-ac-battery-change.rules"
   copy "etc/X11/xorg.conf.d/30-touchpad.conf"
 
   echo ""
@@ -225,4 +226,8 @@ if [ "$(whoami)" == "root" ]; then
     ufw default reject
     ufw enable
   fi
+
+  echo "Reload udev rules"
+  udevadm control --reload
+  udevadm trigger
 fi
