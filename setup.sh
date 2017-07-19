@@ -216,7 +216,6 @@ if [ "$(whoami)" == "root" ]; then
   echo "Enabling various pacman options"
   sed -i "s/#\?\(Color\)/\1/" /etc/pacman.conf
   sed -i "s/#\?\(TotalDownload\)/\1/" /etc/pacman.conf
-  sed -i "s/#\?\(VerbosePkgLists\)/\1/" /etc/pacman.conf
 
   echo "Enabling infinality aliases"
   ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
