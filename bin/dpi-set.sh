@@ -11,6 +11,7 @@ else
 fi
 
 echo "Setting DPI=$dpi"
+xrandr --dpi $dpi
 
 sed -i --follow-symlinks "s/\(xrandr --dpi\) [0-9]\+/\1 $dpi/" ~/.xinitrc
 sed -i --follow-symlinks "s/\(Xft.dpi:\) [0-9]\+/\1 $dpi/" ~/.Xresources
