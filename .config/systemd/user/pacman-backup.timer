@@ -2,7 +2,7 @@
 Description=Periodically backup list of installed packages
 
 [Timer]
-OnCalendar=0/6:*
+OnCalendar=hourly
 Persistent=true
 
 [Install]
