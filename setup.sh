@@ -135,8 +135,9 @@ if [ "$(whoami)" != "root" ]; then
   rm -rf ~/.dropbox-dist
   install -dm0 ~/.dropbox-dist
 
-  echo "Ignoring further changes to HotShots config"
+  echo "Ignoring further changes to often changing config"
   git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
+  git update-index --assume-unchanged ".config/Cerebro/config.json"
 
   echo ""
   echo "====================================="
