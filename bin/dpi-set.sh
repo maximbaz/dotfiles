@@ -14,4 +14,3 @@ echo "Setting DPI=$dpi"
 
 sed -i --follow-symlinks "s/\(xrandr --dpi\) [0-9]\+/\1 $dpi/" ~/.xinitrc
 sed -i --follow-symlinks "s/\(Xft.dpi:\) [0-9]\+/\1 $dpi/" ~/.Xresources
-sed -zi --follow-symlinks "s/\(dpi:\n\s*x:\) [0-9]\+\(\.0\n\s*y:\) [0-9]\+/\1 $dpi\2 $dpi/" ~/.config/alacritty/alacritty.yml
