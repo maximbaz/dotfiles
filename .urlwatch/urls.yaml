@@ -1,0 +1,8 @@
+name: "Alacritty's config"
+url: "https://raw.githubusercontent.com/jwilm/alacritty/master/alacritty.yml"
+---
+name: "New emojis"
+url: "https://raw.githubusercontent.com/emojione/emojione/master/extras/alpha-codes/eac.json"
+---
+name: "Chromium"
+url: "https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/chromium"

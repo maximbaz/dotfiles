@@ -110,6 +110,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".pylintrc"
   link ".tigrc"
   link ".tmux.conf"
+  link ".urlwatch/urls.yaml"
   link ".xinitrc"
   link ".Xresources"
   link ".zpreztorc"
