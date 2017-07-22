@@ -95,6 +95,8 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/systemd/user/tmux.service"
   link ".config/systemd/user/pacman-backup.service"
   link ".config/systemd/user/pacman-backup.timer"
+  link ".config/systemd/user/urlwatch.service"
+  link ".config/systemd/user/urlwatch.timer"
   link ".config/systemd/user/wallpaper.service"
   link ".config/systemd/user/wallpaper.timer"
 
@@ -124,6 +126,7 @@ if [ "$(whoami)" != "root" ]; then
   systemctl_enable_start "user" "tmux.service"
   systemctl_enable_start "user" "dpi.timer"
   systemctl_enable_start "user" "pacman-backup.timer"
+  systemctl_enable_start "user" "urlwatch.timer"
   systemctl_enable_start "user" "wallpaper.timer"
 
   echo ""
