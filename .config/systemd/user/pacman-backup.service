@@ -3,6 +3,3 @@ Description=Backup list of installed packages
 
 [Service]
 ExecStart=/home/maximbaz/bin/pacman-backup.sh
-
-[Install]
-WantedBy=default.target
