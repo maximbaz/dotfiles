@@ -6,3 +6,6 @@ url: "https://raw.githubusercontent.com/emojione/emojione/master/extras/alpha-co
 ---
 name: "Chromium"
 url: "https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/chromium"
+---
+name: "Chromium VAAPI patch"
+url: "https://aur.archlinux.org/cgit/aur.git/plain/vaapi_patch_r2.patch?h=chromium-dev"
