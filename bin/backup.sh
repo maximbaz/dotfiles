@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SOURCE="/home/maximbaz/Dropbox /home/maximbaz/private /home/maximbaz/.dotfiles"
+SOURCE="/home/maximbaz/Dropbox /home/maximbaz/private /home/maximbaz/.dotfiles /home/maximbaz/.go/src/go-private"
 BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
 BACKUP_DIR="$BACKUP_PATH/$(date +%Y-%m-%d)"
 
