@@ -36,8 +36,8 @@
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
-    history =
-    context =
+    history = ctrl+grave
+    context = ctrl+shift+period
 
 [urgency_low]
     timeout = 10
