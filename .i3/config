@@ -49,7 +49,7 @@ bar {
     urgent_workspace   $color_bright_yellow   $color_bright_yellow    $color_normal_black
   }
 
-  separator_symbol "|"
+  separator_symbol "     "
   status_command py3status --dbus-notify
   position top
   tray_output none
