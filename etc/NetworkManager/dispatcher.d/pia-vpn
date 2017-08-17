@@ -21,15 +21,15 @@ case $status in
     ;;
   vpn-up)
     if [[ $interface == "tun0" ]]; then
-      chmod +w /etc/resolv.conf
+      chattr -i /etc/resolv.conf
       echo -e "nameserver 209.222.18.222\nnameserver 209.222.18.218" > /etc/resolv.conf
-      chmod -w /etc/resolv.conf
+      chattr +i /etc/resolv.conf
     fi
     killall -s USR1 py3status
     ;;
   vpn-down)
     if [[ $interface == "tun0" ]]; then
-      chmod +w /etc/resolv.conf
+      chattr -i /etc/resolv.conf
     fi
     killall -s USR1 py3status
     ;;
