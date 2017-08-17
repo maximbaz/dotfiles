@@ -1,8 +1,9 @@
 acpi
+aircrack-ng
+atom
 browserify
 byzanz
 calibre
-cargo
 compton
 diff-so-fancy
 docker
@@ -17,15 +18,11 @@ freerdp
 fzf
 geeqie
 ghc
-ghc-mod
 git
 go
 gradle
 grub
 gsimplecal
-hindent
-hlint
-hoogle
 htop
 httpie
 i3lock
@@ -53,6 +50,7 @@ networkmanager
 networkmanager-openvpn
 networkmanager-pptp
 nm-connection-editor
+ntfs-3g
 numlockx
 openssh
 os-prober
@@ -69,7 +67,8 @@ ranger
 redshift
 reflector
 rsync
-shellcheck
+rust
+sakura
 sshuttle
 stack
 sway
