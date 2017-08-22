@@ -153,6 +153,9 @@ visual_bell:
   animation: EaseOutExpo
   duration: 0
 
+# Background opacity
+background_opacity: 0.95
+
 # Key bindings
 #
 # Each binding is defined as an object with some properties. Most of the
