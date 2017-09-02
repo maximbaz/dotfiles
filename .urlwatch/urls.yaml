@@ -11,9 +11,6 @@ filter: element-by-class:release-title,html2text
 name: "Chromium"
 url: "https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/chromium"
 ---
-name: "Chromium VAAPI patch"
-url: "https://aur.archlinux.org/cgit/aur.git/plain/vaapi_patch_r2.patch?h=chromium-dev"
----
 name: "Cerebro launcher"
 url: "https://github.com/KELiON/cerebro/releases/latest"
 filter: element-by-class:release-title,html2text
