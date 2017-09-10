@@ -1,8 +1,10 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
-export XDG_CONFIG_HOME="$HOME/.config"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+# Use gpg-agent as ssh-agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 
 # Set chars treated as part of a word
 export WORDCHARS='*?.[]~&!#$%^(){}<>'
