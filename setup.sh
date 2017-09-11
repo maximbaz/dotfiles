@@ -205,6 +205,7 @@ if [ "$(whoami)" == "root" ]; then
   systemctl_enable_start "system" "dropbox@maximbaz.service"
   systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "ufw.service"
+  systemctl_enable_start "system" "pcscd.service"
 
   # tlp
   systemctl_enable_start "system" "tlp.service"
@@ -217,8 +218,8 @@ if [ "$(whoami)" == "root" ]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
-  echo "Allowing to run some apps with sudo without password"
-  sed -zi "s|\(%wheel ALL=(ALL) ALL\)\n[^\n]*|\1\n%wheel ALL=(ALL) NOPASSWD:SETENV: /usr/bin/pacman, /usr/bin/umount|" /etc/sudoers
+  echo "Allowing to use U2F for sudo access"
+  sed -zi "s|\(#%PAM-1.0\)\n\(auth    sufficient    pam_u2f.so    cue\n\)\?|\1\nauth    sufficient    pam_u2f.so    cue\n|" /etc/pam.d/sudo
 
   echo "Setting limit to journal logs size"
   sed -i "s/#\?\(SystemMaxUse\)=.*/\1=300M/" /etc/systemd/journald.conf
