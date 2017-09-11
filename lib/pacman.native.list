@@ -3,6 +3,7 @@ atom
 browserify
 byzanz
 calibre
+ccid
 compton
 diff-so-fancy
 docker
@@ -34,6 +35,7 @@ iw
 jq
 krita
 libreoffice-fresh
+libusb-compat
 libva-intel-driver
 libva-vdpau-driver
 libvdpau-va-gl
@@ -58,6 +60,7 @@ p7zip
 pamixer
 pass
 pavucontrol
+pcsc-tools
 pulseaudio
 pulseaudio-alsa
 python2-neovim
@@ -78,7 +81,6 @@ thunderbird
 tig
 tlp
 tlp-rdw
-tmux
 transmission-qt
 tree
 udiskie
@@ -98,5 +100,6 @@ xorg-xrandr
 yapf
 yarn
 youtube-dl
+yubikey-manager
 zip
 zsh

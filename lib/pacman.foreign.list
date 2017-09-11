@@ -22,6 +22,7 @@ jetty
 light
 ncurses5-compat-libs
 nomachine
+pam_u2f-git
 pass-otp
 prettier
 private-internet-access-vpn
@@ -32,6 +33,7 @@ screenkey
 slack-desktop
 teamviewer
 thunderbird-enigmail
+tmux-git
 ttf-font-awesome
 wd719x-firmware
 wire-desktop-beta
