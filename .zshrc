@@ -1,9 +1,11 @@
 # Initial configuration
 source /etc/zsh/zprofile
-source ~/.zsh/environment.zsh
 
 # Load prezto
 source "$HOME/.zprezto/init.zsh"
+
+# Load environment variables
+source ~/.zsh/environment.zsh
 
 # Define a better hotkey to edit command in editor
 bindkey -M emacs "$key_info[Control]V$key_info[Control]V" edit-command-line
