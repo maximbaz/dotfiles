@@ -2,6 +2,7 @@
 
 set -e
 
+script_name="$(basename "$0")"
 dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
 cd "$dotfiles_dir"
 
@@ -152,7 +153,7 @@ if [ "$(whoami)" != "root" ]; then
   echo "Switching to root user to continue..."
   echo "====================================="
   echo "..."
-  sudo su -s "$0"
+  sudo su -s "$dotfiles_dir/$script_name"
   exit
 fi
 
