@@ -69,6 +69,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".i3status.conf"
 
   link ".ghc/ghci.conf"
+  link ".gnupg/gpg.conf"
   link ".gnupg/gpg-agent.conf"
 
   link ".config/alacritty/alacritty.yml"
