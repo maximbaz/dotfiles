@@ -221,6 +221,9 @@ if [ "$(whoami)" == "root" ]; then
   echo "Allowing to use U2F for sudo access"
   sed -zi "s|\(#%PAM-1.0\)\n\(auth    sufficient    pam_u2f.so    cue\n\)\?|\1\nauth    sufficient    pam_u2f.so    cue\n|" /etc/pam.d/sudo
 
+  echo "Disable caching sudo access"
+  sed -zi "s|\(## Defaults specification\n[^\n]*\n[^\n]*\n[^\n]*\n\)\(\nDefaults timestamp_timeout=0\n\n\)\?|\1\nDefaults timestamp_timeout=0\n\n|" /etc/sudoers
+
   echo "Setting limit to journal logs size"
   sed -i "s/#\?\(SystemMaxUse\)=.*/\1=300M/" /etc/systemd/journald.conf
 
