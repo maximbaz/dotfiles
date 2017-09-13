@@ -59,6 +59,9 @@ bar {
 # Use Windows as a modifier key
 set $mod Mod4
 
+# Define NumLock modifier
+set $numlock Mod2
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -152,16 +155,16 @@ set $workspace9 workspace number 9
 set $workspace0 workspace number 10
 
 # Switch to workspace using keypad
-bindcode $mod+87 $workspace1
-bindcode $mod+88 $workspace2
-bindcode $mod+89 $workspace3
-bindcode $mod+83 $workspace4
-bindcode $mod+84 $workspace5
-bindcode $mod+85 $workspace6
-bindcode $mod+79 $workspace7
-bindcode $mod+80 $workspace8
-bindcode $mod+81 $workspace9
-bindcode $mod+90 $workspace0
+bindcode $numlock+$mod+87 $workspace1
+bindcode $numlock+$mod+88 $workspace2
+bindcode $numlock+$mod+89 $workspace3
+bindcode $numlock+$mod+83 $workspace4
+bindcode $numlock+$mod+84 $workspace5
+bindcode $numlock+$mod+85 $workspace6
+bindcode $numlock+$mod+79 $workspace7
+bindcode $numlock+$mod+80 $workspace8
+bindcode $numlock+$mod+81 $workspace9
+bindcode $numlock+$mod+90 $workspace0
 
 # Switch to workspace using number row
 bindsym $mod+1 $workspace1
@@ -176,16 +179,16 @@ bindsym $mod+9 $workspace9
 bindsym $mod+0 $workspace0
 
 # Move window to workspace using keypad
-bindcode $mod+Shift+87 move container to $workspace1
-bindcode $mod+Shift+88 move container to $workspace2
-bindcode $mod+Shift+89 move container to $workspace3
-bindcode $mod+Shift+83 move container to $workspace4
-bindcode $mod+Shift+84 move container to $workspace5
-bindcode $mod+Shift+85 move container to $workspace6
-bindcode $mod+Shift+79 move container to $workspace7
-bindcode $mod+Shift+80 move container to $workspace8
-bindcode $mod+Shift+81 move container to $workspace9
-bindcode $mod+Shift+90 move container to $workspace0
+bindcode $numlock+$mod+Shift+87 move container to $workspace1
+bindcode $numlock+$mod+Shift+88 move container to $workspace2
+bindcode $numlock+$mod+Shift+89 move container to $workspace3
+bindcode $numlock+$mod+Shift+83 move container to $workspace4
+bindcode $numlock+$mod+Shift+84 move container to $workspace5
+bindcode $numlock+$mod+Shift+85 move container to $workspace6
+bindcode $numlock+$mod+Shift+79 move container to $workspace7
+bindcode $numlock+$mod+Shift+80 move container to $workspace8
+bindcode $numlock+$mod+Shift+81 move container to $workspace9
+bindcode $numlock+$mod+Shift+90 move container to $workspace0
 
 # Move window to workspace using number row
 bindsym $mod+Shift+1 move container to $workspace1
@@ -206,25 +209,25 @@ exec_always ~/bin/i3-autoname-workspaces.py &
 set $mode_resize Resize window
 mode "$mode_resize" {
   # (h)
-  bindcode Mod2+43            resize grow   left  10 px or 10 ppt
-  bindcode Mod2+Shift+43      resize shrink right 10 px or 10 ppt
-  bindcode Mod2+Ctrl+43       resize grow   left  1  px or 1  ppt
-  bindcode Mod2+Ctrl+Shift+43 resize shrink right 1  px or 1  ppt
+  bindcode 43            resize grow   left  10 px or 10 ppt
+  bindcode Shift+43      resize shrink right 10 px or 10 ppt
+  bindcode Ctrl+43       resize grow   left  1  px or 1  ppt
+  bindcode Ctrl+Shift+43 resize shrink right 1  px or 1  ppt
   # (j)
-  bindcode Mod2+Shift+44      resize grow   down  10 px or 10 ppt
-  bindcode Mod2+44            resize shrink up    10 px or 10 ppt
-  bindcode Mod2+Ctrl+Shift+44 resize grow   down  1  px or 1  ppt
-  bindcode Mod2+Ctrl+44       resize shrink up    1  px or 1  ppt
+  bindcode Shift+44      resize grow   down  10 px or 10 ppt
+  bindcode 44            resize shrink up    10 px or 10 ppt
+  bindcode Ctrl+Shift+44 resize grow   down  1  px or 1  ppt
+  bindcode Ctrl+44       resize shrink up    1  px or 1  ppt
   # (k)
-  bindcode Mod2+Shift+45      resize shrink down  10 px or 10 ppt
-  bindcode Mod2+45            resize grow   up    10 px or 10 ppt
-  bindcode Mod2+Ctrl+Shift+45 resize shrink down  1  px or 1  ppt
-  bindcode Mod2+Ctrl+45       resize grow   up    1  px or 1  ppt
+  bindcode Shift+45      resize shrink down  10 px or 10 ppt
+  bindcode 45            resize grow   up    10 px or 10 ppt
+  bindcode Ctrl+Shift+45 resize shrink down  1  px or 1  ppt
+  bindcode Ctrl+45       resize grow   up    1  px or 1  ppt
   # (l)
-  bindcode Mod2+Shift+46      resize grow   right 10 px or 10 ppt
-  bindcode Mod2+46            resize shrink left  10 px or 10 ppt
-  bindcode Mod2+Ctrl+Shift+46 resize grow   right 1  px or 1  ppt
-  bindcode Mod2+Ctrl+46       resize shrink left  1  px or 1  ppt
+  bindcode Shift+46      resize grow   right 10 px or 10 ppt
+  bindcode 46            resize shrink left  10 px or 10 ppt
+  bindcode Ctrl+Shift+46 resize grow   right 1  px or 1  ppt
+  bindcode Ctrl+46       resize shrink left  1  px or 1  ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -236,15 +239,15 @@ bindcode $mod+27 mode "$mode_resize"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
 mode "$mode_system" {
   # (l)
-  bindcode Mod2+46 exec --no-startup-id ~/bin/i3exit.sh lock, mode "default"
+  bindcode 46 exec --no-startup-id ~/bin/i3exit.sh lock, mode "default"
   # (e)
-  bindcode Mod2+26 exec --no-startup-id ~/bin/i3exit.sh logout, mode "default"
+  bindcode 26 exec --no-startup-id ~/bin/i3exit.sh logout, mode "default"
   # (s)
-  bindcode Mod2+39 exec --no-startup-id ~/bin/i3exit.sh suspend, mode "default"
+  bindcode 39 exec --no-startup-id ~/bin/i3exit.sh suspend, mode "default"
   # (r)
-  bindcode Mod2+27 exec --no-startup-id ~/bin/i3exit.sh reboot, mode "default"
+  bindcode 27 exec --no-startup-id ~/bin/i3exit.sh reboot, mode "default"
   # (h)
-  bindcode Mod2+43 exec --no-startup-id ~/bin/i3exit.sh shutdown, mode "default"
+  bindcode 43 exec --no-startup-id ~/bin/i3exit.sh shutdown, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -256,9 +259,9 @@ bindcode $mod+Shift+26 mode "$mode_system"
 set $mode_workspaces_monitors Move workspace between monitors
 mode "$mode_workspaces_monitors" {
   # (h)
-  bindcode Mod2+43 exec --no-startup-id i3-msg move workspace to output left, mode "default"
+  bindcode 43 exec --no-startup-id i3-msg move workspace to output left, mode "default"
   # (l)
-  bindcode Mod2+46 exec --no-startup-id i3-msg move workspace to output right, mode "default"
+  bindcode 46 exec --no-startup-id i3-msg move workspace to output right, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
