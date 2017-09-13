@@ -2,13 +2,10 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
 # Use gpg-agent as ssh-agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
-
-# Do not treat some chars as part of a word
-export WORDCHARS="${WORDCHARS//-}"
-export WORDCHARS="${WORDCHARS//;}"
 
 # NeoVim configuration
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
