@@ -1,5 +1,5 @@
 [alias]
-  me = !"git config user.name 'Maxim Baz'; git config user.email 'git@maximbaz.com'"
+  me = !"git config user.name 'Maxim Baz'; git config user.email 'git@maximbaz.com'; git config commit.gpgsign true"
   ms = !"git config user.name 'Maxim Baz'; git config user.email 'maximbaz@microsoft.com'"
 [branch]
   autosetuprebase = always
@@ -33,3 +33,4 @@
   autosquash = true
 [user]
   useConfigOnly = true
+  signingkey = 8053EB88879A68CB4873D32B011FDC52DA839335
