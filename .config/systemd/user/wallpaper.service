@@ -1,5 +1,0 @@
-[Unit]
-Description=Update wallpaper
-
-[Service]
-ExecStart=/home/maximbaz/bin/update-wallpaper.sh

@@ -99,8 +99,6 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/systemd/user/pacman-backup.timer"
   link ".config/systemd/user/urlwatch.service"
   link ".config/systemd/user/urlwatch.timer"
-  link ".config/systemd/user/wallpaper.service"
-  link ".config/systemd/user/wallpaper.timer"
 
   link ".local/share/fonts"
 

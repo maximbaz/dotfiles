@@ -42,6 +42,7 @@ source ~/.zsh/environment.zsh
 
 xrandr --dpi 210                                           # Set High DPI
 xcalib ~/lib/dell_xps15.icm                                # Calibrate screen
+hsetroot -solid "#333333"                                  # Set desktop color
 compton &                                                  # Enable composition
 start-pulseaudio-x11 &                                     # Pulse audio daemon
 xset s off -dpms                                           # Prevent screen from turning off
@@ -54,7 +55,6 @@ unclutter &                                                # Hide mouse when usi
 
 cerebro --disable-gpu &                                    # Launcher
 copyq &                                                    # Clipboard manager
-~/bin/update-wallpaper.sh &                                # Set wallpaper
 redshift &                                                 # Warm colors at night
 hotshots &                                                 # Screenshot manager
 udiskie --smart-tray &                                     # Automatically mount usb drives
