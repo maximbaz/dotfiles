@@ -144,6 +144,7 @@ if [ "$(whoami)" != "root" ]; then
 
   echo "Ignoring further changes to often changing config"
   git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
+  git update-index --assume-unchanged ".config/transmission/settings.json"
   git update-index --assume-unchanged ".config/Cerebro/config.json"
 
   echo ""
