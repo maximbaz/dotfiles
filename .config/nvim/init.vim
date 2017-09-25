@@ -31,7 +31,7 @@
   call dein#add('junegunn/fzf', {'build': './install --bin'})           " Fuzzy search - binary
   call dein#add('junegunn/fzf.vim')                                     " Fuzzy search - vim plugin
 
-  call dein#add('jiangmiao/auto-pairs')                                 " Insert closing brackets automatically
+  call dein#add('Raimondi/delimitMate')                                 " Insert closing brackets automatically
   call dein#add('tomtom/tcomment_vim')                                  " Comment lines
   call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
   call dein#add('vim-scripts/VisIncr')                                  " Generate increasing number column
@@ -163,6 +163,9 @@
     let g:airline#extensions#hunks#non_zero_only = 1
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamecollapse  = 1
+  " }}}
+  " DelimitMate {{{
+    let delimitMate_expand_cr = 1
   " }}}
   " FZF {{{
     " Make :Ag not match file names, only file contents
