@@ -1,9 +1,12 @@
 # Set font
 font pango: Taskbar, Cantarell 9
 
+# Gaps
+gaps inner 20
+smart_gaps on
+
 # Borders
-for_window [class="^.*"] border pixel 0
-new_window pixel 0
+new_window pixel 1
 new_float pixel 0
 hide_edge_borders both
 
@@ -29,9 +32,9 @@ set $color_normal_black  #282828
 set $color_unused        #ff0000
 
 # Colors                  border                 background             text                   indicator       child_border
-client.focused            $color_bright_gray     $color_bright_gray     $color_bright_white    $color_unused   $color_unused
-client.focused_inactive   $color_bright_gray     $color_bright_gray     $color_bright_white    $color_unused   $color_unused
-client.unfocused          $color_normal_gray     $color_normal_gray     $color_normal_white    $color_unused   $color_unused
+client.focused            $color_bright_gray     $color_bright_gray     $color_bright_white    $color_unused   $color_normal_white
+client.focused_inactive   $color_bright_gray     $color_bright_gray     $color_bright_white    $color_unused   $color_normal_black
+client.unfocused          $color_normal_gray     $color_normal_gray     $color_normal_white    $color_unused   $color_normal_black
 client.urgent             $color_bright_yellow   $color_bright_yellow   $color_normal_black    $color_unused   $color_unused
 client.placeholder        $color_unused          $color_normal_black    $color_unused          $color_unused   $color_unused
 
@@ -40,7 +43,7 @@ bar {
   colors {
     # Whole color settings
     background $color_normal_gray
-    separator  $color_normal_gray
+    separator  $color_bright_gray
     statusline $color_bright_white
 
     # Type             border                 background              font
@@ -50,7 +53,7 @@ bar {
     urgent_workspace   $color_bright_yellow   $color_bright_yellow    $color_normal_black
   }
 
-  separator_symbol "     "
+  separator_symbol " | "
   status_command py3status --dbus-notify
   position top
   tray_output none
