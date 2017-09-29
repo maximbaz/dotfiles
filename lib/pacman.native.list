@@ -1,7 +1,5 @@
 acpi
 atom
-browserify
-byzanz
 calibre
 ccid
 compton
@@ -28,7 +26,6 @@ htop
 httpie
 i3lock
 i3status
-i3-wm
 imagemagick
 intel-ucode
 iw
