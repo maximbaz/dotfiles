@@ -14,6 +14,7 @@ hide_edge_borders both
 for_window    [window_role="pop-up"]         floating enable
 for_window    [class="Pinentry"]             floating enable
 for_window    [class="copyq"]                floating enable
+for_window    [class="Peek"]                 floating enable
 for_window    [class="Google-chrome"]        move container to $workspace2, title_format "Google Chrome"
 for_window    [class="Chromium"]             move container to $workspace2, title_format "Chromium"
 for_window    [class="Wire"]                 move container to $workspace3
