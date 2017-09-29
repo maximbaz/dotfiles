@@ -1,5 +1,0 @@
-[Unit]
-Description=Set DPI value based on the current screen
-
-[Service]
-ExecStart=/home/maximbaz/bin/dpi-set.sh

@@ -92,8 +92,6 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/transmission/settings.json"
   link ".config/yay/config.json"
 
-  link ".config/systemd/user/dpi.service"
-  link ".config/systemd/user/dpi.timer"
   link ".config/systemd/user/tmux.service"
   link ".config/systemd/user/pacman-backup.service"
   link ".config/systemd/user/pacman-backup.timer"
@@ -125,10 +123,8 @@ if [ "$(whoami)" != "root" ]; then
   echo "================================="
 
   systemctl_enable_start "user" "tmux.service"
-  systemctl_enable_start "user" "dpi.timer"
   systemctl_enable_start "user" "pacman-backup.timer"
   systemctl_enable_start "user" "urlwatch.timer"
-  systemctl_enable_start "user" "wallpaper.timer"
 
   echo ""
   echo "======================================="
