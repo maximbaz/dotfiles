@@ -61,8 +61,8 @@ alias grbom='git rebase -i origin/master'
 alias gr='git reset'
 alias gr!='git reset --hard'
 alias grh='git reset HEAD'
-alias grh!='git reset --hard HEAD'
-alias grh!!='git add --all && git reset --hard HEAD'
+alias grH='git reset --hard HEAD'
+alias grH!='git add --all && git reset --hard HEAD'
 
 alias gs='git show'
 
