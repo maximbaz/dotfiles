@@ -178,6 +178,7 @@ if [ "$(whoami)" == "root" ]; then
   copy "etc/private-internet-access/pia.conf"
   copy "etc/sysctl.d/10-swappiness.conf"
   copy "etc/sysctl.d/99-idea.conf"
+  copy "etc/sysctl.d/99-sysctl.conf"
   copy "etc/systemd/system/getty@tty1.service.d/override.conf"
   copy "etc/systemd/system/paccache.service"
   copy "etc/systemd/system/paccache.timer"
