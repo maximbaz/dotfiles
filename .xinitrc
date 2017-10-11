@@ -55,7 +55,6 @@ unclutter &                                                # Hide mouse when usi
 
 cerebro --disable-gpu &                                    # Launcher
 copyq &                                                    # Clipboard manager
-redshift &                                                 # Warm colors at night
 hotshots &                                                 # Screenshot manager
 udiskie --smart-tray &                                     # Automatically mount usb drives
 thunderbird &                                              # Mail

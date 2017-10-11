@@ -124,6 +124,7 @@ if [ "$(whoami)" != "root" ]; then
 
   systemctl_enable_start "user" "tmux.service"
   systemctl_enable_start "user" "pacman-backup.timer"
+  systemctl_enable_start "user" "redshift.service"
   systemctl_enable_start "user" "urlwatch.timer"
 
   echo ""
