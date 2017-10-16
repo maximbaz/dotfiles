@@ -538,12 +538,6 @@
   " }}}
 " }}}
 " AutoCmd {{{
-  augroup cursorline-only-active-window
-    autocmd!
-    autocmd WinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-  augroup END
-
   augroup incsearch-keymap
     autocmd!
     autocmd VimEnter * call s:incsearch_keymap()
