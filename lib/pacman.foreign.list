@@ -2,6 +2,7 @@ aic94xx-firmware
 alacritty-git
 alacritty-terminfo-git
 android-sdk-platform-tools
+browserpass
 cerebro
 chromium-vaapi
 chromium-widevine
@@ -23,7 +24,6 @@ jdk8
 jetty
 light
 ncurses5-compat-libs
-nomachine
 pam_u2f-git
 pass-otp
 peek
@@ -31,12 +31,13 @@ prettier
 private-internet-access-vpn
 py3status-git
 python2-tzlocal
+python-inotify-simple
 python-tzlocal
 screenkey
 teamviewer
 thunderbird-enigmail
-tmux-git
 ttf-font-awesome
+virtualbox-ext-oracle
 wd719x-firmware
 wire-desktop-beta
 xcalib

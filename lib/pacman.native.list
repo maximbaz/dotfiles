@@ -27,6 +27,7 @@ httpie
 i3lock
 i3status
 imagemagick
+inotify-tools
 intel-ucode
 iw
 jq
@@ -78,6 +79,7 @@ thunderbird
 tig
 tlp
 tlp-rdw
+tmux
 transmission-qt
 tree
 udiskie
@@ -86,6 +88,7 @@ unclutter
 unrar
 unzip
 urlwatch
+virtualbox
 w3m
 wget
 wmctrl
