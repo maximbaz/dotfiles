@@ -35,10 +35,6 @@ fi
 export M3_HOME="/usr/share/maven3"
 export PATH="$M3_HOME/bin:$PATH"
 
-# Jetty configuration
-export JETTY_HOME="$HOME/jetty-9.2"
-export PATH="$JETTY_HOME/bin:$PATH"
-
 # Haskell configuration
 export PATH="$HOME/.cabal/bin:$PATH"
 
