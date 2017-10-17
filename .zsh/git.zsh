@@ -45,7 +45,8 @@ alias glogp='git log -p'
 alias gm='git merge'
 
 alias gp='git push'
-alias gpf='git push --force'
+alias gpf='git push --force-with-lease'
+alias gpf!='git push --force'
 alias gpu='git push -u'
 
 alias gra='git remote add'
@@ -61,8 +62,8 @@ alias grbom='git rebase -i origin/master'
 alias gr='git reset'
 alias gr!='git reset --hard'
 alias grh='git reset HEAD'
-alias grH='git reset --hard HEAD'
-alias grH!='git add --all && git reset --hard HEAD'
+alias grh!='git reset --hard HEAD'
+alias garh!='git add --all && git reset --hard HEAD'
 
 alias gs='git show'
 
