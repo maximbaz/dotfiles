@@ -9,7 +9,7 @@ url: "https://github.com/emojione/emojione-assets/releases/latest"
 filter: element-by-class:release-title,html2text
 ---
 name: "Chromium"
-url: "https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/chromium"
+url: "https://git.archlinux.org/svntogit/packages.git/plain/chromium/repos/extra-x86_64/PKGBUILD"
 ---
 name: "Cerebro launcher"
 url: "https://github.com/KELiON/cerebro/releases/latest"
