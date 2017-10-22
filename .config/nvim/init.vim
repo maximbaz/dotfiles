@@ -376,8 +376,8 @@ map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
 
-map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)zv
-map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zv
+map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)zMzv
+map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zMzv
 
 """" Neomake
 nnoremap <Leader>m :w <bar> Neomake<CR>
