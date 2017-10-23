@@ -188,7 +188,7 @@ prompt_maximbaz_setup() {
   autoload -Uz add-zsh-hook
   autoload -Uz vcs_info
 
-  prompt_opts=(cr subst percent)
+  prompt_opts=(cr percent sp subst)
 
   add-zsh-hook precmd prompt_maximbaz_precmd
   add-zsh-hook preexec prompt_maximbaz_preexec
