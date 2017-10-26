@@ -278,10 +278,11 @@ map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
 let delimitMate_expand_cr = 1
 
 """" Deoplete
-let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_menu_width = 80
+
+call deoplete#custom#source('_', 'min_pattern_length', 1)
+call deoplete#custom#source('around', 'rank', 100)
+call deoplete#custom#source('ultisnips', 'rank', 200)
 
 """" Deoplete-jedi (Python completion)
 let deoplete#sources#jedi#show_docstring = 1
