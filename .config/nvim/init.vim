@@ -102,10 +102,11 @@ set scrolloff=5
 set sidescrolloff=10
 set expandtab
 set shiftwidth=2
+set shiftround
 set tabstop=2
 set virtualedit=all
 set diffopt+=iwhite
-let &fillchars="vert:|,fold:-,diff: "
+let &fillchars="vert:|,fold: ,diff: "
 set complete+=kspell
 set cursorline
 set hidden
