@@ -5,6 +5,7 @@ set runtimepath^=~/.cache/dein/repos/github.com/Shougo/dein.vim
 call dein#begin(expand('~/.cache/dein'))
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('haya14busa/dein-command.vim')
 
 call dein#add('morhetz/gruvbox')                                      " Nice color theme
 call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
@@ -48,11 +49,10 @@ call dein#add('fishbullet/deoplete-ruby')                             " Ruby aut
 call dein#add('wellle/tmux-complete.vim')                             " Autocomplete from Tmux panes
 call dein#add('Shougo/neoinclude.vim')                                " Included files autocomplete
 call dein#add('zchee/deoplete-go', {'build': 'make'})                 " Go autocomplete
+call dein#add('zchee/deoplete-zsh')                                   " ZSH autocomplete
 
 call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
 call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
-call dein#add('mattn/emmet-vim')                                      " TODO HTML editing
-call dein#add('AndrewRadev/splitjoin.vim')                            " TODO Toggle single-line and multi-line expressions
 
 call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
 call dein#add('ap/vim-css-color')                                     " Colors in CSS
