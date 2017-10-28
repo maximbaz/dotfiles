@@ -37,6 +37,7 @@ call dein#add('vim-scripts/VisIncr')                                  " Generate
 call dein#add('tomtom/tcomment_vim')                                  " Comment lines
 call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
 call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
+call dein#add('matze/vim-move')                                       " Move blocks of code
 
 """" Targets and text objects
 call dein#add('wellle/targets.vim')                                   " Add more targets to operate on
@@ -65,11 +66,13 @@ call dein#add('osyo-manga/vim-anzu')                                  " Show sea
 call dein#add('haya14busa/vim-asterisk')                              " Star * improvements
 call dein#add('justinmk/vim-sneak')                                   " Improved F and T
 call dein#add('t9md/vim-smalls')                                      " Quick jump anywhere
+call dein#add('farmergreg/vim-lastplace')                             " Restore cursor position
 
 """" Navigate files
 call dein#add('airblade/vim-rooter')                                  " Change working directory to the project root
 call dein#add('junegunn/fzf', {'build': './install --bin'})           " Fuzzy search - binary
 call dein#add('junegunn/fzf.vim')                                     " Fuzzy search - vim plugin
+call dein#add('benizi/vim-automkdir')                                 " Automatically create missing folders on save
 
 """" Autocomplete
 call dein#add('Shougo/deoplete.nvim')                                 " Autocomplete engine
