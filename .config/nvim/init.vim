@@ -68,11 +68,12 @@ call dein#add('justinmk/vim-sneak')                                   " Improved
 call dein#add('t9md/vim-smalls')                                      " Quick jump anywhere
 call dein#add('farmergreg/vim-lastplace')                             " Restore cursor position
 
-"""" Navigate files
+"""" Navigate files, buffers and panes
 call dein#add('airblade/vim-rooter')                                  " Change working directory to the project root
 call dein#add('junegunn/fzf', {'build': './install --bin'})           " Fuzzy search - binary
 call dein#add('junegunn/fzf.vim')                                     " Fuzzy search - vim plugin
 call dein#add('benizi/vim-automkdir')                                 " Automatically create missing folders on save
+call dein#add('christoomey/vim-tmux-navigator')                       " Easy navigation between vim and tmux panes
 
 """" Autocomplete
 call dein#add('Shougo/deoplete.nvim')                                 " Autocomplete engine
