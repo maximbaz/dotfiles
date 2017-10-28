@@ -1,93 +1,112 @@
 """ Plugins
-filetype off
-set runtimepath^=~/.cache/dein/repos/github.com/Shougo/dein.vim
+"""" Dein-begin
+
+if &runtimepath !~# '/dein.vim'
+  let s:dein_dir = expand('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  if !isdirectory(s:dein_dir)
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_dir))
+  endif
+
+  execute 'set runtimepath^=' . s:dein_dir
+endif
 
 call dein#begin(expand('~/.cache/dein'))
+
+"""" Plugin manager
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('haya14busa/dein-command.vim')
 
-call dein#add('morhetz/gruvbox')                                      " Nice color theme
-call dein#add('vim-airline/vim-airline')                              " Nice bottom bar
-call dein#add('vim-airline/vim-airline-themes')                       " Nice bottom bar themes
-call dein#add('osyo-manga/vim-anzu')                                  " Show search count
+"""" Look & feel
+call dein#add('morhetz/gruvbox')                                      " Color theme
+call dein#add('vim-airline/vim-airline')                              " Bottom bar
 call dein#add('yuttie/comfortable-motion.vim')                        " Smooth scroll
-call dein#add('tpope/vim-sleuth')                                     " Automatically detect tabs vs spaces
+call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
 
+"""" Format code
+call dein#add('tpope/vim-sleuth')                                     " Automatically detect tabs vs spaces
+call dein#add('sbdchd/neoformat')                                     " Automatically format code
+
+"""" Manipulate code
 call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
 call dein#add('vim-scripts/visualrepeat')                             " Repeat for plugins in visual mode
 call dein#add('tpope/vim-surround')                                   " Surround
 call dein#add('tpope/vim-abolish')                                    " Substitute with Smart Case (:S//)
-call dein#add('tpope/vim-speeddating')                                " Increment dates
-call dein#add('tpope/vim-fugitive')                                   " TODO Git integration
-call dein#add('airblade/vim-gitgutter')                               " Git gutter
-call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
+call dein#add('Raimondi/delimitMate')                                 " Insert closing brackets automatically
+call dein#add('vim-scripts/VisIncr')                                  " Generate increasing number column
+call dein#add('tomtom/tcomment_vim')                                  " Comment lines
+call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
+call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
+
+"""" Targets and text objects
+call dein#add('wellle/targets.vim')                                   " Add more targets to operate on
+call dein#add('kana/vim-textobj-user')                                " Add user-defined text objects
+call dein#add('jceb/vim-textobj-uri',
+      \ {'depends': 'vim-textobj-user'})                              " Text object: URI (u)
+call dein#add('thinca/vim-textobj-between',
+      \ {'depends': 'vim-textobj-user'})                              " Text object: between characters (f<char>)
+call dein#add('glts/vim-textobj-comment',
+      \ {'depends': 'vim-textobj-user'})                              " Text object: comments (c)
+call dein#add('saaguero/vim-textobj-pastedtext',
+      \ {'depends': 'vim-textobj-user'})                              " Text object: pasted text (gb)
+call dein#add('Julian/vim-textobj-variable-segment',
+      \ {'depends': 'vim-textobj-user'})                              " Text object: segments of variable_names (v)
+call dein#add('kana/vim-textobj-function',
+      \ {'depends': 'vim-textobj-user'})                              " Text object: function (f)
+
+"""" Snippets
+call dein#add('SirVer/ultisnips')                                     " Snippet engine
+call dein#add('honza/vim-snippets')                                   " List of snippets
+
+"""" Navigate code
 call dein#add('haya14busa/incsearch.vim')                             " Incremental search
 call dein#add('haya14busa/incsearch-fuzzy.vim')                       " Fuzzy incremental search
+call dein#add('osyo-manga/vim-anzu')                                  " Show search count
+call dein#add('haya14busa/vim-asterisk')                              " Star * improvements
 call dein#add('justinmk/vim-sneak')                                   " Improved F and T
 call dein#add('t9md/vim-smalls')                                      " Quick jump anywhere
-call dein#add('haya14busa/vim-asterisk')                              " Star * improvements
-call dein#add('christoomey/vim-tmux-navigator')                       " Easy navigation between TMUX and VIM splits
+
+"""" Navigate files
 call dein#add('airblade/vim-rooter')                                  " Change working directory to the project root
 call dein#add('junegunn/fzf', {'build': './install --bin'})           " Fuzzy search - binary
 call dein#add('junegunn/fzf.vim')                                     " Fuzzy search - vim plugin
 
-call dein#add('Raimondi/delimitMate')                                 " Insert closing brackets automatically
-call dein#add('tomtom/tcomment_vim')                                  " Comment lines
-call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
-call dein#add('vim-scripts/VisIncr')                                  " Generate increasing number column
+"""" Autocomplete
+call dein#add('Shougo/deoplete.nvim')                                 " Autocomplete engine
+call dein#add('Shougo/neco-vim')                                      " Vim
+call dein#add('eagletmt/neco-ghc')                                    " Haskell
+call dein#add('zchee/deoplete-jedi')                                  " Python
+call dein#add('carlitux/deoplete-ternjs')                             " Javascript
+call dein#add('fishbullet/deoplete-ruby')                             " Ruby
+call dein#add('wellle/tmux-complete.vim')                             " Tmux panes
+call dein#add('zchee/deoplete-go', {'build': 'make'})                 " Go
+call dein#add('zchee/deoplete-zsh')                                   " ZSH
 
-call dein#add('SirVer/ultisnips')                                     " Snippet engine
-call dein#add('honza/vim-snippets')                                   " List of snippets
+"""" Git
+call dein#add('tpope/vim-fugitive')                                   " Git integration
+call dein#add('airblade/vim-gitgutter')                               " Git gutter
 
-call dein#add('Shougo/deoplete.nvim')                                 " Fuzzy search on everything
-call dein#add('Shougo/neco-vim')                                      " Vim autocomplete
-call dein#add('eagletmt/neco-ghc')                                    " Haskell autocomplete
-call dein#add('zchee/deoplete-jedi')                                  " Python autocomplete
-call dein#add('carlitux/deoplete-ternjs')                             " Javascript autocomplete
-call dein#add('fishbullet/deoplete-ruby')                             " Ruby autocomplete
-call dein#add('wellle/tmux-complete.vim')                             " Autocomplete from Tmux panes
-call dein#add('Shougo/neoinclude.vim')                                " Included files autocomplete
-call dein#add('zchee/deoplete-go', {'build': 'make'})                 " Go autocomplete
-call dein#add('zchee/deoplete-zsh')                                   " ZSH autocomplete
-
-call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in ruby
-call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
-
+"""" Render code
 call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
 call dein#add('ap/vim-css-color')                                     " Colors in CSS
-call dein#add('vim-scripts/SyntaxRange')                              " A different syntax for a region of file
 call dein#add('suan/vim-instant-markdown',
       \ {'build': 'npm -g install instant-markdown-d'})               " Instantly preview markdown
 
-call dein#add('sbdchd/neoformat')                                     " Automatically format code
+"""" Lint code
+call dein#add('neomake/neomake')
 
+"""" Language-specific
+""""" Haskell
 call dein#add('neovimhaskell/haskell-vim')                            " Better syntax highlight and indentation
 call dein#add('eagletmt/ghcmod-vim')                                  " Ghc Mod
 call dein#add('enomsg/vim-haskellConcealPlus')                        " Use unicode symbols for haskell keywords
 call dein#add('Twinside/vim-hoogle')                                  " Query hoogle
 call dein#add('mpickering/hlint-refactor-vim')                        " Fix lint issues
+
+""""" Go
 call dein#add('fatih/vim-go')                                         " Go development
 
-call dein#add('neomake/neomake')                                      " Linter
-
-call dein#add('wellle/targets.vim')                                                   " Add more targets to operate on
-call dein#add('kana/vim-textobj-user')                                                " Add user-defined text objects
-call dein#add('jceb/vim-textobj-uri', {'depends': 'vim-textobj-user'})                " TODO Text object: URI
-call dein#add('thinca/vim-textobj-between', {'depends': 'vim-textobj-user'})          " TODO Text object: between characters
-call dein#add('zandrmartin/vim-textobj-blanklines', {'depends': 'vim-textobj-user'})  " TODO Text object: blank lines
-call dein#add('glts/vim-textobj-comment', {'depends': 'vim-textobj-user'})            " TODO Text object: comments
-call dein#add('kana/vim-textobj-datetime', {'depends': 'vim-textobj-user'})           " TODO Text object: date and time
-call dein#add('kana/vim-textobj-fold', {'depends': 'vim-textobj-user'})               " TODO Text object: fold
-call dein#add('gilligan/textobj-gitgutter', {'depends': 'vim-textobj-user'})          " TODO Text object: git gutter hunk
-call dein#add('kana/vim-textobj-indent', {'depends': 'vim-textobj-user'})             " TODO Text object: similarly indented text
-call dein#add('kana/vim-textobj-line', {'depends': 'vim-textobj-user'})               " TODO Text object: line
-call dein#add('saaguero/vim-textobj-pastedtext', {'depends': 'vim-textobj-user'})     " TODO Text object: pasted text
-call dein#add('paulhybryant/vim-textobj-path', {'depends': 'vim-textobj-user'})       " TODO Text object: file path
-call dein#add('saihoooooooo/vim-textobj-space', {'depends': 'vim-textobj-user'})      " TODO Text object: space characters
-call dein#add('Julian/vim-textobj-variable-segment', {'depends': 'vim-textobj-user'}) " TODO Text object: segments of variable_names
-call dein#add('whatyouhide/vim-textobj-xmlattr', {'depends': 'vim-textobj-user'})     " TODO Text object: XML attributes
-
+"""" Dein-end
 call dein#end()
 
 if dein#check_install()
