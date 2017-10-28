@@ -97,7 +97,7 @@ call dein#add('suan/vim-instant-markdown',
       \ {'build': 'npm -g install instant-markdown-d'})               " Instantly preview markdown
 
 """" Lint code
-call dein#add('neomake/neomake')
+call dein#add('w0rp/ale')
 
 """" Language-specific
 """"" Haskell
@@ -273,6 +273,11 @@ nmap gx mxviugx<Esc>`x
 nnoremap <silent><Leader>cst :setlocal ts=4 sts=4 noet <bar> retab! <bar> setlocal ts=2 sts=2 et <bar> retab<CR>
 
 """ Plugins configuration
+"""" ALE
+let g:ale_open_list = 1
+let g:ale_linters = {'go': ['gofmt', 'golint', 'go vet', 'go build']}
+let g:airline#extensions#ale#enabled = 1
+
 """" Airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -385,11 +390,6 @@ map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zMzv
 
 """" Neco-ghc
 let g:necoghc_enable_detailed_browse = 1
-
-"""" Neomake
-let g:neomake_open_list = 2
-
-nnoremap <Leader>m :w <bar> Neomake<CR>
 
 """" Smalls
 let g:smalls_auto_jump = 1
