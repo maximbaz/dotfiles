@@ -501,7 +501,7 @@ function! ToggleAutoFormatCode()
   if !exists('#AutoFormatCode#BufWritePre')
     augroup AutoFormatCode
       autocmd!
-      autocmd BufWritePre * Neoformat
+      autocmd BufWritePre * silent! Neoformat
     augroup END
   else
     augroup AutoFormatCode
