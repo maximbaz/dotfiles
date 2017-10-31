@@ -26,6 +26,7 @@ call dein#add('maximbaz/lightline-ale')                               " ALE indi
 call dein#add('gcavallanti/vim-noscrollbar')                          " Scrollbar for statusline
 call dein#add('yuttie/comfortable-motion.vim')                        " Smooth scroll
 call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
+call dein#add('romainl/vim-qf')                                       " Quickfix / Loclist improvements
 
 """" Format code
 call dein#add('tpope/vim-sleuth')                                     " Automatically detect tabs vs spaces
@@ -226,8 +227,8 @@ inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
 
 """"" Navigate through location list
-nmap <C-n> :lnext<CR>
-nmap <C-p> :lprev<CR>
+nmap <C-n> <Plug>qf_loc_next
+nmap <C-p> <Plug>qf_loc_previous
 
 """" Scroll command history
 cnoremap <C-j> <Down>
@@ -471,6 +472,10 @@ map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zMzv
 """" Neco-ghc
 let g:necoghc_enable_detailed_browse = 1
 
+"""" vim-qf
+let g:qf_auto_open_quickfix = 0
+let g:qf_auto_open_loclist = 0
+
 """" Smalls
 let g:smalls_auto_jump = 1
 
@@ -605,17 +610,6 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-""" Commands
-"""" Loop cnext / cprev / lnext / lprev
-command! Cnext try | cnext | catch | cfirst | catch | endtry
-command! Cprev try | cprev | catch | clast | catch | endtry
-command! Lnext try | lnext | catch | lfirst | catch | endtry
-command! Lprev try | lprev | catch | llast | catch | endtry
-cabbrev cnext Cnext
-cabbrev cprev CPrev
-cabbrev lnext Lnext
-cabbrev lprev Lprev
 
 """ AutoCmd
 augroup incsearch-keymap
