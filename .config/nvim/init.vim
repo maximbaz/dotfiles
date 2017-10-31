@@ -19,7 +19,11 @@ call dein#add('haya14busa/dein-command.vim')
 
 """" Look & feel
 call dein#add('morhetz/gruvbox')                                      " Color theme
-call dein#add('vim-airline/vim-airline')                              " Bottom bar
+call dein#add('itchyny/lightline.vim')                                " Bottom bar
+call dein#add('mgee/lightline-bufferline')                            " Top bar
+call dein#add('maximbaz/lightline-trailing-whitespace')               " Trailing whitespace indicator
+call dein#add('maximbaz/lightline-ale')                               " ALE indicator
+call dein#add('gcavallanti/vim-noscrollbar')                          " Scrollbar for statusline
 call dein#add('yuttie/comfortable-motion.vim')                        " Smooth scroll
 call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
 
@@ -134,6 +138,7 @@ set complete+=kspell
 set cursorline
 set hidden
 set ignorecase
+set laststatus=2
 set lazyredraw
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz,ЖжЭэХхЪъ;\:\;\"\'{[}]
 set linebreak
@@ -148,6 +153,7 @@ set report=0
 set ruler
 set smartcase
 set showcmd
+set showtabline=2
 set nospell
 set spelllang=en,da,ru
 set splitbelow
@@ -276,25 +282,96 @@ nnoremap <silent><Leader>cst :setlocal ts=4 sts=4 noet <bar> retab! <bar> setloc
 """" ALE
 let g:ale_open_list = 1
 let g:ale_linters = {'go': ['gofmt', 'golint', 'go vet', 'go build']}
-let g:airline#extensions#ale#enabled = 1
 
-"""" Airline
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "gruvbox"
+"""" Lightline
+let g:lightline = {
+      \   'colorscheme': 'gruvbox',
+      \   'active': {
+      \     'left': [ [ 'mode' ], [ 'pwd' ] ],
+      \     'right': [ [ 'linter_errors', 'linter_warnings', 'trailing', 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
+      \   },
+      \   'inactive': {
+      \     'left': [ [ 'pwd' ] ],
+      \     'right': [ [ 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
+      \   },
+      \   'tabline': {
+      \     'left': [ [ 'buffers' ] ],
+      \     'right': [ [ 'close' ] ],
+      \   },
+      \   'separator': { 'left': '', 'right': '' },
+      \   'subseparator': { 'left': '', 'right': '' },
+      \   'component': {
+      \     'lineinfo': '%l:%-v',
+      \   },
+      \   'component_expand': {
+      \     'buffers': 'lightline#bufferline#buffers',
+      \     'trailing': 'lightline#trailing_whitespace#component',
+      \     'linter_warnings': 'lightline#ale#warnings',
+      \     'linter_errors': 'lightline#ale#errors',
+      \   },
+      \   'component_function': {
+      \     'pwd': 'LightlineWorkingDirectory',
+      \     'scrollbar': 'LightlineScrollbar',
+      \     'fileinfo': 'LightlineFileinfo',
+      \   },
+      \   'component_type': {
+      \     'buffers': 'tabsel',
+      \     'trailing': 'error',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \   },
+      \ }
 
-if !exists("g:airline_symbols")
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.whitespace = "•"
+""""" Custom components
+function! LightlineScrollbar()
+  let top_line = str2nr(line('w0'))
+  let bottom_line = str2nr(line('w$'))
+  let lines_count = str2nr(line('$'))
 
-let g:airline_section_c = airline#section#create(["%{getcwd()}", g:airline_symbols.space, 'readonly'])
-let g:airline_section_x = "%{&filetype}"
+  if bottom_line - top_line + 1 >= lines_count
+    return ''
+  endif
 
-let g:airline#extensions#branch#empty_message = "no git"
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamecollapse  = 1
+  let window_width = winwidth(0)
+  if window_width < 90
+    let scrollbar_width = 6
+  elseif window_width < 120
+    let scrollbar_width = 9
+  else
+    let scrollbar_width = 12
+  endif
+
+  return noscrollbar#statusline(scrollbar_width, '-', '#')
+endfunction
+
+function! LightlineFileinfo()
+  if winwidth(0) < 90
+    return ''
+  endif
+
+  let encoding = &fenc !=# "" ? &fenc : &enc
+  let format = &ff
+  let type = &ft !=# "" ? &ft : "no ft"
+  return type . ' | ' . format . ' | ' . encoding
+endfunction
+
+function! LightlineWorkingDirectory()
+  return &ft =~ 'help\|qf' ? '' : fnamemodify(getcwd(), ":~:.")
+endfunction
+
+"""" Lightline ALE
+let g:lightline#ale#indicator_warnings = ' '
+let g:lightline#ale#indicator_errors = ' '
+
+"""" Lightline bufferline
+let g:lightline#bufferline#filename_modifier = ':~:.'
+let g:lightline#bufferline#modified = ''
+let g:lightline#bufferline#read_only = ''
+let g:lightline#bufferline#unnamed = '[No Name]'
+let g:lightline#bufferline#shorten_path = 0
+
+"""" Lightline trailing whitespace
+let g:lightline#trailing_whitespace#indicator = '•'
 
 """" Asterisk
 map *  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
