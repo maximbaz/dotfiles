@@ -40,6 +40,7 @@ call dein#add('Raimondi/delimitMate')                                 " Insert c
 call dein#add('vim-scripts/VisIncr')                                  " Generate increasing number column
 call dein#add('tomtom/tcomment_vim')                                  " Comment lines
 call dein#add('junegunn/vim-easy-align')                              " Easy align around equals
+call dein#add('tpope/vim-endwise')                                    " Automatically put 'end' in some langs
 call dein#add('alvan/vim-closetag')                                   " Automatically put closing tag in XML
 call dein#add('matze/vim-move')                                       " Move blocks of code
 
@@ -147,11 +148,13 @@ set listchars=tab:»·,trail:·,nbsp:·
 set mouse=
 set number
 set nrformats=
+set noshowmode
 set nostartofline
 set noswapfile
 set report=0
 set ruler
 set smartcase
+set shortmess+=c
 set showcmd
 set showtabline=2
 set nospell
@@ -260,7 +263,7 @@ xnoremap <S-Tab> <gv
 nnoremap <Leader>v ggVG
 xnoremap <Leader>v <C-C>ggVG
 
-"""" PageUp / PageDown by half of the screen
+"""" Scroll by half of the screen
 nmap <PageDown> <C-d>
 nmap <PageUp> <C-u>
 
@@ -499,7 +502,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
 """ Functions
-"""" Removes trailing whitespaces
+"""" Removes trailing whitespace
 function! RemoveTrailingSpaces()
   let l = line(".")
   let c = col(".")
