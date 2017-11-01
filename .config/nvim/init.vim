@@ -521,6 +521,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
+augroup fix-ultisnips-overriding-tab-visual-mode
+  autocmd!
+  autocmd VimEnter * xnoremap <Tab> >gv
+augroup END
+
 """" vim-gutentags
 augroup vim-gutentags
   autocmd!
@@ -632,12 +637,6 @@ endfunction
 command! ToggleAutoFormatCode :call ToggleAutoFormatCode()
 call ToggleAutoFormatCode() " Enable by default
 
-"""" Incsearch keymap fixes
-function! s:incsearch_keymap()
-  IncSearchNoreMap <C-j> <Down>
-  IncSearchNoreMap <C-k> <Up>
-endfunction
-
 """" Repeat macro over visual selection
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
@@ -647,11 +646,6 @@ endfunction
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 """ AutoCmd
-augroup incsearch-keymap
-  autocmd!
-  autocmd VimEnter * call s:incsearch_keymap()
-augroup END
-
 augroup helper-windows-close
   autocmd!
   autocmd BufWinEnter * if &buftype == 'quickfix' | nnoremap <buffer> q :cclose <bar> :lclose <CR> | endif
@@ -662,11 +656,6 @@ augroup END
 augroup reload-files-changed-outside
   autocmd!
   autocmd BufEnter,FocusGained * checktime
-augroup END
-
-augroup fix-ultisnips-overriding-tab-visual-mode
-  autocmd!
-  autocmd VimEnter * xnoremap <Tab> >gv
 augroup END
 
 
