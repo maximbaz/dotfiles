@@ -25,7 +25,6 @@ jetty
 light
 ncurses5-compat-libs
 pam_u2f-git
-pass-otp
 peek
 prettier
 private-internet-access-vpn
@@ -34,9 +33,7 @@ python2-tzlocal
 python-inotify-simple
 python-tzlocal
 screenkey
-teamviewer
 thunderbird-enigmail
-ttf-font-awesome
 virtualbox-ext-oracle
 wd719x-firmware
 wire-desktop-beta

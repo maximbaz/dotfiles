@@ -16,7 +16,6 @@ fontforge
 freerdp
 fzf
 geeqie
-ghc
 git
 go
 gradle
@@ -71,7 +70,6 @@ rsync
 rust
 sakura
 sshuttle
-stack
 sway
 terminus-font
 the_silver_searcher
@@ -82,6 +80,7 @@ tlp-rdw
 tmux
 transmission-qt
 tree
+ttf-font-awesome
 udiskie
 ufw
 unclutter
@@ -89,6 +88,7 @@ unrar
 unzip
 urlwatch
 virtualbox
+virtualbox-host-modules-arch
 w3m
 wget
 wmctrl

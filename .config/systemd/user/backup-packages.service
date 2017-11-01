@@ -2,4 +2,4 @@
 Description=Backup list of installed packages
 
 [Service]
-ExecStart=/home/maximbaz/bin/pacman-backup.sh
+ExecStart=/home/maximbaz/bin/backup-packages.sh

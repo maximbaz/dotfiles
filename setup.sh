@@ -93,8 +93,8 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/yay/config.json"
 
   link ".config/systemd/user/tmux.service"
-  link ".config/systemd/user/pacman-backup.service"
-  link ".config/systemd/user/pacman-backup.timer"
+  link ".config/systemd/user/backup-packages.service"
+  link ".config/systemd/user/backup-packages.timer"
   link ".config/systemd/user/urlwatch.service"
   link ".config/systemd/user/urlwatch.timer"
 
@@ -123,7 +123,7 @@ if [ "$(whoami)" != "root" ]; then
   echo "================================="
 
   systemctl_enable_start "user" "tmux.service"
-  systemctl_enable_start "user" "pacman-backup.timer"
+  systemctl_enable_start "user" "backup-packages.timer"
   systemctl_enable_start "user" "redshift.service"
   systemctl_enable_start "user" "urlwatch.timer"
 
