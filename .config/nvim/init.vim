@@ -24,7 +24,7 @@ call dein#add('mgee/lightline-bufferline')                            " Top bar
 call dein#add('maximbaz/lightline-trailing-whitespace')               " Trailing whitespace indicator
 call dein#add('maximbaz/lightline-ale')                               " ALE indicator
 call dein#add('gcavallanti/vim-noscrollbar')                          " Scrollbar for statusline
-call dein#add('yuttie/comfortable-motion.vim')                        " Smooth scroll
+call dein#add('cskeeters/vim-smooth-scroll')                          " Smooth scroll
 call dein#add('moll/vim-bbye')                                        " Keep window when closing a buffer
 call dein#add('romainl/vim-qf')                                       " Quickfix / Loclist improvements
 
@@ -536,6 +536,9 @@ augroup END
 let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_resolve_links = 1
+
+"""" vim-smooth-scroll
+let g:ms_per_line=2
 
 """" vim-table-mode
 let g:table_mode_verbose = 0
