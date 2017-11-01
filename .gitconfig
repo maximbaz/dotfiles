@@ -15,6 +15,7 @@
   autocrlf = input
   filemode = true
   pager = diff-so-fancy | less --tabs=4 -RFX
+  excludesfile = ~/.gitignore
 [merge]
   conflictstyle = diff3
   tool = nvimdiff

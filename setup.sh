@@ -103,6 +103,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".agignore"
   link ".compton.conf"
   link ".gitconfig"
+  link ".gitignore"
   link ".gtkrc-2.0"
   link ".npmrc"
   link ".pylintrc"
