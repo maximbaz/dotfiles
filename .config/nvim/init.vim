@@ -31,6 +31,7 @@ call dein#add('romainl/vim-qf')                                       " Quickfix
 """" Format code
 call dein#add('tpope/vim-sleuth')                                     " Automatically detect tabs vs spaces
 call dein#add('sbdchd/neoformat')                                     " Automatically format code
+call dein#add('dhruvasagar/vim-table-mode')                           " Format tables
 
 """" Manipulate code
 call dein#add('tpope/vim-repeat')                                     " Repeat for plugins
@@ -472,10 +473,6 @@ map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zMzv
 """" Neco-ghc
 let g:necoghc_enable_detailed_browse = 1
 
-"""" vim-qf
-let g:qf_auto_open_quickfix = 0
-let g:qf_auto_open_loclist = 0
-
 """" Smalls
 let g:smalls_auto_jump = 1
 
@@ -505,6 +502,20 @@ let g:tcommentTextObjectInlineComment = ''
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+
+"""" vim-rooter
+let g:rooter_use_lcd = 1
+let g:rooter_silent_chdir = 1
+let g:rooter_resolve_links = 1
+
+"""" vim-table-mode
+let g:table_mode_verbose = 0
+let g:table_mode_corner = '|'
+let g:table_mode_auto_align = 1
+
+"""" vim-qf
+let g:qf_auto_open_quickfix = 0
+let g:qf_auto_open_loclist = 0
 
 """ Functions
 """" Removes trailing whitespace
