@@ -123,6 +123,7 @@ if [ "$(whoami)" != "root" ]; then
   echo "Enabling and starting services..."
   echo "================================="
 
+  systemctl_enable_start "user" "dunst.service"
   systemctl_enable_start "user" "tmux.service"
   systemctl_enable_start "user" "backup-packages.timer"
   systemctl_enable_start "user" "redshift.service"
