@@ -59,8 +59,6 @@ call dein#add('saaguero/vim-textobj-pastedtext',
       \ {'depends': 'vim-textobj-user'})                              " Text object: pasted text (gb)
 call dein#add('Julian/vim-textobj-variable-segment',
       \ {'depends': 'vim-textobj-user'})                              " Text object: segments of variable_names (v)
-call dein#add('kana/vim-textobj-function',
-      \ {'depends': 'vim-textobj-user'})                              " Text object: function (f)
 
 """" Snippets
 call dein#add('SirVer/ultisnips')                                     " Snippet engine
@@ -129,42 +127,47 @@ endif
 """" General
 filetype plugin indent on
 syntax on
-set scrolloff=5
-set sidescrolloff=10
-set expandtab
-set shiftwidth=2
-set shiftround
-set tabstop=2
-set virtualedit=all
-set diffopt+=iwhite
 let &fillchars="vert:|,fold: ,diff: "
-set complete+=kspell
-set cursorline
-set hidden
-set ignorecase
-set laststatus=2
-set lazyredraw
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz,ЖжЭэХхЪъ;\:\;\"\'{[}]
-set linebreak
-set list
-set listchars=tab:»·,trail:·,nbsp:·
-set mouse=
-set number
-set nrformats=
-set noshowmode
-set nostartofline
-set noswapfile
-set report=0
-set ruler
-set smartcase
-set shortmess+=c
+set cursorline                                                     " Spot the cursor easier
+set diffopt+=iwhite                                                " Ignore whitespace changes
+set expandtab                                                      " Use spaces by default, not tabs
+set formatoptions+=l                                               " Don't wrap long lines when editing them
+set formatoptions+=n                                               " Recognize numbered lists
+set formatoptions+=o                                               " Continue comment when pressing o or O
+set formatoptions+=r                                               " Continue comment when pressing Enter
+set formatoptions-=c                                               " Don't wrap long comments
+set formatoptions-=t                                               " Don't wrap long lines when typing them
+set hidden                                                         " Keep buffer around even if it is not displayed right now
+set ignorecase                                                     " Ignore search case
+set langmap+=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ " Cyrillic layout in normal mode
+set langmap+=фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz " Cyrillic layout in normal mode
+set langmap+=ЖжЭэХхЪъ;\:\;\"\'{[}]                                 " Cyrillic layout in normal mode
+set lazyredraw                                                     " Don't redraw when there is no need for it
+set linebreak                                                      " Wrap lines intelligently, e.g. by end of words
+set list                                                           " Display unusual whitespace characters
+set listchars=tab:»·,trail:·,nbsp:·                                " Which whitespace characters to display and how
+set mouse=                                                         " Don't use mouse support
+set noshowmode                                                     " Don't show current mode in echo
+set nostartofline                                                  " Don't move cursor on the line when moving around
+set noswapfile                                                     " Don't use swap files, use git
+set nrformats=                                                     " Use only decimal numbers base when incrementing numbers
+set number                                                         " Show line numbers
+set report=0                                                       " Always report how many lines substitute changed
+set scrolloff=3                                                    " Number of lines to keep above and below cursor
+set shiftround                                                     " Round indent to a multiple of shiftwidth
+set shiftwidth=2                                                   " Tab shifts by this number of spaces
+set shortmess+=I                                                   " Don't show intro msg when starting vim
+set shortmess+=c                                                   " Don't echo while autocompletion in insert mode
 set showcmd
 set showtabline=2
-set nospell
+set sidescrolloff=3                                                " Number of columns to keep on the left/right of the cursor
+set smartcase
 set spelllang=en,da,ru
 set splitbelow
 set splitright
+set tabstop=2
 set updatetime=100
+set virtualedit=all
 set wildmode=longest,list,full
 
 """" Theme
@@ -269,6 +272,7 @@ xnoremap <Leader>v <C-C>ggVG
 """" Scroll by half of the screen
 nmap <PageDown> <C-d>
 nmap <PageUp> <C-u>
+nmap <C-e> <C-u>
 
 """" Jump to previous / next cursor position
 nnoremap <A-Left> <C-o>
