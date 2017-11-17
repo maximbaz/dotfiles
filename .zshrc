@@ -14,6 +14,7 @@ bindkey -M emacs "$key_info[Control]V$key_info[Control]V" edit-command-line
 source ~/.zsh/aliases.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/git.zsh
+source ~/.zsh/ssh.zsh
 source ~/.zsh/pacman.zsh
 
 # Load machine-specific configurations
