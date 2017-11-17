@@ -390,12 +390,12 @@ endfunction
 let g:lightline#ale#indicator_warnings = ' '
 let g:lightline#ale#indicator_errors = ' '
 
-"""" Lightline bufferline
-let g:lightline#bufferline#filename_modifier = ':~:.'
-let g:lightline#bufferline#modified = ''
-let g:lightline#bufferline#read_only = ''
-let g:lightline#bufferline#unnamed = '[No Name]'
-let g:lightline#bufferline#shorten_path = 0
+"""" lightline-bufferline
+let g:lightline#bufferline#filename_modifier = ':~:.' " Show filename relative to current directory
+let g:lightline#bufferline#unicode_symbols = 1        " Use fancy unicode symbols for various indicators
+let g:lightline#bufferline#modified = ''             " Default pencil is too ugly
+let g:lightline#bufferline#unnamed = '[No Name]'      " Default name when no buffer is opened
+let g:lightline#bufferline#shorten_path = 0           " Don't compress ~/my/folder/name to ~/m/f/n
 
 """" Lightline trailing whitespace
 let g:lightline#trailing_whitespace#indicator = '•'
