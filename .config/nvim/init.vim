@@ -291,10 +291,11 @@ nnoremap <silent><Leader>cst :setlocal ts=4 sts=4 noet <bar> retab! <bar> setloc
 """ Plugins configuration
 """" ALE
 let g:ale_open_list = 1
+let g:ale_loclist_msg_format='%linter%: %code: %%s'
 let g:ale_linters = {
       \ 'go': ['golint', 'go vet', 'go build'],
-      \ 'vim': [],
       \ }
+
 let g:ale_echo_cursor = 0
 
 """" Lightline
