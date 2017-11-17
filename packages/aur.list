@@ -10,7 +10,6 @@ copyq
 cower
 dragon-git
 dropbox
-electrum-ltc
 fdroidserver
 fonts-meta-extended-lt
 gtk-theme-arc-grey-git
@@ -22,7 +21,9 @@ intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
 jdk8
 jetty
+kubectl-bin
 light
+minikube-bin
 ncurses5-compat-libs
 pam_u2f-git
 peek
@@ -32,8 +33,12 @@ py3status-git
 python2-tzlocal
 python-inotify-simple
 python-tzlocal
+rmtrash
 screenkey
+teams-for-linux
 thunderbird-enigmail
+ttf-consolas-with-powerline
+ttf-emojione
 universal-ctags-git
 virtualbox-ext-oracle
 wd719x-firmware
@@ -41,3 +46,4 @@ wire-desktop-beta
 xcalib
 xrectsel
 yay
+yubikey-touch-detector

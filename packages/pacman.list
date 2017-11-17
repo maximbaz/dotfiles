@@ -7,13 +7,14 @@ diff-so-fancy
 docker
 dunst
 efibootmgr
-electrum
 encfs
 exfat-utils
 expect
 feh
+firefox
 fontforge
 freerdp
+fwupd
 fzf
 geeqie
 git
@@ -34,7 +35,6 @@ krita
 libreoffice-fresh
 libusb-compat
 libva-intel-driver
-libva-vdpau-driver
 libvdpau-va-gl
 linux-headers
 lsb-release
@@ -63,6 +63,7 @@ pulseaudio-alsa
 python2-neovim
 python-neovim
 python-pip
+python-pylint
 ranger
 redshift
 reflector
