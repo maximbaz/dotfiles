@@ -212,6 +212,14 @@ if [ "$(whoami)" == "root" ]; then
   systemctl mask "systemd-rfkill.service"
 
   echo ""
+  echo "==============================="
+  echo "Creating top level Trash dir..."
+  echo "==============================="
+  mkdir --parent /.Trash
+  chmod a+rw /.Trash
+  chmod +t /.Trash
+
+  echo ""
   echo "======================================="
   echo "Finishing various user configuration..."
   echo "======================================="
