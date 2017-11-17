@@ -65,7 +65,7 @@ alias grh='git reset HEAD'
 alias grh!='git reset --hard HEAD'
 alias garh!='git add --all && git reset --hard HEAD'
 
-alias gs='git show'
+alias gs='git show --show-signature'
 
 alias gss='git status -sb'
 alias gst='git status'
