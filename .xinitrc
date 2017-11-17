@@ -41,7 +41,7 @@ source ~/.zsh/environment.zsh
 # Initial configuration and autostart some apps
 
 xrandr --dpi 210                                           # Set High DPI
-xcalib ~/lib/dell_xps15.icm                                # Calibrate screen
+xcalib ~/.dotfiles/dell_xps15.icm                          # Calibrate screen
 hsetroot -solid "#333333"                                  # Set desktop color
 compton &                                                  # Enable composition
 start-pulseaudio-x11 &                                     # Pulse audio daemon

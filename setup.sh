@@ -64,7 +64,6 @@ if [ "$(whoami)" != "root" ]; then
   echo "======================================="
 
   link "bin"
-  link "lib"
 
   link ".i3/config"
   link ".i3status.conf"
