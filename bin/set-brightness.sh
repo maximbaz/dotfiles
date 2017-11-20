@@ -8,31 +8,19 @@ fi
 # Restore last brightness value for battery or AC
 if [[ "$1" == "bat" || "$1" == "ac" ]]; then
   light -S $(< /home/maximbaz/.brightness_$1)
-  killall -USR1 py3status
+  py3-cmd refresh backlight
   exit 0
 fi
 
 # Increase or decrease current brightness value
-printf -v current %.0f $(light)
-if [ "$1" == "dec" ]; then
-  if (( current <= 5 )); then
-    increment=-1
-  else
-    increment=-5
-  fi
+if [ "$1" == "inc" ]; then
+  py3-cmd click 4 backlight
 else
-  if (( current < 5 )); then
-    increment=1
-  else
-    increment=5
-  fi
+  py3-cmd click 5 backlight
 fi
 
-new=$(( current + increment ))
-light -S $new
-killall -USR1 py3status
-
 # Save brightness value to a file
+printf -v new %.0f $(light)
 battery_status=$(acpi | grep -Po '(?<=: )\w+')
 if [[ "$battery_status" == "Discharging" ]]; then
   power="bat"

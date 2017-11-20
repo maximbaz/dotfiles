@@ -134,9 +134,9 @@ bindcode $mod+38 focus parent
 bindcode $mod+Shift+38 focus child
 
 # Media keys
-bindsym XF86AudioMute         exec --no-startup-id ~/bin/set-volume.sh mute
-bindsym XF86AudioRaiseVolume  exec --no-startup-id ~/bin/set-volume.sh +5
-bindsym XF86AudioLowerVolume  exec --no-startup-id ~/bin/set-volume.sh -5
+bindsym XF86AudioMute         exec --no-startup-id py3-cmd click 1 volume_status
+bindsym XF86AudioRaiseVolume  exec --no-startup-id py3-cmd click 4 volume_status
+bindsym XF86AudioLowerVolume  exec --no-startup-id py3-cmd click 5 volume_status
 bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/set-brightness.sh inc
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/set-brightness.sh dec
 

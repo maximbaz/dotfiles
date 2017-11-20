@@ -13,4 +13,4 @@ fi
 setxkbmap -option compose:ralt
 
 # Refresh py3status immediately
-killall -USR1 py3status
+py3-cmd refresh keyboard_layout

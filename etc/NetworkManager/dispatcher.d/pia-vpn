@@ -11,13 +11,13 @@ case $status in
     if [[ ${interface::3} != "tun" && ${interface::6} != "docker" && ${ESSID::6} != "mobile" ]]; then
       nmcli con up id "$VPN_NAME"
     fi
-    killall -s USR1 py3status
+    py3-cmd refresh "path_exists PIA" "whatismyip"
     ;;
   down)
     if nmcli con show --active | grep "$VPN_NAME"; then
       nmcli con down id "$VPN_NAME"
     fi
-    killall -s USR1 py3status
+    py3-cmd refresh "path_exists PIA" "whatismyip"
     ;;
   vpn-up)
     if [[ $interface == "tun0" ]]; then
@@ -25,12 +25,12 @@ case $status in
       echo -e "nameserver 209.222.18.222\nnameserver 209.222.18.218" > /etc/resolv.conf
       chattr +i /etc/resolv.conf
     fi
-    killall -s USR1 py3status
+    py3-cmd refresh "path_exists PIA" "whatismyip"
     ;;
   vpn-down)
     if [[ $interface == "tun0" ]]; then
       chattr -i /etc/resolv.conf
     fi
-    killall -s USR1 py3status
+    py3-cmd refresh "path_exists PIA" "whatismyip"
     ;;
 esac

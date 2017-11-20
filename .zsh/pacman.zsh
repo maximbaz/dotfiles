@@ -1,7 +1,7 @@
 alias pac='yay -Sy; yay'
 alias paci='yay -Sy'
 alias pacf='yay -U'
-alias pacu='yay -Syu; killall -USR1 py3status'
+alias pacu='yay -Syu; py3-cmd refresh arch_updates'
 alias pacr='yay -Rns'
 alias pacq='yay -Si'
 alias pacR='yay -Cd'
