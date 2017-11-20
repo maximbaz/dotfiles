@@ -106,13 +106,17 @@ bindcode $mod+55 split v
 # Enter fullscreen mode (f)
 bindcode $mod+41 fullscreen
 
-# Change container layout (s)(w)(e)
-bindcode $mod+39 layout stacking
-bindcode $mod+25 layout tabbed
+# Container layout: split (e)
 bindcode $mod+26 layout toggle split
+
+# Container layout: tabbed (w)
+bindcode $mod+25 layout tabbed
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
+# Toggle sticky state (s)
+bindcode $mod+39 sticky toggle
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
