@@ -37,13 +37,13 @@ export PATH="$M3_HOME/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 
 # Ruby configuration
-if [ -f $HOME/.rvm/scripts/rvm ]; then
-  source $HOME/.rvm/scripts/rvm
-fi
 if hash ruby 2>/dev/null; then
   export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
   export PATH="$GEM_HOME/bin:$PATH"
 fi
+
+# RVM configuration
+export PATH="$HOME/.rvm/bin:$PATH"
 
 # Go configuration
 export GOPATH=/home/maximbaz/.go
