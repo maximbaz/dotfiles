@@ -10,16 +10,14 @@ zstyle ':prezto:load' pmodule \
   'editor' \
   'history' \
   'directory' \
-  'spectrum' \
-  'utility' \
   'completion' \
   'archive' \
   'base64' \
   'fancy-ctrl-z' \
-  'rsync' \
   'z' \
   'fz' \
   'zsh-autopair' \
+  'zsh-bd' \
   'zsh-notify' \
   'syntax-highlighting' \
   'history-substring-search' \
