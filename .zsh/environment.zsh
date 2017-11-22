@@ -8,9 +8,6 @@ export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 # Use gpg-agent as ssh-agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 
-# NeoVim configuration
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 # FZ configuration
 export FZ_CMD=j
 export FZ_SUBDIR_CMD=jj
