@@ -1,6 +1,9 @@
 # Initial configuration
 source /etc/zsh/zprofile
 
+# Lazy-loading functionality
+source ~/.zsh/sandboxd.zsh
+
 # Load environment variables
 source ~/.zsh/environment.zsh
 
