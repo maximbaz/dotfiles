@@ -15,10 +15,11 @@ env:
   TERM: alacritty-256color
 
 # Window dimensions in character columns and lines
+# Falls back to size specified by window manager if set to 0x0.
 # (changes require restart)
 dimensions:
-  columns: 80
-  lines: 24
+  columns: 0
+  lines: 0
 
 # Adds this many blank pixels of padding around the window
 # Units are physical pixels; this is not DPI aware.
