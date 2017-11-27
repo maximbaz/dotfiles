@@ -177,6 +177,7 @@ if [ "$(whoami)" == "root" ]; then
 
   copy "etc/NetworkManager/dispatcher.d/pia-vpn"
   copy "etc/private-internet-access/pia.conf"
+  copy "etc/ssh/ssh_config"
   copy "etc/sysctl.d/10-swappiness.conf"
   copy "etc/sysctl.d/99-idea.conf"
   copy "etc/sysctl.d/99-sysctl.conf"
