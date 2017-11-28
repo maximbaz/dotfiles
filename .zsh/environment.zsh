@@ -43,7 +43,12 @@ if hash ruby 2>/dev/null; then
 fi
 
 # RVM configuration
-export PATH="$HOME/.rvm/bin:$PATH"
+sandbox_init_rvm() {
+  if [ -f $HOME/.rvm/scripts/rvm ]; then
+     source $HOME/.rvm/scripts/rvm
+  fi
+}
+sandbox_hook rvm rvm
 
 # Go configuration
 export GOPATH=/home/maximbaz/.go
