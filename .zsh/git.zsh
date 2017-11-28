@@ -32,6 +32,10 @@ alias gcom='git checkout master'
 alias gcob='git checkout -b'
 alias gcop='git checkout -p'
 
+alias gcp='git cherry-pick'
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+
 alias gd='git diff'
 alias gds='git diff --cached'
 
