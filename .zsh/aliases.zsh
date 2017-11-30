@@ -14,7 +14,6 @@ alias sudo='sudo -E '
 alias vi='nvim'
 alias vim='nvim'
 
-eval `dircolors -b /usr/share/LS_COLORS`
 alias ls="ls --color=auto --group-directories-first"
 alias ll="ls -lh"
 alias la="ll -A"

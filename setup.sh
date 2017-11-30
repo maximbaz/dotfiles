@@ -110,10 +110,9 @@ if [ "$(whoami)" != "root" ]; then
   link ".urlwatch/urls.yaml"
   link ".xinitrc"
   link ".Xresources"
-  link ".zpreztorc"
   link ".zprofile"
   link ".zsh"
-  link ".zsh.prompts"
+  link ".zsh-theme"
   link ".zshrc"
 
   echo ""
@@ -131,9 +130,6 @@ if [ "$(whoami)" != "root" ]; then
   echo "======================================="
   echo "Finishing various user configuration..."
   echo "======================================="
-
-  echo "Cloning Prezto if needed..."
-  [ ! -d "$HOME/.zprezto" ] && git clone --recursive https://github.com/maximbaz/prezto.git "$HOME/.zprezto" > /dev/null 2>&1
 
   echo "Disabling Dropbox autoupdate"
   rm -rf ~/.dropbox-dist
@@ -165,9 +161,8 @@ if [ "$(whoami)" == "root" ]; then
 
   link ".agignore"
   link ".config/nvim/init.vim"
-  link ".zpreztorc"
   link ".zsh"
-  link ".zsh.prompts"
+  link ".zsh-theme"
   link ".zshrc"
 
   echo ""

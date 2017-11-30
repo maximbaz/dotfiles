@@ -1,8 +1,6 @@
+# Commands to execute asynchronously once after a login
 {
-  ZCOMPDUMP="$HOME/.zcompdump"
-  rm -f "$ZCOMPDUMP*"
-  autoload -U compinit && compinit
-  zcompile "$ZCOMPDUMP"
+  dircolors -b /usr/share/LS_COLORS >! "$HOME/.dircolors.zsh"
 } &!
 
 # Load machine-specific initialization

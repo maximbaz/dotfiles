@@ -6,12 +6,10 @@ source ~/.zsh/sandboxd.zsh
 
 # Load environment variables
 source ~/.zsh/environment.zsh
+source ~/.dircolors.zsh
 
-# Load prezto
-source "$HOME/.zprezto/init.zsh"
-
-# Define a better hotkey to edit command in editor
-bindkey -M emacs "$key_info[Control]V$key_info[Control]V" edit-command-line
+# Load plugins
+source ~/.zsh/antigen.zsh
 
 # Load custom configurations
 source ~/.zsh/aliases.zsh
@@ -19,14 +17,11 @@ source ~/.zsh/fzf.zsh
 source ~/.zsh/git.zsh
 source ~/.zsh/ssh.zsh
 source ~/.zsh/pacman.zsh
+source ~/.zsh/mse.zsh
 
 # Load machine-specific configurations
-if [[ "$(hostname)" =~ "desktop-" ]]; then
-  source ~/.zsh/mse.zsh
+if [[ "$HOST" =~ "desktop-" ]]; then
   source ~/.zsh/autorun-tmux.zsh
-fi
-
-if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
-  source ~/.zsh/mse.zsh
+elif [[ "$HOST" == "crmdevvm-0037" ]]; then
   source ~/.zsh/autorun-same-tmux.zsh
 fi

@@ -1,0 +1,26 @@
+diff --git a/modules/editor/init.zsh b/modules/editor/init.zsh
+--- a/modules/editor/init.zsh
++++ b/modules/editor/init.zsh
+@@ -156,22 +156,21 @@ zle -N zle-line-init
+ 
+ # Disables terminal application mode and updates editor information.
+ function zle-line-finish {
+   # The terminal must be in application mode when ZLE is active for $terminfo
+   # values to be valid.
+   if (( $+terminfo[rmkx] )); then
+     # Disable terminal application mode.
+     echoti rmkx
+   fi
+ 
+-  # Update editor information.
+-  zle editor-info
++  # Editor info is not updated as it causes unnecessary refresh in the previous prompt.
+ }
+ zle -N zle-line-finish
+ 
+ # Toggles emacs overwrite mode and updates editor information.
+ function overwrite-mode {
+   zle .overwrite-mode
+   zle editor-info
+ }
+ zle -N overwrite-mode
