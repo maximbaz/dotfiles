@@ -145,26 +145,12 @@ if [ "$(whoami)" != "root" ]; then
   echo "Switching to root user to continue..."
   echo "====================================="
   echo "..."
-  sudo su -s "$dotfiles_dir/$script_name"
+  sudo -s "$dotfiles_dir/$script_name"
   exit
 fi
 
 
 if [ "$(whoami)" == "root" ]; then
-  echo ""
-  echo "==============================="
-  echo "Setting up dotfiles for root..."
-  echo "==============================="
-
-  assign "link" "/home/maximbaz/.cache/dein" "/root/.cache/dein"
-  assign "link" "/home/maximbaz/.zprezto" "/root/.zprezto"
-
-  link ".agignore"
-  link ".config/nvim/init.vim"
-  link ".zsh"
-  link ".zsh-theme"
-  link ".zshrc"
-
   echo ""
   echo "=========================="
   echo "Setting up /etc configs..."
@@ -213,6 +199,7 @@ if [ "$(whoami)" == "root" ]; then
   mkdir --parent /.Trash
   chmod a+rw /.Trash
   chmod +t /.Trash
+  echo "Done"
 
   echo ""
   echo "======================================="
