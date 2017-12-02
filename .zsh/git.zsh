@@ -24,6 +24,9 @@ alias gacn!='git add --all && git commit --amend --no-edit'
 alias gacm='git add --all && git commit -m'
 alias gcm='git commit -m'
 alias gcf='git commit --fixup'
+alias gcfh='git commit --fixup HEAD'
+alias gacf='git add --all && git commit --fixup'
+alias gacfh='git add --all && git commit --fixup HEAD'
 
 alias gcl='git clone --recursive'
 
@@ -47,6 +50,7 @@ alias gloga="git log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgr
 alias glogp='git log -p'
 
 alias gm='git merge'
+alias gma='git merge --abort'
 
 alias gp='git push'
 alias gpf='git push --force-with-lease'
