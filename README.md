@@ -1,8 +1,6 @@
 # ~/.dotfiles
 
-Screenshots:
-
-`Coming soon...`
+![screenshot](https://user-images.githubusercontent.com/1177900/33517859-c9b41854-d78b-11e7-8244-ad4436bc6e78.png)
 
 ## Some of the worthy tools that I use:
 
@@ -16,7 +14,9 @@ Screenshots:
 - A common color scheme for nvim, terminal and i3 itself.
   > It is called [Gruvbox dark](https://github.com/morhetz/gruvbox).
 - Unobtrusive and minimalistic design of i3, py3status and terminal.
-  > Display only actionable items, use color to highlight importance.
+  > Display only actionable items, use color to highlight importance, slightly dim inactive windows.
+- True Color support everywhere.
+  > Including alacritty, neovim, tmux; ranger can even display picture previews.
 - Almost instant terminal startup.
   > And yet it is empowered with tmux, antigen, prezto and other plugins.
 - Automatically start tmux in every terminal window:
