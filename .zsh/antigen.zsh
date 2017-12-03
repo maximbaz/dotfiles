@@ -1,4 +1,4 @@
-# Fix prezto prompts
+# Fix prompts
 setopt prompt_subst
 
 # Configure prezto
@@ -29,6 +29,27 @@ zstyle ':notify:*' success-title 'Success'
 zstyle ':notify:*' error-icon '/usr/share/icons/Adwaita/256x256/status/dialog-error.png'
 zstyle ':notify:*' success-icon '/usr/share/icons/Adwaita/256x256/status/dialog-information.png'
 
+# Configure prompt
+export SPACESHIP_LSCOLORS_DEFINE=false
+export SPACESHIP_PROMPT_SYMBOL="❯"
+export SPACESHIP_JOBS_SYMBOL="»"
+export SPACESHIP_TIME_SHOW=true
+export SPACESHIP_USER_PREFIX="as "
+
+export SPACESHIP_PROMPT_ORDER=(
+  time
+  user
+  host
+  dir
+  git
+  exec_time
+  line_sep
+  battery
+  jobs
+  exit_code
+  char
+)
+
 # Load antigen
 source /usr/share/zsh/share/antigen.zsh
 
@@ -53,9 +74,15 @@ antigen bundles <<EOB
   zsh-users/zsh-history-substring-search
 EOB
 
-antigen theme $HOME/.zsh-theme maximbaz
+antigen theme denysdovhan/spaceship-zsh-theme
 
 antigen apply
+
+# Configure git prompt symbols
+export SPACESHIP_GIT_STATUS_DELETED="x"
+export SPACESHIP_GIT_STATUS_AHEAD=
+export SPACESHIP_GIT_STATUS_BEHIND=
+export SPACESHIP_GIT_STATUS_DIVERGED=
 
 # Ensure my prezto patches are applied (it's fine to do asynchronously)
 patch_prezto &!

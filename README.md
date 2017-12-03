@@ -1,6 +1,6 @@
 # ~/.dotfiles
 
-![screenshot](https://user-images.githubusercontent.com/1177900/33517859-c9b41854-d78b-11e7-8244-ad4436bc6e78.png)
+![screenshot](https://user-images.githubusercontent.com/1177900/33524775-24237df6-d823-11e7-88d0-2f28b0de3b41.png)
 
 ## Some of the worthy tools that I use:
 
