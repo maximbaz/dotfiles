@@ -108,12 +108,16 @@ prompt_dir() {
 # - am I root
 # - are there background jobs?
 prompt_status() {
-  local symbols
-  symbols=()
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
+  local symbols=()
 
-  [[ -n "$symbols" ]] && prompt_segment $STATUS_BG $STATUS_FG " $symbols "
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
+
+  local jobs_amount=$( (jobs) | wc -l)
+  [[ $jobs_amount -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
+  [[ $jobs_amount -gt 1 ]] && symbols+="$jobs_amount"
+  [[ $jobs_amount -gt 0 ]] && symbols+=" "
+
+  [[ -n "$symbols" ]] && prompt_segment $STATUS_BG $STATUS_FG "$symbols"
 }
 
 # Display current time
