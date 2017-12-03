@@ -43,6 +43,7 @@ antigen bundles <<EOB
   archive
   robbyrussell/oh-my-zsh plugins/encode64
   robbyrussell/oh-my-zsh plugins/fancy-ctrl-z
+  robbyrussell/oh-my-zsh lib/git.zsh
   hlissner/zsh-autopair
   marzocchi/zsh-notify
   rupa/z

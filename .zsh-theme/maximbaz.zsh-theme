@@ -9,7 +9,7 @@ GIT_FG=black
 DIR_BG=blue
 DIR_FG=black
 STATUS_BG=236
-STATUS_FG=default
+STATUS_FG=white
 
 CURRENT_BG='NONE'
 
@@ -19,10 +19,18 @@ SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
 BRANCH="\ue0a0"
 DETACHED="\u27a6"
-CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
 CLOCKS=(🕛 🕧 🕐 🕜 🕑 🕝 🕒 🕞 🕓 🕟 🕔 🕠 🕕 🕡 🕖 🕢 🕗 🕣 🕘 🕤 🕙 🕥 🕚 🕦)
+
+# Git prompt
+ZSH_THEME_GIT_PROMPT_UNTRACKED='?'
+ZSH_THEME_GIT_PROMPT_ADDED='+'
+ZSH_THEME_GIT_PROMPT_MODIFIED='!'
+ZSH_THEME_GIT_PROMPT_RENAMED='»'
+ZSH_THEME_GIT_PROMPT_DELETED='x'
+ZSH_THEME_GIT_PROMPT_STASHED='$'
+ZSH_THEME_GIT_PROMPT_UNMERGED='='
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -63,7 +71,7 @@ prompt_context() {
 
 # Git: branch/detached head, dirty status
 prompt_git() {
-  local color ref
+  local color ref git_status
   is_dirty() {
     test -n "$(git status --porcelain --ignore-submodules)"
   }
@@ -71,9 +79,13 @@ prompt_git() {
   if [[ -n "$ref" ]]; then
     if is_dirty; then
       color=yellow
-      ref="${ref} $CROSS "
     else
       color=green
+    fi
+    git_status="$(git_prompt_status)"
+    if [[ -n $git_status ]]; then
+      ref="${ref} [$git_status] "
+    else
       ref="${ref} "
     fi
     if [[ "${ref/.../}" == "$ref" ]]; then
@@ -82,7 +94,7 @@ prompt_git() {
       ref="$DETACHED ${ref/.../}"
     fi
     prompt_segment $color $GIT_FG
-    print -Pn " $ref"
+    print -n " $ref"
   fi
 }
 
@@ -107,7 +119,7 @@ prompt_status() {
 # Display current time
 prompt_time() {
   prompt_segment $TIME_BG $TIME_FG
-  print -Pn "%* "
+  print -Pn " %* "
 }
 
 prompt_analog_clock() {
@@ -156,7 +168,7 @@ prompt_maximbaz_check_cmd_exec_time() {
 ## Main prompt
 prompt_maximbaz_main() {
   CURRENT_BG='NONE'
-  prompt_analog_clock
+  # prompt_analog_clock
   prompt_time
   prompt_status
   prompt_context
@@ -170,11 +182,14 @@ prompt_maximbaz_precmd() {
 
   vcs_info
 
+  prefix_1="%K{$STATUS_BG}%F{$STATUS_FG}╭─"
+  prefix_2="%K{$STATUS_BG}%F{$STATUS_FG}╰─"
+
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
   RPROMPT='%F{yellow}${prompt_maximbaz_cmd_exec_time}%f'
   PROMPT='
-%{%f%b%k%}$(prompt_maximbaz_main)
-%B%(?.%F{blue}.%F{red})${PROMPT_CHAR}%f%b  ${editor_info[keymap]}'
+${prefix_1}%{%f%b%k%}$(prompt_maximbaz_main)
+${prefix_2}%B%(?.%F{blue}.%F{red})${PROMPT_CHAR}%f%b%k  ${editor_info[keymap]}'
 }
 
 prompt_maximbaz_preexec() {
