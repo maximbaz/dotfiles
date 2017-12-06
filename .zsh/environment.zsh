@@ -49,6 +49,7 @@ sandbox_init_rvm() {
   fi
 }
 sandbox_hook rvm rvm
+sandbox_hook rvm eyaml
 
 # Go configuration
 export GOPATH=/home/maximbaz/.go
