@@ -78,6 +78,9 @@ antigen theme denysdovhan/spaceship-zsh-theme
 
 antigen apply
 
+# Fix prezto functions loading
+autoload -Uz archive lsarchive unarchive
+
 # Configure git prompt symbols
 export SPACESHIP_GIT_STATUS_DELETED="x"
 export SPACESHIP_GIT_STATUS_AHEAD=
