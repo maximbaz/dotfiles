@@ -15,6 +15,10 @@ after_lock() {
   killall -u "$USER" -USR2 dunst
 }
 
+stop_vpn() {
+  nmcli con show --active | grep vpn | cut -d' ' -f1 | xargs -n1 nmcli con down
+}
+
 case "$1" in
   lock)
     before_lock
@@ -22,18 +26,22 @@ case "$1" in
     after_lock
     ;;
   logout)
+    stop_vpn
     i3-msg exit
     ;;
   suspend)
     before_lock
+    stop_vpn
     systemctl suspend
     lock
     after_lock
     ;;
   reboot)
+    stop_vpn
     systemctl reboot
     ;;
   shutdown)
+    stop_vpn
     systemctl poweroff
     ;;
   *)
