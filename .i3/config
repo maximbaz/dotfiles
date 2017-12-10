@@ -71,7 +71,7 @@ set $numlock Mod2
 floating_modifier $mod
 
 # Switch keyboard layout (Alt+Shift)
-bindcode Mod1+50 exec ~/bin/change-keyboard-layout.sh
+bindcode Mod1+50 exec py3-cmd click 4 keyboard_layout
 
 # Start a terminal
 bindsym $mod+Return exec alacritty
