@@ -174,6 +174,7 @@ set wildmode=longest,list,full
 set termguicolors
 set background=dark
 let g:gruvbox_italic=1
+let g:gruvbox_invert_selection=0
 colorscheme gruvbox
 set guioptions+=c
 set guioptions-=T
