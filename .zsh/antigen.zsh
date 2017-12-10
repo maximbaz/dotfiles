@@ -44,7 +44,6 @@ export SPACESHIP_PROMPT_ORDER=(
   git
   exec_time
   line_sep
-  battery
   jobs
   exit_code
   char
