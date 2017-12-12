@@ -31,7 +31,7 @@ zstyle ':notify:*' success-icon '/usr/share/icons/Adwaita/256x256/status/dialog-
 
 # Configure prompt
 export SPACESHIP_LSCOLORS_DEFINE=false
-export SPACESHIP_PROMPT_SYMBOL="❯"
+export SPACESHIP_CHAR_SYMBOL="❯ "
 export SPACESHIP_JOBS_SYMBOL="»"
 export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_USER_PREFIX="as "
@@ -39,8 +39,8 @@ export SPACESHIP_USER_PREFIX="as "
 export SPACESHIP_PROMPT_ORDER=(
   time
   user
-  host
   dir
+  host
   git
   exec_time
   line_sep
@@ -63,7 +63,6 @@ antigen bundles <<EOB
   archive
   robbyrussell/oh-my-zsh plugins/encode64
   robbyrussell/oh-my-zsh plugins/fancy-ctrl-z
-  robbyrussell/oh-my-zsh lib/git.zsh
   hlissner/zsh-autopair
   marzocchi/zsh-notify
   rupa/z
@@ -73,7 +72,7 @@ antigen bundles <<EOB
   zsh-users/zsh-history-substring-search
 EOB
 
-antigen theme denysdovhan/spaceship-zsh-theme
+antigen theme denysdovhan/spaceship-zsh-theme@3.0
 
 antigen apply
 
