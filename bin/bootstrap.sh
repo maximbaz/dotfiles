@@ -6,7 +6,7 @@ if [[ "$1" != "pacman" && "$1" != "aur" ]]; then
 fi
 
 zmodload -ap zsh/mapfile mapfile
-packages=( ${(f)mapfile[/home/maximbaz/.dotfiles/packages/pacman.$1.list]} )
+packages=( ${(f)mapfile[/home/maximbaz/.dotfiles/packages/$1.list]} )
 
 if [[ "$1" == "pacman" ]]; then
   sudo pacman -Sy "$packages[@]"

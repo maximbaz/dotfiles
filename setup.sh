@@ -112,7 +112,6 @@ if [ "$(whoami)" != "root" ]; then
   link ".Xresources"
   link ".zprofile"
   link ".zsh"
-  link ".zsh-theme"
   link ".zshrc"
 
   echo ""
