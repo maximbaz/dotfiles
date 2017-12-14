@@ -1,6 +1,3 @@
-# Fix prompts
-setopt prompt_subst
-
 # Configure prezto
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -72,7 +69,7 @@ antigen bundles <<EOB
   zsh-users/zsh-history-substring-search
 EOB
 
-antigen theme denysdovhan/spaceship-zsh-theme@3.0
+antigen theme maximbaz/spaceship-zsh-theme@3.0
 
 antigen apply
 
