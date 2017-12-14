@@ -17,19 +17,11 @@ export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
 export PASSWORD_STORE_GENERATED_LENGTH=40
 
 # Java configuration
-if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
-  export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-else
-  export JAVA_HOME="/usr/lib/jvm/java-8-jdk"
-fi
+export JAVA_HOME="/usr/lib/jvm/java-8-jdk"
 export PATH="$JAVA_HOME/bin:$PATH"
 
 # Maven configuration
-if [[ "$(hostname)" == "crmdevvm-0037" ]]; then
-  export MAVEN_OPTS="-Xms1g -Xmx12g -XX:PermSize=1g"
-else
-  export MAVEN_OPTS="-Xms1g -Xmx4g -XX:PermSize=1g"
-fi
+export MAVEN_OPTS="-Xms1g -Xmx12g -XX:PermSize=1g"
 export M3_HOME="/usr/share/maven3"
 export PATH="$M3_HOME/bin:$PATH"
 

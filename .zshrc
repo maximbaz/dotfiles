@@ -22,6 +22,6 @@ source ~/.zsh/mse.zsh
 # Load machine-specific configurations
 if [[ "$HOST" =~ "desktop-" ]]; then
   source ~/.zsh/autorun-tmux.zsh
-elif [[ "$HOST" == "crmdevvm-0037" ]]; then
+elif [[ "$HOST" =~ "crmdevvm-" ]]; then
   source ~/.zsh/autorun-same-tmux.zsh
 fi

@@ -4,6 +4,6 @@
 } &!
 
 # Load machine-specific initialization
-if [[ "$(hostname)" =~ "desktop-" ]]; then
+if [[ "$HOST" =~ "desktop-" ]]; then
   source ~/.zsh/autorun-startx.zsh
 fi
