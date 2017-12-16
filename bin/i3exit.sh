@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
 before_lock() {
-  ~/bin/change-keyboard-layout.sh reset
+  setxkbmap -layout us
+  setxkbmap -option compose:ralt
+  py3-cmd refresh keyboard_layout
   killall -u "$USER" -USR1 dunst
   killall compton
 }
