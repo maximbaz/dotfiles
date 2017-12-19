@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -e
 
@@ -160,7 +160,7 @@ if [ "$(whoami)" != "root" ]; then
 fi
 
 
-if [ "$(whoami)" == "root" ]; then
+if [[ "$(whoami)" == "root" ]]; then
   echo ""
   echo "=========================="
   echo "Setting up /etc configs..."
