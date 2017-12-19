@@ -237,11 +237,10 @@ if [[ "$(whoami)" == "root" ]]; then
   sed -i "s|#\?\(BUILDDIR\)=.*|\1=/tmp/makepkg|" /etc/makepkg.conf
 
   echo "Configuring firewall"
-  if [[ "$(ufw status | grep -o '[^ ]\+$')" != "active" ]]; then
-    ufw default reject
-    [[ "$HOST" =~ "crmdevvm-" ]] && ufw allow ssh
-    ufw enable
-  fi
+  [[ "$(ufw status | grep -o '[^ ]\+$')" != "active" ]] && ufw --force reset > /dev/null
+  ufw default reject
+  [[ "$HOST" =~ "crmdevvm-" ]] && ufw allow ssh
+  ufw enable
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     echo "Allowing to use U2F for sudo access"
