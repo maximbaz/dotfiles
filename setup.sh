@@ -183,6 +183,11 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/X11/xorg.conf.d/30-touchpad.conf"
   fi
 
+  if [[ "$HOST" =~ "crmdevvm-" ]]; then
+    copy "etc/systemd/system/reverse-ssh@devbox"
+    copy "etc/systemd/system/reverse-ssh@.service"
+  fi
+
   echo ""
   echo "================================="
   echo "Enabling and starting services..."
@@ -210,6 +215,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   if [[ "$HOST" =~ "crmdevvm-" ]]; then
     systemctl_enable_start "system" "sshd.socket"
+    systemctl_enable_start "system" "reverse-ssh@devbox.service"
   fi
 
   echo ""

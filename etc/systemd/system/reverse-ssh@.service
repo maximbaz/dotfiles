@@ -1,0 +1,14 @@
+[Unit]
+Description=Reverse SSH tunnel to %I
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=maximbaz
+EnvironmentFile=/etc/systemd/system/reverse-ssh@%i
+ExecStart=/usr/bin/ssh -NT -F /home/maximbaz/.ssh/config -R ${REMOTE_PORT}:localhost:${LOCAL_PORT} ${REMOTE_ADDR}
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
