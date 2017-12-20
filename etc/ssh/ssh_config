@@ -14,3 +14,4 @@ Host *
   ControlPersist 60m
   UseRoaming no
   StrictHostKeyChecking accept-new
+  ExitOnForwardFailure yes
