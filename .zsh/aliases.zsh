@@ -5,6 +5,7 @@ alias diff='diff --color --unified'
 alias dragall='dragon --and-exit --all'
 alias dragon='dragon --and-exit'
 alias e='nvim'
+alias etcchanges="sudo DIFFPROG='nvim -d' pacdiff"
 alias http-serve='python3 -m http.server'
 alias mkdir='mkdir -p'
 alias o='xdg-open'
