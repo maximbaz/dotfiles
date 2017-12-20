@@ -1,5 +1,6 @@
 acpi
 atom
+btrfs-progs
 calibre
 ccid
 compton
@@ -51,6 +52,7 @@ networkmanager-pptp
 nm-connection-editor
 ntfs-3g
 numlockx
+openbsd-netcat
 openssh
 os-prober
 p7zip
@@ -62,6 +64,7 @@ pulseaudio
 pulseaudio-alsa
 pydf
 python2-neovim
+python-gevent
 python-neovim
 python-pip
 python-pylint
