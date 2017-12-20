@@ -9,7 +9,7 @@ zmodload -ap zsh/mapfile mapfile
 packages=( ${(f)mapfile[/home/maximbaz/.dotfiles/packages/$1.list]} )
 
 if [[ "$1" == "pacman" ]]; then
-  sudo pacman -Sy --noconfirm "$packages[@]"
+  sudo pacman -Sy --needed --noconfirm "$packages[@]"
 else
-  yay -Sy --noconfirm "$packages[@]"
+  yay -Sy --needed --noconfirm "$packages[@]"
 fi
