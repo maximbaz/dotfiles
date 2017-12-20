@@ -6,7 +6,9 @@ export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
 # Use gpg-agent as ssh-agent
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
+if [[ "$HOST" =~ "desktop-" ]]; then
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
+fi
 
 # FZ configuration
 export FZ_CMD=j
