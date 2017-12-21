@@ -248,6 +248,7 @@ if [[ "$(whoami)" == "root" ]]; then
   ufw default reject
   [[ "$HOST" =~ "crmdevvm-" ]] && ufw allow ssh
   ufw enable
+  find /etc/ufw -type f -name '*.rules.*' -delete
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     echo "Allowing to use U2F for sudo access"
