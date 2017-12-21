@@ -263,6 +263,11 @@ if [[ "$(whoami)" == "root" ]]; then
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
   fi
 
+  if [[ "$HOST" =~ "crmdevvm-" ]]; then
+    echo "Configuring gpg-agent forwarding"
+    sed -zi "s/\(VersionAddendum[^\n]*\n\)\(StreamLocalBindUnlink[^\n]*\n\)\?/\1StreamLocalBindUnlink yes\n/" /etc/ssh/sshd_config
+  fi
+
   echo "Reload udev rules"
   udevadm control --reload
   udevadm trigger
