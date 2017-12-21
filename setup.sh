@@ -174,6 +174,7 @@ if [[ "$(whoami)" == "root" ]]; then
   copy "etc/systemd/system/paccache.timer"
   copy "etc/systemd/system/reflector.service"
   copy "etc/systemd/system/reflector.timer"
+  copy "etc/updatedb.conf"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     copy "etc/NetworkManager/dispatcher.d/pia-vpn"
