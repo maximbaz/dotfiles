@@ -1,4 +1,4 @@
-alias ssh='ssh_with_color'
+alias ssh='TERM=xterm-256color ssh_with_color'
 
 ssh_with_color() {
   trap 'tmux_bg_color_reset' SIGINT
