@@ -60,6 +60,7 @@ pamixer
 pass
 pavucontrol
 pcsc-tools
+prettier
 pulseaudio
 pulseaudio-alsa
 pydf

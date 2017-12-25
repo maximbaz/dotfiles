@@ -23,13 +23,13 @@ intellij-idea-ultimate-edition-jre
 jdk8
 jetty
 kubectl-bin
+kubernetes-helm
 light
 lscolors-git
 minikube-bin
 ncurses5-compat-libs
 pam_u2f-git
 peek
-prettier
 private-internet-access-vpn
 py3status-git
 python2-tzlocal
