@@ -11,6 +11,7 @@ copyq
 cower
 dragon-git
 dropbox
+dropbox-cli
 fdroidserver
 fonts-meta-extended-lt
 gtk-theme-arc-grey-git
@@ -27,7 +28,6 @@ kubernetes-helm
 light
 lscolors-git
 minikube-bin
-ncurses5-compat-libs
 pam_u2f-git
 peek
 private-internet-access-vpn
@@ -36,7 +36,6 @@ python2-tzlocal
 python-tzlocal
 rmtrash
 screenkey
-teams-for-linux
 thunderbird-enigmail
 ttf-consolas-with-powerline
 ttf-emojione
