@@ -1,5 +1,5 @@
 alias ag='ag --hidden -f'
-alias cp='cp -r'
+alias cp='cp -r --reflink=auto'
 alias df='pydf'
 alias diff='diff --color --unified'
 alias dragall='dragon --and-exit --all'
