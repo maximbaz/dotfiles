@@ -9,5 +9,6 @@
 	"sortmode": 0,
 	"timeupdate": false,
 	"noconfirm": false,
-	"devel": true
+	"devel": true,
+	"cleanAfter": false
 }
