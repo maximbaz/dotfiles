@@ -125,6 +125,7 @@ if [ "$(whoami)" != "root" ]; then
   echo "Enabling and starting services..."
   echo "================================="
 
+  systemctl --user daemon-reload
   systemctl_enable_start "user" "backup-packages.timer"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
@@ -196,6 +197,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   sysctl --system > /dev/null
 
+  systemctl daemon-reload
   systemctl_enable_start "system" "paccache.timer"
   systemctl_enable_start "system" "reflector.timer"
   systemctl_enable_start "system" "NetworkManager.service"
