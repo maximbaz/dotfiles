@@ -146,6 +146,11 @@ if [ "$(whoami)" != "root" ]; then
   gpg --trusted-key 12C87A28FEAC6B20 >/dev/null
 
   if [[ "$HOST" =~ "desktop-" ]]; then
+    if [[ ! -a "$HOME/.config/Yubico" ]]; then
+      echo "Configuring YubiKey for sudo access (touch it now)"
+      mkdir -p "$HOME/.config/Yubico"
+      pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
+    fi
     echo "Disabling Dropbox autoupdate"
     rm -rf ~/.dropbox-dist
     install -dm0 ~/.dropbox-dist
