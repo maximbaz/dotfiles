@@ -141,6 +141,10 @@ if [ "$(whoami)" != "root" ]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
+  echo "Importing my public PGP key"
+  curl -s https://keybase.io/maximbaz/pgp_keys.asc| gpg --import
+  gpg --trusted-key 12C87A28FEAC6B20 >/dev/null
+
   if [[ "$HOST" =~ "desktop-" ]]; then
     echo "Disabling Dropbox autoupdate"
     rm -rf ~/.dropbox-dist
