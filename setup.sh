@@ -141,9 +141,11 @@ if [ "$(whoami)" != "root" ]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
-  echo "Importing my public PGP key"
-  curl -s https://keybase.io/maximbaz/pgp_keys.asc| gpg --import
-  gpg --trusted-key 12C87A28FEAC6B20 >/dev/null
+  if ! gpg -k | grep 12C87A28FEAC6B20 > /dev/null; then
+    echo "Importing my public PGP key"
+    curl -s https://keybase.io/maximbaz/pgp_keys.asc| gpg --import
+    gpg --trusted-key 12C87A28FEAC6B20 > /dev/null
+  fi
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     if [[ ! -a "$HOME/.config/Yubico" ]]; then
