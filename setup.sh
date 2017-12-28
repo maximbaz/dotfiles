@@ -153,6 +153,13 @@ if [ "$(whoami)" != "root" ]; then
       mkdir -p "$HOME/.config/Yubico"
       pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
     fi
+
+    if [[ -a "$HOME/.password-store" ]]; then
+      echo "Configuring automatic git push for pass"
+      echo "#!/usr/bin/env bash\n\npass git push" >! "$HOME/.password-store/.git/hooks/post-commit"
+      chmod +x "$HOME/.password-store/.git/hooks/post-commit"
+    fi
+
     echo "Disabling Dropbox autoupdate"
     rm -rf ~/.dropbox-dist
     install -dm0 ~/.dropbox-dist
