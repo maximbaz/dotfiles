@@ -146,7 +146,7 @@ set lazyredraw                                                     " Don't redra
 set linebreak                                                      " Wrap lines intelligently, e.g. by end of words
 set list                                                           " Display unusual whitespace characters
 set listchars=tab:»·,trail:·,nbsp:·                                " Which whitespace characters to display and how
-set mouse=                                                         " Don't use mouse support
+set mouse=a                                                        " Enable mouse support
 set noshowmode                                                     " Don't show current mode in echo
 set nostartofline                                                  " Don't move cursor on the line when moving around
 set noswapfile                                                     " Don't use swap files, use git
