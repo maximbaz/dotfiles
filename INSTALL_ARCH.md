@@ -9,7 +9,9 @@
 ## UEFI
 
 1. Temporarily disable Secure Boot.
-2. Set SATA operation to AHCI mode.
+2. Make sure a strong UEFI administrator password is set.
+3. Delete preloaded OEM keys for Secure Boot, allow custom ones.
+4. Set SATA operation to AHCI mode.
 
 ## Boot from USB drive
 
@@ -54,13 +56,13 @@
     # umount /mnt
     # mount -o noatime,nodiratime,discard,compress=lzo,subvol=root /dev/mapper/luks /mnt
     # mkdir -p /mnt/mnt/btrfs-root
-    # mkdir -p /mnt/boot/EFI
+    # mkdir -p /mnt/boot/efi
     # mkdir -p /mnt/home
     # mkdir -p /mnt/var/cache/pacman/pkg
     # mkdir -p /mnt/var/log
     # mkdir -p /mnt/var/tmp
     # mkdir -p /mnt/.snapshots
-    # mount /dev/sdX1 /mnt/boot/EFI
+    # mount /dev/sdX1 /mnt/boot/efi
     # mount -o noatime,nodiratime,discard,compress=lzo,subvol=/ /dev/mapper/luks /mnt/mnt/btrfs-root
     # mount -o noatime,nodiratime,discard,compress=lzo,subvol=home /dev/mapper/luks /mnt/home
     # mount -o noatime,nodiratime,discard,compress=lzo,subvol=pkgs /dev/mapper/luks /mnt/var/cache/pacman/pkg
@@ -196,11 +198,14 @@
     ```
     $ ~/.dotfiles/setup.sh
     ```
-8. Reboot:
+8. Sign bootloader for Secure Boot:
     ```
-    # reboot
+    $ sudo cryptboot-efikeys create
+    $ sudo cryptboot-efikeys enroll
+    $ sudo cryptboot-efikeys sign /boot/efi/EFI/arch/grubx64.efi
     ```
 9. Disable root password:
     ```
     # passwd -dl root
     ```
+10. Reboot and enable Secure Boot in UEFI.
