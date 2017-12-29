@@ -186,6 +186,7 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Setting up /etc configs..."
   echo "=========================="
 
+  copy "etc/snapper/configs/root"
   copy "etc/ssh/ssh_config"
   copy "etc/sysctl.d/10-swappiness.conf"
   copy "etc/sysctl.d/99-idea.conf"
@@ -223,6 +224,7 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "NetworkManager-wait-online.service"
   systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "ufw.service"
+  systemctl_enable_start "system" "snapper-cleanup.timer"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     systemctl_enable_start "system" "dropbox@maximbaz.service"
