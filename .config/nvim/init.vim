@@ -394,7 +394,7 @@ let g:lightline#ale#indicator_errors = ' '
 """" lightline-bufferline
 let g:lightline#bufferline#filename_modifier = ':~:.' " Show filename relative to current directory
 let g:lightline#bufferline#unicode_symbols = 1        " Use fancy unicode symbols for various indicators
-let g:lightline#bufferline#modified = ''             " Default pencil is too ugly
+let g:lightline#bufferline#modified = ''             " Default pencil is too ugly
 let g:lightline#bufferline#unnamed = '[No Name]'      " Default name when no buffer is opened
 let g:lightline#bufferline#shorten_path = 0           " Don't compress ~/my/folder/name to ~/m/f/n
 

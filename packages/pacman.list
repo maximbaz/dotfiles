@@ -55,6 +55,7 @@ numlockx
 openbsd-netcat
 openssh
 os-prober
+otf-font-awesome
 p7zip
 pamixer
 pass
@@ -86,7 +87,6 @@ tlp-rdw
 tmux
 transmission-qt
 tree
-ttf-font-awesome
 udiskie
 ufw
 unclutter
