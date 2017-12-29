@@ -35,10 +35,10 @@
 > Stronger algorithms, more sensible defaults.
 
 ☑ gpg-agent configured to act as ssh-agent.
-> Extremely nicely integrated with YubiKey.
+> Extremely nicely integrated with YubiKey, with forwarding to selected remote hosts.
 
 ☑ i3 automatically renames workspaces to show currently opened apps.
-> Using iconic font is recommended, it allows to fit a lot of info even on laptop screens.
+> Using iconic font to fit a lot of info even on laptop screens.
 
 ☑ Automatically renumber tmux sessions.
 > Helps when terminals are being opened & closed a lot during the day.
