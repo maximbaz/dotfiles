@@ -70,8 +70,8 @@ set $numlock Mod2
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Switch keyboard layout (Alt+Shift)
-bindcode Mod1+50 exec "setxkbmap -option compose:ralt; py3-cmd click 4 keyboard_layout"
+# Refresh py3status module after switching keyboard layout (Alt+Shift)
+bindcode Mod1+50 exec "py3-cmd refresh keyboard_layout"
 
 # Start a terminal
 bindsym $mod+Return exec alacritty

@@ -48,7 +48,6 @@ start-pulseaudio-x11 &                                     # Pulse audio daemon
 xset s off -dpms                                           # Prevent screen from turning off
 xset r rate 250 45                                         # Set keyboard repeat rate
 xset m 3/1 4                                               # Set mouse cursor speed
-setxkbmap -option compose:ralt                             # Enable digraphs
 
 numlockx &                                                 # Turn on NumLock
 unclutter &                                                # Hide mouse when using keyboard

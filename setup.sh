@@ -203,6 +203,7 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/private-internet-access/pia.conf"
     copy "etc/systemd/system/getty@tty1.service.d/override.conf"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
+    copy "etc/X11/xorg.conf.d/00-keyboard.conf"
     copy "etc/X11/xorg.conf.d/30-touchpad.conf"
   fi
 
