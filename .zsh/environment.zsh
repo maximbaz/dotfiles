@@ -28,6 +28,9 @@ export MAVEN_OPTS="-Xms1g -Xmx12g -XX:PermSize=1g"
 export M3_HOME="/usr/share/maven3"
 export PATH="$M3_HOME/bin:$PATH"
 
+# Android configuration
+export ANDROID_SDK_ROOT="$HOME/.android/sdk"
+
 # Haskell configuration
 export PATH="$HOME/.cabal/bin:$PATH"
 
