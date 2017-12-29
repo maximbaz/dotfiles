@@ -1,6 +1,7 @@
 export TERMINAL='alacritty'
 export EDITOR='nvim'
 export VISUAL='nvim'
+export DIFFPROG='nvim -d'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
