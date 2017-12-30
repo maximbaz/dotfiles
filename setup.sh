@@ -282,6 +282,9 @@ if [[ "$(whoami)" == "root" ]]; then
     echo "Disable caching sudo access"
     sed -zi "s|\(## Defaults specification\n[^\n]*\n[^\n]*\n[^\n]*\n\)\(\nDefaults timestamp_timeout=0\n\n\)\?|\1\nDefaults timestamp_timeout=0\n\n|" /etc/sudoers
 
+    echo "Allowing regular user to restart pcscd.service (to fix YubiKey after a suspend)"
+    sed -zi "s|\(%wheel ALL=(ALL) ALL\)\n[^\n]*|\1\n%wheel ALL=(ALL) NOPASSWD:SETENV: /usr/bin/systemctl stop pcscd.service|" /etc/sudoers
+
     echo "Configuring login manager"
     sed -i "s/#\?\(HandleLidSwitch\)=.*/\1=ignore/" /etc/systemd/logind.conf
     sed -i "s/#\?\(HandlePowerKey\)=.*/\1=ignore/" /etc/systemd/logind.conf

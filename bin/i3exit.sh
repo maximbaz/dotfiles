@@ -34,6 +34,7 @@ case "$1" in
     before_lock
     stop_vpn
     systemctl suspend
+    sudo systemctl stop pcscd.service
     lock
     after_lock
     ;;
