@@ -42,8 +42,8 @@ fi
 
 # RVM configuration
 sandbox_init_rvm() {
-  if [ -f $HOME/.rvm/scripts/rvm ]; then
-     source $HOME/.rvm/scripts/rvm
+  if [ -f /usr/share/rvm/scripts/rvm ]; then
+     source /usr/share/rvm/scripts/rvm
   fi
 }
 sandbox_hook rvm rvm
