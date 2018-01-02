@@ -8,10 +8,11 @@
 
 ## UEFI
 
-1. Temporarily disable Secure Boot.
-2. Make sure a strong UEFI administrator password is set.
-3. Delete preloaded OEM keys for Secure Boot, allow custom ones.
-4. Set SATA operation to AHCI mode.
+1. Set boot mode to UEFI, disable Legacy mode entirely.
+2. Temporarily disable Secure Boot.
+3. Make sure a strong UEFI administrator password is set.
+4. Delete preloaded OEM keys for Secure Boot, allow custom ones.
+5. Set SATA operation to AHCI mode.
 
 ## Boot from USB drive
 
