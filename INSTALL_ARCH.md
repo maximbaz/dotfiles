@@ -113,7 +113,7 @@
 8. Configure hostname:
     ```
     # echo HOSTNAME > /etc/hostname
-    # vi /etc/hostname
+    # vi /etc/hosts
 
     127.0.0.1	localhost.localdomain	localhost
     ::1	 	localhost.localdomain	localhost
