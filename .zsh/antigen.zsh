@@ -80,9 +80,9 @@ autoload -Uz archive lsarchive unarchive
 
 # Configure git prompt symbols
 export SPACESHIP_GIT_STATUS_DELETED="x"
-export SPACESHIP_GIT_STATUS_AHEAD=
-export SPACESHIP_GIT_STATUS_BEHIND=
-export SPACESHIP_GIT_STATUS_DIVERGED=
+export SPACESHIP_GIT_STATUS_AHEAD="⇡ "
+export SPACESHIP_GIT_STATUS_BEHIND="⇣ "
+export SPACESHIP_GIT_STATUS_DIVERGED="⇕ "
 
 # Ensure my prezto patches are applied (it's fine to do asynchronously)
 prezto_apply_patches &!
