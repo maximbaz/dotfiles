@@ -1,6 +1,3 @@
-# Initial configuration
-source /etc/zsh/zprofile
-
 # Lazy-loading functionality
 source ~/.zsh/sandboxd.zsh
 
