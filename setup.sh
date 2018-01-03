@@ -148,7 +148,7 @@ if [ "$(whoami)" != "root" ]; then
   fi
 
   if [[ "$HOST" =~ "desktop-" ]]; then
-    if [[ ! -a "$HOME/.config/Yubico" ]]; then
+    if [[ ! -a "$HOME/.config/Yubico/u2f_keys" ]]; then
       echo "Configuring YubiKey for sudo access (touch it now)"
       mkdir -p "$HOME/.config/Yubico"
       pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
