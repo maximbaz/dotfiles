@@ -33,6 +33,8 @@ peek
 private-internet-access-vpn
 py3status-git
 python2-tzlocal
+python-azure-cli
+python-azure-git
 python-tzlocal
 rmtrash
 rvm
