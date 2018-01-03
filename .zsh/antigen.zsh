@@ -3,7 +3,7 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Patches prezto with my own adjustments
-patch_prezto() (
+prezto_apply_patches() (
   if [ "$(whoami)" != "root" ]; then
     cd "$HOME/.antigen/bundles/sorin-ionescu/prezto"
     patch -p1 -f -r - --no-backup-if-mismatch < "$HOME/.dotfiles/.zprezto-patches/prompt.patch" >/dev/null 2>&1
@@ -11,8 +11,8 @@ patch_prezto() (
   fi
 )
 
-# Resets applied patches (needed for updates)
-restore_prezto() (
+# Revert applied patches (needed for updates)
+prezto_revert_patches() (
   if [ "$(whoami)" != "root" ]; then
     cd "$HOME/.antigen/bundles/sorin-ionescu/prezto"
     git reset --hard HEAD >/dev/null 2>&1
@@ -85,7 +85,7 @@ export SPACESHIP_GIT_STATUS_BEHIND=
 export SPACESHIP_GIT_STATUS_DIVERGED=
 
 # Ensure my prezto patches are applied (it's fine to do asynchronously)
-patch_prezto &!
+prezto_apply_patches &!
 
 # Define some extra key bindings
 bindkey -M emacs "$key_info[Up]" history-substring-search-up
