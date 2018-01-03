@@ -102,6 +102,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/fontconfig/conf.d/70-monospace.conf"
     link ".config/gsimplecal"
     link ".config/gtk-3.0"
+    link ".config/mimeapps.list"
     link ".config/mpv/mpv.conf"
     link ".config/redshift.conf"
     link ".config/TheHive"
