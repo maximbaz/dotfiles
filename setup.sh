@@ -268,6 +268,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   echo "Configuring makepkg"
   sed -i "s|#\?\(BUILDDIR\)=.*|\1=/tmp/makepkg|" /etc/makepkg.conf
+  sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT=\${PKGEXT:-'.pkg.tar'}/" /etc/makepkg.conf
 
   echo "Configuring firewall"
   [[ "$(ufw status | grep -o '[^ ]\+$')" != "active" ]] && ufw --force reset > /dev/null
