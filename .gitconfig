@@ -1,6 +1,6 @@
 [alias]
   me = !"git config user.name 'Maxim Baz'; git config user.email 'git@maximbaz.com'; git config commit.gpgsign true"
-  ms = !"git config user.name 'Maxim Baz'; git config user.email 'maximbaz@microsoft.com'"
+  ms = !"git config user.name 'Maxim Baz'; git config user.email 'maximbaz@microsoft.com'; git config commit.gpgsign false"
 [branch]
   autosetuprebase = always
 [color "branch"]
