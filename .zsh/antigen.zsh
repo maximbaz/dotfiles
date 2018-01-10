@@ -26,28 +26,6 @@ zstyle ':notify:*' success-title 'Success'
 zstyle ':notify:*' error-icon '/usr/share/icons/Adwaita/256x256/status/dialog-error.png'
 zstyle ':notify:*' success-icon '/usr/share/icons/Adwaita/256x256/status/dialog-information.png'
 
-# Configure prompt
-export SPACESHIP_LSCOLORS_DEFINE=false
-export SPACESHIP_CHAR_SYMBOL="❯ "
-export SPACESHIP_JOBS_SYMBOL="»"
-export SPACESHIP_TIME_SHOW=true
-export SPACESHIP_USER_PREFIX="as "
-export SPACESHIP_DIR_TRUNC_REPO=false
-export SPACESHIP_USER_SHOW_SSH=false
-
-export SPACESHIP_PROMPT_ORDER=(
-  time
-  user
-  dir
-  host
-  git
-  exec_time
-  line_sep
-  jobs
-  exit_code
-  char
-)
-
 # Load antigen
 source /usr/share/zsh/share/antigen.zsh
 
@@ -77,6 +55,28 @@ antigen apply
 
 # Fix prezto functions loading
 autoload -Uz archive lsarchive unarchive
+
+# Configure prompt
+export SPACESHIP_LSCOLORS_DEFINE=false
+export SPACESHIP_CHAR_SYMBOL="❯ "
+export SPACESHIP_JOBS_SYMBOL="»"
+export SPACESHIP_TIME_SHOW=true
+export SPACESHIP_USER_PREFIX="as "
+export SPACESHIP_DIR_TRUNC_REPO=false
+export SPACESHIP_USER_SHOW_SSH=false
+
+export SPACESHIP_PROMPT_ORDER=(
+  time
+  user
+  dir
+  host
+  git
+  exec_time
+  line_sep
+  jobs
+  exit_code
+  char
+)
 
 # Configure git prompt symbols
 export SPACESHIP_GIT_STATUS_DELETED="x"
