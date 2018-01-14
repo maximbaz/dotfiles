@@ -25,6 +25,7 @@ jdk8
 jetty
 kubectl-bin
 kubernetes-helm
+libva-intel-driver-git
 light
 lscolors-git
 minikube-bin

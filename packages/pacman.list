@@ -36,7 +36,6 @@ jq
 krita
 libreoffice-fresh
 libusb-compat
-libva-intel-driver
 libvdpau-va-gl
 linux-headers
 lsb-release
@@ -77,6 +76,7 @@ reflector
 rsync
 rust
 sakura
+shellcheck
 sshuttle
 sway
 terminus-font
