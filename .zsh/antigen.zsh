@@ -57,13 +57,12 @@ antigen apply
 autoload -Uz archive lsarchive unarchive
 
 # Configure prompt
-export SPACESHIP_LSCOLORS_DEFINE=false
 export SPACESHIP_CHAR_SYMBOL="❯ "
 export SPACESHIP_JOBS_SYMBOL="»"
 export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_USER_PREFIX="as "
 export SPACESHIP_DIR_TRUNC_REPO=false
-export SPACESHIP_USER_SHOW_SSH=false
+export SPACESHIP_USER_SHOW="needed"
 
 export SPACESHIP_PROMPT_ORDER=(
   time
