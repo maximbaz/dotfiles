@@ -99,8 +99,8 @@ call dein#add('airblade/vim-gitgutter')                               " Git gutt
 """" Render code
 call dein#add('sheerun/vim-polyglot')                                 " Many many syntaxes
 call dein#add('ap/vim-css-color')                                     " Colors in CSS
-call dein#add('suan/vim-instant-markdown',
-      \ {'build': 'npm -g install instant-markdown-d'})               " Instantly preview markdown
+call dein#add('euclio/vim-markdown-composer',
+      \ {'build': 'cargo build --release'})                           " Instantly preview markdown
 
 """" Lint code
 call dein#add('w0rp/ale')
@@ -492,6 +492,9 @@ map zg/ <Plug>(incsearch-fuzzy-stay)
 
 map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)zMzv
 map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zMzv
+
+"""" Markdown composer
+let g:markdown_composer_open_browser = 0
 
 """" Neco-ghc
 let g:necoghc_enable_detailed_browse = 1
