@@ -7,21 +7,21 @@ import signal
 import sys
 
 WINDOW_ICONS = {
-    'alacritty': '',
-    'google-chrome': '',
-    'chromium': '',
-    'wire': '',
-    'wireinternal': '',
-    'slack': '',
-    'thunderbird': '',
-    'cerebro': '',
-    'mpv': '',
-    'xfreerdp': '',
-    'teamviewer': '',
-    'jetbrains-idea': '',
+    'alacritty': '󰀀',
+    'google-chrome': '󰀠',
+    'chromium': '󰀠',
+    'wire': '󰀜',
+    'wireinternal': '󰀜',
+    'slack': '󰀡',
+    'thunderbird': '󰀚',
+    'cerebro': '󰀋',
+    'mpv': '',
+    'xfreerdp': '󰀄',
+    'teamviewer': '󰀄',
+    'jetbrains-idea': '󰀟',
 }
 
-DEFAULT_ICON = ''
+DEFAULT_ICON = '󰀏'
 
 
 def xprop(win_id, property):

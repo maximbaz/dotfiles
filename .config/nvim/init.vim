@@ -326,7 +326,7 @@ let g:lightline = {
       \     's' : 'S',
       \     'S' : 'S-LINE',
       \     "\<C-s>": 'S-BLOCK',
-      \     't': '',
+      \     't': '󰀣 ',
       \   },
       \   'component': {
       \     'lineinfo': '%l:%-v',
