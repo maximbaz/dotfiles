@@ -17,11 +17,12 @@ alias sudo='sudo -E '
 alias vi='nvim'
 alias vim='nvim'
 
-alias ls="ls --color=auto --group-directories-first"
-alias ll="ls -lh"
-alias la="ll -A"
-alias lk="ll -Sr"   # Sorted by size
-alias lt="ll -tr"   # Sorted by date
+alias ls="exa --git --group-directories-first"
+alias ll="ls -l"
+alias la="ll -a"
+alias lk="ll -s=size"                # Sorted by size
+alias lm="ll -s=modified"            # Sorted by modified date
+alias lc="ll --created -s=created"   # Sorted by created date
 
 function mkdcd {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
