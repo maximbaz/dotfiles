@@ -9,6 +9,7 @@ docker
 dunst
 efibootmgr
 encfs
+exa
 exfat-utils
 expect
 feh
@@ -38,7 +39,6 @@ libreoffice-fresh
 libusb-compat
 libvdpau-va-gl
 linux-headers
-lsb-release
 maven
 mlocate
 mpv
