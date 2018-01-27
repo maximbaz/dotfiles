@@ -59,14 +59,14 @@
    # mkdir -p /mnt/mnt/btrfs-root
    # mkdir -p /mnt/boot/efi
    # mkdir -p /mnt/home
-   # mkdir -p /mnt/var/cache/pacman/pkg
+   # mkdir -p /mnt/var/cache/pacman
    # mkdir -p /mnt/var/log
    # mkdir -p /mnt/var/tmp
    # mkdir -p /mnt/.snapshots
    # mount /dev/sdX1 /mnt/boot/efi
    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=/ /dev/mapper/luks /mnt/mnt/btrfs-root
    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=home /dev/mapper/luks /mnt/home
-   # mount -o noatime,nodiratime,discard,compress=lzo,subvol=pkgs /dev/mapper/luks /mnt/var/cache/pacman/pkg
+   # mount -o noatime,nodiratime,discard,compress=lzo,subvol=pkgs /dev/mapper/luks /mnt/var/cache/pacman
    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=logs /dev/mapper/luks /mnt/var/log
    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=tmp /dev/mapper/luks /mnt/var/tmp
    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=snapshots /dev/mapper/luks /mnt/.snapshots
