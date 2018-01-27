@@ -6,16 +6,20 @@ source ~/.zsh/environment.zsh
 source ~/.dircolors.zsh
 
 # Load plugins
+source ~/.zsh/prezto.zsh
+source ~/.zsh/zsh-notify.zsh
 source ~/.zsh/antigen.zsh
+source ~/.zsh/prezto-patches.zsh
 
 # Load custom configurations
-source ~/.zsh/aliases.zsh
-source ~/.zsh/fzf.zsh
-source ~/.zsh/git.zsh
-source ~/.zsh/ssh.zsh
 source ~/.zsh/opts.zsh
-source ~/.zsh/pacman.zsh
+source ~/.zsh/keybindings.zsh
+source ~/.zsh/aliases.zsh
+source ~/.zsh/git.zsh
+source ~/.zsh/fzf.zsh
+source ~/.zsh/ssh.zsh
 source ~/.zsh/mse.zsh
+source ~/.zsh/prompt.zsh
 
 # Load machine-specific configurations
 if [[ "$HOST" =~ "desktop-" ]]; then

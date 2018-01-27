@@ -24,6 +24,14 @@ alias lk="ll -s=size"                # Sorted by size
 alias lm="ll -s=modified"            # Sorted by modified date
 alias lc="ll --created -s=created"   # Sorted by created date
 
+alias pac='sudo pacman -Sy; yay'
+alias paci='sudo pacman -Sy'
+alias pacf='sudo pacman -U'
+alias pacu='sudo pacman -Syu; py3-cmd refresh arch_updates "external_script pacdiff"'
+alias pacr='sudo pacman -Rs'
+alias pacq='pacman -Si'
+alias pacQ='pacman -Qo'
+
 function mkdcd {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
