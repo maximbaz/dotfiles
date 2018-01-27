@@ -1,0 +1,1 @@
+unsetopt EXTENDED_GLOB

@@ -13,6 +13,7 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/git.zsh
 source ~/.zsh/ssh.zsh
+source ~/.zsh/opts.zsh
 source ~/.zsh/pacman.zsh
 source ~/.zsh/mse.zsh
 
