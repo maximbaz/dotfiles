@@ -14,6 +14,6 @@ antigen bundles <<EOB
   zsh-users/zsh-history-substring-search
 EOB
 
-antigen theme maximbaz/spaceship-zsh-theme@3.0
+antigen theme maximbaz/spaceship-prompt
 
 antigen apply
