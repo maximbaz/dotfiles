@@ -2,6 +2,8 @@
 
 set -e
 
+MY_GPG_KEY_ID="12C87A28FEAC6B20"
+
 script_name="$(basename "$0")"
 dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
 cd "$dotfiles_dir"
@@ -142,10 +144,10 @@ if [ "$(whoami)" != "root" ]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
-  if ! gpg -k | grep 12C87A28FEAC6B20 > /dev/null; then
+  if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     echo "Importing my public PGP key"
     curl -s https://keybase.io/maximbaz/pgp_keys.asc| gpg --import
-    gpg --trusted-key 12C87A28FEAC6B20 > /dev/null
+    gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
   fi
 
   if [[ "$HOST" =~ "desktop-" ]]; then
@@ -262,6 +264,12 @@ if [[ "$(whoami)" == "root" ]]; then
 
   echo "Setting limit to journal logs size"
   sed -i "s/#\?\(SystemMaxUse\)=.*/\1=300M/" /etc/systemd/journald.conf
+
+  echo "Adding my public key to pacman"
+  if ! pacman-key --list-keys | grep "$MY_GPG_KEY_ID" > /dev/null; then
+    pacman-key --recv-keys "$MY_GPG_KEY_ID"
+    pacman-key --lsign-key "$MY_GPG_KEY_ID"
+  fi
 
   echo "Enabling various pacman options"
   sed -i "s/#\?\(Color\)/\1/" /etc/pacman.conf
