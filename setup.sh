@@ -71,7 +71,6 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/htop"
   link ".config/nvim/init.vim"
   link ".config/ranger/rc.conf"
-  link ".config/yay/config.json"
 
   link ".config/systemd/user/backup-packages.service"
   link ".config/systemd/user/backup-packages.timer"
