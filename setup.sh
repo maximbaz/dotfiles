@@ -202,6 +202,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     copy "etc/NetworkManager/dispatcher.d/pia-vpn"
+    copy "etc/pacman.d/maximbaz-aur"
     copy "etc/private-internet-access/pia.conf"
     copy "etc/systemd/system/getty@tty1.service.d/override.conf"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
@@ -268,9 +269,8 @@ if [[ "$(whoami)" == "root" ]]; then
   sed -i "s/#\?\(TotalDownload\)/\1/" /etc/pacman.conf
   sed -i "s/#\?\(VerbosePkgLists\)/\1/" /etc/pacman.conf
 
-  echo "Configuring makepkg"
-  sed -i "s|#\?\(BUILDDIR\)=.*|\1=/tmp/makepkg|" /etc/makepkg.conf
-  sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT=\${PKGEXT:-'.pkg.tar'}/" /etc/makepkg.conf
+  echo "Configuring devtools/makepkg"
+  sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar'/" /usr/share/devtools/makepkg-x86_64.conf
 
   echo "Configuring firewall"
   [[ "$(ufw status | grep -o '[^ ]\+$')" != "active" ]] && ufw --force reset > /dev/null
@@ -295,6 +295,10 @@ if [[ "$(whoami)" == "root" ]]; then
 
     echo "Enabling infinality aliases"
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
+
+    echo "Creating pacman cache for custom AUR repo"
+    install -d "/var/cache/pacman/maximbaz-aur" -o maximbaz
+    [[ ! -a "/var/cache/pacman/maximbaz-aur" ]] && repo-add -s "/var/cache/pacman/maximbaz-aur/maximbaz-aur.db.tar"
   fi
 
   if [[ "$HOST" =~ "crmdevvm-" ]]; then
