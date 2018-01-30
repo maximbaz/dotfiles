@@ -495,6 +495,7 @@ map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)zMzv
 
 """" Markdown composer
 let g:markdown_composer_open_browser = 0
+let g:markdown_composer_custom_css = ['https://cdn.rawgit.com/maximbaz/github-markdown-css/gh-pages/github-markdown.css']
 
 """" Neco-ghc
 let g:necoghc_enable_detailed_browse = 1
