@@ -226,7 +226,7 @@
 1. Bootstrap pacman packages:
 
    ```
-   $ xargs -a ~/.dotfiles/packages/pacman.list sudo pacman -Sy --needed --noconfirm
+   $ xargs -a ~/.dotfiles/pacman.list sudo pacman -Sy --needed --noconfirm
    ```
 
 1. Setup dotfiles:
