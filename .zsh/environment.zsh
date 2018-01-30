@@ -6,6 +6,9 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
+# My own binaries
+export PATH="$HOME/bin:$PATH"
+
 # Use gpg-agent as ssh-agent
 if [[ "$HOST" =~ "desktop-" ]]; then
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
