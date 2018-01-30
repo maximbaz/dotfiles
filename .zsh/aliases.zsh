@@ -32,7 +32,7 @@ alias pacQ='pacman -Qo'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
 function pacs() {
-  aursearch -V "$@"
+  aursearch -k NumVotes "$@"
   pacman -Ss "$@"
 }
 
