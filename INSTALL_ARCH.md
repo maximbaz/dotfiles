@@ -223,16 +223,16 @@
    $ git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles
    ```
 
-1. Bootstrap pacman packages:
-
-   ```
-   $ xargs -a ~/.dotfiles/pacman.list sudo pacman -Sy --needed --noconfirm
-   ```
-
 1. Setup dotfiles:
 
    ```
    $ ~/.dotfiles/setup.sh
+   ```
+
+1. Bootstrap pacman packages:
+
+   ```
+   $ xargs -a ~/.dotfiles/pacman.list sudo pacman -Sy --needed --noconfirm
    ```
 
 1. Sign bootloader for Secure Boot:
