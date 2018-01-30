@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+tmp=$(mktemp) || exit
+trap 'rm -rf $tmp' EXIT
+
+aursrcver ~/.cache/aursync/*-git | aurcheck -d maximbaz-aur | tee "$tmp"
+mv "$tmp" ~/.cache/vcsupdates
