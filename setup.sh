@@ -190,6 +190,7 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "=========================="
 
   copy "etc/conf.d/snapper"
+  copy "etc/snap-pac.conf"
   copy "etc/snapper/configs/root"
   copy "etc/ssh/ssh_config"
   copy "etc/sysctl.d/10-swappiness.conf"
