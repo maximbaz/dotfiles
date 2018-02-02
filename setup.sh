@@ -219,6 +219,7 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/pacman.conf"
     copy "etc/pacman.d/maximbaz-aur"
     copy "etc/private-internet-access/pia.conf"
+    copy "etc/systemd/logind.conf"
     copy "etc/systemd/system/getty@tty1.service.d/override.conf"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
     copy "etc/X11/xorg.conf.d/00-keyboard.conf"
@@ -304,10 +305,6 @@ if [[ "$(whoami)" == "root" ]]; then
 
     echo "Allowing regular user to restart pcscd.service (to fix YubiKey after a suspend) and use aurbuild_chroot"
     sed -zi "s|\(%wheel ALL=(ALL) ALL\)\n[^\n]*|\1\n%wheel ALL=(ALL) NOPASSWD:SETENV: /usr/bin/systemctl stop pcscd.service, /usr/bin/aurbuild_chroot|" /etc/sudoers
-
-    echo "Configuring login manager"
-    sed -i "s/#\?\(HandleLidSwitch\)=.*/\1=ignore/" /etc/systemd/logind.conf
-    sed -i "s/#\?\(HandlePowerKey\)=.*/\1=ignore/" /etc/systemd/logind.conf
 
     echo "Enabling infinality aliases"
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
