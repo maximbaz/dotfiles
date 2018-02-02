@@ -202,6 +202,7 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "=========================="
 
   copy "etc/conf.d/snapper"
+  copy "etc/makepkg.conf"
   copy "etc/snap-pac.conf"
   copy "etc/snapper/configs/root"
   copy "etc/ssh/ssh_config"
@@ -285,9 +286,6 @@ if [[ "$(whoami)" == "root" ]]; then
     pacman-key --recv-keys "$MY_GPG_KEY_ID"
     pacman-key --lsign-key "$MY_GPG_KEY_ID"
   fi
-
-  echo "Configuring devtools/makepkg"
-  sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar'/" /usr/share/devtools/makepkg-x86_64.conf
 
   echo "Configuring firewall"
   [[ "$(ufw status | grep -o '[^ ]\+$')" != "active" ]] && ufw --force reset > /dev/null
