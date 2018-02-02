@@ -221,6 +221,7 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/pacman.d/maximbaz-aur"
     copy "etc/pam.d/sudo"
     copy "etc/private-internet-access/pia.conf"
+    copy "etc/sudoers"
     copy "etc/systemd/logind.conf"
     copy "etc/systemd/system/getty@tty1.service.d/override.conf"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
@@ -296,12 +297,6 @@ if [[ "$(whoami)" == "root" ]]; then
   find /etc/ufw -type f -name '*.rules.*' -delete
 
   if [[ "$HOST" =~ "desktop-" ]]; then
-    echo "Disable caching sudo access"
-    sed -zi "s|\(## Defaults specification\n[^\n]*\n[^\n]*\n[^\n]*\n\)\(\nDefaults timestamp_timeout=0\n\n\)\?|\1\nDefaults timestamp_timeout=0\n\n|" /etc/sudoers
-
-    echo "Allowing regular user to restart pcscd.service (to fix YubiKey after a suspend) and use aurbuild_chroot"
-    sed -zi "s|\(%wheel ALL=(ALL) ALL\)\n[^\n]*|\1\n%wheel ALL=(ALL) NOPASSWD:SETENV: /usr/bin/systemctl stop pcscd.service, /usr/bin/aurbuild_chroot|" /etc/sudoers
-
     echo "Enabling infinality aliases"
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
   fi
