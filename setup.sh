@@ -171,6 +171,18 @@ if [ "$(whoami)" != "root" ]; then
     git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
     git update-index --assume-unchanged ".config/transmission/settings.json"
     git update-index --assume-unchanged ".config/Cerebro/config.json"
+
+    echo "Creating pacman cache for custom AUR repo"
+    [[ ! -a "/var/cache/pacman/maximbaz-aur/" ]] && sudo install -d "/var/cache/pacman/maximbaz-aur" -o maximbaz
+    if [[ ! -a "/var/cache/pacman/maximbaz-aur/maximbaz-aur.db.tar" ]]; then
+      if read -q "?Press 'y' to mirror the remote repo or 'n' to create an empty one: "; then
+        echo ""
+        wget -m -nH -np -q --show-progress --reject="index.html*" --cut-dirs=1 -P '/var/cache/pacman/maximbaz-aur/' 'https://arch-repo.maximbaz.com:4433/maximbaz-aur/'
+      else
+        echo ""
+        repo-add -s "/var/cache/pacman/maximbaz-aur/maximbaz-aur.db.tar"
+      fi
+    fi
   fi
 
   echo ""
@@ -303,10 +315,6 @@ if [[ "$(whoami)" == "root" ]]; then
 
     echo "Enabling infinality aliases"
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
-
-    echo "Creating pacman cache for custom AUR repo"
-    install -d "/var/cache/pacman/maximbaz-aur" -o maximbaz
-    [[ ! -a "/var/cache/pacman/maximbaz-aur" ]] && repo-add -s "/var/cache/pacman/maximbaz-aur/maximbaz-aur.db.tar"
   fi
 
   if [[ "$HOST" =~ "crmdevvm-" ]]; then

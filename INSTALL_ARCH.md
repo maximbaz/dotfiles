@@ -89,7 +89,7 @@
    # pacstrap /mnt base base-devel
                    grub efibootmgr           # boot manager
                    intel-ucode               # Include Intel microcode patches during boot
-                   zsh git openssh           # Just enough to create a user and clone dotfiles
+                   zsh git openssh wget      # Just enough to create a user and clone dotfiles
                    terminus-font             # To make console font readable on HiDPI screens
                    networkmanager            # Because wired connection may not work after installation
    ```
