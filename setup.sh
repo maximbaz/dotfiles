@@ -216,6 +216,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     copy "etc/NetworkManager/dispatcher.d/pia-vpn"
+    copy "etc/pacman.conf"
     copy "etc/pacman.d/maximbaz-aur"
     copy "etc/private-internet-access/pia.conf"
     copy "etc/systemd/system/getty@tty1.service.d/override.conf"
@@ -283,11 +284,6 @@ if [[ "$(whoami)" == "root" ]]; then
     pacman-key --recv-keys "$MY_GPG_KEY_ID"
     pacman-key --lsign-key "$MY_GPG_KEY_ID"
   fi
-
-  echo "Enabling various pacman options"
-  sed -i "s/#\?\(Color\)/\1/" /etc/pacman.conf
-  sed -i "s/#\?\(TotalDownload\)/\1/" /etc/pacman.conf
-  sed -i "s/#\?\(VerbosePkgLists\)/\1/" /etc/pacman.conf
 
   echo "Configuring devtools/makepkg"
   sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar'/" /usr/share/devtools/makepkg-x86_64.conf
