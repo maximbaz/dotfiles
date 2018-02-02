@@ -208,6 +208,7 @@ if [[ "$(whoami)" == "root" ]]; then
   copy "etc/sysctl.d/10-swappiness.conf"
   copy "etc/sysctl.d/99-idea.conf"
   copy "etc/sysctl.d/99-sysctl.conf"
+  copy "etc/systemd/journald.conf"
   copy "etc/systemd/system/paccache.service"
   copy "etc/systemd/system/paccache.timer"
   copy "etc/systemd/system/reflector.service"
@@ -276,9 +277,6 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "======================================="
   echo "Finishing various user configuration..."
   echo "======================================="
-
-  echo "Setting limit to journal logs size"
-  sed -i "s/#\?\(SystemMaxUse\)=.*/\1=300M/" /etc/systemd/journald.conf
 
   echo "Adding my public key to pacman"
   if ! pacman-key --list-keys | grep "$MY_GPG_KEY_ID" > /dev/null; then
