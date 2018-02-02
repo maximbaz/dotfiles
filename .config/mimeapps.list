@@ -1,2 +1,4 @@
 [Default Applications]
 application/pdf=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
