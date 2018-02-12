@@ -51,17 +51,5 @@ mse-build-full() {
   echo "Build in progress..."
   eval $BUILD_COMMAND >> $LOG_FILE 2>>$LOG_FILE_ERR
 
-  if [ $? = 0 ]; then
-    notify_title="Build SUCCESS"
-    notify_urgency="normal"
-    notify_message="MSE build has succeeded."
-  else
-    notify_title="Build FAILURE"
-    notify_urgency="critical"
-    notify_message="MSE build has failed.\\n\\n`tail $LOG_FILE | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g'`"
-  fi
-
-  ~/bin/client_notify.pl $notify_urgency $notify_title $notify_message
-
   tail $LOG_FILE
 }

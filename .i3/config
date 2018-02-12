@@ -137,8 +137,8 @@ bindcode $mod+Shift+38 focus child
 bindsym XF86AudioMute         exec --no-startup-id py3-cmd click 1 volume_status
 bindsym XF86AudioRaiseVolume  exec --no-startup-id py3-cmd click 4 volume_status
 bindsym XF86AudioLowerVolume  exec --no-startup-id py3-cmd click 5 volume_status
-bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/set-brightness.sh inc
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/set-brightness.sh dec
+bindsym XF86MonBrightnessUp   exec --no-startup-id set-brightness inc
+bindsym XF86MonBrightnessDown exec --no-startup-id set-brightness dec
 
 # Reload the configuration file (c)
 bindcode $mod+Shift+54 reload
@@ -212,7 +212,7 @@ bindsym $mod+Shift+9 move container to $workspace9
 bindsym $mod+Shift+0 move container to $workspace0
 
 # Automatically rename workspaces
-exec_always ~/bin/i3-autoname-workspaces.py &
+exec_always i3-autoname-workspaces &
 
 # Resize window (r)
 set $mode_resize Resize window
@@ -248,15 +248,15 @@ bindcode $mod+27 mode "$mode_resize"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
 mode "$mode_system" {
   # (l)
-  bindcode 46 exec --no-startup-id ~/bin/i3exit.sh lock, mode "default"
+  bindcode 46 exec --no-startup-id i3exit lock, mode "default"
   # (e)
-  bindcode 26 exec --no-startup-id ~/bin/i3exit.sh logout, mode "default"
+  bindcode 26 exec --no-startup-id i3exit logout, mode "default"
   # (s)
-  bindcode 39 exec --no-startup-id ~/bin/i3exit.sh suspend, mode "default"
+  bindcode 39 exec --no-startup-id i3exit suspend, mode "default"
   # (r)
-  bindcode 27 exec --no-startup-id ~/bin/i3exit.sh reboot, mode "default"
+  bindcode 27 exec --no-startup-id i3exit reboot, mode "default"
   # (h)
-  bindcode 43 exec --no-startup-id ~/bin/i3exit.sh shutdown, mode "default"
+  bindcode 43 exec --no-startup-id i3exit shutdown, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"

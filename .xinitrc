@@ -58,6 +58,6 @@ hotshots &                                                 # Screenshot manager
 udiskie --smart-tray &                                     # Automatically mount usb drives
 thunderbird &                                              # Mail
 wire-desktop &                                             # Messaging
-~/bin/server_notify.pl &                                   # libnotify over ssh
+server-notify &                                            # libnotify over ssh
 
 exec i3                                                    # WM
