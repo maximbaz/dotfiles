@@ -235,12 +235,19 @@
    $ xargs -a ~/.dotfiles/pacman.list sudo pacman -Sy --needed --noconfirm
    ```
 
+1. Configure fwupdmgr:
+
+   ```
+   $ sudo cp -r /usr/lib/fwupdate/EFI /boot/efi
+   ```
+
 1. Sign bootloader for Secure Boot:
 
    ```
    $ sudo cryptboot-efikeys create
    $ sudo cryptboot-efikeys enroll
    $ sudo cryptboot-efikeys sign /boot/efi/EFI/arch/grubx64.efi
+   $ sudo cryptboot-efikeys sign /boot/efi/EFI/arch/fwupx64.efi
    ```
 
 1. Disable root password:
