@@ -22,7 +22,7 @@ case $status in
   vpn-up)
     if [[ $interface == "tun0" ]]; then
       chattr -i /etc/resolv.conf
-      echo -e "nameserver 209.222.18.222\nnameserver 209.222.18.218" > /etc/resolv.conf
+      echo -e "nameserver 209.222.18.222\\nnameserver 209.222.18.218" > /etc/resolv.conf
       chattr +i /etc/resolv.conf
     fi
     py3-cmd refresh "path_exists PIA" "whatismyip"
@@ -30,6 +30,7 @@ case $status in
   vpn-down)
     if [[ $interface == "tun0" ]]; then
       chattr -i /etc/resolv.conf
+      cp /run/NetworkManager/resolv.conf /etc/resolv.conf
     fi
     py3-cmd refresh "path_exists PIA" "whatismyip"
     ;;
