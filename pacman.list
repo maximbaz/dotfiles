@@ -63,7 +63,7 @@ kubectl-bin
 kubernetes-helm
 libreoffice-fresh
 libusb-compat
-libva-intel-driver-git
+libva-intel-driver
 libvdpau-va-gl
 light
 linux-headers
