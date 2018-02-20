@@ -4,4 +4,5 @@ tmp=$(mktemp) || exit
 trap 'rm -rf $tmp' EXIT
 
 aursrcver ~/.cache/aursync/*-git | aurcheck -d maximbaz-aur | tee "$tmp"
+# aur vercmp -d maximbaz-aur -p <(aur srcver ~/.cache/aursync/*-git) | tee "$tmp"
 mv "$tmp" ~/.cache/vcsupdates
