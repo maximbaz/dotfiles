@@ -232,7 +232,7 @@
 1. Bootstrap pacman packages:
 
    ```
-   $ xargs -a ~/.dotfiles/pacman.list sudo pacman -Sy --needed --noconfirm
+   $ sudo pacman -Sy --needed maximbaz
    ```
 
 1. Configure fwupdmgr:

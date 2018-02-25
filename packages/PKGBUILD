@@ -1,0 +1,179 @@
+pkgbase='maximbaz'
+pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="Installed packages by maximbaz"
+arch=('any')
+url="https://github.com/maximbaz/dotfiles"
+license=('MIT')
+groups=('maximbaz')
+
+package_maximbaz-base() {
+  depends=(
+    acpi
+    antigen-git
+    btrfs-progs
+    cryptboot
+    devtools
+    diff-so-fancy
+    docker
+    efibootmgr
+    encfs
+    exa
+    fzf
+    git
+    go
+    grub
+    htop
+    httpie
+    intel-ucode
+    jq
+    linux-headers
+    lscolors-git
+    mlocate
+    mtr
+    ncdu
+    neovim
+    net-tools
+    networkmanager
+    openbsd-netcat
+    openssh
+    p7zip
+    prettier
+    pydf
+    python-neovim
+    python-pip
+    python-pylint
+    ranger
+    reflector
+    rmtrash
+    rsync
+    shellcheck
+    snap-pac-grub
+    the_silver_searcher
+    tig
+    tmux
+    tree
+    ufw
+    universal-ctags-git
+    unrar
+    unzip
+    w3m
+    wget
+    yapf
+    yarn
+    zip
+    zsh
+  )
+}
+
+package_maximbaz-desktop() {
+  depends=(
+    alacritty-git
+    atom
+    aurutils-git
+    browserpass
+    calibre
+    cerebro
+    chromium-vaapi
+    chromium-widevine
+    compton
+    copyq
+    dragon-git
+    dropbox
+    dropbox-cli
+    dunst
+    firefox
+    fontforge
+    fonts-meta-extended-lt
+    freerdp
+    fwupd
+    geeqie
+    gsimplecal
+    gtk-theme-arc-grey-git
+    hotshots
+    hsetroot
+    i3-gaps
+    i3ipc-python-git
+    i3lock
+    i3status
+    krita
+    libreoffice-fresh
+    libva-intel-driver
+    libvdpau-va-gl
+    light
+    mpv
+    networkmanager-openvpn
+    networkmanager-pptp
+    nm-connection-editor
+    ntfs-3g
+    numlockx
+    otf-font-awesome
+    pam_u2f-git
+    pamixer
+    pass
+    pavucontrol
+    peek
+    private-internet-access-vpn
+    pulseaudio
+    pulseaudio-alsa
+    py3status-git
+    python-gevent
+    python-tzlocal
+    redshift
+    rust
+    sakura
+    screenkey
+    sshuttle
+    sway
+    terminus-font
+    thunderbird
+    thunderbird-enigmail
+    tlp
+    tlp-rdw
+    transmission-qt
+    ttf-consolas-with-powerline
+    ttf-emojione
+    udiskie
+    unclutter
+    urlwatch
+    vifm
+    virtualbox
+    virtualbox-ext-oracle
+    virtualbox-host-modules-arch
+    weechat
+    wire-desktop-beta
+    wmctrl
+    xcalib
+    xdotool
+    xorg-server
+    xorg-xinit
+    xorg-xprop
+    xorg-xrandr
+    yubikey-manager
+    yubikey-touch-detector
+  )
+}
+
+package_maximbaz-android() {
+  depends=(
+    android-sdk-platform-tools
+    android-studio
+    fdroidserver
+  )
+}
+
+package_maximbaz-work() {
+  depends=(
+    gradle
+    intellij-idea-ultimate-edition
+    jdk8
+    jetty
+    kubectl-bin
+    kubernetes-helm
+    maven
+    minikube-bin
+    python-azure-cli
+    rvm
+  )
+}
