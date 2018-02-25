@@ -180,6 +180,7 @@ set guioptions+=c
 set guioptions-=T
 set guioptions-=m
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+hi Normal ctermbg=NONE guibg=NONE
 
 """ Keyboard shortcuts
 """" Leader
