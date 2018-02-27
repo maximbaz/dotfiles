@@ -304,7 +304,7 @@ let g:lightline = {
       \   'colorscheme': 'gruvbox',
       \   'active': {
       \     'left': [ [ 'mode' ], [ 'pwd' ] ],
-      \     'right': [ [ 'linter_errors', 'linter_warnings', 'trailing', 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
+      \     'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'trailing', 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
       \   },
       \   'inactive': {
       \     'left': [ [ 'pwd' ] ],
@@ -337,6 +337,7 @@ let g:lightline = {
       \     'trailing': 'lightline#trailing_whitespace#component',
       \     'linter_warnings': 'lightline#ale#warnings',
       \     'linter_errors': 'lightline#ale#errors',
+      \     'linter_checking': 'lightline#ale#checking',
       \   },
       \   'component_function': {
       \     'pwd': 'LightlineWorkingDirectory',
@@ -348,6 +349,7 @@ let g:lightline = {
       \     'trailing': 'error',
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
+      \     'linter_checking': 'warning',
       \   },
       \ }
 
@@ -391,6 +393,7 @@ endfunction
 """" Lightline ALE
 let g:lightline#ale#indicator_warnings = ' '
 let g:lightline#ale#indicator_errors = ' '
+let g:lightline#ale#indicator_checking = ' '
 
 """" lightline-bufferline
 let g:lightline#bufferline#filename_modifier = ':~:.' " Show filename relative to current directory
