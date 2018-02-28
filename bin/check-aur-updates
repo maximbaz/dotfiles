@@ -3,5 +3,5 @@
 tmp=$(mktemp) || exit
 trap 'rm -rf $tmp' EXIT
 
-aur vercmp -d maximbaz-aur | tee "$tmp"
+repoctl list -v | aur vercmp | tee "$tmp"
 mv "$tmp" ~/.cache/aurupdates

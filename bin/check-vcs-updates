@@ -3,5 +3,5 @@
 tmp=$(mktemp) || exit
 trap 'rm -rf $tmp' EXIT
 
-aur vercmp -d maximbaz-aur -p <(aur srcver ~/.cache/aurutils/sync/*-git) | tee "$tmp"
+repoctl list -v | aur vercmp -p <(aur srcver ~/.cache/aurutils/sync/*-git) | tee "$tmp"
 mv "$tmp" ~/.cache/vcsupdates
