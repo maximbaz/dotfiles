@@ -24,7 +24,6 @@ alias lk="ll -s=size"                # Sorted by size
 alias lm="ll -s=modified"            # Sorted by modified date
 alias lc="ll --created -s=created"   # Sorted by created date
 
-alias py3status-refresh-pacman='py3-cmd refresh "external_script pacdiff" "external_script updates_repo" "external_script updates_aur" "external_script updates_vcs"'
 alias paci='sudo pacman -Sy'
 alias ipaci='SNAP_PAC_SKIP=true paci'
 alias pacr='sudo pacman -Rs'

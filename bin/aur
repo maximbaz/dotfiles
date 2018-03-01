@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+/usr/bin/aur "$@"
+py3status-refresh-pacman

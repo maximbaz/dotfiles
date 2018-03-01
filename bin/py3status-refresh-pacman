@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+pacdiff="external_script pacdiff"
+repo="external_script updates_repo"
+aur="external_script updates_aur"
+vcs="external_script updates_vcs"
+
+py3-cmd refresh  "$pacdiff" "$repo" "$aur" "$vcs"
