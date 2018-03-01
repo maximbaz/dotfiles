@@ -71,7 +71,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".gnupg/gpg.conf"
 
   link ".config/htop"
-  link ".config/nvim/init.vim"
+  link ".config/nvim"
   link ".config/ranger/rc.conf"
 
   link ".config/systemd/user/backup-packages.service"
@@ -90,12 +90,12 @@ if [ "$(whoami)" != "root" ]; then
   link ".zshrc"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
-    link ".i3/config"
+    link ".i3"
     link ".i3status.conf"
 
     link ".gnupg/gpg-agent.conf"
 
-    link ".config/alacritty/alacritty.yml"
+    link ".config/alacritty"
     link ".config/Cerebro/config.json"
     link ".config/chromium-flags.conf"
     link ".config/copyq/copyq.conf"
