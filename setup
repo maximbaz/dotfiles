@@ -107,6 +107,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/mimeapps.list"
     link ".config/mpv/mpv.conf"
     link ".config/redshift.conf"
+    link ".config/repoctl"
     link ".config/TheHive"
     link ".config/transmission/settings.json"
 
