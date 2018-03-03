@@ -304,7 +304,7 @@ let g:lightline = {
       \   'colorscheme': 'gruvbox',
       \   'active': {
       \     'left': [ [ 'mode' ], [ 'pwd' ] ],
-      \     'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'trailing', 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
+      \     'right': [ [ 'linter_ok', 'linter_checking', 'linter_errors', 'linter_warnings', 'trailing', 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
       \   },
       \   'inactive': {
       \     'left': [ [ 'pwd' ] ],
@@ -335,9 +335,10 @@ let g:lightline = {
       \   'component_expand': {
       \     'buffers': 'lightline#bufferline#buffers',
       \     'trailing': 'lightline#trailing_whitespace#component',
+      \     'linter_ok': 'lightline#ale#ok',
+      \     'linter_checking': 'lightline#ale#checking',
       \     'linter_warnings': 'lightline#ale#warnings',
       \     'linter_errors': 'lightline#ale#errors',
-      \     'linter_checking': 'lightline#ale#checking',
       \   },
       \   'component_function': {
       \     'pwd': 'LightlineWorkingDirectory',
@@ -347,9 +348,10 @@ let g:lightline = {
       \   'component_type': {
       \     'buffers': 'tabsel',
       \     'trailing': 'error',
+      \     'linter_ok': 'left',
+      \     'linter_checking': 'left',
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
-      \     'linter_checking': 'warning',
       \   },
       \ }
 
