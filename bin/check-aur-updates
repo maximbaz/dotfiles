@@ -3,5 +3,5 @@
 tmp=$(mktemp) || exit
 trap 'rm -rf $tmp' EXIT
 
-repoctl list -v | aur vercmp | tee "$tmp"
+repoctl list -v | aur vercmp 2>/dev/null | tee "$tmp"
 mv "$tmp" ~/.cache/aurupdates
