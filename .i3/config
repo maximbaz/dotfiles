@@ -10,6 +10,9 @@ new_window pixel 1
 new_float pixel 0
 hide_edge_borders both
 
+# Set default workspace layout
+workspace_layout tabbed
+
 # Specific window configuration
 for_window    [window_role="pop-up"]         floating enable
 for_window    [class="Pinentry"]             floating enable
