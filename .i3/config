@@ -78,6 +78,7 @@ bindcode Mod1+50 exec "py3-cmd refresh keyboard_layout"
 
 # Start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec sakura -e /bin/bash
 
 # Kill focused window (q)
 bindcode $mod+Shift+24 kill
