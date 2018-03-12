@@ -168,6 +168,9 @@ if [ "$(whoami)" != "root" ]; then
     rm -rf ~/.dropbox-dist
     install -dm0 ~/.dropbox-dist
 
+    echo "Configuring GTK file chooser dialog"
+    gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+
     echo "Ignoring further changes to often changing config"
     git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
     git update-index --assume-unchanged ".config/transmission/settings.json"
