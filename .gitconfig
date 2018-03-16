@@ -10,7 +10,7 @@
 [color "status"]
   added = green
   changed = yellow
-  untracked = red
+  untracked = blue
 [core]
   autocrlf = input
   filemode = true
