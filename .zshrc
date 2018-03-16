@@ -5,6 +5,9 @@ source ~/.zsh/sandboxd.zsh
 source ~/.zsh/environment.zsh
 source ~/.dircolors.zsh
 
+# Load prompt configuration
+source ~/.zsh/prompt.zsh
+
 # Load plugins
 source ~/.zsh/prezto.zsh
 source ~/.zsh/zsh-notify.zsh
@@ -19,7 +22,6 @@ source ~/.zsh/git.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/ssh.zsh
 source ~/.zsh/mse.zsh
-source ~/.zsh/prompt.zsh
 
 # Load machine-specific configurations
 if [[ "$HOST" =~ "desktop-" ]]; then
