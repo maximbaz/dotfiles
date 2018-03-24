@@ -437,12 +437,12 @@ xmap <Leader>= <Plug>(EasyAlign)
 
 """" FZF
 " Make :Ag not match file names, only file contents
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--hidden', {'options': '--delimiter : --nth 4..'}, <bang>0)
+command! -bang -nargs=* AgContents call fzf#vim#ag(<q-args>, '--hidden', {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>F :Files ~<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>G :Ag<CR>
+nnoremap <silent> <Leader>G :AgContents<CR>
 
 """" Ghc-mod
 nnoremap <silent> <leader>ht :w<CR>:GhcModType<CR>:GhcModTypeClear<CR>
