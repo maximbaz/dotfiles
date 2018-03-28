@@ -117,7 +117,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/systemd/user/urlwatch.service"
     link ".config/systemd/user/urlwatch.timer"
 
-    link ".local/share/fonts"
+    link ".local/share/fonts/taskbar.ttf"
 
     link ".compton.conf"
     link ".gtkrc-2.0"
