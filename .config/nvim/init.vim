@@ -166,6 +166,7 @@ set spelllang=en,da,ru
 set splitbelow
 set splitright
 set tabstop=2
+set title                                                          " Change terminal title based on the file name
 set updatetime=100
 set virtualedit=all
 set wildmode=longest,list,full
@@ -661,6 +662,17 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+"""" Get buffer name
+function! GetBufferName()
+  let l:name = bufname('%')
+  if l:name ==# ''
+    let l:name = 'No name'
+  else
+    let l:name = fnamemodify(l:name, ':~:.')
+  endif
+  return substitute(l:name, '%', '%%', 'g')
+endfunction
+
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 """ AutoCmd
@@ -674,6 +686,11 @@ augroup END
 augroup reload-files-changed-outside
   autocmd!
   autocmd BufEnter,FocusGained * checktime
+augroup END
+
+augroup title
+  autocmd!
+  autocmd BufWinEnter * let &titlestring = '- ' . GetBufferName()
 augroup END
 
 

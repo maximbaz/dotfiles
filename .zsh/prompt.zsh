@@ -1,4 +1,10 @@
+spaceship_reset_tmux_pane_title() {
+  # Reset tmux pane title
+  printf '\033]2;%s\033\\' ''
+}
+
 export SPACESHIP_PROMPT_ORDER=(
+  reset_tmux_pane_title
   time
   user
   dir

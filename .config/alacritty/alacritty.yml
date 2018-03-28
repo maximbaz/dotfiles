@@ -215,7 +215,7 @@ mouse:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
-dynamic_title: false
+dynamic_title: true
 
 hide_cursor_when_typing: false
 
