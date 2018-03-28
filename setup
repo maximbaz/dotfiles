@@ -98,7 +98,6 @@ if [ "$(whoami)" != "root" ]; then
     link ".gnupg/gpg-agent.conf"
 
     link ".config/alacritty"
-    link ".config/Cerebro/config.json"
     link ".config/chromium-flags.conf"
     link ".config/copyq/copyq.conf"
     link ".config/dunst"
@@ -176,7 +175,6 @@ if [ "$(whoami)" != "root" ]; then
     echo "Ignoring further changes to often changing config"
     git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
     git update-index --assume-unchanged ".config/transmission/settings.json"
-    git update-index --assume-unchanged ".config/Cerebro/config.json"
 
     echo "Creating pacman cache for custom AUR repo"
     [[ ! -a "/var/cache/pacman/maximbaz-aur/" ]] && sudo install -d "/var/cache/pacman/maximbaz-aur" -o maximbaz

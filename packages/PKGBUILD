@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.2
+pkgver=1.0.4
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -76,7 +76,6 @@ package_maximbaz-desktop() {
     'aurutils-git'
     'browserpass'
     'calibre'
-    'cerebro'
     'chromium-vaapi'
     'chromium-widevine'
     'compton'
@@ -100,6 +99,7 @@ package_maximbaz-desktop() {
     'i3lock'
     'i3status'
     'krita'
+    'libqalculate'
     'libreoffice-fresh'
     'libva-intel-driver'
     'libvdpau-va-gl'
@@ -123,6 +123,8 @@ package_maximbaz-desktop() {
     'python-gevent'
     'python-tzlocal'
     'redshift'
+    'rofi'
+    'rofi-dmenu'
     'rust'
     'sakura'
     'screenkey'
@@ -144,7 +146,7 @@ package_maximbaz-desktop() {
     'virtualbox-ext-oracle'
     'virtualbox-host-modules-arch'
     'weechat'
-    'wire-desktop-beta'
+    'wire-desktop'
     'wmctrl'
     'xcalib'
     'xdotool'

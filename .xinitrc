@@ -52,7 +52,6 @@ xset m 3/1 4                                               # Set mouse cursor sp
 numlockx &                                                 # Turn on NumLock
 unclutter &                                                # Hide mouse when using keyboard
 
-cerebro --disable-gpu &                                    # Launcher
 copyq &                                                    # Clipboard manager
 hotshots &                                                 # Screenshot manager
 udiskie --smart-tray &                                     # Automatically mount usb drives

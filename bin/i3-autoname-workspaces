@@ -14,7 +14,7 @@ WINDOW_ICONS = {
     'wireinternal': '󰀜',
     'slack': '󰀡',
     'thunderbird': '󰀚',
-    'cerebro': '󰀋',
+    'rofi': '󰀋',
     'mpv': '',
     'xfreerdp': '󰀄',
     'teamviewer': '󰀄',
