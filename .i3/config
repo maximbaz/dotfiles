@@ -18,6 +18,7 @@ for_window    [window_role="pop-up"]         floating enable
 for_window    [class="Pinentry"]             floating enable
 for_window    [class="copyq"]                floating enable
 for_window    [class="Peek"]                 floating enable
+for_window    [class="Rofi"]                 floating enable
 for_window    [class="Google-chrome"]        move container to $workspace2, title_format "Google Chrome"
 for_window    [class="Chromium"]             move container to $workspace2, title_format "Chromium"
 for_window    [class="Wire"]                 move container to $workspace3
@@ -79,6 +80,12 @@ bindcode Mod1+50 exec "py3-cmd refresh keyboard_layout"
 # Start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec sakura -e /bin/bash
+
+# Start a launcher (=)(d)(p)(o)
+bindcode $mod+21 exec "rofi -normal-window -show calc"
+bindcode $mod+40 exec "rofi -normal-window -show drun"
+bindcode $mod+33 exec "rofi -normal-window -show pass"
+bindcode $mod+32 exec "rofi -normal-window -show window"
 
 # Kill focused window (q)
 bindcode $mod+Shift+24 kill
