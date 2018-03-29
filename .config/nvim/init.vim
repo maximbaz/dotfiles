@@ -690,7 +690,7 @@ augroup END
 
 augroup title
   autocmd!
-  autocmd BufWinEnter * let &titlestring = '- ' . GetBufferName()
+  autocmd BufWinEnter * if buflisted(bufnr('%')) | let &titlestring = '- ' . GetBufferName() | endif
 augroup END
 
 
