@@ -1,10 +1,10 @@
-spaceship_reset_tmux_pane_title() {
+spaceship_rename_terminal_window() {
   # Reset tmux pane title
-  printf '\033]2;%s\033\\' ''
+  printf '\033]2;%s\033\\' "${PWD/#$HOME/~}"
 }
 
 export SPACESHIP_PROMPT_ORDER=(
-  reset_tmux_pane_title
+  rename_terminal_window
   time
   user
   dir
