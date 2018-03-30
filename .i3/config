@@ -81,11 +81,11 @@ bindcode Mod1+50 exec "py3-cmd refresh keyboard_layout"
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec sakura -e /bin/bash
 
-# Start a launcher (=)(d)(p)(o)
+# Start a launcher (=)(d)(o)(p)
 bindcode $mod+21 exec "rofi -normal-window -show calc"
 bindcode $mod+40 exec "rofi -normal-window -show drun"
-bindcode $mod+33 exec "rofi -normal-window -show pass"
 bindcode $mod+32 exec "rofi -normal-window -show window"
+bindcode $mod+33 exec "passmenu"
 
 # Kill focused window (q)
 bindcode $mod+Shift+24 kill

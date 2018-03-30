@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-if [[ -z $* ]]; then
-  store="$HOME/.password-store/"
-  find "$store" -name '*.gpg' | sed -e "s|^$store||" | sed -e 's|\.gpg$||'
-else
-  pass "$1" | head -n 1 | xclip -selection clipboard > /dev/null
-fi

@@ -1,7 +1,7 @@
 ! vim:ft=xdefaults
 
 rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi
-rofi.modi: drun,window,pass:rofi-pass,calc:rofi-calc
+rofi.modi: drun,window,calc:rofi-calc
 rofi.show-icons: true
 rofi.show-match: false
 rofi.window-format: {c} {t}
