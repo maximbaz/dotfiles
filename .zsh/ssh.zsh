@@ -3,6 +3,7 @@ alias ssh='TERM=xterm-256color ssh_with_color'
 ssh_with_color() {
   trap 'tmux_bg_color_reset' SIGINT
   tmux_bg_color_set $@
+  printf '\033]2;%s\033\\' "$*"
   \ssh $@
   retval=$?
   tmux_bg_color_reset
