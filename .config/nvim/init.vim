@@ -662,15 +662,16 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-"""" Get buffer name
-function! GetBufferName()
-  let l:name = bufname('%')
-  if l:name ==# ''
-    let l:name = 'No name'
-  else
-    let l:name = fnamemodify(l:name, ':~:.')
+"""" Set terminal title
+function! SetTerminalTitle()
+  let bufnr = bufnr('%')
+  if buflisted(bufnr)
+    if bufname(bufnr) == ''
+      let &titlestring = 'unnamed'
+    else
+      let &titlestring = expand('%:~')
+    endif
   endif
-  return substitute(l:name, '%', '%%', 'g')
 endfunction
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -690,7 +691,7 @@ augroup END
 
 augroup title
   autocmd!
-  autocmd BufWinEnter * if buflisted(bufnr('%')) | let &titlestring = '- ' . GetBufferName() | endif
+  autocmd BufEnter * call SetTerminalTitle()
 augroup END
 
 
