@@ -1,16 +1,51 @@
-# thunderbird
+# Thunderbird
 
+## Preferences
+
+### General:
+
+* Thunderbird Start Page - FALSE
+
+### Privacy:
+
+* Allow remote content - FALSE
+* Accept third-party cookies - Never
+* Tell sites that I do not want to be tracked - TRUE
+
+### Advanced:
+
+* Enable Global Search and Indexer - TRUE
+* Use hardware acceleration - TRUE
+* Config editor:
+  * `mail.wrap_long_lines` - FALSE
+  * `mailnews.wraplength`- 0
+
+## Account settings:
+
+* Junk Settings
+  * Adaptive junk - FALSE
+  * Trust junk mail headers set by SpamAssassin
+
+## Account settings AND for every identity:
+
+* Composition & Addressing
+  * Compose messages in HTML format - FALSE
+* OpenPGP Security
+  * Enable - TRUE
+  * Specific key ID
+  * Advanced - Send key ID and URL
+
+## Extensions:
+
+* Enigmail
+* Expression Search / Google Mail UI
 * GNotifier
-
-```
-notify-send "%title" "%text" -i "%image"; wmctrl -r "Thunderbird" -b add,demands_attention
-```
 
 # urlwatch
 
 * Configure `mailgun` section in: `$ urlwatch --edit-config`
 
-# chromium
+# Chromium
 
 Search engines:
 
