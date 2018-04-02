@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.4
+pkgver=1.0.5
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -129,7 +129,6 @@ package_maximbaz-desktop() {
     'sakura'
     'screenkey'
     'sshuttle'
-    'sway'
     'terminus-font'
     'thunderbird'
     'thunderbird-enigmail'
