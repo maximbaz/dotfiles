@@ -2,5 +2,5 @@
 
 if [[ -n $* ]]; then
   echo "$1"
-  qalc -t $1 | tee >(xclip -selection clipboard >/dev/null)
+  LC_MONETARY=en_DK.UTF-8 LC_ALL= qalc -t $1 | tee >(xclip -selection clipboard >/dev/null)
 fi
