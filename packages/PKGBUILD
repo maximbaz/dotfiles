@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.5
+pkgver=1.0.6
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -119,7 +119,7 @@ package_maximbaz-desktop() {
     'private-internet-access-vpn'
     'pulseaudio'
     'pulseaudio-alsa'
-    'py3status-git'
+    'py3status'
     'python-gevent'
     'python-tzlocal'
     'redshift'
