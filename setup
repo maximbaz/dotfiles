@@ -221,6 +221,8 @@ if [[ "$(whoami)" == "root" ]]; then
   copy "etc/updatedb.conf"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
+    copy "etc/lightdm/lightdm.conf"
+    copy "etc/lightdm/lightdm-gtk-greeter.conf"
     copy "etc/NetworkManager/dispatcher.d/pia-vpn"
     copy "etc/pacman.conf"
     copy "etc/pacman.d/maximbaz-aur"
@@ -228,7 +230,6 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/private-internet-access/pia.conf"
     copy "etc/sudoers"
     copy "etc/systemd/logind.conf"
-    copy "etc/systemd/system/getty@tty1.service.d/override.conf"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
     copy "etc/X11/xorg.conf.d/00-keyboard.conf"
     copy "etc/X11/xorg.conf.d/30-touchpad.conf"
@@ -256,6 +257,7 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "snapper-cleanup.timer"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
+    systemctl enable "lightdm.service"
     systemctl_enable_start "system" "dropbox@maximbaz.service"
     systemctl_enable_start "system" "pcscd.service"
 
@@ -299,6 +301,10 @@ if [[ "$(whoami)" == "root" ]]; then
   find /etc/ufw -type f -name '*.rules.*' -delete
 
   if [[ "$HOST" =~ "desktop-" ]]; then
+    echo "Joining autologin group"
+    groupadd -rf autologin
+    gpasswd -a maximbaz autologin
+
     echo "Enabling infinality aliases"
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
   fi

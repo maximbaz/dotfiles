@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.6
+pkgver=1.0.7
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -103,6 +103,8 @@ package_maximbaz-desktop() {
     'libreoffice-fresh'
     'libva-intel-driver'
     'libvdpau-va-gl'
+    'lightdm'
+    'lightdm-gtk-greeter'
     'light'
     'mpv'
     'networkmanager-openvpn'
@@ -149,6 +151,7 @@ package_maximbaz-desktop() {
     'wmctrl'
     'xcalib'
     'xdotool'
+    'xinit-xsession'
     'xorg-server'
     'xorg-xinit'
     'xorg-xprop'
