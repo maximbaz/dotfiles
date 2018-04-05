@@ -1,8 +1,8 @@
 [Unit]
-Description=Weekly pacman cache cleanup
+Description=Daily pacman cache cleanup
 
 [Timer]
-OnCalendar=weekly
+OnCalendar=daily
 Persistent=true
 AccuracySec=12h
 
