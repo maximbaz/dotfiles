@@ -24,7 +24,7 @@ for_window    [class="Chromium"]             move container to $workspace2, titl
 for_window    [class="Wire"]                 move container to $workspace3
 for_window    [class="Slack"]                move container to $workspace3
 for_window    [class="Thunderbird"]          move container to $workspace4
-for_window    [instance="TeamViewer.exe"]    move container to $workspace9, floating enable
+for_window    [class="TeamViewer"]           move container to $workspace9, floating enable
 for_window    [class="xfreerdp"]             move container to $workspace9
 
 # Color scheme (Gruvbox dark)
