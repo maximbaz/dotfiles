@@ -24,22 +24,6 @@ alias lk="ll -s=size"                # Sorted by size
 alias lm="ll -s=modified"            # Sorted by modified date
 alias lc="ll --created -s=created"   # Sorted by created date
 
-alias paci='sudo pacman -Sy'
-alias ipaci='SNAP_PAC_SKIP=true paci'
-alias pacr='sudo pacman -Rs'
-alias ipacr='SNAP_PAC_SKIP=true pacr'
-alias pacf='sudo pacman -U'
-alias ipacf='SNAP_PAC_SKIP=true pacf'
-alias pacu='sudo pacman -Syu; py3status-refresh-pacman'
-alias pacq='pacman -Si'
-alias pacQ='pacman -Qo'
-alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
-
-function pacs() {
-  aur search -k NumVotes "$@"
-  pacman -Ss "$@"
-}
-
 function mkdcd {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }

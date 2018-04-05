@@ -83,7 +83,7 @@ root ALL=(ALL) ALL
 
 ## Uncomment to allow members of group wheel to execute any command
 %wheel ALL=(ALL) ALL
-%wheel ALL=(ALL) NOPASSWD:SETENV: /usr/bin/systemctl stop pcscd.service, /home/maximbaz/bin/aur build-nspawn *
+%wheel ALL=(ALL) NOPASSWD:SETENV: /usr/bin/systemctl stop pcscd.service, /usr/bin/aur build-nspawn *
 
 ## Same thing without a password
 # %wheel ALL=(ALL) NOPASSWD: ALL
