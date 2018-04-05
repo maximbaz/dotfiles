@@ -1,25 +1,19 @@
+alias paci='pac -Sy'
 alias ipaci='SNAP_PAC_SKIP=true paci'
+alias pacr='pac -Rs'
 alias ipacr='SNAP_PAC_SKIP=true pacr'
+alias pacf='pac -U'
 alias ipacf='SNAP_PAC_SKIP=true pacf'
 alias pacu='sudo pacman -Syu; py3status-refresh-pacman'
 alias pacq='pacman -Si'
 alias pacQ='pacman -Qo'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
-function paci {
-  sudo pacman -Sy "$@"
+function pac {
+  sudo pacman "$@"
   py3status-refresh-pacman
 }
-
-function pacr {
-  sudo pacman -Rs "$@"
-  py3status-refresh-pacman
-}
-
-function pacf {
-  sudo pacman -U "$@"
-  py3status-refresh-pacman
-}
+compdef "_dispatch pacman pacman" pac
 
 function pacs {
   aur search -k NumVotes "$@"
@@ -28,7 +22,6 @@ function pacs {
 
 function aur {
   /usr/bin/aur "$@"
-  notify-send "aur" "$*"
   py3status-refresh-pacman
 }
 
