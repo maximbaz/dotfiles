@@ -11,17 +11,10 @@ filter: element-by-class:release-header,element-by-tag:h1,html2text
 name: "Chromium"
 url: "https://git.archlinux.org/svntogit/packages.git/plain/chromium/repos/extra-x86_64/PKGBUILD"
 ---
-name: "Cerebro launcher"
-url: "https://github.com/KELiON/cerebro/releases/latest"
-filter: element-by-class:release-header,element-by-tag:h1,html2text
----
-name: "libva-intel-driver"
-url: "https://github.com/01org/intel-vaapi-driver/releases/latest"
-filter: element-by-class:release-header,element-by-tag:h1,html2text
----
 name: "github-markdown-css"
 url: "https://github.com/sindresorhus/github-markdown-css/releases/latest"
 filter: element-by-class:release-header,element-by-tag:h1,html2text
 ---
-name: "TeamViewer"
-url: "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=teamviewer"
+name: "qalculate"
+url: "https://github.com/Qalculate/libqalculate/releases/latest"
+filter: element-by-class:release-header,element-by-tag:h1,html2text
