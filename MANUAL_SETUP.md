@@ -55,3 +55,11 @@ Search engines:
 # reverse-ssh
 
 * Add `GatewayPorts yes` to `/etc/ssh/sshd_config`
+
+# USBGuard
+
+* Generate and review the policy, potentially removing the `via-port` parameter:
+
+  ```
+  # usbguard generate-policy > /etc/usbguard/rules.conf
+  ```

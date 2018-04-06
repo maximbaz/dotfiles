@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.9
+pkgver=1.0.10
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -144,6 +144,7 @@ package_maximbaz-desktop() {
     'udiskie'
     'unclutter'
     'urlwatch'
+    'usbguard'
     'vifm'
     'virtualbox'
     'virtualbox-ext-oracle'
