@@ -7,6 +7,9 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
+# Keep py3status 'do_not_disturb' module in sync with i3 lock and restart
+export PY3STATUS_DND_LOCK="$HOME/.cache/py3status_do_not_disturb.lock"
+
 # My own binaries
 export PATH="$HOME/bin:$PATH"
 

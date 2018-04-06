@@ -4,7 +4,7 @@ before_lock() {
   setxkbmap -layout us
   setxkbmap -layout us,ru
   py3-cmd refresh keyboard_layout
-  [[ ! -f "$HOME/.cache/dnd.lock" ]] && killall -u "$USER" -USR1 dunst
+  [[ ! -f "$PY3STATUS_DND_LOCK" ]] && killall -u "$USER" -USR1 dunst
   killall compton
   usbguard set-parameter InsertedDevicePolicy reject
 }
@@ -16,7 +16,7 @@ lock() {
 after_lock() {
   usbguard set-parameter InsertedDevicePolicy apply-policy
   compton &!
-  [[ ! -f "$HOME/.cache/dnd.lock" ]] && killall -u "$USER" -USR2 dunst
+  [[ ! -f "$PY3STATUS_DND_LOCK" ]] && killall -u "$USER" -USR2 dunst
 }
 
 stop_vpn() {
@@ -30,6 +30,7 @@ case "$1" in
     after_lock
     ;;
   logout)
+    rm -f "$PY3STATUS_DND_LOCK"
     stop_vpn
     i3-msg exit
     ;;
@@ -42,10 +43,12 @@ case "$1" in
     after_lock
     ;;
   reboot)
+    rm -f "$PY3STATUS_DND_LOCK"
     stop_vpn
     systemctl reboot
     ;;
   shutdown)
+    rm -f "$PY3STATUS_DND_LOCK"
     stop_vpn
     systemctl poweroff
     ;;
