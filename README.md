@@ -56,10 +56,6 @@
 
 > Terminal turns red when you are on production, yellow on staging, etc.
 
-☑ Show desktop notifications from remote hosts.
-
-> When a remote host triggers `notify-send`, a notification will appear on the local host.
-
 ☑ Remember brightness levels on battery and on AC, restore last value when power source changes.
 
 > Useful for automatically dimming screen when switching to battery power.
@@ -98,6 +94,5 @@ $ ~/.dotfiles/setup.sh
 * [yubikey-touch-detector](https://aur.archlinux.org/packages/yubikey-touch-detector) - a tool that can detect when your YubiKey is waiting for a touch.
 * [browserpass](https://aur.archlinux.org/packages/browserpass) - browser extension for pass and gopass.
 * [wire-desktop](https://aur.archlinux.org/packages/wire-desktop) and [wire-desktop-beta](https://aur.archlinux.org/packages/wire-desktop-beta) - end-to-end encrypted chat app.
-* [cerebro](https://aur.archlinux.org/packages/cerebro) - application launcher with many awesome plugins.
 * [rmtrash](https://aur.archlinux.org/packages/rmtrash) - trash bin for CLI made compatible to GNUs rm and rmdir.
 * [snap-pac-grub](https://aur.archlinux.org/packages/snap-pac-grub) - updates GRUB for grub-btrfs with snapshots made by snap-pac.
