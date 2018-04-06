@@ -9,6 +9,9 @@ alias pacq='pacman -Si'
 alias pacQ='pacman -Qo'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
+alias auru='aur sync -scu --devel --provides'
+alias aurb='aur build -sc -d maximbaz-aur'
+
 function pac {
   sudo pacman "$@"
   py3status-refresh-pacman
