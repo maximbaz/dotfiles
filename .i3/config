@@ -289,3 +289,16 @@ mode "$mode_workspaces_monitors" {
   bindsym Escape mode "default"
 }
 bindcode $mod+Shift+58 mode $mode_workspaces_monitors
+
+# Autostart some apps
+
+exec --no-startup-id compton &
+exec --no-startup-id hsetroot -solid '#333333' &
+exec --no-startup-id numlockx &
+exec --no-startup-id unclutter &
+exec --no-startup-id copyq &
+exec --no-startup-id hotshots &
+exec --no-startup-id thunderbird &
+exec --no-startup-id wire-desktop &
+exec --no-startup-id udiskie --smart-tray &
+exec --no-startup-id usbguard-applet-qt &
