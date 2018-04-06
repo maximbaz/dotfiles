@@ -5,6 +5,8 @@ trap 'rm -rf $tmp' EXIT
 
 cd "$tmp" || exit
 
-repoctl list | grep '\-git$' | xargs -I{} find ~/.cache/aurutils/sync -maxdepth 1 -type d -name {} | xargs -r aur srcver >vcs_info 2>/dev/null
-repoctl list -v | aur vercmp -p vcs_info 2>/dev/null | tee vcsupdates
+repoctl list -v >db_info
+cut -d' ' -f1 db_info | grep '\-git$' | xargs -I{} find ~/.cache/aurutils/sync -maxdepth 1 -type d -name {} | xargs -r aur srcver >vcs_info 2>/dev/null
+
+aur vercmp -p vcs_info <db_info 2>/dev/null | tee vcsupdates
 mv vcsupdates ~/.cache/vcsupdates
