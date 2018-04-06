@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-tmp=$(mktemp) || exit
+tmp=$(mktemp -d) || exit
 trap 'rm -rf $tmp' EXIT
 
-repoctl list -v | aur vercmp -p <(aur srcver ~/.cache/aurutils/sync/*-git) | tee "$tmp"
-mv "$tmp" ~/.cache/vcsupdates
+cd "$tmp" || exit
+
+repoctl list | grep '\-git$' | xargs -I{} find ~/.cache/aurutils/sync -maxdepth 1 -type d -name {} | xargs -r aur srcver >vcs_info 2>/dev/null
+repoctl list -v | aur vercmp -p vcs_info 2>/dev/null | tee vcsupdates
+mv vcsupdates ~/.cache/vcsupdates
