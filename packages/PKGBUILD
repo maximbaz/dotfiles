@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.8
+pkgver=1.0.9
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -115,6 +115,7 @@ package_maximbaz-desktop() {
     'otf-font-awesome'
     'pam_u2f-git'
     'pamixer'
+    'parallel'
     'pass'
     'pavucontrol'
     'peek'
