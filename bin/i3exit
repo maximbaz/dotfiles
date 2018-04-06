@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 before_lock() {
-  setxkbmap -layout us
-  setxkbmap -layout us,ru
+  setxkbmap -layout us; sleep 0.2; setxkbmap -layout us,ru  # reset keyboard layout to english, works only with sleep
   py3-cmd refresh keyboard_layout
   [[ ! -f "$PY3STATUS_DND_LOCK" ]] && killall -u "$USER" -USR1 dunst
   killall compton
