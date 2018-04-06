@@ -53,10 +53,9 @@ alias glogp='git log -p'
 alias gm='git merge'
 alias gma='git merge --abort'
 
-alias gp='git push'
+alias gp='git push -u'
 alias gpf='git push --force-with-lease'
 alias gpf!='git push --force'
-alias gpu='git push -u'
 
 alias gra='git remote add'
 alias grr='git remote remove'
