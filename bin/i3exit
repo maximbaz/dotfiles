@@ -6,6 +6,7 @@ before_lock() {
   py3-cmd refresh keyboard_layout
   killall -u "$USER" -USR1 dunst
   killall compton
+  usbguard set-parameter InsertedDevicePolicy reject
 }
 
 lock() {
@@ -13,6 +14,7 @@ lock() {
 }
 
 after_lock() {
+  usbguard set-parameter InsertedDevicePolicy apply-policy
   compton &!
   killall -u "$USER" -USR2 dunst
 }
