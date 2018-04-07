@@ -83,9 +83,9 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec sakura -e /bin/bash
 
 # Start a launcher (=)(d)(o)(p)
-bindcode $mod+21 exec "pgrep rofi && killall rofi || rofi -normal-window -show calc"
-bindcode $mod+40 exec "pgrep rofi && killall rofi || rofi -normal-window -show drun"
-bindcode $mod+32 exec "pgrep rofi && killall rofi || rofi -normal-window -show window"
+bindcode $mod+21 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show calc"
+bindcode $mod+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show drun"
+bindcode $mod+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
 bindcode $mod+33 exec "passmenu"
 
 # Kill focused window (q)
@@ -292,13 +292,13 @@ bindcode $mod+Shift+58 mode $mode_workspaces_monitors
 
 # Autostart some apps
 
-exec --no-startup-id compton &
-exec --no-startup-id hsetroot -solid '#333333' &
-exec --no-startup-id numlockx &
-exec --no-startup-id unclutter &
-exec --no-startup-id copyq &
-exec --no-startup-id hotshots &
-exec --no-startup-id thunderbird &
-exec --no-startup-id wire-desktop &
-exec --no-startup-id udiskie --smart-tray &
-exec --no-startup-id usbguard-applet-qt &
+exec_always --no-startup-id "killall compton; compton &"
+exec_always --no-startup-id hsetroot -solid '#333333' &
+exec_always --no-startup-id numlockx &
+exec_always --no-startup-id "pgrep -x unclutter || (unclutter &)"
+exec_always --no-startup-id "pgrep -x copyq || (copyq &)"
+exec_always --no-startup-id "pgrep -x hotshots || (hotshots &)"
+exec_always --no-startup-id "pgrep -x thunderbird || (thunderbird &)"
+exec_always --no-startup-id "pgrep -x wire-desktop || (wire-desktop &)"
+exec_always --no-startup-id "pgrep -x udiskie || (udiskie --smart-tray &)"
+exec_always --no-startup-id "pgrep -x usbguard-applet || (usbguard-applet-qt &)"
