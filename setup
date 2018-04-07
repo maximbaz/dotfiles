@@ -262,6 +262,7 @@ if [[ "$(whoami)" == "root" ]]; then
     systemctl enable "lightdm.service"
     systemctl_enable_start "system" "dropbox@maximbaz.service"
     systemctl_enable_start "system" "pcscd.service"
+    systemctl_enable_start "system" "teamviewerd.service"
     systemctl_enable_start "system" "usbguard.service"
 
     # tlp
