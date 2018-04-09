@@ -1,7 +1,5 @@
 # Launch a tmux session
-if [[ "$HOST" =~ "desktop-" ]]; then
-  source ~/.zsh/autorun-tmux.zsh
-elif [[ "$HOST" =~ "crmdevvm-" ]]; then
+if [[ "$HOST" =~ "crmdevvm-" ]]; then
   source ~/.zsh/autorun-same-tmux.zsh
 fi
 

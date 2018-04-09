@@ -114,7 +114,6 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/transmission/settings.json"
     link ".config/USBGuard"
 
-    link ".config/systemd/user/tmux.service"
     link ".config/systemd/user/urlwatch.service"
     link ".config/systemd/user/urlwatch.timer"
 
@@ -137,7 +136,6 @@ if [ "$(whoami)" != "root" ]; then
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     systemctl_enable_start "user" "dunst.service"
-    systemctl_enable_start "user" "tmux.service"
     systemctl_enable_start "user" "redshift.service"
     systemctl_enable_start "user" "urlwatch.timer"
     systemctl_enable_start "user" "yubikey-touch-detector.service"
