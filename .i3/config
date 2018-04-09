@@ -79,7 +79,7 @@ floating_modifier $mod
 bindcode Mod1+50 exec "py3-cmd refresh keyboard_layout"
 
 # Start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec sakura -e /bin/bash
 
 # Start a launcher (=)(d)(o)(p)

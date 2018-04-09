@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.11
+pkgver=1.0.12
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -71,7 +71,6 @@ package_maximbaz-base() {
 
 package_maximbaz-desktop() {
   depends=(
-    'alacritty-git'
     'atom'
     'aurutils-git'
     'browserpass'
@@ -98,6 +97,7 @@ package_maximbaz-desktop() {
     'i3ipc-python-git'
     'i3lock'
     'i3status'
+    'kitty'
     'krita'
     'libqalculate'
     'libreoffice-fresh'

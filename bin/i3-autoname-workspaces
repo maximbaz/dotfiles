@@ -7,7 +7,7 @@ import signal
 import sys
 
 WINDOW_ICONS = {
-    'alacritty': '󰀀',
+    'kitty': '󰀀',
     'google-chrome': '󰀠',
     'chromium': '󰀠',
     'wire': '󰀜',
