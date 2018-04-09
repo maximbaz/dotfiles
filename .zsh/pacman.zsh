@@ -9,6 +9,7 @@ alias pacq='pacman -Si'
 alias pacQ='pacman -Qo'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
+alias aurs='aur sync -sc --provides'
 alias auru='aur sync -scu --devel --provides'
 alias aurb='aur build -sc -d maximbaz-aur'
 
@@ -25,6 +26,7 @@ function pacs {
 
 function aur {
   /usr/bin/aur "$@"
+  sudo pacman -Sy
   py3status-refresh-pacman
   find ~/.cache/aurutils/sync \( -name '*.tar' -o -name '*.tar.gz' -o -name '*.zip' -o -name '*.deb' -o -name '*.log' \) -delete
   find /var/cache/pacman/maximbaz-aur -name '*~' -delete
