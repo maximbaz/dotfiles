@@ -20,7 +20,7 @@ function pac {
 compdef "_dispatch pacman pacman" pac
 
 function pacs {
-  aur search -k NumVotes "$@"
+  /usr/bin/aur search -k NumVotes "$@"
   pacman -Ss "$@"
 }
 
