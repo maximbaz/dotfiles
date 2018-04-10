@@ -10,7 +10,7 @@ alias pacQ='pacman -Qo'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
 alias aurs='aur sync -sc --provides'
-alias auru='aur sync -scu --devel --provides'
+alias auru='aur sync -scu --devel --provides --noreset'
 alias aurb='aur build -sc -d maximbaz-aur'
 
 function pac {
