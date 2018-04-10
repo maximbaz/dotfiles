@@ -1,22 +1,29 @@
-alias ssh='TERM=xterm-256color ssh_with_color'
+#!/usr/bin/env zsh
 
-ssh_with_color() {
-  trap 'tmux_bg_color_reset' SIGINT
-  tmux_bg_color_set $@
-  printf '\033]2;%s\033\\' "$*"
-  \ssh $@
+alias ssh='ssh_with_color_and_term'
+
+ssh_with_term() {
+  cmd='cat >~/.infocmp && tic -x -o ~/.terminfo ~/.infocmp && rm -f ~/.infocmp'
+  infocmp -x | /usr/bin/ssh "$@" -- "$cmd" && /usr/bin/ssh "$@"
+}
+
+ssh_with_color_and_term() {
+  trap 'bg_color_reset' SIGINT
+  bg_color_set "$@"
+  printf '\033]2;%s\033\\' "$@"
+  ssh_with_term "$@"
   retval=$?
-  tmux_bg_color_reset
+  bg_color_reset
   return $retval
 }
 
-tmux_bg_color_reset() {
-  tmux set window-style default
+bg_color_reset() {
+  printf '\033]11;#282828\007'
   trap - SIGINT
 }
 
-tmux_bg_color_set() {
-  color='default'
+bg_color_set() {
+  color='#282828'
   for arg in "$@"; do
     if [[ "${arg:0:1}" != "-" ]]; then
       if [[ "$arg" =~ '^prod[0-9]?-' ]]; then
@@ -24,8 +31,7 @@ tmux_bg_color_set() {
       elif [[ "$arg" =~ '^int[0-9]?-' ]]; then
         color='#323228'
       fi
-      break
     fi
   done
-  tmux set window-style "bg=$color"
+  printf "\033]11;$color\007"
 }
