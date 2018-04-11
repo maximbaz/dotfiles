@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+echo "$@" | xclip -selection clipboard
