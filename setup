@@ -97,7 +97,6 @@ if [ "$(whoami)" != "root" ]; then
 
     link ".gnupg/gpg-agent.conf"
 
-    link ".config/alacritty"
     link ".config/chromium-flags.conf"
     link ".config/copyq/copyq.conf"
     link ".config/dunst"

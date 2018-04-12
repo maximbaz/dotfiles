@@ -1,4 +1,4 @@
-export TERMINAL='alacritty'
+export TERMINAL='kitty'
 export EDITOR='nvim'
 export VISUAL='nvim'
 export DIFFPROG='nvim -d'

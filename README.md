@@ -5,7 +5,7 @@
 ## Some of the worthy tools that I use:
 
 * [i3-gaps](https://github.com/Airblader/i3) (window manager) + [py3status](https://github.com/ultrabug/py3status) (status bar)
-* [alacritty](https://github.com/jwilm/alacritty) (fast GPU-accelerated terminal) + [tmux](https://github.com/tmux/tmux)
+* [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
 * [neovim](https://github.com/neovim/neovim)
 * [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto) and various other plugins
 
@@ -21,7 +21,7 @@
 
 ☑ True Color support everywhere.
 
-> Including alacritty, neovim, tmux; ranger can even display picture previews.
+> Including kitty, neovim, tmux; ranger can even display picture previews.
 
 ☑ Almost instant terminal startup.
 
