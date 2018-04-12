@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup built AUR packages to %I
+After=paccache.service
+
+[Service]
+User=maximbaz
+EnvironmentFile=/etc/systemd/system/backup-aur@%i
+ExecStart=/usr/bin/rsync --archive --compress --partial --delete ${LOCAL_PATH} ${REMOTE_ADDR}:${REMOTE_PATH}
+
+[Install]
+WantedBy=paccache.service
