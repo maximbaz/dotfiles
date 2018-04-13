@@ -28,7 +28,7 @@ function aur {
   /usr/bin/aur "$@"
   sudo pacman -Sy
   py3status-refresh-pacman
-  find ~/.cache/aurutils/sync \( -name '*.tar' -o -name '*.tar.gz' -o -name '*.zip' -o -name '*.deb' -o -name '*.log' \) -delete
+  find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \;
   find /var/cache/pacman/maximbaz-aur -name '*~' -delete
 }
 
