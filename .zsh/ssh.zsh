@@ -6,6 +6,7 @@ ssh_with_term() {
   cmd='cat >~/.infocmp && tic -x -o ~/.terminfo ~/.infocmp && rm -f ~/.infocmp'
   infocmp -x | /usr/bin/ssh "$@" -- "$cmd" && /usr/bin/ssh "$@"
 }
+compdef "_dispatch ssh ssh" ssh_with_term
 
 ssh_with_color_and_term() {
   trap 'bg_color_reset' SIGINT
@@ -16,6 +17,7 @@ ssh_with_color_and_term() {
   bg_color_reset
   return $retval
 }
+compdef "_dispatch ssh ssh" ssh_with_color_and_term
 
 bg_color_reset() {
   printf '\033]11;#282828\007'
