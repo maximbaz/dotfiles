@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.12
+pkgver=1.0.13
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -112,6 +112,7 @@ package_maximbaz-desktop() {
     'nm-connection-editor'
     'ntfs-3g'
     'numlockx'
+    'otf-fira-code'
     'otf-font-awesome'
     'pam_u2f-git'
     'pamixer'
@@ -139,7 +140,6 @@ package_maximbaz-desktop() {
     'tlp'
     'tlp-rdw'
     'transmission-qt'
-    'ttf-consolas-with-powerline'
     'ttf-emojione'
     'udiskie'
     'unclutter'
