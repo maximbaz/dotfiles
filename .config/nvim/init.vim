@@ -234,8 +234,8 @@ inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
 
 """"" Navigate through location list
-nmap <C-n> <Plug>qf_loc_next
-nmap <C-p> <Plug>qf_loc_previous
+nmap <C-n> <Plug>(qf_loc_next)
+nmap <C-p> <Plug>(qf_loc_previous)
 
 """" Scroll command history
 cnoremap <C-j> <Down>
