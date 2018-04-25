@@ -10,7 +10,6 @@ alias pacQ='pacman -Qo'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
 alias aurs='aur sync -sc --provides'
-alias auru='aur sync -scu --devel --provides'
 alias aurb='aur build -sc -d maximbaz-aur'
 
 function pac {
@@ -30,6 +29,10 @@ function aur {
   py3status-refresh-pacman
   find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \;
   find /var/cache/pacman/maximbaz-aur -name '*~' -delete
+}
+
+function auru() {
+  /usr/bin/aur vercmp-devel "$@" | cut -d: -f1 | xargs aur sync -scu --no-ver-shallow "$@"
 }
 
 function py3status-refresh-pacman {
