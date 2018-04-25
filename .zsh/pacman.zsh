@@ -9,33 +9,40 @@ alias pacq='pacman -Si'
 alias pacQ='pacman -Qo'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
-alias aurs='aur sync -sc --provides'
-alias aurb='aur build -sc -d maximbaz-aur'
-
-function pac {
+function pac() {
   sudo pacman "$@"
   py3status-refresh-pacman
 }
 compdef "_dispatch pacman pacman" pac
 
-function pacs {
-  /usr/bin/aur search -k NumVotes "$@"
+function pacs() {
+  aur search -k NumVotes "$@"
   pacman -Ss "$@"
 }
 
-function aur {
-  /usr/bin/aur "$@"
+function aurs() {
+  aur sync -sc --provides "$@"
+  post_aur
+}
+
+function aurb() {
+  aur build -sc -d maximbaz-aur "$@"
+  post_aur
+}
+
+function auru() {
+  aur vercmp-devel "$@" | cut -d: -f1 | xargs aur sync -scu --no-ver-shallow "$@"
+  post_aur
+}
+
+function post_aur() {
   sudo pacman -Sy
   py3status-refresh-pacman
   find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \;
   find /var/cache/pacman/maximbaz-aur -name '*~' -delete
 }
 
-function auru() {
-  /usr/bin/aur vercmp-devel "$@" | cut -d: -f1 | xargs aur sync -scu --no-ver-shallow "$@"
-}
-
-function py3status-refresh-pacman {
+function py3status-refresh-pacman() {
   pacdiff="external_script pacdiff"
   repo="external_script updates_repo"
   aur="external_script updates_aur"
