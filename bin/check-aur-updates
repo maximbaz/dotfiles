@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 
-tmp=$(mktemp) || exit
-trap 'rm -rf $tmp' EXIT
-
-repoctl list -v | aur vercmp 2>/dev/null | tee "$tmp"
-mv "$tmp" ~/.cache/aurupdates
+repoctl list -v | aur vercmp 2>/dev/null | tee ~/.cache/updates_aur
