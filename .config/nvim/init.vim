@@ -415,7 +415,11 @@ map g* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
 map g# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
 
 """" DelimitMate
-let delimitMate_expand_cr = 1
+let delimitMate_expand_cr = 2
+let delimitMate_expand_space = 1
+let delimitMate_nesting_quotes = ['"', '`']
+let delimitMate_excluded_regions = ""
+let delimitMate_balance_matchpairs = 1
 
 """" Deoplete
 let g:deoplete#enable_at_startup = 1
