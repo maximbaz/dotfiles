@@ -293,9 +293,6 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
-  echo "Configuring aurutils-contrib"
-  ln -sf /usr/share/aurutils/contrib/aur-vercmp-devel /usr/lib/aurutils/
-
   echo "Adding my public key to pacman"
   if ! pacman-key --list-keys | grep "$MY_GPG_KEY_ID" > /dev/null; then
     pacman-key --recv-keys "$MY_GPG_KEY_ID"
@@ -310,6 +307,9 @@ if [[ "$(whoami)" == "root" ]]; then
   find /etc/ufw -type f -name '*.rules.*' -delete
 
   if [[ "$HOST" =~ "desktop-" ]]; then
+    echo "Configuring aurutils-contrib"
+    ln -sf /usr/share/aurutils/contrib/aur-vercmp-devel /usr/lib/aurutils/
+
     echo "Joining autologin group"
     groupadd -rf autologin
     gpasswd -a maximbaz autologin
