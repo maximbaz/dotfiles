@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.14
+pkgver=1.0.15
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -78,7 +78,7 @@ package_maximbaz-desktop() {
     'chromium-widevine'
     'compton'
     'copyq'
-    'dragon-git'
+    'dragon-drag-and-drop-git'
     'dropbox'
     'dropbox-cli'
     'dunst'
