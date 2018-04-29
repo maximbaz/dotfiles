@@ -14,3 +14,11 @@ url: "https://git.archlinux.org/svntogit/packages.git/plain/chromium/repos/extra
 name: "github-markdown-css"
 url: "https://github.com/sindresorhus/github-markdown-css/releases/latest"
 filter: element-by-class:release-header,element-by-tag:h1,html2text
+---
+name: "Go Meta Linter"
+url: "https://github.com/alecthomas/gometalinter/releases/latest"
+filter: element-by-class:release-header,element-by-tag:h1,html2text
+---
+name: "i3ipc-python"
+url: "https://github.com/acrisci/i3ipc-python/releases/latest"
+filter: element-by-class:release-header,element-by-tag:h1,html2text
