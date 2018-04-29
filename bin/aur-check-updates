@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-repoctl list -v | aur vercmp 2>/dev/null | tee ~/.cache/updates_aur
+exec 2>/dev/null
+aur sync --list | cut -f2,3 | aur vercmp | tee ~/.cache/updates_aur
