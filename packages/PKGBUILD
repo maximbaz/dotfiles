@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.15
+pkgver=1.0.16
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -24,6 +24,7 @@ package_maximbaz-base() {
     'fzf'
     'git'
     'go'
+    'gometalinter'
     'grub'
     'htop'
     'httpie'
@@ -93,7 +94,7 @@ package_maximbaz-desktop() {
     'hotshots'
     'hsetroot'
     'i3-gaps'
-    'i3ipc-python-git'
+    'i3ipc-python'
     'i3lock'
     'i3status'
     'kitty'
