@@ -294,11 +294,11 @@ nnoremap <silent><Leader>cst :setlocal ts=4 sts=4 noet <bar> retab! <bar> setloc
 """" ALE
 let g:ale_open_list = 1
 let g:ale_loclist_msg_format='%linter%: %code: %%s'
-let g:ale_linters = {
-      \ 'go': ['golint', 'go vet', 'go build'],
-      \ }
 
-let g:ale_echo_cursor = 0
+let g:ale_linters = {
+      \ 'go': ['golint', 'go vet', 'go build', 'gometalinter'],
+      \ }
+let g:ale_go_gometalinter_lint_package = 1
 
 """" Lightline
 let g:lightline = {
@@ -467,12 +467,12 @@ nmap <Leader>gp <Plug>GitGutterPreviewHunk
 """" Go
 let g:go_fmt_autosave = 0   " This is already done by Neoformat
 let g:go_auto_type_info = 1 " Show type of anything under cursor
-let g:go_updatetime = 0     " Do not override updatetime
 
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
