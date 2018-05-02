@@ -13,4 +13,22 @@ if (( $# == 0 )); then
   pgrep -fx "$cmd" >/dev/null || eval "$cmd"
 fi
 
-xfreerdp /f /fonts /aero /window-drag /menu-anims /bpp:32 /gdi:sw /gfx /gfx-progressive /clipboard /cert-ignore /auto-reconnect /auto-reconnect-max-retries:3 /u:"$user" /d:"$domain" /v:"$host" /p:"$password"
+xfreerdp                                  \
+  -grab-keyboard                          \
+  /f                                      \
+  /fonts                                  \
+  /aero                                   \
+  /window-drag                            \
+  /menu-anims                             \
+  /bpp:32                                 \
+  /gdi:sw                                 \
+  /gfx                                    \
+  /gfx-progressive                        \
+  /clipboard                              \
+  /cert-ignore                            \
+  /auto-reconnect                         \
+  /auto-reconnect-max-retries:3           \
+  /u:"$user"                              \
+  /d:"$domain"                            \
+  /v:"$host"                              \
+  /p:"$password"
