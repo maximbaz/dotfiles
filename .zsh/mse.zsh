@@ -1,6 +1,6 @@
 # Useful functions
 mse-get-properties() {
-  ssh $1 "sudo sh -c 'cd /etc/sindbad/local; tar czf - *.properties *.jks'" | tar xzf -
+  /usr/bin/ssh $1 "sudo sh -c 'cd /etc/sindbad/local; tar czf - *.properties *.jks'" | tar xzf -
 }
 
 mse-build() {
