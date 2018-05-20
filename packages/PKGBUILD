@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.16
+pkgver=1.0.17
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -114,7 +114,7 @@ package_maximbaz-desktop() {
     'numlockx'
     'otf-fira-code'
     'otf-font-awesome'
-    'pam_u2f-git'
+    'pam_u2f'
     'pamixer'
     'parallel'
     'pass'
