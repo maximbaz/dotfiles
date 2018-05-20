@@ -205,7 +205,6 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "=========================="
 
   copy "etc/conf.d/snapper"
-  copy "etc/makepkg.conf"
   copy "etc/snap-pac.conf"
   copy "etc/snapper/configs/root"
   copy "etc/ssh/ssh_config"
