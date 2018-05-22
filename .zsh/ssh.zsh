@@ -2,17 +2,11 @@
 
 alias ssh='ssh_with_color_and_term'
 
-ssh_with_term() {
-  cmd='cat >~/.infocmp && tic -x -o ~/.terminfo ~/.infocmp && rm -f ~/.infocmp'
-  infocmp -x | /usr/bin/ssh "$@" -- "$cmd" && /usr/bin/ssh "$@"
-}
-compdef "_dispatch ssh ssh" ssh_with_term
-
 ssh_with_color_and_term() {
   trap 'bg_color_reset' SIGINT
   bg_color_set "$@"
   printf '\033]2;%s\033\\' "$@"
-  ssh_with_term "$@"
+  kitty +kitten ssh "$@"
   retval=$?
   bg_color_reset
   return $retval
