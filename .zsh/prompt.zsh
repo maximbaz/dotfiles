@@ -1,6 +1,5 @@
 spaceship_rename_terminal_window() {
-  # Reset tmux pane title
-  printf '\033]2;%s\033\\' "${PWD/#$HOME/~}"
+  kitty @ set-window-title "${PWD/#$HOME/~}"
 }
 
 export SPACESHIP_PROMPT_ORDER=(
