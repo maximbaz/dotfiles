@@ -81,7 +81,7 @@ bindcode Mod1+50 exec "py3-cmd refresh keyboard_layout"
 
 # Start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec sakura -e /bin/bash
+bindsym $mod+Shift+Return exec kitty /bin/bash
 
 # Start a launcher (=)(d)(o)(p)
 bindcode $mod+21 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show calc"

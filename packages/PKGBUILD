@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.17
+pkgver=1.0.18
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -130,7 +130,6 @@ package_maximbaz-desktop() {
     'rofi'
     'rofi-dmenu'
     'rust'
-    'sakura'
     'screenkey'
     'sshuttle'
     'teamviewer'
