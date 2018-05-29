@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.20
+pkgver=1.0.21
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -108,6 +108,7 @@ package_maximbaz-desktop() {
     'lightdm-gtk-greeter'
     'light'
     'mpv'
+    'networkmanager-dmenu-git'
     'networkmanager-openvpn'
     'networkmanager-pptp'
     'nm-connection-editor'
