@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.19
+pkgver=1.0.20
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -85,6 +85,7 @@ package_maximbaz-desktop() {
     'dropbox-cli'
     'dunst'
     'firefox'
+    'flameshot'
     'fontforge'
     'fonts-meta-extended-lt'
     'freerdp'
@@ -92,7 +93,6 @@ package_maximbaz-desktop() {
     'geeqie'
     'gsimplecal'
     'gtk-theme-arc-grey-git'
-    'hotshots'
     'hsetroot'
     'i3-gaps'
     'i3ipc-python'

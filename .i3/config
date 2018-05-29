@@ -89,6 +89,9 @@ bindcode $mod+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -sho
 bindcode $mod+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
 bindcode $mod+33 exec "passmenu"
 
+# Start a screenshot tool (m)
+bindcode $mod+58 exec "flameshot gui"
+
 # Kill focused window (q)
 bindcode $mod+Shift+24 kill
 
@@ -298,7 +301,6 @@ exec_always --no-startup-id hsetroot -solid '#333333' &
 exec_always --no-startup-id numlockx &
 exec_always --no-startup-id "pgrep -x unclutter || (unclutter &)"
 exec_always --no-startup-id "pgrep -x copyq || (copyq &)"
-exec_always --no-startup-id "pgrep -x hotshots || (hotshots &)"
 exec_always --no-startup-id "pgrep -x thunderbird || (thunderbird &)"
 exec_always --no-startup-id "pgrep -x wire-desktop || (wire-desktop &)"
 exec_always --no-startup-id "pgrep -x udiskie || (udiskie --smart-tray &)"

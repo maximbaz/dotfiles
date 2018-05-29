@@ -109,7 +109,6 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/mpv/mpv.conf"
     link ".config/redshift.conf"
     link ".config/repoctl"
-    link ".config/TheHive"
     link ".config/transmission/settings.json"
     link ".config/USBGuard"
 
@@ -172,7 +171,6 @@ if [ "$(whoami)" != "root" ]; then
     gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
     echo "Ignoring further changes to often changing config"
-    git update-index --assume-unchanged ".config/TheHive/HotShots.conf"
     git update-index --assume-unchanged ".config/transmission/settings.json"
 
     echo "Creating pacman cache for custom AUR repo"
