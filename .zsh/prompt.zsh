@@ -11,6 +11,7 @@ export SPACESHIP_PROMPT_ORDER=(
   git_branch
   git_status
   kubecontext
+  azure
   exec_time
   line_sep
   jobs
