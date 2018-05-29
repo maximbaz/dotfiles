@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.0.18
+pkgver=1.0.19
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -41,6 +41,7 @@ package_maximbaz-base() {
     'openbsd-netcat'
     'openssh'
     'p7zip'
+    'pacman-contrib'
     'prettier'
     'pydf'
     'python-neovim'
