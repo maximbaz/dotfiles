@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+exec 2>/dev/null
+checkupdates | tee ~/.cache/updates_repo
