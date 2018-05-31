@@ -10,7 +10,8 @@ source ~/.zsh/sandboxd.zsh
 source ~/.zsh/environment.zsh
 source ~/.dircolors.zsh
 
-# Load prompt configuration
+# Load terminal configuration
+source ~/.zsh/title.zsh
 source ~/.zsh/prompt.zsh
 
 # Load plugins

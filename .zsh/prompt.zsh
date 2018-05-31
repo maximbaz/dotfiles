@@ -1,9 +1,4 @@
-spaceship_rename_terminal_window() {
-  kitty @ set-window-title "${PWD/#$HOME/~}"
-}
-
 export SPACESHIP_PROMPT_ORDER=(
-  rename_terminal_window
   time
   user
   dir
