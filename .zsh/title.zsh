@@ -1,9 +1,9 @@
 function set-title-precmd() {
-  [[ "$TERM" == "xterm-kitty" ]] && kitty @ set-window-title "${PWD/#$HOME/~}"
+  printf "\e]2;%s\a" "${PWD/#$HOME/~}"
 }
 
 function set-title-preexec() {
-  [[ "$TERM" == "xterm-kitty" ]] && kitty @ set-window-title "$1"
+  printf "\e]2;%s\a" "$1"
 }
 
 autoload -Uz add-zsh-hook
