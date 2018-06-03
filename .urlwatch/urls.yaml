@@ -3,7 +3,7 @@ url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/kitty/kitty.conf
 max_tries: 3
 ---
 name: "Kitty changelog"
-url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/CHANGELOG.rst"
+url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/docs/changelog.rst"
 max_tries: 3
 ---
 name: "New emojis"
