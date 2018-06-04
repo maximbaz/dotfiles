@@ -1,3 +1,6 @@
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
+
 export SPACESHIP_PROMPT_ORDER=(
   time
   user
