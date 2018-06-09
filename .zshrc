@@ -29,3 +29,6 @@ source ~/.zsh/git.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/ssh.zsh
 source ~/.zsh/mse.zsh
+
+# Load azure-cli completions
+source /usr/bin/az.completion.sh >/dev/null
