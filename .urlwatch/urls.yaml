@@ -1,5 +1,6 @@
 name: "Kitty config"
-url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/kitty/kitty.conf"
+url: "https://sw.kovidgoyal.net/kitty/conf.html"
+filter: element-by-class:body,html2text
 max_tries: 3
 ---
 name: "Kitty changelog"
