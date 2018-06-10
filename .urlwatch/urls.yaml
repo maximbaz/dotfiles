@@ -34,3 +34,7 @@ name: "i3ipc-python"
 url: "https://github.com/acrisci/i3ipc-python/releases/latest"
 filter: element-by-class:release-header,element-by-tag:h1,html2text
 max_tries: 3
+---
+name: "py3status changelog"
+url: "https://raw.githubusercontent.com/ultrabug/py3status/master/CHANGELOG"
+max_tries: 3
