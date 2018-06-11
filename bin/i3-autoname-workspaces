@@ -11,7 +11,7 @@ WINDOW_ICONS = {
     'kitty': '󰀀',
     'chromium': '󰀠',
     'copyq': '',
-    'wire': '󰀜',
+    'wire': '󰁀',
     'thunderbird': '󰀚',
     'rofi': '󰀋',
     'mpv': '',
