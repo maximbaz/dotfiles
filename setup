@@ -308,7 +308,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     echo "Configuring aurutils-contrib"
-    ln -sf /usr/share/aurutils/contrib/aur-vercmp-devel /usr/lib/aurutils/
+    ln -sf /usr/share/aurutils/contrib/vercmp-devel /usr/lib/aurutils/aur-vercmp-devel
 
     echo "Joining autologin group"
     groupadd -rf autologin
