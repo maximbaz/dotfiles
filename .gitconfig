@@ -1,6 +1,3 @@
-[alias]
-  me = !"git config user.name 'Maxim Baz'; git config user.email 'git@maximbaz.com'; git config commit.gpgsign true"
-  ms = !"git config user.name 'Maxim Baz'; git config user.email 'maximbaz@microsoft.com'; git config commit.gpgsign false"
 [branch]
   autosetuprebase = always
 [color "branch"]
@@ -16,6 +13,8 @@
   pager = diff-so-fancy | less --tabs=4 -RFX
   excludesfile = ~/.gitignore
   untrackedCache = true
+[commit]
+  gpgsign = true
 [merge]
   conflictstyle = diff3
   tool = nvimdiff
@@ -33,5 +32,9 @@
   autostash = true
   autosquash = true
 [user]
-  useConfigOnly = true
+  name = Maxim Baz
+  email = git@maximbaz.com
   signingkey = 8053EB88879A68CB4873D32B011FDC52DA839335
+  useConfigOnly = true
+[includeIf "gitdir:~/mse/"]
+  path = ~/.gitconfig.work

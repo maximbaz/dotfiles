@@ -1,0 +1,6 @@
+[commit]
+  gpgsign = false
+[user]
+  email = maximbaz@microsoft.com
+
+# vim:ft=gitconfig

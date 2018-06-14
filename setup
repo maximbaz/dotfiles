@@ -81,6 +81,7 @@ if [ "$(whoami)" != "root" ]; then
 
   link ".agignore"
   link ".gitconfig"
+  link ".gitconfig.work"
   link ".gitignore"
   link ".mdlrc"
   link ".npmrc"
