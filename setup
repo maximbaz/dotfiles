@@ -108,7 +108,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/kitty"
     link ".config/mimeapps.list"
     link ".config/mpv/mpv.conf"
-    link ".config/redshift.conf"
+    link ".config/redshift"
     link ".config/repoctl"
     link ".config/transmission/settings.json"
     link ".config/USBGuard"
