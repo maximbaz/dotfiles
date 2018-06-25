@@ -24,6 +24,7 @@ function aurs() {
   aur sync -sc --provides "$@"
   post_aur
 }
+alias aurs!='aurs --no-ver-shallow'
 
 function aurb() {
   aur build -sc -d maximbaz-aur "$@"
