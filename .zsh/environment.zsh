@@ -1,6 +1,6 @@
 export TERMINAL='kitty'
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='kak'
+export VISUAL='kak'
 export DIFFPROG='nvim -d'
 export MANPAGER="nvim -c 'set ft=man' -"
 export LANG=en_US.UTF-8
