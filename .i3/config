@@ -61,7 +61,7 @@ bar {
   }
 
   separator_symbol "  |  "
-  status_command py3status --dbus-notify --gevent
+  status_command py3status --dbus-notify
   position top
   tray_output none
 }
