@@ -71,6 +71,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".gnupg/gpg.conf"
 
   link ".config/htop"
+  link ".config/kak"
   link ".config/nvim"
   link ".config/ranger/rc.conf"
   link ".config/rofi"
