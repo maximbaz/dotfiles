@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 # Credits: https://github.com/benvan/sandboxd
 
 # holds all hook descriptions in "cmd:hook" format

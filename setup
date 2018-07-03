@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 
 set -e
 
@@ -161,7 +161,7 @@ if [ "$(whoami)" != "root" ]; then
 
     if [[ -a "$HOME/.password-store" ]]; then
       echo "Configuring automatic git push for pass"
-      echo "#!/usr/bin/env bash\n\npass git push" >! "$HOME/.password-store/.git/hooks/post-commit"
+      echo "#!/usr/bin/zsh\n\npass git push" >! "$HOME/.password-store/.git/hooks/post-commit"
       chmod +x "$HOME/.password-store/.git/hooks/post-commit"
     fi
 

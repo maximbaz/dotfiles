@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
 VPN_NAME="Sweden"
 ESSID=$(iwgetid -r | tr '[:upper:]' '[:lower:]')

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
 if [ "$#" -ne 1 ]; then
   echo -e "Usage examples:\n$0 inc\n$0 dec\n$0 bat\n$0 ac" >&2

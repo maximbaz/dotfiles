@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 alias ssh='ssh_with_color_and_term'
 
 ssh_with_color_and_term() {

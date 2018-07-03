@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
 exec 2>/dev/null
 checkupdates | tee ~/.cache/updates_repo

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
 exec 2>/dev/null
 aur sync --list | cut -f2,3 | aur vercmp | tee ~/.cache/updates_aur

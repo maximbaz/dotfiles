@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
 
 SOURCE="/home/maximbaz/Dropbox /home/maximbaz/private /home/maximbaz/.dotfiles /home/maximbaz/.go/src/go-private /home/maximbaz/.ssh"
 BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
