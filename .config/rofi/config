@@ -7,6 +7,8 @@ rofi.show-match: false
 rofi.window-format: {c} {t}
 rofi.drun-match-fields: name
 rofi.window-match-fields: name,title
+rofi.matching: fuzzy
+rofi.sort: true
 rofi.kb-remove-char-back: BackSpace,Shift+BackSpace,Control+h
 rofi.kb-move-word-back: Alt+b,Ctrl+Left
 rofi.kb-move-word-forward: Alt+f,Ctrl+Right
