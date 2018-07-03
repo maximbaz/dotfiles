@@ -72,7 +72,6 @@ call dein#add('haya14busa/vim-asterisk')                              " Star * i
 call dein#add('justinmk/vim-sneak')                                   " Improved F and T
 call dein#add('t9md/vim-smalls')                                      " Quick jump anywhere
 call dein#add('farmergreg/vim-lastplace')                             " Restore cursor position
-call dein#add('ludovicchabant/vim-gutentags')                         " Automatically generate tags
 
 """" Navigate files, buffers and panes
 call dein#add('airblade/vim-rooter')                                  " Change working directory to the project root
@@ -546,11 +545,6 @@ augroup fix-ultisnips-overriding-tab-visual-mode
   autocmd VimEnter * xnoremap <Tab> >gv
 augroup END
 
-"""" vim-gutentags
-augroup vim-gutentags
-  autocmd!
-  autocmd FileType vim setlocal iskeyword+=:
-augroup END
 
 """" vim-rooter
 let g:rooter_use_lcd = 1
