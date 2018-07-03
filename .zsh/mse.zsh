@@ -36,20 +36,5 @@ mse-rebuild-only+debian() {
 }
 
 mse-build-full() {
-  if curl --silent localhost:8080 > /dev/null; then
-    echo "REST-CORE is running, halting build"
-    return
-  fi
-  LOG_FILE="/tmp/mse_build_`date +%Y-%m-%d_%H%M%S`.log"
-  LOG_FILE_ERR="/tmp/mse_build_`date +%Y-%m-%d_%H%M%S`_error.log"
-  echo $LOG_FILE
-
-  BUILD_COMMAND="mvn -T 3 -Dgwt.compiler.localWorkers=3 -Dsindbad.profile=dev -Djava.awt.headless=true -P dev $* clean package"
-  echo $BUILD_COMMAND > $LOG_FILE
-  echo $BUILD_COMMAND > $LOG_FILE_ERR
-
-  echo "Build in progress..."
-  eval $BUILD_COMMAND >> $LOG_FILE 2>>$LOG_FILE_ERR
-
-  tail $LOG_FILE
+  mvn -T 3 -Dgwt.compiler.localWorkers=3 -Dsindbad.profile=dev -Djava.awt.headless=true -P dev $* clean package
 }
