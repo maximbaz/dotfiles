@@ -2,7 +2,7 @@ export TERMINAL='kitty'
 export EDITOR='kak'
 export VISUAL='kak'
 export DIFFPROG='nvim -d'
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER='kak-man-pager'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
