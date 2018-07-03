@@ -25,6 +25,7 @@ source ~/.zsh/opts.zsh
 source ~/.zsh/keybindings.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/pacman.zsh
+source ~/.zsh/kubectl.zsh
 source ~/.zsh/git.zsh
 source ~/.zsh/fzf.zsh
 source ~/.zsh/ssh.zsh

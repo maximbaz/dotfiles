@@ -7,7 +7,6 @@ alias dragon='dragon-drag-and-drop --and-exit'
 alias e='kak'
 alias grep='grep --color'
 alias http-serve='python3 -m http.server'
-alias k='kubectl'
 alias locate='locate -i'
 alias makepkg-compress="PKGEXT='.pkg.tar.xz' makepkg"
 alias mkdir='mkdir -p'
