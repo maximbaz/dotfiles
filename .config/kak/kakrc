@@ -4,3 +4,4 @@ source "~/.config/kak/mappings.kak"
 source "~/.config/kak/modeline.kak"
 source "~/.config/kak/ui.kak"
 
+source "~/.config/kak/kakoune-surround/surround.kak"
