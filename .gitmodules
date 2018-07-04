@@ -4,3 +4,6 @@
 [submodule ".config/kak/kakoune-vertical-selection"]
 	path = .config/kak/vertical-selection
 	url = https://github.com/occivink/kakoune-vertical-selection
+[submodule ".config/kak/auto-pairs"]
+	path = .config/kak/auto-pairs
+	url = https://github.com/topisani/auto-pairs.kak
