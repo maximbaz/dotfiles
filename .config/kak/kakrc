@@ -5,5 +5,5 @@ source "~/.config/kak/modeline.kak"
 source "~/.config/kak/ui.kak"
 
 source "~/.config/kak/auto-pairs/rc/auto-pairs.kak"
-source "~/.config/kak/kakoune-surround/surround.kak"
-source "~/.config/kak/kakoune-vertical-selection/vertical-selection.kak"
+source "~/.config/kak/surround/surround.kak"
+source "~/.config/kak/vertical-selection/vertical-selection.kak"
