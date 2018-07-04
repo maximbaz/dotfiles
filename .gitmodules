@@ -1,3 +1,6 @@
 [submodule ".config/kak/kakoune-surround"]
 	path = .config/kak/surround
 	url = https://github.com/h-youhei/kakoune-surround
+[submodule ".config/kak/kakoune-vertical-selection"]
+	path = .config/kak/vertical-selection
+	url = https://github.com/occivink/kakoune-vertical-selection
