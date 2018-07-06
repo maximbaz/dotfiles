@@ -3,12 +3,12 @@
 VPN_NAME="Sweden"
 ESSID=$(iwgetid -r | tr '[:upper:]' '[:lower:]')
 
-interface="$1"
-status=$2
+INTERFACE="$1"
+STATUS="$2"
 
-case $status in
+case $STATUS in
   up)
-    if [[ ${interface::3} != "tun" && ${interface::6} != "docker" && ${ESSID::6} != "mobile" ]]; then
+    if [[ ${INTERFACE:0:3} != "tun" && ${INTERFACE:0:6} != "docker" && ${ESSID:0:6} != "mobile" ]]; then
       nmcli con up id "$VPN_NAME"
     fi
     py3-cmd refresh "file_status PIA" "whatismyip"
@@ -20,7 +20,7 @@ case $status in
     py3-cmd refresh "file_status PIA" "whatismyip"
     ;;
   vpn-up)
-    if [[ $interface == "tun0" ]]; then
+    if [[ $INTERFACE == "tun0" ]]; then
       chattr -i /etc/resolv.conf
       echo -e "nameserver 209.222.18.222\\nnameserver 209.222.18.218" > /etc/resolv.conf
       chattr +i /etc/resolv.conf
@@ -28,7 +28,7 @@ case $status in
     py3-cmd refresh "file_status PIA" "whatismyip"
     ;;
   vpn-down)
-    if [[ $interface == "tun0" ]]; then
+    if [[ $INTERFACE == "tun0" ]]; then
       chattr -i /etc/resolv.conf
       cp /run/NetworkManager/resolv.conf /etc/resolv.conf
     fi
