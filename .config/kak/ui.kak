@@ -7,12 +7,6 @@ add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ show-matching
 add-highlighter global/ wrap -word -indent
 
-define-command -hidden show-trailing-whitespaces %{ try %{ add-highlighter global/trailing-whitespaces regex '\h+$' 0:default,red } }
-define-command -hidden hide-trailing-whitespaces %{ try %{ remove-highlighter global/trailing-whitespaces } }
-hook global WinDisplay .*              show-trailing-whitespaces
-hook global ModeChange 'insert:normal' show-trailing-whitespaces
-hook global ModeChange 'normal:insert' hide-trailing-whitespaces
-
 set-option global ui_options ncurses_assistant=off
 set-option global autoreload yes
 set-option global tabstop    4
