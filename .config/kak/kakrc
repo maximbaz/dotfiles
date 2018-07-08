@@ -1,9 +1,11 @@
+# External plugins
+# source "~/.config/kak/auto-pairs/rc/auto-pairs.kak"
+# source "~/.config/kak/surround/surround.kak"
+source "~/.config/kak/vertical-selection/vertical-selection.kak"
+
+# My configs
 source "~/.config/kak/coding.kak"
 source "~/.config/kak/files.kak"
 source "~/.config/kak/mappings.kak"
-source "~/.config/kak/modeline.kak"
 source "~/.config/kak/ui.kak"
-
-source "~/.config/kak/auto-pairs/rc/auto-pairs.kak"
-source "~/.config/kak/surround/surround.kak"
-source "~/.config/kak/vertical-selection/vertical-selection.kak"
+source "~/.config/kak/asterisk.kak"

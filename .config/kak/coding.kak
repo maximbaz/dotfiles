@@ -1,5 +1,5 @@
-%sh{kak-lsp --kakoune -s $kak_session}
-lsp-auto-hover-insert-mode-enable
+# %sh{kak-lsp --kakoune -s $kak_session}
+# lsp-auto-hover-insert-mode-enable
 
 
 # Commands
@@ -20,8 +20,10 @@ define-command disable-autoformat -docstring 'disable auto-format' %{
 
 hook global BufOpenFile  .* modeline-parse
 hook global BufCreate    .* editorconfig-load
+hook global BufWritePre  .* %{ nop %sh{ mkdir -p $(dirname "$kak_hook_param") }}
 hook global BufWritePost .* %{ git show-diff }
-hook global WinDisplay   .* %{ %sh{
+# hook global WinCreate    .* auto-pairs-enable
+hook global WinDisplay   .* %{ evaluate-commands %sh{
     cd "$(dirname "$kak_buffile")"
     project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
     [[ -n "$project_dir" ]] && dir="$project_dir" || dir="${PWD%/.git}"
@@ -33,9 +35,9 @@ hook global WinDisplay   .* %{ %sh{
 hook global WinSetOption filetype=.* %{
     disable-autolint
     disable-autoformat
-    go-disable-autocomplete
+    # go-disable-autocomplete
 
-    hook window -group format BufWritePre .* %{ try %{ execute-keys -no-hooks -draft \%s\h+$<ret>d } }
+    hook window -group format BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 }
 
 hook global WinSetOption filetype=python %{
