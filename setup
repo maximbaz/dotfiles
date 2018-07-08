@@ -76,6 +76,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/ranger/rc.conf"
   link ".config/rofi"
   link ".config/qalculate/qalc.cfg"
+  link ".config/vifm/vifmrc"
 
   link ".config/systemd/user/backup-packages.service"
   link ".config/systemd/user/backup-packages.timer"
