@@ -13,7 +13,7 @@ if [[ "$1" == "bat" || "$1" == "ac" ]]; then
 fi
 
 # Increase or decrease current brightness value
-if [ "$1" == "inc" ]; then
+if [[ "$1" == "inc" ]]; then
   py3-cmd click 4 backlight
 else
   py3-cmd click 5 backlight
