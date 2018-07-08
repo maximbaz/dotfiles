@@ -1,3 +1,6 @@
 tags
 *.antigen-compat
 *.zwc
+*.tar
+*.tar.*
+*.log
