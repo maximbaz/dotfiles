@@ -1,6 +1,7 @@
 # %sh{kak-lsp --kakoune -s $kak_session}
 # lsp-auto-hover-insert-mode-enable
 
+set-option global grepcmd 'ag --column --hidden -f'
 
 # Commands
 
@@ -51,7 +52,7 @@ hook global WinSetOption filetype=python %{
 }
 
 hook global WinSetOption filetype=go %{
-    set-option window lintcmd "run() { sync; cp $1 $1.go; golint $1.go; go vet $1.go 2>&1 | sed -E 's/: /: error: /'; } && run"
+    set-option window lintcmd "run() { cp $1 $1.go; golint $1.go; go vet $1.go 2>&1 | sed -E 's/: /: error: /'; } && run"
     lint-enable
     lint
     hook window -group lint BufWritePost .* lint
