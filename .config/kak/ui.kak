@@ -12,6 +12,8 @@ set-option global autoreload yes
 set-option global tabstop    4
 set-option global scrolloff  2,5
 
+set-option -add global autoinfo normal
+
 evaluate-commands %sh{
     cwd='at {cyan}%sh{dirs +0}{default}'
     bufname='in {green}%val{bufname}{default}'
