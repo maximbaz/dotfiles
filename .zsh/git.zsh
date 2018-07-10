@@ -42,6 +42,8 @@ alias gcpc='git cherry-pick --continue'
 
 alias gd='git diff'
 alias gds='git diff --cached'
+alias gd!='git difftool -d'
+alias gds!='git difftool -d --cached'
 
 alias gf='git fetch --tags'
 alias gl='git pull --tags'

@@ -15,6 +15,13 @@
   untrackedCache = true
 [commit]
   gpgsign = true
+[diff]
+    tool = kitty
+[difftool]
+  prompt = false
+  trustExitCode = true
+[difftool "kitty"]
+  cmd = kitty +kitten diff $LOCAL $REMOTE
 [merge]
   conflictstyle = diff3
   tool = nvimdiff
