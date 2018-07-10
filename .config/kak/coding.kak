@@ -34,32 +34,29 @@ hook global WinDisplay   .* %{ evaluate-commands %sh{
 
 
 hook global WinSetOption filetype=.* %{
-    disable-autolint
     disable-autoformat
-    # go-disable-autocomplete
+    disable-autolint
 
     hook window -group format BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 }
 
 hook global WinSetOption filetype=python %{
+    set-option window formatcmd 'yapf'
+    hook window -group format BufWritePre .* format
+
     set-option window lintcmd 'pylint --msg-template="{path}:{line}:{column}: {category}: {msg}" -rn -sn'
     lint-enable
     lint
     hook window -group lint BufWritePost .* lint
-
-    set-option window formatcmd 'yapf'
-    hook window -group format BufWritePre .* format
 }
 
 hook global WinSetOption filetype=go %{
+    hook window -group format BufWritePost .* %{ evaluate-commands %sh{ goimports -e -w "$kak_buffile" }; edit! }
+
     set-option window lintcmd "run() { cp $1 $1.go; golint $1.go; go vet $1.go 2>&1 | sed -E 's/: /: error: /'; } && run"
     lint-enable
     lint
     hook window -group lint BufWritePost .* lint
-
-    hook window -group format BufWritePre .* %{ go-format -use-goimports }
-
-    go-enable-autocomplete
 }
 
 hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml) %{
