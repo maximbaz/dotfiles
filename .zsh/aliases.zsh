@@ -1,7 +1,7 @@
 alias ag='ag --hidden -f'
 alias cp='cp -r --reflink=auto'
 alias df='pydf'
-alias diff='diff --color --unified'
+alias diff='kitty +kitten diff'
 alias dragall='dragon-drag-and-drop --and-exit --all'
 alias dragon='dragon-drag-and-drop --and-exit'
 alias e='kak'
@@ -15,8 +15,6 @@ alias rm='rmtrash -rf'
 alias rm!='\rm -rf'
 alias rsync='rsync --verbose --archive --info=progress2 --human-readable --compress --partial'
 alias sudo='sudo -E '
-alias vi='nvim'
-alias vim='nvim'
 
 alias ls="exa --git --group-directories-first"
 alias ll="ls -l"
