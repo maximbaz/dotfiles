@@ -4,10 +4,10 @@
 
 ## Some of the worthy tools that I use:
 
-* [i3-gaps](https://github.com/Airblader/i3) (window manager) + [py3status](https://github.com/ultrabug/py3status) (status bar)
-* [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
-* [neovim](https://github.com/neovim/neovim)
-* [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto) and various other plugins
+- [i3-gaps](https://github.com/Airblader/i3) (window manager) + [py3status](https://github.com/ultrabug/py3status) (status bar)
+- [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
+- [neovim](https://github.com/neovim/neovim)
+- [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto) and various other plugins
 
 ## Fun things you can find in this repo:
 
@@ -29,11 +29,11 @@
 
 ☑ Automatically start tmux in every terminal window:
 
-* On local host, every terminal starts in its own tmux session.
+- On local host, every terminal starts in its own tmux session.
   > This allows running multiple independent tmux windows in every terminal window.
-* On remote host, every connection joins the same single tmux session
+- On remote host, every connection joins the same single tmux session
   > This makes it easy to reconnect after a network failure, your work stays as you left it.
-* Speed-up terminal startup by ensuring that there always is an alive tmux session.
+- Speed-up terminal startup by ensuring that there always is an alive tmux session.
   > It takes tmux much longer to start the first session than to start every consequent one.
 
 ☑ More secure gpg and ssh configuration.
@@ -84,15 +84,15 @@
 
 ```
 $ git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles
-$ ~/.dotfiles/setup.sh
+$ ~/.dotfiles/setup
 ```
 
 ## Awesome AUR packages that I help maintaining:
 
-* [chromium-vaapi](https://aur.archlinux.org/packages/chromium-vaapi) and [chromium-vaapi-bin](https://aur.archlinux.org/packages/chromium-vaapi-bin) - chromium with hardware video acceleration.
-* [ttf-emojione](https://aur.archlinux.org/packages/ttf-emojione) - latest EmojiOne font that provides colorful emojis for almost all apps on Linux.
-* [yubikey-touch-detector](https://aur.archlinux.org/packages/yubikey-touch-detector) - a tool that can detect when your YubiKey is waiting for a touch.
-* [browserpass](https://aur.archlinux.org/packages/browserpass) - browser extension for pass and gopass.
-* [wire-desktop](https://aur.archlinux.org/packages/wire-desktop) and [wire-desktop-beta](https://aur.archlinux.org/packages/wire-desktop-beta) - end-to-end encrypted chat app.
-* [rmtrash](https://aur.archlinux.org/packages/rmtrash) - trash bin for CLI made compatible to GNUs rm and rmdir.
-* [snap-pac-grub](https://aur.archlinux.org/packages/snap-pac-grub) - updates GRUB for grub-btrfs with snapshots made by snap-pac.
+- [chromium-vaapi](https://aur.archlinux.org/packages/chromium-vaapi) and [chromium-vaapi-bin](https://aur.archlinux.org/packages/chromium-vaapi-bin) - chromium with hardware video acceleration.
+- [ttf-emojione](https://aur.archlinux.org/packages/ttf-emojione) - latest EmojiOne font that provides colorful emojis for almost all apps on Linux.
+- [yubikey-touch-detector](https://aur.archlinux.org/packages/yubikey-touch-detector) - a tool that can detect when your YubiKey is waiting for a touch.
+- [browserpass](https://aur.archlinux.org/packages/browserpass) - browser extension for pass and gopass.
+- [wire-desktop](https://aur.archlinux.org/packages/wire-desktop) and [wire-desktop-beta](https://aur.archlinux.org/packages/wire-desktop-beta) - end-to-end encrypted chat app.
+- [rmtrash](https://aur.archlinux.org/packages/rmtrash) - trash bin for CLI made compatible to GNUs rm and rmdir.
+- [snap-pac-grub](https://aur.archlinux.org/packages/snap-pac-grub) - updates GRUB for grub-btrfs with snapshots made by snap-pac.
