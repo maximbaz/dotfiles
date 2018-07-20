@@ -20,7 +20,6 @@ for_window    [class="Pinentry"]             floating enable
 for_window    [class="copyq"]                floating enable
 for_window    [class="Peek"]                 floating enable
 for_window    [class="Rofi"]                 floating enable
-for_window    [class="usbguard-applet-qt"]   floating enable, resize set 1000 600, move position center
 for_window    [class="Google-chrome"]        move container to $workspace2, title_format "Google Chrome"
 for_window    [class="Chromium"]             move container to $workspace2, title_format "Chromium"
 for_window    [class="Wire"]                 move container to $workspace3
@@ -308,4 +307,3 @@ exec_always --no-startup-id "pgrep -x copyq || (copyq &)"
 exec_always --no-startup-id "pgrep -x thunderbird || (thunderbird &)"
 exec_always --no-startup-id "pgrep -x wire-desktop || (wire-desktop &)"
 exec_always --no-startup-id "pgrep -x udiskie || (udiskie --smart-tray &)"
-exec_always --no-startup-id "pgrep -x usbguard-applet || (usbguard-applet-qt &)"

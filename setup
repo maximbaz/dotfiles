@@ -266,6 +266,7 @@ if [[ "$(whoami)" == "root" ]]; then
     systemctl_enable_start "system" "pcscd.service"
     systemctl_enable_start "system" "teamviewerd.service"
     systemctl_enable_start "system" "usbguard.service"
+    systemctl_enable_start "system" "usbguard-dbus.service"
 
     # tlp
     systemctl_enable_start "system" "tlp.service"
