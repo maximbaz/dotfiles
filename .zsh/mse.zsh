@@ -1,3 +1,5 @@
+alias enable-cli='docker run --rm -v "$(pwd):/project" enable-cli'
+
 # Useful functions
 mse-get-properties() {
   /usr/bin/ssh $1 "sudo sh -c 'cd /etc/sindbad/local; tar czf - *.properties *.jks'" | tar xzf -
