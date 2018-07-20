@@ -280,6 +280,13 @@ if [[ "$(whoami)" == "root" ]]; then
   fi
 
   echo ""
+  echo "=============================="
+  echo "Setting dash as /usr/bin/sh..."
+  echo "=============================="
+  ln -sf /usr/bin/dash /usr/bin/sh
+  echo "Done"
+
+  echo ""
   echo "==============================="
   echo "Creating top level Trash dir..."
   echo "==============================="

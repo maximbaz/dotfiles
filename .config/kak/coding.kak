@@ -27,9 +27,9 @@ hook global BufWritePost .* %{ git show-diff }
 hook global WinDisplay   .* %{ evaluate-commands %sh{
     cd "$(dirname "$kak_buffile")"
     project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
-    [[ -n "$project_dir" ]] && dir="$project_dir" || dir="${PWD%/.git}"
+    [ -n "$project_dir" ] && dir="$project_dir" || dir="${PWD%/.git}"
     printf "cd %%{%s}\n" "$dir"
-    [[ -n "$project_dir" ]] && printf "git show-diff"
+    [ -n "$project_dir" ] && printf "git show-diff"
 } }
 
 
