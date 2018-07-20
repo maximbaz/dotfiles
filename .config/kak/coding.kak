@@ -24,8 +24,8 @@ hook global BufOpenFile  .* modeline-parse
 hook global BufCreate    .* editorconfig-load
 hook global BufWritePre  .* %{ nop %sh{ mkdir -p $(dirname "$kak_hook_param") }}
 hook global BufWritePost .* %{ git show-diff }
-# hook global WinCreate    .* auto-pairs-enable
 hook global BufReload    .* %{ git show-diff }
+hook global WinCreate    .* auto-pairs-enable
 hook global WinDisplay   .* %{ evaluate-commands %sh{
     cd "$(dirname "$kak_buffile")"
     project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"

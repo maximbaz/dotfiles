@@ -1,9 +1,8 @@
-[submodule ".config/kak/kakoune-surround"]
-	path = .config/kak/surround
-	url = https://github.com/h-youhei/kakoune-surround
 [submodule ".config/kak/kakoune-vertical-selection"]
 	path = .config/kak/vertical-selection
 	url = https://github.com/occivink/kakoune-vertical-selection
+	branch = master
 [submodule ".config/kak/auto-pairs"]
 	path = .config/kak/auto-pairs
-	url = https://github.com/topisani/auto-pairs.kak
+	url = https://github.com/alexherbo2/auto-pairs.kak
+	branch = master
