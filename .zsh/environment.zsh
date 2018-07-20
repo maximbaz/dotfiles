@@ -7,6 +7,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
+export EXPLAINSHELL_ENDPOINT="http://localhost:5000"
+
 # Scale all GTK3 apps for HiDPI screen
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
