@@ -1,5 +1,6 @@
 evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
 lsp-auto-hover-insert-mode-enable
+lsp-auto-hover-enable
 
 set-option global grepcmd 'ag --column --hidden -f'
 
