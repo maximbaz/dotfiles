@@ -206,6 +206,9 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "=========================="
 
   copy "etc/conf.d/snapper"
+  copy "etc/environment"
+  copy "etc/profile.d/maven.sh"
+  copy "etc/profile.d/zz_custom.sh"
   copy "etc/snap-pac.conf"
   copy "etc/snapper/configs/root"
   copy "etc/ssh/ssh_config"

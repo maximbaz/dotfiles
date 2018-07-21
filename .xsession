@@ -1,6 +1,4 @@
-# Load environment variables for GUI apps
-
-source "$HOME/.zsh/environment.zsh"
+#!/bin/sh
 
 # Initial X configuration
 

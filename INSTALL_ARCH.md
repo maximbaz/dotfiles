@@ -130,9 +130,6 @@
     # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
     # echo "en_DK.UTF-8 UTF-8" >> /etc/locale.gen
     # locale-gen
-    # echo LANG=en_US.UTF-8 >> /etc/locale.conf
-    # echo LANGUAGE=en_US >> /etc/locale.conf
-    # echo LC_ALL=en_US.UTF-8 >> /etc/locale.conf
     ```
 
 1.  Configure hostname:

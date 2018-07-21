@@ -3,11 +3,10 @@ if [[ "$HOST" =~ "crmdevvm-" ]]; then
   source ~/.zsh/autorun-same-tmux.zsh
 fi
 
-# Lazy-loading functionality
+# Lazy-loading
 source ~/.zsh/sandboxd.zsh
 
 # Load environment variables
-source ~/.zsh/environment.zsh
 source ~/.dircolors.zsh
 
 # Load terminal configuration
