@@ -21,6 +21,6 @@ evaluate-commands %sh{
     ft='as {magenta}%sh{ echo "${kak_opt_filetype:-noft}" }{default}'
     eol='with {yellow}%val{opt_eolformat}{default}'
     cursor='on {cyan}%val{cursor_line}{default}:{cyan}%val{cursor_char_column}{default}'
-    readonly='{red+b}%sh{ [ -f "$kak_buffile" ] && [ ! -w "$kak_buffile" ] && echo " " }{default}'
+    readonly='{red+b}%sh{ [ -f "$kak_buffile" ] && [ ! -w "$kak_buffile" ] && echo "[] " }{default}'
     echo set global modelinefmt "'{{mode_info}} ${cwd} ${bufname} ${readonly}${modified}${ft} ${eol} ${cursor}'"
 }
