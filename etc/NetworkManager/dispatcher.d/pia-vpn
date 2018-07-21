@@ -22,7 +22,7 @@ case $STATUS in
   vpn-up)
     if [[ $INTERFACE == "tun0" ]]; then
       chattr -i /etc/resolv.conf
-      echo -e "nameserver 209.222.18.222\\nnameserver 209.222.18.218" > /etc/resolv.conf
+      echo "nameserver 127.0.0.1" > /etc/resolv.conf
       chattr +i /etc/resolv.conf
     fi
     py3-cmd refresh "file_status PIA" "whatismyip"
