@@ -1,3 +1,4 @@
 #!/usr/bin/zsh
 
 comm -23 <(pacman -Qnqe | sort) <(pacman -Qgq base base-devel maximbaz | sort) > ~/.dotfiles/packages/unknown.list
+pacman -Dk 2> ~/.dotfiles/packages/removed.list >/dev/null
