@@ -235,8 +235,6 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/systemd/logind.conf"
     copy "etc/systemd/system/backup-aur@devbox"
     copy "etc/systemd/system/backup-aur@.service"
-    copy "etc/systemd/system/unbound-roothints.service"
-    copy "etc/systemd/system/unbound-roothints.timer"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
     copy "etc/unbound/unbound.conf"
     copy "etc/usbguard/usbguard-daemon.conf"
@@ -272,7 +270,6 @@ if [[ "$(whoami)" == "root" ]]; then
     systemctl_enable_start "system" "pcscd.service"
     systemctl_enable_start "system" "teamviewerd.service"
     systemctl_enable_start "system" "unbound.service"
-    systemctl_enable_start "system" "unbound-roothints.timer"
     systemctl_enable_start "system" "usbguard.service"
     systemctl_enable_start "system" "usbguard-dbus.service"
 
