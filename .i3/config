@@ -153,11 +153,11 @@ bindcode $mod+38 focus parent
 bindcode $mod+Shift+38 focus child
 
 # Media keys
-bindsym XF86AudioMute         exec --no-startup-id py3-cmd click 1 volume_status
-bindsym XF86AudioRaiseVolume  exec --no-startup-id py3-cmd click 4 volume_status
-bindsym XF86AudioLowerVolume  exec --no-startup-id py3-cmd click 5 volume_status
-bindsym XF86MonBrightnessUp   exec --no-startup-id set-brightness inc
-bindsym XF86MonBrightnessDown exec --no-startup-id set-brightness dec
+bindsym XF86AudioMute         exec py3-cmd click 1 volume_status
+bindsym XF86AudioRaiseVolume  exec py3-cmd click 4 volume_status
+bindsym XF86AudioLowerVolume  exec py3-cmd click 5 volume_status
+bindsym XF86MonBrightnessUp   exec set-brightness inc
+bindsym XF86MonBrightnessDown exec set-brightness dec
 
 # Reload the configuration file (c)
 bindcode $mod+Shift+54 reload
@@ -166,7 +166,7 @@ bindcode $mod+Shift+54 reload
 bindcode $mod+Shift+27 exec rm -f "$PY3STATUS_DND_LOCK"; restart
 
 # Global hotkeys
-bindcode $mod+49 exec --no-startup-id copyq toggle
+bindcode $mod+49 exec copyq toggle
 
 # Workspaces
 focus_follows_mouse no
@@ -267,15 +267,15 @@ bindcode $mod+27 mode "$mode_resize"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
 mode "$mode_system" {
   # (l)
-  bindcode 46 exec --no-startup-id i3exit lock, mode "default"
+  bindcode 46 exec i3exit lock, mode "default"
   # (e)
-  bindcode 26 exec --no-startup-id i3exit logout, mode "default"
+  bindcode 26 exec i3exit logout, mode "default"
   # (s)
-  bindcode 39 exec --no-startup-id i3exit suspend, mode "default"
+  bindcode 39 exec i3exit suspend, mode "default"
   # (r)
-  bindcode 27 exec --no-startup-id i3exit reboot, mode "default"
+  bindcode 27 exec i3exit reboot, mode "default"
   # (h)
-  bindcode 43 exec --no-startup-id i3exit shutdown, mode "default"
+  bindcode 43 exec i3exit shutdown, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -287,9 +287,9 @@ bindcode $mod+Shift+26 mode "$mode_system"
 set $mode_workspaces_monitors Move workspace between monitors
 mode "$mode_workspaces_monitors" {
   # (h)
-  bindcode 43 exec --no-startup-id i3-msg move workspace to output left, mode "default"
+  bindcode 43 exec i3-msg move workspace to output left, mode "default"
   # (l)
-  bindcode 46 exec --no-startup-id i3-msg move workspace to output right, mode "default"
+  bindcode 46 exec i3-msg move workspace to output right, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -299,11 +299,11 @@ bindcode $mod+Shift+58 mode $mode_workspaces_monitors
 
 # Autostart some apps
 
-exec_always --no-startup-id "killall compton; compton &"
-exec_always --no-startup-id hsetroot -solid '#333333' &
-exec_always --no-startup-id numlockx &
-exec_always --no-startup-id "pgrep -x unclutter || (unclutter &)"
-exec_always --no-startup-id "pgrep -x copyq || (copyq &)"
-exec_always --no-startup-id "pgrep -x thunderbird || (thunderbird &)"
-exec_always --no-startup-id "pgrep -x wire-desktop || (wire-desktop &)"
-exec_always --no-startup-id "pgrep -x udiskie || (udiskie --smart-tray &)"
+exec_always "killall compton; compton &"
+exec_always hsetroot -solid '#333333' &
+exec_always numlockx &
+exec_always "pgrep -x unclutter || (unclutter &)"
+exec_always "pgrep -x copyq || (copyq &)"
+exec_always "pgrep -x thunderbird || (thunderbird &)"
+exec_always "pgrep -x wire-desktop || (wire-desktop &)"
+exec_always "pgrep -x udiskie || (udiskie --smart-tray &)"
