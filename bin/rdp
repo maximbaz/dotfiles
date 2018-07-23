@@ -19,6 +19,8 @@ xfreerdp                                  \
   /fonts                                  \
   /aero                                   \
   /window-drag                            \
+  /scale:180                              \
+  /smart-sizing                           \
   /menu-anims                             \
   /bpp:32                                 \
   /gdi:sw                                 \
