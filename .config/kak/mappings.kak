@@ -30,9 +30,9 @@ map global user -docstring 'rofi-files'          f      ': rofi-files<ret>'
 map global user -docstring 'edit kakrc'          e      ': e ~/.config/kak/kakrc<ret>'
 map global user -docstring 'codepoint'           i      ': echo %sh{ printf "codepoint: U+%04x" "$kak_cursor_char_value" }<ret>'
 map global user -docstring 'surround'            s      ': auto-pairs-surround<ret>'
-map global user -docstring 'select down'         v      ': select-down<ret>'
+map global user -docstring 'select down'         V      ': select-down<ret>'
 map global user -docstring 'select up'           <a-v>  ': select-up<ret>'
-map global user -docstring 'select up and down'  V      ': select-vertically<ret>'
+map global user -docstring 'select up and down'  v      ': select-vertically<ret>'
 
 define-command -hidden -params 1 extend-line-down %{ execute-keys "<a-:>%arg{1}X" }
 define-command -hidden -params 1 extend-line-up   %{
