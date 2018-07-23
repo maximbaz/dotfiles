@@ -15,7 +15,7 @@ function pac() {
   sudo pacman "$@"
   py3status-refresh-pacman
 }
-compdef "_dispatch pacman pacman" pac
+compdef pac=pacman
 
 function pacs() {
   aur search -k NumVotes "$@"
