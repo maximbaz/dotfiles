@@ -21,16 +21,13 @@ case $STATUS in
     ;;
   vpn-up)
     if [[ $INTERFACE == "tun0" ]]; then
-      chattr -i /etc/resolv.conf
-      echo "nameserver 127.0.0.1" > /etc/resolv.conf
-      chattr +i /etc/resolv.conf
+      sysctl -w net.ipv6.conf.all.disable_ipv6=1
     fi
     py3-cmd refresh "file_status PIA" "whatismyip"
     ;;
   vpn-down)
     if [[ $INTERFACE == "tun0" ]]; then
-      chattr -i /etc/resolv.conf
-      cp /run/NetworkManager/resolv.conf /etc/resolv.conf
+      sysctl -w net.ipv6.conf.all.disable_ipv6=0
     fi
     py3-cmd refresh "file_status PIA" "whatismyip"
     ;;
