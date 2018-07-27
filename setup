@@ -122,6 +122,7 @@ if [ "$(whoami)" != "root" ]; then
 
     link ".compton.conf"
     link ".gtkrc-2.0"
+    link ".taskrc"
     link ".urlwatch/urls.yaml"
     link ".xsession"
     link ".Xresources"
