@@ -223,6 +223,10 @@ if [[ "$(whoami)" == "root" ]]; then
   copy "etc/updatedb.conf"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
+    chattr -i "/etc/resolv.conf"
+    copy "etc/resolv.conf"
+    chattr +i "/etc/resolv.conf"
+
     copy "etc/grub.d/41_snapshots-btrfs_config"
     copy "etc/lightdm/lightdm.conf"
     copy "etc/lightdm/lightdm-gtk-greeter.conf"
