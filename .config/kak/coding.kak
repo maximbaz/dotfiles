@@ -61,7 +61,7 @@ hook global WinSetOption filetype=go %{
     hook window -group lint BufWritePost .* lint
 }
 
-hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown) %{
+hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml) %{
     set-option window formatcmd "prettier --stdin-filepath=${kak_buffile}"
     hook window -group format BufWritePre .* format
 }
