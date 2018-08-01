@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 
 set -e
+exec 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
 
 MY_GPG_KEY_ID="12C87A28FEAC6B20"
 
