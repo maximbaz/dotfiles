@@ -43,7 +43,7 @@ hook global WinSetOption filetype=.* %{
 }
 
 hook global WinSetOption filetype=python %{
-    set-option window formatcmd 'yapf'
+    set-option buffer formatcmd 'black -q -'
     hook window -group format BufWritePre .* format
 
     set-option window lintcmd 'pylint --msg-template="{path}:{line}:{column}: {category}: {msg}" -rn -sn'
