@@ -55,7 +55,7 @@ hook global WinSetOption filetype=python %{
 hook global WinSetOption filetype=go %{
     hook window -group format BufWritePost .* %{ evaluate-commands %sh{ goimports -e -w "$kak_buffile" }; edit! }
 
-    set-option window lintcmd "run() { cp $1 $1.go; golint $1.go; go vet $1.go 2>&1 | sed -E 's/: /: error: /'; } && run"
+    set-option window lintcmd "run() { golint $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; } && run"
     lint-enable
     lint
     hook window -group lint BufWritePost .* lint
