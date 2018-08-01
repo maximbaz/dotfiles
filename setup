@@ -208,6 +208,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   copy "etc/conf.d/snapper"
   copy "etc/environment"
+  copy "etc/pacman.d/hooks"
   copy "etc/profile.d/maven.sh"
   copy "etc/profile.d/zz_custom.sh"
   copy "etc/snap-pac.conf"
@@ -294,7 +295,7 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "=============================="
   echo "Setting dash as /usr/bin/sh..."
   echo "=============================="
-  ln -sf /usr/bin/dash /usr/bin/sh
+  ln -sfT dash /usr/bin/sh
   echo "Done"
 
   echo ""
