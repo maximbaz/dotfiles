@@ -18,7 +18,7 @@ function pac() {
 compdef pac=pacman
 
 function pacs() {
-  aur search -k NumVotes "$@"
+  aur search -n -k NumVotes "$@"
   pacman -Ss "$@"
 }
 
