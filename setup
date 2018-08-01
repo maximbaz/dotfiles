@@ -50,13 +50,11 @@ systemctl_enable_start() {
     name="$2"
   fi
   if [[ "$target" == "user" ]]; then
-    echo "systemctl --user enable & start "$name""
-    systemctl --user enable "$name"
-    systemctl --user start  "$name"
+    echo "systemctl --user enable --now "$name""
+    systemctl --user enable --now "$name"
   else
-    echo "systemctl enable & start "$name""
-    systemctl enable "$name"
-    systemctl start  "$name"
+    echo "systemctl enable --now "$name""
+    systemctl enable --now "$name"
   fi
 }
 
