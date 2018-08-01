@@ -29,6 +29,11 @@ url: "https://github.com/prettier/prettier/releases/latest"
 filter: element-by-class:release-header,element-by-tag:h1,html2text
 max_tries: 3
 ---
+name: "bash-language-server"
+url: "https://github.com/mads-hartmann/bash-language-server/releases/latest"
+filter: element-by-class:main,element-by-class:tag-name,html2text
+max_tries: 3
+---
 name: "Go Meta Linter"
 url: "https://github.com/alecthomas/gometalinter/releases/latest"
 filter: element-by-class:release-header,element-by-tag:h1,html2text
