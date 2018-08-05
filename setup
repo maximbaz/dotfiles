@@ -89,7 +89,6 @@ if [ "$(whoami)" != "root" ]; then
   link ".pylintrc"
   link ".tigrc"
   link ".tmux.conf"
-  link ".zprofile"
   link ".zsh"
   link ".zshrc"
 

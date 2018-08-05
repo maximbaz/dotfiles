@@ -7,7 +7,7 @@ fi
 source ~/.zsh/sandboxd.zsh
 
 # Load environment variables
-source ~/.dircolors.zsh
+source /usr/share/LS_COLORS/dircolors.sh
 
 # Load terminal configuration
 source ~/.zsh/title.zsh
