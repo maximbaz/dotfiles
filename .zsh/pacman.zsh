@@ -50,6 +50,7 @@ function py3status-refresh-pacman() {
   repo="external_script updates_repo"
   aur="external_script updates_aur"
   vcs="external_script updates_vcs"
+  rebuild="external_script need_rebuild"
 
-  py3-cmd refresh "$pacdiff" "$repo" "$aur" "$vcs"
+  py3-cmd refresh "$pacdiff" "$repo" "$aur" "$vcs" "$rebuild"
 }
