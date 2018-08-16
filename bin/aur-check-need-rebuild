@@ -1,8 +1,0 @@
-#!/bin/sh
-
-exec 2>/dev/null
-
-file="/var/cache/rebuild-detector/maximbaz-aur.list"
-[ ! -f "$file" ] && exit 0
-
-grep -v '^maximbaz-' "$file" || true

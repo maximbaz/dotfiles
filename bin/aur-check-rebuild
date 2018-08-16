@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec 2>/dev/null
+checkrebuild | grep maximbaz-aur | cut -f2 | tee ~/.cache/checkrebuild
