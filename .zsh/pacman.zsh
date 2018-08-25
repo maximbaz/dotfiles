@@ -1,5 +1,6 @@
 alias paci='pac -Sy'
 alias ipaci='SNAP_PAC_SKIP=true paci'
+alias ipaci!='ipaci -dd'
 alias pacr='pac -Rs'
 alias ipacr='SNAP_PAC_SKIP=true pacr'
 alias pacr!='pacr -dd'
@@ -23,7 +24,7 @@ function pacs() {
 }
 
 function aurs() {
-  aur sync -sc --provides "$@"
+  aur sync -sc "$@"
   post_aur
 }
 alias aurs!='aurs --no-ver-shallow'
@@ -47,10 +48,10 @@ function post_aur() {
 
 function py3status-refresh-pacman() {
   pacdiff="external_script pacdiff"
-  repo="external_script updates_repo"
+  repo="external_script checkupdates"
   aur="external_script updates_aur"
   vcs="external_script updates_vcs"
-  rebuild="external_script need_rebuild"
+  rebuild="external_script checkrebuild"
 
   py3-cmd refresh "$pacdiff" "$repo" "$aur" "$vcs" "$rebuild"
 }
