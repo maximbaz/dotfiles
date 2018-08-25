@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.1.1
+pkgver=1.2.0
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -27,7 +27,6 @@ package_maximbaz-base() {
     'git'
     'go'
     'go-langserver-git'
-    'gometalinter'
     'grub'
     'htop'
     'httpie'
@@ -49,6 +48,7 @@ package_maximbaz-base() {
     'pacman-contrib'
     'prettier'
     'pydf'
+    'python-black'
     'python-language-server'
     'python-neovim'
     'python-pip'
@@ -78,12 +78,12 @@ package_maximbaz-base() {
 package_maximbaz-desktop() {
   depends=(
     'atom'
+    'aurpublish'
     'aurutils-git'
     'bash-language-server'
     'browserpass'
     'calibre'
     'chromium-vaapi'
-    'chromium-widevine'
     'compton'
     'copyq'
     'dragon-drag-and-drop-git'
@@ -97,6 +97,7 @@ package_maximbaz-desktop() {
     'freerdp'
     'fwupd'
     'geeqie'
+    'gocryptfs'
     'gsimplecal'
     'gtk-theme-arc-grey-git'
     'hsetroot'
@@ -113,6 +114,7 @@ package_maximbaz-desktop() {
     'lightdm'
     'lightdm-gtk-greeter'
     'light'
+    'megacmd-bin'
     'mpv'
     'networkmanager-dmenu-git'
     'networkmanager-openvpn'
@@ -135,6 +137,7 @@ package_maximbaz-desktop() {
     'python-pydbus'
     'python-gevent'
     'python-tzlocal'
+    'rebuild-detector'
     'redshift'
     'rofi'
     'rofi-dmenu'
@@ -192,7 +195,6 @@ package_maximbaz-work() {
     'kubectl-bin'
     'kubernetes-helm'
     'maven'
-    'minikube-bin'
     'python-azure-cli'
     'rvm'
   )
