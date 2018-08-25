@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-aur vercmp-devel 2>/dev/null | tee ~/.cache/updates_vcs
