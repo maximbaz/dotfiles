@@ -1,6 +1,7 @@
 alias k='kubectl'
 alias kd='k describe'
 alias kd!='kd --all-namespaces'
+alias kdp='kd pod'
 alias ke='k exec -ti'
 alias kg='k get'
 alias kg!='kg --all-namespaces'
