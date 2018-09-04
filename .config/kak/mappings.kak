@@ -16,6 +16,9 @@ map global normal <right> ': bn<ret>'
 map global normal <up>    ': lint-previous-error<ret>'
 map global normal <down>  ': lint-next-error<ret>'
 
+map global insert <c-w> '<a-;>b<a-;>d'
+map global insert <c-u> '<esc>xdO'
+
 map global user -docstring 'clip-paste (before)' p      'o<esc>!xclip -selection clipboard -o<ret>d'
 map global user -docstring 'clip-paste (after)'  P      'O<esc><a-!>xclip -selection clipboard -o<ret>d'
 map global user -docstring 'clip-replace'        R      '|xclip -selection clipboard -o<ret>'
