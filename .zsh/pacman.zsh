@@ -23,6 +23,11 @@ function pacs() {
   pacman -Ss "$@"
 }
 
+function pacs!() {
+  aur search -k NumVotes "$@"
+  pacman -Ss "$@"
+}
+
 function aurs() {
   aur sync -sc "$@"
   post_aur
