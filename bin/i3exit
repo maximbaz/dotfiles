@@ -3,51 +3,37 @@
 before_lock() {
   setxkbmap -layout us; sleep 0.2; setxkbmap -layout us,ru  # reset keyboard layout to english, works only with sleep
   py3-cmd refresh keyboard_layout
-  [[ ! -f "$PY3STATUS_DND_LOCK" ]] && killall -u "$USER" -USR1 dunst
   killall compton
   usbguard set-parameter InsertedDevicePolicy reject
-}
-
-lock() {
-  i3lock -efnc 000000
+  sudo systemctl stop pcscd.service
 }
 
 after_lock() {
   usbguard set-parameter InsertedDevicePolicy apply-policy
   compton &!
-  [[ ! -f "$PY3STATUS_DND_LOCK" ]] && killall -u "$USER" -USR2 dunst
-}
-
-stop_vpn() {
-  nmcli con show --active | grep vpn | cut -d' ' -f1 | xargs -n1 nmcli con down
 }
 
 case "$1" in
   lock)
     before_lock
-    lock
+    xsecurelock
     after_lock
     ;;
   logout)
-    rm -f "$PY3STATUS_DND_LOCK"
     stop_vpn
     i3-msg exit
     ;;
   suspend)
     before_lock
-    stop_vpn
     systemctl suspend
-    sudo systemctl stop pcscd.service
-    lock
+    xsecurelock
     after_lock
     ;;
   reboot)
-    rm -f "$PY3STATUS_DND_LOCK"
     stop_vpn
     systemctl reboot
     ;;
   shutdown)
-    rm -f "$PY3STATUS_DND_LOCK"
     stop_vpn
     systemctl poweroff
     ;;

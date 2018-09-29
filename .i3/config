@@ -163,7 +163,7 @@ bindsym XF86MonBrightnessDown exec set-brightness dec
 bindcode $mod+Shift+54 reload
 
 # Restart i3 inplace (r)
-bindcode $mod+Shift+27 exec rm -f "$PY3STATUS_DND_LOCK"; restart
+bindcode $mod+Shift+27 restart
 
 # Global hotkeys
 bindcode $mod+49 exec copyq toggle
