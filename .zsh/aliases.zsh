@@ -1,4 +1,3 @@
-alias ag='ag --hidden -f'
 alias cp='cp -r --reflink=auto'
 alias df='pydf'
 alias diff='kitty +kitten diff'
@@ -11,6 +10,7 @@ alias locate='locate -i'
 alias makepkg-compress="PKGEXT='.pkg.tar.xz' makepkg"
 alias mkdir='mkdir -p'
 alias o='xdg-open'
+alias rg='rg --hidden --follow --smart-case 2>/dev/null'
 alias rm='rmtrash -rf'
 alias rm!='\rm -rf'
 alias rsync='rsync --verbose --archive --info=progress2 --human-readable --compress --partial'

@@ -1,5 +1,5 @@
 define-command rofi-files -docstring 'Open a file using Ag and Rofi' %{ evaluate-commands %sh{
-    FILE=$(ag --hidden -f -g "" | rofi -dmenu)
+    FILE=$(rg --hidden --files | rofi -dmenu)
     [ -n "$FILE" ] && printf 'eval -client %%{%s} edit %%{%s}\n' "${kak_client}" "${FILE}" | kak -p "${kak_session}"
 } }
 
