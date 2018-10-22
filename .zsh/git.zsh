@@ -79,3 +79,6 @@ alias gs='git show --show-signature'
 
 alias gss='git status -sb'
 alias gst='git status'
+
+alias gsa='git submodule add'
+alias gsu='git submodule update --remote'
