@@ -1,4 +1,6 @@
 [Default Applications]
+application/vnd.ms-word.document.macroenabled.12=libreoffice-writer.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
 application/pdf=chromium.desktop
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
