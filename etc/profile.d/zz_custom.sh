@@ -6,9 +6,6 @@ export DIFFPROG='nvim -d'
 export MANPAGER='kak-man-pager'
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
-# Used by bash-language-server
-export EXPLAINSHELL_ENDPOINT="http://localhost:5000"
-
 # My own binaries
 export PATH="$HOME/bin:$PATH"
 
