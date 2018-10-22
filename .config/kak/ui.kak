@@ -1,8 +1,5 @@
 colorscheme gruvbox
 
-set-face global Default 'rgb:ebdbb2,default'
-set-face global BufferPadding 'rgb:504945,default'
-
 add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ show-matching
 add-highlighter global/ wrap -word -indent
