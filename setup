@@ -239,7 +239,6 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/systemd/system/backup-aur@devbox"
     copy "etc/systemd/system/backup-aur@.service"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
-    copy "etc/unbound/unbound.conf"
     copy "etc/usbguard/usbguard-daemon.conf"
     copy "etc/X11/xorg.conf.d/00-keyboard.conf"
     copy "etc/X11/xorg.conf.d/30-touchpad.conf"
@@ -271,8 +270,8 @@ if [[ "$(whoami)" == "root" ]]; then
     systemctl enable "backup-aur@devbox.service"
     systemctl_enable_start "system" "dropbox@maximbaz.service"
     systemctl_enable_start "system" "pcscd.service"
+    systemctl_enable_start "system" "stubby.service"
     systemctl_enable_start "system" "teamviewerd.service"
-    systemctl_enable_start "system" "unbound.service"
     systemctl_enable_start "system" "usbguard.service"
     systemctl_enable_start "system" "usbguard-dbus.service"
 
