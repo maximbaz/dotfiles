@@ -5,9 +5,9 @@ from subprocess import Popen, PIPE
 
 def main(args):
     p1 = Popen(["ssh", "mse", "~/get-vms"], stdout=PIPE)
-    p2 = Popen(["fzf"], stdin=p1.stdout, stdout=PIPE)
+    p2 = Popen(["fzy"], stdin=p1.stdout, stdout=PIPE)
     vm, _ = p2.communicate()
-    return vm.decode('utf-8').strip()
+    return vm.decode("utf-8").strip()
 
 
 def handle_result(args, vm, target_window_id, boss):
@@ -16,6 +16,7 @@ def handle_result(args, vm, target_window_id, boss):
         window.paste(vm)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
+
     print(main(sys.argv))
