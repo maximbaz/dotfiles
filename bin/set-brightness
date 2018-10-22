@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 if [ "$#" -ne 1 ]; then
   echo -e "Usage examples:\n$0 inc\n$0 dec\n$0 bat\n$0 ac" >&2
@@ -7,7 +7,7 @@ fi
 
 # Restore last brightness value for battery or AC
 if [[ "$1" == "bat" || "$1" == "ac" ]]; then
-  light -S $(< /home/maximbaz/.brightness_$1)
+  light -S "$(< "/home/maximbaz/.brightness_$1")"
   py3-cmd refresh backlight
   exit 0
 fi
@@ -20,11 +20,11 @@ else
 fi
 
 # Save brightness value to a file
-printf -v new %.0f $(light)
+printf -v new %.0f "$(light)"
 battery_status=$(acpi | grep -Po '(?<=: )\w+')
 if [[ "$battery_status" == "Discharging" ]]; then
   power="bat"
 else
   power="ac"
 fi
-echo "$new" > /home/maximbaz/.brightness_$power
+echo "$new" > "/home/maximbaz/.brightness_$power"

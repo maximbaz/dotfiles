@@ -1,15 +1,15 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 SOURCE="/home/maximbaz/Dropbox /home/maximbaz/private /home/maximbaz/.dotfiles /home/maximbaz/.go/src/go-private /home/maximbaz/.ssh"
 BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
 BACKUP_DIR="$BACKUP_PATH/$(date +%Y-%m-%d)"
 
-if [ ! -d $BACKUP_PATH ]; then
+if [ ! -d "$BACKUP_PATH" ]; then
   echo "Backup device '$BACKUP_PATH' does not exist, aborting."
   exit 1
 fi
 
-if [ -d $BACKUP_DIR ]; then
+if [ -d "$BACKUP_DIR" ]; then
   read -p "Backup directory '$BACKUP_DIR' already exists, merge? [y/n] " -n 1 -r
   echo
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -19,7 +19,7 @@ if [ -d $BACKUP_DIR ]; then
 fi
 
 echo -e "\nBackup STARTED\n\nSource(s):   $SOURCE\nDestination: $BACKUP_DIR\n"
-rsync -a --info=progress2 $SOURCE $BACKUP_DIR
+rsync -a --info=progress2 "$SOURCE $BACKUP_DIR"
 exitcode=$?
 
 if [ "$exitcode" -eq "0" ]; then
@@ -31,9 +31,9 @@ fi
 echo -e "\n-------------------------------------------------------------------"
 
 echo -e "\nBackup size:\n"
-du -hs $BACKUP_DIR
+du -hs "$BACKUP_DIR"
 
 echo -e "\nRemaining disk space\n"
-df -kh $BACKUP_PATH
+df -kh "$BACKUP_PATH"
 
 exit $exitcode

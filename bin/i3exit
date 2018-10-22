@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 before_lock() {
   setxkbmap -layout us; sleep 0.2; setxkbmap -layout us,ru  # reset keyboard layout to english, works only with sleep
@@ -10,7 +10,7 @@ before_lock() {
 
 after_lock() {
   usbguard set-parameter InsertedDevicePolicy apply-policy
-  compton &!
+  compton & disown
 }
 
 case "$1" in

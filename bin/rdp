@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 credentials=$(pass work/microsoft.com)
 
