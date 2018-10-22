@@ -29,6 +29,11 @@ url: "https://github.com/prettier/prettier/releases/latest"
 filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
 max_tries: 3
 ---
+name: "istio"
+url: "https://github.com/istio/istio/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
 name: "bash-language-server"
 url: "https://github.com/mads-hartmann/bash-language-server/releases/latest"
 filter: element-by-class:release-entry,element-by-class:d-flex,element-by-tag:a,html2text
