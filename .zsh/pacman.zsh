@@ -56,10 +56,11 @@ function post_aur() {
 
 function py3status-refresh-pacman() {
   pacdiff="external_script pacdiff"
+  official="external_script checkofficial"
   repo="external_script checkupdates"
   aur="external_script checkupdates_aur"
   vcs="external_script checkupdates_vcs"
   rebuild="external_script checkrebuild"
 
-  py3-cmd refresh "$pacdiff" "$repo" "$aur" "$vcs" "$rebuild"
+  py3-cmd refresh "$pacdiff" "$official" "$repo" "$aur" "$vcs" "$rebuild"
 }
