@@ -3,6 +3,7 @@ lsp-auto-hover-insert-mode-enable
 lsp-auto-hover-enable
 
 set-option global grepcmd 'ag --column --hidden -f'
+set-option global kitty_window_type 'os'
 
 # Commands
 
