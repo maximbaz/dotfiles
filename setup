@@ -80,10 +80,10 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/systemd/user/backup-packages.service"
   link ".config/systemd/user/backup-packages.timer"
 
-  link ".agignore"
   link ".gitconfig"
   link ".gitconfig.work"
   link ".gitignore"
+  link ".ignore"
   link ".mdlrc"
   link ".npmrc"
   link ".pylintrc"
