@@ -1,3 +1,6 @@
+#!/bin/zsh
+
+alias aurc='aur talk -bin 5'
 alias paci='pac -Sy'
 alias ipaci='SNAP_PAC_SKIP=true paci'
 alias ipaci!='ipaci -dd'
