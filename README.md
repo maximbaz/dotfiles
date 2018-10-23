@@ -6,12 +6,12 @@
 
 - [i3-gaps](https://github.com/Airblader/i3) (window manager) + [py3status](https://github.com/ultrabug/py3status) (status bar)
 - [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
-- [neovim](https://github.com/neovim/neovim)
+- [kakoune](https://github.com/mawww/kakoune)
 - [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto) and various other plugins
 
 ## Fun things you can find in this repo:
 
-☑ A common color scheme for nvim, terminal and i3 itself.
+☑ A common color scheme for kakoune, terminal and i3 itself.
 
 > It is called [Gruvbox dark](https://github.com/morhetz/gruvbox).
 
@@ -21,20 +21,15 @@
 
 ☑ True Color support everywhere.
 
-> Including kitty, neovim, tmux; ranger can even display picture previews.
+> Including kitty, kakoune, tmux; ranger can even display picture previews.
 
 ☑ Almost instant terminal startup.
 
-> And yet it is empowered with tmux, antigen, prezto and other plugins.
+> And yet it is empowered with antigen, prezto and other plugins.
 
-☑ Automatically start tmux in every terminal window:
+☑ Automatically start tmux on the remote hosts.
 
-- On local host, every terminal starts in its own tmux session.
-  > This allows running multiple independent tmux windows in every terminal window.
-- On remote host, every connection joins the same single tmux session
-  > This makes it easy to reconnect after a network failure, your work stays as you left it.
-- Speed-up terminal startup by ensuring that there always is an alive tmux session.
-  > It takes tmux much longer to start the first session than to start every consequent one.
+- Every connection joins the same single tmux session, allowing to easily reconnect after a network failure, your work stays as you left it.
 
 ☑ More secure gpg and ssh configuration.
 
