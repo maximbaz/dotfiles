@@ -1,8 +1,8 @@
-function set-title-precmd() {
+set-title-precmd() {
   printf "\e]2;%s\a" "${PWD/#$HOME/~}"
 }
 
-function set-title-preexec() {
+set-title-preexec() {
   printf "\e]2;%s\a" "$1"
 }
 

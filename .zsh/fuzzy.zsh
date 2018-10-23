@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 bindkey '^T'  fzy-file-widget
 bindkey '^R'  fzy-history-widget
 

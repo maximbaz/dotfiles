@@ -1,4 +1,4 @@
-source /usr/share/zsh/share/antigen.zsh
+. /usr/share/zsh/share/antigen.zsh
 
 antigen use prezto
 
