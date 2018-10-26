@@ -6,6 +6,16 @@ name: "Kitty changelog"
 url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/docs/changelog.rst"
 max_tries: 3
 ---
+name: "kitty"
+url: "https://github.com/kovidgoyal/kitty/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
+name: "EmojiOne font"
+url: "https://github.com/emojione/emojione-assets/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
 name: "New emojis"
 url: "https://raw.githubusercontent.com/emojione/emojione/master/extras/alpha-codes/eac.json"
 max_tries: 3
@@ -18,9 +28,16 @@ name: "py3status changelog"
 url: "https://raw.githubusercontent.com/ultrabug/py3status/master/CHANGELOG"
 max_tries: 3
 ---
-name: "EmojiOne font"
-url: "https://github.com/emojione/emojione-assets/releases/latest"
-filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+name: "py3status"
+url: "https://github.com/ultrabug/py3status/releases/latest"
+filter:
+  - xpath: '(//div[contains(@class,"release-timeline-tags")]//h4)[1]/a'
+  - html2text: re
+max_tries: 3
+---
+name: "mailcow"
+url: "https://mailcow.email/category/news/"
+filter: element-by-class:entry-content,html2text
 max_tries: 3
 ---
 name: "prettier"
@@ -43,6 +60,26 @@ url: "https://github.com/docker/compose/releases/latest"
 filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
 max_tries: 3
 ---
+name: "kakoune"
+url: "https://github.com/mawww/kakoune/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
+name: "kak-lsp"
+url: "https://github.com/ul/kak-lsp/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
+name: "wire-desktop"
+url: "https://github.com/wireapp/wire-desktop/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
+name: "gocryptfs"
+url: "https://github.com/rfjakob/gocryptfs/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
 name: "bash-language-server"
 url: "https://github.com/mads-hartmann/bash-language-server/releases/latest"
 filter:
@@ -52,6 +89,20 @@ max_tries: 3
 ---
 name: "urlwatch"
 url: "https://github.com/thp/urlwatch/releases/latest"
+filter:
+  - xpath: '(//div[contains(@class,"release-timeline-tags")]//h4)[1]/a'
+  - html2text: re
+max_tries: 3
+---
+name: "python-black"
+url: "https://github.com/ambv/black/releases/latest"
+filter:
+  - xpath: '(//div[contains(@class,"release-timeline-tags")]//h4)[1]/a'
+  - html2text: re
+max_tries: 3
+---
+name: "megacmd"
+url: "https://github.com/meganz/MEGAcmd/releases/latest"
 filter:
   - xpath: '(//div[contains(@class,"release-timeline-tags")]//h4)[1]/a'
   - html2text: re
