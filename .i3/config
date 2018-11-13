@@ -131,11 +131,14 @@ bindcode $mod+26 layout toggle split
 # Container layout: tabbed (w)
 bindcode $mod+25 layout tabbed
 
+# Container layout: stacked (s)
+bindcode $mod+39 layout stacked
+
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# Toggle sticky state (s)
-bindcode $mod+39 sticky toggle
+# Toggle sticky state (Shift+s)
+bindcode $mod+Shift+39 sticky toggle
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
