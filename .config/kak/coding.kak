@@ -9,13 +9,13 @@ set-option global kitty_window_type 'os'
 
 define-command disable-autolint -docstring 'disable auto-lint' %{
     lint-disable
-    unset-option window lintcmd
-    remove-hooks window lint
+    unset-option buffer lintcmd
+    remove-hooks buffer lint
 }
 
 define-command disable-autoformat -docstring 'disable auto-format' %{
-    unset-option window formatcmd
-    remove-hooks window format
+    unset-option buffer formatcmd
+    remove-hooks buffer format
 }
 
 
@@ -36,43 +36,43 @@ hook global WinDisplay   .* %{ evaluate-commands %sh{
 } }
 
 
-hook global WinSetOption filetype=.* %{
+hook global BufSetOption filetype=.* %{
     disable-autoformat
     disable-autolint
 
-    hook window -group format BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
+    hook buffer -group format BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 }
 
-hook global WinSetOption filetype=python %{
+hook global BufSetOption filetype=python %{
     set-option buffer formatcmd 'black -q -'
-    hook window -group format BufWritePre .* format
+    hook buffer -group format BufWritePre .* format
 
-    set-option window lintcmd 'pylint --msg-template="{path}:{line}:{column}: {category}: {msg}" -rn -sn'
+    set-option buffer lintcmd 'pylint --msg-template="{path}:{line}:{column}: {category}: {msg}" -rn -sn'
     lint-enable
     lint
-    hook window -group lint BufWritePost .* lint
+    hook buffer -group lint BufWritePost .* lint
 }
 
-hook global WinSetOption filetype=go %{
-    hook window -group format BufWritePost .* %{ evaluate-commands %sh{ goimports -e -w "$kak_buffile" }; edit! }
+hook global BufSetOption filetype=go %{
+    hook buffer -group format BufWritePost .* %{ evaluate-commands %sh{ goimports -e -w "$kak_buffile" }; edit! }
 
-    set-option window lintcmd "run() { golint $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; } && run"
+    set-option buffer lintcmd "run() { golint $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; } && run"
     lint-enable
     lint
-    hook window -group lint BufWritePost .* lint
+    hook buffer -group lint BufWritePost .* lint
 }
 
-hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml) %{
-    set-option window formatcmd "prettier --stdin-filepath=${kak_buffile}"
-    hook window -group format BufWritePre .* format
+hook global BufSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml) %{
+    set-option buffer formatcmd "prettier --stdin-filepath=${kak_buffile}"
+    hook buffer -group format BufWritePre .* format
 }
 
-hook global WinSetOption filetype=markdown %{
+hook global BufSetOption filetype=markdown %{
     set-option -add buffer auto_pairs_surround _ _ * *
 }
 
-hook global WinSetOption filetype=sh %{
-    set-option window lintcmd 'shellcheck -x -fgcc'
+hook global BufSetOption filetype=sh %{
+    set-option buffer lintcmd 'shellcheck -x -fgcc'
     lint-enable
     lint
 }
