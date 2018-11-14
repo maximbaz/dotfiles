@@ -1,4 +1,10 @@
-alias enable-cli='docker run --rm -v "$(pwd):/project" enable-cli'
+enable-cli() {
+  docker run --rm -v "$PWD:/project" enable-cli $*
+  ret=$?
+  [ $ret -ne 0 ] && return $ret
+  echo "Fix permissions? Press Ctrl+C to abort. " && read
+  sudo chown -R maximbaz:users .
+}
 
 # Useful functions
 mse-get-properties() {
