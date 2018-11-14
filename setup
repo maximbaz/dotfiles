@@ -164,10 +164,6 @@ if [ "$(whoami)" != "root" ]; then
       chmod +x "$HOME/.password-store/.git/hooks/post-commit"
     fi
 
-    echo "Disabling Dropbox autoupdate"
-    rm -rf ~/.dropbox-dist
-    install -dm0 ~/.dropbox-dist
-
     echo "Configuring GTK file chooser dialog"
     gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
@@ -272,7 +268,6 @@ if [[ "$(whoami)" == "root" ]]; then
   if [[ "$HOST" =~ "desktop-" ]]; then
     systemctl enable "lightdm.service"
     systemctl enable "backup-aur@devbox.service"
-    systemctl_enable_start "system" "dropbox@maximbaz.service"
     systemctl_enable_start "system" "connman-hook.service"
     systemctl_enable_start "system" "connman-vpn-hook.service"
     systemctl_enable_start "system" "pcscd.service"

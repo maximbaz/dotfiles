@@ -1,6 +1,5 @@
 .cache/
 .docker/
-.dropbox/
 .gem/
 .git/
 .gradle/
