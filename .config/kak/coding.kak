@@ -36,14 +36,14 @@ hook global WinDisplay   .* %{ evaluate-commands %sh{
 } }
 
 
-hook global BufSetOption filetype=.* %{
+hook global WinSetOption filetype=.* %{
     disable-autoformat
     disable-autolint
 
     hook buffer -group format BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 }
 
-hook global BufSetOption filetype=python %{
+hook global WinSetOption filetype=python %{
     set-option buffer formatcmd 'black -q -'
     hook buffer -group format BufWritePre .* format
 
@@ -53,7 +53,7 @@ hook global BufSetOption filetype=python %{
     hook buffer -group lint BufWritePost .* lint
 }
 
-hook global BufSetOption filetype=go %{
+hook global WinSetOption filetype=go %{
     hook buffer -group format BufWritePost .* %{ evaluate-commands %sh{ goimports -e -w "$kak_buffile" }; edit! }
 
     set-option buffer lintcmd "run() { golint $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; } && run"
@@ -62,16 +62,16 @@ hook global BufSetOption filetype=go %{
     hook buffer -group lint BufWritePost .* lint
 }
 
-hook global BufSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml) %{
+hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml) %{
     set-option buffer formatcmd "prettier --stdin-filepath=${kak_buffile}"
     hook buffer -group format BufWritePre .* format
 }
 
-hook global BufSetOption filetype=markdown %{
+hook global WinSetOption filetype=markdown %{
     set-option -add buffer auto_pairs_surround _ _ * *
 }
 
-hook global BufSetOption filetype=sh %{
+hook global WinSetOption filetype=sh %{
     set-option buffer lintcmd 'shellcheck -x -fgcc'
     lint-enable
     lint
