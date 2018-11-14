@@ -80,6 +80,11 @@ url: "https://github.com/rfjakob/gocryptfs/releases/latest"
 filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
 max_tries: 3
 ---
+name: "skaffold"
+url: "https://github.com/GoogleContainerTools/skaffold/releases/latest"
+filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
+max_tries: 3
+---
 name: "bash-language-server"
 url: "https://github.com/mads-hartmann/bash-language-server/releases/latest"
 filter:
