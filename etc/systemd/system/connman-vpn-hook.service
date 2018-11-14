@@ -1,0 +1,10 @@
+[Unit]
+Description=Connman VPN hook
+
+[Service]
+ExecStart=/usr/lib/connman-hooks/connman-vpn-hook
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

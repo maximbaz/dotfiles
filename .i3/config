@@ -89,8 +89,9 @@ bindcode $mod+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -sho
 bindcode $mod+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
 bindcode $mod+33 exec "passmenu"
 
-# Start networkmanager_dmenu (n)
-bindcode $mod+57 exec "networkmanager_dmenu"
+# Start connman_dmenu (n)
+bindcode $mod+57 exec "connman_dmenu"
+bindcode $mod+Shift+57 exec "connman_dmenu scan"
 
 # Start a screenshot tool (m)
 bindcode $mod+58 exec "flameshot gui"

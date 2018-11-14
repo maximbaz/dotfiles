@@ -229,7 +229,6 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/grub.d/41_snapshots-btrfs_config"
     copy "etc/lightdm/lightdm.conf"
     copy "etc/lightdm/lightdm-gtk-greeter.conf"
-    copy "etc/NetworkManager/dispatcher.d/pia-vpn"
     copy "etc/pacman.conf"
     copy "etc/pacman.d/maximbaz-aur"
     copy "etc/pam.d/sudo"
@@ -238,10 +237,14 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/systemd/logind.conf"
     copy "etc/systemd/system/backup-aur@devbox"
     copy "etc/systemd/system/backup-aur@.service"
+    copy "etc/systemd/system/connman-hook.service"
+    copy "etc/systemd/system/connman-vpn-hook.service"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
     copy "etc/usbguard/usbguard-daemon.conf"
     copy "etc/X11/xorg.conf.d/00-keyboard.conf"
     copy "etc/X11/xorg.conf.d/30-touchpad.conf"
+
+    copy "usr/lib/connman-hooks"
   fi
 
   if [[ "$HOST" =~ "crmdevvm-" ]]; then
@@ -257,10 +260,11 @@ if [[ "$(whoami)" == "root" ]]; then
   sysctl --system > /dev/null
 
   systemctl daemon-reload
+  systemctl_enable_start "system" "connman.service"
+  systemctl_enable_start "system" "connman-vpn.service"
+  systemctl_enable_start "system" "connman-wait-online.service"
   systemctl_enable_start "system" "paccache.timer"
   systemctl_enable_start "system" "reflector.timer"
-  systemctl_enable_start "system" "NetworkManager.service"
-  systemctl_enable_start "system" "NetworkManager-wait-online.service"
   systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "ufw.service"
   systemctl_enable_start "system" "snapper-cleanup.timer"
@@ -269,6 +273,8 @@ if [[ "$(whoami)" == "root" ]]; then
     systemctl enable "lightdm.service"
     systemctl enable "backup-aur@devbox.service"
     systemctl_enable_start "system" "dropbox@maximbaz.service"
+    systemctl_enable_start "system" "connman-hook.service"
+    systemctl_enable_start "system" "connman-vpn-hook.service"
     systemctl_enable_start "system" "pcscd.service"
     systemctl_enable_start "system" "stubby.service"
     systemctl_enable_start "system" "teamviewerd.service"
@@ -278,8 +284,6 @@ if [[ "$(whoami)" == "root" ]]; then
     # tlp
     systemctl_enable_start "system" "tlp.service"
     systemctl_enable_start "system" "tlp-sleep.service"
-    systemctl_enable_start "system" "NetworkManager-dispatcher.service"
-    systemctl mask "systemd-rfkill.service"
   fi
 
   if [[ "$HOST" =~ "crmdevvm-" ]]; then

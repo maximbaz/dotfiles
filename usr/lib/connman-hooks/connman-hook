@@ -1,0 +1,19 @@
+#!/bin/bash
+
+interface=net.connman.Manager
+member=PropertyChanged
+
+dbus-monitor --system "interface='$interface',member='$member'" 2>/dev/null |
+grep --line-buffered --no-group-separator 'string "State"' -A1 |
+while read -r _; do
+    read -r line
+    case "$line" in
+        *online*)
+            connmanctl connect vpn_sweden_privateinternetaccess_com_privateinternetaccess_com
+            py3-cmd refresh "wifi brief" "wifi detailed"
+            ;;
+        *idle*)
+            py3-cmd refresh "wifi brief" "wifi detailed"
+            ;;
+    esac
+done
