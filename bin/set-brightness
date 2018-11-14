@@ -8,7 +8,6 @@ fi
 # Restore last brightness value for battery or AC
 if [[ "$1" == "bat" || "$1" == "ac" ]]; then
   light -S "$(< "/home/maximbaz/.brightness_$1")"
-  py3-cmd refresh backlight
   exit 0
 fi
 
