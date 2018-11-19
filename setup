@@ -317,13 +317,6 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Configuring devtools/makepkg"
   sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar'/" /usr/share/devtools/makepkg-x86_64.conf
 
-  echo "Configuring firewall"
-  [[ "$(ufw status | grep -o '[^ ]\+$')" != "active" ]] && ufw --force reset > /dev/null
-  ufw default reject
-  [[ "$HOST" =~ "crmdevvm-" ]] && ufw allow ssh
-  ufw enable
-  find /etc/ufw -type f -name '*.rules.*' -delete
-
   if [[ "$HOST" =~ "desktop-" ]]; then
     echo "Configuring aurutils-contrib"
     ln -sf /usr/share/aurutils/contrib/vercmp-devel /usr/lib/aurutils/aur-vercmp-devel
@@ -337,6 +330,14 @@ if [[ "$(whoami)" == "root" ]]; then
   fi
 
   if [[ "$HOST" =~ "crmdevvm-" ]]; then
+    echo "Configuring firewall"
+    ufw --force reset > /dev/null
+    ufw default allow outgoing
+    ufw default deny incoming
+    ufw allow ssh
+    ufw enable
+    find /etc/ufw -type f -name '*.rules.*' -delete
+
     echo "Configuring gpg-agent forwarding"
     sed -zi "s/\(VersionAddendum[^\n]*\n\)\(StreamLocalBindUnlink[^\n]*\n\)\?/\1StreamLocalBindUnlink yes\n/" /etc/ssh/sshd_config
   fi
