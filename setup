@@ -229,6 +229,7 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/pacman.d/maximbaz-aur"
     copy "etc/pam.d/sudo"
     copy "etc/private-internet-access/pia.conf"
+    copy "etc/stubby/stubby.yml"
     copy "etc/sudoers"
     copy "etc/systemd/logind.conf"
     copy "etc/systemd/system/backup-aur@devbox"
