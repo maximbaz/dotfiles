@@ -102,7 +102,7 @@ listen_addresses:
 ############################### DNSSEC SETTINGS ################################
 # Require DNSSEC validation. For releases earlier than 1.2 a trust anchor must
 # be configured configured manually. This can be done with unbound-anchor.
-# dnssec_return_status: GETDNS_EXTENSION_TRUE
+dnssec_return_status: GETDNS_EXTENSION_TRUE
 
 # Stubby tries to fetch and validate the DNSSEC root trust anchor on the fly
 # when needed (Zero configuration DNSSEC), but only if it can store then
@@ -147,42 +147,42 @@ upstream_recursive_servers:
 ############################ DEFAULT UPSTREAMS  ################################
 ####### IPv4 addresses ######
 ### Test servers ###
-# The Surfnet/Sinodun servers
-  - address_data: 145.100.185.15
-    tls_auth_name: "dnsovertls.sinodun.com"
-    tls_pubkey_pinset:
-      - digest: "sha256"
-        value: 62lKu9HsDVbyiPenApnc4sfmSYTHOVfFgL3pyB+cBL4=
-  - address_data: 145.100.185.16
-    tls_auth_name: "dnsovertls1.sinodun.com"
-    tls_pubkey_pinset:
-      - digest: "sha256"
-        value: cE2ecALeE5B+urJhDrJlVFmf38cJLAvqekONvjvpqUA=
-# The getdnsapi.net server
-  - address_data: 185.49.141.37
-    tls_auth_name: "getdnsapi.net"
-    tls_pubkey_pinset:
-      - digest: "sha256"
-        value: foxZRnIh9gZpWnl+zEiKa0EJ2rdCGroMWm02gaxSc9Q=
+## The Surfnet/Sinodun servers
+#  - address_data: 145.100.185.15
+#    tls_auth_name: "dnsovertls.sinodun.com"
+#    tls_pubkey_pinset:
+#      - digest: "sha256"
+#        value: 62lKu9HsDVbyiPenApnc4sfmSYTHOVfFgL3pyB+cBL4=
+#  - address_data: 145.100.185.16
+#    tls_auth_name: "dnsovertls1.sinodun.com"
+#    tls_pubkey_pinset:
+#      - digest: "sha256"
+#        value: cE2ecALeE5B+urJhDrJlVFmf38cJLAvqekONvjvpqUA=
+## The getdnsapi.net server
+#  - address_data: 185.49.141.37
+#    tls_auth_name: "getdnsapi.net"
+#    tls_pubkey_pinset:
+#      - digest: "sha256"
+#        value: foxZRnIh9gZpWnl+zEiKa0EJ2rdCGroMWm02gaxSc9Q=
 ####### IPv6 addresses ######
 ### Test servers ###
-# The Surfnet/Sinodun servers
-  - address_data: 2001:610:1:40ba:145:100:185:15
-    tls_auth_name: "dnsovertls.sinodun.com"
-    tls_pubkey_pinset:
-      - digest: "sha256"
-        value: 62lKu9HsDVbyiPenApnc4sfmSYTHOVfFgL3pyB+cBL4=
-  - address_data: 2001:610:1:40ba:145:100:185:16
-    tls_auth_name: "dnsovertls1.sinodun.com"
-    tls_pubkey_pinset:
-      - digest: "sha256"
-        value: cE2ecALeE5B+urJhDrJlVFmf38cJLAvqekONvjvpqUA=
-# The getdnsapi.net server
-  - address_data: 2a04:b900:0:100::38
-    tls_auth_name: "getdnsapi.net"
-    tls_pubkey_pinset:
-      - digest: "sha256"
-        value: foxZRnIh9gZpWnl+zEiKa0EJ2rdCGroMWm02gaxSc9Q=
+## The Surfnet/Sinodun servers
+#  - address_data: 2001:610:1:40ba:145:100:185:15
+#    tls_auth_name: "dnsovertls.sinodun.com"
+#    tls_pubkey_pinset:
+#      - digest: "sha256"
+#        value: 62lKu9HsDVbyiPenApnc4sfmSYTHOVfFgL3pyB+cBL4=
+#  - address_data: 2001:610:1:40ba:145:100:185:16
+#    tls_auth_name: "dnsovertls1.sinodun.com"
+#    tls_pubkey_pinset:
+#      - digest: "sha256"
+#        value: cE2ecALeE5B+urJhDrJlVFmf38cJLAvqekONvjvpqUA=
+## The getdnsapi.net server
+#  - address_data: 2a04:b900:0:100::38
+#    tls_auth_name: "getdnsapi.net"
+#    tls_pubkey_pinset:
+#      - digest: "sha256"
+#        value: foxZRnIh9gZpWnl+zEiKa0EJ2rdCGroMWm02gaxSc9Q=
 
 
 ############################ OPTIONAL UPSTREAMS  ###############################
@@ -195,17 +195,17 @@ upstream_recursive_servers:
 ## unclear if it honours the edns_client_subnet_private request from stubby)
 #  - address_data: 9.9.9.10
 #    tls_auth_name: "dns.quad9.net"
-## Cloudflare 1.1.1.1 and 1.0.0.1
-#  - address_data: 1.1.1.1
-#    tls_auth_name: "cloudflare-dns.com"
-#  - address_data: 1.0.0.1
-#    tls_auth_name: "cloudflare-dns.com"
-## The Uncensored DNS servers
-#  - address_data: 89.233.43.71
-#    tls_auth_name: "unicast.censurfridns.dk"
-#    tls_pubkey_pinset:
-#      - digest: "sha256"
-#        value: wikE3jYAA6jQmXYTr/rbHeEPmC78dQwZbQp6WdrseEs=
+# Cloudflare 1.1.1.1 and 1.0.0.1
+  - address_data: 1.1.1.1
+    tls_auth_name: "cloudflare-dns.com"
+  - address_data: 1.0.0.1
+    tls_auth_name: "cloudflare-dns.com"
+# The Uncensored DNS servers
+  - address_data: 89.233.43.71
+    tls_auth_name: "unicast.censurfridns.dk"
+    tls_pubkey_pinset:
+      - digest: "sha256"
+        value: wikE3jYAA6jQmXYTr/rbHeEPmC78dQwZbQp6WdrseEs=
 ### Test servers ###
 ## A Surfnet/Sinodun server supporting TLS 1.2 and 1.3
 #  - address_data: 145.100.185.18
