@@ -169,14 +169,14 @@ if [ "$(whoami)" != "root" ]; then
     git update-index --assume-unchanged ".config/transmission/settings.json"
 
     echo "Creating pacman cache for custom AUR repo"
-    [[ ! -a "/var/cache/pacman/maximbaz-aur/" ]] && sudo install -d "/var/cache/pacman/maximbaz-aur" -o maximbaz
-    if [[ ! -a "/var/cache/pacman/maximbaz-aur/maximbaz-aur.db.tar" ]]; then
+    [[ ! -a "/var/cache/pacman/maximbaz/" ]] && sudo install -d "/var/cache/pacman/maximbaz" -o maximbaz
+    if [[ ! -a "/var/cache/pacman/maximbaz/maximbaz.db.tar" ]]; then
       if read -q "?Press 'y' to mirror the remote repo or 'n' to create an empty one: "; then
         echo ""
-        wget -m -nH -np -q --show-progress --reject="index.html*" --cut-dirs=1 -P '/var/cache/pacman/maximbaz-aur/' 'https://arch-repo.maximbaz.com:4433/maximbaz-aur/'
+        wget -m -nH -np -q --show-progress --reject="index.html*" --cut-dirs=1 -P '/var/cache/pacman/maximbaz/' 'https://pkgbuild.com/~maximbaz/repo/'
       else
         echo ""
-        repo-add -s "/var/cache/pacman/maximbaz-aur/maximbaz-aur.db.tar"
+        repo-add -s "/var/cache/pacman/maximbaz/maximbaz.db.tar"
       fi
     fi
   fi
@@ -224,14 +224,14 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/lightdm/lightdm.conf"
     copy "etc/lightdm/lightdm-gtk-greeter.conf"
     copy "etc/pacman.conf"
-    copy "etc/pacman.d/maximbaz-aur"
+    copy "etc/pacman.d/maximbaz"
     copy "etc/pam.d/sudo"
     copy "etc/private-internet-access/pia.conf"
     copy "etc/stubby/stubby.yml"
     copy "etc/sudoers"
     copy "etc/systemd/logind.conf"
-    copy "etc/systemd/system/backup-aur@devbox"
-    copy "etc/systemd/system/backup-aur@.service"
+    copy "etc/systemd/system/backup-repo@pkgbuild"
+    copy "etc/systemd/system/backup-repo@.service"
     copy "etc/systemd/system/connman-hook.service"
     copy "etc/systemd/system/connman-vpn-hook.service"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
@@ -266,7 +266,7 @@ if [[ "$(whoami)" == "root" ]]; then
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     systemctl enable "lightdm.service"
-    systemctl enable "backup-aur@devbox.service"
+    systemctl enable "backup-repo@pkgbuild.service"
     systemctl_enable_start "system" "connman-hook.service"
     systemctl_enable_start "system" "connman-vpn-hook.service"
     systemctl_enable_start "system" "pcscd.service"

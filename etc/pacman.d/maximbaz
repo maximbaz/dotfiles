@@ -1,0 +1,7 @@
+[options]
+CacheDir = /var/cache/pacman/pkg
+CacheDir = /var/cache/pacman/maximbaz
+
+[maximbaz]
+SigLevel = Required
+Server = file:///var/cache/pacman/maximbaz

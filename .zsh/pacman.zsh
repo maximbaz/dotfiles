@@ -39,7 +39,7 @@ aurs() {
 alias aurs!='aurs --no-ver-shallow'
 
 aurb() {
-  aur build -sc -d maximbaz-aur "$@"
+  aur build -sc -d maximbaz "$@"
   post_aur
 }
 
@@ -52,7 +52,7 @@ post_aur() {
   sudo pacman -Sy
   py3status-refresh-pacman
   find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \;
-  find /var/cache/pacman/maximbaz-aur -name '*~' -delete
+  find /var/cache/pacman/maximbaz -name '*~' -delete
 }
 
 py3status-refresh-pacman() {

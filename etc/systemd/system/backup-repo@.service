@@ -1,10 +1,10 @@
 [Unit]
-Description=Backup built AUR packages to %I
+Description=Backup pacman repository to %I
 After=paccache.service
 
 [Service]
 User=maximbaz
-EnvironmentFile=/etc/systemd/system/backup-aur@%i
+EnvironmentFile=/etc/systemd/system/backup-repo@%i
 ExecStart=/usr/bin/rsync --archive --compress --partial --delete ${LOCAL_PATH} ${REMOTE_ADDR}:${REMOTE_PATH}
 
 [Install]
