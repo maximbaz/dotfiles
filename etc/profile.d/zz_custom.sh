@@ -30,6 +30,8 @@ export FZ_SUBDIR_CMD=jj
 
 export ANDROID_SDK_ROOT="$HOME/.android/sdk"
 
+export WEECHAT_HOME="$HOME/.config/weechat"
+
 export PATH="$HOME/.cabal/bin:$PATH"
 
 if hash ruby 2>/dev/null; then

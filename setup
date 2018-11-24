@@ -110,6 +110,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/repoctl"
     link ".config/transmission/settings.json"
     link ".config/USBGuard"
+    link ".config/weechat"
 
     link ".config/systemd/user/urlwatch.service"
     link ".config/systemd/user/urlwatch.timer"
