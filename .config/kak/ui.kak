@@ -11,6 +11,10 @@ set-option global scrolloff  2,5
 
 set-option -add global autoinfo normal
 
+hook global WinCreate .+_(LOCAL|BASE|REMOTE)_.+ %{
+    set-option window autoinfo ''
+}
+
 evaluate-commands %sh{
     cwd='at {cyan}%sh{ pwd | sed "s|^$HOME|~|" }{default}'
     bufname='in {green}%val{bufname}{default}'

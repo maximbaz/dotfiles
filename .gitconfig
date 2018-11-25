@@ -24,12 +24,13 @@
   cmd = kitty +kitten diff $LOCAL $REMOTE
 [merge]
   conflictstyle = diff3
-  tool = nvimdiff
+  tool = env LOCAL="$LOCAL" BASE="$BASE" REMOTE="$REMOTE" MERGED="$MERGED" kakmerge
 [mergetool]
   keepBackup = false
   prompt = false
-[mergetool "nvimdiff"]
-  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "kakmerge"]
+  cmd = kakmerge
+  trustExitCode = true
 [diff "gpg"]
   binary = true
   textconv = gpg2 --decrypt --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
