@@ -2,7 +2,7 @@
 font pango: Taskbar, Cantarell 9
 
 # Gaps
-gaps inner 20
+gaps inner 5
 smart_gaps on
 
 # Borders
