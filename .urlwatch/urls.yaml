@@ -75,6 +75,11 @@ url: "https://github.com/wireapp/wire-desktop/releases/latest"
 filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
 max_tries: 3
 ---
+name: "wire-webapp"
+url: "https://github.com/wireapp/wire-webapp/releases/latest"
+filter: element-by-class:markdown-body,html2text
+max_tries: 3
+---
 name: "gocryptfs"
 url: "https://github.com/rfjakob/gocryptfs/releases/latest"
 filter: element-by-class:f1 flex-auto min-width-0 text-normal,html2text
