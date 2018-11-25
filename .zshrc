@@ -31,4 +31,5 @@ fi
 . ~/.zsh/mse.zsh
 
 # Load azure-cli completions
-. /usr/bin/az.completion.sh >/dev/null
+export PATH="$PATH:$HOME/lib/azure-cli/bin"
+. az.completion.sh >/dev/null

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/home/maximbaz/lib/azure-cli/bin/python -m azure.cli "$@"
