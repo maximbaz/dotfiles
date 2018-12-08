@@ -308,14 +308,6 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
-  echo "Adding my public key to pacman"
-  if ! pacman-key --list-keys | grep "$MY_GPG_KEY_ID" > /dev/null; then
-    pacman-key --recv-keys "$MY_GPG_KEY_ID"
-    pacman-key --lsign-key "$MY_GPG_KEY_ID"
-  fi
-
-  echo "Configuring devtools/makepkg"
-  sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar'/" /usr/share/devtools/makepkg-x86_64.conf
   echo "Configuring firewall"
   ufw --force reset >/dev/null
   ufw default allow outgoing
