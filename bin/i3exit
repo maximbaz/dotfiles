@@ -20,7 +20,6 @@ case "$1" in
     after_lock
     ;;
   logout)
-    stop_vpn
     i3-msg exit
     ;;
   suspend)
@@ -30,11 +29,9 @@ case "$1" in
     after_lock
     ;;
   reboot)
-    stop_vpn
     systemctl reboot
     ;;
   shutdown)
-    stop_vpn
     systemctl poweroff
     ;;
   *)
