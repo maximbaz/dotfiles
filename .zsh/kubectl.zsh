@@ -1,5 +1,6 @@
 alias k='kubectl'
 alias kc='kubectx "$(kubectx | fzy)"'
+alias kn='kubens "$(kubens | fzy)"'
 alias kd='k describe'
 alias kd!='kd --all-namespaces'
 alias kdp='kd pod'
