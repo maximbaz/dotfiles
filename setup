@@ -318,9 +318,6 @@ if [[ "$(whoami)" == "root" ]]; then
   sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar'/" /usr/share/devtools/makepkg-x86_64.conf
 
   if [[ "$HOST" =~ "desktop-" ]]; then
-    echo "Configuring aurutils-contrib"
-    ln -sf /usr/share/aurutils/contrib/vercmp-devel /usr/lib/aurutils/aur-vercmp-devel
-
     echo "Joining autologin group"
     groupadd -rf autologin
     gpasswd -a maximbaz autologin

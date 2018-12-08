@@ -7,7 +7,6 @@ alias e='kak'
 alias grep='grep --color'
 alias http-serve='python3 -m http.server'
 alias locate='locate -i'
-alias makepkg-compress="PKGEXT='.pkg.tar.xz' makepkg"
 alias mkdir='mkdir -p'
 alias o='xdg-open'
 alias rg='rg --hidden --follow --smart-case 2>/dev/null'

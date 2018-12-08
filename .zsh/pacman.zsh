@@ -33,18 +33,18 @@ pacs!() {
 }
 
 aurs() {
-  aur sync -sc "$@"
+  aur sync -scP "$@"
   post_aur
 }
 alias aurs!='aurs --no-ver-shallow'
 
 aurb() {
-  aur build -sc -d maximbaz "$@"
+  aur build -sc "$@"
   post_aur
 }
 
 auru() {
-  aur vercmp-devel "$@" | cut -d: -f1 | xargs aur sync -scu --no-ver-shallow "$@"
+  xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -scuP --rebuild
   post_aur
 }
 
