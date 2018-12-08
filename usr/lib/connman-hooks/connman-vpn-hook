@@ -10,29 +10,12 @@ while read -r _; do
     case "$line" in
         *ready*)
             sysctl -w net.ipv6.conf.all.disable_ipv6=1
-
-            ufw --force reset > /dev/null
-            ufw default deny incoming
-            ufw default deny outgoing
-            ufw allow out on vpn0
-            ufw enable
-            find /etc/ufw -type f -name '*.rules.*' -delete
-
             systemctl restart stubby.service
-
             py3-cmd refresh "whatismyip" "file_status PIA"
             ;;
         *idle*)
             sysctl -w net.ipv6.conf.all.disable_ipv6=0
-
-            ufw --force reset > /dev/null
-            ufw default deny incoming
-            ufw default allow outgoing
-            ufw enable
-            find /etc/ufw -type f -name '*.rules.*' -delete
-
             systemctl restart stubby.service
-
             py3-cmd refresh "whatismyip" "file_status PIA"
             ;;
     esac

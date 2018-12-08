@@ -316,6 +316,13 @@ if [[ "$(whoami)" == "root" ]]; then
 
   echo "Configuring devtools/makepkg"
   sed -i "s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar'/" /usr/share/devtools/makepkg-x86_64.conf
+  echo "Configuring firewall"
+  ufw --force reset >/dev/null
+  ufw default allow outgoing
+  ufw default deny incoming
+  [[ "$HOST" =~ "crmdevvm-" ]] && ufw allow ssh
+  ufw enable
+  find /etc/ufw -type f -name '*.rules.*' -delete
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     echo "Joining autologin group"
