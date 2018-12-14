@@ -46,7 +46,7 @@ alias gd!='git difftool -d'
 alias gds!='git difftool -d --cached'
 
 alias gf='git fetch --tags'
-alias gl='git pull --tags'
+alias gl='git pull --tags -f'
 
 alias glog="git log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
 alias gloga="git log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
