@@ -22,7 +22,7 @@ define-command disable-autoformat -docstring 'disable auto-format' %{
 # Hooks
 
 hook global BufOpenFile  .* modeline-parse
-hook global BufCreate    .* editorconfig-load
+hook global BufCreate    .* %{ editorconfig-load; set buffer eolformat lf }
 hook global BufWritePre  .* %{ nop %sh{ mkdir -p $(dirname "$kak_hook_param") }}
 hook global BufWritePost .* %{ git show-diff }
 hook global BufReload    .* %{ git show-diff }
@@ -40,7 +40,10 @@ hook global WinSetOption filetype=.* %{
     disable-autoformat
     disable-autolint
 
-    hook buffer -group format BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
+    hook buffer -group format BufWritePre .* %{
+        try %{ execute-keys -draft '%s\h+$<ret>d' }
+        try %{ execute-keys -draft '%s\u000d<ret>d' }
+    }
 }
 
 hook global WinSetOption filetype=python %{
