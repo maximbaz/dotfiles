@@ -1,0 +1,3 @@
+#!/bin/bash
+
+GRUB_BTRFS_IGNORE_SPECIFIC_PATH=("root/var/lib/docker" "root/var/lib/aurbuild" "root/var/lib/archbuild")

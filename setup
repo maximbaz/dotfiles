@@ -222,7 +222,7 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/resolv.conf"
     chattr +i "/etc/resolv.conf"
 
-    copy "etc/grub.d/41_snapshots-btrfs_config"
+    copy "etc/default/grub-btrfs/config"
     copy "etc/lightdm/lightdm.conf"
     copy "etc/lightdm/lightdm-gtk-greeter.conf"
     copy "etc/pacman.conf"

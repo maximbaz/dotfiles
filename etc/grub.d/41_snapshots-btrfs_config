@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-GRUB_BTRFS_IGNORE_SPECIFIC_PATH=("root/var/lib/docker" "root/var/lib/aurbuild")
