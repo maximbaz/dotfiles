@@ -1,9 +1,6 @@
 enable-cli() {
-  docker run --rm -v "$PWD:/project" enable-cli $*
-  ret=$?
-  [ $ret -ne 0 ] && return $ret
-  echo "Fix permissions? Press Ctrl+C to abort. " && read
-  sudo chown -R maximbaz:users .
+    . ~/mse/enable-cli/env/bin/activate
+    command enable-cli $*
 }
 
 # Useful functions
