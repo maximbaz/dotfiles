@@ -1,6 +1,6 @@
 pkgbase='maximbaz'
 pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.6.0
+pkgver=1.7.0
 pkgrel=1
 pkgdesc="Installed packages by maximbaz"
 arch=('any')
@@ -20,6 +20,7 @@ package_maximbaz-base() {
     'connman'
     'cryptboot'
     'dash'
+    'dep'
     'devtools'
     'diff-so-fancy'
     'docker'
@@ -34,7 +35,6 @@ package_maximbaz-base() {
     'go-langserver-git'
     'grub'
     'htop'
-    'httpie'
     'intel-ucode'
     'jq'
     'kak-lsp'
@@ -192,16 +192,14 @@ package_maximbaz-android() {
 
 package_maximbaz-work() {
   depends=(
-    'draft-bin'
     'gradle'
     'intellij-idea-ultimate-edition'
-    'jdk8'
+    'jdk8-openjdk'
     'jetty'
     'kubectl-bin'
     'kubectx'
     'kubernetes-helm'
     'maven'
-    'python-azure-cli'
     'rvm'
     'skaffold'
     'teams-for-linux'
