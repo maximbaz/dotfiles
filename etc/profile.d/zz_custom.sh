@@ -22,7 +22,7 @@ export XSECURELOCK_WANT_FIRST_KEYPRESS=1
 export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
 export PASSWORD_STORE_GENERATED_LENGTH=40
 
-export JAVA_HOME="/usr/lib/jvm/java-8-jdk"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export PATH="$JAVA_HOME/bin:$PATH"
 
 export FZ_CMD=j
