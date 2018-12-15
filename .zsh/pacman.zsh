@@ -44,7 +44,7 @@ aurb() {
 }
 
 auru() {
-  xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -scuP --rebuild
+  xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -scuP --rebuild "$@"
   post_aur
 }
 
