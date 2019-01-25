@@ -95,6 +95,7 @@ if [ "$(whoami)" != "root" ]; then
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     link ".gnupg/gpg-agent.conf"
+    link ".gnupg/pinentry-dmenu.conf"
 
     link ".config/chromium-flags.conf"
     link ".config/copyq/copyq.conf"
