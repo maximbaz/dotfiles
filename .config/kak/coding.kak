@@ -1,4 +1,5 @@
-evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
+source /usr/share/kak-lsp/rc/lsp.kak
+lsp-enable
 lsp-auto-hover-insert-mode-enable
 lsp-auto-hover-enable
 
