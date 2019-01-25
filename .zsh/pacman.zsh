@@ -39,7 +39,7 @@ aurs() {
 alias aurs!='aurs --no-ver-shallow'
 
 aurb() {
-  aur build -sc "$@"
+  aur build -sc --pkgver "$@"
   post_aur
 }
 
