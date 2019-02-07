@@ -59,7 +59,6 @@ set markers = no
 set wait_key = no
 set timeout = 30
 set sleep_time = 0
-timeout-hook 'exec sync-mailbox'
 
 set ts_enabled = yes
 set help = no
