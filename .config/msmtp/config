@@ -1,0 +1,10 @@
+defaults
+tls on
+tls_starttls off
+port 465
+
+account maximbaz
+host mail.maximbaz.com
+auth on
+user me@maximbaz.com
+passwordeval cat ~/.cache/mail.maximbaz.com

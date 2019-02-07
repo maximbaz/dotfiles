@@ -107,6 +107,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/i3"
     link ".config/kitty"
     link ".config/mimeapps.list"
+    link ".config/msmtp"
     link ".config/mpv/mpv.conf"
     link ".config/redshift"
     link ".config/repoctl"
