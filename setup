@@ -114,12 +114,15 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/USBGuard"
     link ".config/weechat"
 
+    link ".config/systemd/user/mbsync.service"
+    link ".config/systemd/user/mbsync.timer"
     link ".config/systemd/user/urlwatch.service"
     link ".config/systemd/user/urlwatch.timer"
 
     link ".local/share/fonts/taskbar.ttf"
 
     link ".gtkrc-2.0"
+    link ".mbsyncrc"
     link ".taskrc"
     link ".urlwatch/urls.yaml"
     link ".xsession"
@@ -136,6 +139,7 @@ if [ "$(whoami)" != "root" ]; then
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     systemctl_enable_start "user" "dunst.service"
+    systemctl_enable_start "user" "mbsync.timer"
     systemctl_enable_start "user" "redshift.service"
     systemctl_enable_start "user" "urlwatch.timer"
     systemctl_enable_start "user" "yubikey-touch-detector.service"
