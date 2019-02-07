@@ -1,0 +1,5 @@
+[database]
+path=/home/maximbaz/.mail/maximbaz
+
+[new]
+ignore=.uidvalidity;.mbsyncstate

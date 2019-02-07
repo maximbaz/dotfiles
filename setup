@@ -123,6 +123,7 @@ if [ "$(whoami)" != "root" ]; then
 
     link ".gtkrc-2.0"
     link ".mbsyncrc"
+    link ".notmuch-config"
     link ".taskrc"
     link ".urlwatch/urls.yaml"
     link ".xsession"
