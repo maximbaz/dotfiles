@@ -14,6 +14,7 @@ alias pacu='pac -Syu'
 alias ipacu='SNAP_PAC_SKIP=true pacu'
 alias pacq='pacman -Si'
 alias pacQ='pacman -Qo'
+alias pacl='pacman -Ql'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
 pac() {
