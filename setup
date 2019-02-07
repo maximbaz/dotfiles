@@ -98,6 +98,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".gnupg/pinentry-dmenu.conf"
 
     link ".config/chromium-flags.conf"
+    link ".config/compton/compton.conf"
     link ".config/copyq/copyq.conf"
     link ".config/dunst"
     link ".config/fontconfig/conf.d/70-monospace.conf"
@@ -118,7 +119,6 @@ if [ "$(whoami)" != "root" ]; then
 
     link ".local/share/fonts/taskbar.ttf"
 
-    link ".compton.conf"
     link ".gtkrc-2.0"
     link ".taskrc"
     link ".urlwatch/urls.yaml"
