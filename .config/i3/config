@@ -22,7 +22,7 @@ for_window    [class="Peek"]                 floating enable
 for_window    [class="Rofi"]                 floating enable
 for_window    [class="Chromium"]             move container to $workspace2, title_format "Chromium"
 for_window    [class="Wire"]                 move container to $workspace3
-for_window    [class="Thunderbird"]          move container to $workspace4
+for_window    [class="neomutt"]              move container to $workspace4
 for_window    [class="TeamViewer"]           move container to $workspace9, floating enable, sticky disable
 for_window    [class="xfreerdp"]             move container to $workspace9
 
@@ -306,6 +306,6 @@ exec_always hsetroot -solid '#333333' &
 exec_always numlockx &
 exec_always "pgrep -x unclutter || (unclutter &)"
 exec_always "pgrep -x copyq || (copyq &)"
-exec_always "pgrep -x thunderbird || (thunderbird &)"
+exec_always "pgrep -x neomutt || (kitty --class neomutt neomutt &)"
 exec_always "pgrep -x wire-desktop || (wire-desktop &)"
 exec_always "pgrep -x udiskie || (udiskie --smart-tray &)"

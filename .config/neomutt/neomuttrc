@@ -1,0 +1,123 @@
+set realname = "Maxim Baz"
+set from = "PLACEHOLDER@maximbaz.com"
+alternates @maximbaz.com
+set use_domain = no
+set hostname = maximbaz.com
+set reverse_name = yes
+set signature = ~/.config/neomutt/signature
+set sendmail = "/usr/bin/msmtp -a maximbaz"
+set use_envelope_from = yes
+set edit_headers = yes
+set user_agent = no
+
+set folder = "~/.mail/maximbaz"
+set mbox_type = Maildir
+set ssl_force_tls = yes
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
+
+unmailboxes *
+unvirtual-mailboxes *
+virtual-mailboxes "INBOX" "notmuch://?query=folder:INBOX"
+virtual-mailboxes "Archive/2019" "notmuch://?query=folder:Archive/2019"
+virtual-mailboxes "Archive/2018" "notmuch://?query=folder:Archive/2018"
+virtual-mailboxes "Archive/2017" "notmuch://?query=folder:Archive/2017"
+virtual-mailboxes "Archive/2016" "notmuch://?query=folder:Archive/2016"
+virtual-mailboxes "Drafts" "notmuch://?query=folder:Drafts"
+virtual-mailboxes "Sent" "notmuch://?query=folder:Sent"
+virtual-mailboxes "Junk" "notmuch://?query=folder:Junk"
+virtual-mailboxes "Trash" "notmuch://?query=folder:Trash"
+
+unlists *
+unsubscribe *
+subscribe arch-announce@archlinux.org arch-dev-public@archlinux.org arch-events@archlinux.org aur-general@archlinux.org
+
+set virtual_spoolfile = yes
+set sort = threads
+set sort_aux = last-date-received
+set nm_query_type = threads
+
+source /usr/share/doc/neomutt/samples/gpg.rc
+set pgp_auto_decode = yes
+set pgp_use_gpg_agent = yes
+set crypt_autosign
+
+set beep_new = yes
+set new_mail_command = "notify-send --icon /usr/share/icons/Adwaita/256x256/actions/mail-message-new.png 'neomutt' 'There are new messages'"
+set fast_reply = yes
+set include = yes
+set hide_thread_subject = no
+set forward_format = "Fwd: %s"
+set mark_old = no
+set mime_forward = ask-no
+set rfc2047_parameters = yes
+set wrap = 120
+set markers = no
+
+set wait_key = no
+set timeout = 30
+set sleep_time = 0
+timeout-hook 'exec sync-mailbox'
+
+set ts_enabled = yes
+set help = no
+set menu_scroll
+set menu_context = 5
+
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+auto_view application/pdf
+set mailcap_path = ~/.config/neomutt/mailcap
+
+source colors
+set index_format = "%4C %Z%?X?A& ? %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[  %b %d]>&%[%b %Y]> %-35.35F %s"
+set attach_format = "%u%D%I %t%4n %T%.100f (%.100d)%> [%.15m/%.15M, %.6e%?C?, %C?, %s] "
+set pager_format = "%e/%E - %C/%m: %-40.40n   %s%* -- (%P)"
+set status_format = "%f: Total %?M?%M/?%m%?n?, New %n?%?d?, Del %d?%?F?, Flag %F?%?t?, Tag %t? %* -- (%P)"
+set to_chars = "     LR"
+set flag_chars = "*!Dd  N n- "
+
+set sidebar_visible = yes
+set sidebar_width = 23
+set mail_check_stats
+set mail_check_stats_interval = 5
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Co sidebar-open
+
+bind index,pager gg noop
+bind index,pager g noop
+bind index gg first-entry
+bind index G last-entry
+bind pager gg top
+bind pager G bottom
+bind pager [ half-up
+bind pager ] half-down
+
+macro index,pager gi "<change-vfolder>INBOX<enter>"
+macro index,pager ga "<change-vfolder>Archive/2019<enter>"
+macro index,pager gd "<change-vfolder>Drafts<enter>"
+macro index,pager gs "<change-vfolder>Sent<enter>"
+macro index,pager gj "<change-vfolder>Junk<enter>"
+macro index,pager gt "<change-vfolder>Trash<enter>"
+
+bind pager j next-line
+bind pager k previous-line
+
+bind index,pager y noop
+macro index,pager S "<sync-mailbox>y<check-stats>"
+bind index,pager R group-reply
+bind index,pager @ compose-to-sender
+macro attach s "<save-entry><bol>~/Downloads/<eol>"
+
+set auto_tag = yes
+macro index a "<tag-entry><clear-flag>N<save-message>=Archive/2019<enter><enter>"
+macro pager a "<save-message>=Archive/2019<enter><enter>"
+macro index A "<tag-thread><clear-flag>N<save-message>=Archive/2019<enter><enter>"
+macro index,pager D "<purge-message><sync-mailbox>"
+macro index,pager I "<save-message>=INBOX<enter><enter>"
+bind index + entire-thread
+bind index \\ vfolder-from-query

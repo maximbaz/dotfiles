@@ -12,7 +12,7 @@ WINDOW_ICONS = {
     "chromium": "󰀠",
     "copyq": "",
     "wire": "󰁀",
-    "thunderbird": "󰀚",
+    "neomutt": "󰀚",
     "rofi": "󰀋",
     "mpv": "",
     "xfreerdp": "󰀄",

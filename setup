@@ -109,6 +109,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/mimeapps.list"
     link ".config/msmtp"
     link ".config/mpv/mpv.conf"
+    link ".config/neomutt"
     link ".config/redshift"
     link ".config/repoctl"
     link ".config/transmission/settings.json"
@@ -121,6 +122,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/systemd/user/urlwatch.timer"
 
     link ".local/share/fonts/taskbar.ttf"
+    link ".local/share/applications/neomutt.desktop"
 
     link ".gtkrc-2.0"
     link ".mbsyncrc"

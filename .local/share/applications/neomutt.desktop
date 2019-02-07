@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=neomutt
+GenericName=Email client
+Exec=/usr/bin/kitty --class neomutt /usr/bin/neomutt
+Type=Application
+Icon=/usr/share/doc/neomutt/logo/neomutt-128.png
+Categories=Network;Email;
+MimeType=message/rfc822;x-scheme-handler/mailto;application/x-xpinstall;
+StartupNotify=true
