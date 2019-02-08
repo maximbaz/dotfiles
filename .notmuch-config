@@ -2,4 +2,5 @@
 path=/home/maximbaz/.mail/maximbaz
 
 [new]
+tags=unread
 ignore=.uidvalidity;.mbsyncstate
