@@ -57,7 +57,6 @@ set wrap = 120
 set markers = no
 
 set wait_key = no
-set timeout = 30
 set sleep_time = 0
 
 set ts_enabled = yes
@@ -71,12 +70,13 @@ auto_view application/pdf
 set mailcap_path = ~/.config/neomutt/mailcap
 
 source colors
-set index_format = "%4C %Z%?X?A& ? %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[  %b %d]>&%[%b %Y]> %-35.35F %s"
+set index_format = "%4C %Z%?X?A& ?%?g?%g& ? %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[  %b %d]>&%[%b %Y]> %-35.35F %s"
 set attach_format = "%u%D%I %t%4n %T%.100f (%.100d)%> [%.15m/%.15M, %.6e%?C?, %C?, %s] "
 set pager_format = "%e/%E - %C/%m: %-40.40n   %s%* -- (%P)"
 set status_format = "%f: Total %?M?%M/?%m%?n?, New %n?%?d?, Del %d?%?F?, Flag %F?%?t?, Tag %t? %* -- (%P)"
 set to_chars = "     LR"
-set flag_chars = "*!Dd  N n- "
+set flag_chars = "*!Dd     - "
+tag-transforms "archive" "X"
 
 set sidebar_visible = yes
 set sidebar_width = 23
@@ -113,10 +113,11 @@ bind index,pager @ compose-to-sender
 macro attach s "<save-entry><bol>~/Downloads/<eol>"
 
 set auto_tag = yes
-macro index a "<tag-entry><clear-flag>N<save-message>=Archive/2019<enter><enter>"
-macro pager a "<save-message>=Archive/2019<enter><enter>"
-macro index A "<tag-thread><clear-flag>N<save-message>=Archive/2019<enter><enter>"
-macro index,pager D "<purge-message><sync-mailbox>"
+macro index a "<tag-entry><clear-flag>N<modify-tags>!archive<enter><untag-pattern>.<enter>"
+macro pager a "<modify-tags>!archive<enter><next-undeleted>"
+macro index A "<tag-thread><clear-flag>N<modify-tags>!archive<enter><untag-pattern>.<enter>"
+macro index P "<vfolder-from-query>tag:archive<enter><tag-pattern>.<enter><modify-tags>-archive<enter><save-message>=Archive/2019<enter><enter><change-vfolder>INBOX<enter><enter>"
+macro index,pager D "<purge-message>"
 macro index,pager I "<save-message>=INBOX<enter><enter>"
 bind index + entire-thread
 bind index \\ vfolder-from-query
