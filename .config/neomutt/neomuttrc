@@ -103,6 +103,8 @@ macro index,pager gs "<change-vfolder>Sent<enter>"
 macro index,pager gj "<change-vfolder>Junk<enter>"
 macro index,pager gt "<change-vfolder>Trash<enter>"
 
+bind index j next-entry
+bind index k previous-entry
 bind pager j next-line
 bind pager k previous-line
 
