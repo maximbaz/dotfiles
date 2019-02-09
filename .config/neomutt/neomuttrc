@@ -45,7 +45,6 @@ set pgp_use_gpg_agent = yes
 set crypt_autosign
 
 set beep_new = yes
-set new_mail_command = "notify-send --icon /usr/share/icons/Adwaita/256x256/actions/mail-message-new.png 'neomutt' 'There are new messages'"
 set fast_reply = yes
 set include = yes
 set hide_thread_subject = no
