@@ -6,9 +6,6 @@ export DIFFPROG='nvim -d'
 export MANPAGER='kak-man-pager'
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
-# Better VA-API driver
-export LIBVA_DRIVER_NAME=iHD
-
 # My own binaries
 export PATH="$HOME/bin:$PATH"
 
