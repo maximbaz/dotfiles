@@ -1,9 +1,6 @@
-! vim:ft=xdefaults
-
-rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi
+rofi.theme: gruvbox.rasi
 rofi.modi: drun,window,calc:rofi-calc
 rofi.show-icons: true
-rofi.show-match: false
 rofi.window-format: {c} {t}
 rofi.drun-match-fields: name
 rofi.window-match-fields: name,title
