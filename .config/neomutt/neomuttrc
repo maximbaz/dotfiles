@@ -71,7 +71,7 @@ set mailcap_path = ~/.config/neomutt/mailcap
 source colors
 set index_format = "%4C %Z%?X?A& ?%?g?%g& ? %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[  %b %d]>&%[%b %Y]> %-35.35F %s"
 set attach_format = "%u%D%I %t%4n %T%.100f (%.100d)%> [%.15m/%.15M, %.6e%?C?, %C?, %s] "
-set pager_format = "%e/%E - %C/%m: %-40.40n   %s%* -- (%P)"
+set pager_format = "%e/%E - %C/%m%?g? (%g)&?: %-40.40n   %s%* -- (%P)"
 set status_format = "%f: Total %?M?%M/?%m%?n?, New %n?%?d?, Del %d?%?F?, Flag %F?%?t?, Tag %t? %* -- (%P)"
 set to_chars = "     LR"
 set flag_chars = "*!Dd     - "
