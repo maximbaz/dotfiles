@@ -25,3 +25,6 @@ alias lc="ll --created -s=created"   # Sorted by created date
 mkdcd() {
   [ -n "$1" ] && mkdir -p "$1" && builtin cd "$1"
 }
+
+alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-91 --ValSetupPwd="$(pass personal/bios)"'
+alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
