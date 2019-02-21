@@ -1,5 +1,5 @@
 @import "/usr/share/rofi/themes/gruvbox-dark.rasi"
 
 * {
-    highlight: bold #fabd2f;
+    highlight: bold;
 }
