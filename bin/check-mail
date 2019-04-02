@@ -9,5 +9,5 @@ notmuch tag -inbox 'NOT folder:INBOX'
 
 count=$(notmuch count 'tag:unread AND tag:inbox')
 notmuch tag -inbox '*'
-[ "$count" != "0" ] && notify-send --icon /usr/share/icons/Adwaita/256x256/actions/mail-message-new.png 'Email' "There are $count new message(s)"
+[ "$count" != "0" ] && notify-send --icon /usr/share/icons/Adwaita/256x256/legacy/mail-message-new.png 'Email' "There are $count new message(s)"
 exit 0
