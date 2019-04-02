@@ -110,6 +110,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/msmtp"
     link ".config/mpv/mpv.conf"
     link ".config/neomutt"
+    link ".config/py3status"
     link ".config/redshift"
     link ".config/repoctl"
     link ".config/transmission/settings.json"

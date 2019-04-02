@@ -27,7 +27,6 @@ order += 'group cpu'
 order += 'group ram'
 order += 'xrandr'
 order += 'group wifi'
-order += 'ethernet enp62s0u1'
 order += 'file_status PIA'
 order += 'whatismyip'
 order += 'backlight'
@@ -68,12 +67,7 @@ diskdata {
   disk = '/dev/mapper/luks'
   format = '\?color=free 󰀇  {free} GB'
   format_space = '{value:.0f}'
-  thresholds = {'free': [(0, 'bad'), (2, 'degraded'), (5, 'good')]}
-}
-
-ethernet enp62s0u1 {
-  format_up = '󰀍'
-  format_down = ''
+  thresholds = {'free': [(0, 'bad'), (2, 'degraded'), (5, 'hidden')]}
 }
 
 external_script date {
@@ -149,8 +143,7 @@ keyboard_layout {
 net_rate {
   format = '\?color=total 󰀑  {total}'
   format_value = '{value:.0f} {unit}'
-  thresholds = {'total': [(0, 'good'), (1499500, 'degraded'), (14995000, 'bad')]} # 8 mbit, 80 mbit
-  hide_if_zero = true
+  thresholds = {'total': [(0, 'hidden'), (1499500, 'degraded'), (14995000, 'bad')]} # 8 mbit, 80 mbit
   unit = 'MB/s'
 }
 
