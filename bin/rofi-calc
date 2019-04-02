@@ -1,6 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-if [ "$#" -gt 0 ]; then
-  echo "$1"
-  LC_MONETARY=en_DK.UTF-8 LC_ALL= qalc -t $1 | tee >(xclip -selection clipboard >/dev/null)
-fi
+LC_MONETARY=en_DK.UTF-8 LC_ALL= rofi -normal-window -show calc -modi calc -no-show-match -no-sort -terse -calc-command "echo '{result}' | xclip -selection clipboard"

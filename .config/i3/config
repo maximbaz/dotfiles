@@ -82,7 +82,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec kitty /bin/bash
 
 # Start a launcher (=)(d)(o)(p)
-bindcode $mod+21 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show calc"
+bindcode $mod+21 exec "pgrep -x rofi && killall rofi || rofi-calc"
 bindcode $mod+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show drun"
 bindcode $mod+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
 bindcode $mod+33 exec "passmenu"
