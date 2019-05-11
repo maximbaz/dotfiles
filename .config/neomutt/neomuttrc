@@ -117,7 +117,7 @@ macro attach s "<save-entry><bol>~/Downloads/<eol>"
 set auto_tag = yes
 macro index a "<tag-entry><clear-flag>N<modify-tags>!archive<enter><untag-pattern>.<enter>"
 macro pager a "<modify-tags>!archive<enter><next-undeleted>"
-macro index A "<tag-thread><clear-flag>N<modify-tags>!archive<enter><untag-pattern>.<enter>"
+macro index A "<tag-thread><clear-flag>N<modify-tags>+archive<enter><untag-pattern>.<enter>"
 macro index P "<vfolder-from-query>tag:archive<enter><tag-pattern>.<enter><modify-tags>-archive<enter><save-message>=Archive/2019<enter><enter><change-vfolder>INBOX<enter><enter>"
 macro index,pager D "<purge-message>"
 macro index,pager I "<save-message>=INBOX<enter><enter>"
