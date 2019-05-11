@@ -9,11 +9,11 @@ while read -r _; do
     read -r line
     case "$line" in
         *online*)
-            connmanctl connect vpn_sweden_privateinternetaccess_com_privateinternetaccess_com
-            py3-cmd refresh "wifi brief" "wifi detailed"
+            systemctl restart stubby.service
+            py3-cmd refresh "wifi brief" "wifi detailed" "whatismyip"
             ;;
         *idle*)
-            py3-cmd refresh "wifi brief" "wifi detailed"
+            py3-cmd refresh "wifi brief" "wifi detailed" "whatismyip"
             ;;
     esac
 done
