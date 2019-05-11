@@ -2,4 +2,5 @@
 
 * {
     highlight: bold;
+    alternate-normal-background: @background;
 }
