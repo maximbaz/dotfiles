@@ -222,6 +222,7 @@ if [[ "$(whoami)" == "root" ]]; then
   copy "etc/sysctl.d/99-idea.conf"
   copy "etc/sysctl.d/99-sysctl.conf"
   copy "etc/systemd/journald.conf"
+  copy "etc/systemd/system/connman.service.d/disable_dns_proxy.conf"
   copy "etc/systemd/system/paccache.service"
   copy "etc/systemd/system/paccache.timer"
   copy "etc/systemd/system/reflector.service"
