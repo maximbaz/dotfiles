@@ -32,7 +32,7 @@ virtual-mailboxes "Trash" "notmuch://?query=folder:Trash"
 
 unlists *
 unsubscribe *
-subscribe arch-announce@archlinux.org arch-dev-public@archlinux.org arch-events@archlinux.org aur-general@archlinux.org
+subscribe arch-announce@archlinux.org arch-dev-public@archlinux.org arch-events@archlinux.org aur-general@archlinux.org arch-projects@archlinux.org
 
 set virtual_spoolfile = yes
 set sort = threads
