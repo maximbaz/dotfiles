@@ -107,3 +107,8 @@ name: "megacmd"
 url: "https://github.com/meganz/MEGAcmd/releases/latest"
 filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
 max_tries: 3
+---
+name: "MikroTik"
+url: "https://mikrotik.com/download/changelogs/stable-release-tree"
+filter: css:section.active-def li.active,html2text,strip
+max_tries: 3
