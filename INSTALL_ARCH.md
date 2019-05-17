@@ -43,7 +43,7 @@
 1.  Encrypt the Linux partition:
 
     ```
-    # cryptsetup luksFormat /dev/sdX2
+    # cryptsetup luksFormat --type luks1 /dev/sdX2
     # cryptsetup luksOpen /dev/sdX2 luks
     ```
 
