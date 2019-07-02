@@ -11,13 +11,21 @@ url: "https://github.com/kovidgoyal/kitty/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
-name: "EmojiOne font"
-url: "https://github.com/emojione/emojione-assets/releases/latest"
+name: "JoyPixels font"
+url: "https://github.com/joypixels/emoji-assets/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
+name: "JoyPixels License"
+url: "https://cdn.joypixels.com/arch-linux/license/free-license.pdf"
+max_tries: 3
+---
+name: "JoyPixels License appendix "
+url: "https://cdn.joypixels.com/arch-linux/appendix/joypixels-license-appendix.pdf"
+max_tries: 3
+---
 name: "New emojis"
-url: "https://raw.githubusercontent.com/emojione/emojione/master/extras/alpha-codes/eac.json"
+url: "https://raw.githubusercontent.com/joypixels/emoji-assets/master/emoji.json"
 max_tries: 3
 ---
 name: "Chromium"
@@ -83,11 +91,6 @@ url: "https://github.com/rfjakob/gocryptfs/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
-name: "skaffold"
-url: "https://github.com/GoogleContainerTools/skaffold/releases/latest"
-filter: css:.release-header>div>div>a,html2text
-max_tries: 3
----
 name: "bash-language-server"
 url: "https://github.com/mads-hartmann/bash-language-server/releases/latest"
 filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
@@ -111,4 +114,9 @@ max_tries: 3
 name: "MikroTik"
 url: "https://mikrotik.com/download/changelogs/stable-release-tree"
 filter: css:section.active-def li.active,html2text,strip
+max_tries: 3
+---
+name: "pam-u2f"
+url: "https://github.com/Yubico/pam-u2f/releases/latest"
+filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
 max_tries: 3
