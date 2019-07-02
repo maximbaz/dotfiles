@@ -1,0 +1,11 @@
+set line-graphics = utf-8
+set tab-size = 4
+
+color cursor 15 blue
+set main-view = date:relative id:yes author:full commit-title:yes,graph,refs,overflow=no
+
+bind main L !git pull --tags -f
+bind main P !git push -u
+
+bind status C !git commit -v
+bind status A !git commit -v --amend
