@@ -30,6 +30,7 @@ order += 'group wifi'
 order += 'file_status PIA'
 order += 'whatismyip'
 order += 'backlight'
+order += 'bluetooth'
 order += 'volume_status'
 order += 'do_not_disturb'
 order += 'battery_level'
@@ -55,6 +56,13 @@ battery_level {
   notify_low_level = true
   measurement_mode = 'sys'
   on_udev_power_supply = 'refresh'
+}
+
+bluetooth {
+  cache_timeout = -1
+  format = '{format_device}'
+  format_device = ''
+  on_udev_bluetooth = 'refresh_and_freeze'
 }
 
 clock {
