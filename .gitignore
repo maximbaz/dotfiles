@@ -5,3 +5,4 @@ tags
 *.tar
 *.tar.*
 *.log
+.magic.mgc

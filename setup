@@ -85,6 +85,7 @@ if [ "$(whoami)" != "root" ]; then
   link ".gitconfig.work"
   link ".gitignore"
   link ".ignore"
+  link ".magic"
   link ".mdlrc"
   link ".npmrc"
   link ".pylintrc"
@@ -155,6 +156,9 @@ if [ "$(whoami)" != "root" ]; then
   echo "======================================="
   echo "Finishing various user configuration..."
   echo "======================================="
+
+  echo "Configuring MIME types"
+  file --compile --magic-file ~/.magic
 
   if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     echo "Importing my public PGP key"
