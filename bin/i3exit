@@ -1,8 +1,8 @@
 #!/bin/bash
 
 before_lock() {
-  setxkbmap -layout us; sleep 0.2; setxkbmap -layout us,ru  # reset keyboard layout to english, works only with sleep
-  py3-cmd refresh keyboard_layout
+  xkb-switch -s us
+  py3-cmd refresh xkb_layouts
   killall compton
   usbguard set-parameter InsertedDevicePolicy reject
   sudo systemctl stop pcscd.service
