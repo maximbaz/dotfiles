@@ -21,6 +21,7 @@ for_window    [class="copyq"]                floating enable
 for_window    [class="Peek"]                 floating enable
 for_window    [class="Rofi"]                 floating enable
 for_window    [class="Chromium"]             move container to $workspace2, title_format "Chromium"
+for_window    [class="Brave"]                move container to $workspace2, title_format "Brave"
 for_window    [class="Wire"]                 move container to $workspace3
 for_window    [class="neomutt"]              move container to $workspace4
 for_window    [class="TeamViewer"]           move container to $workspace9, floating enable, sticky disable
