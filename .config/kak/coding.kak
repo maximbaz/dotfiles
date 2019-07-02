@@ -5,6 +5,8 @@ lsp-auto-hover-enable
 
 set-option global grepcmd 'ag --column --hidden -f'
 
+set-option global langmap %opt{langmap_ru_jcuken}
+
 hook global ModuleLoaded kitty %{
    set-option global kitty_window_type 'os'
 }
