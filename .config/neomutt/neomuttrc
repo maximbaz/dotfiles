@@ -122,3 +122,6 @@ macro index,pager D "<purge-message>"
 macro index,pager I "<save-message>=INBOX<enter><enter>"
 bind index + entire-thread
 bind index \\ vfolder-from-query
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>"
