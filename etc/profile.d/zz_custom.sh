@@ -2,7 +2,7 @@
 
 export EDITOR='kak'
 export VISUAL='kak'
-export DIFFPROG='nvim -d'
+export DIFFPROG='meld'
 export MANPAGER='kak-man-pager'
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 

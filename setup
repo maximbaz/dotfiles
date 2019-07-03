@@ -71,7 +71,6 @@ if [ "$(whoami)" != "root" ]; then
 
   link ".config/htop"
   link ".config/kak"
-  link ".config/nvim"
   link ".config/pacman"
   link ".config/qalculate/qalc.cfg"
   link ".config/ranger/rc.conf"
