@@ -1,0 +1,5 @@
+urlwatch:
+  image: vimagick/urlwatch
+  volumes:
+    - .:/root/.urlwatch
+  restart: unless-stopped
