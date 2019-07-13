@@ -39,7 +39,8 @@ map global user -docstring 'surround'             s      ': auto-pairs-surround<
 map global user -docstring 'select down'          V      ': vertical-selection-down<ret>'
 map global user -docstring 'select up'            <a-v>  ': vertical-selection-up<ret>'
 map global user -docstring 'select up and down'   v      ': vertical-selection-up-and-down<ret>'
-map global user -docstring 'new terminal in cwd'  n      ' :kitty-terminal zsh<ret>'
+map global user -docstring 'new terminal in cwd'  n      ': kitty-terminal zsh<ret>'
+map global user -docstring 'disable autoformat'   d      ': disable-autoformat<ret>'
 
 map global normal -docstring "toggle layout (C-\)" ''   ':      toggle-langmap<ret>'
 map global insert -docstring "toggle layout (C-\)" ''   '<a-;>: toggle-langmap<ret>'
