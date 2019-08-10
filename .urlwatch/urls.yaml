@@ -120,3 +120,8 @@ name: "pam-u2f"
 url: "https://github.com/Yubico/pam-u2f/releases/latest"
 filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
 max_tries: 3
+---
+name: "Brave browser"
+url: "https://brave-browser-apt-release.s3.brave.com/dists/bionic/main/binary-amd64/Packages"
+filter: grep:Version,strip
+max_tries: 3
