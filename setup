@@ -106,6 +106,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/gsimplecal"
     link ".config/gtk-3.0"
     link ".config/i3"
+    link ".config/imapnotify"
     link ".config/kitty"
     link ".config/mimeapps.list"
     link ".config/msmtp"
