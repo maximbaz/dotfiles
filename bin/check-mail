@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if pgrep mbsync >/dev/null || pgrep notmuch >/dev/null; then
+    echo "Sync in progress, aborting."
+    exit 1
+fi
+
 mbsync -a
 notmuch new
 
