@@ -116,6 +116,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/redshift"
     link ".config/repoctl"
     link ".config/transmission/settings.json"
+    link ".config/urlwatch"
     link ".config/USBGuard"
     link ".config/weechat"
 

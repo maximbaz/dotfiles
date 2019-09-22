@@ -125,3 +125,8 @@ name: "Brave browser"
 url: "https://brave-browser-apt-release.s3.brave.com/dists/bionic/main/binary-amd64/Packages"
 filter: grep:Version,strip
 max_tries: 3
+---
+name: "FairEmail"
+url: "https://github.com/M66B/FairEmail/releases/latest"
+filter: css:.markdown-body,html2text
+max_tries: 3
