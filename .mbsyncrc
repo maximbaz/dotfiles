@@ -14,5 +14,6 @@ Master :maximbaz-remote:
 Slave :maximbaz-local:
 Create Both
 Expunge Both
+CopyArrivalDate yes
 Patterns *
 SyncState *
