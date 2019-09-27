@@ -20,6 +20,7 @@ alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 pac() {
   sudo pacman "$@"
   py3status-refresh-pacman
+  rehash
 }
 compdef pac=pacman
 
