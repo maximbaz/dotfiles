@@ -334,6 +334,10 @@ if [[ "$(whoami)" == "root" ]]; then
     groupadd -rf autologin
     gpasswd -a maximbaz autologin
 
+    echo "Joining video group"
+    groupadd -rf video
+    gpasswd -a maximbaz video
+
     echo "Enabling infinality aliases"
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
   fi
