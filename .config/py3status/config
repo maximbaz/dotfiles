@@ -209,7 +209,7 @@ whatismyip {
   icon_on = '󰀈'
   icon_off = '󰀈'
   expected = {'country_iso': 'SE'}
-  url_geo = 'https://whatismyip.maximbaz.com/json'
+  url_geo = 'https://ip.maximbaz.com/json'
 }
 
 group wifi {
