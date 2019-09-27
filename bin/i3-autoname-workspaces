@@ -23,6 +23,7 @@ WINDOW_ICONS = {
     "libreoffice-calc": "",
     "peek": "",
     "teams-for-linux": "",
+    "spotify": "",
 }
 
 DEFAULT_ICON = "󰀏"
