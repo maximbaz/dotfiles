@@ -1,5 +1,0 @@
-[Unit]
-Description=Watch selected URLs for changes
-
-[Service]
-ExecStart=/usr/bin/urlwatch
