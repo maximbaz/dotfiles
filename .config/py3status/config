@@ -21,7 +21,6 @@ order += 'external_script new_email'
 order += 'file_status decrypted'
 order += 'scratchpad_async'
 order += 'net_rate'
-order += 'mega_sync'
 order += 'diskdata'
 order += 'group cpu'
 order += 'group ram'
@@ -156,11 +155,6 @@ file_status PIA {
   cache_timeout = -1
   paths = '/proc/sys/net/ipv4/conf/vpn0'
   format = '\?color=path 󰀁'
-}
-
-mega_sync {
-  format = "[\?color=degraded 󰁁  {format_sync}]"
-  format_sync = "[\?if=!syncstate=Synced {syncstate}]"
 }
 
 scratchpad_async {
