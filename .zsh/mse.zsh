@@ -1,5 +1,5 @@
 enable-cli() {
-    . ~/mse/enable-cli/env/bin/activate
+    . /home/maximbaz/.cache/pypoetry/virtualenvs/enable-cli-py3.7/bin/activate
     command enable-cli $*
 }
 
