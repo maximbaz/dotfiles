@@ -233,12 +233,12 @@ upstream_recursive_servers:
     tls_auth_name: "cloudflare-dns.com"
   - address_data: 1.0.0.1
     tls_auth_name: "cloudflare-dns.com"
-# The Uncensored DNS servers
-  - address_data: 89.233.43.71
-    tls_auth_name: "unicast.censurfridns.dk"
-    tls_pubkey_pinset:
-      - digest: "sha256"
-        value: wikE3jYAA6jQmXYTr/rbHeEPmC78dQwZbQp6WdrseEs=
+## The Uncensored DNS servers
+#  - address_data: 89.233.43.71
+#    tls_auth_name: "unicast.censurfridns.dk"
+#    tls_pubkey_pinset:
+#      - digest: "sha256"
+#        value: wikE3jYAA6jQmXYTr/rbHeEPmC78dQwZbQp6WdrseEs=
 ## Fondation RESTENA (NREN for Luxembourg)
 #  - address_data: 158.64.1.29
 #    tls_auth_name: "kaitain.restena.lu"
