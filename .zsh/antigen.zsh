@@ -17,6 +17,6 @@ antigen bundles <<EOB
   mafredri/zsh-async
 EOB
 
-antigen theme maximbaz/spaceship-prompt
+antigen theme romkatv/powerlevel10k
 
 antigen apply
