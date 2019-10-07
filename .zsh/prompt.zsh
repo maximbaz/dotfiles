@@ -40,7 +40,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_USER_FOREGROUND=red
   typeset -g POWERLEVEL9K_USER_PREFIX="%fas "
   typeset -g POWERLEVEL9K_USER_CONTENT_EXPANSION=
-  typeset -g POWERLEVEL9K_USER_ROOT_CONTENT_EXPANSION='${P9K_CONTENT}'
+  typeset -g POWERLEVEL9K_USER_ROOT_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
   ################################[ prompt_char: prompt symbol ]################################
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=green
@@ -162,8 +162,8 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   functions +M -m gitstatus_formatter && functions -M gitstatus_formatter
 
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
-  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((gitstatus_formatter(1)))+${gitstatus_format}}'
-  typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((gitstatus_formatter(0)))+${gitstatus_format}}'
+  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%B${$((gitstatus_formatter(1)))+${gitstatus_format}}'
+  typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='%B${$((gitstatus_formatter(0)))+${gitstatus_format}}'
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
   typeset -g POWERLEVEL9K_VCS_PREFIX='%fon '
@@ -179,10 +179,11 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=yellow
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_VISUAL_IDENTIFIER_EXPANSION=
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%fat '
-  typeset -g POWERLEVEL9K_KUBECONTEXT_VISUAL_IDENTIFIER_EXPANSION='⎈'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_VISUAL_IDENTIFIER_EXPANSION='☸️'
 
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
       '*-prod-*'  PROD
@@ -190,7 +191,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=blue
   typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND=red
 
-  typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION=
+  typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION='%B'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
@@ -202,9 +203,11 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
   typeset -g POWERLEVEL9K_AZURE_PREFIX='%fusing '
   typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION="☁️"
+  typeset -g POWERLEVEL9K_AZURE_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
   ####################################[ time: current time ]####################################
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=yellow
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
+  typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 }
