@@ -72,39 +72,97 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
 
   #####################################[ vcs: git status ]######################################
-  function _git_dirty() {
+  function gitstatus_formatter() {
+    if [[ -n "$P9K_CONTENT" ]]; then
+      typeset -g gitstatus_format="$P9K_CONTENT"
+      return
+    fi
+
+    if (( $1 )); then
+      # Styling for up-to-date Git status.
+      local meta='%F{yellow}'
+      local clean='%F{magenta}'
+      local stashes='%F{cyan}'
+      local conflicted='%F{magenta}'
+      local removed='%F{red}'
+      local unstaged='%F{yellow}'
+      local untracked='%F{blue}'
+      local staged='%F{green}'
+      local outofsync='%F{yellow}'
+    else
+      # Styling for incomplete and stale Git status.
+      local meta='%F{white}'
+      local clean='%F{white}'
+      local stashes='%F{white}'
+      local conflicted='%F{white}'
+      local removed='%F{white}'
+      local unstaged='%F{white}'
+      local untracked='%F{white}'
+      local staged='%F{white}'
+      local outofsync='%F{white}'
+    fi
+
+    local res
+    local where  # branch name, tag or commit
+    if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
+      res+="${clean} "
+      where=${(V)VCS_STATUS_LOCAL_BRANCH}
+    elif [[ -n $VCS_STATUS_TAG ]]; then
+      res+="${meta}#"
+      where=${(V)VCS_STATUS_TAG}
+    else
+      res+="${meta}@"
+      where=${VCS_STATUS_COMMIT[1,8]}
+    fi
+
+    # If local branch name or tag is at most 32 characters long, show it in full.
+    # Otherwise show the first 12 … the last 12.
+    (( $#where > 32 )) && where[13,-13]="…"
+    res+="${clean}${where//\%/%%}"  # escape %
+
+    # Show tracking branch name if it differs from local branch.
+    if [[ -n ${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH} ]]; then
+      res+="${meta}:${clean}${(V)VCS_STATUS_REMOTE_BRANCH//\%/%%}"  # escape %
+    fi
+
+    # Detect 'removed' unstaged files until gitstatus supports this natively
+    if command git status --porcelain -b | command grep '^[ MARC ]D ' &>/dev/null; then
+        local vcs_status_has_removed=1
+    fi
+
+    # Add a space before showing git status icons, if there are any
     (( VCS_STATUS_STASHES        ||
        VCS_STATUS_NUM_CONFLICTED ||
+       vcs_status_has_removed    ||
        VCS_STATUS_NUM_UNSTAGED   ||
        VCS_STATUS_NUM_UNTRACKED  ||
        VCS_STATUS_NUM_STAGED     ||
        VCS_STATUS_COMMITS_BEHIND ||
-       VCS_STATUS_COMMITS_AHEAD ))
-  }
-  functions -M _git_dirty 0 0
-  local vcs=''
-  vcs+='${${VCS_STATUS_LOCAL_BRANCH:+%5F'$'\uF126 '
-  vcs+='${${${$(( ${#VCS_STATUS_LOCAL_BRANCH}<=32 )):#0}:+${VCS_STATUS_LOCAL_BRANCH//\%/%%}}'
-  vcs+=':-${${VCS_STATUS_LOCAL_BRANCH:0:12}//\%/%%}%28F…%76F${${VCS_STATUS_LOCAL_BRANCH: -12}//\%/%%}}}'
-  vcs+=':-%f@%76F${VCS_STATUS_COMMIT:0:8}}'
-  vcs+='${${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH}:+%f:%76F${VCS_STATUS_REMOTE_BRANCH//\%/%%}}'
-  vcs+='${VCS_STATUS_TAG:+%f#%76F${VCS_STATUS_TAG//\%/%%}}'
-  vcs+='${${$((_git_dirty)):#1}:+ }'
-  vcs+='${${VCS_STATUS_STASHES:#0}:+%6F●}'
-  vcs+='${${VCS_STATUS_NUM_CONFLICTED:#0}:+%5F●}'
-  vcs+='${VCS_STATUS_ACTION:+%196Fx}'
-  # TODO deleted?
-  vcs+='${${VCS_STATUS_NUM_UNSTAGED:#0}:+%3F●}'
-  vcs+='${${VCS_STATUS_NUM_UNTRACKED:#0}:+%4F●}'
-  vcs+='${${VCS_STATUS_NUM_STAGED:#0}:+%2F●}'
-  vcs+='${${VCS_STATUS_COMMITS_BEHIND:#0}:+%3F}'
-  vcs+='${${VCS_STATUS_COMMITS_AHEAD:#0}:+%3F}'
+       VCS_STATUS_COMMITS_AHEAD  )) && res+=' '
 
-  vcs="\${P9K_CONTENT:-$vcs}"
+    # Show various git status icons
+    (( VCS_STATUS_STASHES ))        && res+="${stashes}●"
+    (( VCS_STATUS_NUM_CONFLICTED )) && res+="${conflicted}●"
+    (( vcs_status_has_removed ))    && res+="${removed}●"
+    (( VCS_STATUS_NUM_UNSTAGED ))   && res+="${unstaged}●"
+    (( VCS_STATUS_NUM_UNTRACKED ))  && res+="${untracked}●"
+    (( VCS_STATUS_NUM_STAGED ))     && res+="${staged}●"
+
+    if (( VCS_STATUS_COMMITS_BEHIND && VCS_STATUS_COMMITS_AHEAD )); then
+      res+="${outofsync}"
+    elif (( VCS_STATUS_COMMITS_BEHIND )); then
+      res+="${outofsync}"
+    elif (( VCS_STATUS_COMMITS_AHEAD )); then
+      res+="${outofsync}"
+    fi
+
+    typeset -g gitstatus_format="$res"
+  }
+  functions +M -m gitstatus_formatter && functions -M gitstatus_formatter
 
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
-  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION=$vcs
-  typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION=${${${vcs//\%f}//\%<->F}//\%F\{(\#|)[[:xdigit:]]#(\\|)\}}
+  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((gitstatus_formatter(1)))+${gitstatus_format}}'
+  typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((gitstatus_formatter(0)))+${gitstatus_format}}'
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
   typeset -g POWERLEVEL9K_VCS_PREFIX='%fon '
