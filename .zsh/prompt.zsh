@@ -13,6 +13,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
       dir
       vcs
       kubecontext
+      azure
       command_execution_time
       background_jobs
 
@@ -192,6 +193,15 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION=
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
+
+  ####################################[ azure: azure subscription ]#############################
+  function prompt_azure() {
+    local val="$(jq -r '.subscriptions[] | select(.isDefault == true) | .name' $HOME/.azure/azureProfile.json)"
+    p10k segment -f 208 -t "$val"
+  }
+
+  typeset -g POWERLEVEL9K_AZURE_PREFIX='%fusing '
+  typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION="☁️"
 
   ####################################[ time: current time ]####################################
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=yellow
