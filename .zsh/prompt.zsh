@@ -127,15 +127,15 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
     fi
 
     # Detect 'removed' unstaged files until gitstatus supports this natively
-    if command git status --porcelain -b | command grep '^[ MARC ]D ' &>/dev/null; then
-        local vcs_status_has_removed=1
-    fi
+    local porcelain="$(command git status --porcelain -b 2>/dev/null)"
+    local vcs_status_has_removed=$( ! echo "$porcelain" | command grep '^[ MARC ]D ' &>/dev/null; echo $?)
+    local vcs_status_has_unstaged=$(! echo "$porcelain" | command grep '^[ MARC ]M ' &>/dev/null; echo $?)
 
     # Add a space before showing git status icons, if there are any
     (( VCS_STATUS_STASHES        ||
        VCS_STATUS_NUM_CONFLICTED ||
        vcs_status_has_removed    ||
-       VCS_STATUS_NUM_UNSTAGED   ||
+       vcs_status_has_unstaged   ||
        VCS_STATUS_NUM_UNTRACKED  ||
        VCS_STATUS_NUM_STAGED     ||
        VCS_STATUS_COMMITS_BEHIND ||
@@ -145,7 +145,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
     (( VCS_STATUS_STASHES ))        && res+="${stashes}●"
     (( VCS_STATUS_NUM_CONFLICTED )) && res+="${conflicted}●"
     (( vcs_status_has_removed ))    && res+="${removed}●"
-    (( VCS_STATUS_NUM_UNSTAGED ))   && res+="${unstaged}●"
+    (( vcs_status_has_unstaged ))   && res+="${unstaged}●"
     (( VCS_STATUS_NUM_UNTRACKED ))  && res+="${untracked}●"
     (( VCS_STATUS_NUM_STAGED ))     && res+="${staged}●"
 
