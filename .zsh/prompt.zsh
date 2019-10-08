@@ -85,7 +85,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
       local clean='%F{magenta}'
       local stashes='%F{cyan}'
       local conflicted='%F{magenta}'
-      local removed='%F{red}'
+      local deleted='%F{red}'
       local unstaged='%F{yellow}'
       local untracked='%F{blue}'
       local staged='%F{green}'
@@ -96,7 +96,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
       local clean='%F{white}'
       local stashes='%F{white}'
       local conflicted='%F{white}'
-      local removed='%F{white}'
+      local deleted='%F{white}'
       local unstaged='%F{white}'
       local untracked='%F{white}'
       local staged='%F{white}'
@@ -126,28 +126,23 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
       res+="${meta}:${clean}${(V)VCS_STATUS_REMOTE_BRANCH//\%/%%}"  # escape %
     fi
 
-    # Detect 'removed' unstaged files until gitstatus supports this natively
-    local porcelain="$(command git status --porcelain -b 2>/dev/null)"
-    local vcs_status_has_removed=$( ! echo "$porcelain" | command grep '^[ MARC ]D ' &>/dev/null; echo $?)
-    local vcs_status_has_unstaged=$(! echo "$porcelain" | command grep '^[ MARC ]M ' &>/dev/null; echo $?)
-
     # Add a space before showing git status icons, if there are any
-    (( VCS_STATUS_STASHES        ||
-       VCS_STATUS_NUM_CONFLICTED ||
-       vcs_status_has_removed    ||
-       vcs_status_has_unstaged   ||
-       VCS_STATUS_NUM_UNTRACKED  ||
-       VCS_STATUS_NUM_STAGED     ||
-       VCS_STATUS_COMMITS_BEHIND ||
-       VCS_STATUS_COMMITS_AHEAD  )) && res+=' '
+    (( VCS_STATUS_STASHES              ||
+       VCS_STATUS_NUM_CONFLICTED       ||
+       VCS_STATUS_NUM_UNSTAGED_DELETED ||
+       VCS_STATUS_NUM_UNSTAGED         ||
+       VCS_STATUS_NUM_UNTRACKED        ||
+       VCS_STATUS_NUM_STAGED           ||
+       VCS_STATUS_COMMITS_BEHIND       ||
+       VCS_STATUS_COMMITS_AHEAD        )) && res+=' '
 
     # Show various git status icons
-    (( VCS_STATUS_STASHES ))        && res+="${stashes}●"
-    (( VCS_STATUS_NUM_CONFLICTED )) && res+="${conflicted}●"
-    (( vcs_status_has_removed ))    && res+="${removed}●"
-    (( vcs_status_has_unstaged ))   && res+="${unstaged}●"
-    (( VCS_STATUS_NUM_UNTRACKED ))  && res+="${untracked}●"
-    (( VCS_STATUS_NUM_STAGED ))     && res+="${staged}●"
+    (( VCS_STATUS_STASHES ))                                          && res+="${stashes}●"
+    (( VCS_STATUS_NUM_CONFLICTED ))                                   && res+="${conflicted}●"
+    (( VCS_STATUS_NUM_UNSTAGED_DELETED ))                             && res+="${deleted}●"
+    (( VCS_STATUS_NUM_UNSTAGED > VCS_STATUS_NUM_UNSTAGED_DELETED ))   && res+="${unstaged}●"
+    (( VCS_STATUS_NUM_UNTRACKED ))                                    && res+="${untracked}●"
+    (( VCS_STATUS_NUM_STAGED ))                                       && res+="${staged}●"
 
     if (( VCS_STATUS_COMMITS_BEHIND && VCS_STATUS_COMMITS_AHEAD )); then
       res+="${outofsync}"
@@ -159,7 +154,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
     typeset -g gitstatus_format="$res"
   }
-  functions +M -m gitstatus_formatter && functions -M gitstatus_formatter
+  functions -M gitstatus_formatter 2>/dev/null
 
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
   typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%B${$((gitstatus_formatter(1)))+${gitstatus_format}}'
