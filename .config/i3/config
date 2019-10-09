@@ -160,6 +160,8 @@ bindsym XF86AudioRaiseVolume  exec py3-cmd click 4 volume_status
 bindsym XF86AudioLowerVolume  exec py3-cmd click 5 volume_status
 bindsym XF86MonBrightnessUp   exec set-brightness inc
 bindsym XF86MonBrightnessDown exec set-brightness dec
+bindsym XF86AudioPlay         exec playerctl -p $(tail -1 /tmp/player-last) play-pause
+bindsym XF86AudioNext         exec playerctl -p $(tail -1 /tmp/player-last) next
 
 # Reload the configuration file (c)
 bindcode $mod+Shift+54 reload
@@ -309,3 +311,4 @@ exec_always "pgrep -x copyq || (copyq &)"
 exec_always "pgrep -x neomutt || (kitty --class neomutt neomutt &)"
 exec_always "pgrep -x wire-desktop || (wire-desktop &)"
 exec_always "pgrep -x udiskie || (udiskie --smart-tray &)"
+exec_always "pgrep -x playerctl || (playerctl status --format '{{ playerName  }}' --follow > /tmp/player-last &)"
