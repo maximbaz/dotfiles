@@ -1,3 +1,6 @@
+# Print a newline when switching to root
+(( EUID )) || echo
+
 typeset -gA ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
