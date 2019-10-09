@@ -10,7 +10,6 @@ import i3ipc
 WINDOW_ICONS = {
     "kitty": "󰀀",
     "chromium": "󰀠",
-    "brave-browser": "󰀠",
     "copyq": "",
     "wire": "󰁀",
     "neomutt": "󰀚",
