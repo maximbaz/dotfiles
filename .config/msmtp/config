@@ -8,3 +8,4 @@ host mail.maximbaz.com
 auth on
 user me@maximbaz.com
 passwordeval cat ~/.cache/mail.maximbaz.com
+logfile ~/.cache/msmtp.log
