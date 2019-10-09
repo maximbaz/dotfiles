@@ -13,7 +13,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
       dir
       vcs
       kubecontext
-      azure
+      azure_fast
       command_execution_time
       background_jobs
 
@@ -191,14 +191,26 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
   ####################################[ azure: azure subscription ]#############################
-  function prompt_azure() {
-    local val="$(jq -r '.subscriptions[] | select(.isDefault == true) | .name' $HOME/.azure/azureProfile.json)"
+  function prompt_azure_fast() {
+    local jwt_payload="$(jq -r '. | sort_by(.expiresOn) | reverse | .[0].accessToken' "$HOME/.azure/accessTokens.json" | cut -d '.' -f 2)"
+    local len=$((${#jwt_payload} % 4))
+    if [ $len -eq 2 ]; then jwt_payload+='=='
+    elif [ $len -eq 3 ]; then jwt_payload+='='
+    fi
+
+    local access_token_expiry="$(echo "$jwt_payload" | tr '_-' '/+' | base64 --decode | jq -r '.exp')"
+    if [[ $(date +"%s") -gt "$access_token_expiry" ]]; then
+        return
+    fi
+
+    local val="$(jq -r '.subscriptions[] | select(.isDefault == true) | .name' "$HOME/.azure/azureProfile.json")"
     p10k segment -f 208 -t "$val"
   }
 
-  typeset -g POWERLEVEL9K_AZURE_PREFIX='%fusing '
-  typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION="☁️"
-  typeset -g POWERLEVEL9K_AZURE_CONTENT_EXPANSION='%B${P9K_CONTENT}'
+  typeset -g POWERLEVEL9K_AZURE_FAST_FOREGROUND=208
+  typeset -g POWERLEVEL9K_AZURE_FAST_PREFIX='%fusing '
+  typeset -g POWERLEVEL9K_AZURE_FAST_VISUAL_IDENTIFIER_EXPANSION="☁️"
+  typeset -g POWERLEVEL9K_AZURE_FAST_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
   ####################################[ time: current time ]####################################
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=yellow
