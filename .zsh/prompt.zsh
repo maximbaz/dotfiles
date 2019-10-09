@@ -12,13 +12,13 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
       time
+      background_jobs
       user
       dir
       vcs
       kubecontext
       azure_fast
       command_execution_time
-      background_jobs
 
       newline
       prompt_char
