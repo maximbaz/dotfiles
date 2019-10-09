@@ -94,7 +94,7 @@ external_script checkofficial {
 external_script checkupdates {
   cache_timeout = 1200
   button_show_notification = 1
-  script_path = "is_online && checkupdates"
+  script_path = "is_online && checkupdates || true"
   format = '\?if=lines&color=degraded 󰀾  {lines}'
 }
 
