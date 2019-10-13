@@ -285,6 +285,7 @@ if [[ "$(whoami)" == "root" ]]; then
     systemctl_enable_start "system" "connman-hook.service"
     systemctl_enable_start "system" "connman-vpn-hook.service"
     systemctl_enable_start "system" "pcscd.service"
+    systemctl_enable_start "system" "seaf-cli@maximbaz.service"
     systemctl_enable_start "system" "stubby.service"
     systemctl_enable_start "system" "teamviewerd.service"
     systemctl_enable_start "system" "usbguard.service"
