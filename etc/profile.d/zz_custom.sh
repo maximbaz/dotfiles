@@ -29,6 +29,8 @@ export PATH="$JAVA_HOME/bin:$PATH"
 export FZ_CMD=j
 export FZ_SUBDIR_CMD=jj
 
+export LIBVA_DRIVER_NAME=iHD
+
 export ANDROID_SDK_ROOT="$HOME/.android/sdk"
 
 export WEECHAT_HOME="$HOME/.config/weechat"
