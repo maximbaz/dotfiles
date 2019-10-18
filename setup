@@ -239,7 +239,6 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/lightdm/lightdm.conf"
     copy "etc/lightdm/lightdm-gtk-greeter.conf"
     copy "etc/pacman.conf"
-    copy "etc/pacman.d/maximbaz"
     copy "etc/pam.d/sudo"
     copy "etc/private-internet-access/pia.conf"
     copy "etc/stubby/stubby.yml"
@@ -338,6 +337,10 @@ if [[ "$(whoami)" == "root" ]]; then
     echo "Joining video group"
     groupadd -rf video
     gpasswd -a maximbaz video
+
+    echo "Configuring aurutils"
+    ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
+    ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
 
     echo "Enabling infinality aliases"
     ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
