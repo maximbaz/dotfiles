@@ -116,7 +116,7 @@ url: "https://github.com/Yubico/pam-u2f/releases/latest"
 filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
 max_tries: 3
 ---
-name: "FairEmail"
-url: "https://github.com/M66B/FairEmail/releases/latest"
-filter: css:.markdown-body,html2text
+name: "volumerize"
+url: "https://github.com/blacklabelops/volumerize/releases/latest"
+filter: css:.release-header>div>div>a,html2text
 max_tries: 3
