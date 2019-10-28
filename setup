@@ -130,6 +130,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".mbsyncrc"
     link ".notmuch-config"
     link ".taskrc"
+    link ".Xmodmap"
     link ".xsession"
     link ".Xresources"
   fi

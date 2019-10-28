@@ -64,95 +64,91 @@ bar {
 }
 
 
-# Use Windows as a modifier key
-set $mod Mod4
-
-# Define NumLock modifier
+# Use Windows and Hyper as a modifier keys
+set $win Mod4
+set $hyper Mod3
 set $numlock Mod2
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Mouse+$hyper to drag floating windows to their wanted position
+floating_modifier $hyper
 
 # Refresh py3status module after switching keyboard layout (Shift+Shift)
 bindcode Shift+50 exec "py3-cmd refresh xkb_layouts"
 bindcode Shift+62 exec "py3-cmd refresh xkb_layouts"
 
 # Start a terminal
-bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec kitty /bin/bash
+bindsym $hyper+Return exec kitty
+bindsym $win+Return exec kitty
+bindsym $win+Shift+Return exec kitty /bin/bash
 
 # Start a launcher (=)(d)(o)(p)
-bindcode $mod+21 exec "pgrep -x rofi && killall rofi || rofi-calc"
-bindcode $mod+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show drun"
-bindcode $mod+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
-bindcode $mod+33 exec "passmenu"
-
-# Start connman_dmenu (n)
-bindcode $mod+57 exec "connman_dmenu"
-bindcode $mod+Shift+57 exec "connman_dmenu scan"
+bindcode $hyper+21 exec "pgrep -x rofi && killall rofi || rofi-calc"
+bindcode $hyper+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show drun"
+bindcode $hyper+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
+bindcode $hyper+33 exec "passmenu"
 
 # Start a screenshot tool (m)
-bindcode $mod+58 exec "flameshot gui"
+bindcode $hyper+58 exec "flameshot gui"
 
 # Kill focused window (q)
-bindcode $mod+Shift+24 kill
+bindcode $win+24 kill
 
 # Change focus (h)(j)(k)(l)
-bindcode $mod+43 focus left
-bindcode $mod+44 focus down
-bindcode $mod+45 focus up
-bindcode $mod+46 focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindcode $hyper+43 focus left
+bindcode $hyper+44 focus down
+bindcode $hyper+45 focus up
+bindcode $hyper+46 focus right
+bindsym $hyper+Left focus left
+bindsym $hyper+Down focus down
+bindsym $hyper+Up focus up
+bindsym $hyper+Right focus right
 
 # Move focused window (h)(j)(k)(l)
-bindcode $mod+Shift+43 move left
-bindcode $mod+Shift+44 move down
-bindcode $mod+Shift+45 move up
-bindcode $mod+Shift+46 move right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindcode $win+43 move left
+bindcode $win+44 move down
+bindcode $win+45 move up
+bindcode $win+46 move right
+bindsym $win+Left move left
+bindsym $win+Down move down
+bindsym $win+Up move up
+bindsym $win+Right move right
 
 # Split (v)
-bindcode $mod+Shift+55 split h
-bindcode $mod+55 split v
+bindcode $hyper+55 split v
+bindcode $win+55 split h
 
 # Enter fullscreen mode (f)
-bindcode $mod+41 fullscreen
+bindcode $hyper+41 fullscreen
 
 # Container layout: split (e)
-bindcode $mod+26 layout toggle split
+bindcode $hyper+26 layout toggle split
 
 # Container layout: tabbed (w)
-bindcode $mod+25 layout tabbed
+bindcode $hyper+25 layout tabbed
 
 # Container layout: stacked (s)
-bindcode $mod+39 layout stacked
+bindcode $hyper+39 layout stacked
 
 # Toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $win+space floating toggle
 
-# Toggle sticky state (Shift+s)
-bindcode $mod+Shift+39 sticky toggle
+# Toggle sticky state (s)
+bindcode $win+39 sticky toggle
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $win+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+bindsym $hyper+minus scratchpad show
 
 # Change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $hyper+space focus mode_toggle
 
 # Focus the parent container (a)
-bindcode $mod+38 focus parent
+bindcode $hyper+38 focus parent
 
 # Focus the child container (a)
-bindcode $mod+Shift+38 focus child
+bindcode $win+38 focus child
 
 # Media keys
 bindsym XF86AudioMute         exec py3-cmd click 1 volume_status
@@ -164,13 +160,13 @@ bindsym XF86AudioPlay         exec playerctl -p $(tail -1 /tmp/player-last) play
 bindsym XF86AudioNext         exec playerctl -p $(tail -1 /tmp/player-last) next
 
 # Reload the configuration file (c)
-bindcode $mod+Shift+54 reload
+bindcode $win+54 reload
 
 # Restart i3 inplace (r)
-bindcode $mod+Shift+27 restart
+bindcode $win+27 restart
 
 # Global hotkeys
-bindcode $mod+49 exec copyq toggle
+bindcode $win+49 exec copyq toggle
 
 # Workspaces
 focus_follows_mouse no
@@ -187,52 +183,52 @@ set $workspace9 workspace number 9
 set $workspace0 workspace number 10
 
 # Switch to workspace using keypad
-bindcode $numlock+$mod+87 $workspace1
-bindcode $numlock+$mod+88 $workspace2
-bindcode $numlock+$mod+89 $workspace3
-bindcode $numlock+$mod+83 $workspace4
-bindcode $numlock+$mod+84 $workspace5
-bindcode $numlock+$mod+85 $workspace6
-bindcode $numlock+$mod+79 $workspace7
-bindcode $numlock+$mod+80 $workspace8
-bindcode $numlock+$mod+81 $workspace9
-bindcode $numlock+$mod+90 $workspace0
+bindcode $numlock+$hyper+87 $workspace1
+bindcode $numlock+$hyper+88 $workspace2
+bindcode $numlock+$hyper+89 $workspace3
+bindcode $numlock+$hyper+83 $workspace4
+bindcode $numlock+$hyper+84 $workspace5
+bindcode $numlock+$hyper+85 $workspace6
+bindcode $numlock+$hyper+79 $workspace7
+bindcode $numlock+$hyper+80 $workspace8
+bindcode $numlock+$hyper+81 $workspace9
+bindcode $numlock+$hyper+90 $workspace0
 
 # Switch to workspace using number row
-bindsym $mod+1 $workspace1
-bindsym $mod+2 $workspace2
-bindsym $mod+3 $workspace3
-bindsym $mod+4 $workspace4
-bindsym $mod+5 $workspace5
-bindsym $mod+6 $workspace6
-bindsym $mod+7 $workspace7
-bindsym $mod+8 $workspace8
-bindsym $mod+9 $workspace9
-bindsym $mod+0 $workspace0
+bindsym $hyper+1 $workspace1
+bindsym $hyper+2 $workspace2
+bindsym $hyper+3 $workspace3
+bindsym $hyper+4 $workspace4
+bindsym $hyper+5 $workspace5
+bindsym $hyper+6 $workspace6
+bindsym $hyper+7 $workspace7
+bindsym $hyper+8 $workspace8
+bindsym $hyper+9 $workspace9
+bindsym $hyper+0 $workspace0
 
 # Move window to workspace using keypad
-bindcode $numlock+$mod+Shift+87 move container to $workspace1
-bindcode $numlock+$mod+Shift+88 move container to $workspace2
-bindcode $numlock+$mod+Shift+89 move container to $workspace3
-bindcode $numlock+$mod+Shift+83 move container to $workspace4
-bindcode $numlock+$mod+Shift+84 move container to $workspace5
-bindcode $numlock+$mod+Shift+85 move container to $workspace6
-bindcode $numlock+$mod+Shift+79 move container to $workspace7
-bindcode $numlock+$mod+Shift+80 move container to $workspace8
-bindcode $numlock+$mod+Shift+81 move container to $workspace9
-bindcode $numlock+$mod+Shift+90 move container to $workspace0
+bindcode $numlock+$win+87 move container to $workspace1
+bindcode $numlock+$win+88 move container to $workspace2
+bindcode $numlock+$win+89 move container to $workspace3
+bindcode $numlock+$win+83 move container to $workspace4
+bindcode $numlock+$win+84 move container to $workspace5
+bindcode $numlock+$win+85 move container to $workspace6
+bindcode $numlock+$win+79 move container to $workspace7
+bindcode $numlock+$win+80 move container to $workspace8
+bindcode $numlock+$win+81 move container to $workspace9
+bindcode $numlock+$win+90 move container to $workspace0
 
 # Move window to workspace using number row
-bindsym $mod+Shift+1 move container to $workspace1
-bindsym $mod+Shift+2 move container to $workspace2
-bindsym $mod+Shift+3 move container to $workspace3
-bindsym $mod+Shift+4 move container to $workspace4
-bindsym $mod+Shift+5 move container to $workspace5
-bindsym $mod+Shift+6 move container to $workspace6
-bindsym $mod+Shift+7 move container to $workspace7
-bindsym $mod+Shift+8 move container to $workspace8
-bindsym $mod+Shift+9 move container to $workspace9
-bindsym $mod+Shift+0 move container to $workspace0
+bindsym $win+1 move container to $workspace1
+bindsym $win+2 move container to $workspace2
+bindsym $win+3 move container to $workspace3
+bindsym $win+4 move container to $workspace4
+bindsym $win+5 move container to $workspace5
+bindsym $win+6 move container to $workspace6
+bindsym $win+7 move container to $workspace7
+bindsym $win+8 move container to $workspace8
+bindsym $win+9 move container to $workspace9
+bindsym $win+0 move container to $workspace0
 
 # Automatically rename workspaces
 exec_always i3-autoname-workspaces &
@@ -265,7 +261,7 @@ mode "$mode_resize" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindcode $mod+27 mode "$mode_resize"
+bindcode $hyper+27 mode "$mode_resize"
 
 # Shutdown, Suspend, Lock (e)
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
@@ -285,7 +281,7 @@ mode "$mode_system" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindcode $mod+Shift+26 mode "$mode_system"
+bindcode $win+26 mode "$mode_system"
 
 # Move workspaces between monitors (m)
 set $mode_workspaces_monitors Move workspace between monitors
@@ -299,7 +295,7 @@ mode "$mode_workspaces_monitors" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindcode $mod+Shift+58 mode $mode_workspaces_monitors
+bindcode $win+58 mode $mode_workspaces_monitors
 
 # Autostart some apps
 
@@ -312,3 +308,4 @@ exec_always "pgrep -x neomutt || (kitty --class neomutt neomutt &)"
 exec_always "pgrep -x wire-desktop || (wire-desktop &)"
 exec_always "pgrep -x udiskie || (udiskie --smart-tray &)"
 exec_always "pgrep -x playerctl || (playerctl status --format '{{ playerName  }}' --follow > /tmp/player-last &)"
+exec_always xmodmap ~/.Xmodmap
