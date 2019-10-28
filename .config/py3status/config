@@ -26,7 +26,7 @@ order += 'group cpu'
 order += 'group ram'
 order += 'xrandr'
 order += 'group wifi'
-order += 'file_status PIA'
+order += 'process_status'
 order += 'whatismyip'
 order += 'backlight'
 order += 'bluetooth'
@@ -151,10 +151,9 @@ file_status decrypted {
   format = '\?if=path&color=degraded '
 }
 
-file_status PIA {
-  cache_timeout = -1
-  paths = '/proc/sys/net/ipv4/conf/vpn0'
-  format = '\?color=path 󰀁'
+process_status {
+  process = 'openvpn'
+  format = '󰀁'
 }
 
 scratchpad_async {

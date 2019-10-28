@@ -1,7 +1,5 @@
 [Unit]
 Description=Reverse SSH tunnel to %I
-Requires=network-online.target
-After=network-online.target
 
 [Service]
 User=maximbaz
