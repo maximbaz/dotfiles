@@ -1,197 +1,241 @@
-pkgbase='maximbaz'
-pkgname=('maximbaz-base' 'maximbaz-desktop' 'maximbaz-remote' 'maximbaz-android' 'maximbaz-work')
-pkgver=1.8.0
+pkgname='maximbaz'
+pkgver=2.0.0
 pkgrel=1
-pkgdesc="Installed packages by maximbaz"
+pkgdesc='Packages installed by maximbaz'
 arch=('any')
-url="https://github.com/maximbaz/dotfiles"
+url='https://github.com/maximbaz/dotfiles'
 license=('MIT')
-groups=('maximbaz')
-
-package_maximbaz-base() {
-  depends=(
-    'antigen-git'
-    'aria2'
-    'bat'
-    'bash-language-server'
-    'bind-tools'
-    'bingo-git'
-    'bluez'
-    'bluez-utils'
-    'btrfs-progs'
-    'checkbashisms'
-    'connman'
-    'cryptboot'
+depends=(
+    # base
+    'base'
     'dash'
-    'dep'
-    'devtools'
-    'diff-so-fancy'
-    'docker'
-    'dos2unix'
-    'editorconfig-core-c'
+    'linux-headers'
+    'logrotate'
+    'man-db'
+    'man-pages'
+    'btrfs-progs'
+    'htop'
+
+    # boot
+    'grub'
+    'intel-ucode'
     'efibootmgr'
+    'cryptboot'
+    'terminus-font'
+    'snap-pac-grub'
+
+    # files
+    'gocryptfs'
+    'ntfs-3g'
+    'udiskie'
+    'ranger'
+    'vimiv'
+    'ncdu'
+    'bat'
     'exa'
     'fd'
-    'fzy'
-    'git'
-    'go'
-    'grub'
-    'htop'
-    'intel-ucode'
-    'jq'
-    'kak-lsp'
-    'kakoune'
-    'linux-headers'
-    'lscolors-git'
     'mlocate'
-    'mtr'
-    'ncdu'
-    'nethogs'
-    'net-tools'
-    'openbsd-netcat'
-    'openssh'
-    'p7zip'
-    'pacman-contrib'
-    'prettier'
-    'pwgen'
-    'pydf'
-    'python-black'
-    'python-language-server'
-    'python-pip'
-    'python-pylint'
-    'ranger'
-    'reflector'
-    'repoctl'
     'ripgrep'
-    'rmtrash'
-    'rsync'
-    'shellcheck'
-    'snap-pac-grub'
-    'tig'
     'tree'
-    'ufw'
+    'rmtrash'
+    'jq'
+    'pydf'
+    'seafile-client'
+
+    # archiving
+    'lbzip2'
+    'pigz'
+    'pixz'
+    'p7zip'
     'unrar'
     'unzip'
-    'wget'
-    'yapf'
-    'yarn'
     'zip'
-    'zsh'
-  )
-}
 
-package_maximbaz-desktop() {
-  depends=(
-    'atom'
-    'aurpublish'
-    'aurutils-git'
-    'bash-language-server'
-    'browserpass'
-    'browserpass-chromium'
-    'browserpass-firefox'
-    'calibre'
-    'chromium-vaapi'
-    'compton'
-    'connman_dmenu-git'
-    'copyq'
-    'dragon-drag-and-drop-git'
-    'dunst'
-    'firefox'
-    'flameshot'
-    'fontforge'
-    'fonts-meta-extended-lt'
-    'freerdp'
-    'fwupd'
-    'geeqie'
-    'gocryptfs'
-    'gsimplecal'
-    'gtk-theme-arc-gruvbox-git'
-    'hsetroot'
-    'i3-gaps'
-    'python-i3ipc'
-    'kitty'
-    'krita'
-    'libqalculate'
-    'libreoffice-fresh'
-    'libva-intel-driver'
-    'libvdpau-va-gl'
-    'light'
-    'lightdm'
-    'lightdm-gtk-greeter'
-    'mpv'
-    'nm-connection-editor'
-    'ntfs-3g'
-    'numlockx'
+    # network
+    'iwd'
+    'stubby'
     'openvpn'
-    'otf-font-awesome'
-    'pamixer'
+    'ufw'
+    'nethogs'
+    'net-tools'
+    'nmap'
+    'openbsd-netcat'
+    'bind-tools'
+    'mtr'
+    'sipcalc'
+    'wget'
+    'rsync'
+    'openssh'
+
+    # security
+    'ccid'
     'pam-u2f'
-    'parallel'
-    'pass'
-    'pavucontrol'
-    'peek'
+    'yubikey-touch-detector'
+    'usbguard'
+
+    # hardware
+    'dell-command-configure'
+    'fwupd'
+    'tlp'
+
+    # audio
     'pulseaudio'
     'pulseaudio-alsa'
-    'py3status'
-    'python-gevent'
-    'python-pillow'
-    'python-pydbus'
-    'python-tzlocal'
-    'python-pyudev'
-    'rebuild-detector'
-    'redshift'
-    'rofi'
-    'rofi-dmenu'
-    'screenkey'
-    'stubby'
-    'task'
-    'teamviewer'
-    'terminus-font'
-    'tlp'
-    'transmission-qt'
-    'ttf-joypixels'
-    'udiskie'
+    'pulseaudio-bluetooth'
+    'pamixer'
+    'pavucontrol'
+    'playerctl'
+    'bluez'
+    'bluez-utils'
+
+    # i3
+    'i3-gaps'
+    'lightdm'
+    'lightdm-gtk-greeter'
+    'compton'
+    'xsecurelock'
+    'hsetroot'
     'unclutter'
-    'urlwatch'
-    'usbguard'
-    'vifm'
-    'weechat'
-    'wire-desktop'
+    'python-i3ipc'
     'wmctrl'
-    'wpa_supplicant'
-    'xcalib'
     'xdotool'
     'xorg-server'
     'xorg-xinit'
     'xorg-xprop'
     'xorg-xrandr'
-    'xsecurelock'
+    'dunst'
+    'gtk-theme-arc-gruvbox-git'
+    'xcalib'
+    'redshift'
+    'numlockx'
+
+    # py3status
+    'py3status'
+    'light'
+    'conky'
+    'xkb-switch'
+    'python-gevent'
+    'python-pydbus'
+    'python-pyudev'
+    'python-tzlocal'
+
+    # fonts
+    'fonts-meta-extended-lt'
+    'otf-font-awesome'
+    'ttf-joypixels'
+
+    # arch
+    'pacman-contrib'
+    'devtools'
+    'reflector'
+    'urlwatch'
+
+    # aur
+    'aurpublish'
+    'aurutils-git'
+    'parallel'
+    'vifm'
+    'repoctl'
+    'rebuild-detector'
+
+    # git
+    'git'
+    'diff-so-fancy'
+    'kakmerge-git'
+    'meld'
+    'tig'
+
+    # dev tools
+    'kakoune'
+    'kak-lsp'
+    'prettier'
+    'dos2unix'
+    'editorconfig-core-c'
+    'docker'
+    'atom'
+
+    # shell dev
+    'bash-language-server'
+    'checkbashisms'
+    'shellcheck'
+
+    # python dev
+    'python-language-server'
+    'python-black'
+    'python-pip'
+    'python-pylint'
+    'yapf'
+    'bpython'
+
+    # go dev
+    'go'
+    'bingo-git'
+
+    # js dev
+    'yarn'
+
+    # terminal
+    'kitty'
+    'zsh'
+    'antigen-git'
+    'lscolors-git'
+
+    # passwords
+    'pass'
+    'pwgen'
+    'browserpass'
+    'browserpass-chromium'
+    'browserpass-firefox'
+    'msitools'
+
+    # email
+    'isync'
+    'msmtp'
+    'neomutt'
+    'urlscan'
+    'goimapnotify'
+
+    # chats
+    'wire-desktop'
+    'riot-desktop'
+
+    # browsers
+    'chromium-vaapi'
+    'intel-media-driver'
+    'libva-intel-driver'
+    'firefox'
+
+    # screenshots & gifs
+    'peek'
+    'screenkey'
+    'flameshot'
+
+    # fuzzy
+    'rofi'
+    'rofi-dmenu'
+    'fzy'
+
+    # misc
+    'calibre'
+    'copyq'
+    'spotify'
+    'dragon-drag-and-drop-git'
+    'gsimplecal'
+    'krita'
+    'libqalculate'
+    'libreoffice-fresh'
+    'teamviewer'
+    'transmission-qt'
+    'mpv'
     'youtube-dl'
-    'yubikey-manager'
-    'yubikey-touch-detector'
-  )
-}
 
-package_maximbaz-remote() {
-  depends=(
-    'tmux'
-  )
-}
-
-package_maximbaz-android() {
-  depends=(
-    'android-sdk-platform-tools'
-    'android-studio'
-    'fdroidserver'
-  )
-}
-
-package_maximbaz-work() {
-  depends=(
-    'azure-functions-core-tools-bin'
+    # work
+    'code'
+    'freerdp'
+    'k9s-bin'
     'kubectl'
     'kubectx'
     'kubernetes-helm'
     'teams-for-linux'
-  )
-}
+    'terraform'
+)
