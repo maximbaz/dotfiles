@@ -87,11 +87,12 @@
 
     ```
     # pacstrap /mnt base base-devel
-                    grub efibootmgr           # boot manager
-                    intel-ucode               # Include Intel microcode patches during boot
-                    zsh git openssh wget      # Just enough to create a user and clone dotfiles
-                    terminus-font             # To make console font readable on HiDPI screens
-                    networkmanager            # Because wired connection may not work after installation
+                    linux iwd                  # linux & network
+                    linux-firmware intel-ucode # microcode
+                    man-db man-pages           # manual
+                    grub efibootmgr            # boot manager and Intel microcode
+                    zsh git openssh wget       # just enough to create a user and clone dotfiles
+                    terminus-font              # to make console font readable on HiDPI screens
     ```
 
 1.  Generate fstab entries:
@@ -209,10 +210,11 @@
 ## Final system configuration
 
 1.  Login as the new user
-1.  Start NetworkManager service:
+1.  Setup network connection:
 
     ```
-    $ sudo systemctl start NetworkManager
+    # echo '[General]\nEnableNetworkConfiguration = true' > /etc/iwd/main.conf
+    # systemctl start iwd.service
     ```
 
 1.  Clone dotfiles:
