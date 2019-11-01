@@ -64,7 +64,7 @@
     # btrfs subvolume create /mnt/tmp
     # btrfs subvolume create /mnt/snapshots
     # umount /mnt
-    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=root /dev/mapper/luks /mnt
+    # mount -o noatime,nodiratime,compress=lzo,subvol=root /dev/mapper/luks /mnt
     # mkdir -p /mnt/mnt/btrfs-root
     # mkdir -p /mnt/boot/efi
     # mkdir -p /mnt/home
@@ -73,12 +73,12 @@
     # mkdir -p /mnt/var/tmp
     # mkdir -p /mnt/.snapshots
     # mount /dev/sdX1 /mnt/boot/efi
-    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=/ /dev/mapper/luks /mnt/mnt/btrfs-root
-    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=home /dev/mapper/luks /mnt/home
-    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=pkgs /dev/mapper/luks /mnt/var/cache/pacman
-    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=logs /dev/mapper/luks /mnt/var/log
-    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=tmp /dev/mapper/luks /mnt/var/tmp
-    # mount -o noatime,nodiratime,discard,compress=lzo,subvol=snapshots /dev/mapper/luks /mnt/.snapshots
+    # mount -o noatime,nodiratime,compress=lzo,subvol=/ /dev/mapper/luks /mnt/mnt/btrfs-root
+    # mount -o noatime,nodiratime,compress=lzo,subvol=home /dev/mapper/luks /mnt/home
+    # mount -o noatime,nodiratime,compress=lzo,subvol=pkgs /dev/mapper/luks /mnt/var/cache/pacman
+    # mount -o noatime,nodiratime,compress=lzo,subvol=logs /dev/mapper/luks /mnt/var/log
+    # mount -o noatime,nodiratime,compress=lzo,subvol=tmp /dev/mapper/luks /mnt/var/tmp
+    # mount -o noatime,nodiratime,compress=lzo,subvol=snapshots /dev/mapper/luks /mnt/.snapshots
     ```
 
 ## Install Arch Linux
