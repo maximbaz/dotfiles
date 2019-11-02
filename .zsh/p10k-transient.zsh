@@ -56,6 +56,7 @@
 
   function _transient-prompt-segment-on-buf-change() {
     emulate -L zsh
+    unsetopt banghist
     local cmd="${(Q)${(Az)BUFFER}[1]}"
     if (( $+aliases[$cmd] )); then
       if functions[_transient-prompt-segment-cmd]=${(q)cmd} 2>/dev/null; then
@@ -91,7 +92,7 @@
         unset _transient_azure_on
       fi
     fi
-    
+
     if (( reset_prompt )); then
       zle .reset-prompt
       zle -R
