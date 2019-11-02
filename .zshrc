@@ -1,3 +1,11 @@
+(( EUID )) || echo
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+(( EUID )) && for f in ~/.zshrc ~/.zsh/*.zsh; do [[ ! -s $f.zwc || $f -nt $f.zwc ]] && zcompile $f; done
+
 # Launch a tmux session
 if [[ "$HOST" =~ "crmdevvm-" ]]; then
   . ~/.zsh/autorun-same-tmux.zsh

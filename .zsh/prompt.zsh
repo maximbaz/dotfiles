@@ -1,6 +1,3 @@
-# Print a newline when switching to root
-(( EUID )) || echo
-
 typeset -gA ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
@@ -34,6 +31,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
   typeset -g POWERLEVEL9K_MODE=awesome-fontconfig
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT_COMMAND_LINES=1
 
   ################################[ background_jobs: background jobs indicator ]################
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=red
