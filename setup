@@ -266,6 +266,7 @@ if [[ "$(whoami)" == "root" ]]; then
   sysctl --system > /dev/null
 
   systemctl daemon-reload
+  systemctl_enable_start "system" "fstrim.timer"
   systemctl_enable_start "system" "iwd.service"
   systemctl_enable_start "system" "paccache.timer"
   systemctl_enable_start "system" "reflector.timer"
