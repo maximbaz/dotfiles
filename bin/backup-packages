@@ -1,4 +1,4 @@
 #!/bin/bash
 
-comm -23 <(pacman -Qnqe | sort) <(pacman -Qgq base-devel | sort) > ~/.dotfiles/packages/unknown.list
+comm -23 <(pacman -Qnqe | sort) <({ echo maximbaz; pacman -Qgq base-devel; } | sort) > ~/.dotfiles/packages/unknown.list
 pacman -Dk 2> ~/.dotfiles/packages/removed.list >/dev/null
