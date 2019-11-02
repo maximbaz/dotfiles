@@ -235,6 +235,7 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/resolv.conf"
     chattr +i "/etc/resolv.conf"
 
+    copy "etc/bluetooth/main.conf"
     copy "etc/default/grub-btrfs/config"
     copy "etc/iwd/main.conf"
     copy "etc/lightdm/lightdm.conf"
