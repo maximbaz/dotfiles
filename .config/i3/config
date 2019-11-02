@@ -145,11 +145,11 @@ bindsym $hyper+minus scratchpad show
 # Change focus between tiling / floating windows
 bindsym $hyper+space focus mode_toggle
 
-# Focus the parent container (a)
-bindcode $hyper+38 focus parent
+# Focus the parent container (u)
+bindcode $hyper+30 focus parent
 
-# Focus the child container (a)
-bindcode $win+38 focus child
+# Focus the child container (i)
+bindcode $hyper+31 focus child
 
 # Media keys
 bindsym XF86AudioMute         exec py3-cmd click 1 volume_status
