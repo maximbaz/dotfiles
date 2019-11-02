@@ -86,6 +86,7 @@ bindcode $hyper+21 exec "pgrep -x rofi && killall rofi || rofi-calc"
 bindcode $hyper+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show drun"
 bindcode $hyper+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
 bindcode $hyper+33 exec "passmenu"
+bindcode $hyper+28 exec "rofimoji --rofi-args='-normal-window -matching normal -columns 3'"
 
 # Start a screenshot tool (m)
 bindcode $hyper+58 exec "flameshot gui"
