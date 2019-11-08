@@ -120,6 +120,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/urlwatch"
     link ".config/USBGuard"
     link ".config/weechat"
+    link ".config/vimiv"
 
     link ".config/systemd/user/mbsync.service"
     link ".config/systemd/user/mbsync.timer"
