@@ -18,7 +18,7 @@ alias pacl='pacman -Ql'
 alias pacdiff='sudo \pacdiff; py3-cmd refresh "external_script pacdiff"'
 
 pac() {
-  sudo pacman "$@"
+  sudo -E pacman "$@"
   py3status-refresh-pacman
   rehash
 }
@@ -51,7 +51,7 @@ auru() {
 }
 
 post_aur() {
-  sudo pacman -Sy
+  sudo -E pacman -Sy
   py3status-refresh-pacman
   find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
   find /var/cache/pacman/maximbaz -name '*~' -delete >/dev/null
