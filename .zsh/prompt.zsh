@@ -49,7 +49,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   ################################[ prompt_char: prompt symbol ]################################
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=green
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=red
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='${${${EUID:#0}:+$}:-#}'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%(#.#.$)'
 
   ##################################[ dir: current directory ]##################################
   typeset -g POWERLEVEL9K_DIR_PREFIX='%fin '

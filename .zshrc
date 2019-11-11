@@ -40,3 +40,14 @@ fi
 # Load azure-cli completions
 export PATH="$PATH:$HOME/lib/azure-cli/bin"
 . az.completion.sh >/dev/null
+
+# Make Ctrl-D work with p10k instant prompt
+function my-ctrl-d() {
+    zle || exit 0
+    [[ -n $BUFFER ]] && return
+    typeset -g precmd_functions=(my-ctrl-d)
+    zle accept-line
+}
+zle -N my-ctrl-d
+bindkey '^D' my-ctrl-d
+setopt ignore_eof
