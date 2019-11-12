@@ -1,0 +1,17 @@
+{
+    "IsSender": true,
+    "SharedSecret": "",
+    "Debug": false,
+    "RelayAddress": "croc.maximbaz.com:9009",
+    "RelayPorts": [
+        "9009",
+        "9010",
+        "9011",
+        "9012",
+        "9013"
+    ],
+    "Stdout": false,
+    "NoPrompt": false,
+    "DisableLocal": false,
+    "Ask": false
+}

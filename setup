@@ -101,6 +101,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".config/chromium-flags.conf"
     link ".config/compton/compton.conf"
     link ".config/copyq/copyq.conf"
+    link ".config/croc"
     link ".config/Dharkael"
     link ".config/dunst"
     link ".config/fontconfig/conf.d/70-monospace.conf"
