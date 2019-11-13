@@ -120,3 +120,8 @@ name: "volumerize"
 url: "https://github.com/blacklabelops/volumerize/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
+---
+name: "croc"
+url: "https://github.com/schollz/croc/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
