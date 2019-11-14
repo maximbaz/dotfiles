@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.0.1
+pkgver=2.0.2
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -9,7 +9,9 @@ depends=(
     # base
     'base'
     'dash'
+    'linux'
     'linux-headers'
+    'kernel-modules-hook'
     'logrotate'
     'man-db'
     'man-pages'
@@ -28,9 +30,10 @@ depends=(
     'gocryptfs'
     'ntfs-3g'
     'udiskie'
-    'ranger'
-    'vimiv'
+    'nnn'
+    'vimiv-qt'
     'ncdu'
+    'croc'
     'bat'
     'exa'
     'fd'
@@ -53,7 +56,7 @@ depends=(
 
     # network
     'iwd'
-    'stubby'
+    'knot-resolver'
     'openvpn'
     'ufw'
     'nethogs'
@@ -68,6 +71,8 @@ depends=(
     'openssh'
 
     # security
+    'arch-audit'
+    'overdue'
     'ccid'
     'pam-u2f'
     'yubikey-touch-detector'
@@ -227,7 +232,7 @@ depends=(
     'libqalculate'
     'libreoffice-fresh'
     'teamviewer'
-    'transmission-qt'
+    'transmission-gtk'
     'mpv'
     'youtube-dl'
 
