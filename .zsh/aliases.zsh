@@ -15,7 +15,7 @@ alias rm!='\rm -rf'
 alias rsync='rsync --verbose --archive --info=progress2 --human-readable --compress --partial'
 alias sudo='sudo -E '
 
-alias ls="exa --git --group-directories-first"
+alias ls="exa --group --git --group-directories-first"
 alias ll="ls -l"
 alias la="ll -a"
 alias lk="ll -s=size"                # Sorted by size
