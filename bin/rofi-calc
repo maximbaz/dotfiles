@@ -1,3 +1,3 @@
 #!/bin/sh
 
-LC_MONETARY=en_DK.UTF-8 LC_ALL= rofi -normal-window -show calc -modi calc -no-show-match -no-sort -terse -calc-command "echo '{result}' | xclip -selection clipboard"
+rofi -normal-window -show calc -modi calc -no-show-match -no-sort -terse -calc-command "echo '{result}' | xclip -selection clipboard"
