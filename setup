@@ -273,6 +273,7 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl daemon-reload
   systemctl_enable_start "system" "fstrim.timer"
   systemctl_enable_start "system" "iwd.service"
+  systemctl_enable_start "system" "linux-modules-cleanup.service"
   systemctl_enable_start "system" "paccache.timer"
   systemctl_enable_start "system" "reflector.timer"
   systemctl_enable_start "system" "docker.service"
