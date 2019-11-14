@@ -152,6 +152,7 @@ file_status decrypted {
 }
 
 process_status {
+  cache_timeout = -1
   process = 'openvpn'
   format = '󰀁'
 }
