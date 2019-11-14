@@ -4,4 +4,4 @@ Description=Pacman cache cleanup
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
-ExecStart=/usr/bin/paccache -vruk0 --ignore maximbaz-remote -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
+ExecStart=/usr/bin/paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
