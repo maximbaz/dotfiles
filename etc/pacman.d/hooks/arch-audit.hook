@@ -1,0 +1,13 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = *
+
+[Action]
+Description = Audit installed packages against known CVEs
+When = PostTransaction
+Exec = /usr/bin/arch-audit
+Depends = curl
+Depends = openssl
+Depends = arch-audit
