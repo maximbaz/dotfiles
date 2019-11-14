@@ -38,10 +38,10 @@ aurs() {
   aur sync -scP "$@"
   post_aur
 }
-alias aurs!='aurs --no-ver-shallow'
+alias aurs!='aurs --no-ver-shallow -f'
 
 aurb() {
-  aur build -sc --pkgver "$@"
+  aur build -scf --pkgver "$@"
   post_aur
 }
 
