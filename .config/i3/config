@@ -81,12 +81,12 @@ bindsym $hyper+Return exec kitty
 bindsym $win+Return exec kitty
 bindsym $win+Shift+Return exec kitty /bin/bash
 
-# Start a launcher (=)(d)(o)(p)
-bindcode $hyper+21 exec "pgrep -x rofi && killall rofi || rofi-calc"
-bindcode $hyper+40 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show drun"
-bindcode $hyper+32 exec "pgrep -x rofi && killall rofi || rofi -normal-window -show window"
+# Start a launcher (=)(d)(o)(t)(p)
+bindcode $hyper+21 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofi-calc"
+bindcode $hyper+40 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofi -normal-window -show drun"
+bindcode $hyper+32 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofi -normal-window -show window"
+bindcode $hyper+28 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofimoji --rofi-args='-normal-window -matching normal -columns 3'"
 bindcode $hyper+33 exec "passmenu"
-bindcode $hyper+28 exec "rofimoji --rofi-args='-normal-window -matching normal -columns 3'"
 
 # Start a screenshot tool (m)
 bindcode $hyper+58 exec "flameshot gui"
@@ -167,7 +167,7 @@ bindcode $win+54 reload
 bindcode $win+27 restart
 
 # Global hotkeys
-bindcode $win+49 exec copyq toggle
+bindcode $win+49 fullscreen disable, exec copyq toggle
 
 # Workspaces
 focus_follows_mouse no
