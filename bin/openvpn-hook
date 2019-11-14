@@ -1,0 +1,4 @@
+#!/bin/sh
+
+systemctl restart kresd@1.service
+py3-cmd refresh process_status whatismyip

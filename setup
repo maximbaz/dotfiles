@@ -251,6 +251,7 @@ if [[ "$(whoami)" == "root" ]]; then
     copy "etc/systemd/logind.conf"
     copy "etc/systemd/system/backup-repo@pkgbuild"
     copy "etc/systemd/system/backup-repo@.service"
+    copy "etc/systemd/system/openvpn-client@.service.d/override.conf"
     copy "etc/udev/rules.d/81-ac-battery-change.rules"
     copy "etc/usbguard/usbguard-daemon.conf" 600
     copy "etc/X11/xorg.conf.d/00-keyboard.conf"
@@ -277,6 +278,7 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "ufw.service"
   systemctl_enable_start "system" "snapper-cleanup.timer"
+  systemctl_enable_start "system" "openvpn-client@Sweden.service"
 
   if [[ "$HOST" =~ "desktop-" ]]; then
     systemctl enable "lightdm.service"
