@@ -1,6 +1,7 @@
 #!/bin/bash
 
 before_lock() {
+  bluetoothctl disconnect
   playerctl -a pause
   xkb-switch -s us
   py3-cmd refresh xkb_layouts
