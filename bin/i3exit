@@ -5,14 +5,14 @@ before_lock() {
   playerctl -a pause
   xkb-switch -s us
   py3-cmd refresh xkb_layouts
-  killall compton
+  killall picom
   usbguard set-parameter InsertedDevicePolicy reject
   sudo systemctl stop pcscd.service
 }
 
 after_lock() {
   usbguard set-parameter InsertedDevicePolicy apply-policy
-  compton & disown
+  picom & disown
 }
 
 case "$1" in

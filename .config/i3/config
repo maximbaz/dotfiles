@@ -300,7 +300,7 @@ bindcode $win+58 mode $mode_workspaces_monitors
 
 # Autostart some apps
 
-exec_always "killall compton; compton &"
+exec_always "killall picom; picom &"
 exec_always hsetroot -solid '#333333' &
 exec_always numlockx &
 exec_always "pgrep -x unclutter || (unclutter &)"

@@ -99,7 +99,7 @@ if [ "$(whoami)" != "root" ]; then
     link ".gnupg/pinentry-dmenu.conf"
 
     link ".config/chromium-flags.conf"
-    link ".config/compton/compton.conf"
+    link ".config/picom/picom.conf"
     link ".config/copyq/copyq.conf"
     link ".config/croc"
     link ".config/Dharkael"
