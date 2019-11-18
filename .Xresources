@@ -6,3 +6,6 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
+
+Sxiv.foreground: #a89984
+Sxiv.background: #282828

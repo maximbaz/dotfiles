@@ -2,6 +2,8 @@
 application/vnd.ms-word.document.macroenabled.12=libreoffice-writer.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
 application/pdf=org.pwmt.zathura.desktop
+image/png=sxiv.desktop
+image/jpeg=sxiv.desktop
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
 text/html=chromium.desktop
