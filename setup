@@ -68,76 +68,69 @@ if [ "$(whoami)" != "root" ]; then
   link "bin"
 
   link ".ghc/ghci.conf"
-  link ".gnupg/gpg.conf"
-
-  link ".config/htop"
-  link ".config/kak"
-  link ".config/pacman"
-  link ".config/qalculate/qalc.cfg"
-  link ".config/ranger/rc.conf"
-  link ".config/rofi"
-  link ".config/tig"
-  link ".config/vifm/vifmrc"
-
-  link ".config/systemd/user/backup-packages.service"
-  link ".config/systemd/user/backup-packages.timer"
-
   link ".gitconfig"
   link ".gitconfig.work"
   link ".gitignore"
+  link ".gnupg/gpg.conf"
+  link ".gtkrc-2.0"
   link ".ignore"
   link ".magic"
+  link ".mbsyncrc"
   link ".mdlrc"
+  link ".notmuch-config"
   link ".npmrc"
   link ".pylintrc"
+  link ".taskrc"
   link ".tmux.conf"
+  link ".Xmodmap"
+  link ".Xresources"
+  link ".xsession"
   link ".zsh"
   link ".zshrc"
 
-  if [[ "$HOST" =~ "desktop-" ]]; then
-    link ".gnupg/gpg-agent.conf"
-    link ".gnupg/pinentry-dmenu.conf"
+  link ".config/chromium-flags.conf"
+  link ".config/copyq/copyq.conf"
+  link ".config/croc"
+  link ".config/Dharkael"
+  link ".config/dunst"
+  link ".config/fontconfig/conf.d/70-monospace.conf"
+  link ".config/gsimplecal"
+  link ".config/gtk-3.0"
+  link ".config/htop"
+  link ".config/i3"
+  link ".config/imapnotify"
+  link ".config/kak"
+  link ".config/kitty"
+  link ".config/mimeapps.list"
+  link ".config/mpv/mpv.conf"
+  link ".config/msmtp"
+  link ".config/neomutt"
+  link ".config/nnn/plugins"
+  link ".config/pacman"
+  link ".config/picom/picom.conf"
+  link ".config/py3status"
+  link ".config/qalculate/qalc.cfg"
+  link ".config/ranger/rc.conf"
+  link ".config/redshift"
+  link ".config/repoctl"
+  link ".config/rofi"
+  link ".config/systemd/user/backup-packages.service"
+  link ".config/systemd/user/backup-packages.timer"
+  link ".config/systemd/user/mbsync.service"
+  link ".config/systemd/user/mbsync.timer"
+  link ".config/tig"
+  link ".config/transmission/settings.json"
+  link ".config/urlwatch"
+  link ".config/USBGuard"
+  link ".config/vifm/vifmrc"
+  link ".config/vimiv"
+  link ".config/weechat"
 
-    link ".config/chromium-flags.conf"
-    link ".config/picom/picom.conf"
-    link ".config/copyq/copyq.conf"
-    link ".config/croc"
-    link ".config/Dharkael"
-    link ".config/dunst"
-    link ".config/fontconfig/conf.d/70-monospace.conf"
-    link ".config/gsimplecal"
-    link ".config/gtk-3.0"
-    link ".config/i3"
-    link ".config/imapnotify"
-    link ".config/kitty"
-    link ".config/mimeapps.list"
-    link ".config/msmtp"
-    link ".config/mpv/mpv.conf"
-    link ".config/neomutt"
-    link ".config/nnn/plugins"
-    link ".config/py3status"
-    link ".config/redshift"
-    link ".config/repoctl"
-    link ".config/transmission/settings.json"
-    link ".config/urlwatch"
-    link ".config/USBGuard"
-    link ".config/weechat"
-    link ".config/vimiv"
+  link ".gnupg/gpg-agent.conf"
+  link ".gnupg/pinentry-dmenu.conf"
 
-    link ".config/systemd/user/mbsync.service"
-    link ".config/systemd/user/mbsync.timer"
-
-    link ".local/share/fonts/taskbar.ttf"
-    link ".local/share/applications/neomutt.desktop"
-
-    link ".gtkrc-2.0"
-    link ".mbsyncrc"
-    link ".notmuch-config"
-    link ".taskrc"
-    link ".Xmodmap"
-    link ".xsession"
-    link ".Xresources"
-  fi
+  link ".local/share/applications/neomutt.desktop"
+  link ".local/share/fonts/taskbar.ttf"
 
   echo ""
   echo "================================="
@@ -146,13 +139,10 @@ if [ "$(whoami)" != "root" ]; then
 
   systemctl --user daemon-reload
   systemctl_enable_start "user" "backup-packages.timer"
-
-  if [[ "$HOST" =~ "desktop-" ]]; then
-    systemctl_enable_start "user" "dunst.service"
-    systemctl_enable_start "user" "mbsync.timer"
-    systemctl_enable_start "user" "redshift.service"
-    systemctl_enable_start "user" "yubikey-touch-detector.service"
-  fi
+  systemctl_enable_start "user" "dunst.service"
+  systemctl_enable_start "user" "mbsync.timer"
+  systemctl_enable_start "user" "redshift.service"
+  systemctl_enable_start "user" "yubikey-touch-detector.service"
 
   echo ""
   echo "======================================="
@@ -168,35 +158,33 @@ if [ "$(whoami)" != "root" ]; then
     gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
   fi
 
-  if [[ "$HOST" =~ "desktop-" ]]; then
-    if [[ ! -a "$HOME/.config/Yubico/u2f_keys" ]]; then
-      echo "Configuring YubiKey for sudo access (touch it now)"
-      mkdir -p "$HOME/.config/Yubico"
-      pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
-    fi
+  if [[ ! -a "$HOME/.config/Yubico/u2f_keys" ]]; then
+    echo "Configuring YubiKey for sudo access (touch it now)"
+    mkdir -p "$HOME/.config/Yubico"
+    pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
+  fi
 
-    if [[ -a "$HOME/.password-store" ]]; then
-      echo "Configuring automatic git push for pass"
-      echo "#!/usr/bin/zsh\n\npass git push" >! "$HOME/.password-store/.git/hooks/post-commit"
-      chmod +x "$HOME/.password-store/.git/hooks/post-commit"
-    fi
+  if [[ -a "$HOME/.password-store" ]]; then
+    echo "Configuring automatic git push for pass"
+    echo "#!/usr/bin/zsh\n\npass git push" >! "$HOME/.password-store/.git/hooks/post-commit"
+    chmod +x "$HOME/.password-store/.git/hooks/post-commit"
+  fi
 
-    echo "Configuring GTK file chooser dialog"
-    gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+  echo "Configuring GTK file chooser dialog"
+  gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
-    echo "Ignoring further changes to often changing config"
-    git update-index --assume-unchanged ".config/transmission/settings.json"
+  echo "Ignoring further changes to often changing config"
+  git update-index --assume-unchanged ".config/transmission/settings.json"
 
-    echo "Creating pacman cache for custom AUR repo"
-    [[ ! -a "/var/cache/pacman/maximbaz/" ]] && sudo install -d "/var/cache/pacman/maximbaz" -o maximbaz
-    if [[ ! -a "/var/cache/pacman/maximbaz/maximbaz.db.tar" ]]; then
-      if read -q "?Press 'y' to mirror the remote repo or 'n' to create an empty one: "; then
-        echo ""
-        wget -m -nH -np -q --show-progress --reject="index.html*" --cut-dirs=1 -P '/var/cache/pacman/maximbaz/' 'https://pkgbuild.com/~maximbaz/repo/'
-      else
-        echo ""
-        repo-add -s "/var/cache/pacman/maximbaz/maximbaz.db.tar"
-      fi
+  echo "Creating pacman cache for custom AUR repo"
+  [[ ! -a "/var/cache/pacman/maximbaz/" ]] && sudo install -d "/var/cache/pacman/maximbaz" -o maximbaz
+  if [[ ! -a "/var/cache/pacman/maximbaz/maximbaz.db.tar" ]]; then
+    if read -q "?Press 'y' to mirror the remote repo or 'n' to create an empty one: "; then
+      echo ""
+      wget -m -nH -np -q --show-progress --reject="index.html*" --cut-dirs=1 -P '/var/cache/pacman/maximbaz/' 'https://pkgbuild.com/~maximbaz/repo/'
+    else
+      echo ""
+      repo-add -s "/var/cache/pacman/maximbaz/maximbaz.db.tar"
     fi
   fi
 
@@ -216,53 +204,45 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Setting up /etc configs..."
   echo "=========================="
 
+  chattr -i "/etc/resolv.conf"
+  copy "etc/resolv.conf"
+  chattr +i "/etc/resolv.conf"
+
+  copy "etc/bluetooth/main.conf"
   copy "etc/conf.d/snapper"
+  copy "etc/default/grub-btrfs/config"
   copy "etc/environment"
+  copy "etc/iwd/main.conf"
+  copy "etc/knot-resolver/kresd.conf"
+  copy "etc/lightdm/lightdm.conf"
+  copy "etc/lightdm/lightdm-gtk-greeter.conf"
+  copy "etc/pacman.conf"
   copy "etc/pacman.d/hooks"
+  copy "etc/pam.d/sudo"
+  copy "etc/private-internet-access/pia.conf"
   copy "etc/profile.d/maven.sh"
   copy "etc/profile.d/zz_custom.sh"
   copy "etc/snap-pac.conf"
   copy "etc/snapper/configs/root"
   copy "etc/ssh/ssh_config"
+  copy "etc/sudoers"
   copy "etc/sysctl.d/10-swappiness.conf"
   copy "etc/sysctl.d/99-idea.conf"
   copy "etc/sysctl.d/99-sysctl.conf"
   copy "etc/systemd/journald.conf"
+  copy "etc/systemd/logind.conf"
+  copy "etc/systemd/system/backup-repo@pkgbuild"
+  copy "etc/systemd/system/backup-repo@.service"
+  copy "etc/systemd/system/openvpn-client@.service.d/override.conf"
   copy "etc/systemd/system/paccache.service"
   copy "etc/systemd/system/paccache.timer"
   copy "etc/systemd/system/reflector.service"
   copy "etc/systemd/system/reflector.timer"
+  copy "etc/udev/rules.d/81-ac-battery-change.rules"
   copy "etc/updatedb.conf"
-
-  if [[ "$HOST" =~ "desktop-" ]]; then
-    chattr -i "/etc/resolv.conf"
-    copy "etc/resolv.conf"
-    chattr +i "/etc/resolv.conf"
-
-    copy "etc/bluetooth/main.conf"
-    copy "etc/default/grub-btrfs/config"
-    copy "etc/iwd/main.conf"
-    copy "etc/knot-resolver/kresd.conf"
-    copy "etc/lightdm/lightdm.conf"
-    copy "etc/lightdm/lightdm-gtk-greeter.conf"
-    copy "etc/pacman.conf"
-    copy "etc/pam.d/sudo"
-    copy "etc/private-internet-access/pia.conf"
-    copy "etc/sudoers"
-    copy "etc/systemd/logind.conf"
-    copy "etc/systemd/system/backup-repo@pkgbuild"
-    copy "etc/systemd/system/backup-repo@.service"
-    copy "etc/systemd/system/openvpn-client@.service.d/override.conf"
-    copy "etc/udev/rules.d/81-ac-battery-change.rules"
-    copy "etc/usbguard/usbguard-daemon.conf" 600
-    copy "etc/X11/xorg.conf.d/00-keyboard.conf"
-    copy "etc/X11/xorg.conf.d/30-touchpad.conf"
-  fi
-
-  if [[ "$HOST" =~ "crmdevvm-" ]]; then
-    copy "etc/systemd/system/reverse-ssh@devbox"
-    copy "etc/systemd/system/reverse-ssh@.service"
-  fi
+  copy "etc/usbguard/usbguard-daemon.conf" 600
+  copy "etc/X11/xorg.conf.d/00-keyboard.conf"
+  copy "etc/X11/xorg.conf.d/30-touchpad.conf"
 
   echo ""
   echo "================================="
@@ -272,35 +252,25 @@ if [[ "$(whoami)" == "root" ]]; then
   sysctl --system > /dev/null
 
   systemctl daemon-reload
+  systemctl enable "lightdm.service"
+  systemctl enable "backup-repo@pkgbuild.service"
+  systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "fstrim.timer"
   systemctl_enable_start "system" "iwd.service"
+  systemctl_enable_start "system" "kresd.socket"
   systemctl_enable_start "system" "linux-modules-cleanup.service"
-  systemctl_enable_start "system" "paccache.timer"
-  systemctl_enable_start "system" "reflector.timer"
-  systemctl_enable_start "system" "docker.service"
-  systemctl_enable_start "system" "ufw.service"
-  systemctl_enable_start "system" "snapper-cleanup.timer"
   systemctl_enable_start "system" "openvpn-client@Sweden.service"
-
-  if [[ "$HOST" =~ "desktop-" ]]; then
-    systemctl enable "lightdm.service"
-    systemctl enable "backup-repo@pkgbuild.service"
-    systemctl_enable_start "system" "kresd.socket"
-    systemctl_enable_start "system" "pcscd.service"
-    systemctl_enable_start "system" "seaf-cli@maximbaz.service"
-    systemctl_enable_start "system" "teamviewerd.service"
-    systemctl_enable_start "system" "usbguard.service"
-    systemctl_enable_start "system" "usbguard-dbus.service"
-
-    # tlp
-    systemctl_enable_start "system" "tlp.service"
-    systemctl_enable_start "system" "tlp-sleep.service"
-  fi
-
-  if [[ "$HOST" =~ "crmdevvm-" ]]; then
-    systemctl_enable_start "system" "sshd.socket"
-    systemctl_enable_start "system" "reverse-ssh@devbox.service"
-  fi
+  systemctl_enable_start "system" "paccache.timer"
+  systemctl_enable_start "system" "pcscd.service"
+  systemctl_enable_start "system" "reflector.timer"
+  systemctl_enable_start "system" "seaf-cli@maximbaz.service"
+  systemctl_enable_start "system" "snapper-cleanup.timer"
+  systemctl_enable_start "system" "teamviewerd.service"
+  systemctl_enable_start "system" "tlp.service"
+  systemctl_enable_start "system" "tlp-sleep.service"
+  systemctl_enable_start "system" "ufw.service"
+  systemctl_enable_start "system" "usbguard-dbus.service"
+  systemctl_enable_start "system" "usbguard.service"
 
   echo ""
   echo "=============================="
@@ -327,39 +297,24 @@ if [[ "$(whoami)" == "root" ]]; then
   ufw --force reset >/dev/null
   ufw default allow outgoing
   ufw default deny incoming
-  [[ "$HOST" =~ "crmdevvm-" ]] && ufw allow ssh
   ufw enable
   find /etc/ufw -type f -name '*.rules.*' -delete
 
-  if [[ "$HOST" =~ "desktop-" ]]; then
-    echo "Joining autologin group"
-    groupadd -rf autologin
-    gpasswd -a maximbaz autologin
+  echo "Joining autologin group"
+  groupadd -rf autologin
+  gpasswd -a maximbaz autologin
 
-    echo "Joining video group"
-    groupadd -rf video
-    gpasswd -a maximbaz video
+  echo "Joining video group"
+  groupadd -rf video
+  gpasswd -a maximbaz video
 
-    echo "Configuring aurutils"
-    ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
-    ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
+  echo "Configuring aurutils"
+  ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
+  ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
 
-    echo "Enabling infinality aliases"
-    ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
-  fi
-
-  if [[ "$HOST" =~ "crmdevvm-" ]]; then
-    echo "Configuring firewall"
-    ufw --force reset > /dev/null
-    ufw default allow outgoing
-    ufw default deny incoming
-    ufw allow ssh
-    ufw enable
-    find /etc/ufw -type f -name '*.rules.*' -delete
-
-    echo "Configuring gpg-agent forwarding"
-    sed -zi "s/\(VersionAddendum[^\n]*\n\)\(StreamLocalBindUnlink[^\n]*\n\)\?/\1StreamLocalBindUnlink yes\n/" /etc/ssh/sshd_config
-  fi
+  echo "Configuring fontconfig"
+  ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
+  ln -sf /etc/fonts/conf.avail/75-joypixels.conf /etc/fonts/conf.d/75-joypixels.conf
 
   echo "Reload udev rules"
   udevadm control --reload
