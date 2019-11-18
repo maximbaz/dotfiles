@@ -18,7 +18,7 @@
     "download-dir": "/home/maximbaz/Downloads",
     "download-queue-enabled": true,
     "download-queue-size": 5,
-    "encryption": 2,
+    "encryption": 1,
     "filter-mode": "show-all",
     "filter-trackers": "",
     "idle-seeding-limit": 30,
