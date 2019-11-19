@@ -1,0 +1,10 @@
+#!/bin/sh
+
+selection="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection"
+croc="kitty @ new-window --no-response --window-type os --cwd $PWD croc send "
+
+if [ -s "$selection" ]; then
+    xargs -0 -a "$selection" $croc
+elif [ -e "$1" ]; then
+    $croc "$1"
+fi
