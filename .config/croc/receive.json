@@ -1,0 +1,13 @@
+{
+    "IsSender": false,
+    "SharedSecret": "",
+    "Debug": false,
+    "RelayAddress": "croc.levis.ws",
+    "RelayPorts": null,
+    "RelayPassword": "",
+    "Stdout": false,
+    "NoPrompt": false,
+    "NoMultiplexing": false,
+    "DisableLocal": false,
+    "Ask": false
+}
