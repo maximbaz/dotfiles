@@ -2,6 +2,8 @@ source /usr/share/kak-lsp/rc/lsp.kak
 lsp-enable
 lsp-auto-hover-insert-mode-enable
 lsp-auto-hover-enable
+set-option global lsp_auto_highlight_references true
+set-option global lsp_hover_anchor true
 
 set-option global grepcmd 'ag --column --hidden -f'
 
