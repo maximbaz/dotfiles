@@ -14,6 +14,10 @@ case "$(hostname)" in
     desktop-*) export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh" ;;
 esac
 
+export NNN_USE_EDITOR=1
+export NNN_TRASH=1
+export NNN_CONTEXT_COLORS='4235'
+
 export XSECURELOCK_FONT="-*-open sans-medium-r-*-*-30-*-*-*-*-*-*-uni"
 export XSECURELOCK_SHOW_HOSTNAME=0
 export XSECURELOCK_SHOW_USERNAME=0
