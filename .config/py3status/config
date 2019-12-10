@@ -19,7 +19,7 @@ order += 'external_script checkrebuild'
 order += 'external_script checkfirmware'
 order += 'external_script new_email'
 order += 'file_status decrypted'
-order += 'scratchpad_async'
+order += 'scratchpad'
 order += 'net_rate'
 order += 'diskdata'
 order += 'group cpu'
@@ -157,8 +157,8 @@ process_status {
   format = '󰀁'
 }
 
-scratchpad_async {
-  format = '\?color=degraded 󰀿   {counter}'
+scratchpad {
+  format = '\?if=scratchpad&color=degraded 󰀿   {scratchpad}'
 }
 
 group cpu {
