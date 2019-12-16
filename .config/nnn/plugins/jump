@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. /home/maximbaz/.antigen/bundles/rupa/z/z.sh
+
+printf "jump to: "
+read -r query
+
+dir="$(_z -e "$query")"
+printf "%s" "0$dir" > "$NNN_PIPE"
