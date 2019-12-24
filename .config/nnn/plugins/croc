@@ -1,10 +1,9 @@
 #!/bin/sh
 
 selection="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection"
-croc="kitty @ new-window --no-response --window-type os --cwd $PWD croc send "
 
 if [ -s "$selection" ]; then
-    xargs -0 -a "$selection" $croc
+    kitty @ new-window --no-response --window-type os --cwd $PWD sh -c "xargs -0 -a $selection croc send; echo 'Press any key to exit...'; read -r _"
 elif [ -e "$1" ]; then
-    $croc "$1"
+    kitty @ new-window --no-response --window-type os --cwd $PWD sh -c "croc send $1; echo 'Press any key to exit...'; read -r _"
 fi
