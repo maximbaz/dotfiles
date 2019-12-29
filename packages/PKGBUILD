@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.0.2
+pkgver=2.1.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -29,8 +29,9 @@ depends=(
     # files
     'gocryptfs'
     'ntfs-3g'
+    'sshfs'
     'udiskie'
-    'nnn'
+    'nnn-git'
     'vimiv-qt'
     'ncdu'
     'croc'
@@ -41,9 +42,12 @@ depends=(
     'ripgrep'
     'tree'
     'rmtrash'
+    'imagemagick'
     'jq'
     'pydf'
     'seafile-client'
+    'zathura-pdf-mupdf'
+    'pdftk'
 
     # archiving
     'lbzip2'
@@ -59,9 +63,12 @@ depends=(
     'knot-resolver'
     'openvpn'
     'ufw'
+    'opensnitch-git'
     'nethogs'
     'net-tools'
     'nmap'
+    'nzbget'
+    'nzbget-systemd'
     'openbsd-netcat'
     'bind-tools'
     'mtr'
@@ -97,7 +104,7 @@ depends=(
     'i3-gaps'
     'lightdm'
     'lightdm-gtk-greeter'
-    'compton'
+    'picom'
     'xsecurelock'
     'hsetroot'
     'unclutter'
@@ -179,6 +186,9 @@ depends=(
     # js dev
     'yarn'
 
+    # rust dev
+    'rust'
+
     # terminal
     'kitty'
     'zsh'
@@ -231,6 +241,7 @@ depends=(
     'krita'
     'libqalculate'
     'libreoffice-fresh'
+    'task'
     'teamviewer'
     'transmission-gtk'
     'mpv'
@@ -242,7 +253,6 @@ depends=(
     'k9s-bin'
     'kubectl'
     'kubectx'
-    'kubernetes-helm'
     'teams-for-linux'
     'terraform'
 )
