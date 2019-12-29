@@ -9,6 +9,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
       time
+      nnn
       background_jobs
       user
       dir
@@ -207,4 +208,10 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
   typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
+
+  ####################################[ nnn: nesting ]####################################
+  function prompt_nnn() {
+    [ -z "$NNNLVL" ] && return
+    p10k segment -f 208 -t " "
+  }
 }
