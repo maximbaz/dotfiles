@@ -310,4 +310,5 @@ exec_always "pgrep -x neomutt || (kitty --class neomutt neomutt &)"
 exec_always "pgrep -x wire-desktop || (wire-desktop &)"
 exec_always "pgrep -x udiskie || (udiskie --smart-tray &)"
 exec_always "pgrep -x playerctl || (playerctl status --format '{{ playerName  }}' --follow > /tmp/player-last &)"
+exec_always "pgrep -x opensnitch-ui || (opensnitch-ui &)"
 exec_always xmodmap ~/.Xmodmap
