@@ -20,6 +20,7 @@ xfreerdp                                  \
   /aero                                   \
   /window-drag                            \
   /scale:180                              \
+  /scale-desktop:220                      \
   /smart-sizing                           \
   /menu-anims                             \
   /bpp:32                                 \
