@@ -250,6 +250,7 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "fstrim.timer"
   systemctl_enable_start "system" "iwd.service"
+  systemctl_enable_start "system" "nzbget.service"
   systemctl_enable_start "system" "kresd.socket"
   systemctl_enable_start "system" "linux-modules-cleanup.service"
   systemctl_enable_start "system" "openvpn-client@Sweden.service"
@@ -301,6 +302,10 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Joining video group"
   groupadd -rf video
   gpasswd -a maximbaz video
+
+  echo "Joining nzbget group"
+  groupadd -rf nzbget
+  gpasswd -a maximbaz nzbget
 
   echo "Configuring aurutils"
   ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
