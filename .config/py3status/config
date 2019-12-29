@@ -143,7 +143,7 @@ net_rate {
   format = '\?color=total 󰀑  {total}'
   format_value = '{value:.0f} {unit}'
   thresholds = {'total': [(0, 'hidden'), (1499500, 'degraded'), (14995000, 'bad')]} # 8 mbit, 80 mbit
-  unit = 'MB/s'
+  unit = 'Mbp/s'
 }
 
 file_status decrypted {
