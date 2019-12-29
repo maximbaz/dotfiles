@@ -119,7 +119,8 @@ bindcode $hyper+55 split v
 bindcode $win+55 split h
 
 # Enter fullscreen mode (f)
-bindcode $hyper+41 fullscreen
+bindcode $hyper+41 exec ~/bin/i3-maximize
+bindcode $win+41 fullscreen
 
 # Container layout: split (e)
 bindcode $hyper+26 layout toggle split
