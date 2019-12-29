@@ -8,3 +8,7 @@ rofi.matching: fuzzy
 rofi.kb-remove-char-back: BackSpace,Shift+BackSpace,Control+h
 rofi.kb-move-word-back: Alt+b,Ctrl+Left
 rofi.kb-move-word-forward: Alt+f,Ctrl+Right
+rofi.kb-row-first:
+rofi.kb-row-last:
+rofi.kb-move-front: Home
+rofi.kb-move-end: End
