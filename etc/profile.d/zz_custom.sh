@@ -17,6 +17,8 @@ esac
 export NNN_USE_EDITOR=1
 export NNN_TRASH=1
 export NNN_CONTEXT_COLORS='4235'
+export NNN_PLUG='j:jump;r:remove;c:croc;d:dragdrop;'
+export NNN_BMS='d:~/Downloads;n:~/Downloads/nzbget/dst;'
 
 export XSECURELOCK_FONT="-*-open sans-medium-r-*-*-30-*-*-*-*-*-*-uni"
 export XSECURELOCK_SHOW_HOSTNAME=0
