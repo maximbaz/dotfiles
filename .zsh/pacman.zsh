@@ -38,18 +38,18 @@ pacQ() {
 }
 
 aurs() {
-  aur sync -scP "$@"
+  aur sync -ScP "$@"
   post_aur
 }
 alias aurs!='aurs --no-ver-shallow -f'
 
 aurb() {
-  aur build -scf --pkgver "$@"
+  aur build -Scf --pkgver "$@"
   post_aur
 }
 
 auru() {
-  xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -scuP --rebuild "$@"
+  xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -ScPu --rebuild "$@"
   post_aur
 }
 
