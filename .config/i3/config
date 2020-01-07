@@ -52,7 +52,7 @@ bar {
 
     # Type             border                 background              font
     focused_workspace  $color_bright_gray     $color_bright_gray      $color_bright_white
-    active_workspace   $color_unused          $color_unused           $color_unused
+    active_workspace   $color_normal_gray     $color_normal_gray      $color_normal_white
     inactive_workspace $color_normal_gray     $color_normal_gray      $color_normal_white
     urgent_workspace   $color_bright_yellow   $color_bright_yellow    $color_normal_black
   }
