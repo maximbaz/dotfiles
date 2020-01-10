@@ -4,7 +4,6 @@ before_lock() {
   bluetoothctl disconnect
   playerctl -a pause
   xkb-switch -s us
-  py3-cmd refresh xkb_layouts
   killall picom
   usbguard set-parameter InsertedDevicePolicy reject
   sudo systemctl stop pcscd.service

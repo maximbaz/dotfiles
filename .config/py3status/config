@@ -33,7 +33,7 @@ order += 'bluetooth'
 order += 'volume_status'
 order += 'do_not_disturb'
 order += 'battery_level'
-order += 'xkb_layouts'
+order += 'xkb_input'
 order += 'external_script date'
 order += 'clock'
 
@@ -233,11 +233,11 @@ group wifi {
   }
 }
 
-xkb_layouts {
+xkb_input {
   cache_timeout = -1
   button_prev = None
   button_next = None
-  format = '\?color=s {s}'
+  format_input = '\?color=s {s}'
   thresholds = [
     ('ru', '#fb4934'),
   ]

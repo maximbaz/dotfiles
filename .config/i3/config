@@ -72,10 +72,6 @@ set $numlock Mod2
 # Use Mouse+$hyper to drag floating windows to their wanted position
 floating_modifier $hyper
 
-# Refresh py3status module after switching keyboard layout (Shift+Shift)
-bindcode Shift+50 exec "py3-cmd refresh xkb_layouts"
-bindcode Shift+62 exec "py3-cmd refresh xkb_layouts"
-
 # Start a terminal
 bindsym $hyper+Return exec kitty
 bindsym $win+Return exec kitty
