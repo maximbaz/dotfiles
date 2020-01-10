@@ -39,9 +39,8 @@ get_password() {
 
 get_choice() {
     title="$1"
-    shift
     description="$2"
-    shift
+    shift 2
     options=("$@")
     dialog --clear --stdout --backtitle "$BACKTITLE" --title "$title" --menu "$description" 0 0 0 "${options[@]}"
 }
