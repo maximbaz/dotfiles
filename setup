@@ -90,7 +90,6 @@ if [ "$(whoami)" != "root" ]; then
   link ".config/croc"
   link ".config/Dharkael"
   link ".config/dunst"
-  link ".config/fontconfig/conf.d/70-monospace.conf"
   link ".config/gsimplecal"
   link ".config/gtk-3.0"
   link ".config/htop"
@@ -312,7 +311,6 @@ if [[ "$(whoami)" == "root" ]]; then
   ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
 
   echo "Configuring fontconfig"
-  ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d/30-infinality-aliases.conf
   ln -sf /etc/fonts/conf.avail/75-joypixels.conf /etc/fonts/conf.d/75-joypixels.conf
 
   echo "Reload udev rules"
