@@ -48,10 +48,10 @@ get_choice() {
 
 
 echo -e "\n### HiDPI screens"
-noyes=("No" "The font is fine" "Yes" "The font is too large")
-oldscreen=$(get_choice "Font size" "Is the font too small?" "${noyes[@]}") || exit 1
+noyes=("Yes" "The font is too small" "No" "The font size is just fine")
+hidpi=$(get_choice "Font size" "Is your screen HiDPI?" "${noyes[@]}") || exit 1
 clear
-[[ "$oldscreen" == "Yes" ]] && font="ter-716n" || font="ter-132n"
+[[ "$hidpi" == "Yes" ]] && font="ter-132n" || font="ter-716n"
 
 hostname=$(get_input "Hostname" "Enter hostname") || exit 1
 clear
