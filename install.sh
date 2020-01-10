@@ -47,6 +47,12 @@ get_choice() {
 }
 
 
+echo -e "\n### HiDPI screens"
+noyes=("No" "The font is fine" "Yes" "The font is too large")
+oldscreen=$(get_choice "Font size" "Is the font too small?" "${noyes[@]}") || exit 1
+clear
+[[ "$oldscreen" == "Yes" ]] && font="ter-716n" || font="ter-132n"
+
 hostname=$(get_input "Hostname" "Enter hostname") || exit 1
 clear
 : ${hostname:?"hostname cannot be empty"}
@@ -70,7 +76,8 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 
 echo -e "\n### Installing additional tools"
-pacman -Sy --noconfirm --needed git reflector
+pacman -Sy --noconfirm --needed git reflector terminus-font
+setfont "$font"
 
 echo -e "\n### Setting up fastest mirrors"
 reflector --latest 30 --sort rate --save /etc/pacman.d/mirrorlist
