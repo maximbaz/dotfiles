@@ -186,14 +186,13 @@ arch-chroot /mnt grub-install ${device}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo -e "\n### Creating user"
+arch-chroot /mnt for group in wheel autologin video nzbget; do groupadd -rf $group; done
 arch-chroot /mnt useradd -m -s /usr/bin/zsh -g users -G wheel,autologin,video,nzbget "$user"
 arch-chroot /mnt chsh -s /usr/bin/zsh
 echo "$user:$password" | chpasswd --root /mnt
 arch-chroot /mnt passwd -dl root
 
 echo -e "\n### Cloning dotfiles"
-arch-chroot /mnt sudo -u $user bash < <( \
-    git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles
-)
+arch-chroot /mnt sudo -u $user bash -c 'git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
 
 echo -e "\n### DONE - reboot and run ~/.dotfiles/setup"
