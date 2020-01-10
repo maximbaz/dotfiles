@@ -78,7 +78,7 @@ hook global WinSetOption filetype=rust %{
 }
 
 hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml|html) %{
-    set-option buffer formatcmd "prettier --stdin-filepath=${kak_buffile}"
+    set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
     hook buffer -group format BufWritePre .* format
 }
 
