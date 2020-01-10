@@ -150,15 +150,39 @@ echo -e "\n### Installing packages"
 pacstrap /mnt maximbaz
 
 echo -e "\n### Generating base config files"
+echo "FONT=$font" > /mnt/etc/vconsole.conf
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "${hostname}" > /mnt/etc/hostname
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
 echo "en_DK.UTF-8 UTF-8" >> /mnt/etc/locale.gen
 ln -sf /usr/share/zoneinfo/Europe/Copenhagen /mnt/etc/localtime
 arch-chroot /mnt locale-gen
+cat <<EOF >/mnt/etc/mkinitcpio.conf
+MODULES=()
+BINARIES=()
+FILES=(/crypto_keyfile.bin)
+HOOKS=(base consolefont udev autodetect modconf block encrypt filesystems keyboard)
+EOF
+cat <<EOF >/mnt/etc/sudoers
+root ALL=(ALL) ALL
+%wheel ALL=(ALL) ALL
+EOF
 
 echo -e "\n### Installing GRUB"
 chmod 600 /mnt/boot/initramfs-linux*
+cat <<EOF >/mnt/etc/default/grub
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="Arch"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+GRUB_CMDLINE_LINUX="cryptdevice=${part_root}:luks:allow-discards"
+GRUB_PRELOAD_MODULES="part_gpt part_msdos"
+GRUB_ENABLE_CRYPTODISK=y
+GRUB_TIMEOUT_STYLE=menu
+GRUB_TERMINAL_INPUT=console
+GRUB_GFXMODE=1280x1024x32,1024x768x32,auto
+GRUB_DISABLE_RECOVERY=true
+EOF
 arch-chroot /mnt grub-install ${device}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
