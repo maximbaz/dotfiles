@@ -246,6 +246,12 @@ xkb_input {
 xrandr {
   fixed_width = false
   hide_if_single_combination = true
+  output_combinations = "DP-2+DP-1-1+DP-1-2|eDP-1"
+  force_on_change = ["DP-2+DP-1-1+DP-1-2", "eDP-1"]
+  DP-1-1_rotate = "left"
+  DP-1-2_pos = "right-of DP-1-1"
+  DP-1-2_primary = True
+  DP-2_pos = "right-of DP-1-2"
 }
 
 usbguard {
