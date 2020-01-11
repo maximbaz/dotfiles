@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.3.0
+pkgver=2.3.1
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -117,6 +117,10 @@ depends=(
     'opensnitch-git'
     'bandwhich'
     'net-tools'
+    'networkmanager'
+    'networkmanager-openvpn'
+    'networkmanager-dmenu-git'
+    'nm-connection-editor'
     'nmap'
     'nzbget'
     'nzbget-systemd'

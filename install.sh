@@ -186,8 +186,11 @@ arch-chroot /mnt grub-install ${device}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo -e "\n### Creating user"
-arch-chroot /mnt for group in wheel autologin video nzbget; do groupadd -rf $group; done
-arch-chroot /mnt useradd -m -s /usr/bin/zsh -g users -G wheel,autologin,video,nzbget "$user"
+arch-chroot /mnt useradd -m -s /usr/bin/zsh "$user"
+for group in wheel autologin network nzbget video; do
+    arch-chroot /mnt groupadd -rf "$group"
+    arch-chroot /mnt gpasswd -a "$user" "$group"
+done
 arch-chroot /mnt chsh -s /usr/bin/zsh
 echo "$user:$password" | chpasswd --root /mnt
 arch-chroot /mnt passwd -dl root

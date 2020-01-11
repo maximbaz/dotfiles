@@ -77,12 +77,13 @@ bindsym $hyper+Return exec kitty
 bindsym $win+Return exec kitty
 bindsym $win+Shift+Return exec kitty /bin/bash
 
-# Start a launcher (=)(d)(o)(t)(p)
+# Start a launcher (=)(d)(o)(t)(p)(n)
 bindcode $hyper+21 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofi-calc"
 bindcode $hyper+40 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofi -normal-window -show drun"
 bindcode $hyper+32 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofi -normal-window -show window"
 bindcode $hyper+28 fullscreen disable, exec "pgrep -x rofi && pkill rofi || rofimoji --rofi-args='-normal-window -matching normal -columns 3'"
 bindcode $hyper+33 exec "passmenu"
+bindcode $hyper+57 exec "networkmanager_dmenu"
 
 # Start a screenshot tool (m)
 bindcode $hyper+58 exec "flameshot gui"
