@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.2.1
+pkgver=2.3.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -36,6 +36,38 @@ depends=(
     'btrfs-progs'
     'htop'
     'vi'
+
+    # base-devel
+    'autoconf'
+    'automake'
+    'binutils'
+    'bison'
+    'fakeroot'
+    'file'
+    'findutils'
+    'flex'
+    'gawk'
+    'gcc'
+    'gettext'
+    'grep'
+    'groff'
+    'gzip'
+    'libtool'
+    'm4'
+    'make'
+    'pacman'
+    'patch'
+    'pkgconf'
+    'sed'
+    'sudo'
+    'texinfo'
+    'which'
+
+    # other arch
+    'pacman-contrib'
+    'devtools'
+    'reflector'
+    'urlwatch'
 
     # boot
     'grub'
@@ -166,12 +198,6 @@ depends=(
     'otf-font-awesome'
     'ttf-joypixels'
 
-    # arch
-    'pacman-contrib'
-    'devtools'
-    'reflector'
-    'urlwatch'
-
     # aur
     'aurpublish'
     'aurutils-git'
@@ -183,7 +209,6 @@ depends=(
     # git
     'git'
     'diff-so-fancy'
-    'kakmerge-git'
     'meld'
     'tig'
 
@@ -284,6 +309,5 @@ depends=(
     'kubectl'
     'kubectx'
     'slack-desktop'
-    'teams-for-linux'
     'terraform'
 )
