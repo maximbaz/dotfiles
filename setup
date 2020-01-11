@@ -135,10 +135,15 @@ if [ "$(whoami)" != "root" ]; then
 
   systemctl --user daemon-reload
   systemctl_enable_start "user" "backup-packages.timer"
-  systemctl_enable_start "user" "dunst.service"
   systemctl_enable_start "user" "mbsync.timer"
   systemctl_enable_start "user" "redshift.service"
   systemctl_enable_start "user" "yubikey-touch-detector.service"
+
+  if [ -n "$DISPLAY" ]; then
+    systemctl_enable_start "user" "dunst.service"
+  else
+    echo '=== No $DISPLAY available, skipping enabling some services'
+  fi
 
   echo ""
   echo "======================================="
@@ -154,10 +159,17 @@ if [ "$(whoami)" != "root" ]; then
     gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
   fi
 
+  find ~/.gnupg -type f -exec chmod 600 {} \;
+  find ~/.gnupg -type d -exec chmod 700 {} \;
+
   if [[ ! -a "$HOME/.config/Yubico/u2f_keys" ]]; then
-    echo "Configuring YubiKey for sudo access (touch it now)"
-    mkdir -p "$HOME/.config/Yubico"
-    pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
+    if lsusb | grep -i yubikey; then
+      echo "Configuring YubiKey for passwordless sudo (touch it now)"
+      mkdir -p "$HOME/.config/Yubico"
+      pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
+    else
+      echo "=== No Yubikey detected to configure passwordless sudo, skipping..."
+    fi
   fi
 
   if [[ -a "$HOME/.password-store" ]]; then
@@ -171,18 +183,6 @@ if [ "$(whoami)" != "root" ]; then
 
   echo "Ignoring further changes to often changing config"
   git update-index --assume-unchanged ".config/transmission/settings.json"
-
-  echo "Creating pacman cache for custom AUR repo"
-  [[ ! -a "/var/cache/pacman/maximbaz/" ]] && sudo install -d "/var/cache/pacman/maximbaz" -o maximbaz
-  if [[ ! -a "/var/cache/pacman/maximbaz/maximbaz.db.tar" ]]; then
-    if read -q "?Press 'y' to mirror the remote repo or 'n' to create an empty one: "; then
-      echo ""
-      wget -m -nH -np -q --show-progress --reject="index.html*" --cut-dirs=1 -P '/var/cache/pacman/maximbaz/' 'https://pkgbuild.com/~maximbaz/repo/'
-    else
-      echo ""
-      repo-add -s "/var/cache/pacman/maximbaz/maximbaz.db.tar"
-    fi
-  fi
 
   echo ""
   echo "====================================="
@@ -252,14 +252,12 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "fstrim.timer"
   systemctl_enable_start "system" "iwd.service"
-  systemctl_enable_start "system" "nzbget.service"
   systemctl_enable_start "system" "kresd.socket"
   systemctl_enable_start "system" "linux-modules-cleanup.service"
   systemctl_enable_start "system" "opensnitchd.service"
   systemctl_enable_start "system" "paccache.timer"
   systemctl_enable_start "system" "pcscd.service"
   systemctl_enable_start "system" "reflector.timer"
-  systemctl_enable_start "system" "seaf-cli@maximbaz.service"
   systemctl_enable_start "system" "snapper-cleanup.timer"
   systemctl_enable_start "system" "teamviewerd.service"
   systemctl_enable_start "system" "tlp.service"
@@ -267,6 +265,18 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "ufw.service"
   systemctl_enable_start "system" "usbguard.service"
   systemctl_enable_start "system" "usbguard-dbus.service"
+
+  if [ -d "$HOME/.ccnet" ]; then
+    systemctl_enable_start "system" "seaf-cli@maximbaz.service"
+  else
+    echo "=== Seafile is not initialized, skipping..."
+  fi
+
+  if [ -f /var/lib/nzbget/.nzbget ]; then
+    systemctl_enable_start "system" "nzbget.service"
+  else
+    echo "=== NZBget is not configured, skipping..."
+  fi
 
   echo ""
   echo "=============================="
