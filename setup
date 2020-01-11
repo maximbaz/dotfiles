@@ -212,6 +212,7 @@ if [[ "$(whoami)" == "root" ]]; then
   copy "etc/lightdm/lightdm.conf"
   copy "etc/lightdm/lightdm-gtk-greeter.conf"
   copy "etc/NetworkManager/conf.d"
+  copy "etc/NetworkManager/dispatcher.d/pia-vpn"
   copy "etc/pacman.conf"
   copy "etc/pacman.d/hooks"
   copy "etc/pam.d/sudo"
