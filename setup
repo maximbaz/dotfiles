@@ -248,6 +248,7 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl daemon-reload
   systemctl enable "lightdm.service"
   systemctl enable "backup-repo@pkgbuild.service"
+  systemctl_enable_start "system" "bluetooth.service"
   systemctl_enable_start "system" "docker.service"
   systemctl_enable_start "system" "fstrim.timer"
   systemctl_enable_start "system" "iwd.service"
