@@ -58,6 +58,7 @@ post_aur() {
   py3status-refresh-pacman
   find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
   find /var/cache/pacman/maximbaz -name '*~' -delete >/dev/null
+  find /var/cache/pacman/maximbaz -group root -delete >/dev/null
 }
 
 py3status-refresh-pacman() {
