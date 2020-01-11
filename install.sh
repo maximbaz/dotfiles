@@ -162,6 +162,7 @@ BINARIES=()
 FILES=(/crypto_keyfile.bin)
 HOOKS=(base consolefont udev autodetect modconf block encrypt filesystems keyboard)
 EOF
+arch-chroot /mnt mkinitcpio -p linux
 cat <<EOF >/mnt/etc/sudoers
 root ALL=(ALL) ALL
 %wheel ALL=(ALL) ALL
