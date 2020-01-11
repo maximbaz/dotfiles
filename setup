@@ -142,7 +142,7 @@ if [ "$(whoami)" != "root" ]; then
   if [ -n "$DISPLAY" ]; then
     systemctl_enable_start "user" "dunst.service"
   else
-    echo '=== No $DISPLAY available, skipping enabling some services'
+    >&2 echo '=== No $DISPLAY available, skipping enabling some services'
   fi
 
   echo ""
@@ -168,7 +168,7 @@ if [ "$(whoami)" != "root" ]; then
       mkdir -p "$HOME/.config/Yubico"
       pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
     else
-      echo "=== No Yubikey detected to configure passwordless sudo, skipping..."
+      >&2 echo "=== No Yubikey detected to configure passwordless sudo, skipping..."
     fi
   fi
 
@@ -269,13 +269,13 @@ if [[ "$(whoami)" == "root" ]]; then
   if [ -d "$HOME/.ccnet" ]; then
     systemctl_enable_start "system" "seaf-cli@maximbaz.service"
   else
-    echo "=== Seafile is not initialized, skipping..."
+    >&2 echo "=== Seafile is not initialized, skipping..."
   fi
 
   if [ -f /var/lib/nzbget/.nzbget ]; then
     systemctl_enable_start "system" "nzbget.service"
   else
-    echo "=== NZBget is not configured, skipping..."
+    >&2 echo "=== NZBget is not configured, skipping..."
   fi
 
   echo ""
