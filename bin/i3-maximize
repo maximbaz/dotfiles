@@ -21,7 +21,7 @@
 #
 ########################################################
 
-if ! type "jq" 2>1 > /dev/null; then
+if ! type "jq" 2>&1 > /dev/null; then
   echo "Missing jq dependency. Install with:"
   echo "  sudo apt install jq"
   exit 1
