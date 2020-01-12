@@ -52,10 +52,12 @@ systemctl_enable_start() {
   fi
   if [[ "$target" == "user" ]]; then
     echo "systemctl --user enable --now "$name""
-    systemctl --user enable --now "$name"
+    systemctl --user enable "$name"
+    systemctl --user start  "$name"
   else
     echo "systemctl enable --now "$name""
-    systemctl enable --now "$name"
+    systemctl enable "$name"
+    systemctl start  "$name"
   fi
 }
 
@@ -295,25 +297,6 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Finishing various user configuration..."
   echo "======================================="
 
-  echo "Configuring firewall"
-  ufw --force reset >/dev/null
-  ufw default allow outgoing
-  ufw default deny incoming
-  ufw enable
-  find /etc/ufw -type f -name '*.rules.*' -delete
-
-  echo "Joining autologin group"
-  groupadd -rf autologin
-  gpasswd -a maximbaz autologin
-
-  echo "Joining video group"
-  groupadd -rf video
-  gpasswd -a maximbaz video
-
-  echo "Joining nzbget group"
-  groupadd -rf nzbget
-  gpasswd -a maximbaz nzbget
-
   echo "Configuring aurutils"
   ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
   ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
@@ -321,7 +304,18 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Configuring fontconfig"
   ln -sf /etc/fonts/conf.avail/75-joypixels.conf /etc/fonts/conf.d/75-joypixels.conf
 
-  echo "Reload udev rules"
-  udevadm control --reload
-  udevadm trigger
+  if [[ $(stat -c %i /) != 256 ]]; then
+    echo "Configuring firewall"
+    ufw --force reset >/dev/null
+    ufw default allow outgoing
+    ufw default deny incoming
+    ufw enable
+    find /etc/ufw -type f -name '*.rules.*' -delete
+
+    echo "Reload udev rules"
+    udevadm control --reload
+    udevadm trigger
+  else
+    >&2 echo "=== Running in chroot, skipping some setup..."
+  fi
 fi
