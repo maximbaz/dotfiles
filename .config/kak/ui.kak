@@ -4,10 +4,16 @@ add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ show-matching
 add-highlighter global/ wrap -word -indent
 
-set-option global ui_options ncurses_assistant=off
-set-option global autoreload yes
-set-option global tabstop    4
-set-option global scrolloff  2,5
+set-option global ui_options  ncurses_assistant=off
+set-option global autoreload  yes
+set-option global tabstop     4
+set-option global indentwidth 4
+set-option global scrolloff   2,5
+
+hook global BufOpenFile .* %{ evaluate-commands -buffer %val(hook_param) %{ try %{
+  execute-keys '%s^\t<ret>'
+  set-option buffer indentwidth 0
+}}}
 
 set-option -add global autoinfo normal
 
