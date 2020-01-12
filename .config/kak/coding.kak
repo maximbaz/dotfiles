@@ -5,7 +5,7 @@ lsp-auto-hover-enable
 set-option global lsp_auto_highlight_references true
 set-option global lsp_hover_anchor true
 
-set-option global grepcmd 'ag --column --hidden -f'
+set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --column'
 
 set-option global langmap %opt{langmap_ru_jcuken}
 
