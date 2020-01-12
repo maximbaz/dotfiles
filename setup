@@ -188,12 +188,14 @@ if [ "$(whoami)" != "root" ]; then
   echo "Ignoring further changes to often changing config"
   git update-index --assume-unchanged ".config/transmission/settings.json"
 
-  echo ""
-  echo "====================================="
-  echo "Switching to root user to continue..."
-  echo "====================================="
-  echo "..."
-  sudo -s "$dotfiles_dir/$script_name"
+  if ! is_chroot; then
+    echo ""
+    echo "====================================="
+    echo "Switching to root user to continue..."
+    echo "====================================="
+    echo "..."
+    sudo -s "$dotfiles_dir/$script_name"
+  fi
   exit
 fi
 
