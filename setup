@@ -200,10 +200,6 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Setting up /etc configs..."
   echo "=========================="
 
-  chattr -i "/etc/resolv.conf"
-  copy "etc/resolv.conf"
-  chattr +i "/etc/resolv.conf"
-
   copy "etc/bluetooth/main.conf"
   copy "etc/conf.d/snapper"
   copy "etc/default/grub-btrfs/config"
