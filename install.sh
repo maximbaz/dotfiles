@@ -200,7 +200,7 @@ echo -e "\n### Cloning dotfiles"
 arch-chroot /mnt sudo -u $user bash -c 'git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
 
 echo -e "\n### Running initial setup"
-arch-chroot /mnt sudo -u maximbaz /home/$user/.dotfiles/setup
+arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup
 arch-chroot /mnt /home/$user/.dotfiles/setup
 
 echo -e "\n### DONE - reboot and run ~/.dotfiles/setup"
