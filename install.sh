@@ -167,6 +167,7 @@ echo -e "\n### Installing packages"
 pacstrap /mnt maximbaz
 
 echo -e "\n### Generating base config files"
+ln -sfT dash /mnt/usr/bin/sh
 echo "FONT=$font" > /mnt/etc/vconsole.conf
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "${hostname}" > /mnt/etc/hostname
@@ -247,7 +248,7 @@ echo -e "\n### Cloning dotfiles"
 arch-chroot /mnt sudo -u $user bash -c 'git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
 
 echo -e "\n### Running initial setup"
-arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup
-arch-chroot /mnt /home/$user/.dotfiles/setup
+arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
+arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup-user.sh
 
 echo -e "\n### DONE - reboot and run ~/.dotfiles/setup"

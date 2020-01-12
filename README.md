@@ -73,5 +73,6 @@
 
 ```
 $ git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles
-$ ~/.dotfiles/setup
+$ ~/.dotfiles/setup-system.sh
+$ ~/.dotfiles/setup-user.sh
 ```
