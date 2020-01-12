@@ -55,7 +55,6 @@ link ".zshrc"
 
 link ".config/chromium-flags.conf"
 link ".config/copyq/copyq.conf"
-link ".config/croc"
 link ".config/Dharkael"
 link ".config/dunst"
 link ".config/gsimplecal"
