@@ -8,13 +8,23 @@ dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
 cd "$dotfiles_dir"
 
 if (( "$EUID" )); then
-    sudo -s "$dotfiles_dir/$script_name"
+    sudo -s "$dotfiles_dir/$script_name" "$@"
     exit 0
 fi
 
+if [ "$1" = "-r" ]; then
+    >&2 echo "Running in reverse mode!"
+    reverse=1
+fi
+
 copy() {
-    orig_file="$dotfiles_dir/$1"
-    dest_file="/$1"
+    if [ -z "$reverse" ]; then
+        orig_file="$dotfiles_dir/$1"
+        dest_file="/$1"
+    else
+        orig_file="/$1"
+        dest_file="$dotfiles_dir/$1"
+    fi
 
     mkdir -p "$(dirname "$orig_file")"
     mkdir -p "$(dirname "$dest_file")"
@@ -22,7 +32,11 @@ copy() {
     rm -rf "$dest_file"
 
     cp -R "$orig_file" "$dest_file"
-    [ -z "$2" ] || chmod "$2" "/$1"
+    if [ -z "$reverse" ]; then
+        [ -n "$2" ] && chmod "$2" "$dest_file"
+    else
+        chown -R maximbaz "$dest_file"
+    fi
     echo "$dest_file <= $orig_file"
 }
 
@@ -75,11 +89,15 @@ copy "etc/systemd/system/paccache.service"
 copy "etc/systemd/system/paccache.timer"
 copy "etc/systemd/system/reflector.service"
 copy "etc/systemd/system/reflector.timer"
+copy "etc/systemd/system/system-dotfiles-sync.service"
+copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/udev/rules.d/81-ac-battery-change.rules"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
 copy "etc/X11/xorg.conf.d/00-keyboard.conf"
 copy "etc/X11/xorg.conf.d/30-touchpad.conf"
+
+(( "$reverse" )) && exit 0
 
 echo ""
 echo "================================="
@@ -103,6 +121,7 @@ systemctl_enable_start "paccache.timer"
 systemctl_enable_start "pcscd.service"
 systemctl_enable_start "reflector.timer"
 systemctl_enable_start "snapper-cleanup.timer"
+systemctl_enable_start "system-dotfiles-sync.timer"
 systemctl_enable_start "teamviewerd.service"
 systemctl_enable_start "tlp.service"
 systemctl_enable_start "tlp-sleep.service"

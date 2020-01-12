@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync system dotfiles
+
+[Service]
+Type=oneshot
+ExecStart=/home/maximbaz/.dotfiles/setup-system.sh -r

@@ -1,0 +1,8 @@
+[Unit]
+Description=Periodic system dotfiles sync
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target
