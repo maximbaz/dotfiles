@@ -277,6 +277,10 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "usbguard.service"
   systemctl_enable_start "system" "usbguard-dbus.service"
 
+  if [ ! -s "/etc/usbguard/rules.conf" ]; then
+    >&2 echo "=== Remember to set usbguard rules: usbguard generate-policy >! /etc/usbguard/rules.conf"
+  fi
+
   if [ -d "/home/maximbaz/.ccnet" ]; then
     systemctl_enable_start "system" "seaf-cli@maximbaz.service"
   else
