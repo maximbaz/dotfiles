@@ -42,6 +42,10 @@ copy() {
   [ -z "$2" ] || chmod "$2" "/$1"
 }
 
+is_chroot() {
+  grep rootfs /proc/mounts >/dev/null
+}
+
 systemctl_enable_start() {
   if [ "$#" -eq 1 ]; then
     target="system"
@@ -52,8 +56,7 @@ systemctl_enable_start() {
   fi
   if [[ "$target" == "user" ]]; then
     echo "systemctl --user enable --now "$name""
-    systemctl --user enable "$name"
-    systemctl --user start  "$name"
+    systemctl --user enable --now "$name"
   else
     echo "systemctl enable --now "$name""
     systemctl enable "$name"
@@ -135,16 +138,15 @@ if [ "$(whoami)" != "root" ]; then
   echo "Enabling and starting services..."
   echo "================================="
 
-  systemctl --user daemon-reload
-  systemctl_enable_start "user" "backup-packages.timer"
-  systemctl_enable_start "user" "mbsync.timer"
-  systemctl_enable_start "user" "redshift.service"
-  systemctl_enable_start "user" "yubikey-touch-detector.service"
-
-  if [ -n "$DISPLAY" ]; then
-    systemctl_enable_start "user" "dunst.service"
+  if is_chroot; then
+    >&2 echo "=== Running in chroot, skipping user services..."
   else
-    >&2 echo '=== No $DISPLAY available, skipping enabling some services'
+    systemctl --user daemon-reload
+    systemctl_enable_start "user" "backup-packages.timer"
+    systemctl_enable_start "user" "dunst.service"
+    systemctl_enable_start "user" "mbsync.timer"
+    systemctl_enable_start "user" "redshift.service"
+    systemctl_enable_start "user" "yubikey-touch-detector.service"
   fi
 
   echo ""
@@ -164,13 +166,13 @@ if [ "$(whoami)" != "root" ]; then
   find ~/.gnupg -type f -exec chmod 600 {} \;
   find ~/.gnupg -type d -exec chmod 700 {} \;
 
-  if [[ ! -a "$HOME/.config/Yubico/u2f_keys" ]]; then
-    if lsusb | grep -i yubikey; then
+  if is_chroot; then
+    >&2 echo "=== Running in chroot, skipping YubiKey configuration..."
+  else
+    if [[ ! -a "$HOME/.config/Yubico/u2f_keys" ]]; then
       echo "Configuring YubiKey for passwordless sudo (touch it now)"
       mkdir -p "$HOME/.config/Yubico"
       pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
-    else
-      >&2 echo "=== No Yubikey detected to configure passwordless sudo, skipping..."
     fi
   fi
 
@@ -304,7 +306,9 @@ if [[ "$(whoami)" == "root" ]]; then
   echo "Configuring fontconfig"
   ln -sf /etc/fonts/conf.avail/75-joypixels.conf /etc/fonts/conf.d/75-joypixels.conf
 
-  if [[ $(stat -c %i /) != 256 ]]; then
+  if is_chroot; then
+    >&2 echo "=== Running in chroot, skipping firewall and udev setup..."
+  else
     echo "Configuring firewall"
     ufw --force reset >/dev/null
     ufw default allow outgoing
@@ -315,7 +319,5 @@ if [[ "$(whoami)" == "root" ]]; then
     echo "Reload udev rules"
     udevadm control --reload
     udevadm trigger
-  else
-    >&2 echo "=== Running in chroot, skipping some setup..."
   fi
 fi
