@@ -2,12 +2,18 @@
 
 ![screenshot](https://user-images.githubusercontent.com/1177900/48734879-18572e80-ec47-11e8-938f-35be9b66d23a.png)
 
-## Some of the worthy tools that I use:
+## Some of the worthy tools that I use, develop or help maintain:
 
 - [i3-gaps](https://github.com/Airblader/i3) (window manager) + [py3status](https://github.com/ultrabug/py3status) (status bar)
 - [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
 - [kakoune](https://github.com/mawww/kakoune)
-- [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto) and various other plugins
+- [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto), [powerlevel10k](https://github.com/romkatv/powerlevel10k) and various other plugins
+- [yubikey-touch-detector](https://github.com/maximbaz/yubikey-touch-detector) - a tool that can detect when your YubiKey is waiting for a touch.
+- [browserpass](https://github.com/browserpass/browserpass-extension) - browser extension for `pass` and `gopass`.
+- [wire-desktop](https://github.com/wireapp/wire-desktop) - end-to-end encrypted chat app.
+- [ttf-joypixels](https://www.archlinux.org/packages/community/any/ttf-joypixels/) - latest JoyPixels font that provides colorful emojis for almost all apps on Linux (formerly EmojiOne).
+- [chromium-vaapi](https://aur.archlinux.org/packages/chromium-vaapi) - chromium with hardware video acceleration.
+- [nnn](https://github.com/jarun/nnn/) - extremely fast file manager.
 
 ## Fun things you can find in this repo:
 
@@ -21,15 +27,11 @@
 
 ☑ True Color support everywhere.
 
-> Including kitty, kakoune, tmux; ranger can even display picture previews.
+> Including kitty, kakoune; terminal can even display picture previews.
 
 ☑ Almost instant terminal startup.
 
-> And yet it is empowered with antigen, prezto and other plugins.
-
-☑ Automatically start tmux on the remote hosts.
-
-- Every connection joins the same single tmux session, allowing to easily reconnect after a network failure, your work stays as you left it.
+> And yet it is empowered with antigen, prezto, powerlevel10k and other plugins.
 
 ☑ More secure gpg and ssh configuration.
 
@@ -43,10 +45,6 @@
 
 > Using iconic font to fit a lot of info even on laptop screens.
 
-☑ Automatically renumber tmux sessions.
-
-> Helps when terminals are being opened & closed a lot during the day.
-
 ☑ Automatically change terminal's background color based on the ssh host.
 
 > Terminal turns red when you are on production, yellow on staging, etc.
@@ -59,10 +57,6 @@
 
 > Comes bundled with a script to prevent DNS leaks on NetworkManager.
 
-☑ Lazy sourcing scripts to speedup terminal startup.
-
-> This is useful for rvm, source it the first time you use `rvm` command.
-
 ☑ Automatically backup the list of installed packages (pacman and AUR).
 
 > These files are used to bootstrap the new system, all apps are installed in one command.
@@ -71,23 +65,13 @@
 
 > This script is safe to re-run at any time.
 
-☑ Compete and very detailed installation instructions for Arch Linux.
+☑ Arch Linux installation script.
 
-> Step-by-step description of how I install Arch Linux from scratch.
+> Fully automated script that installs Arch Linux from scratch and configures it exactly as I like.
 
-## Installation:
+## Usage:
 
 ```
 $ git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles
 $ ~/.dotfiles/setup
 ```
-
-## Awesome AUR packages that I help maintaining:
-
-- [chromium-vaapi](https://aur.archlinux.org/packages/chromium-vaapi) and [chromium-vaapi-bin](https://aur.archlinux.org/packages/chromium-vaapi-bin) - chromium with hardware video acceleration.
-- [ttf-emojione](https://aur.archlinux.org/packages/ttf-emojione) - latest EmojiOne font that provides colorful emojis for almost all apps on Linux.
-- [yubikey-touch-detector](https://aur.archlinux.org/packages/yubikey-touch-detector) - a tool that can detect when your YubiKey is waiting for a touch.
-- [browserpass](https://aur.archlinux.org/packages/browserpass) - browser extension for pass and gopass.
-- [wire-desktop](https://aur.archlinux.org/packages/wire-desktop) and [wire-desktop-beta](https://aur.archlinux.org/packages/wire-desktop-beta) - end-to-end encrypted chat app.
-- [rmtrash](https://aur.archlinux.org/packages/rmtrash) - trash bin for CLI made compatible to GNUs rm and rmdir.
-- [snap-pac-grub](https://aur.archlinux.org/packages/snap-pac-grub) - updates GRUB for grub-btrfs with snapshots made by snap-pac.
