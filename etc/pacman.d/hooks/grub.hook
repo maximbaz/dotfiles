@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = grub
+
+[Action]
+Description = Installing grub
+When = PostTransaction
+Exec = /boot/grub/update.sh

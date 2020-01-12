@@ -185,6 +185,12 @@ GRUB_DISABLE_RECOVERY=true
 EOF
 arch-chroot /mnt grub-install ${device}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+cat <<EOF >/mnt/boot/grub/update.sh
+#!/bin/sh
+
+grub-install ${device}
+EOF
+chmod +x /mnt/boot/grub/update.sh
 
 echo -e "\n### Creating user"
 arch-chroot /mnt useradd -m -s /usr/bin/zsh "$user"
