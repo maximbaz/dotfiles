@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.3.1
+pkgver=2.3.2
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -31,34 +31,26 @@ depends=(
     'linux-headers'
     'kernel-modules-hook'
     'logrotate'
-    'man-db'
     'man-pages'
     'btrfs-progs'
     'htop'
     'vi'
 
     # base-devel
+    'posix'
     'autoconf'
     'automake'
-    'binutils'
     'bison'
     'fakeroot'
-    'file'
-    'findutils'
     'flex'
-    'gawk'
     'gcc'
     'gettext'
-    'grep'
     'groff'
     'gzip'
     'libtool'
-    'm4'
     'make'
     'pacman'
-    'patch'
     'pkgconf'
-    'sed'
     'sudo'
     'texinfo'
     'which'
