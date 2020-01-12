@@ -133,20 +133,25 @@ if [ "$(whoami)" != "root" ]; then
   link ".local/share/applications/neomutt.desktop"
   link ".local/share/fonts/taskbar.ttf"
 
-  echo ""
-  echo "================================="
-  echo "Enabling and starting services..."
-  echo "================================="
-
   if is_chroot; then
     >&2 echo "=== Running in chroot, skipping user services..."
   else
+    echo ""
+    echo "================================="
+    echo "Enabling and starting services..."
+    echo "================================="
+
     systemctl --user daemon-reload
     systemctl_enable_start "user" "backup-packages.timer"
     systemctl_enable_start "user" "dunst.service"
-    systemctl_enable_start "user" "mbsync.timer"
     systemctl_enable_start "user" "redshift.service"
     systemctl_enable_start "user" "yubikey-touch-detector.service"
+
+    if [ -d "$HOME/.mail" ]; then
+      systemctl_enable_start "user" "mbsync.timer"
+    else
+      >&2 echo "=== Mail is not configured, skipping..."
+    fi
   fi
 
   echo ""
@@ -155,7 +160,7 @@ if [ "$(whoami)" != "root" ]; then
   echo "======================================="
 
   echo "Configuring MIME types"
-  file --compile --magic-file ~/.magic
+  file --compile --magic-file "$HOME/.magic"
 
   if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     echo "Importing my public PGP key"
@@ -163,8 +168,8 @@ if [ "$(whoami)" != "root" ]; then
     gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
   fi
 
-  find ~/.gnupg -type f -exec chmod 600 {} \;
-  find ~/.gnupg -type d -exec chmod 700 {} \;
+  find "$HOME/.gnupg" -type f -not -path "*#*" -exec chmod 600 {} \;
+  find "$HOME/.gnupg" -type d -exec chmod 700 {} \;
 
   if is_chroot; then
     >&2 echo "=== Running in chroot, skipping YubiKey configuration..."
@@ -269,7 +274,7 @@ if [[ "$(whoami)" == "root" ]]; then
   systemctl_enable_start "system" "usbguard.service"
   systemctl_enable_start "system" "usbguard-dbus.service"
 
-  if [ -d "$HOME/.ccnet" ]; then
+  if [ -d "/home/maximbaz/.ccnet" ]; then
     systemctl_enable_start "system" "seaf-cli@maximbaz.service"
   else
     >&2 echo "=== Seafile is not initialized, skipping..."
