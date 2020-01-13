@@ -28,7 +28,7 @@ fi
 . ~/.zsh/ssh.zsh
 
 # Load azure-cli completions
-export PATH="$PATH:$HOME/lib/azure-cli/bin"
+export PATH="$PATH:/opt/azure-cli/bin"
 . az.completion.sh >/dev/null
 
 # Make Ctrl-D work with p10k instant prompt

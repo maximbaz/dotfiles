@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.3.4
+pkgver=2.3.5
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -10,7 +10,7 @@ source=('30-font-aliases.conf'
         'InputMonoNarrow-BoldItalic.ttf'
         'InputMonoNarrow-Italic.ttf'
         'InputMonoNarrow-Regular.ttf')
-sha256sums=('17731416cbfd95477c991fe19ddaf07d51e0ed46998b0f25f020362d4a1f5d3e'
+sha256sums=('b92600f7187105f9c6b94fbe688d03e0a13c4e20b474986806739c1a541b2667'
             'dda57db7007f47185cf9be4e39184f73fecf052c4e49179cabab6ab5169cc501'
             'c0ad5882ff0b90e2d319ba98c96b95dac2fde03b86e92c92277c4ea424e86fa9'
             'f18d42ecce8d549c3ff4022fed2cc96ab9311fea39f00675fb67442d47a774df'
@@ -299,11 +299,13 @@ depends=(
     'youtube-dl'
 
     # work
+    'azure-cli'
     'code'
     'freerdp'
     'k9s-bin'
     'kubectl'
     'kubectx'
+    'kubernetes-helm'
     'slack-desktop'
     'terraform'
 )
