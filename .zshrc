@@ -4,14 +4,6 @@ fi
 
 (( EUID )) && for f in ~/.zshrc ~/.zsh/*.zsh; do [[ ! -s $f.zwc || $f -nt $f.zwc ]] && zcompile $f; done
 
-# Launch a tmux session
-if [[ "$HOST" =~ "crmdevvm-" ]]; then
-  . ~/.zsh/autorun-same-tmux.zsh
-fi
-
-# Lazy-loading
-. ~/.zsh/sandboxd.zsh
-
 # Load environment variables
 . /usr/share/LS_COLORS/dircolors.sh
 
