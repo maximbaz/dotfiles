@@ -194,14 +194,14 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION='%B'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
-  typeset -g TRANSIENT_PROMPT_KUBECONTEXT_CMD='(*/|)(kubectl|helm)'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm'
 
   ####################################[ azure: azure subscription ]#############################
   typeset -g POWERLEVEL9K_AZURE_FOREGROUND=208
   typeset -g POWERLEVEL9K_AZURE_PREFIX='%fusing '
   typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION="☁️"
   typeset -g POWERLEVEL9K_AZURE_CONTENT_EXPANSION='%B${P9K_CONTENT}'
-  typeset -g TRANSIENT_PROMPT_AZURE_CMD='(*/|)(az|terraform)'
+  typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform'
 
   ####################################[ time: current time ]####################################
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=yellow

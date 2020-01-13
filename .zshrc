@@ -18,7 +18,6 @@ fi
 # Load terminal configuration
 . ~/.zsh/title.zsh
 . ~/.zsh/prompt.zsh
-. ~/.zsh/p10k-transient.zsh
 
 # Load plugins
 . ~/.zsh/prezto.zsh
