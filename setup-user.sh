@@ -93,6 +93,7 @@ link ".gnupg/gpg-agent.conf"
 link ".gnupg/pinentry-dmenu.conf"
 
 link ".local/share/applications/neomutt.desktop"
+link ".local/share/applications/nnn.desktop"
 link ".local/share/fonts/taskbar.ttf"
 
 if is_chroot; then

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=nnn
+Comment=File manager
+Exec=/usr/bin/kitty nnn -A
+Type=Application
+Icon=system-file-manager
+Categories=ConsoleOnly;System;FileTools;FileManager;
+MimeType=inode/directory;
+StartupNotify=true
