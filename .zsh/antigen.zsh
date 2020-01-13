@@ -14,7 +14,6 @@ antigen bundles <<EOB
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
-  mafredri/zsh-async
 EOB
 
 antigen theme romkatv/powerlevel10k
