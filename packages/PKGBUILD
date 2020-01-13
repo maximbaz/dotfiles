@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.3.3
+pkgver=2.3.4
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -106,7 +106,6 @@ depends=(
     'knot-resolver'
     'openvpn'
     'ufw'
-    'opensnitch-git'
     'bandwhich'
     'net-tools'
     'networkmanager'
