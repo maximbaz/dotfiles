@@ -26,7 +26,6 @@ fi
 . ~/.zsh/git.zsh
 . ~/.zsh/fuzzy.zsh
 . ~/.zsh/ssh.zsh
-. ~/.zsh/mse.zsh
 
 # Load azure-cli completions
 export PATH="$PATH:$HOME/lib/azure-cli/bin"
