@@ -209,9 +209,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
   typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
-  ####################################[ nnn: nesting ]####################################
-  function prompt_nnn() {
-    [ -z "$NNNLVL" ] && return
-    p10k segment -f 208 -t " "
-  }
+  ####################################[ nnn: nested shell ]####################################
+  typeset -g POWERLEVEL9K_NNN_FOREGROUND=208
+  typeset -g POWERLEVEL9K_NNN_CONTENT_EXPANSION=" "
 }
