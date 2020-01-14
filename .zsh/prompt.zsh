@@ -194,7 +194,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION='%B'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
   POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
-  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|kubens|kubectx|helm'
 
   ####################################[ azure: azure subscription ]#############################
   typeset -g POWERLEVEL9K_AZURE_FOREGROUND=208
