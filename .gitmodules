@@ -9,3 +9,6 @@
 [submodule ".config/kak/langmap.kak"]
 	path = .config/kak/langmap.kak
 	url = https://github.com/andreyorst/langmap.kak.git
+[submodule ".config/kak/restclient.kak"]
+	path = .config/kak/restclient.kak
+	url = https://github.com/maximbaz/restclient.kak
