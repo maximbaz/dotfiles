@@ -14,29 +14,39 @@ after_lock() {
   picom & disown
 }
 
+stop_vpn() {
+  nmcli con show --active | grep vpn | cut -d' ' -f1 | xargs -n1 nmcli con down
+}
+
+stop_wlan() {
+  nmcli con show --active | grep wifi | cut -d' ' -f1 | xargs -n1 nmcli con down
+}
+
 case "$1" in
   lock)
     before_lock
     xsecurelock
     after_lock
     ;;
-  logout)
-    i3-msg exit
-    ;;
   suspend)
     before_lock
-    systemctl suspend
+    stop_vpn
+    systemctl -i suspend
     xsecurelock
     after_lock
     ;;
   reboot)
-    systemctl reboot
+    stop_vpn
+    stop_wlan
+    systemctl -i reboot
     ;;
   shutdown)
-    systemctl poweroff
+    stop_vpn
+    stop_wlan
+    systemctl -i poweroff
     ;;
   *)
-    echo "Usage: $0 {lock|logout|suspend|reboot|shutdown}"
+    echo "Usage: $0 {lock|suspend|reboot|shutdown}"
     exit 2
 esac
 

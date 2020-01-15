@@ -275,12 +275,10 @@ mode "$mode_resize" {
 bindcode $hyper+27 mode "$mode_resize"
 
 # Shutdown, Suspend, Lock (e)
-set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (h) shutdown
+set $mode_system System (l) lock, (s) suspend, (r) reboot, (h) shutdown
 mode "$mode_system" {
   # (l)
   bindcode 46 exec i3exit lock, mode "default"
-  # (e)
-  bindcode 26 exec i3exit logout, mode "default"
   # (s)
   bindcode 39 exec i3exit suspend, mode "default"
   # (r)
