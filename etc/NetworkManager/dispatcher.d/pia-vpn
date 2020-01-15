@@ -11,12 +11,16 @@ case $STATUS in
         systemctl restart kresd@1.service
         py3-cmd refresh "wifi brief" "wifi detailed" "file_status PIA" "whatismyip"
         if [[ ${INTERFACE:0:3} != "tun" && ${ESSID:0:6} != "mobile" ]]; then
-            nmcli con up id "$VPN_NAME"
+            if [[ "${ESSID:0:4}" == "apmm" ]]; then
+                nmcli con up id "$VPN_NAME-TCP"
+            else
+                nmcli con up id "$VPN_NAME"
+            fi
         fi
         ;;
     down)
         if nmcli con show --active | grep "$VPN_NAME"; then
-            nmcli con down id "$VPN_NAME"
+            nmcli con show --active | grep "$VPN_NAME" | cut -d' ' -f1 | xargs -n1 nmcli con down
         fi
         systemctl restart kresd@1.service
         py3-cmd refresh "wifi brief" "wifi detailed" "file_status PIA" "whatismyip"
