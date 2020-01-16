@@ -130,3 +130,8 @@ name: "nnn"
 url: "https://github.com/jarun/nnn/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
+---
+name: "p10k"
+url: "https://github.com/romkatv/powerlevel10k/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
