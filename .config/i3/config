@@ -13,6 +13,9 @@ hide_edge_borders both
 # Set default workspace layout
 workspace_layout tabbed
 
+# Disable cursor jumping
+mouse_warping none
+
 # Specific window configuration
 for_window    [class=".*"]                   sticky enable
 for_window    [window_role="pop-up"]         floating enable
