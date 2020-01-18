@@ -43,7 +43,7 @@ ranger() {
 n() {
     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
-    nnn -A "$@"
+    nnn -Ae "$@"
 
     if [ -f "$NNN_TMPFILE" ]; then
         . "$NNN_TMPFILE"

@@ -14,9 +14,8 @@ case "$(hostname)" in
     desktop-*) export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh" ;;
 esac
 
-export NNN_USE_EDITOR=1
 export NNN_TRASH=1
-export NNN_CONTEXT_COLORS='4235'
+export NNN_COLORS='4235'
 export NNN_PLUG='j:jump;r:remove;c:croc;d:dragdrop;'
 export NNN_BMS='d:~/Downloads;n:~/Downloads/nzbget/dst;'
 
