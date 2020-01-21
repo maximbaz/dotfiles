@@ -251,4 +251,5 @@ echo -e "\n### Running initial setup"
 arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
 arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup-user.sh
 
-echo -e "\n### DONE - reboot and run ~/.dotfiles/setup"
+echo -e "\n### DONE - reboot and re-run both ~/.dotfiles/setup-*.sh scripts"
+umount -R /mnt
