@@ -5,7 +5,7 @@ After=paccache.service
 [Service]
 User=maximbaz
 EnvironmentFile=/etc/systemd/system/backup-repo@%i
-ExecStart=/usr/bin/rsync --archive --compress --partial --delete ${LOCAL_PATH} ${REMOTE_ADDR}:${REMOTE_PATH}
+ExecStart=/usr/bin/rsync --archive --new-compress --partial --delete ${LOCAL_PATH} ${REMOTE_ADDR}:${REMOTE_PATH}
 
 [Install]
 WantedBy=paccache.service
