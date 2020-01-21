@@ -87,7 +87,7 @@ external_script date {
 external_script checkofficial {
   cache_timeout = 1200
   button_show_notification = 1
-  script_path = "check-aur-became-official"
+  script_path = "checkofficial"
   format = '\?if=lines&color=degraded 󰀽  official {lines}'
 }
 
