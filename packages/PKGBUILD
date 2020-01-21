@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.3.5
+pkgver=2.3.6
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -28,6 +28,7 @@ depends=(
     'base'
     'dash'
     'linux'
+    'linux-firmware'
     'linux-headers'
     'kernel-modules-hook'
     'logrotate'
@@ -133,7 +134,6 @@ depends=(
     'pinentry-dmenu'
 
     # hardware
-    'dell-command-configure'
     'fwupd'
     'tlp'
 
@@ -297,6 +297,7 @@ depends=(
     'transmission-gtk'
     'mpv'
     'youtube-dl'
+    'strace'
 
     # work
     'azure-cli'
