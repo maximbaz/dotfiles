@@ -221,6 +221,9 @@ arch-chroot /mnt chsh -s /usr/bin/zsh
 echo "$user:$password" | chpasswd --root /mnt
 arch-chroot /mnt passwd -dl root
 
+echo -e "\n### Setting permissions on the custom repo"
+arch-chroot /mnt chown -R "$user:$user" /var/cache/pacman/maximbaz/
+
 # TODO
 #
 # 1.  Configure fwupdmgr:
