@@ -245,7 +245,7 @@ arch-chroot /mnt passwd -dl root
 # 1.  Configure nzbget
 
 echo -e "\n### Cloning dotfiles"
-arch-chroot /mnt sudo -u $user bash -c 'git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
+arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
 
 echo -e "\n### Running initial setup"
 arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
