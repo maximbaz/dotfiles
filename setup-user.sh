@@ -156,8 +156,12 @@ else
     >&2 echo "=== Password store is not configured yet, skipping..."
 fi
 
-echo "Configuring GTK file chooser dialog"
-gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+if is_chroot; then
+    >&2 echo "=== Running in chroot, skipping GTK file chooser dialog configuration..."
+else
+    echo "Configuring GTK file chooser dialog"
+    gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+fi
 
 echo "Ignoring further changes to often changing config"
 git update-index --assume-unchanged ".config/transmission/settings.json"
