@@ -7,7 +7,7 @@
     follow = keyboard
     font = Open Sans, Taskbar 10
     format = "<b>%s</b>\n%b %p"
-    geometry = "1500x5-40+200"
+    geometry = "700x5-20+100"
     hide_duplicate_count = true
     history_length = 20
     horizontal_padding = 20
@@ -26,7 +26,7 @@
     sticky_history = yes
     word_wrap = yes
     icon_position = left
-    max_icon_size = 128
+    max_icon_size = 64
     icon_folders = /usr/share/icons/hicolor/scalable/apps:/usr/share/icons/hicolor/128x128/apps:/usr/share/icons/hicolor/256x256/apps
 
 [frame]
