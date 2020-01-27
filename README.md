@@ -4,7 +4,7 @@
 
 ## Some of the worthy tools that I use, develop or help maintain:
 
-- [i3-gaps](https://github.com/Airblader/i3) (window manager) + [py3status](https://github.com/ultrabug/py3status) (status bar)
+- [sway](https://github.com/swaywm/sway) (window manager) + [py3status](https://github.com/ultrabug/py3status) (status bar)
 - [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
 - [kakoune](https://github.com/mawww/kakoune)
 - [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto), [powerlevel10k](https://github.com/romkatv/powerlevel10k) and various other plugins
@@ -17,11 +17,11 @@
 
 ## Fun things you can find in this repo:
 
-☑ A common color scheme for kakoune, terminal and i3 itself.
+☑ A common color scheme for kakoune, terminal and sway itself.
 
 > It is called [Gruvbox dark](https://github.com/morhetz/gruvbox).
 
-☑ Unobtrusive and minimalistic design of i3, py3status and terminal.
+☑ Unobtrusive and minimalistic design of sway, py3status and terminal.
 
 > Display only actionable items, use color to highlight importance, slightly dim inactive windows.
 
@@ -41,7 +41,7 @@
 
 > Extremely nicely integrated with YubiKey, with forwarding to selected remote hosts.
 
-☑ i3 automatically renames workspaces to show currently opened apps.
+☑ sway automatically renames workspaces to show currently opened apps.
 
 > Using iconic font to fit a lot of info even on laptop screens.
 

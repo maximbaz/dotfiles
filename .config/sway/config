@@ -1,0 +1,327 @@
+# Set font
+font pango: Taskbar, Cantarell 9
+
+input type:keyboard {
+    xkb_layout us-hyper,ru
+    xkb_options grp:shifts_toggle,compose:ralt,caps:hyper,numpad:mac
+}
+
+input type:touchpad {
+    natural_scroll enabled
+    tap enabled
+}
+
+seat * hide_cursor 5000
+
+output * {
+    bg "#222222" solid_color
+}
+
+output eDP-1 {
+    scale 1.2
+    subpixel rgb
+}
+
+output DP-5 {
+    scale 1.1
+    subpixel rgb
+    pos 0,0
+}
+
+output DP-6 {
+    scale 1.1
+    subpixel rgb
+    pos 1745,0
+}
+
+bindswitch --locked --reload lid:off output eDP-1 enable;  output DP-5 disable; output DP-6 disable
+bindswitch --locked --reload lid:on  output eDP-1 disable; output DP-5 enable;  output DP-6 enable
+
+# Gaps
+gaps inner 5
+smart_gaps on
+
+# Borders
+default_border pixel 2
+default_floating_border none
+hide_edge_borders --i3 none
+
+# Disable cursor jumping
+mouse_warping none
+focus_follows_mouse no
+
+# Workspaces
+set $workspace1 workspace number 1
+set $workspace2 workspace number 2
+set $workspace3 workspace number 3
+set $workspace4 workspace number 4
+set $workspace5 workspace number 5
+set $workspace6 workspace number 6
+set $workspace7 workspace number 7
+set $workspace8 workspace number 8
+set $workspace9 workspace number 9
+set $workspace0 workspace number 10
+
+# Specific window configuration
+for_window    [app_id=".*"]                  sticky enable
+for_window    [window_role="pop-up"]         floating enable
+for_window    [app_id="firefox"]             move container to $workspace2, title_format "Firefox"
+for_window    [class="Wire"]                 move container to $workspace3
+for_window    [app_id="neomutt"]             move container to $workspace4, title_format "NeoMutt"
+
+# Color scheme (Gruvbox dark)
+set $color_normal_white  #a89984
+set $color_bright_white  #ebdbb2
+set $color_normal_gray   #222222
+set $color_bright_gray   #3c3836
+set $color_bright_yellow #d79921
+set $color_normal_black  #282828
+set $color_unused        #ff0000
+
+# Colors                  border                 background             text                   indicator            child_border
+client.focused            $color_bright_gray     $color_bright_gray     $color_bright_white    $color_bright_gray   $color_normal_black
+client.focused_inactive   $color_bright_gray     $color_bright_gray     $color_bright_white    $color_bright_gray   $color_normal_black
+client.unfocused          $color_normal_gray     $color_normal_gray     $color_normal_white    $color_normal_gray   $color_normal_black
+client.urgent             $color_bright_yellow   $color_bright_yellow   $color_normal_black    $color_unused        $color_unused
+client.placeholder        $color_unused          $color_unused          $color_unused          $color_unused        $color_unused
+
+# Bar
+bar {
+    colors {
+        # Whole color settings
+        background $color_normal_gray
+        separator  $color_bright_gray
+        statusline $color_bright_white
+
+        # Type             border                 background              font
+        focused_workspace  $color_bright_gray     $color_bright_gray      $color_bright_white
+        active_workspace   $color_normal_gray     $color_normal_gray      $color_normal_white
+        inactive_workspace $color_normal_gray     $color_normal_gray      $color_normal_white
+        urgent_workspace   $color_bright_yellow   $color_bright_yellow    $color_normal_black
+    }
+
+    separator_symbol "  |  "
+    status_command py3status --dbus-notify
+    position top
+    tray_output none
+}
+
+
+# Use Windows and Hyper as a modifier keys
+set $win Mod3
+set $hyper Mod4
+
+# Use Mouse+$hyper to drag floating windows to their wanted position
+floating_modifier $hyper
+
+set $mode_resize "Resize window"
+mode $mode_resize {
+    bindsym --to-code {
+        h            resize grow   left  10 px or 10 ppt
+        Shift+h      resize shrink right 10 px or 10 ppt
+        Ctrl+h       resize grow   left  1  px or 1  ppt
+        Ctrl+Shift+h resize shrink right 1  px or 1  ppt
+
+        Shift+j      resize grow   down  10 px or 10 ppt
+        j            resize shrink up    10 px or 10 ppt
+        Ctrl+Shift+j resize grow   down  1  px or 1  ppt
+        Ctrl+j       resize shrink up    1  px or 1  ppt
+
+        Shift+k      resize shrink down  10 px or 10 ppt
+        k            resize grow   up    10 px or 10 ppt
+        Ctrl+Shift+k resize shrink down  1  px or 1  ppt
+        Ctrl+k       resize grow   up    1  px or 1  ppt
+
+        Shift+l      resize grow   right 10 px or 10 ppt
+        l            resize shrink left  10 px or 10 ppt
+        Ctrl+Shift+l resize grow   right 1  px or 1  ppt
+        Ctrl+l       resize shrink left  1  px or 1  ppt
+
+        # back to normal: Enter or Escape
+        Return mode default
+        Escape mode default
+    }
+}
+
+set $mode_system "System (l) lock, (s) suspend, (r) reboot, (h) shutdown"
+mode $mode_system {
+    bindsym --to-code {
+        l exec sway-exit lock, mode "default"
+        s exec sway-exit suspend, mode "default"
+        r exec sway-exit reboot, mode "default"
+        h exec sway-exit shutdown, mode "default"
+
+        # back to normal: Enter or Escape
+        Return mode default
+        Escape mode default
+    }
+}
+
+set $mode_workspaces_monitors "Move workspace between monitors"
+mode $mode_workspaces_monitors {
+    bindsym --to-code {
+        h exec swaymsg move workspace to output left, mode "default"
+        l exec swaymsg move workspace to output right, mode "default"
+
+        # back to normal: Enter or Escape
+        Return mode default
+        Escape mode default
+    }
+}
+
+bindsym --to-code {
+    # Terminal
+    $hyper+Return exec kitty
+    $win+Return exec kitty
+    $win+Shift+Return exec kitty /bin/bash
+
+    # Launcher
+    $hyper+equal exec bash -c "dmenu -p calc | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
+    $hyper+d fullscreen disable, exec "pgrep -x wofi && pkill wofi || wofi"
+    $hyper+p fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || { sway-paste lock; passmenu -p pass; sway-paste unlock; }"
+    $hyper+n fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || networkmanager_dmenu"
+    $hyper+m fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || udiskie-dmenu"
+
+    # Kill focused window
+    $win+q kill
+
+    # Change focus
+    $hyper+h focus left
+    $hyper+j focus down
+    $hyper+k focus up
+    $hyper+l focus right
+
+    # Move focused window
+    $win+h move left
+    $win+j move down
+    $win+k move up
+    $win+l move right
+
+    # Enter fullscreen mode
+    $hyper+f fullscreen
+
+    # Container layout: split
+    $hyper+e layout toggle split
+
+    # Container layout: tabbed
+    $hyper+w layout tabbed
+
+    # Split
+    $hyper+s split toggle
+
+    # Focus the parent container
+    $hyper+u focus parent
+
+    # Focus the child container
+    $hyper+i focus child
+
+    # Toggle tiling / floating
+    $win+space floating toggle
+
+    # Make the currently focused window a scratchpad
+    $win+minus move scratchpad
+
+    # Show the first scratchpad window
+    $hyper+minus scratchpad show
+
+    # Change focus between tiling / floating windows
+    $hyper+space focus mode_toggle
+
+    # Notification actions
+    ctrl+space exec makoctl dismiss
+    $hyper+o exec makoctl menu dmenu
+
+    # Brightness control
+    XF86MonBrightnessUp   exec set-brightness inc
+    XF86MonBrightnessDown exec set-brightness dec
+
+    # Media control
+    $hyper+Up     exec playerctl --player playerctld play-pause
+    $hyper+Down   exec playerctl --player playerctld play-pause
+    $hyper+Left   exec playerctl --player playerctld previous
+    $hyper+Right  exec playerctl --player playerctld next
+    $win+Up       exec py3-cmd click 1 volume_status
+    $win+Down     exec py3-cmd click 1 volume_status
+    $win+Right    exec py3-cmd click 4 volume_status
+    $win+Left     exec py3-cmd click 5 volume_status
+
+    # Reload the configuration file
+    $win+r reload
+
+    # Global hotkeys
+    $win+grave fullscreen disable, exec sway-paste dmenu
+
+    # Switch to workspace using number row
+    $hyper+1 $workspace1
+    $hyper+2 $workspace2
+    $hyper+3 $workspace3
+    $hyper+4 $workspace4
+    $hyper+5 $workspace5
+    $hyper+6 $workspace6
+    $hyper+7 $workspace7
+    $hyper+8 $workspace8
+    $hyper+9 $workspace9
+    $hyper+0 $workspace0
+
+    # Switch to workspace using keypad
+    $hyper+KP_1 $workspace1
+    $hyper+KP_2 $workspace2
+    $hyper+KP_3 $workspace3
+    $hyper+KP_4 $workspace4
+    $hyper+KP_5 $workspace5
+    $hyper+KP_6 $workspace6
+    $hyper+KP_7 $workspace7
+    $hyper+KP_8 $workspace8
+    $hyper+KP_9 $workspace9
+    $hyper+KP_0 $workspace0
+
+    # Move window to workspace using number row
+    $win+1 move container to $workspace1
+    $win+2 move container to $workspace2
+    $win+3 move container to $workspace3
+    $win+4 move container to $workspace4
+    $win+5 move container to $workspace5
+    $win+6 move container to $workspace6
+    $win+7 move container to $workspace7
+    $win+8 move container to $workspace8
+    $win+9 move container to $workspace9
+    $win+0 move container to $workspace0
+
+    # Move window to workspace using keypad
+    $win+KP_1 move container to $workspace1
+    $win+KP_2 move container to $workspace2
+    $win+KP_3 move container to $workspace3
+    $win+KP_4 move container to $workspace4
+    $win+KP_5 move container to $workspace5
+    $win+KP_6 move container to $workspace6
+    $win+KP_7 move container to $workspace7
+    $win+KP_8 move container to $workspace8
+    $win+KP_9 move container to $workspace9
+    $win+KP_0 move container to $workspace0
+
+    # Modes
+    $hyper+r mode $mode_resize
+    $win+e mode $mode_system
+    $win+m mode $mode_workspaces_monitors
+}
+
+# Assign default outputs to workspaces
+workspace 1  output DP-3 DP-4 eDP-1
+workspace 2  output DP-4 DP-3 eDP-1
+workspace 3  output DP-3 DP-4 eDP-1
+workspace 4  output DP-3 DP-4 eDP-1
+workspace 5  output DP-3 DP-4 eDP-1
+workspace 6  output DP-3 DP-4 eDP-1
+workspace 7  output DP-3 DP-4 eDP-1
+workspace 8  output DP-3 DP-4 eDP-1
+workspace 9  output DP-3 DP-4 eDP-1
+workspace 10 output DP-3 DP-4 eDP-1
+
+# Autostart some apps
+exec_always "pgrep -x sway-autoname-w || sway-autoname-workspaces -d"
+exec_always "pgrep -x sway-fade-inact || sway-fade-inactive -o 0.7"
+exec_always "pgrep -x neomutt || kitty --class neomutt neomutt"
+exec_always "pgrep -fx 'sh /usr/bin/wire-desktop' || wire-desktop"
+exec_always "pgrep -x udiskie || udiskie"
+exec_always "pgrep -x mako || mako"
+exec_always "pgrep -x sway-paste || sway-paste daemon"
