@@ -1,6 +1,0 @@
-@import "/usr/share/rofi/themes/gruvbox-dark.rasi"
-
-* {
-    highlight: bold;
-    alternate-normal-background: @background;
-}
