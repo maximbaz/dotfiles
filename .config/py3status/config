@@ -94,21 +94,21 @@ external_script checkofficial {
 external_script checkupdates {
   cache_timeout = 1200
   button_show_notification = 1
-  script_path = "is_online && checkupdates || true"
+  script_path = "nm-online -t 2 >/dev/null && checkupdates || true"
   format = '\?if=lines&color=degraded 󰀾  {lines}'
 }
 
 external_script checkupdates_aur {
   cache_timeout = 1200
   button_show_notification = 1
-  script_path = "is_online && aur repo -u"
+  script_path = "nm-online -t 2 >/dev/null && aur repo -u || true"
   format = '\?if=lines&color=degraded 󰀽  {lines}'
 }
 
 external_script checkupdates_vcs {
   cache_timeout = 1200
   button_show_notification = 1
-  script_path = "is_online && aur vercmp-devel"
+  script_path = "nm-online -t 2 >/dev/null && aur vercmp-devel || true"
   format = '\?if=lines&color=degraded 󰀼  {lines}'
 }
 
