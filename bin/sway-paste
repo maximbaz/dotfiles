@@ -1,0 +1,21 @@
+#!/bin/sh
+
+dir="$HOME/.cache/clipboard-history"
+mkdir -p "$dir"
+
+if [ "$1" = "daemon" ]; then
+    wl-paste -t text -w sway-paste on-copy
+elif [ "$1" = "lock" ]; then
+    touch "$dir/.lock"
+elif [ "$1" = "unlock" ]; then
+    rm -f "$dir/.lock"
+elif [ "$1" = "on-copy" ]; then
+    [ -f "$dir/.lock" ] && exit
+    cat > "$dir/$(date +%s)"
+    find "$dir" -type f -print0 | sort -zn | head -z -n -200 | xargs -r -0 rm
+elif [ "$1" = "dmenu" ]; then
+    find "$dir" -type f -size -1000000c -print0 | sort -znr | xargs -0 -I '{}' sh -c "cat {}; printf '❄'" | dmenu -D dmenu-separator='❄' | sed -e 's/[[:space:]]*$//' | sed -Ez 's/\s+$//' | wl-copy
+else
+    >&2 echo "Usage: sway-paste <daemon|lock|unlock|on-copy|dmenu>"
+    exit 1
+fi
