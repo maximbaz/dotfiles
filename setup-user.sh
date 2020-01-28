@@ -54,6 +54,9 @@ link ".zprofile"
 link ".zsh"
 link ".zshrc"
 
+link ".mozilla/firefox/profile/user.js"
+link ".mozilla/firefox/profile/chrome"
+
 link ".config/chromium-flags.conf"
 link ".config/copyq/copyq.conf"
 link ".config/Dharkael"
