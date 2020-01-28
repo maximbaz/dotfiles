@@ -65,7 +65,7 @@ hook global WinSetOption filetype=python %{
 }
 
 hook global WinSetOption filetype=go %{
-    hook buffer -group format BufWritePost .* %{ evaluate-commands %sh{ goimports -e -w "$kak_buffile" }; edit! }
+    hook buffer -group format BufWritePre .* lsp-formatting-sync
 
     set-option buffer lintcmd "run() { golint $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; } && run"
     lint-enable
