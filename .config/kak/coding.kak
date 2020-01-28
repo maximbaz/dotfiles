@@ -9,6 +9,9 @@ set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --c
 
 set-option global langmap %opt{langmap_ru_jcuken}
 
+set-option global surround_begin auto-pairs-disable
+set-option global surround_end auto-pairs-enable
+
 hook global ModuleLoaded kitty %{
    set-option global kitty_window_type 'os'
 }
@@ -34,7 +37,6 @@ hook global BufCreate    .* %{ editorconfig-load; set buffer eolformat lf }
 hook global BufWritePre  .* %{ nop %sh{ mkdir -p $(dirname "$kak_hook_param") }}
 hook global BufWritePost .* %{ git show-diff }
 hook global BufReload    .* %{ git show-diff }
-hook global WinCreate    .* auto-pairs-enable
 hook global WinDisplay   .* %{ evaluate-commands %sh{
     cd "$(dirname "$kak_buffile")"
     project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
