@@ -1,3 +1,0 @@
-#!/bin/sh
-
-rofi -normal-window -show calc -modi calc -no-show-match -no-sort -terse -calc-command "echo '{result}' | xclip -selection clipboard"
