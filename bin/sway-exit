@@ -3,15 +3,12 @@
 before_lock() {
   bluetoothctl disconnect
   playerctl -a pause
-  xkb-switch -s us
-  killall picom
   usbguard set-parameter InsertedDevicePolicy reject
   sudo systemctl stop pcscd.service
 }
 
 after_lock() {
   usbguard set-parameter InsertedDevicePolicy apply-policy
-  picom & disown
 }
 
 stop_vpn() {
@@ -25,14 +22,14 @@ stop_wlan() {
 case "$1" in
   lock)
     before_lock
-    xsecurelock
+    swaylock
     after_lock
     ;;
   suspend)
     before_lock
     stop_vpn
     systemctl -i suspend
-    xsecurelock
+    swaylock
     after_lock
     ;;
   reboot)
