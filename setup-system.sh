@@ -66,8 +66,6 @@ copy "etc/default/grub-btrfs/config"
 copy "etc/docker/daemon.json"
 copy "etc/environment"
 copy "etc/knot-resolver/kresd.conf"
-copy "etc/lightdm/lightdm.conf"
-copy "etc/lightdm/lightdm-gtk-greeter.conf"
 copy "etc/NetworkManager/conf.d"
 copy "etc/NetworkManager/dispatcher.d/pia-vpn"
 copy "etc/pacman.conf"
@@ -96,8 +94,6 @@ copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/udev/rules.d/81-ac-battery-change.rules"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
-copy "etc/X11/xorg.conf.d/00-keyboard.conf"
-copy "etc/X11/xorg.conf.d/30-touchpad.conf"
 
 (( "$reverse" )) && exit 0
 
@@ -109,7 +105,6 @@ echo "================================="
 sysctl --system > /dev/null
 
 systemctl daemon-reload
-systemctl_enable "lightdm.service"
 systemctl_enable "backup-repo@pkgbuild.service"
 systemctl_enable "getty@tty2.service"
 systemctl_enable_start "bluetooth.service"
@@ -183,5 +178,4 @@ else
     udevadm trigger
 
     sleep 1
-    xmodmap "$dotfiles_dir/.Xmodmap"
 fi
