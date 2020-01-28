@@ -24,7 +24,6 @@ order += 'net_rate'
 order += 'diskdata'
 order += 'group cpu'
 order += 'group ram'
-order += 'xrandr'
 order += 'group wifi'
 order += 'file_status PIA'
 order += 'whatismyip'
@@ -237,21 +236,13 @@ xkb_input {
   cache_timeout = -1
   button_prev = None
   button_next = None
-  format_input = '\?color=s {s}'
+  format = "{format_input}"
+  format_input = '[\?color=s {s}]'
+  format_input_separator = " "
+  inputs = [{"name": "*keyboard"}]
   thresholds = [
     ('ru', '#fb4934'),
   ]
-}
-
-xrandr {
-  fixed_width = false
-  hide_if_single_combination = true
-  output_combinations = "DP-1-1+DP-1-2+DP-1-3|eDP-1"
-  force_on_change = ["DP-1-1+DP-1-2+DP-1-3", "eDP-1"]
-  DP-1-1_rotate = "left"
-  DP-1-2_pos = "right-of DP-1-1"
-  DP-1-2_primary = True
-  DP-1-3_pos = "right-of DP-1-2"
 }
 
 usbguard {
