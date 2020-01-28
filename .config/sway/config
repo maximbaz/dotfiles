@@ -22,20 +22,20 @@ output eDP-1 {
     subpixel rgb
 }
 
-output DP-5 {
+output DP-3 {
     scale 1.1
     subpixel rgb
     pos 0,0
 }
 
-output DP-6 {
+output DP-4 {
     scale 1.1
     subpixel rgb
     pos 1745,0
 }
 
-bindswitch --locked --reload lid:off output eDP-1 enable;  output DP-5 disable; output DP-6 disable
-bindswitch --locked --reload lid:on  output eDP-1 disable; output DP-5 enable;  output DP-6 enable
+bindswitch --locked --reload lid:off output eDP-1 enable;  output DP-3 disable; output DP-4 disable
+bindswitch --locked --reload lid:on  output eDP-1 disable; output DP-3 enable;  output DP-4 enable
 
 # Gaps
 gaps inner 5
