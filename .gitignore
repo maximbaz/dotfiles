@@ -6,3 +6,4 @@ tags
 *.tar.*
 *.log
 .magic.mgc
+.uuid
