@@ -1,50 +1,54 @@
-#!/bin/bash
+#!/bin/sh
+
+reset_kbd() {
+    kbd="$(swaymsg -r -t get_inputs | jq '.[] | select(.name | contains("keyboard")) | .identifier')"
+    swaymsg input "$kbd" xkb_switch_layout 0
+}
 
 before_lock() {
-  bluetoothctl disconnect
-  playerctl -a pause
-  usbguard set-parameter InsertedDevicePolicy reject
-  sudo systemctl stop pcscd.service
+    bluetoothctl disconnect
+    playerctl -a pause
+    reset_kbd
+    usbguard set-parameter InsertedDevicePolicy reject
+    sudo systemctl stop pcscd.service
 }
 
 after_lock() {
-  usbguard set-parameter InsertedDevicePolicy apply-policy
+    usbguard set-parameter InsertedDevicePolicy apply-policy
 }
 
 stop_vpn() {
-  nmcli con show --active | grep vpn | cut -d' ' -f1 | xargs -n1 nmcli con down
+    nmcli con show --active | grep vpn | cut -d' ' -f1 | xargs -n1 nmcli con down
 }
 
 stop_wlan() {
-  nmcli con show --active | grep wifi | cut -d' ' -f1 | xargs -n1 nmcli con down
+    nmcli con show --active | grep wifi | cut -d' ' -f1 | xargs -n1 nmcli con down
 }
 
 case "$1" in
-  lock)
-    before_lock
-    swaylock
-    after_lock
-    ;;
-  suspend)
-    before_lock
-    stop_vpn
-    systemctl -i suspend
-    swaylock
-    after_lock
-    ;;
-  reboot)
-    stop_vpn
-    stop_wlan
-    systemctl -i reboot
-    ;;
-  shutdown)
-    stop_vpn
-    stop_wlan
-    systemctl -i poweroff
-    ;;
-  *)
-    echo "Usage: $0 {lock|suspend|reboot|shutdown}"
-    exit 2
+    lock)
+        before_lock
+        swaylock
+        after_lock
+        ;;
+    suspend)
+        before_lock
+        stop_vpn
+        systemctl -i suspend
+        swaylock
+        after_lock
+        ;;
+    reboot)
+        stop_vpn
+        stop_wlan
+        systemctl -i reboot
+        ;;
+    shutdown)
+        stop_vpn
+        stop_wlan
+        systemctl -i poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lock|suspend|reboot|shutdown}"
+        exit 2
 esac
-
-exit 0
