@@ -1,0 +1,18 @@
+#!/bin/sh
+
+menu=$(echo "personal\nwork\ncopy to clipboard\nplay" | dmenu -p "browser")
+
+case $menu in
+    "personal")
+        firefox-container -n Personal --fingerprint --blue "$@" &
+    ;;
+    "work")
+        firefox-container -n Work --briefcase --orange $@ &
+    ;;
+    "copy to clipboard")
+       echo "$@" | wl-copy
+    ;;
+    "play")
+        mpv "$@" &
+    ;;
+esac

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=browser %U
+GenericName=Browser selector
+Name=browser
+Terminal=false
+Type=Application
