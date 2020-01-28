@@ -83,7 +83,7 @@ hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|
 }
 
 hook global WinSetOption filetype=markdown %{
-    set-option -add buffer auto_pairs_surround _ _ * *
+    set-option -add buffer surround_pairs _ _ * *
 }
 
 hook global WinSetOption filetype=sh %{
