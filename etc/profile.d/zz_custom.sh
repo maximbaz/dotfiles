@@ -36,4 +36,5 @@ export LIBVA_DRIVER_NAME=iHD
 export GOPATH="$HOME/.go"
 
 export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORM=wayland-egl
+exprot QT_WAYLAND_FORCE_DPI=physical
