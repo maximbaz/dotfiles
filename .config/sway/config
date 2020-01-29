@@ -236,6 +236,9 @@ bindsym --to-code {
     XF86MonBrightnessDown exec set-brightness dec
 
     # Media control
+    XF86AudioPlay exec playerctl --player playerctld play-pause
+    XF86AudioNext exec playerctl --player playerctld next
+    XF86AudioPrev exec playerctl --player playerctld previous
     $hyper+Up     exec playerctl --player playerctld play-pause
     $hyper+Down   exec playerctl --player playerctld play-pause
     $hyper+Left   exec playerctl --player playerctld previous
