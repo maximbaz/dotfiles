@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# Make a screenshot of an area, and annotate
+#
+# NOTE: Set ksnip options to "Instant save without dialog"
+# and /tmp/area_edited.png as location
+
+# Disable screen fading
+pkill -x sway-fade-inact
+
+# Freeze the screen
+OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
+grim -o $OUTPUT -t png /tmp/screenshot.png
+vimiv -f -s statusbar.show false /tmp/screenshot.png &
+
+# Select an area
+grim -g "$(slurp)" -t png /tmp/area.png
+
+# Kill vimiv
+kill $!
+
+# Edit the screenshot then Control+S, Control+Q
+ksnip -e /tmp/area.png
+
+# Copy to clipboard
+if [ -f /tmp/area_edited.png ]; then
+    wl-copy -t image/png < /tmp/area_edited.png
+else
+    wl-copy -t image/png < /tmp/area.png
+fi
+
+# Enable screen fading
+sway-fade-inactive -o 0.7
+
+# Cleanup
+rm -f /tmp/area.png
+rm -f /tmp/area_edited.png
