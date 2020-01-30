@@ -6,8 +6,7 @@ export DIFFPROG='meld'
 export MANPAGER='kak-man-pager'
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
-# My own binaries
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:/usr/share/sway/scripts/:$PATH"
 
 # Use gpg-agent as ssh-agent
 case "$(hostname)" in
@@ -37,4 +36,4 @@ export GOPATH="$HOME/.go"
 
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland-egl
-exprot QT_WAYLAND_FORCE_DPI=physical
+export QT_WAYLAND_FORCE_DPI=physical
