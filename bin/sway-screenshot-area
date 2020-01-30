@@ -6,7 +6,7 @@
 # and /tmp/area_edited.png as location
 
 # Disable screen fading
-pkill -x sway-fade-inact
+pkill -x inactive-window
 
 # Freeze the screen
 OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
@@ -30,7 +30,7 @@ else
 fi
 
 # Enable screen fading
-sway-fade-inactive -o 0.7
+inactive-windows-transparency.py -o 0.7
 
 # Cleanup
 rm -f /tmp/area.png

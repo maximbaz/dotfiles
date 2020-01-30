@@ -322,7 +322,7 @@ workspace 10 output DP-3 DP-4 eDP-1
 
 # Autostart some apps
 exec_always "pgrep -x sway-autoname-w || sway-autoname-workspaces -d"
-exec_always "pgrep -x sway-fade-inact || sway-fade-inactive -o 0.7"
+exec_always "pgrep -x inactive-window || inactive-windows-transparency.py -o 0.7"
 exec_always "pgrep -x neomutt || kitty --class neomutt neomutt"
 exec_always "pgrep -fx 'sh /usr/bin/wire-desktop' || wire-desktop"
 exec_always "pgrep -x udiskie || udiskie"
