@@ -4,9 +4,10 @@ export EDITOR='kak'
 export VISUAL='kak'
 export DIFFPROG='meld'
 export MANPAGER='kak-man-pager'
+export AUR_PAGER='nnn -Ae'
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
-export PATH="$HOME/bin:/usr/share/sway/scripts/:$PATH"
+export PATH="$HOME/bin:$PATH:/usr/share/sway/scripts/"
 
 # Use gpg-agent as ssh-agent
 case "$(hostname)" in
