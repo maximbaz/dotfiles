@@ -244,8 +244,6 @@ arch-chroot /mnt chown -R "$user:$user" /var/cache/pacman/maximbaz/
 # 1.  Reboot and enable Secure Boot in UEFI.
 #
 # 1.  Configure mail
-#
-# 1.  Configure nzbget
 
 echo -e "\n### Cloning dotfiles"
 arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'

@@ -144,12 +144,6 @@ else
     >&2 echo "=== Seafile is not initialized, skipping..."
 fi
 
-if [ -f /var/lib/nzbget/.nzbget ]; then
-    systemctl_enable_start "nzbget.service"
-else
-    >&2 echo "=== NZBget is not configured, skipping..."
-fi
-
 echo ""
 echo "==============================="
 echo "Creating top level Trash dir..."
