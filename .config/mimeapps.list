@@ -6,6 +6,7 @@ application/epub+zip=org.pwmt.zathura.desktop
 image/png=vimiv.desktop
 image/jpeg=vimiv.desktop
 image/gif=vimiv.desktop
+image/svg+xml=vimiv.desktop
 text/html=browser.desktop
 x-scheme-handler/http=browser.desktop
 x-scheme-handler/https=browser.desktop
