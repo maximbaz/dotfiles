@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.3.6
+pkgver=2.4.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -75,7 +75,8 @@ depends=(
     'ntfs-3g'
     'sshfs'
     'udiskie'
-    'nnn-git'
+    'udiskie-dmenu-git'
+    'nnn'
     'vimiv-qt'
     'ncdu'
     'croc'
@@ -136,6 +137,7 @@ depends=(
     # hardware
     'fwupd'
     'tlp'
+    'dmidecode'
 
     # audio
     'pulseaudio'
@@ -145,34 +147,25 @@ depends=(
     'pavucontrol'
     'playerctl'
     'bluez'
+    'bluez-firmware'
     'bluez-utils'
 
-    # i3
-    'i3-gaps'
-    'lightdm'
-    'lightdm-gtk-greeter'
-    'picom'
-    'xsecurelock'
-    'hsetroot'
-    'unclutter'
+    # sway
+    'sway'
+    'swaylock'
+    'wl-clipboard'
     'python-i3ipc'
     'wmctrl'
-    'xdotool'
-    'xorg-server'
-    'xorg-xinit'
-    'xorg-xprop'
-    'xorg-xrandr'
-    'dunst'
+    'mako'
     'gtk-theme-arc-gruvbox-git'
-    'xcalib'
     'redshift'
     'numlockx'
+    'wev'
 
     # py3status
     'py3status'
     'light'
     'conky'
-    'xkb-switch'
     'python-gevent'
     'python-pydbus'
     'python-pyudev'
@@ -214,7 +207,6 @@ depends=(
     'dos2unix'
     'editorconfig-core-c'
     'docker'
-    'atom'
 
     # shell dev
     'bash-language-server'
@@ -272,16 +264,14 @@ depends=(
     'firefox'
 
     # screenshots & gifs
-    'peek'
-    'screenkey'
-    'flameshot'
+    'grim'
+    'ksnip'
+    'wf-recorder'
 
     # fuzzy
-    'rofi'
-    'rofi-dmenu'
-    'rofi-calc'
-    'rofimoji'
     'fzy'
+    'wofi'
+    'wofi-dmenu'
 
     # misc
     'calibre'
@@ -309,4 +299,5 @@ depends=(
     'kubernetes-helm'
     'slack-desktop'
     'terraform'
+    'virtualbox'
 )
