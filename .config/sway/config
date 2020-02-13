@@ -18,25 +18,29 @@ output * {
     bg "#222222" solid_color
 }
 
-output eDP-1 {
+set $screen_laptop 'eDP-1'
+set $screen_left   'Hewlett Packard HP LP2475w CNC11102ZY'
+set $screen_right  'Hewlett Packard HP LP2475w PLC02101N8'
+
+output $screen_laptop {
     scale 1.2
     subpixel rgb
 }
 
-output DP-3 {
+output $screen_left {
     scale 1.1
     subpixel rgb
     pos 0,0
 }
 
-output DP-4 {
+output $screen_right {
     scale 1.1
     subpixel rgb
     pos 1745,0
 }
 
-bindswitch --locked --reload lid:off output eDP-1 enable;  output DP-3 disable; output DP-4 disable
-bindswitch --locked --reload lid:on  output eDP-1 disable; output DP-3 enable;  output DP-4 enable
+bindswitch --locked --reload lid:off output $screen_laptop enable;  output $screen_left disable; output $screen_right disable;
+bindswitch --locked --reload lid:on  output $screen_laptop disable; output $screen_left enable;  output $screen_right enable;
 
 # Gaps
 gaps inner 5
