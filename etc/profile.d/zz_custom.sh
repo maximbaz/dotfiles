@@ -15,7 +15,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 export NNN_TRASH=1
 export NNN_COLORS='4235'
 export NNN_PLUG='j:jump;r:remove;c:croc;d:dragdrop;'
-export NNN_BMS='d:~/Downloads;n:~/Downloads/nzbget/dst;'
+export NNN_BMS='d:~/Downloads;n:/home/nzbget/nzb;N:/home/nzbget/dst;'
 
 export XSECURELOCK_FONT="-*-open sans-medium-r-*-*-30-*-*-*-*-*-*-uni"
 export XSECURELOCK_SHOW_HOSTNAME=0
