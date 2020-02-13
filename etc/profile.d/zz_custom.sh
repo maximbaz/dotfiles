@@ -10,9 +10,7 @@ export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 export PATH="$HOME/bin:$PATH:/usr/share/sway/scripts/"
 
 # Use gpg-agent as ssh-agent
-case "$(hostname)" in
-    desktop-*) export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh" ;;
-esac
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 
 export NNN_TRASH=1
 export NNN_COLORS='4235'
