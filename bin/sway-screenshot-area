@@ -23,7 +23,7 @@ kill $!
 [ ! -f /tmp/area.png ] && exit 1
 
 # Edit the screenshot then Control+S, Control+Q
-ksnip -e /tmp/area.png
+QT_QPA_PLATFORM=xcb ksnip -e /tmp/area.png
 
 # Copy to clipboard
 if [ -f /tmp/area_edited.png ]; then
