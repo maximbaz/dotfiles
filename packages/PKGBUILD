@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.4.0
+pkgver=2.5.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -71,6 +71,7 @@ depends=(
     'snap-pac-grub'
 
     # files
+    'advcp'
     'gocryptfs'
     'ntfs-3g'
     'sshfs'
@@ -109,11 +110,8 @@ depends=(
     'openvpn'
     'ufw'
     'bandwhich'
+    'mullvad-vpn-cli'
     'net-tools'
-    'networkmanager'
-    'networkmanager-openvpn'
-    'networkmanager-dmenu-git'
-    'nm-connection-editor'
     'nmap'
     'nzbget'
     'nzbget-systemd'
@@ -124,6 +122,8 @@ depends=(
     'wget'
     'rsync'
     'openssh'
+    'wireguard-arch'
+    'wireguard-tools'
 
     # security
     'arch-audit'
