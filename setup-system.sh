@@ -81,6 +81,7 @@ copy "etc/sysctl.d/10-swappiness.conf"
 copy "etc/sysctl.d/99-sysctl.conf"
 copy "etc/systemd/journald.conf"
 copy "etc/systemd/logind.conf"
+copy "etc/systemd/network"
 copy "etc/systemd/system/backup-repo@pkgbuild"
 copy "etc/systemd/system/backup-repo@.service"
 copy "etc/systemd/system/getty@tty2.service.d/override.conf"
@@ -157,6 +158,9 @@ echo ""
 echo "======================================="
 echo "Finishing various user configuration..."
 echo "======================================="
+
+echo "Configuring /etc/resolv.conf"
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 echo "Configuring aurutils"
 ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
