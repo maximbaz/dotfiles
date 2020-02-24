@@ -35,26 +35,24 @@
 "shift+0" = "]"
 
 [remap]
-"up"   = "down"
-"down" = "up"
-"esc"  = "del"
-"del"  = "esc"
-"tab"  = "caps"
-"alt"  = "tab"
-"/"    = "'"
+"up"      = "down"
+"down"    = "up"
+"esc"     = "del"
+"del"     = "esc"
+"tab"     = "caps"
+"windows" = "tab"
+"/"       = "'"
 
 [thumb_keys]
-"option_alt" = "mod4"
-"windows"    = "mod3"
-"alt"        = "alt_l"
 "ctrl"       = "ctrl_l"
+"alt"        = "alt_l"
+"windows"    = "mod3"
+"option_alt" = "mod4"
 
-# Reassign for both keypad = ON  and OFF
+# Reassign for both keypad = ON and OFF
 # Exact sequence to press:
-# keypad=ON Program+F12 ScrollLock OptionAlt ScrollLock Keypad=OFF OptionAlt Program+F12
 # keypad=ON Program+F12 PrintScr Windows PrintScr Keypad=OFF Windows Program+F12
-# keypad=ON Program+F12 Windows Alt Windows Keypad=OFF Alt Program+F12
-# keypad=ON Program+F12 OptionAlt Ctrl OptionAlt Keypad=OFF Ctrl Program+F12
+# keypad=ON Program+F12 ScrollLock OptionAlt ScrollLock Keypad=OFF OptionAlt Program+F12
 
 [macro]
 "?"         = "backslash"
