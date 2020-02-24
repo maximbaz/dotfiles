@@ -33,7 +33,7 @@ alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(p
 n() {
     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
-    nnn -Ae "$@"
+    nnn -Aer "$@"
 
     if [ -f "$NNN_TMPFILE" ]; then
         . "$NNN_TMPFILE"

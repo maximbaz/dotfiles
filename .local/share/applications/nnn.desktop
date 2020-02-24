@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=ConsoleOnly;System;FileTools;FileManager;
-Exec=/usr/bin/kitty --class nnn /usr/bin/nnn -Ae
+Exec=/usr/bin/kitty --class nnn /usr/bin/nnn -Aer
 GenericName=File manager
 Icon=system-file-manager
 MimeType=inode/directory;

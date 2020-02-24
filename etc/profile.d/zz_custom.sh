@@ -4,7 +4,7 @@ export EDITOR='kak'
 export VISUAL='kak'
 export DIFFPROG='meld'
 export MANPAGER='kak-man-pager'
-export AUR_PAGER='nnn -Ae'
+export AUR_PAGER='nnn -Aer'
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
 export PATH="$HOME/bin:$PATH:/usr/share/sway/scripts/"
