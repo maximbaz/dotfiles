@@ -1,17 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
-credentials=$(pass work/microsoft.com)
-
+credentials=$(pass maersk/rtestbed)
 password=$(echo "$credentials" | head -n1)
 user=$(echo "$credentials" | grep 'rdp_user' | awk '{ print $2 }')
 domain=$(echo "$credentials" | grep 'rdp_domain' | awk '{ print $2 }')
 host=$(echo "$credentials" | grep 'rdp_host' | awk '{ print $2 }')
-
-if (( $# == 0 )); then
-  cmd="ssh -NfL 3389:$host:3389 mse"
-  host="localhost"
-  pgrep -fx "$cmd" >/dev/null || eval "$cmd"
-fi
 
 xfreerdp                                  \
   -grab-keyboard                          \
@@ -19,8 +12,6 @@ xfreerdp                                  \
   /fonts                                  \
   /aero                                   \
   /window-drag                            \
-  /scale:180                              \
-  /scale-desktop:220                      \
   /smart-sizing                           \
   /menu-anims                             \
   /bpp:32                                 \
