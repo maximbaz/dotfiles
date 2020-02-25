@@ -7,7 +7,6 @@ antigen bundles <<EOB
   robbyrussell/oh-my-zsh plugins/fancy-ctrl-z
   hlissner/zsh-autopair
   aperezdc/zsh-fzy
-  marzocchi/zsh-notify
   rupa/z
   changyuheng/fz
   Tarrasch/zsh-bd
