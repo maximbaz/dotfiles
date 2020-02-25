@@ -32,6 +32,7 @@ export FZ_SUBDIR_CMD=jj
 export LIBVA_DRIVER_NAME=iHD
 
 export GOPATH="$HOME/.go"
+export GOPRIVATE="bitbucket.org/maersk-analytics"
 
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland-egl
