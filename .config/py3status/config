@@ -17,7 +17,7 @@ order += 'external_script checkupdates_aur'
 order += 'external_script checkupdates_vcs'
 order += 'external_script checkrebuild'
 # order += 'external_script checkfirmware'
-order += 'external_script new_email'
+order += 'external_script checkmail'
 order += 'file_status decrypted'
 order += 'scratchpad'
 order += 'net_rate'
@@ -125,10 +125,10 @@ external_script checkrebuild {
 #   on_click 1 = 'exec notify-send "Firmware updates" "$ fwupdmgr get-updates\\n$ fwupdmgr update"'
 # }
 
-external_script new_email {
+external_script checkmail {
   cache_timeout = 2
-  script_path = "notmuch count tag:unread"
-  format = '\?if=output&color=degraded    {output}'
+  script_path = "find ~/.mail/maximbaz/INBOX/new -type f -printf '\n'"
+  format = '\?if=lines&color=degraded    {lines}'
 }
 
 external_script pacdiff {
