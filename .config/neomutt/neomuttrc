@@ -4,7 +4,10 @@ alternates @maximbaz.com
 set use_domain = no
 set hostname = maximbaz.com
 set reverse_name = yes
+
+set sig_on_top = yes
 set signature = ~/.config/neomutt/signature
+
 set sendmail = "/usr/bin/msmtp -a maximbaz"
 set use_envelope_from = yes
 set edit_headers = yes
@@ -20,21 +23,13 @@ set trash = "+Trash"
 
 unmailboxes *
 unvirtual-mailboxes *
-virtual-mailboxes "INBOX" "notmuch://?query=folder:INBOX"
-virtual-mailboxes "Archive/2019" "notmuch://?query=folder:Archive/2019"
-virtual-mailboxes "Archive/2018" "notmuch://?query=folder:Archive/2018"
-virtual-mailboxes "Archive/2017" "notmuch://?query=folder:Archive/2017"
-virtual-mailboxes "Archive/2016" "notmuch://?query=folder:Archive/2016"
-virtual-mailboxes "Drafts" "notmuch://?query=folder:Drafts"
-virtual-mailboxes "Sent" "notmuch://?query=folder:Sent"
-virtual-mailboxes "Junk" "notmuch://?query=folder:Junk"
-virtual-mailboxes "Trash" "notmuch://?query=folder:Trash"
+
+mailboxes =INBOX =Archive/2019 =Drafts =Sent =Junk =Trash
 
 unlists *
 unsubscribe *
 subscribe arch-announce@archlinux.org arch-dev-public@archlinux.org arch-events@archlinux.org aur-general@archlinux.org arch-projects@archlinux.org
 
-set virtual_spoolfile = yes
 set sort = threads
 set sort_aux = last-date-received
 
@@ -70,6 +65,8 @@ set mailcap_path = ~/.config/neomutt/mailcap
 source colors
 set index_format = "%4C %Z%?X?📎&  ?%?g?%g& ? %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[  %b %d]>&%[%b %Y]> %-35.35F %s"
 set attach_format = "%u%D%I %t%4n %T%.100f (%.100d)%> [%.15m/%.15M, %.6e%?C?, %C?, %s] "
+set pager_stop = yes
+set pager_index_lines = 10
 set pager_format = "%e/%E - %C/%m%?g? (%g)&?: %-40.40n   %s%* -- (%P)"
 set status_format = "%f: Total %?M?%M/?%m%?n?, New %n?%?d?, Del %d?%?F?, Flag %F?%?t?, Tag %t? %* -- (%P)"
 set to_chars = "     LR"
@@ -88,18 +85,20 @@ bind index,pager \Co sidebar-open
 bind index,pager gg noop
 bind index,pager g noop
 bind index gg first-entry
-bind index G last-entry
+bind index gk first-entry
+bind index gj last-entry
 bind pager gg top
-bind pager G bottom
+bind pager gk top
+bind pager gj bottom
 bind pager [ half-up
 bind pager ] half-down
 
-macro index,pager gi "<change-vfolder>INBOX<enter>"
-macro index,pager ga "<change-vfolder>Archive/2019<enter>"
-macro index,pager gd "<change-vfolder>Drafts<enter>"
-macro index,pager gs "<change-vfolder>Sent<enter>"
-macro index,pager gj "<change-vfolder>Junk<enter>"
-macro index,pager gt "<change-vfolder>Trash<enter>"
+macro index,pager GI "<change-folder>=INBOX<enter>"
+macro index,pager GA "<change-folder>=Archive/2019<enter>"
+macro index,pager GD "<change-folder>=Drafts<enter>"
+macro index,pager GS "<change-folder>=Sent<enter>"
+macro index,pager GJ "<change-folder>=Junk<enter>"
+macro index,pager GT "<change-folder>=Trash<enter>"
 
 bind index j next-entry
 bind index k previous-entry
@@ -107,19 +106,17 @@ bind pager j next-line
 bind pager k previous-line
 
 bind index,pager y noop
-macro index,pager S "<sync-mailbox>y<check-stats>"
+macro index,pager <tab> "<sync-mailbox>y<check-stats>"
 bind index,pager R group-reply
 bind index,pager @ compose-to-sender
 macro attach s "<save-entry><bol>~/Downloads/<eol>"
 
 set auto_tag = yes
-macro index a "<tag-entry><clear-flag>N<modify-tags>!archive<enter><untag-pattern>.<enter>"
-macro pager a "<modify-tags>!archive<enter><next-undeleted>"
-macro index A "<tag-thread><clear-flag>N<modify-tags>+archive<enter><untag-pattern>.<enter>"
-macro index P "<vfolder-from-query>tag:archive<enter><tag-pattern>.<enter><modify-tags>-archive<enter><save-message>=Archive/2019<enter><enter><change-vfolder>INBOX<enter><enter>"
+macro index a "<tag-entry><clear-flag>N<save-message>=Archive/2019<enter><enter>"
+macro pager a "<save-message>=Archive/2019<enter><enter>"
+macro index A "<tag-thread><clear-flag>N<save-message>=Archive/2019<enter><enter>"
 macro index,pager D "<purge-message>"
 macro index,pager I "<save-message>=INBOX<enter><enter>"
-bind index + entire-thread
 bind index \\ vfolder-from-query
 
 macro index,pager \cb "<pipe-message> urlscan<Enter>"
