@@ -2,5 +2,7 @@
   gpgsign = false
 [user]
   email = Maxim.Baz@maersk.com
+[url "git@bitbucket.org:"]
+  insteadOf = "https://bitbucket.org/"
 
-# vim:ft=gitconfig
+# vim:ft=ini
