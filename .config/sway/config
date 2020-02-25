@@ -70,6 +70,7 @@ set $workspace0 workspace number 10
 # Specific window configuration
 for_window    [app_id=".*"]                  sticky enable
 for_window    [window_role="pop-up"]         floating enable
+for_window    [class="ksnip"]                fullscreen enable
 for_window    [app_id="firefox"]             move container to $workspace2, title_format "Firefox"
 for_window    [class="Wire"]                 move container to $workspace3
 for_window    [app_id="neomutt"]             move container to $workspace4, title_format "NeoMutt"
