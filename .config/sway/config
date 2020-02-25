@@ -18,30 +18,6 @@ output * {
     bg "#222222" solid_color
 }
 
-set $screen_laptop 'eDP-1'
-set $screen_left   'Hewlett Packard HP LP2475w CNC11102ZY'
-set $screen_right  'Hewlett Packard HP LP2475w PLC02101N8'
-
-output $screen_laptop {
-    scale 1.2
-    subpixel rgb
-}
-
-output $screen_left {
-    scale 1.1
-    subpixel rgb
-    pos 0,0
-}
-
-output $screen_right {
-    scale 1.1
-    subpixel rgb
-    pos 1745,0
-}
-
-bindswitch --locked --reload lid:off output $screen_laptop enable;  output $screen_left disable; output $screen_right disable;
-bindswitch --locked --reload lid:on  output $screen_laptop disable; output $screen_left enable;  output $screen_right enable;
-
 # Gaps
 gaps inner 5
 smart_gaps on
@@ -329,8 +305,9 @@ workspace 10 output DP-3 DP-4 eDP-1
 # Autostart some apps
 exec_always "pgrep -x sway-autoname-w || sway-autoname-workspaces -d"
 exec_always "pgrep -x inactive-window || inactive-windows-transparency.py -o 0.7"
-exec_always "pgrep -x neomutt || kitty --class neomutt neomutt"
-exec_always "pgrep -fx 'sh /usr/bin/wire-desktop' || wire-desktop"
 exec_always "pgrep -x udiskie || udiskie"
 exec_always "pgrep -x mako || mako"
 exec_always "pgrep -x sway-paste || sway-paste daemon"
+
+# Load host-specific configs
+include ~/.config/sway/`hostgroup`.conf
