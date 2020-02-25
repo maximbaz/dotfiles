@@ -193,7 +193,7 @@ cat <<EOF >/mnt/etc/default/grub
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet mem_sleep_default=deep"
 GRUB_CMDLINE_LINUX="cryptdevice=${part_root}:luks:allow-discards"
 GRUB_PRELOAD_MODULES="part_gpt part_msdos"
 GRUB_ENABLE_CRYPTODISK=y
