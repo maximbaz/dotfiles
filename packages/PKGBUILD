@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.5.0
+pkgver=2.6.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -106,8 +106,6 @@ depends=(
 
     # network
     'iwd'
-    'knot-resolver'
-    'openvpn'
     'ufw'
     'bandwhich'
     'mullvad-vpn-cli'
@@ -122,8 +120,6 @@ depends=(
     'wget'
     'rsync'
     'openssh'
-    'wireguard-arch'
-    'wireguard-tools'
 
     # security
     'arch-audit'
@@ -132,12 +128,14 @@ depends=(
     'pam-u2f'
     'yubikey-touch-detector'
     'usbguard'
-    'pinentry-dmenu'
+    'pinentry'
+    'gcr'
 
     # hardware
     'fwupd'
     'tlp'
     'dmidecode'
+    'upower'
 
     # audio
     'pulseaudio'
@@ -147,19 +145,18 @@ depends=(
     'pavucontrol'
     'playerctl'
     'bluez'
-    'bluez-firmware'
     'bluez-utils'
 
     # sway
     'sway'
     'swaylock'
+    'xorg-server-xwayland'
     'wl-clipboard'
     'python-i3ipc'
     'wmctrl'
     'mako'
     'gtk-theme-arc-gruvbox-git'
     'redshift'
-    'numlockx'
     'wev'
 
     # py3status
@@ -182,13 +179,12 @@ depends=(
     'ttf-opensans'
     'ttf-signika'
     'xorg-fonts-misc'
-    'terminus-font'
     'otf-font-awesome'
     'ttf-joypixels'
 
     # aur
     'aurpublish'
-    'aurutils-git'
+    'aurutils'
     'parallel'
     'vifm'
     'repoctl'
@@ -288,16 +284,15 @@ depends=(
     'mpv'
     'youtube-dl'
     'strace'
+    'virtualbox'
+    'code'
 
     # work
     'azure-cli'
-    'code'
     'freerdp'
     'k9s-bin'
     'kubectl'
     'kubectx'
     'kubernetes-helm'
     'slack-desktop'
-    'terraform'
-    'virtualbox'
 )
