@@ -80,8 +80,6 @@ copy "etc/systemd/journald.conf"
 copy "etc/systemd/logind.conf"
 copy "etc/systemd/network"
 copy "etc/systemd/resolved.conf"
-copy "etc/systemd/system/backup-repo@pkgbuild"
-copy "etc/systemd/system/backup-repo@.service"
 copy "etc/systemd/system/getty@tty2.service.d/override.conf"
 copy "etc/systemd/system/usbguard.service.d/override.conf"
 copy "etc/systemd/system/paccache.service"
@@ -94,6 +92,11 @@ copy "etc/udev/rules.d/81-ac-battery-change.rules"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
 
+if [[ $HOSTNAME == home-* ]]; then
+    copy "etc/systemd/system/backup-repo@pkgbuild"
+    copy "etc/systemd/system/backup-repo@.service"
+fi
+
 (( "$reverse" )) && exit 0
 
 echo ""
@@ -104,7 +107,6 @@ echo "================================="
 sysctl --system > /dev/null
 
 systemctl daemon-reload
-systemctl_enable "backup-repo@pkgbuild.service"
 systemctl_enable "getty@tty2.service"
 systemctl_enable_start "bluetooth.service"
 systemctl_enable_start "btrfs-scrub@-.timer"
@@ -135,10 +137,14 @@ if [ ! -s "/etc/usbguard/rules.conf" ]; then
     >&2 echo "=== Remember to set usbguard rules: usbguard generate-policy >! /etc/usbguard/rules.conf"
 fi
 
-if [ -d "/home/maximbaz/.ccnet" ]; then
-    systemctl_enable_start "seaf-cli@maximbaz.service"
-else
-    >&2 echo "=== Seafile is not initialized, skipping..."
+if [[ $HOSTNAME == home-* ]]; then
+    systemctl_enable "backup-repo@pkgbuild.service"
+
+    if [ -d "/home/maximbaz/.ccnet" ]; then
+        systemctl_enable_start "seaf-cli@maximbaz.service"
+    else
+        >&2 echo "=== Seafile is not initialized, skipping..."
+    fi
 fi
 
 echo ""

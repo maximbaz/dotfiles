@@ -102,15 +102,17 @@ else
     systemctl_enable_start "redshift.service"
     systemctl_enable_start "yubikey-touch-detector.service"
 
-    if [ -d "$HOME/.mail" ]; then
-        systemctl_enable_start "mbsync.timer"
-        systemctl_enable_start "goimapnotify@personal.service"
-    else
-        >&2 echo -e "
-        === Mail is not configured, skipping...
-        === Consult ~/.mbsyncrc for initial setup, and then sync everything using:
-        === while ! mbsync -a; do echo 'restarting...'; done
-        "
+    if [[ $HOSTNAME == home-* ]]; then
+        if [ -d "$HOME/.mail" ]; then
+            systemctl_enable_start "mbsync.timer"
+            systemctl_enable_start "goimapnotify@personal.service"
+        else
+            >&2 echo -e "
+            === Mail is not configured, skipping...
+            === Consult ~/.mbsyncrc for initial setup, and then sync everything using:
+            === while ! mbsync -a; do echo 'restarting...'; done
+            "
+        fi
     fi
 fi
 
