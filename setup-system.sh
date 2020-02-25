@@ -160,8 +160,12 @@ echo "======================================="
 echo "Finishing various user configuration..."
 echo "======================================="
 
-echo "Configuring /etc/resolv.conf"
-ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+if is_chroot; then
+    >&2 echo "=== Running in chroot, skipping /etc/resolv.conf setup..."
+else
+    echo "Configuring /etc/resolv.conf"
+    ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+fi
 
 echo "Configuring aurutils"
 ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
