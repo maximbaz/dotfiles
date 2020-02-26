@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.6.0
+pkgver=2.7.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -282,6 +282,8 @@ depends=(
     'teamviewer'
     'transmission-gtk'
     'mpv'
+    'mpv-mpris'
+    'ff2mpv-native-messaging-host-git'
     'youtube-dl'
     'strace'
     'virtualbox'
@@ -290,7 +292,7 @@ depends=(
     # work
     'azure-cli'
     'freerdp'
-    'k9s-bin'
+    'k9s'
     'kubectl'
     'kubectx'
     'kubernetes-helm'
