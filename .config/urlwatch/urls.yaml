@@ -135,3 +135,8 @@ name: "p10k"
 url: "https://github.com/romkatv/powerlevel10k/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
+---
+name: "playerctl"
+url: "https://github.com/altdesktop/playerctl/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
