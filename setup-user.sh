@@ -10,7 +10,11 @@ cd "$dotfiles_dir"
 
 link() {
     orig_file="$dotfiles_dir/$1"
-    dest_file="$HOME/$1"
+    if [ -n "$2" ]; then
+        dest_file="$HOME/$2"
+    else
+        dest_file="$HOME/$1"
+    fi
 
     mkdir -p "$(dirname "$orig_file")"
     mkdir -p "$(dirname "$dest_file")"
@@ -35,8 +39,8 @@ echo "==========================="
 
 link "bin"
 
-link ".gitconfig"
-link ".gitconfig.work"
+link ".gitconfig.$(hostgroup)" ".gitconfig"
+link ".gitconfig.common"
 link ".gitignore"
 link ".gnupg/gpg.conf"
 link ".gtkrc-2.0"

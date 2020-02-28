@@ -1,8 +1,10 @@
-[commit]
-  gpgsign = false
+[include]
+path = ~/.gitconfig.common
+
 [user]
-  email = Maxim.Baz@maersk.com
+email = Maxim.Baz@maersk.com
+
 [url "git@bitbucket.org:"]
-  insteadOf = "https://bitbucket.org/"
+insteadOf = "https://bitbucket.org/"
 
 # vim:ft=ini
