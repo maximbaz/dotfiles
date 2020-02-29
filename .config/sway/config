@@ -226,13 +226,13 @@ bindsym --to-code {
     $hyper+Left   exec playerctl --player playerctld previous
     $hyper+Right  exec playerctl --player playerctld next
 
-    XF86AudioMute        exec py3-cmd click 1 volume_status
-    XF86AudioRaiseVolume exec py3-cmd click 4 volume_status
-    XF86AudioLowerVolume exec py3-cmd click 5 volume_status
-    $win+Up              exec py3-cmd click 1 volume_status
-    $win+Down            exec py3-cmd click 1 volume_status
-    $win+Right           exec py3-cmd click 4 volume_status
-    $win+Left            exec py3-cmd click 5 volume_status
+    XF86AudioMute        exec pamixer -t
+    XF86AudioRaiseVolume exec pamixer -i 5
+    XF86AudioLowerVolume exec pamixer -d 5
+    $win+Up              exec pamixer -t
+    $win+Down            exec pamixer -t
+    $win+Right           exec pamixer -i 5
+    $win+Left            exec pamixer -d 5
 
     # Reload the configuration file
     $win+r reload
