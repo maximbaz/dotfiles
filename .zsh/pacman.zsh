@@ -18,7 +18,7 @@ alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 -x waybar'
 
 pac() {
   sudo -E pacman "$@"
-  py3status-refresh-pacman
+  pkill -RTMIN+1 -x waybar
   rehash
 }
 compdef pac=pacman
@@ -55,19 +55,8 @@ auru() {
 
 post_aur() {
   sudo -E pacman -Sy
-  py3status-refresh-pacman
+  pkill -RTMIN+1 -x waybar
   find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
   find /var/cache/pacman/maximbaz -name '*~' -delete >/dev/null
   find /var/cache/pacman/maximbaz -group root -delete >/dev/null
-}
-
-py3status-refresh-pacman() {
-  pacdiff="external_script pacdiff"
-  official="external_script checkofficial"
-  repo="external_script checkupdates"
-  aur="external_script checkupdates_aur"
-  vcs="external_script checkupdates_vcs"
-  rebuild="external_script checkrebuild"
-
-  pkill -RTMIN+1 -x waybar
 }
