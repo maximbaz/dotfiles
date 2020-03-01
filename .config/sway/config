@@ -282,7 +282,7 @@ exec_always "pgrep -x inactive-window || inactive-windows-transparency.py -o 0.7
 exec_always "pgrep -x udiskie || udiskie"
 exec_always "pgrep -x mako || mako"
 exec_always "pgrep -x sway-paste || sway-paste daemon"
-exec_always "pkill -x waybar; waybar"
+exec_always "pkill waybar; waybar"
 
 # Load host-specific configs
 include ~/.config/sway/`hostgroup`.conf
