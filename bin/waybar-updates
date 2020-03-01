@@ -3,20 +3,32 @@
 pac="$(checkupdates)"
 aur="$(aur repo -u)"
 vcs="$(aur vercmp-devel)"
+off="$(checkofficial)"
+dif="$(pacdiff -o)"
 
 pac_n=$(printf "$pac" | grep -c '^')
 aur_n=$(printf "$aur" | grep -c '^')
 vcs_n=$(printf "$vcs" | grep -c '^')
+off_n=$(printf "$off" | grep -c '^')
+dif_n=$(printf "$dif" | grep -c '^')
 
-text="$pac_n/$aur_n/$vcs_n"
+text=""
 tooltip=""
-[ -n "$pac" ] && tooltip="${tooltip}PKG:\n\n$pac\n\n"
-[ -n "$aur" ] && tooltip="${tooltip}AUR:\n\n$aur\n\n"
-[ -n "$vcs" ] && tooltip="${tooltip}VCS:\n\n$vcs\n\n"
+
+[ -n "$off" ]               && text="/${off_n}"
+[ -n "$off" ]               && tooltip="Became official:\n\n$off\n\n"
+[ -n "$text" -o -n "$dif" ] && text="/${dif_n}${text}"
+[ -n "$off" ]               && tooltip="pacdiff:\n\n$dif\n\n${tooltip}"
+[ -n "$text" -o -n "$vcs" ] && text="/${vcs_n}${text}"
+[ -n "$vcs" ]               && tooltip="VCS:\n\n$vcs\n\n${tooltip}"
+[ -n "$text" -o -n "$aur" ] && text="/${aur_n}${text}"
+[ -n "$aur" ]               && tooltip="AUR:\n\n$aur\n\n${tooltip}"
+[ -n "$text" -o -n "$pac" ] && text="${pac_n}${text}"
+[ -n "$pac" ]               && tooltip="pacman:\n\n$pac\n\n${tooltip}"
 
 tooltip="$(printf "$tooltip" | perl -pe 's/\n/\\n/g' | perl -pe 's/(?:\\n)+$//')"
 
-if [ "$text" = "0/0/0" ]; then
+if [ -z "$text" ]; then
     printf '{"text": ""}\n'
 else
     printf '{"text": " %s", "tooltip": "%s" }\n' "$text" "$tooltip"
