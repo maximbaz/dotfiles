@@ -103,7 +103,7 @@ mode $mode_resize {
     }
 }
 
-set $mode_system "System (l) lock, (s) suspend, (r) reboot, (h) shutdown"
+set $mode_system "System exit"
 mode $mode_system {
     bindsym --to-code {
         l exec sway-exit lock, mode "default"
