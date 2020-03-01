@@ -14,7 +14,7 @@ alias pacu='pac -Syu'
 alias ipacu='SNAP_PAC_SKIP=true pacu'
 alias pacq='pacman -Si'
 alias pacl='pacman -Ql'
-alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 waybar'
+alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 -x waybar'
 
 pac() {
   sudo -E pacman "$@"
@@ -69,5 +69,5 @@ py3status-refresh-pacman() {
   vcs="external_script checkupdates_vcs"
   rebuild="external_script checkrebuild"
 
-  pkill -RTMIN+1 waybar
+  pkill -RTMIN+1 -x waybar
 }

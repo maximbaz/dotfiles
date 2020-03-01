@@ -18,7 +18,7 @@ toggle() {
         makoctl set invisible=true
         touch "$marker"
     fi
-    pkill -RTMIN+2 waybar
+    pkill -RTMIN+2 -x waybar
 }
 
 [ $# -gt 0 ] && toggle || show
