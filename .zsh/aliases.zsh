@@ -1,4 +1,5 @@
 alias cp='cp -r --reflink=auto'
+alias curl='curlie'
 alias df='pydf'
 alias diff='git diff --no-index'
 alias diff!='kitty +kitten diff'
