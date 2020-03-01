@@ -68,11 +68,12 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
+        "interval": 2,
         "format-wifi": " {essid}",
         "format-ethernet": " {ifname}",
         "format-linked": " {ifname}",
         "format-disconnected": "  ",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
     },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
