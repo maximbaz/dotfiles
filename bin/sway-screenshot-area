@@ -33,7 +33,7 @@ else
 fi
 
 # Enable screen fading
-inactive-windows-transparency.py -o 0.7
+inactive-windows-transparency.py -o 0.7 &
 
 # Cleanup
 rm -f /tmp/area.png
