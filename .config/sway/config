@@ -12,7 +12,7 @@ input type:touchpad {
     tap enabled
 }
 
-seat * hide_cursor 5000
+seat * hide_cursor 10000
 
 output * {
     bg "#222222" solid_color
