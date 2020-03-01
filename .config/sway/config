@@ -67,28 +67,6 @@ client.unfocused          $color_normal_gray     $color_normal_gray     $color_n
 client.urgent             $color_bright_yellow   $color_bright_yellow   $color_normal_black    $color_unused        $color_unused
 client.placeholder        $color_unused          $color_unused          $color_unused          $color_unused        $color_unused
 
-# Bar
-bar {
-    colors {
-        # Whole color settings
-        background $color_normal_gray
-        separator  $color_bright_gray
-        statusline $color_bright_white
-
-        # Type             border                 background              font
-        focused_workspace  $color_bright_gray     $color_bright_gray      $color_bright_white
-        active_workspace   $color_normal_gray     $color_normal_gray      $color_normal_white
-        inactive_workspace $color_normal_gray     $color_normal_gray      $color_normal_white
-        urgent_workspace   $color_bright_yellow   $color_bright_yellow    $color_normal_black
-    }
-
-    separator_symbol "  |  "
-    status_command py3status --dbus-notify
-    position top
-    tray_output none
-}
-
-
 # Use Windows and Hyper as a modifier keys
 set $win Mod3
 set $hyper Mod4
@@ -304,6 +282,7 @@ exec_always "pgrep -x inactive-window || inactive-windows-transparency.py -o 0.7
 exec_always "pgrep -x udiskie || udiskie"
 exec_always "pgrep -x mako || mako"
 exec_always "pgrep -x sway-paste || sway-paste daemon"
+exec_always "pkill -x waybar; waybar"
 
 # Load host-specific configs
 include ~/.config/sway/`hostgroup`.conf

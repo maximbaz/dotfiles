@@ -1,0 +1,95 @@
+{
+    "layer": "top",
+    "height": 25,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-right": [
+        "custom/yubikey",
+        "custom/decrypted",
+        "custom/updates",
+        "custom/mail",
+        "pulseaudio",
+        "network",
+        "custom/vpn",
+        "cpu",
+        "memory",
+        "backlight",
+        "battery",
+        "clock"
+    ],
+
+    "custom/yubikey": {
+        "exec": "waybar-yubikey",
+        "return-type": "json"
+    },
+    "custom/decrypted": {
+        "exec": "waybar-decrypted",
+        "return-type": "json"
+    },
+    "custom/updates": {
+        "exec": "waybar-updates",
+        "return-type": "json",
+        "signal": 1,
+        "interval": 1200
+    },
+    "custom/mail": {
+        "exec": "waybar-mail",
+        "return-type": "json"
+    },
+    "custom/vpn": {
+        "exec": "waybar-vpn",
+        "return-type": "json"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%Y-%m-%d   %H:%M}"
+    },
+    "cpu": {
+        "format": " {usage}%"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [""]
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": " {ifname}",
+        "format-linked": " {ifname}",
+        "format-disconnected": "⚠",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}

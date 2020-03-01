@@ -1,0 +1,16 @@
+#!/bin/sh
+
+check() {
+    notmuch new >/dev/null
+    count="$(notmuch count 'tag:unread')"
+    tooltip="There are $count new emails"
+    if [ "$count" = "0" ]; then
+        printf '{"text": ""}\n'
+    else
+        printf '{"text": " %s", "tooltip": "%s"}\n' "$count" "$tooltip"
+    fi
+    inotifywait -q -e move -e create -e delete /home/maximbaz/.mail/maximbaz/INBOX/cur >/dev/null
+    check
+}
+
+check

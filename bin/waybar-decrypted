@@ -1,0 +1,19 @@
+#!/bin/sh
+
+output() {
+    if [ -f "/home/maximbaz/decrypted/.lock" ]; then
+        printf '{"text": "  "}\n'
+    else
+        printf '{"text": ""}\n'
+    fi
+}
+
+check() {
+    output
+    inotifywait -q "/home/maximbaz/decrypted/.lock" >/dev/null 2>&1
+    output
+    inotifywait -q "/home/maximbaz/decrypted" >/dev/null
+    check
+}
+
+check

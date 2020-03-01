@@ -85,13 +85,13 @@ link ".config/systemd/user/mbsync.timer"
 link ".config/tig"
 link ".config/transmission/settings.json"
 link ".config/USBGuard"
+link ".config/waybar"
 link ".config/vimiv"
 link ".config/wofi"
 
 link ".gnupg/gpg-agent.conf"
 
 link ".local/share/applications"
-link ".local/share/fonts"
 
 if is_chroot; then
     >&2 echo "=== Running in chroot, skipping user services..."
