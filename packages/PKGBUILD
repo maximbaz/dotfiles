@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.7.0
+pkgver=2.8.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -94,6 +94,7 @@ depends=(
     'seafile-client'
     'zathura-pdf-mupdf'
     'pdftk'
+    'inotify-tools'
 
     # archiving
     'lbzip2'
@@ -120,6 +121,7 @@ depends=(
     'wget'
     'rsync'
     'openssh'
+    'curlie'
 
     # security
     'arch-audit'
@@ -136,6 +138,7 @@ depends=(
     'tlp'
     'dmidecode'
     'upower'
+    'acpi'
 
     # audio
     'pulseaudio'
@@ -158,15 +161,9 @@ depends=(
     'gtk-theme-arc-gruvbox-git'
     'redshift'
     'wev'
-
-    # py3status
-    'py3status'
+    'waybar'
     'light'
-    'conky'
-    'python-gevent'
-    'python-pydbus'
-    'python-pyudev'
-    'python-tzlocal'
+    'slurp'
 
     # fonts
     'ttf-dejavu'
