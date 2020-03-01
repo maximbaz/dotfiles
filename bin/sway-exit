@@ -12,33 +12,27 @@ before_lock() {
     sudo systemctl stop pcscd.service
 }
 
-stop_vpn() {
-    nmcli con show --active | grep vpn | cut -d' ' -f1 | xargs -n1 nmcli con down
-}
-
-stop_wlan() {
-    nmcli con show --active | grep wifi | cut -d' ' -f1 | xargs -n1 nmcli con down
+after_lock() {
+    pkill mako
+    mako &
 }
 
 case "$1" in
     lock)
         before_lock
         swaylock
+        after_lock
         ;;
     suspend)
         before_lock
-        stop_vpn
         systemctl -i suspend
         swaylock
+        after_lock
         ;;
     reboot)
-        stop_vpn
-        stop_wlan
         systemctl -i reboot
         ;;
     shutdown)
-        stop_vpn
-        stop_wlan
         systemctl -i poweroff
         ;;
     *)
