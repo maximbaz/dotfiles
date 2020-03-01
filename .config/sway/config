@@ -233,6 +233,10 @@ bindsym --to-code {
     $win+Down            exec pamixer -t
     $win+Right           exec pamixer -i 5
     $win+Left            exec pamixer -d 5
+    $win+Shift+Up        exec pamixer -t --source 1
+    $win+Shift+Down      exec pamixer -t --source 1
+    $win+Shift+Right     exec pamixer -i 5 --source 1
+    $win+Shift+Left      exec pamixer -d 5 --source 1
 
     # Reload the configuration file
     $win+r reload
