@@ -55,20 +55,15 @@ window#waybar {
 #custom-yubikey,
 #custom-decrypted,
 #custom-updates,
-#custom-mail {
-  border-bottom: 3px solid @yellow;
-}
-
-#custom-vpn.off {
+#custom-mail,
+#custom-vpn.off,
+#battery.warning,
+#custom-dnd.on {
   border-bottom: 3px solid @yellow;
 }
 
 #battery.charging {
   border-bottom: 3px solid @green;
-}
-
-#battery.warning {
-  border-bottom: 3px solid @yellow;
 }
 
 #battery.critical {
@@ -91,7 +86,8 @@ window#waybar {
   margin: 0 6px;
 }
 
-#custom-vpn {
+#custom-vpn,
+#custom-dnd {
   padding: 0;
   margin: 0 6px;
 }

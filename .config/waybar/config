@@ -10,6 +10,7 @@
         "custom/decrypted",
         "custom/updates",
         "custom/mail",
+        "custom/dnd",
         "pulseaudio",
         "network",
         "custom/vpn",
@@ -41,6 +42,13 @@
     "custom/vpn": {
         "exec": "waybar-vpn",
         "return-type": "json"
+    },
+    "custom/dnd": {
+        "exec": "waybar-dnd",
+        "return-type": "json",
+        "signal": 2,
+        "interval": "once",
+        "on-click": "waybar-dnd toggle"
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
