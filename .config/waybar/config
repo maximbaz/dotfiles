@@ -6,6 +6,7 @@
         "sway/mode"
     ],
     "modules-right": [
+        "custom/usbguard",
         "custom/yubikey",
         "custom/decrypted",
         "custom/updates",
@@ -21,6 +22,12 @@
         "clock"
     ],
 
+    "custom/usbguard": {
+        "exec": "waybar-usbguard",
+        "return-type": "json",
+        "on-click": "waybar-usbguard allow",
+        "on-click-right": "waybar-usbguard reject"
+    },
     "custom/yubikey": {
         "exec": "waybar-yubikey",
         "return-type": "json"

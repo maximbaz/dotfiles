@@ -52,6 +52,7 @@ window#waybar {
   border-bottom: 3px solid @red;
 }
 
+#custom-usbguard,
 #custom-yubikey,
 #custom-decrypted,
 #custom-updates,
@@ -72,6 +73,7 @@ window#waybar {
 
 #mode,
 #pulseaudio,
+#custom-usbguard,
 #custom-yubikey,
 #custom-decrypted,
 #custom-updates,
