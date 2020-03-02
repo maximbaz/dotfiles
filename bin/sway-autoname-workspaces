@@ -8,16 +8,13 @@ import signal
 import sys
 
 WINDOW_ICONS = {
-    "slack": "",
     "riot": "",
     "zathura": "",
     "calibre": "",
     "pavucontrol": "",
-    "nm-connection-editor": "",
     "bleachbit": "",
-    "chromium": "󰀠",
+    "chromium": "",
     "code-oss": "",
-    "copyq": "",
     "draw.io": "",
     "vimiv": "",
     "firefox": "",
@@ -30,15 +27,12 @@ WINDOW_ICONS = {
     "paperwork": "",
     "peek": "",
     "gcr-prompter": "",
-    "wofi": "󰀋",
+    "wofi": "",
     "spotify": "",
-    "teamviewer": "󰀄",
     "neomutt": "",
     "transmission-gtk": "",
     "virtualbox machine": "",
     "virtualbox manager": "",
-    "wire": "󰁀",
-    "wlfreerdp": "󰀄",
 }
 
 DEFAULT_ICON = "󰀏"
