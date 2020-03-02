@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.8.0
+pkgver=2.8.1
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -122,6 +122,7 @@ depends=(
     'rsync'
     'openssh'
     'curlie'
+    'speedtest-cli'
 
     # security
     'arch-audit'
@@ -251,7 +252,7 @@ depends=(
     'riot-desktop'
 
     # browsers
-    'chromium-vaapi'
+    'chromium'
     'intel-media-driver'
     'libva-intel-driver'
     'firefox'
