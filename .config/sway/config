@@ -139,7 +139,6 @@ bindsym --to-code {
     $hyper+equal exec bash -c "dmenu -p calc | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
     $hyper+d fullscreen disable, exec "pgrep -x wofi && pkill wofi || wofi"
     $hyper+p fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || { sway-paste lock; passmenu -p pass; sway-paste unlock; }"
-    $hyper+n fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || networkmanager_dmenu"
     $hyper+m fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || udiskie-dmenu"
 
     # Kill focused window

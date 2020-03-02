@@ -53,10 +53,6 @@
 
 > Useful for automatically dimming screen when switching to battery power.
 
-☑ Automatically connect to VPN on selected networks.
-
-> Comes bundled with a script to prevent DNS leaks on NetworkManager.
-
 ☑ Automatically backup the list of installed packages (pacman and AUR).
 
 > These files are used to bootstrap the new system, all apps are installed in one command.
