@@ -140,6 +140,8 @@ bindsym --to-code {
     $hyper+d fullscreen disable, exec "pgrep -x wofi && pkill wofi || wofi"
     $hyper+p fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || { sway-paste lock; passmenu -p pass; sway-paste unlock; }"
     $hyper+m fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || udiskie-dmenu"
+    Print        exec sway-screenshot-area
+    $hyper+Print exec sway-gif-area
 
     # Kill focused window
     $win+q kill

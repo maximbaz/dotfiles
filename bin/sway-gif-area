@@ -1,0 +1,15 @@
+#!/bin/sh
+
+pkill -x wf-recorder
+
+[ $? -ne 0 ] && {
+    pkill -x inactive-window
+
+    path="/tmp/record_$(date +%s).gif"
+    notify-send 'GIF recording' 'Select an area to start the recording...'
+    wf-recorder -g "$(slurp)" -c gif -f "$path"
+    wl-copy < "$path"
+    notify-send 'GIF recording' "Recording has finished: $path"
+
+    inactive-windows-transparency.py -o 0.7 &
+} &
