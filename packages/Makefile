@@ -1,5 +1,5 @@
 .PHONY: all
-all: build install publish clean
+all: build install refresh publish clean
 
 .PHONY: build
 build:
@@ -8,6 +8,9 @@ build:
 .PHONY: install
 install:
 	SNAP_PAC_SKIP=true sudo -E pacman --noconfirm -U *.pkg.tar.zst
+
+.PHONY: refresh
+refresh:
 	backup-packages
 	if [ -s unknown.list ]; then \
 		xargs -a unknown.list sudo pacman -D --asdeps; \
