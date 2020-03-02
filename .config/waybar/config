@@ -84,6 +84,7 @@
     },
     "network": {
         "interval": 2,
+        "interface": "wlan0",
         "format-wifi": " {essid}",
         "format-ethernet": " {ifname}",
         "format-linked": " {ifname}",
