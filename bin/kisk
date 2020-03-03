@@ -1,11 +1,10 @@
 #!/bin/sh
 
-stdin=$(mktemp)
-stdout=$(mktemp)
-stderr=$(mktemp)
+tmp=$(mktemp -d)
+trap 'rm -rf $tmp' EXIT
 
-cat >$stdin
-kitty --class kisk sh -c "cat $stdin | sk -m --reverse >$stdout 2>$stderr" >/dev/null 2>&1
+cat >$tmp/stdin
+kitty --class kisk sh -c "cat $tmp/stdin | sk -m --reverse >$tmp/stdout 2>$tmp/stderr" >/dev/null 2>&1
 
-cat $stdout
-cat $stderr >&2
+cat $tmp/stdout
+cat $tmp/stderr >&2
