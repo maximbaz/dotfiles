@@ -40,6 +40,7 @@
         "exec": "waybar-updates",
         "return-type": "json",
         "signal": 1,
+        "on-click-right": "pkill -RTMIN+1 -x waybar",
         "interval": 1200
     },
     "custom/mail": {
