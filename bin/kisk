@@ -1,0 +1,11 @@
+#!/bin/sh
+
+stdin=$(mktemp)
+stdout=$(mktemp)
+stderr=$(mktemp)
+
+cat >$stdin
+kitty --class kisk sh -c "cat $stdin | sk -m --reverse >$stdout 2>$stderr" >/dev/null 2>&1
+
+cat $stdout
+cat $stderr >&2
