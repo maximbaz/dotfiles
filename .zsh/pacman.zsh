@@ -17,20 +17,20 @@ alias pacl='pacman -Ql'
 alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 -x waybar'
 
 pac() {
-  sudo -E pacman "$@"
-  pkill -RTMIN+1 -x waybar
-  rehash
+    sudo -E pacman "$@"
+    pkill -RTMIN+1 -x waybar
+    rehash
 }
 compdef pac=pacman
 
 pacs() {
-  aur search -n -k NumVotes "$@"
-  pacman -Ss "$@"
+    aur search -n -k NumVotes "$@"
+    pacman -Ss "$@"
 }
 
 pacs!() {
-  aur search -k NumVotes "$@"
-  pacman -Ss "$@"
+    aur search -k NumVotes "$@"
+    pacman -Ss "$@"
 }
 
 pacQ() {
@@ -38,25 +38,25 @@ pacQ() {
 }
 
 aurs() {
-  aur sync -ScP "$@"
-  post_aur
+    aur sync -ScP "$@"
+    post_aur
 }
 alias aurs!='aurs --no-ver-shallow -f'
 
 aurb() {
-  aur build -Scf --pkgver "$@"
-  post_aur
+    aur build -Scf --pkgver "$@"
+    post_aur
 }
 
 auru() {
-  xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -ScPu --rebuild "$@"
-  post_aur
+    xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -ScPu --rebuild "$@"
+    post_aur
 }
 
 post_aur() {
-  sudo -E pacman -Sy
-  pkill -RTMIN+1 -x waybar
-  find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
-  find /var/cache/pacman/maximbaz -name '*~' -delete >/dev/null
-  find /var/cache/pacman/maximbaz -group root -delete >/dev/null
+    sudo -E pacman -Sy
+    pkill -RTMIN+1 -x waybar
+    find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
+    find /var/cache/pacman/maximbaz -name '*~' -delete >/dev/null
+    find /var/cache/pacman/maximbaz -group root -delete >/dev/null
 }
