@@ -23,10 +23,39 @@ pac() {
 }
 compdef pac=pacman
 
-pacs() {
-    aur search -n -k NumVotes "$@"
-    pacman -Ss "$@"
-}
+pacs() (
+    tmp=$(mktemp -d)
+    trap 'rm -rf $tmp' EXIT
+    cd $tmp
+    touch pkgs
+
+    {
+        NO_COLOR=true aur search -n -k NumVotes "$@"
+        pacman -Ss "$@"
+    } |
+    while read -r pkg; do
+        read -r desc
+        name="${pkg%% *}"
+        mkdir -p `dirname "$name"`
+        echo "$pkg" >>pkgs
+        echo "$desc" >$name
+    done
+    aur_pkgs=()
+    repo_pkgs=()
+    cat pkgs | sk -m --reverse --tac --preview 'cat {1}; echo; echo; pacman -Si `basename {1}` 2>/dev/null; true' |
+    while read -r pkg; do
+        title="${pkg%% *}"
+        repo="$(dirname "$title")"
+        name="$(basename "$title")"
+        if [ "$repo" = "aur" ]; then
+            aur_pkgs+=("$name")
+        else
+            repo_pkgs+=("$name")
+        fi
+    done
+    (( ${#aur_pkgs[@]} )) && aurs "${aur_pkgs[@]}"
+    ipaci "${aur_pkgs[@]}" "${repo_pkgs[@]}"
+)
 
 pacs!() {
     aur search -k NumVotes "$@"
