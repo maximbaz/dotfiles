@@ -46,6 +46,7 @@ set $workspace0 workspace number 10
 # Specific window configuration
 for_window    [app_id=".*"]                  sticky enable
 for_window    [window_role="pop-up"]         floating enable
+for_window    [app_id="udiskie"]             floating enable
 for_window    [app_id="kisk"]                floating enable, resize set 50 ppt 50 ppt
 for_window    [class="ksnip"]                fullscreen enable
 for_window    [app_id="firefox"]             move container to $workspace2, title_format "Firefox"
