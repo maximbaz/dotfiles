@@ -14,7 +14,7 @@ alias o='xdg-open'
 alias rg='rg --hidden --follow --smart-case 2>/dev/null'
 alias rm='rmtrash -rf'
 alias rm!='\rm -rf'
-alias rsync='rsync --verbose --archive --info=progress2 --human-readable --compress --partial'
+alias rsync='rsync --verbose --archive --info=progress2 --human-readable --partial'
 alias sudo='sudo -E '
 
 alias ls="exa --group --git --group-directories-first"
