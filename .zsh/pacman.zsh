@@ -24,6 +24,7 @@ pac() {
 compdef pac=pacman
 
 pacs() (
+    [ $# -lt 1 ] && { >&2 echo "No search term provided"; return 1; }
     tmp=$(mktemp -d)
     trap 'rm -rf $tmp' EXIT
     cd $tmp
@@ -40,6 +41,7 @@ pacs() (
         echo "$pkg" >>pkgs
         echo "$desc" >$name
     done
+    [ -s pkgs ] || { >&2 echo "No packages found"; return 2; }
     aur_pkgs=()
     repo_pkgs=()
     cat pkgs | sk -m --reverse --tac --preview 'cat {1}; echo; echo; pacman -Si `basename {1}` 2>/dev/null; true' |
