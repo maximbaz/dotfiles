@@ -1,15 +1,14 @@
 #!/bin/sh
 
 vpn() {
-    if [ -e "/sys/class/net/tun0" ]; then
+    if [ -e "/sys/class/net/warp" ]; then
         icon=''
         class=on
     else
         icon=''
         class=off
     fi
-    tooltip="$(mullvad status -l | perl -pe 's/\n/\\n/g' | perl -pe 's/(?:\\n)+$//')"
-    printf '{"text": " %s ", "tooltip": "%s", "class": "%s"}\n' "$icon" "$tooltip" "$class"
+    printf '{"text": " %s ", "class": "%s"}\n' "$icon" "$class"
 }
 
 vpn
