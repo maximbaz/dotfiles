@@ -24,6 +24,7 @@ pac() {
 compdef pac=pacman
 
 pacs() (
+    set -e
     [ $# -lt 1 ] && { >&2 echo "No search term provided"; return 1; }
     tmp=$(mktemp -d)
     trap 'rm -rf $tmp' EXIT
