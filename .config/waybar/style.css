@@ -16,7 +16,6 @@
 
 window#waybar {
   background: @background;
-  border-bottom: 3px solid @blue;
   color: @foreground;
   transition-property: background-color;
   transition-duration: 0.5s;
