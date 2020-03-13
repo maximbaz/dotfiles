@@ -35,7 +35,6 @@ set sort_aux = last-date-received
 
 set pgp_default_key = 0xEB4F9E5A60D32232BB52150C12C87A28FEAC6B20
 set pgp_auto_decode = yes
-set crypt_use_gpgme = yes
 set crypt_use_pka = yes
 
 set beep_new = yes
