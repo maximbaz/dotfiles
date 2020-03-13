@@ -80,7 +80,7 @@ copy "etc/systemd/journald.conf"
 copy "etc/systemd/logind.conf"
 copy "etc/systemd/network"
 copy "etc/systemd/resolved.conf"
-copy "etc/systemd/system/getty@tty2.service.d/override.conf"
+copy "etc/systemd/system/getty@tty1.service.d/override.conf"
 copy "etc/systemd/system/usbguard.service.d/override.conf"
 copy "etc/systemd/system/paccache.service"
 copy "etc/systemd/system/paccache.timer"
@@ -107,7 +107,6 @@ echo "================================="
 sysctl --system > /dev/null
 
 systemctl daemon-reload
-systemctl_enable "getty@tty2.service"
 systemctl_enable_start "bluetooth.service"
 systemctl_enable_start "btrfs-scrub@-.timer"
 systemctl_enable_start "btrfs-scrub@mnt-btrfs\x2droot.timer"

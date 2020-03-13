@@ -1,1 +1,1 @@
-[[ -z $DISPLAY && "$(tty)" == "/dev/tty2" ]] && exec sway
+[[ -z $DISPLAY && "$(tty)" == "/dev/tty1" ]] && exec sway
