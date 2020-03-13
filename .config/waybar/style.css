@@ -1,7 +1,6 @@
 @define-color background #282828;
 @define-color foreground #ebdbb2;
 @define-color black      #222222;
-@define-color blue       #458588;
 @define-color yellow     #fabd2f;
 @define-color red        #fb4934;
 @define-color green      #b8bb26;
@@ -30,19 +29,11 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  background: @blue;
-  border-top: 3px solid @blue;
-  border-bottom: 3px solid @blue;
+  border-bottom: 3px solid @green;
 }
 
 #workspaces button.urgent {
   border-bottom: 3px solid @yellow;
-}
-
-#workspaces button:not(.focused):hover {
-  background: @black;
-  border-top: 3px solid @black;
-  border-bottom: 3px solid @green;
 }
 
 #mode {
