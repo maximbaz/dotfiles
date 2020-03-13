@@ -38,3 +38,6 @@ function my-ctrl-d() {
 zle -N my-ctrl-d
 bindkey '^D' my-ctrl-d
 setopt ignore_eof
+
+eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=

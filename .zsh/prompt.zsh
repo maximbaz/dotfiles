@@ -9,10 +9,11 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
       time
-      nnn
       background_jobs
       user
       dir
+      direnv
+      nnn
       vcs
       kubecontext
       azure
@@ -212,4 +213,8 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
   ####################################[ nnn: nested shell ]####################################
   typeset -g POWERLEVEL9K_NNN_FOREGROUND=208
   typeset -g POWERLEVEL9K_NNN_CONTENT_EXPANSION=" "
+
+  ####################################[ direnv: local env ]####################################
+  typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=blue
+  typeset -g POWERLEVEL9K_DIRENV_CONTENT_EXPANSION=" "
 }
