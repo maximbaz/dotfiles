@@ -14,6 +14,7 @@
 - [ttf-joypixels](https://www.archlinux.org/packages/community/any/ttf-joypixels/) - latest JoyPixels font that provides colorful emojis for almost all apps on Linux (formerly EmojiOne).
 - [chromium-vaapi](https://aur.archlinux.org/packages/chromium-vaapi) - chromium with hardware video acceleration.
 - [nnn](https://github.com/jarun/nnn/) - extremely fast file manager.
+- [grub-btrfs](https://github.com/Antynea/grub-btrfs) + [snap-pac-grub](https://github.com/maximbaz/snap-pac-grub) - take btrfs snapshots during system update and add them to GRUB.
 
 ## Fun things you can find in this repo:
 
@@ -65,6 +66,10 @@
 
 > Fully automated script that installs Arch Linux from scratch and configures it exactly as I like.
 
+☑ btrfs snapshots for easy system recovery.
+
+> Snapshots are automatically taken before and after each pacman transaction and added to GRUB.
+
 ## Usage:
 
 ```
@@ -72,3 +77,18 @@ $ git clone https://github.com/maximbaz/dotfiles.git ~/.dotfiles
 $ ~/.dotfiles/setup-system.sh
 $ ~/.dotfiles/setup-user.sh
 ```
+
+## System recovery
+
+In case system doesn't boot:
+
+1. Boot in a recent snapshot that works
+1. Make it the default snapshot
+
+   ```
+   # cd /mnt/btrfs-root/
+   # mv root root-bak
+   # btrfs subvolume snapshot snapshots/NN/snapshot root
+   ```
+
+1. Reboot
