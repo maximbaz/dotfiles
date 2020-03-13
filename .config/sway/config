@@ -32,6 +32,7 @@ mouse_warping none
 focus_follows_mouse no
 
 # Workspaces
+workspace_layout tabbed
 set $workspace1 workspace number 1
 set $workspace2 workspace number 2
 set $workspace3 workspace number 3
