@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 vpn() {
     if [ -e "/sys/class/net/warp" ]; then
@@ -11,6 +11,7 @@ vpn() {
     printf '{"text": " %s ", "class": "%s"}\n' "$icon" "$class"
 }
 
-vpn
-
-ip monitor link | while read -r line; do vpn; done
+if [[ $HOSTNAME == home-* ]]; then
+    vpn
+    ip monitor link | while read -r line; do vpn; done
+fi
