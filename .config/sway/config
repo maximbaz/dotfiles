@@ -80,25 +80,14 @@ floating_modifier $hyper
 set $mode_resize "Resize window"
 mode $mode_resize {
     bindsym --to-code {
-        h            resize grow   left  10 px or 10 ppt
-        Shift+h      resize shrink right 10 px or 10 ppt
-        Ctrl+h       resize grow   left  1  px or 1  ppt
-        Ctrl+Shift+h resize shrink right 1  px or 1  ppt
-
-        Shift+j      resize grow   down  10 px or 10 ppt
-        j            resize shrink up    10 px or 10 ppt
-        Ctrl+Shift+j resize grow   down  1  px or 1  ppt
-        Ctrl+j       resize shrink up    1  px or 1  ppt
-
-        Shift+k      resize shrink down  10 px or 10 ppt
-        k            resize grow   up    10 px or 10 ppt
-        Ctrl+Shift+k resize shrink down  1  px or 1  ppt
-        Ctrl+k       resize grow   up    1  px or 1  ppt
-
-        Shift+l      resize grow   right 10 px or 10 ppt
-        l            resize shrink left  10 px or 10 ppt
-        Ctrl+Shift+l resize grow   right 1  px or 1  ppt
-        Ctrl+l       resize shrink left  1  px or 1  ppt
+        h            exec swaymsg resize grow   left 10 || swaymsg resize shrink right 10
+        Ctrl+h       exec swaymsg resize grow   left 1  || swaymsg resize shrink right 1
+        j            exec swaymsg resize shrink up   10 || swaymsg resize grow   down  10
+        Ctrl+j       exec swaymsg resize shrink up   1  || swaymsg resize grow   down  1
+        k            exec swaymsg resize grow   up   10 || swaymsg resize shrink down  10
+        Ctrl+k       exec swaymsg resize grow   up   1  || swaymsg resize shrink down  1
+        l            exec swaymsg resize shrink left 10 || swaymsg resize grow   right 10
+        Ctrl+l       exec swaymsg resize shrink left 1  || swaymsg resize grow   right 1
 
         # back to normal: Enter or Escape
         Return mode default
