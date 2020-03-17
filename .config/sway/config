@@ -134,6 +134,7 @@ bindsym --to-code {
     $hyper+m fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || udiskie-dmenu"
     Print        exec sway-screenshot-area
     $hyper+Print exec sway-gif-area
+    $win+Print   exec sway-screenshare
 
     # Kill focused window
     $win+q kill
