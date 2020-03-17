@@ -3,8 +3,10 @@
 tmp=$(mktemp -d)
 trap 'rm -rf $tmp' EXIT
 
+mkdir $tmp/done
 cat >$tmp/stdin
-kitty --class kisk sh -c "cat $tmp/stdin | sk -m --reverse >$tmp/stdout 2>$tmp/stderr" >/dev/null 2>&1
+kitty @ new-window --no-response --cwd "$PWD" sh -c "cat $tmp/stdin | sk -m --reverse >$tmp/stdout 2>$tmp/stderr; touch $tmp/done/1" >/dev/null 2>&1
+inotifywait -q -e create "$tmp/done" >/dev/null
 
 cat $tmp/stdout
 cat $tmp/stderr >&2
