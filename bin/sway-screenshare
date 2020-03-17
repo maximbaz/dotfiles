@@ -4,6 +4,6 @@ pkill -x wf-recorder
 
 [ $? -ne 0 ] && {
     notify-send -t 2000 'Screen sharing' 'Started'
-    wf-recorder --muxer=v4l2 --codec=rawvideo --pixel-format=yuv420p --file=/dev/video0 --geometry="$(slurp)"
+    wf-recorder --muxer=v4l2 --codec=rawvideo --pixel-format=yuv420p --file=/dev/video9 --geometry="$(slurp)"
     notify-send 'Screen sharing' 'Completed'
 }
