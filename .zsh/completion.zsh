@@ -1,7 +1,7 @@
 . ~/.zsh-plugins/zsh-completions/zsh-completions.plugin.zsh
 
 autoload -Uz compinit
-compinit -d ${XDG_CACHE_HOME:-$HOME/.cache}/zcompcache-$ZSH_VERSION
+compinit -i -d ${XDG_CACHE_HOME:-$HOME/.cache}/zcompcache-$ZSH_VERSION
 
 # General
 zstyle ':completion:*'                  matcher-list    'm:{a-zA-Z}={A-Za-z}' 'l:|=* r:|=*'
