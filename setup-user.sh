@@ -53,6 +53,7 @@ link ".taskrc"
 link ".xkb"
 link ".zprofile"
 link ".zsh"
+link ".zsh-plugins"
 link ".zshrc"
 
 link ".mozilla/firefox/profile/user.js"

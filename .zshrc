@@ -1,43 +1,26 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Load environment variables
-. /usr/share/LS_COLORS/dircolors.sh
-
-# Load terminal configuration
 . ~/.zsh/title.zsh
-. ~/.zsh/prompt.zsh
+. ~/.zsh/fuzzy.zsh
+. ~/.zsh/completion.zsh
+. ~/.zsh/environment.zsh
 
-# Load plugins
-. ~/.zsh/prezto.zsh
-. ~/.zsh/antigen.zsh
-. ~/.zsh/prezto-patches.zsh
-
-# Load custom configurations
-. ~/.zsh/opts.zsh
-. ~/.zsh/keybindings.zsh
+. ~/.zsh/archive.zsh
 . ~/.zsh/aliases.zsh
 . ~/.zsh/pacman.zsh
 . ~/.zsh/kubectl.zsh
 . ~/.zsh/git.zsh
-. ~/.zsh/fuzzy.zsh
-. ~/.zsh/ssh.zsh
 
-# Load azure-cli completions
-export PATH="$PATH:/opt/azure-cli/bin"
-. az.completion.sh >/dev/null
+. ~/.zsh/widgets.zsh
+. ~/.zsh/tools.zsh
 
-# Make Ctrl-D work with p10k instant prompt
-function my-ctrl-d() {
-    zle || exit 0
-    [[ -n $BUFFER ]] && return
-    typeset -g precmd_functions=(my-ctrl-d)
-    zle accept-line
-}
-zle -N my-ctrl-d
-bindkey '^D' my-ctrl-d
-setopt ignore_eof
+. ~/.zsh/p10k.zsh
+. ~/.zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
+. ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+. ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+. ~/.zsh-plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 
-eval "$(direnv hook zsh)"
-export DIRENV_LOG_FORMAT=
+. ~/.zsh/keybindings.zsh
+. ~/.zsh/opts.zsh
