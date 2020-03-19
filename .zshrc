@@ -16,6 +16,8 @@ fi
 . ~/.zsh/widgets.zsh
 . ~/.zsh/tools.zsh
 
+[ -f ~/.zshrc-private ] && . ~/.zshrc-private
+
 . ~/.zsh/p10k.zsh
 . ~/.zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
 . ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
