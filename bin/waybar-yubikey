@@ -1,5 +1,7 @@
 #!/bin/bash
 
+trap 'pkill -P $$' EXIT
+
 nc -U /run/user/1000/yubikey-touch-detector.socket | while read -n5 cmd; do
     if [ "${cmd:4:1}" = "0" ]; then
         printf '{"text": ""}\n'

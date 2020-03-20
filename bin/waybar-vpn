@@ -1,5 +1,7 @@
 #!/bin/bash
 
+trap 'pkill -P $$' EXIT
+
 vpn() {
     if [ -e "/sys/class/net/warp" ]; then
         icon=''
