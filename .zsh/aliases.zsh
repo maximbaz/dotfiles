@@ -15,7 +15,6 @@ alias rg='rg --hidden --follow --smart-case 2>/dev/null'
 alias rm='rmtrash -rf'
 alias rm!='\rm -rf'
 alias rsync='rsync --verbose --archive --info=progress2 --human-readable --partial'
-alias ssh='kitty +kitten ssh'
 alias sudo='sudo -E '
 
 alias ls="exa --group --git --group-directories-first"
@@ -27,6 +26,10 @@ alias lc="ll --created -s=created"   # Sorted by created date
 
 alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-91 --ValSetupPwd="$(pass personal/bios)"'
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
+
+ssh() {
+    kitty +kitten ssh "$@"
+}
 
 mkdcd() {
     [ -n "$1" ] && mkdir -p "$1" && builtin cd "$1"
