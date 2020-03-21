@@ -38,6 +38,3 @@ setopt PUSHD_SILENT              # Do not print the directory stack after pushd 
 setopt PUSHD_TO_HOME             # Push to home directory when no argument is given.
 setopt RC_QUOTES                 # Allow 'Henry''s Garage' instead of 'Henry'\''s Garage'.
 setopt SHARE_HISTORY             # write and import history on every command
-
-# Allow mapping Ctrl+S and Ctrl+Q shortcuts
-[[ -r ${TTY:-} && -w ${TTY:-} && $+commands[stty] == 1 ]] && stty -ixon <$TTY >$TTY
