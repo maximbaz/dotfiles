@@ -92,3 +92,13 @@ my-ctrl-z() {
     fi
 }
 zle -N my-ctrl-z
+
+# First tab partially completes, second Tab shows fzf-tab
+fzf-tab-partial-and-complete() {
+    if [[ $LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
+        fzf-tab-complete
+    else
+        zle complete-word
+    fi
+}
+zle -N fzf-tab-partial-and-complete
