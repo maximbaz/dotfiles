@@ -33,7 +33,7 @@ ssh() {
 }
 
 mkdcd() {
-    [ -n "$1" ] && mkdir -p "$1" && builtin cd "$1"
+    [ -n "$1" ] && mkdir -p -- "$1" && builtin cd -- "$1"
 }
 
 n() {
@@ -48,17 +48,9 @@ n() {
 }
 
 e64() {
-    if [[ $# -eq 0 ]]; then
-        cat | base64
-    else
-        printf '%s' $1 | base64
-    fi
+    [ -n "$1" ] && base64 <<<"$1" || base64
 }
 
 d64() {
-    if [[ $# -eq 0 ]]; then
-        cat | base64 --decode
-    else
-        printf '%s' $1 | base64 --decode
-    fi
+    [ -n "$1" ] && base64 --decode <<<"$1" || base64 --decode
 }
