@@ -45,10 +45,9 @@ bindkey '^[\'     redo                                    # alt+\      redo
 bindkey '^[[1;3D' my-cd-back                              # alt+left   cd into the prev directory
 bindkey '^[[1;3C' my-cd-forward                           # alt+right  cd into the next directory
 bindkey '^[[1;3A' my-cd-up                                # alt+up     cd ..
-bindkey '\t'      my-expand-or-complete-with-dots         # tab        fzf-tab completion
-bindkey '^[[1;3B' fzf-cd-widget                           # alt+down   fzf cd
-bindkey '^T'      fzf-completion                          # ctrl+t     fzf file completion
-bindkey '^R'      my-fzf-history-widget                   # ctrl+r     fzf history
+bindkey '^[[1;3B' fzf-cd-widget                           # alt+down   fuzzy cd
+bindkey '^T'      fzf-completion                          # ctrl+t     fuzzy file completion
+bindkey '^R'      my-fuzzy-history-widget                 # ctrl+r     fuzzy history
 bindkey '^_'      my-pound-toggle                         # ctrl+/     toggle comment
 bindkey '^V^V'    edit-command-line                       # ctrl+vv    edit command in EDITOR
 bindkey '.'       my-expand-dot-to-parent-directory-path  # .          expand ... to ../..

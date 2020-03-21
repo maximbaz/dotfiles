@@ -1,27 +1,18 @@
-# Show '...' while completing. No `emulate -L zsh` to pick up dotglob if it's set.
-zmodload zsh/terminfo
-my-expand-or-complete-with-dots() {
-    print -rn -- ${terminfo[rmam]}${(%):-"%F{red}...%f"}${terminfo[smam]}
-    zle fzf-tab-complete
-}
-zle -N my-expand-or-complete-with-dots
-
-# fzf-history-widget with duplicate removal, preview and syntax highlighting (requires `bat`).
-my-fzf-history-widget() {
+# history widget with preview and syntax highlighting
+my-fuzzy-history-widget() {
     emulate -L zsh -o pipefail
     local preview='zsh -dfc "setopt extended_glob; echo - \${\${1#*[0-9] }## #}" -- {}'
     (( $+commands[bat] )) && preview+=' | bat -l bash --color always -pp'
     local selected
     selected="$(
         fc -rl 1 |
-        awk '!_[substr($0, 8)]++' |
         fzf +m -n2..,.. --tiebreak=index --cycle --height=80% --preview-window=down:30%:wrap --query=$LBUFFER --preview=$preview)"
     local -i ret=$?
     [[ -n "$selected" ]] && zle vi-fetch-history -n $selected
     zle .reset-prompt
     return ret
 }
-zle -N my-fzf-history-widget
+zle -N my-fuzzy-history-widget
 
 # Widgets for changing current working directory.
 my-redraw-prompt() {

@@ -1,6 +1,6 @@
 alias k='kubectl'
-alias kc='kubectx "$(kubectx | sk -m --reverse --height=10%)"'
-alias kn='kubens "$(kubens | sk -m --reverse --height=10%)"'
+alias kc='kubectx "$(kubectx | fzf -m --reverse --height=10%)"'
+alias kn='kubens "$(kubens | fzf -m --reverse --height=10%)"'
 alias kd='k describe'
 alias kd!='kd --all-namespaces'
 alias kdp='kd pod'
