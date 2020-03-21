@@ -27,7 +27,7 @@ whitespace = red reverse
 
 [core]
 autocrlf = input
-pager = diff-so-fancy | less --tabs=4 -RFX
+pager = diff-so-fancy | less -RFXMx4
 excludesfile = ~/.gitignore
 untrackedCache = true
 
@@ -53,7 +53,7 @@ cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 [diff "gpg"]
 binary = true
-textconv = gpg2 --decrypt --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
+textconv = gpg --decrypt --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
 
 [push]
 default = current
