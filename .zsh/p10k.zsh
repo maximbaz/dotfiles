@@ -79,7 +79,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
     typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
 
     #####################################[ vcs: git status ]######################################
-    gitstatus_formatter() {
+    my_gitstatus_formatter() {
         if [[ -n "$P9K_CONTENT" ]]; then
             typeset -g gitstatus_format="$P9K_CONTENT"
             return
@@ -160,11 +160,11 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
 
         typeset -g gitstatus_format="$res"
     }
-    functions -M gitstatus_formatter 2>/dev/null
+    functions -M my_gitstatus_formatter 2>/dev/null
 
     typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
-    typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%B${$((gitstatus_formatter(1)))+${gitstatus_format}}'
-    typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='%B${$((gitstatus_formatter(0)))+${gitstatus_format}}'
+    typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%B${$((my_gitstatus_formatter(1)))+${gitstatus_format}}'
+    typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='%B${$((my_gitstatus_formatter(0)))+${gitstatus_format}}'
     typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
     typeset -g POWERLEVEL9K_VCS_PREFIX='%fon '
