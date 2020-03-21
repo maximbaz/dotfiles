@@ -7,7 +7,10 @@ pkill -x wf-recorder
 
     path="/tmp/record_$(date +%s)"
     notify-send -t 2000 'GIF recording' 'Select an area to start the recording...'
-    wf-recorder -g "$(slurp)" -c h264_vaapi -f "$path.mkv"
+    geometry="$(slurp)"
+    { sleep 1 && pkill -RTMIN+3 -x waybar; } &
+    wf-recorder -g "$geometry" -c h264_vaapi -f "$path.mkv"
+    pkill -RTMIN+3 -x waybar
     notify-send -t 2000 'GIF recording' "Encoding to GIF format..."
     ffmpeg -i "$path.mkv" -vf "fps=15,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "$path.gif"
     wl-copy -t image/gif < "$path.gif"

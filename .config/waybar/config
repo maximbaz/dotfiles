@@ -11,6 +11,7 @@
         "custom/decrypted",
         "custom/updates",
         "custom/mail",
+        "custom/recording",
         "custom/dnd",
         "pulseaudio",
         "network",
@@ -57,6 +58,12 @@
         "signal": 2,
         "interval": "once",
         "on-click": "waybar-dnd toggle"
+    },
+    "custom/recording": {
+        "exec": "waybar-recording",
+        "return-type": "json",
+        "signal": 3,
+        "interval": "once"
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
