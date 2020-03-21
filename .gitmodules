@@ -39,3 +39,6 @@
 [submodule ".zsh-plugins/zsh-syntax-highlighting"]
 	path = .zsh-plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule ".zsh-plugins/archive"]
+	path = .zsh-plugins/archive
+	url = https://github.com/romkatv/archive

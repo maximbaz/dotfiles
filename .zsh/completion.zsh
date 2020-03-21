@@ -3,6 +3,9 @@
 autoload -Uz compinit
 compinit -i -d ${XDG_CACHE_HOME:-$HOME/.cache}/zcompcache-$ZSH_VERSION
 
+autoload -Uz bashcompinit
+bashcompinit
+
 # General
 zstyle ':completion:*'                  matcher-list    'm:{a-zA-Z}={A-Za-z}' 'l:|=* r:|=*'
 zstyle ':completion:*:descriptions'     format          '[%d]'
@@ -55,6 +58,3 @@ zstyle -e ':completion:*:hosts' hosts 'reply=(
     ${=${(f)"$(cat /etc/hosts(|)(N) <<(ypcat hosts 2> /dev/null))"}%%(\#${_etc_host_ignores:+|${(j:|:)~_etc_host_ignores}})*}
     ${=${${${${(@M)${(f)"$(cat ~/.ssh/config 2> /dev/null)"}:#Host *}#Host }:#*\**}:#*\?*}}
 )'
-
-autoload -Uz bashcompinit
-bashcompinit

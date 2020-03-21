@@ -11,3 +11,6 @@ zle_highlight=('paste:none')                # disable highlighting of text paste
 ZSH_HIGHLIGHT_MAXLENGTH=1024                # don't colorize long command lines (slow)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)  # main syntax highlighting plus matching brackets
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1             # disable a very slow obscure feature
+
+fpath+=~/.zsh-plugins/archive
+autoload -Uz archive lsarchive unarchive

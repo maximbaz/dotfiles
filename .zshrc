@@ -4,10 +4,9 @@ fi
 
 . ~/.zsh/title.zsh
 . ~/.zsh/fuzzy.zsh
-. ~/.zsh/completion.zsh
 . ~/.zsh/environment.zsh
+. ~/.zsh/completion.zsh
 
-. ~/.zsh/archive.zsh
 . ~/.zsh/aliases.zsh
 . ~/.zsh/pacman.zsh
 . ~/.zsh/kubectl.zsh
