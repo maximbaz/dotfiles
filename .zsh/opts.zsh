@@ -25,6 +25,7 @@ setopt IGNORE_EOF                # To bind my Ctrl+D widget
 setopt INTERACTIVE_COMMENTS      # allow comments in command line
 setopt LONG_LIST_JOBS            # List jobs in the long format by default.
 setopt MULTIOS                   # allow multiple redirections for the same fd
+setopt NO_BANG_HIST              # disable old history syntax
 setopt NO_BG_NICE                # don't nice background jobs
 setopt NO_CHECK_JOBS             # Don't report on jobs when shell exit.
 setopt NO_FLOW_CONTROL           # disable start/stop characters in shell editor
