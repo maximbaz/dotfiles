@@ -2,11 +2,11 @@ FZF_COMPLETION_TRIGGER=''                                # ctrl-t goes to fzf wh
 
 # Default file search commands
 export FZF_DEFAULT_COMMAND='fd --hidden --follow --type=f'
-_fzf_compgen_path() { fd --hidden --follow --type=f }
+_fzf_compgen_path() { fd --hidden --follow --type=f . "$1" }
 
 # Default directory search commands
 export FZF_ALT_C_COMMAND='fd --hidden --follow --type=d'
-_fzf_compgen_dir() { fd --hidden --follow --type=d }
+_fzf_compgen_dir() { fd --hidden --follow --type=d . "$1" }
 
 . /usr/share/fzf/completion.zsh                          # load fzf-completion
 . /usr/share/fzf/key-bindings.zsh                        # load fzf-cd-widget
