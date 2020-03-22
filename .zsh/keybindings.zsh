@@ -53,4 +53,3 @@ bindkey '^V^V'    edit-command-line                       # ctrl+vv    edit comm
 bindkey '.'       my-expand-dot-to-parent-directory-path  # .          expand ... to ../..
 bindkey '^D'      my-ctrl-d                               # ctrl+d     better ctrl+d
 bindkey '^Z'      my-ctrl-z                               # ctrl+z     better ctrl+z
-bindkey '^I'      fzf-tab-partial-and-complete            # tab        partial complete and then fuzzy complete

@@ -26,9 +26,6 @@ export XSECURELOCK_PASSWORD_PROMPT=time_hex
 export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
 export PASSWORD_STORE_GENERATED_LENGTH=40
 
-export FZ_CMD=j
-export FZ_SUBDIR_CMD=jj
-
 export LIBVA_DRIVER_NAME=iHD
 
 export GOPATH="$HOME/.go"
