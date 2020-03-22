@@ -45,13 +45,14 @@ set $workspace9 workspace number 9
 set $workspace0 workspace number 10
 
 # Specific window configuration
-for_window    [app_id=".*"]                  sticky enable
-for_window    [window_role="pop-up"]         floating enable
-for_window    [app_id="udiskie"]             floating enable
-for_window    [class="ksnip"]                fullscreen enable
-for_window    [app_id="firefox"]             move container to $workspace2, title_format "Firefox"
-for_window    [class="Wire"]                 move container to $workspace3
-for_window    [app_id="neomutt"]             move container to $workspace4, title_format "NeoMutt"
+for_window    [app_id=".*"]                              sticky enable
+for_window    [window_role="pop-up"]                     floating enable
+for_window    [app_id="udiskie"]                         floating enable
+for_window    [class="ksnip"]                            fullscreen enable
+for_window    [app_id="firefox"]                         move container to $workspace2, title_format "Firefox"
+for_window    [class="Wire"]                             move container to $workspace3
+for_window    [app_id="neomutt"]                         move container to $workspace4, title_format "NeoMutt"
+for_window    [title="Firefox - Sharing Indicator"]      floating enable
 
 # Color scheme (Gruvbox dark)
 set $color_normal_white  #a89984
