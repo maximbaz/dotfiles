@@ -54,6 +54,7 @@ link ".xkb"
 link ".zprofile"
 link ".zsh"
 link ".zsh-plugins"
+link ".zshenv"
 link ".zshrc"
 
 link ".mozilla/firefox/profile/user.js"

@@ -1,5 +1,4 @@
 export FZF_COMPLETION_TRIGGER=''                         # ctrl-t goes to fzf whenever possible
-export FZF_DEFAULT_OPTS='-m --reverse'
 
 # Default file search commands
 export FZF_DEFAULT_COMMAND='fd --hidden --follow --type=f'

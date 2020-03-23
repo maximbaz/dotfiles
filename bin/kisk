@@ -6,7 +6,7 @@ trap 'rm -rf $tmp' EXIT
 mkdir $tmp/done
 cat >$tmp/in
 
-kitty @ new-window --no-response --cwd "$PWD" sh -c "cat $tmp/in | fzf -m --reverse >$tmp/out; touch $tmp/done/1" >/dev/null 2>&1
+kitty @ new-window --no-response --cwd "$PWD" zsh -c "cat $tmp/in | fzf >$tmp/out; touch $tmp/done/1" >/dev/null 2>&1
 inotifywait -q -e create "$tmp/done" >/dev/null
 
 cat $tmp/out
