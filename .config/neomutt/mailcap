@@ -1,5 +1,5 @@
 text/plain; kak %s;
-text/html; w3m -o display_link_number=1 -I %{charset} -T text/html; copiousoutput;
+text/html; qutebrowser %s; needsterminal; nametemplate=%s.html;
 application/pdf; zathura %s;
 application/pdf; pdftotext -l 10 -nopgbrk -q -- %s - | fmt -w 120; copiousoutput;
 image/jpeg; vimiv %s;
