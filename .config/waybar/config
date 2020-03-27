@@ -18,6 +18,7 @@
         "custom/vpn",
         "cpu",
         "memory",
+        "custom/tablet",
         "backlight",
         "battery",
         "clock"
@@ -64,6 +65,13 @@
         "return-type": "json",
         "signal": 3,
         "interval": "once"
+    },
+    "custom/tablet": {
+        "exec": "waybar-tablet",
+        "return-type": "json",
+        "signal": 4,
+        "interval": "once",
+        "on-click": "waybar-tablet toggle"
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
