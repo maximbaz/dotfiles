@@ -1,13 +1,36 @@
-name: "Kitty config"
-url: "https://sw.kovidgoyal.net/kitty/_downloads/433dadebd0bf504f8b008985378086ce/kitty.conf"
+---
+name: "bash-language-server"
+url: "https://github.com/mads-hartmann/bash-language-server/releases/latest"
+filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
 max_tries: 3
 ---
-name: "Kitty changelog"
-url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/docs/changelog.rst"
+name: "croc"
+url: "https://github.com/schollz/croc/releases/latest"
+filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
-name: "kitty"
-url: "https://github.com/kovidgoyal/kitty/releases/latest"
+name: "docker-compose"
+url: "https://github.com/docker/compose/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "fd"
+url: "https://github.com/sharkdp/fd/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "gocryptfs"
+url: "https://github.com/rfjakob/gocryptfs/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "grub-btrfs"
+url: "https://github.com/Antynea/grub-btrfs/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "i3ipc-python"
+url: "https://github.com/acrisci/i3ipc-python/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
@@ -24,31 +47,12 @@ name: "JoyPixels License appendix "
 url: "https://cdn.joypixels.com/arch-linux/appendix/joypixels-license-appendix.pdf"
 max_tries: 3
 ---
-name: "New emojis"
+name: "JoyPixels new emojis"
 url: "https://raw.githubusercontent.com/joypixels/emoji-assets/master/emoji.json"
 max_tries: 3
 ---
-name: "Chromium"
-url: "https://git.archlinux.org/svntogit/packages.git/plain/chromium/repos/extra-x86_64/PKGBUILD"
-max_tries: 3
----
-name: "mailcow"
-url: "https://mailcow.email/category/news/"
-filter: css:.entry-content,html2text
-max_tries: 3
----
-name: "prettier"
-url: "https://github.com/prettier/prettier/releases/latest"
-filter: css:.release-header>div>div>a,html2text
-max_tries: 3
----
-name: "i3ipc-python"
-url: "https://github.com/acrisci/i3ipc-python/releases/latest"
-filter: css:.release-header>div>div>a,html2text
-max_tries: 3
----
-name: "docker-compose"
-url: "https://github.com/docker/compose/releases/latest"
+name: "kak-lsp"
+url: "https://github.com/ul/kak-lsp/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
@@ -57,44 +61,32 @@ url: "https://github.com/mawww/kakoune/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
-name: "kak-lsp"
-url: "https://github.com/ul/kak-lsp/releases/latest"
+name: "kitty"
+url: "https://github.com/kovidgoyal/kitty/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
-name: "wire-desktop"
-url: "https://github.com/wireapp/wire-desktop/releases/latest"
+name: "Kitty config"
+url: "https://sw.kovidgoyal.net/kitty/_downloads/433dadebd0bf504f8b008985378086ce/kitty.conf"
+max_tries: 3
+---
+name: "Kitty changelog"
+url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/docs/changelog.rst"
+max_tries: 3
+---
+name: "light"
+url: "https://github.com/haikarainen/light/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
-name: "wire-webapp"
-url: "https://github.com/wireapp/wire-webapp/releases/latest"
-filter: css:.markdown-body,html2text
+name: "mailcow"
+url: "https://mailcow.email/category/news/"
+filter: css:.entry-content,html2text
 max_tries: 3
 ---
-name: "gocryptfs"
-url: "https://github.com/rfjakob/gocryptfs/releases/latest"
+name: "mako"
+url: "https://github.com/emersion/mako/releases/latest"
 filter: css:.release-header>div>div>a,html2text
-max_tries: 3
----
-name: "bash-language-server"
-url: "https://github.com/mads-hartmann/bash-language-server/releases/latest"
-filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
-max_tries: 3
----
-name: "urlwatch"
-url: "https://github.com/thp/urlwatch/releases/latest"
-filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
-max_tries: 3
----
-name: "python-black"
-url: "https://github.com/ambv/black/releases/latest"
-filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
-max_tries: 3
----
-name: "megacmd"
-url: "https://github.com/meganz/MEGAcmd/releases/latest"
-filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
 max_tries: 3
 ---
 name: "MikroTik"
@@ -102,18 +94,8 @@ url: "https://mikrotik.com/download/changelogs/stable-release-tree"
 filter: css:section.active-def li.active,html2text,strip
 max_tries: 3
 ---
-name: "pam-u2f"
-url: "https://github.com/Yubico/pam-u2f/releases/latest"
-filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
-max_tries: 3
----
-name: "volumerize"
-url: "https://github.com/blacklabelops/volumerize/releases/latest"
-filter: css:.release-header>div>div>a,html2text
-max_tries: 3
----
-name: "croc"
-url: "https://github.com/schollz/croc/releases/latest"
+name: "neomutt"
+url: "https://github.com/neomutt/neomutt/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
@@ -127,12 +109,92 @@ url: "https://github.com/romkatv/powerlevel10k/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
+name: "pam-u2f"
+url: "https://github.com/Yubico/pam-u2f/releases/latest"
+filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
+max_tries: 3
+---
 name: "playerctl"
 url: "https://github.com/altdesktop/playerctl/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
 ---
+name: "prettier"
+url: "https://github.com/prettier/prettier/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "python-black"
+url: "https://github.com/ambv/black/releases/latest"
+filter: css:.release-timeline-tags .release-entry:first-child h4 a,html2text,strip
+max_tries: 3
+---
+name: "python-jsonrpc-server"
+url: "https://github.com/palantir/python-jsonrpc-server/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "python-language-server"
+url: "https://github.com/palantir/python-language-server/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
 name: "ripgrep"
 url: "https://github.com/BurntSushi/ripgrep/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "slurp"
+url: "https://github.com/emersion/slurp/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "sway"
+url: "https://github.com/swaywm/sway/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "swaybg"
+url: "https://github.com/swaywm/swaybg/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "swaylock"
+url: "https://github.com/swaywm/swaylock/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "urlscan"
+url: "https://github.com/firecat53/urlscan/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "volumerize"
+url: "https://github.com/blacklabelops/volumerize/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "waybar"
+url: "https://github.com/Alexays/Waybar/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "wire-desktop"
+url: "https://github.com/wireapp/wire-desktop/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "wire-webapp"
+url: "https://github.com/wireapp/wire-webapp/releases/latest"
+filter: css:.markdown-body,html2text
+max_tries: 3
+---
+name: "wl-clipboard"
+url: "https://github.com/bugaevc/wl-clipboard/releases/latest"
+filter: css:.release-header>div>div>a,html2text
+max_tries: 3
+---
+name: "wlroots"
+url: "https://github.com/swaywm/wlroots/releases/latest"
 filter: css:.release-header>div>div>a,html2text
 max_tries: 3
