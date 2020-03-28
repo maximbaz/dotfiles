@@ -15,7 +15,7 @@ elif [ "$1" = "on-copy" ]; then
     find "$dir" -type f -size 0 -delete
     find "$dir" -type f -print0 | sort -zn | head -z -n -200 | xargs -r -0 rm
 elif [ "$1" = "dmenu" ]; then
-    find "$dir" -type f -size -1000000c -print0 | sort -znr | xargs -0 -I '{}' sh -c "cat {}; printf '\0'" | dmenu -D dmenu-separator='\\0' | sed -e 's/[[:space:]]*$//' | sed -Ez 's/\s+$//' | wl-copy
+    find "$dir" -type f -size -1000000c -print0 | sort -znr | xargs -0 -I '{}' sh -c "cat {}; printf '\0'" | dmenu -0 | sed -e 's/[[:space:]]*$//' | sed -Ez 's/\s+$//' | wl-copy
 else
     >&2 echo "Usage: sway-paste <daemon|lock|unlock|on-copy|dmenu>"
     exit 1

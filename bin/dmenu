@@ -1,21 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
 tmp=$(mktemp -d)
 trap 'rm -rf $tmp' EXIT
 
 mkdir $tmp/done
+fzf_args="--print-query"
 
+[ "$1" = "-0" ] && fzf_args="$fzf_args --read0 --preview='echo {} | bat -l bash --color always -pp'"
 cat >$tmp/in
 
-if (( KITTY_WINDOW_ID )); then
-    kitty @ new-window --no-response --cwd "$PWD" zsh -c "cat $tmp/in | fzf --print-query >$tmp/out; touch $tmp/done/1" >/dev/null 2>&1
+if [ -n "$KITTY_WINDOW_ID" ]; then
+    kitty @ new-window --no-response --cwd "$PWD" zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out; touch $tmp/done/1" >/dev/null 2>&1
     inotifywait -q -e create "$tmp/done" >/dev/null
 else
-    kitty --class dmenu -o font_size=12 zsh -c "cat $tmp/in | fzf --print-query >$tmp/out" >/dev/null 2>&1
+    kitty --class dmenu -o font_size=12 zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out" >/dev/null 2>&1
 fi
 
 lines=$(wc -l $tmp/out | awk '{ print $1 }')
-if (( lines > 1 )); then
+if [ $lines != "1" ]; then
     tail -n +2 $tmp/out
 else
     cat $tmp/out

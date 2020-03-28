@@ -130,9 +130,10 @@ bindsym --to-code {
 
     # Launcher
     $hyper+equal exec bash -c "echo 'enter expression to calculate' | dmenu | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
-    $hyper+d fullscreen disable, exec "pgrep -x wofi && pkill wofi || wofi"
-    $hyper+p fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || { sway-paste lock; passmenu -p pass; sway-paste unlock; }"
-    $hyper+m fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || udiskie-dmenu"
+    $hyper+d     fullscreen disable, exec "pgrep -x wofi && pkill wofi || wofi"
+    $hyper+p     fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || { sway-paste lock; passmenu -p pass; sway-paste unlock; }"
+    $hyper+m     fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || udiskie-dmenu"
+    $win+grave   fullscreen disable, exec sway-paste dmenu
     Print        exec sway-screenshot-area
     $hyper+Print exec sway-gif-area
     $win+Print   exec sway-screenshare
@@ -213,9 +214,6 @@ bindsym --to-code {
 
     # Reload the configuration file
     $win+r reload
-
-    # Global hotkeys
-    $win+grave fullscreen disable, exec sway-paste dmenu
 
     # Switch to workspace using number row
     $hyper+1 $workspace1
