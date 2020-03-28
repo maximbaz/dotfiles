@@ -7,15 +7,15 @@
 
   const userAgent =
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36";
-  const version = userAgent.substr(8);
+  const appVersion = userAgent.substr(8);
 
-  window.navigator.__defineGetter__("appVersion", function () {
-    return version;
+  Object.defineProperty(window.navigator, "userAgent", {
+    value: userAgent,
   });
-  window.navigator.__defineGetter__("platform", function () {
-    return "Win32";
+  Object.defineProperty(window.navigator, "appVersion", {
+    value: appVersion,
   });
-  window.navigator.__defineGetter__("userAgent", function () {
-    return userAgent;
+  Object.defineProperty(window.navigator, "platform", {
+    value: "Win32",
   });
 })();
