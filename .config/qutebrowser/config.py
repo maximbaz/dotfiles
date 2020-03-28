@@ -42,8 +42,8 @@ c.url.start_pages = ["~/.config/qutebrowser/blank.html"]
 bindings = {
     ",m": "spawn --userscript view_in_mpv",
     ",M": "hint links spawn mpv {hint-url}",
-    ",p": "spawn --userscript qute-pass --dmenu-invocation dmenu",
-    ",P": "spawn --userscript qute-pass --dmenu-invocation dmenu --password-only",
+    ",p": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation dmenu",
+    ",P": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation dmenu --password-only",
 }
 
 for key, bind in bindings.items():
