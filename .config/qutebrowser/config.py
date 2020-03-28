@@ -12,9 +12,9 @@ c.tabs.title.format_pinned = "{audio}{index}: {current_title}"
 
 # general
 c.auto_save.session = True
-c.content.autoplay = False
 c.content.default_encoding = "utf-8"
 c.content.javascript.can_access_clipboard = True
+c.content.notifications = True  # notifications aren't supported now anyway
 c.content.pdfjs = True
 c.editor.command = ["kitty", "kak", "-e", "exec {line}g{column0}l", "{file}"]
 c.downloads.location.prompt = False
@@ -22,6 +22,7 @@ c.input.insert_mode.auto_load = True
 c.tabs.background = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
+c.tabs.select_on_remove = "last-used"
 
 # privacy
 c.content.cookies.accept = "no-3rdparty"
