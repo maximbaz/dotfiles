@@ -25,6 +25,7 @@ WINDOW_ICONS = {
     "paperwork": "",
     "pavucontrol": "",
     "peek": "",
+    "org.qutebrowser.qutebrowser": "",
     "riot": "",
     "slack": "",
     "spotify": "",

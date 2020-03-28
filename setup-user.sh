@@ -94,6 +94,7 @@ link ".config/wofi"
 link ".gnupg/gpg-agent.conf"
 
 link ".local/share/applications"
+link ".local/share/qutebrowser/greasemonkey"
 
 if is_chroot; then
     >&2 echo "=== Running in chroot, skipping user services..."
