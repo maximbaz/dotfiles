@@ -53,6 +53,7 @@ for_window    [app_id="firefox"]                         move container to $work
 for_window    [class="Wire"]                             move container to $workspace3
 for_window    [app_id="neomutt"]                         move container to $workspace4, title_format "NeoMutt"
 for_window    [title="Firefox - Sharing Indicator"]      floating enable
+for_window    [app_id="dmenu"]                           floating enable, resize set width 60ppt height 50ppt
 
 # Color scheme (Gruvbox dark)
 set $color_normal_white  #a89984
@@ -128,7 +129,7 @@ bindsym --to-code {
     $win+Shift+Return exec kitty /bin/bash
 
     # Launcher
-    $hyper+equal exec bash -c "dmenu -p calc | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
+    $hyper+equal exec bash -c "echo 'enter expression to calculate' | dmenu | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
     $hyper+d fullscreen disable, exec "pgrep -x wofi && pkill wofi || wofi"
     $hyper+p fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || { sway-paste lock; passmenu -p pass; sway-paste unlock; }"
     $hyper+m fullscreen disable, exec "pgrep -x dmenu && pkill dmenu || udiskie-dmenu"

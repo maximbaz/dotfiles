@@ -1,8 +1,11 @@
 #!/bin/sh
 
-menu=$(echo "firefox\ncopy to clipboard\nplay" | dmenu -p "browser")
+menu=$(echo "qutebrowser\nfirefox\ncopy to clipboard\nplay" | dmenu)
 
 case $menu in
+    "qutebrowser")
+        qutebrowser "$@" &
+    ;;
     "firefox")
         firefox "$@" &
     ;;
