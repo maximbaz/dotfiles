@@ -11,14 +11,16 @@ elif [ "$1" = "unlock" ]; then
     rm -f "$dir/.lock"
 elif [ "$1" = "on-copy" ]; then
     [ -f "$dir/.lock" ] && exit
-    cat > "$dir/$(date +%s)"
+    file="$dir/$(date +%s)"
+    cat > "$file"
+    ext="$(file --mime-type "$file" | cut -d' ' -f2 | cut -d'/' -f2)"
+    mv "$file" "$file.$ext"
     find "$dir" -type f -size 0 -delete
     find "$dir" -type f -size +10000000c -delete
     find "$dir" -type f -print0 | sort -zn | head -z -n -200 | xargs -r -0 rm
 elif [ "$1" = "dmenu" ]; then
     find "$dir" -type f -print0 | sort -znr | while IFS= read -r -d '' file; do
-        mime="$(file --mime-type "$file" | cut -d' ' -f2)"
-        if [ "$mime" = "text/plain" ]; then
+        if [[ "$file" == *.plain ]]; then
             cat "$file"
         else
             printf '%s' "$file"

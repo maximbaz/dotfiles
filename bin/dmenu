@@ -6,7 +6,7 @@ trap 'rm -rf $tmp' EXIT
 mkdir $tmp/done
 fzf_args="--print-query"
 
-[ "$1" = "-0" ] && fzf_args="$fzf_args --read0 --preview='[ -f {} ] && viu {} || echo {} | bat -l bash --color always -pp'"
+[ "$1" = "-0" ] && fzf_args="$fzf_args --read0 --preview-window=down:70% --preview='[ -f {} ] && viu -h 27 {} || echo {} | bat -l bash --color always -pp'"
 cat >$tmp/in
 
 if [ -n "$KITTY_WINDOW_ID" ]; then
