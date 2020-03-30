@@ -5,7 +5,7 @@ aur="$(aur repo -u)"
 vcs="$(aur vercmp-devel)"
 off="$(checkofficial)"
 dif="$(pacdiff -o)"
-reb="$(checkrebuild)"
+reb="$(checkrebuild | grep -v teams)"
 
 pac_n=$(printf "$pac" | grep -c '^')
 aur_n=$(printf "$aur" | grep -c '^')
