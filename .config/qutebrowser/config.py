@@ -22,7 +22,6 @@ c.input.insert_mode.auto_load = True
 c.tabs.background = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
-c.tabs.select_on_remove = "last-used"
 
 # privacy
 c.content.cookies.accept = "no-3rdparty"
