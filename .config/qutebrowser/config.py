@@ -19,6 +19,7 @@ c.content.pdfjs = True
 c.editor.command = ["kitty", "kak", "-e", "exec {line}g{column0}l", "{file}"]
 c.downloads.location.prompt = False
 c.input.insert_mode.auto_load = True
+c.spellcheck.languages = ["en-US", "da-DK"]
 c.tabs.background = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
