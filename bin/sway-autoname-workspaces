@@ -16,9 +16,8 @@ WINDOW_ICONS = {
     "firefox": "",
     "gcr-prompter": "",
     "kitty": "",
-    "libreoffice-calc": "",
-    "libreoffice-impress": "",
-    "libreoffice-writer": "",
+    "ksnip": "",
+    "libreoffice-startcenter": "",
     "microsoft teams - preview": "",
     "mpv": "",
     "neomutt": "",
@@ -35,7 +34,7 @@ WINDOW_ICONS = {
     "virtualbox machine": "",
     "virtualbox manager": "",
     "wofi": "",
-    "zathura": "",
+    "org.pwmt.zathura": "",
 }
 
 DEFAULT_ICON = "󰀏"
