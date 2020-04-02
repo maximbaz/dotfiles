@@ -6,6 +6,7 @@ arch=('any')
 url='https://github.com/maximbaz/dotfiles'
 license=('MIT')
 source=('30-font-aliases.conf'
+        '75-joypixels.conf'
         'InputMonoNarrow-Bold.ttf'
         'InputMonoNarrow-BoldItalic.ttf'
         'InputMonoNarrow-Italic.ttf'
@@ -21,6 +22,7 @@ package() {
         install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgname}/" "${font}"
     done
     install -Dm644 -t "${pkgdir}/etc/fonts/conf.d/" 30-font-aliases.conf
+    install -Dm644 -t "${pkgdir}/etc/fonts/conf.d/" 75-joypixels.conf
 }
 
 depends=(
