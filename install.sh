@@ -212,6 +212,7 @@ cat <<EOF >/mnt/boot/grub/update.sh
 #!/bin/sh
 
 grub-install ${device}
+cryptboot-efikeys sign /boot/efi/EFI/arch/grubx64.efi
 EOF
 chmod +x /mnt/boot/grub/update.sh
 
@@ -228,26 +229,10 @@ arch-chroot /mnt passwd -dl root
 echo -e "\n### Setting permissions on the custom repo"
 arch-chroot /mnt chown -R "$user:$user" /var/cache/pacman/maximbaz/
 
-# TODO
-#
-# 1.  Configure fwupdmgr:
-#
-#     ```
-#     $ sudo cp -r /usr/lib/fwupdate/EFI /boot/efi
-#     ```
-#
-# 1.  Sign bootloader for Secure Boot:
-#
-#     ```
-#     $ sudo cryptboot-efikeys create
-#     $ sudo cryptboot-efikeys enroll
-#     $ sudo cryptboot-efikeys sign /boot/efi/EFI/arch/grubx64.efi
-#     $ sudo cryptboot-efikeys sign /boot/efi/EFI/arch/fwupx64.efi
-#     ```
-#
-# 1.  Reboot and enable Secure Boot in UEFI.
-#
-# 1.  Configure mail
+echo -e "\n### Setting up Secure Boot for GRUB with custom keys"
+echo MB | arch-chroot /mnt cryptboot-efikeys create
+arch-chroot /mnt cryptboot-efikeys enroll
+arch-chroot /mnt cryptboot-efikeys sign /boot/efi/EFI/arch/grubx64.efi
 
 echo -e "\n### Cloning dotfiles"
 arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
