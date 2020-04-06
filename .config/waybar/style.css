@@ -43,7 +43,6 @@ window#waybar {
 }
 
 #custom-usbguard,
-#custom-yubikey,
 #custom-decrypted,
 #custom-updates,
 #custom-mail,
@@ -54,13 +53,14 @@ window#waybar {
   border-bottom: 3px solid @yellow;
 }
 
-#battery.charging {
-  border-bottom: 3px solid @green;
-}
-
 #battery.critical,
+#custom-yubikey,
 #custom-recording {
   border-bottom: 3px solid @red;
+}
+
+#battery.charging {
+  border-bottom: 3px solid @green;
 }
 
 #mode,
