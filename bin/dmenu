@@ -6,10 +6,11 @@ trap 'rm -rf $tmp' EXIT
 mkdir $tmp/done
 fzf_args="--print-query"
 
+[ "$1" = "-p" ] && panel=1
 [ "$1" = "-0" ] && fzf_args="$fzf_args --read0 --preview-window=down:70% --preview='[ -f {} ] && viu -h 27 {} || echo {} | bat -l bash --color always -pp'"
 cat >$tmp/in
 
-if [ -n "$KITTY_WINDOW_ID" ]; then
+if [ -n "$panel" ]; then
     kitty @ new-window --no-response --cwd "$PWD" zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out; touch $tmp/done/1" >/dev/null 2>&1
     inotifywait -q -e create "$tmp/done" >/dev/null
 else
