@@ -15,9 +15,10 @@ elif [ "$1" = "on-copy" ]; then
     cat > "$file"
     ext="$(file --mime-type "$file" | cut -d' ' -f2 | cut -d'/' -f2)"
     mv "$file" "$file.$ext"
+    fdupes -idN "$dir"
     find "$dir" -type f -size 0 -delete
     find "$dir" -type f -size +10000000c -delete
-    find "$dir" -type f -print0 | sort -zn | head -z -n -200 | xargs -r -0 rm
+    find "$dir" -type f -print0 | sort -zn | head -z -n -1000 | xargs -r -0 rm
 elif [ "$1" = "dmenu" ]; then
     fzf_preview="--preview-window=down:70% --preview='[ -f {} ] && viu -h 27 {} || echo {} | bat -l bash --color always -pp'"
     find "$dir" -type f -print0 | sort -znr | while IFS= read -r -d '' file; do
