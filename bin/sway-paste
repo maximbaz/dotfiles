@@ -27,13 +27,14 @@ elif [ "$1" = "dmenu" ]; then
             printf '%s' "$file"
         fi
         printf '\0'
-    done | dmenu -0 -p clipboard -f "$fzf_preview" | while IFS= read -r -d '' result; do
+    done | dmenu -0 -p clipboard -f "$fzf_preview" | {
+        read -r -d '' result
         if [ -f "$result" ]; then
             wl-copy < "$result"
         else
             printf '%s' "$result" | sed -e 's/[[:space:]]*$//' | sed -Ez 's/\s+$//' | wl-copy
         fi
-    done
+    }
 else
     >&2 echo "Usage: sway-paste <daemon|lock|unlock|on-copy|dmenu>"
     exit 1
