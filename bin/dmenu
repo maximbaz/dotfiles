@@ -6,15 +6,25 @@ trap 'rm -rf $tmp' EXIT
 mkdir $tmp/done
 fzf_args="--print-query"
 
-[ "$1" = "-p" ] && panel=1
-[ "$1" = "-0" ] && fzf_args="$fzf_args --read0 --preview-window=down:70% --preview='[ -f {} ] && viu -h 27 {} || echo {} | bat -l bash --color always -pp'"
+while getopts "vp:k0f:" OPTION; do
+    case $OPTION in
+        v) echo 'dmenu v1.0.0'; exit 0 ;;
+        p) fzf_args="$fzf_args --prompt='$OPTARG> '" ;;
+
+        # custom options
+        k) kitty_panel=1 ;;
+        0) fzf_args="$fzf_args --read0"; null_separated=1 ;;
+        f) fzf_args="$fzf_args $OPTARG" ;;
+    esac
+done
+
 cat >$tmp/in
 
-if [ -n "$panel" ]; then
+if [ -n "$kitty_panel" ]; then
     kitty @ new-window --no-response --cwd "$PWD" zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out; touch $tmp/done/1" >/dev/null 2>&1
     inotifywait -q -e create "$tmp/done" >/dev/null
 else
-    kitty --class dmenu -o font_size=12 zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out" >/dev/null 2>&1
+    kitty --class dmenu -o font_size=12 -o background='#2d2828' zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out" >/dev/null 2>&1
 fi
 
 lines=$(wc -l $tmp/out | awk '{ print $1 }')
@@ -24,4 +34,4 @@ else
     cat $tmp/out
 fi
 
-[ "$1" = "-0" ] && printf '\0'
+[ -n "$null_separated" ] && printf '\0'

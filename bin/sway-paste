@@ -19,6 +19,7 @@ elif [ "$1" = "on-copy" ]; then
     find "$dir" -type f -size +10000000c -delete
     find "$dir" -type f -print0 | sort -zn | head -z -n -200 | xargs -r -0 rm
 elif [ "$1" = "dmenu" ]; then
+    fzf_preview="--preview-window=down:70% --preview='[ -f {} ] && viu -h 27 {} || echo {} | bat -l bash --color always -pp'"
     find "$dir" -type f -print0 | sort -znr | while IFS= read -r -d '' file; do
         if [[ "$file" == *.plain ]]; then
             cat "$file"
@@ -26,7 +27,7 @@ elif [ "$1" = "dmenu" ]; then
             printf '%s' "$file"
         fi
         printf '\0'
-    done | dmenu -0 | while IFS= read -r -d '' result; do
+    done | dmenu -0 -p clipboard -f "$fzf_preview" | while IFS= read -r -d '' result; do
         if [ -f "$result" ]; then
             wl-copy < "$result"
         else
