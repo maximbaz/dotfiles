@@ -24,7 +24,7 @@ if [ -n "$kitty_panel" ]; then
     kitty @ new-window --no-response --cwd "$PWD" zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out; touch $tmp/done/1" >/dev/null 2>&1
     inotifywait -q -e create "$tmp/done" >/dev/null
 else
-    kitty --class dmenu -o font_size=12 -o background='#2d2828' zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out" >/dev/null 2>&1
+    kitty --class dmenu -o font_size=12 -o background='#1e1e1e' -o window_margin_width=5 zsh -c "cat $tmp/in | fzf $fzf_args >$tmp/out" >/dev/null 2>&1
 fi
 
 lines=$(wc -l $tmp/out | awk '{ print $1 }')
