@@ -24,6 +24,9 @@ c.tabs.background = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
 
+# per-domain settings
+config.set("content.register_protocol_handler", True, "*://calendar.google.com")
+
 # privacy
 c.content.cookies.accept = "no-3rdparty"
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
