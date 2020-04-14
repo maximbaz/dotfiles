@@ -2,7 +2,7 @@ export EDITOR='kak'
 export VISUAL='kak'
 export DIFFPROG='meld'
 export MANPAGER='kak-man-pager'
-export AUR_PAGER='nnn -Aer'
+export AUR_PAGER='nnn'
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
