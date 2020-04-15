@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.8.2
+pkgver=2.8.3
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -99,6 +99,7 @@ depends=(
     'zathura-pdf-mupdf'
     'pdftk'
     'inotify-tools'
+    'fdupes'
 
     # archiving
     'lbzip2'
@@ -113,7 +114,6 @@ depends=(
     'iwd'
     'ufw'
     'bandwhich'
-    'mullvad-vpn-cli'
     'net-tools'
     'nmap'
     'nzbget'
@@ -127,14 +127,13 @@ depends=(
     'openssh'
     'curlie'
     'speedtest-cli'
-    'wireguard-arch'
     'wireguard-tools'
 
     # security
     'arch-audit'
     'overdue'
     'ccid'
-    'pam_u2f-git'
+    'pam-u2f'
     'yubikey-touch-detector'
     'usbguard'
     'pinentry'
@@ -147,6 +146,7 @@ depends=(
     'dmidecode'
     'upower'
     'acpi'
+    'iio-sensor-proxy'
 
     # audio
     'pulseaudio'
@@ -191,7 +191,6 @@ depends=(
     'aurpublish'
     'aurutils'
     'parallel'
-    'vifm'
     'repoctl'
     'rebuild-detector'
 
@@ -261,6 +260,7 @@ depends=(
 
     # browsers
     'qutebrowser'
+    'chromium-widevine'
     'pdfjs'
     'python-tldextract'
     'chromium'
@@ -290,7 +290,10 @@ depends=(
     'youtube-dl'
     'strace'
     'virtualbox'
+    'virtualbox-host-modules-arch'
     'code'
+    'wofi'
+    'v4l2loopback-dkms'
 
     # work
     'azure-cli'
