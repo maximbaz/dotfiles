@@ -36,3 +36,5 @@ else
 fi
 
 [ -n "$null_separated" ] && printf '\0'
+
+exit 0
