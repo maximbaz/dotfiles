@@ -23,6 +23,17 @@ c.spellcheck.languages = ["en-US", "da-DK"]
 c.tabs.background = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
+c.qt.args += [
+    "ignore-gpu-blacklist",
+    "enable-accelerated-2d-canvas",
+    "enable-devtools-experiments",
+    "enable-gpu-memory-buffer-video-frames",
+    "enable-gpu-rasterization",
+    "enable-native-gpu-memory-buffers",
+    "enable-oop-rasterization",
+    "enable-oop-rasterization-ddl",
+    "enable-zero-copy",
+]
 
 # per-domain settings
 config.set("content.register_protocol_handler", True, "*://calendar.google.com")
