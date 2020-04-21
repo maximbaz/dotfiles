@@ -117,6 +117,7 @@ macro index A "<tag-thread><clear-flag>N<save-message>=Archive/2019<enter><enter
 macro index,pager D "<purge-message>"
 macro index,pager I "<save-message>=INBOX<enter><enter>"
 bind index \\ vfolder-from-query
+bind index + entire-thread
 
 macro index,pager \cb "<pipe-message> urlscan<Enter>"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>"
