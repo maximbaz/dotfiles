@@ -1,6 +1,6 @@
 #!/bin/sh
 
-marker="$HOME/.cache/waybar-dnd"
+marker="/tmp/waybar-dnd"
 
 show() {
     if [ -e "$marker" ]; then
