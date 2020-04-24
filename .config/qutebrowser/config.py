@@ -48,6 +48,7 @@ bindings = {
     ",M": "hint links spawn mpv {hint-url}",
     ",p": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation 'dmenu -p credentials'",
     ",P": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation 'dmenu -p password' --password-only",
+    ",b": "config-cycle colors.webpage.bg '#32302f' 'white'",
 }
 
 for key, bind in bindings.items():
