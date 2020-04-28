@@ -203,3 +203,8 @@ name: "wofi"
 url: "https://hg.sr.ht/~scoopta/wofi/tags"
 filter: css:.event-list h4>a,html2text
 max_tries: 3
+---
+name: "dell-command-configure"
+url: "https://www.dell.com/support/article/en-us/sln311302/dell-command-configure?lang=en"
+filter: css:#dvDynamicContent>strong:nth-of-type(4),html2text
+max_tries: 3
