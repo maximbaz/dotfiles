@@ -26,7 +26,7 @@ alias lk="ll -s=size"                # Sorted by size
 alias lm="ll -s=modified"            # Sorted by modified date
 alias lc="ll --created -s=created"   # Sorted by created date
 
-alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-91 --ValSetupPwd="$(pass personal/bios)"'
+alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 
 ssh() {
