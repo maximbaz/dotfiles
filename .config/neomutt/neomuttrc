@@ -24,7 +24,7 @@ set trash = "+Trash"
 unmailboxes *
 unvirtual-mailboxes *
 
-mailboxes =INBOX =Archive/2019 =Drafts =Sent =Junk =Trash
+mailboxes =INBOX =Drafts =Sent =Junk =Trash
 
 unlists *
 unsubscribe *
@@ -74,12 +74,14 @@ tag-transforms "archive" "X"
 
 set sidebar_visible = yes
 set sidebar_width = 23
+set sidebar_short_path=yes
 set mail_check_stats
 set mail_check_stats_interval = 5
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Co sidebar-open
+bind index,pager B sidebar-toggle-visible
 
 bind index,pager gg noop
 bind index,pager g noop
@@ -93,7 +95,6 @@ bind pager [ half-up
 bind pager ] half-down
 
 macro index,pager GI "<change-folder>=INBOX<enter>"
-macro index,pager GA "<change-folder>=Archive/2019<enter>"
 macro index,pager GD "<change-folder>=Drafts<enter>"
 macro index,pager GS "<change-folder>=Sent<enter>"
 macro index,pager GJ "<change-folder>=Junk<enter>"
@@ -111,9 +112,9 @@ bind index,pager @ compose-to-sender
 macro attach s "<save-entry><bol>~/Downloads/<eol>"
 
 set auto_tag = yes
-macro index a "<tag-entry><clear-flag>N<save-message>=Archive/2019<enter><enter>"
-macro pager a "<save-message>=Archive/2019<enter><enter>"
-macro index A "<tag-thread><clear-flag>N<save-message>=Archive/2019<enter><enter>"
+macro index a "<tag-entry><clear-flag>N<save-message>=Archive<enter><enter>"
+macro pager a "<save-message>=Archive<enter><enter>"
+macro index A "<tag-thread><clear-flag>N<save-message>=Archive<enter><enter>"
 macro index,pager D "<purge-message>"
 macro index,pager I "<save-message>=INBOX<enter><enter>"
 bind index \\ vfolder-from-query
