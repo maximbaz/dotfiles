@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.8.3
+pkgver=2.8.4
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -141,6 +141,7 @@ depends=(
     'checksec'
 
     # hardware
+    'dell-command-configure'
     'fwupd'
     'tlp'
     'dmidecode'
@@ -225,7 +226,7 @@ depends=(
 
     # go dev
     'go'
-    'bingo-git'
+    'go-tools'
 
     # js dev
     'yarn'
@@ -275,18 +276,14 @@ depends=(
     # misc
     'fzf'
     'calibre'
-    'copyq'
     'spotify'
-    'dragon-drag-and-drop-git'
     'krita'
     'libqalculate'
     'libreoffice-fresh'
     'task'
-    'teamviewer'
     'transmission-gtk'
     'mpv'
     'mpv-mpris'
-    'ff2mpv-native-messaging-host-git'
     'youtube-dl'
     'strace'
     'virtualbox'
