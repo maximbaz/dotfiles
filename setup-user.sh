@@ -61,6 +61,7 @@ link ".mozilla/firefox/profile/user.js"
 link ".mozilla/firefox/profile/chrome"
 
 link ".config/chromium-flags.conf"
+link ".config/flashfocus"
 link ".config/gsimplecal"
 link ".config/gtk-3.0"
 link ".config/htop"

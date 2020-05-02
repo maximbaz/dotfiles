@@ -273,6 +273,7 @@ bindsym --to-code {
 # Autostart some apps
 exec_always "pgrep -x sway-autoname-w || sway-autoname-workspaces -d"
 exec_always "pgrep -x inactive-window || inactive-windows-transparency.py -o 0.7"
+exec_always "pgrep -x flashfocus || flashfocus"
 exec_always "pgrep -x udiskie || udiskie"
 exec_always "pgrep -x mako || mako"
 exec_always "pgrep -x sway-paste || sway-paste daemon"
