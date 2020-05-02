@@ -81,7 +81,8 @@ set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Co sidebar-open
-bind index,pager B sidebar-toggle-visible
+macro index,pager B "<enter-command>set sidebar_visible=yes<enter><enter-command>set wrap=120<enter>"
+macro index,pager H "<enter-command>set sidebar_visible=no<enter><enter-command>set wrap=0<enter>"
 
 bind index,pager gg noop
 bind index,pager g noop
