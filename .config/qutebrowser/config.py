@@ -49,6 +49,10 @@ bindings = {
     ",p": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation 'dmenu -p credentials'",
     ",P": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation 'dmenu -p password' --password-only",
     ",b": "config-cycle colors.webpage.bg '#32302f' 'white'",
+    "<Ctrl-Shift-J>": "tab-move +",
+    "<Ctrl-Shift-K>": "tab-move -",
+    "M": "nop",
+    "co": "nop",
 }
 
 for key, bind in bindings.items():
