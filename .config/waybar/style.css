@@ -87,3 +87,7 @@ window#waybar {
   padding: 0;
   margin: 0 6px;
 }
+
+#tray {
+  margin-left: -1000000px;
+}

@@ -21,7 +21,8 @@
         "custom/tablet",
         "backlight",
         "battery",
-        "clock"
+        "clock",
+        "tray"
     ],
 
     "custom/usbguard": {
