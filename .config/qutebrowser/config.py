@@ -27,6 +27,7 @@ c.qt.args += ["enable-gpu-rasterization"]
 
 # per-domain settings
 config.set("content.register_protocol_handler", True, "*://calendar.google.com")
+config.set("content.media_capture", True, "*://app.wire.com")
 
 # privacy
 c.content.cookies.accept = "no-3rdparty"
