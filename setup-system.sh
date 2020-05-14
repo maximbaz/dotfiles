@@ -175,9 +175,6 @@ echo "Configuring aurutils"
 ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
 ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
 
-echo "Configuring fontconfig"
-ln -sf /etc/fonts/conf.avail/75-joypixels.conf /etc/fonts/conf.d/75-joypixels.conf
-
 if is_chroot; then
     >&2 echo "=== Running in chroot, skipping firewall and udev setup..."
 else
