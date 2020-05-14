@@ -88,6 +88,9 @@ hook global WinSetOption filetype=markdown %{
 }
 
 hook global WinSetOption filetype=sh %{
+    set-option buffer formatcmd 'shfmt -i 4'
+    hook buffer -group format BufWritePre .* format
+
     set-option buffer lintcmd 'shellcheck -x -fgcc'
     lint-enable
     lint
