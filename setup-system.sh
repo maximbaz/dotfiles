@@ -168,6 +168,9 @@ else
     ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 fi
 
+echo "Configuring NTP"
+timedatectl set-ntp true
+
 echo "Configuring aurutils"
 ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
 ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
