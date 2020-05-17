@@ -12,7 +12,6 @@ _fzf_compgen_dir() { fd --hidden --follow --type=d . "$1" }
 . /usr/share/fzf/key-bindings.zsh                        # load fzf-cd-widget
 bindkey -r '^[c'                                         # remove unwanted binding
 
-FZF_TAB_PREFIX=                                          # remove '·'
 bindkey '\t' expand-or-complete                          # fzf-tab reads it during initialization
 
 FZ_CMD=j
@@ -20,4 +19,3 @@ FZ_SUBDIR_CMD=jj
 
 . ~/.zsh-plugins/z/z.sh
 . ~/.zsh-plugins/fz/fz.plugin.zsh
-. ~/.zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
