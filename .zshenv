@@ -19,3 +19,5 @@ export NNN_PLUG='j:jump;r:remove;c:croc;d:dragdrop;'
 export NNN_BMS='d:~/Downloads;n:/home/nzbget/dst;N:/home/nzbget/nzb;r:/run/media/maximbaz;'
 
 export FZF_DEFAULT_OPTS='-m --reverse'
+
+export WLR_DRM_NO_MODIFIERS=1
