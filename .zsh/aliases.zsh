@@ -8,6 +8,7 @@ alias c='bat -p'
 alias e='kak'
 alias fd='fd --hidden --follow'
 alias grep='grep --color'
+alias hexdump='od -A x -t x1z -v'
 alias http-serve='python3 -m http.server'
 alias htpasswd='openssl passwd -apr1'
 alias locate='locate -i'
@@ -22,9 +23,9 @@ alias sudo='sudo -E '
 alias ls="exa --group --git --group-directories-first"
 alias ll="ls -l"
 alias la="ll -a"
-alias lk="ll -s=size"                # Sorted by size
-alias lm="ll -s=modified"            # Sorted by modified date
-alias lc="ll --created -s=created"   # Sorted by created date
+alias lk="ll -s=size"              # Sorted by size
+alias lm="ll -s=modified"          # Sorted by modified date
+alias lc="ll --created -s=created" # Sorted by created date
 
 alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
