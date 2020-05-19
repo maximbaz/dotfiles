@@ -4,16 +4,19 @@ set -e
 exec 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
 
 script_name="$(basename "$0")"
-dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
+dotfiles_dir="$(
+    cd "$(dirname "$0")"
+    pwd
+)"
 cd "$dotfiles_dir"
 
-if (( "$EUID" )); then
+if (("$EUID")); then
     sudo -s "$dotfiles_dir/$script_name" "$@"
     exit 0
 fi
 
 if [ "$1" = "-r" ]; then
-    >&2 echo "Running in reverse mode!"
+    echo >&2 "Running in reverse mode!"
     reverse=1
 fi
 
@@ -52,7 +55,7 @@ systemctl_enable() {
 systemctl_enable_start() {
     echo "systemctl enable --now "$1""
     systemctl enable "$1"
-    systemctl start  "$1"
+    systemctl start "$1"
 }
 
 echo ""
@@ -98,14 +101,14 @@ if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@.service"
 fi
 
-(( "$reverse" )) && exit 0
+(("$reverse")) && exit 0
 
 echo ""
 echo "================================="
 echo "Enabling and starting services..."
 echo "================================="
 
-sysctl --system > /dev/null
+sysctl --system >/dev/null
 
 systemctl daemon-reload
 systemctl_enable_start "bluetooth.service"
@@ -133,7 +136,7 @@ systemctl_enable_start "usbguard.service"
 systemctl_enable_start "usbguard-dbus.service"
 
 if [ ! -s "/etc/usbguard/rules.conf" ]; then
-    >&2 echo "=== Remember to set usbguard rules: usbguard generate-policy >! /etc/usbguard/rules.conf"
+    echo >&2 "=== Remember to set usbguard rules: usbguard generate-policy >! /etc/usbguard/rules.conf"
 fi
 
 if [[ $HOSTNAME == home-* ]]; then
@@ -142,7 +145,7 @@ if [[ $HOSTNAME == home-* ]]; then
     if [ -d "/home/maximbaz/.ccnet" ]; then
         systemctl_enable_start "seaf-cli@maximbaz.service"
     else
-        >&2 echo "=== Seafile is not initialized, skipping..."
+        echo >&2 "=== Seafile is not initialized, skipping..."
     fi
 fi
 
@@ -161,7 +164,7 @@ echo "Finishing various user configuration..."
 echo "======================================="
 
 if is_chroot; then
-    >&2 echo "=== Running in chroot, skipping /etc/resolv.conf setup..."
+    echo >&2 "=== Running in chroot, skipping /etc/resolv.conf setup..."
 else
     echo "Configuring /etc/resolv.conf"
     ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
@@ -175,7 +178,7 @@ ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
 ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
 
 if is_chroot; then
-    >&2 echo "=== Running in chroot, skipping firewall and udev setup..."
+    echo >&2 "=== Running in chroot, skipping firewall setup..."
 else
     echo "Configuring firewall"
     ufw --force reset >/dev/null

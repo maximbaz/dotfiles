@@ -63,7 +63,6 @@ get_choice() {
     dialog --clear --stdout --backtitle "$BACKTITLE" --title "$title" --menu "$description" 0 0 0 "${options[@]}"
 }
 
-
 echo -e "\n### HiDPI screens"
 noyes=("Yes" "The font is too small" "No" "The font size is just fine")
 hidpi=$(get_choice "Font size" "Is your screen HiDPI?" "${noyes[@]}") || exit 1
@@ -83,10 +82,9 @@ clear
 : ${password:?"password cannot be empty"}
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac | tr '\n' ' ')
-read -r -a devicelist <<< $devicelist
+read -r -a devicelist <<<$devicelist
 device=$(get_choice "Installation" "Select installation disk" "${devicelist[@]}") || exit 1
 clear
-
 
 echo -e "\n### Setting up clock"
 timedatectl set-ntp true
@@ -107,9 +105,9 @@ bios=$(if [ -f /sys/firmware/efi/fw_platform_size ]; then echo "gpt"; else echo 
 part=$(if [[ $bios == "gpt" ]]; then echo "ESP"; else echo "primary"; fi)
 
 parted --script "${device}" -- mklabel ${bios} \
-  mkpart ${part} fat32 1MiB 101MiB \
-  set 1 boot on \
-  mkpart primary 101MiB 100%
+    mkpart ${part} fat32 1MiB 101MiB \
+    set 1 boot on \
+    mkpart primary 101MiB 100%
 
 part_boot="$(ls ${device}* | grep -E "^${device}p?1$")"
 part_root="$(ls ${device}* | grep -E "^${device}p?2$")"
@@ -152,7 +150,6 @@ dd bs=512 count=4 if=/dev/urandom of=/mnt/crypto_keyfile.bin
 chmod 000 /mnt/crypto_keyfile.bin
 echo -n ${password} | cryptsetup luksAddKey ${part_root} /mnt/crypto_keyfile.bin
 
-
 echo -e "\n### Downloading custom repo"
 mkdir /mnt/var/cache/pacman/maximbaz
 wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P '/mnt/var/cache/pacman/maximbaz' 'https://pkgbuild.com/~maximbaz/repo/'
@@ -172,11 +169,11 @@ pacstrap /mnt maximbaz
 
 echo -e "\n### Generating base config files"
 ln -sfT dash /mnt/usr/bin/sh
-echo "FONT=$font" > /mnt/etc/vconsole.conf
-genfstab -U /mnt >> /mnt/etc/fstab
-echo "${hostname}" > /mnt/etc/hostname
-echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
-echo "en_DK.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+echo "FONT=$font" >/mnt/etc/vconsole.conf
+genfstab -U /mnt >>/mnt/etc/fstab
+echo "${hostname}" >/mnt/etc/hostname
+echo "en_US.UTF-8 UTF-8" >>/mnt/etc/locale.gen
+echo "en_DK.UTF-8 UTF-8" >>/mnt/etc/locale.gen
 ln -sf /usr/share/zoneinfo/Europe/Copenhagen /mnt/etc/localtime
 arch-chroot /mnt locale-gen
 cat <<EOF >/mnt/etc/mkinitcpio.conf

@@ -5,7 +5,10 @@ exec 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
 
 MY_GPG_KEY_ID="12C87A28FEAC6B20"
 
-dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
+dotfiles_dir="$(
+    cd "$(dirname "$0")"
+    pwd
+)"
 cd "$dotfiles_dir"
 
 link() {
@@ -98,7 +101,7 @@ link ".local/share/applications"
 link ".local/share/qutebrowser/greasemonkey"
 
 if is_chroot; then
-    >&2 echo "=== Running in chroot, skipping user services..."
+    echo >&2 "=== Running in chroot, skipping user services..."
 else
     echo ""
     echo "================================="
@@ -115,7 +118,7 @@ else
             systemctl_enable_start "mbsync.timer"
             systemctl_enable_start "goimapnotify@personal.service"
         else
-            >&2 echo -e "
+            echo >&2 -e "
             === Mail is not configured, skipping...
             === Consult ~/.mbsyncrc for initial setup, and then sync everything using:
             === while ! mbsync -a; do echo 'restarting...'; done
@@ -132,35 +135,35 @@ echo "======================================="
 echo "Configuring MIME types"
 file --compile --magic-file "$HOME/.magic"
 
-if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
+if ! gpg -k | grep "$MY_GPG_KEY_ID" >/dev/null; then
     echo "Importing my public PGP key"
     curl -s https://maximbaz.com/pgp_keys.asc | gpg --import
-    gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
+    gpg --trusted-key "$MY_GPG_KEY_ID" >/dev/null
 fi
 
 find "$HOME/.gnupg" -type f -not -path "*#*" -exec chmod 600 {} \;
 find "$HOME/.gnupg" -type d -exec chmod 700 {} \;
 
 if is_chroot; then
-    >&2 echo "=== Running in chroot, skipping YubiKey configuration..."
+    echo >&2 "=== Running in chroot, skipping YubiKey configuration..."
 else
     if [ ! -s "$HOME/.config/Yubico/u2f_keys" ]; then
         echo "Configuring YubiKey for passwordless sudo (touch it now)"
         mkdir -p "$HOME/.config/Yubico"
-        pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
+        pamu2fcfg -umaximbaz >"$HOME/.config/Yubico/u2f_keys"
     fi
 fi
 
 if [ -d "$HOME/.password-store" ]; then
     echo "Configuring automatic git push for pass"
-    echo -e "#!/bin/sh\n\npass git push" > "$HOME/.password-store/.git/hooks/post-commit"
+    echo -e "#!/bin/sh\n\npass git push" >"$HOME/.password-store/.git/hooks/post-commit"
     chmod +x "$HOME/.password-store/.git/hooks/post-commit"
 else
-    >&2 echo "=== Password store is not configured yet, skipping..."
+    echo >&2 "=== Password store is not configured yet, skipping..."
 fi
 
 if is_chroot; then
-    >&2 echo "=== Running in chroot, skipping GTK file chooser dialog configuration..."
+    echo >&2 "=== Running in chroot, skipping GTK file chooser dialog configuration..."
 else
     echo "Configuring GTK file chooser dialog"
     gsettings set org.gtk.Settings.FileChooser sort-directories-first true
