@@ -90,7 +90,6 @@ copy "etc/systemd/system/reflector.service"
 copy "etc/systemd/system/reflector.timer"
 copy "etc/systemd/system/system-dotfiles-sync.service"
 copy "etc/systemd/system/system-dotfiles-sync.timer"
-copy "etc/udev/rules.d/81-ac-battery-change.rules"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
 
@@ -184,10 +183,6 @@ else
     ufw default deny incoming
     ufw enable
     find /etc/ufw -type f -name '*.rules.*' -delete
-
-    echo "Reload udev rules"
-    udevadm control --reload
-    udevadm trigger
 
     sleep 1
 fi

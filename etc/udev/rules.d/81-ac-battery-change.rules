@@ -1,2 +1,0 @@
-SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/home/maximbaz/bin/set-brightness bat"
-SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/home/maximbaz/bin/set-brightness ac"
