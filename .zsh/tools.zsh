@@ -1,5 +1,4 @@
-export PATH="$PATH:/opt/azure-cli/bin"
-. az.completion.sh >/dev/null
+. /etc/bash_completion.d/azure-cli
 
 export DIRENV_LOG_FORMAT=
 eval "$(direnv hook zsh)"
