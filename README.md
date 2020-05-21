@@ -6,13 +6,14 @@
 
 - [sway](https://github.com/swaywm/sway) (window manager) + [waybar](https://github.com/Alexays/Waybar) (status bar)
 - [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
-- [kakoune](https://github.com/mawww/kakoune)
-- [zsh](https://www.zsh.org) + [antigen](https://github.com/zsh-users/antigen) with [prezto](https://github.com/sorin-ionescu/prezto), [powerlevel10k](https://github.com/romkatv/powerlevel10k) and various other plugins
+- [kakoune](https://github.com/mawww/kakoune) (modular text editor with multiple cursors)
+- [zsh](https://www.zsh.org) + [powerlevel10k](https://github.com/romkatv/powerlevel10k) and various other plugins
 - [yubikey-touch-detector](https://github.com/maximbaz/yubikey-touch-detector) - a tool that can detect when your YubiKey is waiting for a touch.
 - [browserpass](https://github.com/browserpass/browserpass-extension) - browser extension for `pass` and `gopass`.
 - [wire-desktop](https://github.com/wireapp/wire-desktop) - end-to-end encrypted chat app.
+- [wluma](https://github.com/maximbaz/wluma) - automatic brightness adjustment based on screen contents.
 - [ttf-joypixels](https://www.archlinux.org/packages/community/any/ttf-joypixels/) - latest JoyPixels font that provides colorful emojis for almost all apps on Linux (formerly EmojiOne).
-- [chromium-vaapi](https://aur.archlinux.org/packages/chromium-vaapi) - chromium with hardware video acceleration.
+- [aurutils](https://github.com/AladW/aurutils) - the most reasonable AUR helper out there.
 - [nnn](https://github.com/jarun/nnn/) - extremely fast file manager.
 - [grub-btrfs](https://github.com/Antynea/grub-btrfs) + [snap-pac-grub](https://github.com/maximbaz/snap-pac-grub) - take btrfs snapshots during system update and add them to GRUB.
 
@@ -50,9 +51,9 @@
 
 > Terminal turns red when you are on production, yellow on staging, etc.
 
-☑ Remember brightness levels on battery and on AC, restore last value when power source changes.
+☑ Automatically adjust brightness level based on screen contents and amount of ambient light around.
 
-> Useful for automatically dimming screen when switching to battery power.
+> Useful for working at night, e.g. by dimming screen when switching from a dark terminal to a bright browser.
 
 ☑ Automatically backup the list of installed packages (pacman and AUR).
 
