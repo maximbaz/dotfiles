@@ -112,6 +112,7 @@ else
     systemctl_enable_start "backup-packages.timer"
     systemctl_enable_start "redshift.service"
     systemctl_enable_start "wl-clipboard-manager.service"
+    systemctl_enable_start "wluma.service"
     systemctl_enable_start "yubikey-touch-detector.service"
 
     if [[ $HOSTNAME == home-* ]]; then
