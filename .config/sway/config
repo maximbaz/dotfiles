@@ -132,9 +132,9 @@ bindsym --to-code {
     # Launcher
     $hyper+equal exec bash -c "echo 'enter expression to calculate' | dmenu | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
     $hyper+d     fullscreen disable, exec wofi
-    $hyper+p     fullscreen disable, exec "sway-paste lock; passmenu -p pass; sway-paste unlock"
+    $hyper+p     fullscreen disable, exec "wl-clipboard-manager lock; passmenu -p pass; wl-clipboard-manager unlock"
     $hyper+m     fullscreen disable, exec udiskie-dmenu
-    $win+grave   fullscreen disable, exec sway-paste dmenu
+    $win+grave   fullscreen disable, exec wl-clipboard-manager dmenu
     Print        exec sway-screenshot-area
     $hyper+Print exec sway-gif-area
     $win+Print   exec sway-screenshare
@@ -276,7 +276,6 @@ exec_always "pgrep -x inactive-window || inactive-windows-transparency.py -o 0.7
 exec_always "pgrep -x flashfocus || flashfocus"
 exec_always "pgrep -x udiskie || udiskie"
 exec_always "pgrep -x mako || mako"
-exec_always "pgrep -x sway-paste || sway-paste daemon"
 exec_always "pkill waybar; waybar"
 
 # Load host-specific configs

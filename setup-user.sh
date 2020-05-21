@@ -111,6 +111,7 @@ else
     systemctl --user daemon-reload
     systemctl_enable_start "backup-packages.timer"
     systemctl_enable_start "redshift.service"
+    systemctl_enable_start "wl-clipboard-manager.service"
     systemctl_enable_start "yubikey-touch-detector.service"
 
     if [[ $HOSTNAME == home-* ]]; then
