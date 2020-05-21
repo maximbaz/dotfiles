@@ -12,6 +12,7 @@
 - [browserpass](https://github.com/browserpass/browserpass-extension) - browser extension for `pass` and `gopass`.
 - [wire-desktop](https://github.com/wireapp/wire-desktop) - end-to-end encrypted chat app.
 - [wluma](https://github.com/maximbaz/wluma) - automatic brightness adjustment based on screen contents.
+- [wl-clipboard-manager](https://github.com/maximbaz/wl-clipboard-manager) - clipboard manager for Wayland.
 - [ttf-joypixels](https://www.archlinux.org/packages/community/any/ttf-joypixels/) - latest JoyPixels font that provides colorful emojis for almost all apps on Linux (formerly EmojiOne).
 - [aurutils](https://github.com/AladW/aurutils) - the most reasonable AUR helper out there.
 - [nnn](https://github.com/jarun/nnn/) - extremely fast file manager.
