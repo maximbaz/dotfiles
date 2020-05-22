@@ -189,8 +189,10 @@ bindsym --to-code {
     $hyper+o exec makoctl menu dmenu
 
     # Brightness control
-    XF86MonBrightnessUp   exec set-brightness inc
-    XF86MonBrightnessDown exec set-brightness dec
+    XF86MonBrightnessUp         exec light -A 1%
+    XF86MonBrightnessDown       exec light -U 1%
+    Shift+XF86MonBrightnessUp   exec light -A 5%
+    Shift+XF86MonBrightnessDown exec light -U 5%
 
     # Media control
     XF86AudioPlay exec playerctl --player playerctld play-pause
