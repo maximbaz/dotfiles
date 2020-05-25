@@ -13,7 +13,7 @@ install:
 refresh:
 	backup-packages
 	if [ -s unknown.list ]; then \
-		xargs -a unknown.list sudo pacman -D --asdeps; \
+		xargs -a unknown.list sudo -E pacman -D --asdeps; \
 	fi
 	backup-packages
 

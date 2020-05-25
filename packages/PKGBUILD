@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.9.0
+pkgver=2.9.1
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -100,6 +100,7 @@ depends=(
     'pdftk'
     'inotify-tools'
     'fdupes'
+    'xournalpp'
 
     # archiving
     'lbzip2'
@@ -164,6 +165,7 @@ depends=(
     'swaylock'
     'xorg-server-xwayland'
     'wl-clipboard'
+    'wl-clipboard-manager'
     'python-i3ipc'
     'wmctrl'
     'mako'
@@ -278,7 +280,7 @@ depends=(
 
     # screenshots & gifs
     'grim'
-    'ksnip'
+    'swappy'
     'wf-recorder'
 
     # misc
