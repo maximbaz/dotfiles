@@ -165,7 +165,7 @@ CacheDir = /mnt/var/cache/pacman/maximbaz
 EOF
 
 echo -e "\n### Installing packages"
-pacstrap /mnt maximbaz
+pacstrap -i /mnt maximbaz
 
 echo -e "\n### Generating base config files"
 ln -sfT dash /mnt/usr/bin/sh
