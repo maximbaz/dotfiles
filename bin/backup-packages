@@ -1,5 +1,6 @@
 #!/bin/bash
 
-comm -23 <(pacman -Qnqe | sort) <(echo maximbaz) > ~/.dotfiles/packages/unknown.list
-pacman -Dk 2> ~/.dotfiles/packages/removed.list >/dev/null
-pacman -Qdtq > ~/.dotfiles/packages/obsolete.list
+comm -23 <(pacman -Qnqe | sort) <(echo maximbaz) >~/.dotfiles/packages/unknown.list
+pacman -Dk 2>~/.dotfiles/packages/removed.list >/dev/null
+pacman -Qdtq >~/.dotfiles/packages/obsolete.list
+exit 0
