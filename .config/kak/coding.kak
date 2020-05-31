@@ -56,7 +56,7 @@ hook global WinSetOption filetype=.* %{
 }
 
 hook global WinSetOption filetype=python %{
-    set-option buffer formatcmd 'black -q -'
+    set-option buffer formatcmd 'isort -q - | black -q -'
     hook buffer -group format BufWritePre .* format
 
     set-option buffer lintcmd 'pylint --msg-template="{path}:{line}:{column}: {category}: {msg}" -rn -sn'
