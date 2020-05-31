@@ -95,3 +95,8 @@ hook global WinSetOption filetype=sh %{
     lint-enable
     lint
 }
+
+hook global WinSetOption filetype=terraform %{
+    set-option buffer formatcmd 'terraform fmt -'
+    hook buffer -group format BufWritePre .* format
+}
