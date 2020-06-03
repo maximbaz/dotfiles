@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.9.1
+pkgver=2.10.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -63,7 +63,6 @@ depends=(
     'pacman-contrib'
     'devtools'
     'reflector'
-    'urlwatch'
 
     # boot
     'grub'
@@ -82,7 +81,6 @@ depends=(
     'udiskie-dmenu-git'
     'nnn'
     'vimiv-qt'
-    'viu'
     'ncdu'
     'croc'
     'bat'
@@ -99,7 +97,6 @@ depends=(
     'zathura-pdf-mupdf'
     'pdftk'
     'inotify-tools'
-    'fdupes'
     'xournalpp'
 
     # archiving
@@ -148,7 +145,6 @@ depends=(
     'dmidecode'
     'upower'
     'acpi'
-    'iio-sensor-proxy'
 
     # audio
     'pulseaudio'
@@ -167,11 +163,9 @@ depends=(
     'wl-clipboard'
     'wl-clipboard-manager'
     'python-i3ipc'
-    'wmctrl'
     'mako'
     'gtk-theme-arc-gruvbox-git'
     'redshift'
-    'wev'
     'waybar'
     'light'
     'slurp'
@@ -188,6 +182,7 @@ depends=(
     'noto-fonts'
     'cantarell-fonts'
     'ttf-droid'
+    'ttf-lato'
     'ttf-opensans'
     'ttf-signika'
     'xorg-fonts-misc'
@@ -197,7 +192,6 @@ depends=(
     # aur
     'aurpublish'
     'aurutils'
-    'parallel'
     'repoctl'
     'rebuild-detector'
 
@@ -247,7 +241,6 @@ depends=(
     # terminal
     'kitty'
     'zsh'
-    'antigen-git'
     'lscolors-git'
 
     # passwords
@@ -263,25 +256,22 @@ depends=(
     'neomutt'
     'urlscan'
     'goimapnotify'
-    'w3m'
-
-    # chats
-    'wire-desktop'
-    'riot-desktop'
 
     # browsers
     'qutebrowser'
     'chromium-widevine'
     'pdfjs'
     'python-tldextract'
-    'chromium'
     'intel-media-driver'
-    'libva-intel-driver'
 
     # screenshots & gifs
     'grim'
     'swappy'
     'wf-recorder'
+
+    # kubernetes
+    'kubectl'
+    'kubectx'
 
     # misc
     'dmenu-term'
@@ -304,13 +294,4 @@ depends=(
     'wofi'
     'v4l2loopback-dkms'
     'intel-gpu-tools'
-
-    # work
-    'azure-cli'
-    'freerdp'
-    'k9s'
-    'kubectl'
-    'kubectx'
-    'kubernetes-helm'
-    'slack-desktop'
 )
