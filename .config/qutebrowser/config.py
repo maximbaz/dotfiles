@@ -3,7 +3,6 @@ config.source("gruvbox.py")
 c.colors.webpage.prefers_color_scheme_dark = True
 c.completion.shrink = True
 c.completion.use_best_match = True
-c.fonts.default_size = "7pt"
 c.statusbar.widgets = ["progress", "keypress", "url", "history"]
 c.scrolling.bar = "always"
 c.tabs.position = "left"
