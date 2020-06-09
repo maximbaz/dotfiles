@@ -9,7 +9,6 @@ set-option global autoreload   yes
 set-option global tabstop      4
 set-option global indentwidth  4
 set-option global scrolloff    2,5
-set-option global idle_timeout 1000
 
 hook global BufOpenFile .* %{ evaluate-commands -buffer %val(hook_param) %{ try %{
   execute-keys '%s^\t<ret>'
