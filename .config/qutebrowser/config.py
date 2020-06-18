@@ -7,8 +7,8 @@ c.statusbar.widgets = ["progress", "keypress", "url", "history"]
 c.scrolling.bar = "always"
 c.tabs.position = "left"
 c.tabs.width = "15%"
-c.tabs.title.format = "{index}: {current_title}"
-c.tabs.title.format_pinned = "{index}: {current_title}"
+c.tabs.title.format = "{audio}{index}: {current_title}"
+c.tabs.title.format_pinned = "{audio}{index}: {current_title}"
 
 # general
 c.auto_save.session = True
