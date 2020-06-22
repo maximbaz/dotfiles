@@ -23,7 +23,7 @@ c.spellcheck.languages = ["en-US", "da-DK"]
 c.tabs.background = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
-c.qt.args += ["enable-gpu-rasterization"]
+c.qt.args += ["enable-gpu-rasterization", "enable-features=WebRTCPipeWireCapturer"]
 
 # per-domain settings
 config.set("content.register_protocol_handler", True, "*://calendar.google.com")

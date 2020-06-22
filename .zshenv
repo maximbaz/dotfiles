@@ -24,6 +24,8 @@ export FZF_DEFAULT_OPTS='-m --reverse'
 export LIBVA_DRIVER_NAME=iHD
 
 export MOZ_ENABLE_WAYLAND=1
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORM=wayland-egl
 export WLR_DRM_NO_MODIFIERS=1
 
