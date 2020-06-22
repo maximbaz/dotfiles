@@ -33,7 +33,7 @@ config.set("content.media_capture", True, "*://app.wire.com")
 c.content.cookies.accept = "no-3rdparty"
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.site_specific_quirks = False
-c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
+c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36"
 
 # urls
 c.url.searchengines = {
