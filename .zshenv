@@ -17,7 +17,14 @@ export NNN_TRASH=1
 export NNN_COLORS='4235'
 export NNN_PLUG='j:jump;r:remove;c:croc;d:dragdrop;'
 export NNN_BMS='d:~/Downloads;n:/home/nzbget/dst;N:/home/nzbget/nzb;r:/run/media/maximbaz;'
+export NNN_OPTS='Aer'
 
 export FZF_DEFAULT_OPTS='-m --reverse'
 
+export LIBVA_DRIVER_NAME=iHD
+
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland-egl
 export WLR_DRM_NO_MODIFIERS=1
+
+export PATH="$HOME/bin:$PATH:/usr/share/sway/scripts/"
