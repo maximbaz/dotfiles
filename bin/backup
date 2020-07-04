@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCE=".dotfiles .ssh .gnupg cloud Seafile"
+SOURCE=".dotfiles .ssh .gnupg .mail cloud Seafile"
 BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
 BACKUP_DIR="$BACKUP_PATH/$(date +%Y-%m-%d)"
 
