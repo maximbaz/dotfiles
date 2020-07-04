@@ -72,7 +72,7 @@ aurs() {
     aur sync -Sc "$@"
     post_aur
 }
-alias aurs!='aurs --no-ver-shallow -f'
+alias aurs!='aurs --nover-argv -f'
 
 aurb() {
     aur build -Scf --pkgver "$@"
