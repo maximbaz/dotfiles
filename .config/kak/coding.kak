@@ -18,7 +18,7 @@ hook global ModuleLoaded kitty %{
 # Commands
 
 define-command disable-autolint -docstring 'disable auto-lint' %{
-    lint-disable
+    lint-hide-diagnostics
     unset-option buffer lintcmd
     remove-hooks buffer lint
 }
@@ -60,7 +60,6 @@ hook global WinSetOption filetype=python %{
     hook buffer -group format BufWritePre .* format
 
     set-option buffer lintcmd 'pylint --msg-template="{path}:{line}:{column}: {category}: {msg}" -rn -sn'
-    lint-enable
     lint
     hook buffer -group lint BufWritePost .* lint
 }
@@ -69,7 +68,6 @@ hook global WinSetOption filetype=go %{
     hook buffer -group format BufWritePre .* lsp-formatting-sync
 
     set-option buffer lintcmd "run() { golint $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; } && run"
-    lint-enable
     lint
     hook buffer -group lint BufWritePost .* lint
 }
@@ -92,7 +90,6 @@ hook global WinSetOption filetype=sh %{
     hook buffer -group format BufWritePre .* format
 
     set-option buffer lintcmd 'shellcheck -x -fgcc'
-    lint-enable
     lint
 }
 
