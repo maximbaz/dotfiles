@@ -1,11 +1,14 @@
-typeset -gA ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
+# Temporarily change options.
+'builtin' 'local' '-a' 'p10k_config_opts'
+[[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
+[[ ! -o 'sh_glob'         ]] || p10k_config_opts+=('sh_glob')
+[[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
+'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
 () {
-    emulate -L zsh
-    setopt no_unset extended_glob
+    emulate -L zsh -o extended_glob
 
-    unset -m 'POWERLEVEL9K_*'
+    unset -m '(POWERLEVEL9K_*|DEFAULT_USER)~POWERLEVEL9K_GITSTATUS_DIR'
 
     typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
         time
@@ -23,24 +26,47 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
         prompt_char
     )
 
-    p10k-on-pre-prompt()  { p10k display '1'=show }
-    p10k-on-post-prompt() { p10k display '1'=hide }
-
     typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+
+    typeset -g POWERLEVEL9K_MODE=awesome-fontconfig
+    typeset -g POWERLEVEL9K_ICON_PADDING=none
+    typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=
 
     typeset -g POWERLEVEL9K_BACKGROUND=
     typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=
     typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '
     typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=
-    typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=
 
-    typeset -g POWERLEVEL9K_MODE=awesome-fontconfig
     typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-    typeset -g POWERLEVEL9K_INSTANT_PROMPT_COMMAND_LINES=1
+    typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+    p10k-on-pre-prompt()  { p10k display '1'=show }
+    p10k-on-post-prompt() { p10k display '1'=hide }
 
-    ################################[ background_jobs: background jobs indicator ]################
+    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=
+    typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX=
+    typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=
+    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX=
+    typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX=
+    typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
+
+    typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
+    typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+
+    typeset -g POWERLEVEL9K_SHOW_RULER=false
+    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' '
+
+    typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
+    typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
+
+    ####################################[ time: current time ]####################################
+    typeset -g POWERLEVEL9K_TIME_FOREGROUND=yellow
+    typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
+    typeset -g POWERLEVEL9K_TIME_PREFIX=''
+    typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
+
+    #######################[ background_jobs: presence of background jobs ]#######################
     typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=red
-    typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION=" "
+    typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION=" "
 
     ################################[ user: shows root user ]#################################
     typeset -g POWERLEVEL9K_USER_FOREGROUND=red
@@ -48,24 +74,18 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
     typeset -g POWERLEVEL9K_USER_CONTENT_EXPANSION=
     typeset -g POWERLEVEL9K_USER_ROOT_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
-    ################################[ prompt_char: prompt symbol ]################################
-    typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=green
-    typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=red
-    typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%(#.#.$)'
-
     ##################################[ dir: current directory ]##################################
+    typeset -g POWERLEVEL9K_DIR_FOREGROUND=65
     typeset -g POWERLEVEL9K_DIR_PREFIX='%fin '
-    typeset -g POWERLEVEL9K_DIR_FOREGROUND=065
     typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
     typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
-    typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=cyan
     typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
 
     local anchor_files=(
         .git
         .node-version
         .python-version
-        .ruby-version
+        .go-version
         .shorten_folder_marker
         .svn
         .terraform
@@ -77,9 +97,22 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
     typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER="(${(j:|:)anchor_files})"
     typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
     typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
+    typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v2
+    typeset -g POWERLEVEL9K_DIR_CLASSES=()
+
+    #######################[ direnv: direnv status (https://direnv.net/) ]########################
+    typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=178
+    typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION=" "
+
+    ######################[ nnn: nnn shell (https://github.com/jarun/nnn) ]#######################
+    typeset -g POWERLEVEL9K_NNN_FOREGROUND=208
+    typeset -g POWERLEVEL9K_NNN_CONTENT_EXPANSION=
+    typeset -g POWERLEVEL9K_NNN_VISUAL_IDENTIFIER_EXPANSION=" "
 
     #####################################[ vcs: git status ]######################################
-    my_gitstatus_formatter() {
+    function my_git_formatter() {
+        emulate -L zsh
+
         if [[ -n "$P9K_CONTENT" ]]; then
             typeset -g gitstatus_format="$P9K_CONTENT"
             return
@@ -158,31 +191,22 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
             res+="${outofsync}"
         fi
 
-        typeset -g gitstatus_format="$res"
+        typeset -g my_git_format="$res"
     }
-    functions -M my_gitstatus_formatter 2>/dev/null
+    functions -M my_git_formatter 2>/dev/null
 
+    typeset -g POWERLEVEL9K_VCS_MAX_INDEX_SIZE_DIRTY=-1
     typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
-    typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%B${$((my_gitstatus_formatter(1)))+${gitstatus_format}}'
-    typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='%B${$((my_gitstatus_formatter(0)))+${gitstatus_format}}'
+    typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='%B${$((my_git_formatter(1)))+${my_git_format}}'
+    typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='%B${$((my_git_formatter(0)))+${my_git_format}}'
     typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
     typeset -g POWERLEVEL9K_VCS_PREFIX='%fon '
 
     typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
-    typeset -g POWERLEVEL9K_VCS_LOADING_FOREGROUND=244
-
-    ###################[ command_execution_time: duration of the last command ]###################
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%ftook '
-
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=yellow
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_VISUAL_IDENTIFIER_EXPANSION=
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
     #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
+    typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|kubens|kubectx|helm'
     typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%fat '
     typeset -g POWERLEVEL9K_KUBECONTEXT_VISUAL_IDENTIFIER_EXPANSION='☸️'
 
@@ -195,26 +219,33 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white,bold'
     typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION='%B'
     POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
     POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
-    typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|kubens|kubectx|helm'
 
-    ####################################[ azure: azure subscription ]#############################
+    ##########[ azure: azure account name (https://docs.microsoft.com/en-us/cli/azure) ]##########
+    typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform'
     typeset -g POWERLEVEL9K_AZURE_FOREGROUND=208
     typeset -g POWERLEVEL9K_AZURE_PREFIX='%fusing '
     typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION="☁️"
     typeset -g POWERLEVEL9K_AZURE_CONTENT_EXPANSION='%B${P9K_CONTENT}'
-    typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform'
 
-    ####################################[ time: current time ]####################################
-    typeset -g POWERLEVEL9K_TIME_FOREGROUND=yellow
-    typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
-    typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
-    typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
+    ###################[ command_execution_time: duration of the last command ]###################
+    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%ftook '
+    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
+    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
+    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=yellow
+    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
+    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
-    ####################################[ nnn: nested shell ]####################################
-    typeset -g POWERLEVEL9K_NNN_FOREGROUND=208
-    typeset -g POWERLEVEL9K_NNN_CONTENT_EXPANSION=" "
+    ################################[ prompt_char: prompt symbol ]################################
+    typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=green
+    typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=red
+    typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%(#.#.$)'
 
-    ####################################[ direnv: local env ]####################################
-    typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=blue
-    typeset -g POWERLEVEL9K_DIRENV_CONTENT_EXPANSION=" "
+
+    (( ! $+functions[p10k] )) || p10k reload
 }
+
+# Tell `p10k configure` which file it should overwrite.
+typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
+
+(( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
+'builtin' 'unset' 'p10k_config_opts'
