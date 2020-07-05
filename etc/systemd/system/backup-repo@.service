@@ -3,9 +3,11 @@ Description=Backup pacman repository to %I
 After=paccache.service
 
 [Service]
+Type=oneshot
 User=maximbaz
 EnvironmentFile=/etc/systemd/system/backup-repo@%i
 ExecStart=/usr/bin/rsync --archive --partial --delete ${LOCAL_PATH} ${REMOTE_ADDR}:${REMOTE_PATH}
+ExecStart=/usr/bin/rsync --archive --partial --delete ${LOCAL_PATH_AURUTILS} ${REMOTE_ADDR}:${REMOTE_PATH_AURUTILS}
 
 [Install]
 WantedBy=paccache.service
