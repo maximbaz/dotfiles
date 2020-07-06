@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+#
+# Usage: git submodule-remove path/to/submodule
+#
+# Must be run from the git repo's workdir.
+
+emulate zsh -o err_exit -o no_unset -o xtrace
+
+(($# == 1))
+[[ -e $1 ]]
+
+local gitdir workdir
+gitdir=$(git rev-parse --git-dir)
+workdir=$(git rev-parse --show-toplevel)
+
+[[ $workdir == $PWD ]]
+
+git submodule deinit -f -- $1
+rm -rf -- $gitdir/modules/$1
+rm -rf -- $1
+
+echo "Remember to update .gitmodules"
