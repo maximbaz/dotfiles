@@ -13,7 +13,7 @@
     typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
         time
         background_jobs
-        user
+        context
         dir
         direnv
         nnn
@@ -67,11 +67,13 @@
     typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='#e78a4e'
     typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION=" "
 
-    ################################[ user: shows root user ]#################################
-    typeset -g POWERLEVEL9K_USER_FOREGROUND=red
-    typeset -g POWERLEVEL9K_USER_PREFIX="%fas "
-    typeset -g POWERLEVEL9K_USER_CONTENT_EXPANSION=
-    typeset -g POWERLEVEL9K_USER_ROOT_CONTENT_EXPANSION='%B${P9K_CONTENT}'
+    ##################################[ context: user@hostname ]##################################
+    typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=red
+    typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND='#a9b665'
+    typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n'
+    typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%B%n@%m'
+    typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_CONTENT_EXPANSION=
+    typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fas '
 
     ##################################[ dir: current directory ]##################################
     typeset -g POWERLEVEL9K_DIR_FOREGROUND='#89b482'
