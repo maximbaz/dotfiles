@@ -185,7 +185,7 @@ bindsym --to-code {
     $hyper+space focus mode_toggle
 
     # Notification actions
-    ctrl+space exec makoctl dismiss
+    $hyper+q exec makoctl dismiss
     $hyper+o exec makoctl menu dmenu
 
     # Brightness control
