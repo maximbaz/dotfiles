@@ -1,11 +1,19 @@
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US
+export LC_MONETARY=en_DK.UTF-8
+export LC_TIME=en_DK.UTF-8
+
 export EDITOR='kak'
 export VISUAL='kak'
 export DIFFPROG='meld'
 export MANPAGER='kak-man-pager'
 export AUR_PAGER='nnn'
-export WORDCHARS='*?_.[]~&!#$%^(){}<>'
-export GPG_TTY=$TTY
 
+export WORDCHARS='*?_.[]~&!#$%^(){}<>'
+
+export DIRENV_LOG_FORMAT=
+
+export GPG_TTY=$TTY
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 
 export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
