@@ -15,27 +15,3 @@
 [submodule ".config/kak/surround.kak"]
 	path = .config/kak/surround.kak
 	url = https://github.com/alexherbo2/surround.kak
-[submodule ".zsh-plugins/fz"]
-	path = .zsh-plugins/fz
-	url = https://github.com/changyuheng/fz
-[submodule ".zsh-plugins/powerlevel10k"]
-	path = .zsh-plugins/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k
-[submodule ".zsh-plugins/z"]
-	path = .zsh-plugins/z
-	url = https://github.com/rupa/z
-[submodule ".zsh-plugins/zsh-autosuggestions"]
-	path = .zsh-plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule ".zsh-plugins/zsh-completions"]
-	path = .zsh-plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions
-[submodule ".zsh-plugins/zsh-history-substring-search"]
-	path = .zsh-plugins/zsh-history-substring-search
-	url = https://github.com/zsh-users/zsh-history-substring-search
-[submodule ".zsh-plugins/zsh-syntax-highlighting"]
-	path = .zsh-plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule ".zsh-plugins/archive"]
-	path = .zsh-plugins/archive
-	url = https://github.com/romkatv/archive

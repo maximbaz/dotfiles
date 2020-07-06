@@ -1,27 +1,43 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+zstyle ':z4h:' auto-update no
+zstyle ':z4h:*' channel stable
+zstyle ':z4h:' cd-key alt
+zstyle ':z4h:autosuggestions' forward-char accept
 
-. ~/.zsh/title.zsh
-. ~/.zsh/fuzzy.zsh
-. ~/.zsh/environment.zsh
-. ~/.zsh/completion.zsh
+z4h install romkatv/archive || return
 
-. ~/.zsh/aliases.zsh
-. ~/.zsh/pacman.zsh
-. ~/.zsh/kubectl.zsh
-. ~/.zsh/git.zsh
+z4h init || return
 
-. ~/.zsh/widgets.zsh
-. ~/.zsh/tools.zsh
+fpath+=($Z4H/romkatv/archive)
+autoload -Uz archive lsarchive unarchive edit-command-line
 
-[ -f ~/.zshrc-private ] && . ~/.zshrc-private
+zstyle ':fzf-tab:*' continuous-trigger tab
 
-. ~/.zsh/p10k.zsh
-. ~/.zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
-. ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-. ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-. ~/.zsh-plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+my-ctrl-z() {
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER="fg"
+        zle accept-line -w
+    else
+        zle push-input -w
+        zle clear-screen -w
+    fi
+}
+zle -N my-ctrl-z
+bindkey '^Z' my-ctrl-z
 
-. ~/.zsh/keybindings.zsh
-. ~/.zsh/opts.zsh
+zle -N edit-command-line
+bindkey '^V^V' edit-command-line
+
+export DIRENV_LOG_FORMAT=
+eval "$(direnv hook zsh)"
+
+setopt GLOB_DOTS
+
+z4h source /usr/share/LS_COLORS/dircolors.sh
+z4h source /etc/bash_completion.d/azure-cli
+z4h source ~/.zsh/aliases.zsh
+z4h source ~/.zsh/git.zsh
+z4h source ~/.zsh/pacman.zsh
+z4h source ~/.zsh/kubectl.zsh
+z4h source ~/.zshrc-private
+
+return 0

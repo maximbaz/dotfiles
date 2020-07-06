@@ -19,6 +19,7 @@ alias rm='rmtrash -rf'
 alias rm!='\rm -rf'
 alias rsync='rsync --verbose --archive --info=progress2 --human-readable --partial'
 alias sudo='sudo -E '
+alias tree='tree -a -I .git --dirsfirst'
 
 alias ls="exa --group --git --group-directories-first"
 alias ll="ls -l"
@@ -30,13 +31,10 @@ alias lc="ll --created -s=created" # Sorted by created date
 alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 
-ssh() {
-    kitty +kitten ssh "$@"
-}
+ssh() { kitty +kitten ssh "$@" }
 
-mkdcd() {
-    [ -n "$1" ] && mkdir -p -- "$1" && builtin cd -- "$1"
-}
+function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
+compdef _directories md
 
 n() {
     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
@@ -49,10 +47,5 @@ n() {
     fi
 }
 
-e64() {
-    [ -n "$1" ] && base64 <<<"$1" || base64
-}
-
-d64() {
-    [ -n "$1" ] && base64 --decode <<<"$1" || base64 --decode
-}
+e64() { [[ $# == 1 ]] && base64 <<<"$1" || base64 }
+d64() { [[ $# == 1 ]] && base64 --decode <<<"$1" || base64 --decode }

@@ -48,7 +48,6 @@
     typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX=
     typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX=
     typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
-
     typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
     typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
 
@@ -65,7 +64,7 @@
     typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
     #######################[ background_jobs: presence of background jobs ]#######################
-    typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=red
+    typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='#e78a4e'
     typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION=" "
 
     ################################[ user: shows root user ]#################################
@@ -75,7 +74,7 @@
     typeset -g POWERLEVEL9K_USER_ROOT_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
     ##################################[ dir: current directory ]##################################
-    typeset -g POWERLEVEL9K_DIR_FOREGROUND=65
+    typeset -g POWERLEVEL9K_DIR_FOREGROUND='#89b482'
     typeset -g POWERLEVEL9K_DIR_PREFIX='%fin '
     typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
     typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
@@ -98,10 +97,12 @@
     typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
     typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
     typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v2
+    typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION=''
+    typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_FOREGROUND='#e78a4e'
     typeset -g POWERLEVEL9K_DIR_CLASSES=()
 
     #######################[ direnv: direnv status (https://direnv.net/) ]########################
-    typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=178
+    typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#d8a657'
     typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION=" "
 
     ######################[ nnn: nnn shell (https://github.com/jarun/nnn) ]#######################
@@ -120,8 +121,8 @@
 
         if (( $1 )); then
             # Styling for up-to-date Git status.
+            local clean='%F{#d3869b}'
             local meta='%F{yellow}'
-            local clean='%F{magenta}'
             local stashes='%F{cyan}'
             local conflicted='%F{magenta}'
             local deleted='%F{red}'
@@ -131,8 +132,8 @@
             local outofsync='%F{yellow}'
         else
             # Styling for incomplete and stale Git status.
-            local meta='%F{white}'
             local clean='%F{white}'
+            local meta='%F{white}'
             local stashes='%F{white}'
             local conflicted='%F{white}'
             local deleted='%F{white}'
@@ -213,7 +214,7 @@
     typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
         '*-prod-*'  PROD
         '*'         DEFAULT)
-    typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=blue
+    typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#7daea3'
     typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND=red
 
     typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION='%B'
@@ -222,7 +223,7 @@
 
     ##########[ azure: azure account name (https://docs.microsoft.com/en-us/cli/azure) ]##########
     typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform'
-    typeset -g POWERLEVEL9K_AZURE_FOREGROUND=208
+    typeset -g POWERLEVEL9K_AZURE_FOREGROUND='#ea6962'
     typeset -g POWERLEVEL9K_AZURE_PREFIX='%fusing '
     typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION="☁️"
     typeset -g POWERLEVEL9K_AZURE_CONTENT_EXPANSION='%B${P9K_CONTENT}'
