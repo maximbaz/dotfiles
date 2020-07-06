@@ -56,7 +56,7 @@ link ".pylintrc"
 link ".taskrc"
 link ".xkb"
 link ".zprofile"
-link ".zsh"
+link ".zsh-aliases"
 link ".zshenv"
 link ".zshrc"
 

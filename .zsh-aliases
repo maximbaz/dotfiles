@@ -1,0 +1,203 @@
+#!/usr/bin/env zsh
+
+(( $+commands[curlie] ))    && alias curl='curlie'
+(( $+commands[pydf] ))      && alias df='pydf'
+(( $+commands[git] ))       && alias diff='git diff --no-index'
+(( $+commands[rmtrash] ))   && alias rm='rmtrash -rf'
+(( $+commands[bat] ))       && alias c='bat -p'                                           || alias c='cat'
+(( $+commands[kak] ))       && alias e='kak'                                              || alias e='vim'
+(( $+commands[fd] ))        && alias fd='fd --hidden --follow'                            || alias fd='find . -name'
+(( $+commands[rg] ))        && alias rg='rg --hidden --follow --smart-case 2>/dev/null'   || alias rg='grep --color=auto --exclude-dir=.git -R'
+(( $+commands[exa] ))       && alias ls='exa --group --git --group-directories-first'     || alias ls='ls --color=auto --group-directories-first -h'
+(( $+commands[exa] ))       && alias la='ll -a'                                           || alias la='ll -A'
+(( $+commands[exa] ))       && alias lk='ll -s=size'                                      || alias lk='ll -r --sort=size'
+(( $+commands[exa] ))       && alias lm='ll -s=modified'                                  || alias lm='ll -r --sort=time'
+
+alias cp='cp -r --reflink=auto'
+alias mkdir='mkdir -p'
+alias hexdump='od -A x -t x1z -v'
+alias http-serve='python -m http.server'
+alias htpasswd='openssl passwd -apr1'
+alias locate='locate -i'
+alias o='xdg-open'
+alias rm!='\rm -rf'
+alias rsync='rsync --verbose --archive --info=progress2 --human-readable --partial'
+alias sudo='sudo -E '
+alias tree='tree -a -I .git --dirsfirst'
+alias ll='ls -l'
+alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
+alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
+
+alias paci='pac -Sy'
+alias ipaci='SNAP_PAC_SKIP=true paci'
+alias ipaci!='ipaci -dd'
+alias pacr='pac -Rs'
+alias ipacr='SNAP_PAC_SKIP=true pacr'
+alias pacr!='pacr -dd'
+alias ipacr!='ipacr -dd'
+alias pacf='pac -U'
+alias ipacf='SNAP_PAC_SKIP=true pacf'
+alias pacu='pac -Syu'
+alias ipacu='SNAP_PAC_SKIP=true pacu'
+alias pacq='pacman -Si'
+alias pacl='pacman -Ql'
+alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 -x waybar'
+
+alias k='kubectl'
+alias kc='kubectx "$(kubectx | fzf --height=10%)"'
+alias kn='kubens "$(kubens | fzf --height=10%)"'
+alias kd='k describe'
+alias kd!='kd --all-namespaces'
+alias kdp='kd pod'
+alias kdel='k delete'
+alias ke='k exec -ti'
+alias kg='k get'
+alias kg!='kg --all-namespaces'
+alias kgd='kg deployment'
+alias kgd!='kgd --all-namespaces'
+alias kgp='kg pod'
+alias kgp!='kgp --all-namespaces'
+alias kgs='kg service'
+alias kgs!='kgs --all-namespaces'
+alias kl='kubectl logs -f'
+
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gap='git add -p'
+alias gb='git branch'
+alias gba='git branch --all'
+alias gbd='git branch -D'
+alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+alias gbo='git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD) $(git symbolic-ref --short HEAD)'
+alias gbu='git branch --set-upstream-to=upstream/$(git symbolic-ref --short HEAD) $(git symbolic-ref --short HEAD)'
+alias gbsb='git bisect bad'
+alias gbsg='git bisect good'
+alias gbsr='git bisect reset'
+alias gbss='git bisect start'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcn!='git commit --no-edit --amend'
+alias gac='git add --all && git commit -v'
+alias gac!='git add --all && git commit -v --amend'
+alias gacn!='git add --all && git commit --amend --no-edit'
+alias gacm='git add --all && git commit -m'
+alias gcm='git commit -m'
+alias gcf='git commit --fixup'
+alias gcfh='git commit --fixup HEAD'
+alias gacf='git add --all && git commit --fixup'
+alias gacfh='git add --all && git commit --fixup HEAD'
+alias gcl='git clone --recursive'
+alias gco='git checkout'
+alias gcom='git checkout master'
+alias gcob='git checkout -b'
+alias gcop='git checkout -p'
+alias gcp='git cherry-pick'
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+alias gd='git diff'
+alias gds='git diff --cached'
+alias gd!='git difftool -d'
+alias gds!='git difftool -d --cached'
+alias gf='git fetch --tags'
+alias gl='git pull --tags -f'
+alias glog="git log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
+alias gloga="git log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
+alias glogp='git log -p'
+alias gm='git merge'
+alias gma='git merge --abort'
+alias gp='git push -u'
+alias gpf='git push --force-with-lease'
+alias gpf!='git push --force'
+alias gra='git remote add'
+alias grr='git remote remove'
+alias grv='git remote -v'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
+alias grbm='git rebase -i master'
+alias grbom='git rebase -i origin/master'
+alias gr='git reset'
+alias gr!='git reset --hard'
+alias grh='git reset HEAD'
+alias grh!='git reset --hard HEAD'
+alias garh!='git add --all && git reset --hard HEAD'
+alias gs='git show --show-signature'
+alias gss='git status -sb'
+alias gst='git status'
+alias gsa='git submodule add'
+alias gsu='git submodule update --remote'
+alias gsr='git submodule-remove'
+
+ssh() { z4h ssh "$@" }
+
+function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
+compdef _directories md
+
+n() {
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    nnn "$@"
+    [ -f "$NNN_TMPFILE" ] && { . "$NNN_TMPFILE"; rm "$NNN_TMPFILE" }
+}
+
+e64() { [[ $# == 1 ]] && base64 <<<"$1" || base64 }
+d64() { [[ $# == 1 ]] && base64 --decode <<<"$1" || base64 --decode }
+
+pac() {
+    sudo -E pacman "$@"
+    pkill -RTMIN+1 -x waybar
+    rehash
+}
+(( $+commands[pacman] )) && compdef pac=pacman
+
+pacs() (
+    [ $# -lt 1 ] && { >&2 echo "No search term provided"; return 1; }
+    tmp=$(mktemp -d)
+    trap 'rm -rf $tmp' EXIT
+    cd $tmp
+    touch pkgs
+
+    {
+        NO_COLOR=true aur search -n -k NumVotes "$@"
+        pacman -Ss "$@"
+    } |
+    while read -r pkg; do
+        read -r desc
+        name="${pkg%% *}"
+        mkdir -p $(dirname "$name")
+        echo "$pkg" >>pkgs
+        echo "$desc" >$name
+    done
+    [ -s pkgs ] || { >&2 echo "No packages found"; return 2; }
+    aur_pkgs=()
+    repo_pkgs=()
+    cat pkgs | fzf --tac --preview-window=wrap --preview='cat {1}; echo; echo; pacman -Si $(basename {1}) 2>/dev/null; true' |
+    while read -r pkg; do
+        title="${pkg%% *}"
+        repo="$(dirname "$title")"
+        name="$(basename "$title")"
+        if [ "$repo" = "aur" ]; then
+            aur_pkgs+=("$name")
+        else
+            repo_pkgs+=("$name")
+        fi
+    done
+    (( ${#aur_pkgs[@]} )) && aurs "${aur_pkgs[@]}"
+    ipaci "${aur_pkgs[@]}" "${repo_pkgs[@]}"
+)
+
+pacQ() { [[ $# == 1 ]] && pacman -Qo "$(which "$1")" }
+
+aurs() { aur sync -Sc "$@"; post_aur }
+alias aurs!='aurs --nover-argv -f'
+
+aurb() { aur build -Scf --pkgver "$@"; post_aur }
+auru() { xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -Scu --rebuild "$@"; post_aur }
+
+post_aur() {
+    sudo -E pacman -Sy
+    pkill -RTMIN+1 -x waybar
+    find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
+    find /var/cache/pacman/maximbaz -name '*~' -delete >/dev/null
+    find /var/cache/pacman/maximbaz -group root -delete >/dev/null
+}
