@@ -1,17 +1,17 @@
 #!/usr/bin/env zsh
 
-(( $+commands[curlie] ))    && alias curl='curlie'
-(( $+commands[pydf] ))      && alias df='pydf'
-(( $+commands[git] ))       && alias diff='git diff --no-index'
-(( $+commands[rmtrash] ))   && alias rm='rmtrash -rf'
-(( $+commands[bat] ))       && alias c='bat -p'                                           || alias c='cat'
-(( $+commands[kak] ))       && alias e='kak'                                              || alias e='vim'
-(( $+commands[fd] ))        && alias fd='fd --hidden --follow'                            || alias fd='find . -name'
-(( $+commands[rg] ))        && alias rg='rg --hidden --follow --smart-case 2>/dev/null'   || alias rg='grep --color=auto --exclude-dir=.git -R'
-(( $+commands[exa] ))       && alias ls='exa --group --git --group-directories-first'     || alias ls='ls --color=auto --group-directories-first -h'
-(( $+commands[exa] ))       && alias la='ll -a'                                           || alias la='ll -A'
-(( $+commands[exa] ))       && alias lk='ll -s=size'                                      || alias lk='ll -r --sort=size'
-(( $+commands[exa] ))       && alias lm='ll -s=modified'                                  || alias lm='ll -r --sort=time'
+command -v curlie    &> /dev/null    && alias curl='curlie'
+command -v pydf      &> /dev/null    && alias df='pydf'
+command -v git       &> /dev/null    && alias diff='git diff --no-index'
+command -v rmtrash   &> /dev/null    && alias rm='rmtrash -rf'
+command -v bat       &> /dev/null    && alias c='bat -p'                                           || alias c='cat'
+command -v kak       &> /dev/null    && alias e='kak'                                              || alias e='vim'
+command -v fd        &> /dev/null    && alias fd='fd --hidden --follow'                            || alias fd='find . -name'
+command -v rg        &> /dev/null    && alias rg='rg --hidden --follow --smart-case 2>/dev/null'   || alias rg='grep --color=auto --exclude-dir=.git -R'
+command -v exa       &> /dev/null    && alias ls='exa --group --git --group-directories-first'     || alias ls='ls --color=auto --group-directories-first -h'
+command -v exa       &> /dev/null    && alias la='ll -a'                                           || alias la='ll -A'
+command -v exa       &> /dev/null    && alias lk='ll -s=size'                                      || alias lk='ll -r --sort=size'
+command -v exa       &> /dev/null    && alias lm='ll -s=modified'                                  || alias lm='ll -r --sort=time'
 
 alias cp='cp -r --reflink=auto'
 alias mkdir='mkdir -p'
@@ -155,7 +155,7 @@ pac() {
     pkill -RTMIN+1 -x waybar
     rehash
 }
-(( $+commands[pacman] )) && compdef pac=pacman
+command -v pacman &> /dev/null && compdef pac=pacman
 
 pacs() (
     [ $# -lt 1 ] && { >&2 echo "No search term provided"; return 1; }

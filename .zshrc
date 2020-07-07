@@ -29,7 +29,7 @@ bindkey '^Z' my-ctrl-z
 zle -N edit-command-line
 bindkey '^V^V' edit-command-line
 
-(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
+command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
 setopt GLOB_DOTS
 
