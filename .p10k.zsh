@@ -64,11 +64,11 @@
     typeset -g POWERLEVEL9K_TIME_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
     #######################[ background_jobs: presence of background jobs ]#######################
-    typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='#e78a4e'
+    typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=209
     typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION=" "
 
     ##################################[ context: user@hostname ]##################################
-    typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND='#a9b665'
+    typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=107
     typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=red
     typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fas '
 
@@ -80,7 +80,7 @@
     fi
 
     ##################################[ dir: current directory ]##################################
-    typeset -g POWERLEVEL9K_DIR_FOREGROUND='#89b482'
+    typeset -g POWERLEVEL9K_DIR_FOREGROUND=72
     typeset -g POWERLEVEL9K_DIR_PREFIX='%fin '
     typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
     typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
@@ -104,15 +104,15 @@
     typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
     typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v2
     typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION=''
-    typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_FOREGROUND='#e78a4e'
+    typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_FOREGROUND=221
     typeset -g POWERLEVEL9K_DIR_CLASSES=()
 
     #######################[ direnv: direnv status (https://direnv.net/) ]########################
-    typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#d8a657'
+    typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=179
     typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION=" "
 
     ######################[ nnn: nnn shell (https://github.com/jarun/nnn) ]#######################
-    typeset -g POWERLEVEL9K_NNN_FOREGROUND=208
+    typeset -g POWERLEVEL9K_NNN_FOREGROUND=43
     typeset -g POWERLEVEL9K_NNN_CONTENT_EXPANSION=
     typeset -g POWERLEVEL9K_NNN_VISUAL_IDENTIFIER_EXPANSION=" "
 
@@ -220,8 +220,8 @@
     typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
         '*-prod-*'  PROD
         '*'         DEFAULT)
-    typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#7daea3'
-    typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND=red
+    typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=140
+    typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND=201
 
     typeset -g POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION='%B'
     POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
@@ -229,7 +229,7 @@
 
     ##########[ azure: azure account name (https://docs.microsoft.com/en-us/cli/azure) ]##########
     typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform'
-    typeset -g POWERLEVEL9K_AZURE_FOREGROUND='#ea6962'
+    typeset -g POWERLEVEL9K_AZURE_FOREGROUND=67
     typeset -g POWERLEVEL9K_AZURE_PREFIX='%fusing '
     typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION="☁️"
     typeset -g POWERLEVEL9K_AZURE_CONTENT_EXPANSION='%B${P9K_CONTENT}'
