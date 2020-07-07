@@ -12,7 +12,7 @@ command -v exa       &> /dev/null    && alias la='ll -a'                        
 command -v exa       &> /dev/null    && alias lk='ll -s=size'                                      || alias lk='ll -r --sort=size'
 command -v exa       &> /dev/null    && alias lm='ll -s=modified'                                  || alias lm='ll -r --sort=time'
 
-alias e='$EDITOR'
+alias e="$EDITOR"
 alias cp='cp -r --reflink=auto'
 alias mkdir='mkdir -p'
 alias hexdump='od -A x -t x1z -v'
