@@ -61,6 +61,13 @@ alias kgs='kg service'
 alias kgs!='kgs --all-namespaces'
 alias kl='kubectl logs -f'
 
+alias dc='docker-compose'
+alias dcu='dc up -d'
+alias dcd='dc down'
+alias dcp='dc pull'
+alias dcl='dc logs -f --tail=1000'
+alias dce='dc exec'
+
 alias g='git'
 alias ga='git add'
 alias gaa='git add --all'
