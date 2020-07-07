@@ -68,12 +68,16 @@
     typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION=" "
 
     ##################################[ context: user@hostname ]##################################
+    typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND='#a9b665'
     typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=red
-    typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND='#a9b665'
-    typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n'
-    typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%B%n@%m'
-    typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_CONTENT_EXPANSION=
     typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fas '
+
+    if (( P9K_SSH )); then
+        POWERLEVEL9K_CONTEXT_TEMPLATE='%B%n@%m'
+    else
+        POWERLEVEL9K_CONTEXT_TEMPLATE=
+        POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n'
+    fi
 
     ##################################[ dir: current directory ]##################################
     typeset -g POWERLEVEL9K_DIR_FOREGROUND='#89b482'
