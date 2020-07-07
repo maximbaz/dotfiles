@@ -13,11 +13,13 @@ command -v exa       &> /dev/null    && alias lk='ll -s=size'                   
 command -v exa       &> /dev/null    && alias lm='ll -s=modified'                                  || alias lm='ll -r --sort=time'
 
 alias e="$EDITOR"
+alias d='dig +nocmd +multiline +noall +answer'
 alias cp='cp -r --reflink=auto'
 alias mkdir='mkdir -p'
 alias hexdump='od -A x -t x1z -v'
 alias http-serve='python -m http.server'
 alias htpasswd='openssl passwd -apr1'
+alias ip='ip -c'
 alias locate='locate -i'
 alias o='xdg-open'
 alias rm!='\rm -rf'
@@ -25,6 +27,7 @@ alias rsync='rsync --verbose --archive --info=progress2 --human-readable --parti
 alias sudo='sudo -E '
 alias tree='tree -a -I .git --dirsfirst'
 alias ll='ls -l'
+alias utc='env TZ=UTC date'
 alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 
@@ -149,6 +152,10 @@ n() {
 
 e64() { [[ $# == 1 ]] && base64 <<<"$1" || base64 }
 d64() { [[ $# == 1 ]] && base64 --decode <<<"$1" || base64 --decode }
+
+p() { ping "${1:-1.1.1.1}" }
+
+tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
 
 pac() {
     sudo -E pacman "$@"
