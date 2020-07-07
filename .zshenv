@@ -1,26 +1,15 @@
 #!/usr/bin/env zsh
 
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US
-export LC_MONETARY=en_DK.UTF-8
-export LC_TIME=en_DK.UTF-8
-
 command -v kak  &> /dev/null && export EDITOR='kak'     || export EDITOR='vim'
 command -v kak  &> /dev/null && export VISUAL='kak'     || export VISUAL='vim'
 command -v meld &> /dev/null && export DIFFPROG='meld'
+command -v kak  &> /dev/null && export MANPAGER='kak-man-pager'
 
-export MANPAGER='kak-man-pager'
 export AUR_PAGER='aurutils-nnn'
-
-export WORDCHARS='*?_.[]~&!#$%^(){}<>'
-
 export DIRENV_LOG_FORMAT=
-
+export FZF_DEFAULT_OPTS='-m --reverse'
 export GPG_TTY=$TTY
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
-
-export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
-export PASSWORD_STORE_GENERATED_LENGTH=40
+export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
 export GOPATH="$HOME/.go"
 export GOPRIVATE="bitbucket.org/maersk-analytics"
@@ -31,17 +20,8 @@ export NNN_PLUG='j:jump;r:remove;c:croc;d:dragdrop;'
 export NNN_BMS='d:~/Downloads;n:/home/nzbget/dst;N:/home/nzbget/nzb;r:/run/media/maximbaz;'
 export NNN_OPTS='Aer'
 
-export FZF_DEFAULT_OPTS='-m --reverse'
-
-export LIBVA_DRIVER_NAME=iHD
-
-export MOZ_ENABLE_WAYLAND=1
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_TYPE=wayland
-export QT_QPA_PLATFORM=wayland-egl
-export WLR_DRM_NO_MODIFIERS=1
-
-export PATH="$HOME/bin:$PATH:/usr/share/sway/scripts/"
+export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
+export PASSWORD_STORE_GENERATED_LENGTH=40
 
 if [ -n "${ZSH_VERSION-}" ]; then
     : ${ZDOTDIR:=~}
