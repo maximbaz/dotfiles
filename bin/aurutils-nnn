@@ -1,0 +1,23 @@
+#!/bin/bash
+
+[ $# -ne 1 ] && {
+    echo >&2 "usage: $0 <tmp_view>"
+    exit 1
+}
+
+tmp_view="$1"
+seen_dir="${XDG_DATA_HOME:-$HOME/.local/share}/aurutils/view"
+
+make_view() {
+    cd "$tmp_view"
+    for f in *; do
+        if [[ -f "$f" || -s "$seen_dir/$f" ]]; then
+            printf "$tmp_view/$f\0"
+        else
+            mv "$f" "_$f"
+            printf "$tmp_view/_$f\0"
+        fi
+    done
+}
+
+make_view | LC_COLLATE="C" nnn

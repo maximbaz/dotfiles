@@ -7,7 +7,7 @@ export EDITOR='kak'
 export VISUAL='kak'
 export DIFFPROG='meld'
 export MANPAGER='kak-man-pager'
-export AUR_PAGER='nnn'
+export AUR_PAGER='aurutils-nnn'
 
 export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
