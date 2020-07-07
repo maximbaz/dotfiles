@@ -5,6 +5,7 @@ zstyle    ':z4h:autosuggestions'    forward-char           accept
 zstyle    ':z4h:ssh:*'              ssh-command            command ssh
 zstyle    ':z4h:ssh:*'              send-extra-files       '~/.zsh-aliases'
 zstyle -e ':z4h:ssh:*'              retrieve-history       'reply=($ZDOTDIR/.zsh_history.${(%):-%m}:$z4h_ssh_host)'
+zstyle    ':z4h:ssh:router'         passthrough            yes
 zstyle    ':fzf-tab:*'              continuous-trigger     tab
 
 z4h install romkatv/archive || return
