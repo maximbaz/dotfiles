@@ -210,10 +210,10 @@ bindsym --to-code {
     $win+Down            exec pamixer -t
     $win+Right           exec pamixer -i 5
     $win+Left            exec pamixer -d 5
-    $win+Shift+Up        exec pamixer -t --source 1
-    $win+Shift+Down      exec pamixer -t --source 1
-    $win+Shift+Right     exec pamixer -i 5 --source 1
-    $win+Shift+Left      exec pamixer -d 5 --source 1
+    $win+Shift+Up        exec "pacmd set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo; pamixer -t --source alsa_input.pci-0000_00_1f.3.analog-stereo"
+    $win+Shift+Down      exec "pacmd set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo; pamixer -t --source alsa_input.pci-0000_00_1f.3.analog-stereo"
+    $win+Shift+Right     exec "pacmd set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo; pamixer -i 5 --source alsa_input.pci-0000_00_1f.3.analog-stereo"
+    $win+Shift+Left      exec "pacmd set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo; pamixer -d 5 --source alsa_input.pci-0000_00_1f.3.analog-stereo"
 
     # Reload the configuration file
     $win+r reload
