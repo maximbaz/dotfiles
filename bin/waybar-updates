@@ -5,7 +5,7 @@ aur="$(aur repo -u)"
 vcs="$(aur vercmp-devel)"
 off="$(checkofficial)"
 dif="$(pacdiff -o)"
-reb="$(checkrebuild | grep -v teams)"
+reb="$(checkrebuild)"
 
 pac_n=$(printf "$pac" | grep -c '^')
 aur_n=$(printf "$aur" | grep -c '^')
@@ -18,7 +18,7 @@ text=""
 tooltip=""
 
 [ -n "$off" ]               && text="/${off_n}"
-[ -n "$off" ]               && tooltip="Became official:\n\n$off\n\n"
+[ -n "$off" ]               && tooltip="Became official:\n\n$off\n\n${tooltip}"
 [ -n "$text" -o -n "$reb" ] && text="/${reb_n}${text}"
 [ -n "$reb" ]               && tooltip="Rebuild required:\n\n$reb\n\n${tooltip}"
 [ -n "$text" -o -n "$dif" ] && text="/${dif_n}${text}"
