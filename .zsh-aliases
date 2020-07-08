@@ -31,17 +31,13 @@ alias utc='env TZ=UTC date'
 alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 
-alias paci='pac -Sy'
-alias ipaci='SNAP_PAC_SKIP=true paci'
-alias ipaci!='ipaci -dd'
-alias pacr='pac -Rs'
-alias ipacr='SNAP_PAC_SKIP=true pacr'
-alias pacr!='pacr -dd'
-alias ipacr!='ipacr -dd'
-alias pacf='pac -U'
-alias ipacf='SNAP_PAC_SKIP=true pacf'
+alias paci='SNAP_PAC_SKIP=true pac -Sy'
+alias paci!='pac -Sy -dd'
+alias pacr='SNAP_PAC_SKIP=true pac -Rs'
+alias pacr!='pac -Rs -dd'
+alias pacf='SNAP_PAC_SKIP=true pac -U'
+alias pacF='pacman -F'
 alias pacu='pac -Syu'
-alias ipacu='SNAP_PAC_SKIP=true pacu'
 alias pacq='pacman -Si'
 alias pacl='pacman -Ql'
 alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 -x waybar'
@@ -197,7 +193,7 @@ pacs() (
         fi
     done
     (( ${#aur_pkgs[@]} )) && aurs "${aur_pkgs[@]}"
-    ipaci "${aur_pkgs[@]}" "${repo_pkgs[@]}"
+    SNAP_PAC_SKIP=true pac -Sy "${aur_pkgs[@]}" "${repo_pkgs[@]}"
 )
 
 pacQ() { [[ $# == 1 ]] && pacman -Qo "$(which "$1")" }
