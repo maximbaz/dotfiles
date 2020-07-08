@@ -157,8 +157,6 @@ p() { ping "${1:-1.1.1.1}" }
 
 tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
 
-when() { python -c "import timeago, datetime as dt; print(timeago.format(dt.datetime.fromtimestamp($1), dt.datetime.now()))" }
-
 pac() {
     sudo -E pacman "$@"
     pkill -RTMIN+1 -x waybar
