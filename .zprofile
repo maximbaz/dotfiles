@@ -16,4 +16,4 @@ export WLR_DRM_NO_MODIFIERS=1
 
 export PATH="$HOME/bin:$PATH:/usr/share/sway/scripts/"
 
-[[ -z $DISPLAY && "$(tty)" == "/dev/tty1" ]] && exec sway
+[[ -z $DISPLAY && "$(tty)" == "/dev/tty1" ]] && exec systemd-cat -t sway sway
