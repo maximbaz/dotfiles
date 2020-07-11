@@ -1,0 +1,6 @@
+[Unit]
+Description=Mailbox synchronization service
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/checkmail

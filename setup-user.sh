@@ -28,7 +28,7 @@ link() {
 }
 
 is_chroot() {
-    grep rootfs /proc/mounts > /dev/null
+    grep rootfs /proc/mounts >/dev/null
 }
 
 systemctl_enable_start() {
@@ -87,6 +87,8 @@ link ".config/sway"
 link ".config/swaylock"
 link ".config/systemd/user/backup-packages.service"
 link ".config/systemd/user/backup-packages.timer"
+link ".config/systemd/user/mbsync.service"
+link ".config/systemd/user/mbsync.timer"
 link ".config/tig"
 link ".config/transmission/settings.json"
 link ".config/USBGuard"
@@ -116,6 +118,7 @@ else
 
     if [[ $HOSTNAME == home-* ]]; then
         if [ -d "$HOME/.mail" ]; then
+            systemctl_enable_start "mbsync.timer"
             systemctl_enable_start "goimapnotify@personal.service"
         else
             echo >&2 -e "
@@ -135,10 +138,10 @@ echo "======================================="
 echo "Configuring MIME types"
 file --compile --magic-file "$HOME/.magic"
 
-if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
+if ! gpg -k | grep "$MY_GPG_KEY_ID" >/dev/null; then
     echo "Importing my public PGP key"
     curl -s https://maximbaz.com/pgp_keys.asc | gpg --import
-    gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
+    gpg --trusted-key "$MY_GPG_KEY_ID" >/dev/null
 fi
 
 find "$HOME/.gnupg" -type f -not -path "*#*" -exec chmod 600 {} \;
@@ -150,13 +153,13 @@ else
     if [ ! -s "$HOME/.config/Yubico/u2f_keys" ]; then
         echo "Configuring YubiKey for passwordless sudo (touch it now)"
         mkdir -p "$HOME/.config/Yubico"
-        pamu2fcfg -umaximbaz > "$HOME/.config/Yubico/u2f_keys"
+        pamu2fcfg -umaximbaz >"$HOME/.config/Yubico/u2f_keys"
     fi
 fi
 
 if [ -d "$HOME/.password-store" ]; then
     echo "Configuring automatic git push for pass"
-    echo -e "#!/bin/sh\n\npass git push" > "$HOME/.password-store/.git/hooks/post-commit"
+    echo -e "#!/bin/sh\n\npass git push" >"$HOME/.password-store/.git/hooks/post-commit"
     chmod +x "$HOME/.password-store/.git/hooks/post-commit"
 else
     echo >&2 "=== Password store is not configured yet, skipping..."
