@@ -135,6 +135,30 @@ alias gsa='git submodule add'
 alias gsu='git submodule update --remote'
 alias gsr='git submodule-remove'
 
+grf() {
+    upstream="$(git remote get-url upstream 2>/dev/null || git remote get-url origin)"
+    if [[ $# == 1 ]]; then
+        fork=$(echo "$upstream" | awk -v name="$1" -F/ '{print $1"/"$2"/"$3"/"name"/"$5}')
+
+        git remote remove "$1" 2>/dev/null
+        git remote add "$1" "$fork"
+        git fetch "$1"
+    else
+        myfork=$(echo "$upstream" | awk -v name="$USER" -F/ '{print "git@github.com:"name"/"$5}')
+
+        git remote remove upstream 2>/dev/null
+        git remote remove origin 2>/dev/null
+
+        git remote add upstream "$upstream"
+        git remote add origin "$myfork"
+
+        git fetch upstream
+        git fetch origin
+
+        git branch --set-upstream-to=upstream/master master
+    fi
+}
+
 ssh() { z4h ssh "$@" }
 
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
