@@ -34,9 +34,9 @@ command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
 setopt GLOB_DOTS
 
-z4h source /etc/bash_completion.d/azure-cli
-z4h source /usr/share/LS_COLORS/dircolors.sh
-z4h source ~/.zsh-aliases
-z4h source ~/.zshrc-private
+z4h source -c /etc/bash_completion.d/azure-cli
+z4h source -c /usr/share/LS_COLORS/dircolors.sh
+z4h source -c ~/.zsh-aliases
+z4h source -c ~/.zshrc-private
 
 return 0
