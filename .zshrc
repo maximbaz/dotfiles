@@ -31,6 +31,8 @@ bindkey '^Z' my-ctrl-z
 zle -N edit-command-line
 bindkey '^V^V' edit-command-line
 
+bindkey '^H' z4h-backward-kill-word
+
 command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
 setopt GLOB_DOTS
