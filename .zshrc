@@ -31,7 +31,11 @@ bindkey '^Z' my-ctrl-z
 zle -N edit-command-line
 bindkey '^V^V' edit-command-line
 
-bindkey '^H' z4h-backward-kill-word
+bindkey '^H'      z4h-backward-kill-word
+bindkey '^[[1;7C' z4h-forward-zword
+bindkey '^[[1;7D' z4h-backward-zword
+bindkey '^[[3;7~' z4h-kill-zword
+bindkey '^[^H'    z4h-backward-kill-zword
 
 command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
