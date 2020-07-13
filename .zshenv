@@ -10,7 +10,6 @@ export DIRENV_LOG_FORMAT=
 export FZF_DEFAULT_OPTS='-m --reverse'
 export GPG_TTY=$TTY
 export SYSTEMD_LESS=FRXMK
-export WORDCHARS='*?_.[]~&!#$%^(){}<>'
 
 export GOPATH="$HOME/.go"
 export GOPRIVATE="bitbucket.org/maersk-analytics"
