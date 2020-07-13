@@ -1,0 +1,90 @@
+diff --git a/fn/-z4h-comp-files b/fn/-z4h-comp-files
+index 0c8354d..a29510e 100644
+--- a/fn/-z4h-comp-files
++++ b/fn/-z4h-comp-files
+@@ -14,13 +14,13 @@
+
+   if (( only_dirs )); then
+     if (( dot_glob )); then
+-      local dirs=($path_prefix${^${(Q)words:#.*}}/*(D-/Y1N:h:t))
++      local dirs=($path_prefix${^${(Q)words}}/*(D-/Y1N:h:t))
+     else
+       local dirs=($path_prefix${^${(Q)words:#.*}}/*(-/Y1N:h:t))
+     fi
+   else
+     if (( dot_glob )); then
+-      local dirs=($path_prefix${^${(Q)words:#.*}}/*(DY1N:h:t))
++      local dirs=($path_prefix${^${(Q)words}}/*(DY1N:h:t))
+     else
+       local dirs=($path_prefix${^${(Q)words:#.*}}/*(Y1N:h:t))
+     fi
+@@ -36,7 +36,6 @@
+       cmd+=(-path ./${(b)dir}/'*' -o)
+     done
+     cmd[-1]=(')' -prune)
+-    cmd+=(-o -name '.*' -prune)
+     (( dot_glob )) && cmd+=(-print)
+     cmd+=(-o -print)
+   fi
+@@ -63,7 +62,6 @@
+     --with-nth=2
+     --delimiter='\000'
+     --ansi
+-    --exact
+     --layout=reverse
+     --height=$(( ! $#dirs && 100 * ($#words + 2) < 60 * LINES ? $#words + 2 : 60 * LINES / 100 ))
+     --tiebreak=length,begin,index
+diff --git a/fn/-z4h-init b/fn/-z4h-init
+index 73a32dd..815a4c2 100644
+--- a/fn/-z4h-init
++++ b/fn/-z4h-init
+@@ -174,7 +174,6 @@ if (( _z4h_use[fzf-tab] )); then
+     --nth=2,3                                      \
+     --delimiter='\000'                             \
+     --layout=reverse                               \
+-    --exact                                        \
+     --tiebreak=begin                               \
+     --multi                                        \
+     --cycle                                        \
+diff --git a/fn/z4h-cd-down b/fn/z4h-cd-down
+index 2cca6cf..640e2ed 100644
+--- a/fn/z4h-cd-down
++++ b/fn/z4h-cd-down
+@@ -19,7 +19,7 @@ local -i list_colors=$((!$?))
+       eval "$_z4h_opt"
+       if (( dot_glob )); then
+         local dirs=(./*(-/DN))
+-        local non_empty=(${^${dirs:#./.*}}/*(D-/Y1N:h:t))
++        local non_empty=(${^dirs}/*(D-/Y1N:h:t))
+       else
+         local dirs=(./*(-/N))
+         local non_empty=(${^dirs}/*(-/Y1N:h:t))
+@@ -39,7 +39,6 @@ local -i list_colors=$((!$?))
+           cmd+=(-path ./${(b)dir}/'*' -o)
+         done
+         cmd[-1]=(')' -prune)
+-        cmd+=(-o -name '.*' -prune)
+         (( dot_glob )) && cmd+=(-print)
+         cmd+=(-o -print)
+       fi
+@@ -62,7 +61,6 @@ local -i list_colors=$((!$?))
+         --with-nth=2
+         --delimiter='\000'
+         --ansi
+-        --exact
+         --layout=reverse
+         --height=$(( ! $#non_empty && 100 * ($#dirs + 2) < 60 * LINES ? $#dirs + 2 : 60 * LINES / 100 ))
+         --tiebreak=length,begin,index
+diff --git a/fn/z4h-fzf-history b/fn/z4h-fzf-history
+index 9ae8015..a3bebbd 100644
+--- a/fn/z4h-fzf-history
++++ b/fn/z4h-fzf-history
+@@ -39,7 +39,7 @@ local preview='printf "%s" {} | command cut -f2- -d'$'\1'
+         {
+           -z4h-cursor-show
+           $Z4H/fzf/bin/fzf --read0 --no-multi --tiebreak=index --cycle       \
+-              --delimiter='\001' --with-nth=2 --exact                        \
++              --delimiter='\001' --with-nth=2                                \
+               --height=80% --preview-window=down:40%:wrap --preview=$preview \
+               --tabstop 1 --bind=${(j:,:)bind} --query=$LBUFFER 2>$TTY
+         } always {
