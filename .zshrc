@@ -46,6 +46,6 @@ z4h source -c /usr/share/LS_COLORS/dircolors.sh
 z4h source -c ~/.zsh-aliases
 z4h source -c ~/.zshrc-private
 
-patch -Np1 -i ~/.dotfiles/z4h.patch -r /dev/null -d $Z4H/zsh4humans/ > /dev/null
+[ -f ~/.dotfiles/z4h.patch ] && patch -Np1 -i ~/.dotfiles/z4h.patch -r /dev/null -d $Z4H/zsh4humans/ > /dev/null
 
 return 0
