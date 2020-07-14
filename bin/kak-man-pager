@@ -1,4 +1,4 @@
 #!/bin/sh
 
 col --no-backspaces --spaces |
-kak -e "map global normal q :quit<ret>; set buffer filetype man; $*"
+    kak -e "map global normal q :quit<ret>; set buffer filetype man; $*"

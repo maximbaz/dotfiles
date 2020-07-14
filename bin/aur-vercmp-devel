@@ -14,8 +14,8 @@ get_latest_revision() {
 db_tmp=$(mktemp)
 trap 'rm -rf "$db_tmp"' EXIT
 
-aur repo --list "$@" >"$db_tmp"
+aur repo --list "$@" > "$db_tmp"
 
 if cd "$AURDEST"; then
-    aur vercmp -p <(filter_vcs "$db_tmp" | get_latest_revision) <"$db_tmp"
+    aur vercmp -p <(filter_vcs "$db_tmp" | get_latest_revision) < "$db_tmp"
 fi

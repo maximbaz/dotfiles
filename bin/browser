@@ -3,13 +3,13 @@
 menu=$(echo "qutebrowser\ncopy to clipboard\nplay" | dmenu -p browser)
 
 case $menu in
-"qutebrowser")
-    qutebrowser "$@" &
-    ;;
-"copy to clipboard")
-    echo "$@" | wl-copy
-    ;;
-"play")
-    mpv "$@" &
-    ;;
+    "qutebrowser")
+        qutebrowser "$@" &
+        ;;
+    "copy to clipboard")
+        echo "$@" | wl-copy
+        ;;
+    "play")
+        mpv "$@" &
+        ;;
 esac

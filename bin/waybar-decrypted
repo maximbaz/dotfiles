@@ -14,9 +14,9 @@ check() {
     [ ! -d "$HOME/decrypted" ] && return
 
     output
-    inotifywait -q "$HOME/decrypted/.lock" >/dev/null 2>&1
+    inotifywait -q "$HOME/decrypted/.lock" > /dev/null 2>&1
     output
-    inotifywait -q "$HOME/decrypted" >/dev/null
+    inotifywait -q "$HOME/decrypted" > /dev/null
     check
 }
 
