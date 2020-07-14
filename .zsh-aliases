@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-command -v advcp     &> /dev/null    && alias cp='advcp -g -r --reflink=auto'                      || alias cp='cp -r --reflink=auto'
-command -v advmv     &> /dev/null    && alias mv='advmv -g'
 command -v curlie    &> /dev/null    && alias curl='curlie'
 command -v pydf      &> /dev/null    && alias df='pydf'
 command -v git       &> /dev/null    && alias diff='git diff --no-index'
@@ -16,6 +14,7 @@ command -v exa       &> /dev/null    && alias lm='ll -s=modified'               
 
 alias e="$EDITOR"
 alias d='dig +nocmd +multiline +noall +answer'
+alias cp='cp -r --reflink=auto'
 alias mkdir='mkdir -p'
 alias hexdump='od -A x -t x1z -v'
 alias http-serve='python -m http.server'
