@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+exit_status=0
+
+dst_file=$(mktemp)
+trap 'rm -rf "$dst_file"' EXIT
+
+arr=$(find . ! -name . -prune -printf '%P\n' | sort)
+lines=$(printf "%s\n" "$arr" | wc -l)
+width=$(( ${#lines} + 3 ))
+
+printf "%s" "$arr" | awk '{printf("%-'"${width}"'d %s\n", NR, $0)}' > "$dst_file"
+
+items=("~")
+while IFS='' read -r line; do
+    items+=("$line")
+done < <(printf "%s\n" "$arr")
+
+$EDITOR "$dst_file"
+
+while read -r num name; do
+    if [ -z "$name" ]; then
+        if [ -z "$num" ]; then
+            continue
+        fi
+
+        printf "%s: unable to parse line, aborting\n" "$0"
+        exit 1
+    fi
+
+    # check if $num is an integer
+    if [ ! "$num" -eq "$num" ] 2> /dev/null; then
+        printf "%s: unable to parse line, aborting\n" "$0"
+        exit 1
+    fi
+
+    src=${items[$num]}
+
+    if [ -z "$src" ]; then
+        printf "%s: unknown item number %s\n" "$0" "$num" > /dev/stderr
+        continue
+    elif [ "$name" != "$src" ]; then
+        if [ -z "$name" ]; then
+            continue
+        fi
+
+        if [ ! -e "$src" ] && [ ! -L "$src" ]; then
+            printf "%s: %s does not exit\n" "$0" "$src" > /dev/stderr
+
+            unset "items[$num]"
+            continue
+        fi
+
+        # handle swaps
+        if [ -e "$name" ] || [ -L "$name" ]; then
+            tmp="$name~"
+            c=0
+
+            while [ -e "$tmp" ] || [ -L "$tmp" ]; do
+                c=$(( c + 1 ))
+                tmp="$tmp~$c"
+            done
+
+            if mv "$name" "$tmp"; then
+                printf "'%s' -> '%s'\n" "$name" "$tmp"
+            else
+                printf "%s: failed to rename %s to %s: %s\n" "$0" "$name" "$tmp" "$!" > /dev/stderr
+                exit_status=1
+            fi
+
+            for key in "${!items[@]}"; do
+                if [ "${items[$key]}" = "$name" ]; then
+                    items[$key]="$tmp"
+                fi
+            done
+        fi
+
+        dir=$(dirname "$name")
+        if [ ! -d "$dir" ] && ! mkdir -p "$dir"; then
+            printf "%s: failed to create directory tree %s\n" "$0" "$dir" > /dev/stderr
+            exit_status=1
+        elif ! mv "$src" "$name"; then
+            printf "%s: failed to rename %s to %s: %s\n" "$0" "$name" "$tmp" "$!" > /dev/stderr
+            exit_status=1
+        else
+            if [ -d "$name" ]; then
+                for key in "${!items[@]}"; do
+                    items[$key]=$(printf "%s" "${items[$key]}" | sed "s|^$src\(\$\|\/\)|$name\1|")
+                done
+
+                printf "'%s' => '%s'\n" "$src" "$name"
+            else
+                true
+                printf "'%s' -> '%s'\n" "$src" "$name"
+            fi
+        fi
+    fi
+
+    unset "items[$num]"
+done < "$dst_file"
+
+unset "items[0]"
+for item in "${items[@]}"; do
+    rm -ri "$item"
+done
+
+exit $exit_status
