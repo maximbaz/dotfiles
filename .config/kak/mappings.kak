@@ -43,9 +43,6 @@ map global user -docstring 'select up and down'       v      ': vertical-selecti
 map global user -docstring 'new terminal in cwd'      n      ': kitty-terminal zsh<ret>'
 map global user -docstring 'disable autoformat'       d      ': disable-autoformat<ret>'
 
-map global normal -docstring "toggle layout (C-\)" ''   ':      toggle-langmap<ret>'
-map global insert -docstring "toggle layout (C-\)" ''   '<a-;>: toggle-langmap<ret>'
-map global prompt -docstring "toggle layout (C-\)" ''   '<a-;>: toggle-langmap prompt<ret>'
 
 define-command -hidden -params 1 extend-line-down %{ execute-keys "<a-:>%arg{1}X" }
 define-command -hidden -params 1 extend-line-up   %{

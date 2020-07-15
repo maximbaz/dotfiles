@@ -3,7 +3,6 @@ source "~/.config/kak/prelude.kak/rc/prelude.kak"
 source "~/.config/kak/auto-pairs/rc/auto-pairs.kak"
 source "~/.config/kak/surround.kak/rc/surround.kak"
 source "~/.config/kak/vertical-selection/vertical-selection.kak"
-source "~/.config/kak/langmap.kak/rc/langmap.kak"
 source "~/.config/kak/restclient.kak/restclient.kak"
 
 # My configs

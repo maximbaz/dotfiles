@@ -6,8 +6,6 @@ set-option global lsp_hover_anchor true
 
 set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --column'
 
-set-option global langmap %opt{langmap_ru_jcuken}
-
 hook global ModuleLoaded kitty %{
    set-option global kitty_window_type 'os'
 }

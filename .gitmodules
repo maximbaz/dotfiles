@@ -6,9 +6,6 @@
 	path = .config/kak/auto-pairs
 	url = https://github.com/alexherbo2/auto-pairs.kak
 	branch = master
-[submodule ".config/kak/langmap.kak"]
-	path = .config/kak/langmap.kak
-	url = https://github.com/andreyorst/langmap.kak.git
 [submodule ".config/kak/restclient.kak"]
 	path = .config/kak/restclient.kak
 	url = https://github.com/maximbaz/restclient.kak
