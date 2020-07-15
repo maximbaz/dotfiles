@@ -8,9 +8,6 @@ set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --c
 
 set-option global langmap %opt{langmap_ru_jcuken}
 
-set-option global surround_begin auto-pairs-disable
-set-option global surround_end auto-pairs-enable
-
 hook global ModuleLoaded kitty %{
    set-option global kitty_window_type 'os'
 }

@@ -36,7 +36,7 @@ map global user -docstring 'files-in-folder'          F      ': files-in-folder<
 map global user -docstring 'edit kakrc'               e      ': e ~/.config/kak/kakrc<ret>'
 map global user -docstring 'lsp hover'                h      ': lsp-hover<ret>'
 map global user -docstring 'codepoint'                i      ': echo %sh{ printf "codepoint: U+%04x" "$kak_cursor_char_value" }<ret>'
-map global user -docstring 'surround'                 s      ': surround<ret>'
+map global user -docstring 'surround'                 s      ': enter-user-mode surround<ret>'
 map global user -docstring 'select down'              V      ': vertical-selection-down<ret>'
 map global user -docstring 'select up'                <a-v>  ': vertical-selection-up<ret>'
 map global user -docstring 'select up and down'       v      ': vertical-selection-up-and-down<ret>'
