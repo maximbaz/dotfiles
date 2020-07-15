@@ -1,5 +1,7 @@
 colorscheme gruvbox
 
+face global Information rgb:ebdbb2,rgb:282828
+
 add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ show-matching
 add-highlighter global/ wrap -word -indent
