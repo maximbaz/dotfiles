@@ -28,6 +28,14 @@ my-ctrl-z() {
 zle -N my-ctrl-z
 bindkey '^Z' my-ctrl-z
 
+rerun-sudo() {
+    [[ -z "$BUFFER" ]] && zle up-history -w
+    [[ "$BUFFER" != "sudo "* ]] && BUFFER="sudo $BUFFER"
+    zle accept-line -w
+}
+zle -N rerun-sudo
+bindkey '^[s' rerun-sudo
+
 zle -N edit-command-line
 bindkey '^V^V' edit-command-line
 
