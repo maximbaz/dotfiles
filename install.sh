@@ -82,7 +82,7 @@ clear
 : ${password:?"password cannot be empty"}
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac | tr '\n' ' ')
-read -r -a devicelist <<<$devicelist
+read -r -a devicelist <<< $devicelist
 device=$(get_choice "Installation" "Select installation disk" "${devicelist[@]}") || exit 1
 clear
 
@@ -98,8 +98,8 @@ echo -e "\n### Setting up fastest mirrors"
 reflector --latest 30 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo -e "\n### Setting up partitions"
-umount -R /mnt 2>/dev/null || true
-cryptsetup luksClose luks 2>/dev/null || true
+umount -R /mnt 2> /dev/null || true
+cryptsetup luksClose luks 2> /dev/null || true
 
 bios=$(if [ -f /sys/firmware/efi/fw_platform_size ]; then echo "gpt"; else echo "msdos"; fi)
 part=$(if [[ $bios == "gpt" ]]; then echo "ESP"; else echo "primary"; fi)
@@ -128,19 +128,21 @@ btrfs subvolume create /mnt/home
 btrfs subvolume create /mnt/pkgs
 btrfs subvolume create /mnt/aurbuild
 btrfs subvolume create /mnt/archbuild
+btrfs subvolume create /mnt/docker
 btrfs subvolume create /mnt/logs
 btrfs subvolume create /mnt/temp
 btrfs subvolume create /mnt/snapshots
 umount /mnt
 
 mount -o noatime,nodiratime,compress=zstd,subvol=root /dev/mapper/luks /mnt
-mkdir -p /mnt/{mnt/btrfs-root,boot/efi,home,var/{cache/pacman,log,tmp,lib/{aurbuild,archbuild}},.snapshots}
+mkdir -p /mnt/{mnt/btrfs-root,boot/efi,home,var/{cache/pacman,log,tmp,lib/{aurbuild,archbuild,docker}},.snapshots}
 mount "${part_boot}" /mnt/boot/efi
 mount -o noatime,nodiratime,compress=zstd,subvol=/ /dev/mapper/luks /mnt/mnt/btrfs-root
 mount -o noatime,nodiratime,compress=zstd,subvol=home /dev/mapper/luks /mnt/home
 mount -o noatime,nodiratime,compress=zstd,subvol=pkgs /dev/mapper/luks /mnt/var/cache/pacman
 mount -o noatime,nodiratime,compress=zstd,subvol=aurbuild /dev/mapper/luks /mnt/var/lib/aurbuild
 mount -o noatime,nodiratime,compress=zstd,subvol=archbuild /dev/mapper/luks /mnt/var/lib/archbuild
+mount -o noatime,nodiratime,compress=zstd,subvol=docker /dev/mapper/luks /mnt/var/lib/docker
 mount -o noatime,nodiratime,compress=zstd,subvol=logs /dev/mapper/luks /mnt/var/log
 mount -o noatime,nodiratime,compress=zstd,subvol=temp /dev/mapper/luks /mnt/var/tmp
 mount -o noatime,nodiratime,compress=zstd,subvol=snapshots /dev/mapper/luks /mnt/.snapshots
@@ -154,7 +156,7 @@ echo -e "\n### Downloading custom repo"
 mkdir /mnt/var/cache/pacman/maximbaz
 wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P '/mnt/var/cache/pacman/maximbaz' 'https://pkgbuild.com/~maximbaz/repo/'
 
-cat >>/etc/pacman.conf <<EOF
+cat >> /etc/pacman.conf << EOF
 [maximbaz]
 SigLevel = Required
 Server = file:///mnt/var/cache/pacman/maximbaz
@@ -169,28 +171,28 @@ pacstrap -i /mnt maximbaz
 
 echo -e "\n### Generating base config files"
 ln -sfT dash /mnt/usr/bin/sh
-echo "FONT=$font" >/mnt/etc/vconsole.conf
-genfstab -U /mnt >>/mnt/etc/fstab
-echo "${hostname}" >/mnt/etc/hostname
-echo "en_US.UTF-8 UTF-8" >>/mnt/etc/locale.gen
-echo "en_DK.UTF-8 UTF-8" >>/mnt/etc/locale.gen
+echo "FONT=$font" > /mnt/etc/vconsole.conf
+genfstab -U /mnt >> /mnt/etc/fstab
+echo "${hostname}" > /mnt/etc/hostname
+echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+echo "en_DK.UTF-8 UTF-8" >> /mnt/etc/locale.gen
 ln -sf /usr/share/zoneinfo/Europe/Copenhagen /mnt/etc/localtime
 arch-chroot /mnt locale-gen
-cat <<EOF >/mnt/etc/mkinitcpio.conf
+cat << EOF > /mnt/etc/mkinitcpio.conf
 MODULES=()
 BINARIES=()
 FILES=(/crypto_keyfile.bin)
 HOOKS=(base consolefont udev autodetect modconf block encrypt filesystems keyboard)
 EOF
 arch-chroot /mnt mkinitcpio -p linux
-cat <<EOF >/mnt/etc/sudoers
+cat << EOF > /mnt/etc/sudoers
 root ALL=(ALL) ALL
 %wheel ALL=(ALL) ALL
 EOF
 
 echo -e "\n### Installing GRUB"
 chmod 600 /mnt/boot/initramfs-linux*
-cat <<EOF >/mnt/etc/default/grub
+cat << EOF > /mnt/etc/default/grub
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
@@ -205,7 +207,7 @@ GRUB_DISABLE_RECOVERY=true
 EOF
 arch-chroot /mnt grub-install ${device}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-cat <<EOF >/mnt/boot/grub/update.sh
+cat << EOF > /mnt/boot/grub/update.sh
 #!/bin/sh
 
 grub-install ${device}
