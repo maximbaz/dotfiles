@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.10.0
+pkgver=2.11.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -12,11 +12,11 @@ source=('30-font-aliases.conf'
     'InputMonoNarrow-Italic.ttf'
     'InputMonoNarrow-Regular.ttf')
 sha256sums=('2011ae62cec0d42728ffb62a1991f6a7c667acd9449aaace56cfb2d5febbdea8'
-            '423b204c54f6f9dd197f4d1df3ec178ea665d1386b9011c4116e0cbe4574d36d'
-            'dda57db7007f47185cf9be4e39184f73fecf052c4e49179cabab6ab5169cc501'
-            'c0ad5882ff0b90e2d319ba98c96b95dac2fde03b86e92c92277c4ea424e86fa9'
-            'f18d42ecce8d549c3ff4022fed2cc96ab9311fea39f00675fb67442d47a774df'
-            'a910ba1e7a1489edd7f89e49af0237aae5a918e0afd7de34bb7f115a7f9ce2e6')
+    '423b204c54f6f9dd197f4d1df3ec178ea665d1386b9011c4116e0cbe4574d36d'
+    'dda57db7007f47185cf9be4e39184f73fecf052c4e49179cabab6ab5169cc501'
+    'c0ad5882ff0b90e2d319ba98c96b95dac2fde03b86e92c92277c4ea424e86fa9'
+    'f18d42ecce8d549c3ff4022fed2cc96ab9311fea39f00675fb67442d47a774df'
+    'a910ba1e7a1489edd7f89e49af0237aae5a918e0afd7de34bb7f115a7f9ce2e6')
 
 package() {
     for font in InputMono*; do
@@ -73,7 +73,7 @@ depends=(
     'snap-pac-grub'
 
     # files
-    'advcp'
+    'progress'
     'gocryptfs'
     'ntfs-3g'
     'sshfs'
@@ -126,6 +126,7 @@ depends=(
     'curlie'
     'speedtest-cli'
     'wireguard-tools'
+    'systemd-resolvconf'
 
     # security
     'arch-audit'
@@ -137,6 +138,7 @@ depends=(
     'pinentry'
     'gcr'
     'checksec'
+    'polkit-gnome'
 
     # hardware
     'dell-command-configure'
@@ -145,6 +147,7 @@ depends=(
     'dmidecode'
     'upower'
     'acpi'
+    'droidcam'
 
     # audio
     'pulseaudio'
@@ -173,6 +176,7 @@ depends=(
     'vulkan-intel'
     'vulkan-headers'
     'flashfocus-git'
+    'qt5-wayland'
 
     # fonts
     'ttf-dejavu'
@@ -264,14 +268,30 @@ depends=(
     'python-tldextract'
     'intel-media-driver'
 
-    # screenshots & gifs
+    # screenshots & gifs & desktop sharing
     'grim'
     'swappy'
     'wf-recorder'
+    'v4l2loopback-dkms'
+    'xdg-desktop-portal-wlr'
+    'libpipewire02'
+
+    # video
+    'mpv'
+    'mpv-mpris'
+    'youtube-dl'
+    'ffmpeg'
 
     # kubernetes
     'kubectl'
     'kubectx'
+
+    # virtual machines
+    'libvirt'
+    'virt-manager'
+    'qemu'
+    'dnsmasq'
+    'ebtables'
 
     # misc
     'dmenu-term'
@@ -283,15 +303,9 @@ depends=(
     'libreoffice-fresh'
     'task'
     'transmission-gtk'
-    'mpv'
-    'mpv-mpris'
-    'youtube-dl'
-    'ffmpeg'
     'strace'
-    'virtualbox'
-    'virtualbox-host-modules-arch'
     'code'
     'wofi'
-    'v4l2loopback-dkms'
     'intel-gpu-tools'
+    'wev'
 )
