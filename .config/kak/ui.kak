@@ -13,7 +13,6 @@ set-option global indentwidth  4
 set-option global scrolloff    2,5
 
 set-option global lsp_auto_highlight_references true
-set-option global lsp_hover_anchor              true
 
 hook global BufOpenFile .* %{ evaluate-commands -buffer %val(hook_param) %{ try %{
   execute-keys '%s^\t<ret>'
