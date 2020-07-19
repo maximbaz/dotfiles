@@ -1,32 +1,33 @@
 diff --git a/fn/-z4h-comp-files b/fn/-z4h-comp-files
-index 0c8354d..a29510e 100644
+index 0c8354d..411b53b 100644
 --- a/fn/-z4h-comp-files
 +++ b/fn/-z4h-comp-files
 @@ -14,13 +14,13 @@
-
+ 
    if (( only_dirs )); then
      if (( dot_glob )); then
 -      local dirs=($path_prefix${^${(Q)words:#.*}}/*(D-/Y1N:h:t))
-+      local dirs=($path_prefix${^${(Q)words}}/*(D-/Y1N:h:t))
++      local dirs=($path_prefix${^${(Q)words:#.git}}/*(D-/Y1N:h:t))
      else
        local dirs=($path_prefix${^${(Q)words:#.*}}/*(-/Y1N:h:t))
      fi
    else
      if (( dot_glob )); then
 -      local dirs=($path_prefix${^${(Q)words:#.*}}/*(DY1N:h:t))
-+      local dirs=($path_prefix${^${(Q)words}}/*(DY1N:h:t))
++      local dirs=($path_prefix${^${(Q)words:#.git}}/*(DY1N:h:t))
      else
        local dirs=($path_prefix${^${(Q)words:#.*}}/*(Y1N:h:t))
      fi
-@@ -36,7 +36,6 @@
+@@ -36,7 +36,7 @@
        cmd+=(-path ./${(b)dir}/'*' -o)
      done
      cmd[-1]=(')' -prune)
 -    cmd+=(-o -name '.*' -prune)
++    cmd+=(-o -name '.git' -prune)
      (( dot_glob )) && cmd+=(-print)
      cmd+=(-o -print)
    fi
-@@ -63,7 +62,6 @@
+@@ -63,7 +63,6 @@
      --with-nth=2
      --delimiter='\000'
      --ansi
@@ -35,10 +36,10 @@ index 0c8354d..a29510e 100644
      --height=$(( ! $#dirs && 100 * ($#words + 2) < 60 * LINES ? $#words + 2 : 60 * LINES / 100 ))
      --tiebreak=length,begin,index
 diff --git a/fn/-z4h-init b/fn/-z4h-init
-index 73a32dd..815a4c2 100644
+index 2e4f7cf..8bd9266 100644
 --- a/fn/-z4h-init
 +++ b/fn/-z4h-init
-@@ -174,7 +174,6 @@ if (( _z4h_use[fzf-tab] )); then
+@@ -178,7 +178,6 @@ if (( _z4h_use[fzf-tab] )); then
      --nth=2,3                                      \
      --delimiter='\000'                             \
      --layout=reverse                               \
@@ -47,7 +48,7 @@ index 73a32dd..815a4c2 100644
      --multi                                        \
      --cycle                                        \
 diff --git a/fn/z4h-cd-down b/fn/z4h-cd-down
-index 2cca6cf..640e2ed 100644
+index 2cca6cf..aa40344 100644
 --- a/fn/z4h-cd-down
 +++ b/fn/z4h-cd-down
 @@ -19,7 +19,7 @@ local -i list_colors=$((!$?))
@@ -55,19 +56,20 @@ index 2cca6cf..640e2ed 100644
        if (( dot_glob )); then
          local dirs=(./*(-/DN))
 -        local non_empty=(${^${dirs:#./.*}}/*(D-/Y1N:h:t))
-+        local non_empty=(${^dirs}/*(D-/Y1N:h:t))
++        local non_empty=(${^${dirs:#./.git}}/*(D-/Y1N:h:t))
        else
          local dirs=(./*(-/N))
          local non_empty=(${^dirs}/*(-/Y1N:h:t))
-@@ -39,7 +39,6 @@ local -i list_colors=$((!$?))
+@@ -39,7 +39,7 @@ local -i list_colors=$((!$?))
            cmd+=(-path ./${(b)dir}/'*' -o)
          done
          cmd[-1]=(')' -prune)
 -        cmd+=(-o -name '.*' -prune)
++        cmd+=(-o -name '.git' -prune)
          (( dot_glob )) && cmd+=(-print)
          cmd+=(-o -print)
        fi
-@@ -62,7 +61,6 @@ local -i list_colors=$((!$?))
+@@ -62,7 +62,6 @@ local -i list_colors=$((!$?))
          --with-nth=2
          --delimiter='\000'
          --ansi
