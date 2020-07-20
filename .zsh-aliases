@@ -207,6 +207,7 @@ pacs() (
     trap 'rm -rf $tmp' EXIT
     cd $tmp
     touch pkgs
+    sudo -E pacman -Sy
 
     {
         NO_COLOR=true aur search -n -k NumVotes "$@"
