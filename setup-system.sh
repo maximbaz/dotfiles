@@ -85,8 +85,6 @@ copy "etc/systemd/network"
 copy "etc/systemd/resolved.conf"
 copy "etc/systemd/system/getty@tty1.service.d/override.conf"
 copy "etc/systemd/system/usbguard.service.d/override.conf"
-copy "etc/systemd/system/paccache.service"
-copy "etc/systemd/system/paccache.timer"
 copy "etc/systemd/system/reflector.service"
 copy "etc/systemd/system/reflector.timer"
 copy "etc/systemd/system/system-dotfiles-sync.service"
@@ -97,6 +95,7 @@ copy "etc/usbguard/usbguard-daemon.conf" 600
 if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@pkgbuild"
     copy "etc/systemd/system/backup-repo@.service"
+    copy "etc/systemd/system/backup-repo@.timer"
 fi
 
 (( "$reverse" ))&& exit 0
@@ -121,7 +120,6 @@ systemctl_enable_start "docker.service"
 systemctl_enable_start "fstrim.timer"
 systemctl_enable_start "iwd.service"
 systemctl_enable_start "linux-modules-cleanup.service"
-systemctl_enable_start "paccache.timer"
 systemctl_enable_start "pcscd.service"
 systemctl_enable_start "reflector.timer"
 systemctl_enable_start "snapper-cleanup.timer"
@@ -138,7 +136,7 @@ if [ ! -s "/etc/usbguard/rules.conf" ]; then
 fi
 
 if [[ $HOSTNAME == home-* ]]; then
-    systemctl_enable "backup-repo@pkgbuild.service"
+    systemctl_enable_start "backup-repo@pkgbuild.timer"
 
     if [ -d "/home/maximbaz/.ccnet" ]; then
         systemctl_enable_start "seaf-cli@maximbaz.service"

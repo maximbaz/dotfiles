@@ -1,0 +1,8 @@
+[Unit]
+Description=Periodic backup pacman repository to %I
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target
