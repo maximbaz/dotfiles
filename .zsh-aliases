@@ -249,6 +249,5 @@ post_aur() {
     sudo -E pacman -Sy
     pkill -RTMIN+1 -x waybar
     find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
-    find /var/cache/pacman/maximbaz -name '*~' -delete >/dev/null
     find /var/cache/pacman/maximbaz -group root -delete >/dev/null
 }
