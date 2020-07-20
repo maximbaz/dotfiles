@@ -181,6 +181,21 @@ tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
 
 pac() {
     sudo -E pacman "$@"
+
+    is_removal=0
+    while [[ "$1" == -* ]]; do
+        [[ "$1" == "-R"* ]] && is_removal=1
+        shift
+    done
+    if (( is_removal )); then
+        echo "\nCleaning up AUR repo..."
+        repo-remove -s /var/cache/pacman/maximbaz/maximbaz.db.tar "$@"
+    fi
+
+    echo "\nCleaning up repo cache..."
+    sudo -E paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
+    sudo -E paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
+
     pkill -RTMIN+1 -x waybar
     rehash
 }
