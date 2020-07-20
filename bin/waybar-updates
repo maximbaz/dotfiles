@@ -6,6 +6,7 @@ vcs="$(aur vercmp-devel)"
 off="$(checkofficial)"
 dif="$(pacdiff -o)"
 reb="$(checkrebuild)"
+rep="$(repoctl status | grep -v 'On repo' | grep -v '^$' | grep -v 'Everything up-to-date')"
 
 pac_n=$(printf "$pac" | grep -c '^')
 aur_n=$(printf "$aur" | grep -c '^')
@@ -13,11 +14,14 @@ vcs_n=$(printf "$vcs" | grep -c '^')
 off_n=$(printf "$off" | grep -c '^')
 dif_n=$(printf "$dif" | grep -c '^')
 reb_n=$(printf "$reb" | grep -c '^')
+rep_n=$(printf "$rep" | grep -c '^')
 
 text=""
 tooltip=""
 
-[ -n "$off" ]               && text="/${off_n}"
+[ -n "$rep" ]               && text="/${rep_n}${text}"
+[ -n "$rep" ]               && tooltip="AUR repo needs cleaning:\n\n$rep\n\n${tooltip}"
+[ -n "$off" ]               && text="/${off_n}${text}"
 [ -n "$off" ]               && tooltip="Became official:\n\n$off\n\n${tooltip}"
 [ -n "$text" -o -n "$reb" ] && text="/${reb_n}${text}"
 [ -n "$reb" ]               && tooltip="Rebuild required:\n\n$reb\n\n${tooltip}"
