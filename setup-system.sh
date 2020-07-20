@@ -10,7 +10,7 @@ dotfiles_dir="$(
 )"
 cd "$dotfiles_dir"
 
-if (("$EUID")); then
+if (( "$EUID" )); then
     sudo -s "$dotfiles_dir/$script_name" "$@"
     exit 0
 fi
@@ -44,7 +44,7 @@ copy() {
 }
 
 is_chroot() {
-    grep rootfs /proc/mounts >/dev/null
+    grep rootfs /proc/mounts > /dev/null
 }
 
 systemctl_enable() {
@@ -99,14 +99,14 @@ if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@.service"
 fi
 
-(("$reverse")) && exit 0
+(( "$reverse" ))&& exit 0
 
 echo ""
 echo "================================="
 echo "Enabling and starting services..."
 echo "================================="
 
-sysctl --system >/dev/null
+sysctl --system > /dev/null
 
 systemctl daemon-reload
 systemctl_enable_start "bluetooth.service"
@@ -173,13 +173,12 @@ timedatectl set-ntp true
 
 echo "Configuring aurutils"
 ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
-ln -sf /usr/bin/archbuild /usr/local/bin/aur-x86_64-build
 
 if is_chroot; then
     echo >&2 "=== Running in chroot, skipping firewall setup..."
 else
     echo "Configuring firewall"
-    ufw --force reset >/dev/null
+    ufw --force reset > /dev/null
     ufw default allow outgoing
     ufw default deny incoming
     ufw enable
