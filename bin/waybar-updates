@@ -6,7 +6,7 @@ vcs="$(aur vercmp-devel)"
 off="$(checkofficial)"
 dif="$(pacdiff -o)"
 reb="$(checkrebuild)"
-rep="$(repoctl status | grep -v 'On repo' | grep -v '^$' | grep -v 'Everything up-to-date')"
+rep="$(repoctl status | grep -v 'On repo' | grep -v '^$' | grep -v 'Everything up-to-date' | sed 's/^\s*//g')"
 
 pac_n=$(printf "$pac" | grep -c '^')
 aur_n=$(printf "$aur" | grep -c '^')
