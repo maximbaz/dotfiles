@@ -37,7 +37,6 @@ alias pacr='SNAP_PAC_SKIP=true pac -Rs'
 alias pacr!='pac -Rs -dd'
 alias pacf='SNAP_PAC_SKIP=true pac -U'
 alias pacF='pacman -F'
-alias pacu='pac -Syu'
 alias pacq='pacman -Si'
 alias pacl='pacman -Ql'
 alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 -x waybar'
@@ -234,21 +233,37 @@ pacs() (
             repo_pkgs+=("$name")
         fi
     done
-    (( ${#aur_pkgs[@]} )) && aurs "${aur_pkgs[@]}"
+    if (( ${#aur_pkgs[@]} )); then
+        aur sync -Sc "${aur_pkgs[@]}"
+        post_aur
+    fi
     SNAP_PAC_SKIP=true pac -Sy "${aur_pkgs[@]}" "${repo_pkgs[@]}"
 )
 
+pacu() {
+    xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -Scu --rebuild "$@"
+    post_aur
+    pac -Syu
+}
+
 pacQ() { [[ $# == 1 ]] && pacman -Qo "$(which "$1")" }
 
-aurs() { aur sync -Sc "$@"; post_aur }
-alias aurs!='aurs --nover-argv -f'
-
-aurb() { aur build -Scf --pkgver "$@"; post_aur }
-auru() { xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -Scu --rebuild "$@"; post_aur }
-
-post_aur() {
+aurs() {
+    aur sync -Sc "$@"
     sudo -E pacman -Sy
     pkill -RTMIN+1 -x waybar
+    post_aur
+}
+alias aurs!='aurs --nover-argv -f'
+
+aurb() {
+    aur build -Scf --pkgver "$@"
+    sudo -E pacman -Sy
+    pkill -RTMIN+1 -x waybar
+    post_aur
+}
+
+post_aur() {
     find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
     find /var/cache/pacman/maximbaz -group root -delete >/dev/null
 }
