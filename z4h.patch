@@ -1,5 +1,5 @@
 diff --git a/fn/-z4h-comp-files b/fn/-z4h-comp-files
-index 0c8354d..411b53b 100644
+index 532a565..3dc2a56 100644
 --- a/fn/-z4h-comp-files
 +++ b/fn/-z4h-comp-files
 @@ -14,13 +14,13 @@
@@ -18,16 +18,7 @@ index 0c8354d..411b53b 100644
      else
        local dirs=($path_prefix${^${(Q)words:#.*}}/*(Y1N:h:t))
      fi
-@@ -36,7 +36,7 @@
-       cmd+=(-path ./${(b)dir}/'*' -o)
-     done
-     cmd[-1]=(')' -prune)
--    cmd+=(-o -name '.*' -prune)
-+    cmd+=(-o -name '.git' -prune)
-     (( dot_glob )) && cmd+=(-print)
-     cmd+=(-o -print)
-   fi
-@@ -63,7 +63,6 @@
+@@ -48,7 +48,6 @@
      --with-nth=2
      --delimiter='\000'
      --ansi
@@ -36,10 +27,10 @@ index 0c8354d..411b53b 100644
      --height=$(( ! $#dirs && 100 * ($#words + 2) < 60 * LINES ? $#words + 2 : 60 * LINES / 100 ))
      --tiebreak=length,begin,index
 diff --git a/fn/-z4h-init b/fn/-z4h-init
-index 2e4f7cf..8bd9266 100644
+index 3051ea0..d59ddef 100644
 --- a/fn/-z4h-init
 +++ b/fn/-z4h-init
-@@ -178,7 +178,6 @@ if (( _z4h_use[fzf-tab] )); then
+@@ -182,7 +182,6 @@ if (( _z4h_use[fzf-tab] )); then
      --nth=2,3                                      \
      --delimiter='\000'                             \
      --layout=reverse                               \
@@ -48,7 +39,7 @@ index 2e4f7cf..8bd9266 100644
      --multi                                        \
      --cycle                                        \
 diff --git a/fn/z4h-cd-down b/fn/z4h-cd-down
-index 2cca6cf..aa40344 100644
+index 08bc9e0..7459c3f 100644
 --- a/fn/z4h-cd-down
 +++ b/fn/z4h-cd-down
 @@ -19,7 +19,7 @@ local -i list_colors=$((!$?))
@@ -60,16 +51,7 @@ index 2cca6cf..aa40344 100644
        else
          local dirs=(./*(-/N))
          local non_empty=(${^dirs}/*(-/Y1N:h:t))
-@@ -39,7 +39,7 @@ local -i list_colors=$((!$?))
-           cmd+=(-path ./${(b)dir}/'*' -o)
-         done
-         cmd[-1]=(')' -prune)
--        cmd+=(-o -name '.*' -prune)
-+        cmd+=(-o -name '.git' -prune)
-         (( dot_glob )) && cmd+=(-print)
-         cmd+=(-o -print)
-       fi
-@@ -62,7 +62,6 @@ local -i list_colors=$((!$?))
+@@ -49,7 +49,6 @@ local -i list_colors=$((!$?))
          --with-nth=2
          --delimiter='\000'
          --ansi
