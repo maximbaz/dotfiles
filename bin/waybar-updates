@@ -19,9 +19,9 @@ rep_n=$(printf "$rep" | grep -c '^')
 text=""
 tooltip=""
 
-[ -n "$rep" ]               && text="/${rep_n}${text}"
+[ -n "$text" -o -n "$rep" ] && text="/${rep_n}${text}"
 [ -n "$rep" ]               && tooltip="AUR repo needs cleaning:\n\n$rep\n\n${tooltip}"
-[ -n "$off" ]               && text="/${off_n}${text}"
+[ -n "$text" -o -n "$off" ] && text="/${off_n}${text}"
 [ -n "$off" ]               && tooltip="Became official:\n\n$off\n\n${tooltip}"
 [ -n "$text" -o -n "$reb" ] && text="/${reb_n}${text}"
 [ -n "$reb" ]               && tooltip="Rebuild required:\n\n$reb\n\n${tooltip}"

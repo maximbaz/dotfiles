@@ -1,0 +1,12 @@
+Defaults timestamp_timeout=0
+
+%wheel ALL=(ALL) ALL
+%wheel ALL=(ALL) NOPASSWD:SETENV: \
+    /usr/bin/systemctl stop pcscd.service, \
+    /usr/bin/pacman -Sy, \
+    /usr/bin/pacman -Syu, \
+    /usr/bin/arch-nspawn, \
+    /usr/bin/makechrootpkg, \
+    /usr/bin/mkarchroot, \
+    /usr/bin/paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz, \
+    /usr/bin/paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
