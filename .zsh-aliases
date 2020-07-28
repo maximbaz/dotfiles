@@ -179,7 +179,7 @@ p() { ping "${1:-1.1.1.1}" }
 tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
 
 pac() {
-    sudo -E pacman "$@"
+    sudo -E pacman "$@" || return 1
 
     is_removal=0
     while [[ "$1" == -* ]]; do
