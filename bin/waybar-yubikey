@@ -2,11 +2,26 @@
 
 trap 'pkill -P $$' EXIT
 
+reasons=()
+
 nc -U /run/user/1000/yubikey-touch-detector.socket | while read -n5 cmd; do
-    if [ "${cmd:4:1}" = "0" ]; then
+    reason="${cmd:0:3}"
+
+    if [ "${cmd:4:1}" = "1" ]; then
+        reasons+=("$reason")
+    else
+        for i in "${!reasons[@]}"; do
+            if [ "${reasons[i]}" = "$reason" ]; then
+                unset 'reasons[i]'
+                break
+            fi
+        done
+    fi
+
+    if [ "${#reasons[@]}" -eq 0 ]; then
         printf '{"text": ""}\n'
     else
-        tooltip="Yubikey is waiting for a touch, reason: ${cmd:0:3}"
+        tooltip="Yubikey is waiting for a touch, reasons: ${reasons[@]}"
         printf '{"text": "  ", "tooltip": "%s"}\n' "$tooltip"
     fi
 done
