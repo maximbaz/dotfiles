@@ -4,7 +4,7 @@ trap 'pkill -P $$' EXIT
 
 reasons=()
 
-nc -U /run/user/1000/yubikey-touch-detector.socket | while read -n5 cmd; do
+nc -U /run/user/$UID/yubikey-touch-detector.socket | while read -n5 cmd; do
     reason="${cmd:0:3}"
 
     if [ "${cmd:4:1}" = "1" ]; then
