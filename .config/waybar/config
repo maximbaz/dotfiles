@@ -6,6 +6,7 @@
         "sway/mode"
     ],
     "modules-right": [
+        "custom/progress",
         "custom/usbguard",
         "custom/yubikey",
         "custom/decrypted",
@@ -25,6 +26,11 @@
         "tray"
     ],
 
+    "custom/progress": {
+        "exec": "waybar-progress",
+        "return-type": "json",
+        "interval": 1
+    },
     "custom/usbguard": {
         "exec": "waybar-usbguard",
         "return-type": "json",
