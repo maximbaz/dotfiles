@@ -94,8 +94,8 @@
     "memory": {
         "format": " {}%",
         "states": {
-            "warning": 60,
-            "critical": 80
+            "warning": 70,
+            "critical": 90
         }
     },
     "backlight": {
