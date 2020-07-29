@@ -48,12 +48,16 @@ window#waybar {
 #custom-mail,
 #custom-vpn.off,
 #battery.warning,
+#memory.warning,
+#cpu.warning,
 #custom-dnd.on,
 #custom-tablet.on {
   border-bottom: 3px solid @yellow;
 }
 
 #battery.critical,
+#memory.critical,
+#cpu.critical,
 #custom-yubikey,
 #custom-recording {
   border-bottom: 3px solid @red;

@@ -79,10 +79,18 @@
         "format": " {:%a, %d %b    %H:%M}"
     },
     "cpu": {
-        "format": " {usage}%"
+        "format": " {usage}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%",
+        "states": {
+            "warning": 60,
+            "critical": 80
+        }
     },
     "backlight": {
         "format": "{icon} {percent}%",
