@@ -13,6 +13,14 @@ z4h install romkatv/archive || return
 
 z4h init || return
 
+if (( P9K_SSH )); then
+    zstyle ':z4h' term-title-preexec '%* | %n@%m: ${1//\%/%%}'
+    zstyle ':z4h' term-title-precmd  '%n@%m: %~'
+else
+    zstyle ':z4h' term-title-preexec '%* | ${1//\%/%%}'
+    zstyle ':z4h' term-title-precmd  '%~'
+fi
+
 fpath+=($Z4H/romkatv/archive)
 autoload -Uz archive lsarchive unarchive edit-command-line
 
