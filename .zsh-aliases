@@ -137,9 +137,7 @@ alias gsr='git submodule-remove'
 
 gcl() {
     git clone --recursive "$@"
-    repo="${@: -1}"
-    repo="${repo##*/}"
-    cd -- "${repo%.*}"
+    cd -- "${${${@: -1}##*/}%.*}"
 }
 
 grf() {
