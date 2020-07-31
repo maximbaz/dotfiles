@@ -94,7 +94,6 @@ alias gcf='git commit --fixup'
 alias gcfh='git commit --fixup HEAD'
 alias gacf='git add --all && git commit --fixup'
 alias gacfh='git add --all && git commit --fixup HEAD'
-alias gcl='git clone --recursive'
 alias gco='git checkout'
 alias gcom='git checkout master'
 alias gcob='git checkout -b'
@@ -135,6 +134,13 @@ alias gst='git status'
 alias gsa='git submodule add'
 alias gsu='git submodule update --remote'
 alias gsr='git submodule-remove'
+
+gcl() {
+    git clone --recursive "$@"
+    repo="${@: -1}"
+    repo="${repo##*/}"
+    cd -- "${repo%.*}"
+}
 
 grf() {
     upstream="$(git remote get-url upstream 2>/dev/null || git remote get-url origin)"
