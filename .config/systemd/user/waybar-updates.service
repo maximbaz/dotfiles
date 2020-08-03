@@ -1,0 +1,5 @@
+[Unit]
+Description=Refresh list of outdated packages in waybar
+
+[Service]
+ExecStart=%h/bin/waybar-updates refresh

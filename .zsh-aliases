@@ -39,7 +39,7 @@ alias pacf='SNAP_PAC_SKIP=true pac -U'
 alias pacF='pacman -F'
 alias pacq='pacman -Si'
 alias pacl='pacman -Ql'
-alias pacdiff='sudo \pacdiff; pkill -RTMIN+1 -x waybar'
+alias pacdiff='sudo \pacdiff; waybar-updates refresh'
 
 alias k='kubectl'
 alias kc='kubectx "$(kubectx | fzf --height=10%)"'
@@ -203,7 +203,7 @@ pac() {
     sudo -E paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
     sudo -E paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz
 
-    pkill -RTMIN+1 -x waybar
+    waybar-updates refresh
     rehash
 }
 command -v pacman &> /dev/null && compdef pac=pacman
@@ -259,7 +259,7 @@ pacQ() { [[ $# == 1 ]] && pacman -Qo "$(which "$1")" }
 aurs() {
     aur sync -Sc "$@"
     sudo -E pacman -Sy
-    pkill -RTMIN+1 -x waybar
+    waybar-updates refresh
     post_aur
 }
 alias aurs!='aurs --nover-argv -f'
@@ -267,7 +267,7 @@ alias aurs!='aurs --nover-argv -f'
 aurb() {
     aur build -Scf --pkgver "$@"
     sudo -E pacman -Sy
-    pkill -RTMIN+1 -x waybar
+    waybar-updates refresh
     post_aur
 }
 

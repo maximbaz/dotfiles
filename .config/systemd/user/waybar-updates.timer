@@ -1,0 +1,9 @@
+[Unit]
+Description=Periodically refresh list of outdated packages in waybar
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
