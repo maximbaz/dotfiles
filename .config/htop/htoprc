@@ -1,6 +1,6 @@
 # Beware! This file is rewritten by htop when settings are changed in the interface.
 # The parser is also very primitive, and not human-friendly.
-fields=0 48 46 47 39 40 1 
+fields=0 48 46 47 39 40 1
 sort_key=46
 sort_direction=1
 hide_threads=1
@@ -20,7 +20,7 @@ update_process_names=0
 account_guest_in_cpu_meter=0
 color_scheme=0
 delay=15
-left_meters=Uptime LeftCPUs Memory Tasks 
-left_meter_modes=2 1 1 2 
-right_meters=Clock RightCPUs Swap LoadAverage 
-right_meter_modes=2 1 1 2 
+left_meters=Uptime LeftCPUs Memory Tasks
+left_meter_modes=2 1 1 2
+right_meters=Clock RightCPUs Swap LoadAverage
+right_meter_modes=2 1 1 2
