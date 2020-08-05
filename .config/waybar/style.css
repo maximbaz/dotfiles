@@ -55,6 +55,7 @@ window#waybar {
   border-bottom: 3px solid @yellow;
 }
 
+#custom-systemd,
 #battery.critical,
 #memory.critical,
 #cpu.critical,
@@ -72,6 +73,7 @@ window#waybar {
 #custom-usbguard,
 #custom-yubikey,
 #custom-decrypted,
+#custom-systemd,
 #custom-updates,
 #custom-mail,
 #network,

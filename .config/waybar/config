@@ -10,6 +10,7 @@
         "custom/usbguard",
         "custom/yubikey",
         "custom/decrypted",
+        "custom/systemd",
         "custom/updates",
         "custom/mail",
         "custom/recording",
@@ -44,6 +45,11 @@
     "custom/decrypted": {
         "exec": "waybar-decrypted",
         "return-type": "json"
+    },
+    "custom/systemd": {
+        "exec": "waybar-systemd",
+        "return-type": "json",
+        "interval": 10
     },
     "custom/updates": {
         "exec": "waybar-updates show",
