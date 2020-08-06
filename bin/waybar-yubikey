@@ -1,7 +1,5 @@
 #!/bin/bash
 
-trap 'pkill -P $$' EXIT
-
 reasons=()
 
 nc -U /run/user/$UID/yubikey-touch-detector.socket | while read -n5 cmd; do

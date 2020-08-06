@@ -300,7 +300,6 @@ exec_always "pgrep -x flashfocus || flashfocus"
 exec_always "pgrep -x udiskie || udiskie"
 exec_always "pgrep -x mako || mako"
 exec_always "pgrep -x systembus-notif || systembus-notify -q"
-exec_always "pkill waybar; waybar"
 
 # Load host-specific configs
 include ~/.config/sway/`hostgroup`.conf

@@ -1,6 +1,4 @@
-#!/bin/bash
-
-trap 'pkill -P $$' EXIT
+#!/bin/sh
 
 vpn() {
     if [ -e "/sys/class/net/warp" ]; then
@@ -13,7 +11,7 @@ vpn() {
     printf '{"text": " %s ", "class": "%s"}\n' "$icon" "$class"
 }
 
-if [[ $HOSTNAME == home-* ]]; then
+if grep '^home-' /etc/hostname > /dev/null; then
     vpn
     ip monitor link | while read -r line; do vpn; done
 fi

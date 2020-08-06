@@ -1,6 +1,4 @@
-#!/bin/bash
-
-trap 'pkill -P $$' EXIT
+#!/bin/sh
 
 listen() {
     dbus-monitor --system --profile "interface='org.usbguard.Devices1'" |

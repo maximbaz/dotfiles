@@ -1,6 +1,4 @@
-#!/bin/bash
-
-trap 'pkill -P $$' EXIT
+#!/bin/sh
 
 output() {
     if [ -f "$HOME/decrypted/.lock" ]; then

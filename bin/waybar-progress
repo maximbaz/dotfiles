@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 output="$(progress -q)"
 text="$(printf "%s" "$output" | awk 'BEGIN { ORS=" " } NR%3==1 { op=$2 } NR%3==2 { pct=($1+0); if (op != "gpg" && pct > 0 && pct < 100) { print op, $1 } }')"

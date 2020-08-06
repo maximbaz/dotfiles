@@ -1,6 +1,4 @@
-#!/bin/bash
-
-trap 'pkill -P $$' EXIT
+#!/bin/sh
 
 check() {
     [ ! -d "$HOME/.mail" ] && return
