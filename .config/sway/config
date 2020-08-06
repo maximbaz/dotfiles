@@ -289,6 +289,9 @@ bindsym --to-code {
     $win+m mode $mode_workspaces_monitors
 }
 
+# Signal that sway finished loading
+exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+
 # Autostart some apps
 exec_always "pgrep -x polkit-gnome-au || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 exec_always "pgrep -x sway-autoname-w || sway-autoname-workspaces -d"
