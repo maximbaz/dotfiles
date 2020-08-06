@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.11.0
+pkgver=2.12.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -140,6 +140,10 @@ depends=(
     'checksec'
     'polkit-gnome'
 
+    # oom prevention
+    'earlyoom'
+    'systembus-notify'
+
     # hardware
     'dell-command-configure'
     'fwupd'
@@ -168,7 +172,7 @@ depends=(
     'python-i3ipc'
     'mako'
     'gtk-theme-arc-gruvbox-git'
-    'redshift'
+    'gammastep'
     'waybar'
     'light'
     'slurp'
@@ -250,8 +254,6 @@ depends=(
     # passwords
     'pass'
     'pwgen'
-    'browserpass'
-    'browserpass-chromium'
     'msitools'
 
     # email
