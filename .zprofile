@@ -14,6 +14,6 @@ export XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORM=wayland-egl
 export WLR_DRM_NO_MODIFIERS=1
 
-export PATH="$HOME/bin:$PATH:/usr/share/sway/scripts/"
+export PATH="$HOME/bin:$PATH"
 
 [[ -z $DISPLAY && "$(tty)" == "/dev/tty1" ]] && systemd-cat -t sway sway

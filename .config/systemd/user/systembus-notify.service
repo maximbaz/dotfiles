@@ -1,0 +1,10 @@
+[Unit]
+Description=Show desktop notifications for earlyoom
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/systembus-notify -q
+
+[Install]
+WantedBy=graphical-session.target

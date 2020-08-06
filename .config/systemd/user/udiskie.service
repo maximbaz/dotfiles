@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatically mount newly inserted USB drives
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/udiskie
+
+[Install]
+WantedBy=graphical-session.target
