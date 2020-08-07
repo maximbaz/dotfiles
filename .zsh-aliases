@@ -283,7 +283,12 @@ pacu() {
     pac -Syu
 }
 
-pacQ() { [[ $# == 1 ]] && pacman -Qo "$(which "$1")" }
+pacQ() {
+    [[ $# == 1 ]] || return 1;
+    [ -e "$1" ] && file="$1" || file="$(which "$1")"
+    [ -e "$file" ] || { echo >&2 "File '$1' not found, aborting."; return 1; }
+    pacman -Qo "$file"
+}
 
 aurs() {
     aur sync -Sc "$@"
