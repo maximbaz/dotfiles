@@ -86,50 +86,20 @@ alias dcs='dc ps'
 
 alias sys='sudo systemctl'
 alias sysu='systemctl --user'
-alias status='service status'
-alias start='service start'
-alias stop='service stop'
-alias restart='service restart'
-
-service() {
-    export SYSTEMD_COLORS=1
-
-    initial_flags=()
-    sudo_prefix="sudo"
-    while [[ "$1" == -* ]]; do
-        initial_flags+=("$1")
-        [ "$1" = "--user" ] && sudo_prefix=""
-        shift
-    done
-
-    cmd="$1"
-    unit="$2"
-    [[ "$unit" == *.* ]] || unit="$unit.service"
-
-    exit_code=1
-    case "$cmd" in
-        status|start|stop|restart)
-            if systemctl --user --all --plain --no-legend | grep "^$unit\s" >/dev/null; then
-                systemctl --user "$@"
-                exit_code=$?
-                echo
-            fi
-
-            if systemctl --all --plain --no-legend | grep "^$unit\s" >/dev/null; then
-                [ "$cmd" = "status" ] && sudo_prefix="" || sudo_prefix="sudo"
-                $sudo_prefix systemctl "$@"
-                exit_code=$?
-                echo
-            fi
-            ;;
-        *)
-            $sudo_prefix systemctl "${initial_flags[@]}" "$@"
-            exit_code=$?
-            ;;
-    esac
-    return $exit_code
-}
-compdef service=systemctl
+alias status='systemctl status'
+alias statusu='systemctl --user status'
+alias start='sudo systemctl start'
+alias startu='systemctl --user start'
+alias stop='sudo systemctl stop'
+alias stopu='systemctl --user stop'
+alias restart='sudo systemctl restart'
+alias restartu='systemctl --user restart'
+alias enable='sudo systemctl enable'
+alias enableu='systemctl --user enable'
+alias disable='sudo systemctl disable'
+alias disableu='systemctl --user disable'
+alias reload='sudo systemctl daemon-reload'
+alias reloadu='systemctl --user daemon-reload'
 
 ## git
 
