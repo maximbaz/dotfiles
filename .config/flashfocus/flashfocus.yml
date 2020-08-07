@@ -1,6 +1,6 @@
 flash-opacity: 0.7
 default-opacity: 1
-time: 50
+time: 100
 simple: false
 ntimepoints: 10
 flash-on-focus: true
