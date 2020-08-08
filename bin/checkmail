@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if pgrep mbsync > /dev/null; then
-    echo "Sync in progress, aborting."
-    exit 1
+if pgrep -x mbsync > /dev/null; then
+    echo "Sync is already in progress."
+    exit 0
 fi
 
 mbsync -a
