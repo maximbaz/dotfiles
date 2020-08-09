@@ -152,19 +152,34 @@ dd bs=512 count=4 if=/dev/urandom of=/mnt/crypto_keyfile.bin
 chmod 000 /mnt/crypto_keyfile.bin
 echo -n ${password} | cryptsetup luksAddKey ${part_root} /mnt/crypto_keyfile.bin
 
-echo -e "\n### Downloading custom repo"
-mkdir /mnt/var/cache/pacman/maximbaz
-wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P '/mnt/var/cache/pacman/maximbaz' 'https://pkgbuild.com/~maximbaz/repo/'
+echo -e "\n### Configuring custom repo"
+mkdir /mnt/var/cache/pacman/maximbaz-local
 
-cat >> /etc/pacman.conf << EOF
-[maximbaz]
+if [[ "${hostname}" == "home-"* ]]; then
+    wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P '/mnt/var/cache/pacman/maximbaz-local' 'https://pkgbuild.com/~maximbaz/repo/'
+    rename -- 'maximbaz.' 'maximbaz-local.' /mnt/var/cache/pacman/maximbaz-local/*
+
+    cat >> /etc/pacman.conf << EOF
+[maximbaz-local]
 SigLevel = Required
-Server = file:///mnt/var/cache/pacman/maximbaz
+Server = file:///mnt/var/cache/pacman/maximbaz-local
 
 [options]
 CacheDir = /var/cache/pacman/pkg
-CacheDir = /mnt/var/cache/pacman/maximbaz
+CacheDir = /mnt/var/cache/pacman/maximbaz-local
 EOF
+
+else
+    cat >> /etc/pacman.conf << EOF
+[maximbaz]
+SigLevel = Required
+Server = https://pkgbuild.com/~maximbaz/repo/
+
+[options]
+CacheDir = /var/cache/pacman/pkg
+EOF
+
+fi
 
 echo -e "\n### Installing packages"
 pacstrap -i /mnt maximbaz
@@ -226,7 +241,7 @@ echo "$user:$password" | chpasswd --root /mnt
 arch-chroot /mnt passwd -dl root
 
 echo -e "\n### Setting permissions on the custom repo"
-arch-chroot /mnt chown -R "$user:$user" /var/cache/pacman/maximbaz/
+arch-chroot /mnt chown -R "$user:$user" /var/cache/pacman/maximbaz-local/
 
 echo -e "\n### Setting up Secure Boot for GRUB with custom keys"
 echo MB | arch-chroot /mnt cryptboot-efikeys create
