@@ -7,5 +7,5 @@ account maximbaz
 host mail.maximbaz.com
 auth on
 user me@maximbaz.com
-passwordeval cat ~/.cache/mail.maximbaz.com
+passwordeval gpg --quiet --decrypt ~/.cache/mail.maximbaz.com.gpg
 logfile ~/.cache/msmtp.log

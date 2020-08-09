@@ -1,7 +1,7 @@
 IMAPStore maximbaz-remote
 Host mail.maximbaz.com
 User me@maximbaz.com
-PassCmd "cat ~/.cache/mail.maximbaz.com"
+PassCmd "gpg --quiet --decrypt ~/.cache/mail.maximbaz.com.gpg"
 SSLType IMAPS
 
 MaildirStore maximbaz-local
