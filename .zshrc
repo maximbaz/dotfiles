@@ -57,6 +57,7 @@ setopt GLOB_DOTS
 
 z4h source -c /etc/bash_completion.d/azure-cli
 z4h source -c /usr/share/LS_COLORS/dircolors.sh
+z4h source -c /usr/share/nnn/quitcd/quitcd.bash_zsh
 z4h source -c ~/.zsh-aliases
 z4h source -c ~/.zshrc-private
 

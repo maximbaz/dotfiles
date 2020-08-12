@@ -38,12 +38,6 @@ ssh() { z4h ssh "$@" }
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 
-n() {
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    nnn "$@"
-    [ -f "$NNN_TMPFILE" ] && { . "$NNN_TMPFILE"; rm "$NNN_TMPFILE" }
-}
-
 e64() { [[ $# == 1 ]] && base64 -w0 <<<"$1" || base64 -w0 }
 d64() { [[ $# == 1 ]] && base64 --decode <<<"$1" || base64 --decode }
 
