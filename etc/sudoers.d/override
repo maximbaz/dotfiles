@@ -5,6 +5,7 @@ Defaults timestamp_timeout=0
     /usr/bin/systemctl stop pcscd.service, \
     /usr/bin/pacman -Sy, \
     /usr/bin/pacman -Syu, \
+    /usr/bin/extra-x86_64-build, \
     /usr/bin/arch-nspawn, \
     /usr/bin/makechrootpkg, \
     /usr/bin/mkarchroot, \
