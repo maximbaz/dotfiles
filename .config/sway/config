@@ -289,8 +289,9 @@ bindsym --to-code {
     $win+m mode $mode_workspaces_monitors
 }
 
-# Signal that sway finished loading
-exec "systemctl --user import-environment; systemctl --user start sway-session.target"
-
 # Load host-specific configs
 include ~/.config/sway/`hostgroup`.conf
+
+# Load systemd integration
+include /etc/sway/config.d/*
+exec systemctl --user start sway-session.target

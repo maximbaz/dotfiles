@@ -16,6 +16,8 @@ export WLR_DRM_NO_MODIFIERS=1
 
 export PATH="$HOME/bin:$PATH"
 
+systemctl --user import-environment PATH
+
 if [[ -z $DISPLAY && "$(tty)" == "/dev/tty1" ]]; then
     systemd-cat -t sway sway
     systemctl --user stop sway-session.target
