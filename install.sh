@@ -17,7 +17,7 @@
 #
 # Run installation:
 #
-# - Connect to wifi via: `# wifi-menu`
+# - Connect to wifi via: `# iwctl station wlan0 connect WIFI-NETWORK`
 # - Run: `# bash <(curl -sL https://git.io/maximbaz-install)`
 
 set -uo pipefail
@@ -63,6 +63,14 @@ get_choice() {
     dialog --clear --stdout --backtitle "$BACKTITLE" --title "$title" --menu "$description" 0 0 0 "${options[@]}"
 }
 
+echo -e "\n### Setting up clock"
+timedatectl set-ntp true
+hwclock --systohc --utc
+
+echo -e "\n### Installing additional tools"
+pacman -Sy --noconfirm --needed git reflector terminus-font dialog
+setfont "$font"
+
 echo -e "\n### HiDPI screens"
 noyes=("Yes" "The font is too small" "No" "The font size is just fine")
 hidpi=$(get_choice "Font size" "Is your screen HiDPI?" "${noyes[@]}") || exit 1
@@ -85,14 +93,6 @@ devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac | 
 read -r -a devicelist <<< $devicelist
 device=$(get_choice "Installation" "Select installation disk" "${devicelist[@]}") || exit 1
 clear
-
-echo -e "\n### Setting up clock"
-timedatectl set-ntp true
-hwclock --systohc --utc
-
-echo -e "\n### Installing additional tools"
-pacman -Sy --noconfirm --needed git reflector terminus-font
-setfont "$font"
 
 echo -e "\n### Setting up fastest mirrors"
 reflector --latest 30 --sort rate --save /etc/pacman.d/mirrorlist
