@@ -1,5 +1,5 @@
 diff --git a/fn/-z4h-comp-files b/fn/-z4h-comp-files
-index 532a565..3dc2a56 100644
+index efe2a6c..417cd83 100644
 --- a/fn/-z4h-comp-files
 +++ b/fn/-z4h-comp-files
 @@ -14,13 +14,13 @@
@@ -23,23 +23,23 @@ index 532a565..3dc2a56 100644
      --delimiter='\000'
      --ansi
 -    --exact
+     --no-mouse
      --layout=reverse
      --height=$(( ! $#dirs && 100 * ($#words + 2) < 60 * LINES ? $#words + 2 : 60 * LINES / 100 ))
-     --tiebreak=length,begin,index
 diff --git a/fn/-z4h-init b/fn/-z4h-init
-index 3051ea0..d59ddef 100644
+index c298bf2..6f3db4b 100644
 --- a/fn/-z4h-init
 +++ b/fn/-z4h-init
-@@ -182,7 +182,6 @@ if (( _z4h_use[fzf-tab] )); then
+@@ -187,7 +187,6 @@ if (( _z4h_use[fzf-tab] )); then
      --nth=2,3                                      \
      --delimiter='\000'                             \
      --layout=reverse                               \
 -    --exact                                        \
+     --no-mouse                                     \
      --tiebreak=begin                               \
      --multi                                        \
-     --cycle                                        \
 diff --git a/fn/z4h-cd-down b/fn/z4h-cd-down
-index 08bc9e0..7459c3f 100644
+index 0788cd4..b6fdb0f 100644
 --- a/fn/z4h-cd-down
 +++ b/fn/z4h-cd-down
 @@ -19,7 +19,7 @@ local -i list_colors=$((!$?))
@@ -56,19 +56,19 @@ index 08bc9e0..7459c3f 100644
          --delimiter='\000'
          --ansi
 -        --exact
+         --no-mouse
          --layout=reverse
          --height=$(( ! $#non_empty && 100 * ($#dirs + 2) < 60 * LINES ? $#dirs + 2 : 60 * LINES / 100 ))
-         --tiebreak=length,begin,index
 diff --git a/fn/z4h-fzf-history b/fn/z4h-fzf-history
-index 9ae8015..a3bebbd 100644
+index 8a0b7b5..3e96e7f 100644
 --- a/fn/z4h-fzf-history
 +++ b/fn/z4h-fzf-history
 @@ -39,7 +39,7 @@ local preview='printf "%s" {} | command cut -f2- -d'$'\1'
          {
            -z4h-cursor-show
            $Z4H/fzf/bin/fzf --read0 --no-multi --tiebreak=index --cycle       \
--              --delimiter='\001' --with-nth=2 --exact                        \
-+              --delimiter='\001' --with-nth=2                                \
+-              --delimiter='\001' --with-nth=2 --exact --no-mouse             \
++              --delimiter='\001' --with-nth=2 --no-mouse                     \
                --height=80% --preview-window=down:40%:wrap --preview=$preview \
                --tabstop 1 --bind=${(j:,:)bind} --query=$LBUFFER 2>$TTY
          } always {
