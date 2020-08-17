@@ -28,7 +28,7 @@ link() {
 }
 
 is_chroot() {
-    grep rootfs /proc/mounts > /dev/null
+    ! cmp -s /proc/1/mountinfo /proc/self/mountinfo
 }
 
 systemctl_enable_start() {
