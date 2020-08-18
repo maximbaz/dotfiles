@@ -40,45 +40,40 @@ echo "==========================="
 echo "Setting up user dotfiles..."
 echo "==========================="
 
-link "bin"
-
-link ".gitconfig.$(hostgroup)" ".gitconfig"
-link ".gitconfig.common"
-link ".gitignore"
-link ".gnupg/gpg.conf"
-link ".gtkrc-2.0"
 link ".ignore"
 link ".magic"
-link ".mbsyncrc"
-link ".notmuch-config"
 link ".p10k.zsh"
 link ".p10k.zsh" ".p10k-ascii-8color.zsh"
-link ".pylintrc"
-link ".taskrc"
-link ".xkb"
 link ".zprofile"
 link ".zsh-aliases"
 link ".zshenv"
 link ".zshrc"
 
-link ".mozilla/firefox/profile/user.js"
-link ".mozilla/firefox/profile/chrome"
-
 link ".config/chromium-flags.conf"
+link ".config/environment.d"
 link ".config/flashfocus"
 link ".config/gammastep"
+link ".config/git/$(hostgroup)" ".config/git/config"
+link ".config/git/common"
+link ".config/git/home"
+link ".config/git/work"
+link ".config/git/ignore"
 link ".config/gsimplecal"
+link ".config/gtk-2.0"
 link ".config/gtk-3.0"
 link ".config/htop"
 link ".config/imapnotify"
 link ".config/kak"
 link ".config/kitty"
 link ".config/mako"
+link ".config/mbsync"
 link ".config/mimeapps.list"
 link ".config/mpv"
 link ".config/msmtp"
 link ".config/neomutt"
+link ".config/notmuch"
 link ".config/pacman"
+link ".config/pylint"
 link ".config/qalculate/qalc.cfg"
 link ".config/qutebrowser"
 link ".config/repoctl"
@@ -104,10 +99,12 @@ link ".config/USBGuard"
 link ".config/waybar"
 link ".config/vimiv"
 link ".config/wofi"
+link ".config/xkb"
 
-link ".gnupg/gpg-agent.conf"
-
+link ".local/bin"
 link ".local/share/applications"
+link ".local/share/gpg/gpg.conf"
+link ".local/share/gpg/gpg-agent.conf"
 link ".local/share/qutebrowser/greasemonkey"
 
 if is_chroot; then
@@ -140,8 +137,8 @@ else
         else
             echo >&2 -e "
             === Mail is not configured, skipping...
-            === Consult ~/.mbsyncrc for initial setup, and then sync everything using:
-            === while ! mbsync -a; do echo 'restarting...'; done
+            === Consult \$MBSYNC_CONFIG for initial setup, and then sync everything using:
+            === while ! mbsync -c "\$MBSYNC_CONFIG" -a; do echo 'restarting...'; done
             "
         fi
     fi
@@ -161,8 +158,8 @@ if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
 fi
 
-find "$HOME/.gnupg" -type f -not -path "*#*" -exec chmod 600 {} \;
-find "$HOME/.gnupg" -type d -exec chmod 700 {} \;
+find "$GNUPGHOME" -type f -not -path "*#*" -exec chmod 600 {} \;
+find "$GNUPGHOME" -type d -exec chmod 700 {} \;
 
 if is_chroot; then
     echo >&2 "=== Running in chroot, skipping YubiKey configuration..."

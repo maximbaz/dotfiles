@@ -1,5 +1,5 @@
 [include]
-path = ~/.gitconfig.common
+path = ~/.config/git/common
 
 [commit]
 gpgsign = true

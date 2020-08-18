@@ -27,7 +27,7 @@ index efe2a6c..417cd83 100644
      --layout=reverse
      --height=$(( ! $#dirs && 100 * ($#words + 2) < 60 * LINES ? $#words + 2 : 60 * LINES / 100 ))
 diff --git a/fn/-z4h-init b/fn/-z4h-init
-index c298bf2..6f3db4b 100644
+index c298bf2..35b37a5 100644
 --- a/fn/-z4h-init
 +++ b/fn/-z4h-init
 @@ -187,7 +187,6 @@ if (( _z4h_use[fzf-tab] )); then
@@ -38,6 +38,15 @@ index c298bf2..6f3db4b 100644
      --no-mouse                                     \
      --tiebreak=begin                               \
      --multi                                        \
+@@ -460,7 +459,7 @@ if (( _z4h_use[powerlevel10k] )); then
+   -z4h-set-term-title-precmd || return
+ fi
+ 
+-local dirs=({~/bin,~/.local/bin,~/.cargo/bin,/usr/local/bin}(/N))
++local dirs=({~/bin/,~/.local/bin/,~/.cargo/bin/,/usr/local/bin/}(/N))
+ path=(${dirs:|path} $path)
+ 
+ if (( _z4h_use[zsh-autosuggestions] )); then
 diff --git a/fn/z4h-cd-down b/fn/z4h-cd-down
 index 0788cd4..b6fdb0f 100644
 --- a/fn/z4h-cd-down

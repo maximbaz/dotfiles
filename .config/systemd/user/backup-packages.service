@@ -2,4 +2,4 @@
 Description=Backup list of installed packages
 
 [Service]
-ExecStart=/home/maximbaz/bin/backup-packages
+ExecStart=%h/.local/bin/backup-packages

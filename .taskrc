@@ -1,4 +1,0 @@
-include /usr/share/doc/task/rc/solarized-dark-256.theme
-data.location=~/.task
-confirmation=no
-weekstart=monday

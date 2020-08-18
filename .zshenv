@@ -1,28 +1,5 @@
 #!/usr/bin/env zsh
 
-command -v kak  &> /dev/null && export EDITOR='kak'     || export EDITOR='vim'
-command -v kak  &> /dev/null && export VISUAL='kak'     || export VISUAL='vim'
-command -v meld &> /dev/null && export DIFFPROG='meld'
-command -v kak  &> /dev/null && export MANPAGER='kak-man-pager'
-
-export AUR_PAGER='aurutils-nnn'
-export DIRENV_LOG_FORMAT=
-export FZF_DEFAULT_OPTS='-m --reverse'
-export GPG_TTY=$TTY
-export SYSTEMD_LESS=FRXMK
-
-export GOPATH="$HOME/.go"
-export GOPRIVATE="bitbucket.org/maersk-analytics"
-
-export NNN_TRASH=1
-export NNN_COLORS='4235'
-export NNN_PLUG='j:jump;r:remove;c:croc;d:dragdrop;'
-export NNN_BMS='d:~/Downloads;n:/home/nzbget/dst;N:/home/nzbget/nzb;r:/run/media/maximbaz;'
-export NNN_OPTS='Aer'
-
-export PASSWORD_STORE_CHARACTER_SET='a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?'
-export PASSWORD_STORE_GENERATED_LENGTH=40
-
 if [ -n "${ZSH_VERSION-}" ]; then
     : ${ZDOTDIR:=~}
     setopt no_global_rcs

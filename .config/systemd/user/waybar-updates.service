@@ -2,4 +2,4 @@
 Description=Refresh list of outdated packages in waybar
 
 [Service]
-ExecStart=%h/bin/waybar-updates refresh
+ExecStart=%h/.local/bin/waybar-updates refresh

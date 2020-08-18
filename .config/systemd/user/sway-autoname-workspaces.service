@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 After=graphical-session.target
 
 [Service]
-ExecStart=%h/bin/sway-autoname-workspaces -d
+ExecStart=%h/.local/bin/sway-autoname-workspaces -d
 
 [Install]
 WantedBy=graphical-session.target

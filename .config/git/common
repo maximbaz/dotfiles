@@ -28,7 +28,7 @@ whitespace = red reverse
 [core]
 autocrlf = input
 pager = diff-so-fancy | less -RFXMx4
-excludesfile = ~/.gitignore
+excludesfile = ~/.config/git/ignore
 untrackedCache = true
 
 [diff]
