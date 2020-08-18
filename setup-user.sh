@@ -157,6 +157,7 @@ if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
 fi
 
+find "$GNUPGHOME" -type f -path "*#*" -delete
 find "$GNUPGHOME" -type f -not -path "*#*" -exec chmod 600 {} \;
 find "$GNUPGHOME" -type d -exec chmod 700 {} \;
 
