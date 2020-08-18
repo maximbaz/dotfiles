@@ -65,6 +65,7 @@ setopt GLOB_DOTS
 
 export GPG_TTY=$TTY
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+export FZF_DEFAULT_OPTS="--reverse --multi"
 export SYSTEMD_LESS=FRXMK
 
 z4h source -c /etc/bash_completion.d/azure-cli
