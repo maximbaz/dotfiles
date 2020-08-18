@@ -116,6 +116,7 @@ mode $mode_resize {
 set $mode_system "System exit"
 mode $mode_system {
     bindsym --to-code {
+        e exec sway-exit exit, mode "default"
         l exec sway-exit lock, mode "default"
         s exec sway-exit suspend, mode "default"
         r exec sway-exit reboot, mode "default"

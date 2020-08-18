@@ -13,6 +13,10 @@ before_lock() {
 }
 
 case "$1" in
+    exit)
+        systemctl --user stop sway-session.target
+        swaymsg exit
+        ;;
     lock)
         before_lock
         swaylock
@@ -29,7 +33,7 @@ case "$1" in
         systemctl -i poweroff
         ;;
     *)
-        echo "Usage: $0 {lock|suspend|reboot|shutdown}"
+        echo "Usage: $0 {exit|lock|suspend|reboot|shutdown}"
         exit 2
         ;;
 esac
