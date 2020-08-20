@@ -65,6 +65,13 @@ alias kgs='kg service'
 alias kgs!='kgs --all-namespaces'
 alias kl='kubectl logs -f'
 
+kout() {
+    while IFS= read -rd: config; do
+        [ -f "$config" ] || continue
+        sed -i -E '/^\s*(access-token|expires-in|expires-on|refresh-token)/d' "$config"
+    done <<< "${KUBECONFIG:-$HOME/.kube/config}:"
+}
+
 ## docker-compose
 
 alias dc='docker-compose'
