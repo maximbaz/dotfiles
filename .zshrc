@@ -8,6 +8,8 @@ zstyle    ':fzf-tab:*'                                   continuous-trigger     
 zstyle    ':zle:(up|down)-line-or-beginning-search'      leave-cursor           no
 zstyle    ':z4h:term-title:ssh'                          preexec                '%* | %n@%m: ${1//\%/%%}'
 zstyle    ':z4h:term-title:local'                        preexec                '%* | ${1//\%/%%}'
+zstyle    ':zle:up-line-or-beginning-search'             leave-cursor           true
+zstyle    ':zle:down-line-or-beginning-search'           leave-cursor           true
 
 ###
 
