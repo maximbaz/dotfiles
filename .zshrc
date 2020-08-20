@@ -4,7 +4,6 @@ zstyle    ':z4h:'                                        cd-key                 
 zstyle    ':z4h:autosuggestions'                         forward-char           accept
 zstyle    ':z4h:ssh:*'                                   ssh-command            command ssh
 zstyle    ':z4h:ssh:*'                                   send-extra-files       '~/.zsh-aliases'
-zstyle -e ':z4h:ssh:*'                                   retrieve-history       'reply=($XDG_DATA_HOME/zsh-history/${z4h_ssh_host##*:})'
 zstyle    ':z4h:ssh:router'                              passthrough            yes
 zstyle    ':fzf-tab:*'                                   continuous-trigger     tab
 zstyle    ':zle:(up|down)-line-or-beginning-search'      leave-cursor           no
@@ -17,11 +16,6 @@ z4h init || return
 
 fpath+=($Z4H/romkatv/archive)
 autoload -Uz archive lsarchive unarchive edit-command-line
-
-z4h-ssh-configure() {
-    file="$XDG_DATA_HOME/zsh-history/$z4h_ssh_host"
-    [ -e "$file" ] && z4h_ssh_send_files[$file]='"$ZDOTDIR"/.zsh_history'
-}
 
 my-ctrl-z() {
     if [[ $#BUFFER -eq 0 ]]; then
