@@ -32,4 +32,6 @@ while true; do
             printf '{"text": "  ", "tooltip": "%s"}\n' "$tooltip"
         fi
     done
+
+    sleep 1
 done

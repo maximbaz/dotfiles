@@ -63,8 +63,6 @@ setopt GLOB_DOTS
 [ -z "$EDITOR" ] && export EDITOR='vim'
 [ -z "$VISUAL" ] && export VISUAL='vim'
 
-export GPG_TTY=$TTY
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 export DIRENV_LOG_FORMAT=
 export FZF_DEFAULT_OPTS="--reverse --multi"
 export SYSTEMD_LESS=FRXMK

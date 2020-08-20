@@ -127,7 +127,7 @@ else
     systemctl_enable_start "waybar-updates.timer"
     systemctl_enable_start "wl-clipboard-manager.service"
     systemctl_enable_start "wluma.service"
-    systemctl_enable_start "yubikey-touch-detector.service"
+    systemctl_enable_start "yubikey-touch-detector.socket"
 
     if [[ $HOSTNAME == home-* ]]; then
         if [ -d "$HOME/.mail" ]; then
@@ -157,9 +157,9 @@ if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
 fi
 
-find "$GNUPGHOME" -type f -path "*#*" -delete
-find "$GNUPGHOME" -type f -not -path "*#*" -exec chmod 600 {} \;
-find "$GNUPGHOME" -type d -exec chmod 700 {} \;
+find "$HOME/.gnupg" -type f -path "*#*" -delete
+find "$HOME/.gnupg" -type f -not -path "*#*" -exec chmod 600 {} \;
+find "$HOME/.gnupg" -type d -exec chmod 700 {} \;
 
 if is_chroot; then
     echo >&2 "=== Running in chroot, skipping YubiKey configuration..."
