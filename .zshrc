@@ -62,7 +62,6 @@ z4h bindkey z4h-cd-down             Alt+J
 z4h bindkey toggle-sudo             Alt+S
 z4h bindkey my-ctrl-z               Ctrl+Z
 
-zle -N edit-command-line
 bindkey -r '^V'
 bindkey '^V^V' edit-command-line
 
