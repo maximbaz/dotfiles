@@ -54,10 +54,10 @@ z4h bindkey z4h-kill-zword          Ctrl+Alt+Delete
 z4h bindkey z4h-forward-zword       Ctrl+Alt+Right
 z4h bindkey z4h-backward-zword      Ctrl+Alt+Left
 
-z4h bindkey z4h-cd-back             Alt+Left
-z4h bindkey z4h-cd-forward          Alt+Right
-z4h bindkey z4h-cd-up               Alt+Up
-z4h bindkey z4h-cd-down             Alt+Down
+z4h bindkey z4h-cd-back             Alt+H
+z4h bindkey z4h-cd-forward          Alt+L
+z4h bindkey z4h-cd-up               Alt+K
+z4h bindkey z4h-cd-down             Alt+J
 
 z4h bindkey toggle-sudo             Alt+S
 z4h bindkey my-ctrl-z               Ctrl+Z
