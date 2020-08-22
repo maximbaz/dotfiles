@@ -240,13 +240,10 @@ pac() {
 }
 command -v pacman &> /dev/null && compdef pac=pacman
 
-pacs() (
+pacs() {
     [ $# -lt 1 ] && { >&2 echo "No search term provided"; return 1; }
-    tmp=$(mktemp -d)
-    trap 'rm -rf $tmp' EXIT
-    cd $tmp
-    touch pkgs
     sudo -E pacman -Sy
+    tmp=$(mktemp -d)
 
     {
         NO_COLOR=true aur search -n -k NumVotes "$@"
@@ -255,30 +252,31 @@ pacs() (
     while read -r pkg; do
         read -r desc
         name="${pkg%% *}"
-        mkdir -p $(dirname "$name")
-        echo "$pkg" >>pkgs
-        echo "$desc" >$name
+        mkdir -p "$tmp/${name%/*}"
+        echo "$pkg" >>$tmp/pkgs
+        echo "$desc" >$tmp/$name
     done
-    [ -s pkgs ] || { >&2 echo "No packages found"; return 2; }
+    [ -s $tmp/pkgs ] || { >&2 echo "No packages found"; rm -rf "$tmp"; return 2; }
+
     aur_pkgs=()
     repo_pkgs=()
-    cat pkgs | fzf --tac --preview-window=wrap --preview='cat {1}; echo; echo; pacman -Si $(basename {1}) 2>/dev/null; true' |
+    cat $tmp/pkgs | fzf --tac --preview-window=wrap --preview="cat $tmp/{1}; echo; echo; pacman -Si \$(basename {1}) 2>/dev/null; true" |
     while read -r pkg; do
         title="${pkg%% *}"
-        repo="$(dirname "$title")"
-        name="$(basename "$title")"
-        if [ "$repo" = "aur" ]; then
-            aur_pkgs+=("$name")
+        if [ "${title%/*}" = "aur" ]; then
+            aur_pkgs+=("${title#*/}")
         else
-            repo_pkgs+=("$name")
+            repo_pkgs+=("${title#*/}")
         fi
     done
+    rm -rf "$tmp"
+
     if (( ${#aur_pkgs[@]} )); then
         aur sync -Sc "${aur_pkgs[@]}"
         post_aur
     fi
     SNAP_PAC_SKIP=true pac -Sy "${aur_pkgs[@]}" "${repo_pkgs[@]}"
-)
+}
 
 pacu() {
     xargs -a <(aur vercmp-devel | cut -d: -f1) aur sync -Scu --rebuild "$@"
