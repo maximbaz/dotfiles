@@ -77,7 +77,7 @@ set sidebar_width = 23
 set sidebar_short_path=yes
 set mail_check_stats
 set mail_check_stats_interval = 5
-set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
+set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S?'
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Co sidebar-open
