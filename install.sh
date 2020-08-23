@@ -69,13 +69,13 @@ hwclock --systohc --utc
 
 echo -e "\n### Installing additional tools"
 pacman -Sy --noconfirm --needed git reflector terminus-font dialog
-setfont "$font"
 
 echo -e "\n### HiDPI screens"
 noyes=("Yes" "The font is too small" "No" "The font size is just fine")
 hidpi=$(get_choice "Font size" "Is your screen HiDPI?" "${noyes[@]}") || exit 1
 clear
 [[ "$hidpi" == "Yes" ]] && font="ter-132n" || font="ter-716n"
+setfont "$font"
 
 hostname=$(get_input "Hostname" "Enter hostname") || exit 1
 clear
