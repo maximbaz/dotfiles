@@ -33,8 +33,7 @@ WINDOW_ICONS = {
     "spotify": "",
     "transmission-gtk": "",
     "vimiv": "",
-    "virtualbox machine": "",
-    "virtualbox manager": "",
+    "virt-manager": "",
     "wofi": "",
     "org.pwmt.zathura": "",
 }
