@@ -291,7 +291,7 @@ bindsym --to-code {
 }
 
 # Load host-specific configs
-include ~/.config/sway/`hostgroup`.conf
+include "~/.config/sway/$(cut -d'-' -f1 /etc/hostname).conf"
 
 # Load systemd integration
 include /etc/sway/config.d/*
