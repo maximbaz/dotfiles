@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.12.0
+pkgver=2.13.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -65,12 +65,9 @@ depends=(
     'reflector'
 
     # boot
-    'grub'
+    'arch-secure-boot'
     'intel-ucode'
-    'efibootmgr'
-    'cryptboot'
     'terminus-font'
-    'snap-pac-grub'
 
     # files
     'progress'
@@ -294,16 +291,15 @@ depends=(
     'qemu'
     'dnsmasq'
     'ebtables'
+    'edk2-ovmf'
 
     # misc
     'dmenu-term'
     'fzf'
     'calibre'
-    'spotify'
     'krita'
     'libqalculate'
     'libreoffice-fresh'
-    'task'
     'transmission-gtk'
     'strace'
     'code'
