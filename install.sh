@@ -68,7 +68,7 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 
 echo -e "\n### Installing additional tools"
-pacman -Sy --noconfirm --needed git reflector terminus-font dialog
+pacman -Sy --noconfirm --needed git reflector terminus-font dialog wget
 
 echo -e "\n### HiDPI screens"
 noyes=("Yes" "The font is too small" "No" "The font size is just fine")
@@ -155,19 +155,21 @@ if [[ "${hostname}" == "home-"* ]]; then
     rename -- 'maximbaz.' 'maximbaz-local.' /mnt/var/cache/pacman/maximbaz-local/*
 fi
 
-cat >> /etc/pacman.conf << EOF
+if ! grep maximbaz /etc/pacman.conf > /dev/null; then
+    cat >> /etc/pacman.conf << EOF
 [maximbaz-local]
 SigLevel = Required
-Server = file:///var/cache/pacman/maximbaz-local
+Server = file:///mnt/var/cache/pacman/maximbaz-local
 
 [maximbaz]
 SigLevel = Required
 Server = https://pkgbuild.com/~maximbaz/repo
 
 [options]
-CacheDir = /var/cache/pacman/pkg
-CacheDir = /var/cache/pacman/maximbaz-local
+CacheDir = /mnt/var/cache/pacman/pkg
+CacheDir = /mnt/var/cache/pacman/maximbaz-local
 EOF
+fi
 
 echo -e "\n### Installing packages"
 pacstrap -i /mnt maximbaz
@@ -198,7 +200,7 @@ for group in wheel network nzbget video; do
     arch-chroot /mnt gpasswd -a "$user" "$group"
 done
 arch-chroot /mnt chsh -s /usr/bin/zsh
-echo "$user:$password" | chpasswd --root /mnt
+echo "$user:$password" | arch-chroot /mnt chpasswd
 arch-chroot /mnt passwd -dl root
 
 echo -e "\n### Setting permissions on the custom repo"
@@ -210,7 +212,7 @@ arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com
 echo -e "\n### Running initial setup"
 arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
 arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup-user.sh
-arch-chroot /mnt sudo -u $user z4h update
+arch-chroot /mnt sudo -u $user zsh -ic true
 
 echo -e "\n### DONE - reboot and re-run both ~/.dotfiles/setup-*.sh scripts"
 umount -R /mnt
