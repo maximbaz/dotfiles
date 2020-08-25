@@ -155,7 +155,7 @@ file --compile --magic-file "$HOME/.magic"
 if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     echo "Importing my public PGP key"
     curl -s https://maximbaz.com/pgp_keys.asc | gpg --import
-    gpg --trusted-key "$MY_GPG_KEY_ID" > /dev/null
+    echo "5\ny\n" | gpg --command-fd 0 --no-tty --batch --edit-key "$MY_GPG_KEY_ID" trust
 fi
 
 find "$HOME/.gnupg" -type f -path "*#*" -delete
