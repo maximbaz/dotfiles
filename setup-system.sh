@@ -65,7 +65,6 @@ echo "=========================="
 
 copy "etc/bluetooth/main.conf"
 copy "etc/conf.d/snapper"
-copy "etc/default/grub-btrfs/config"
 copy "etc/default/earlyoom"
 copy "etc/docker/daemon.json"
 copy "etc/modules-load.d/v4l2loopback.conf"

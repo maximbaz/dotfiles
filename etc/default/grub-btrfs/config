@@ -1,3 +1,0 @@
-#!/bin/bash
-
-GRUB_BTRFS_IGNORE_SPECIFIC_PATH=("archbuild" "aurbuild" "docker" "root")
