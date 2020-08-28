@@ -74,10 +74,6 @@ hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|
     hook buffer -group format BufWritePre .* format
 }
 
-hook global WinSetOption filetype=markdown %{
-    set-option -add buffer surround_pairs _ _ * *
-}
-
 hook global WinSetOption filetype=sh %{
     set-option buffer formatcmd 'shfmt -i 4 -ci -sr -kp'
     hook buffer -group format BufWritePre .* format
