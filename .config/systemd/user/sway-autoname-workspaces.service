@@ -5,6 +5,7 @@ After=graphical-session.target
 
 [Service]
 ExecStart=%h/.local/bin/sway-autoname-workspaces -d
+Restart=always
 
 [Install]
 WantedBy=graphical-session.target
