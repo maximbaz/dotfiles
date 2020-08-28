@@ -218,3 +218,8 @@ name: "systembus-notify"
 url: "https://github.com/rfjakob/systembus-notify/releases/latest"
 filter: css:.markdown-body,html2text
 max_tries: 3
+---
+name: "Yubico security advisories"
+url: "https://www.yubico.com/support/security-advisories/"
+filter: css:.content,html2text
+max_tries: 3
