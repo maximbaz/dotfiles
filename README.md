@@ -16,7 +16,7 @@
 - [ttf-joypixels](https://www.archlinux.org/packages/community/any/ttf-joypixels/) - latest JoyPixels font that provides colorful emojis for almost all apps on Linux (formerly EmojiOne).
 - [aurutils](https://github.com/AladW/aurutils) - the most reasonable AUR helper out there.
 - [nnn](https://github.com/jarun/nnn/) - extremely fast file manager.
-- [grub-btrfs](https://github.com/Antynea/grub-btrfs) + [snap-pac-grub](https://github.com/maximbaz/snap-pac-grub) - take btrfs snapshots during system update and add them to GRUB.
+- [arch-secure-boot](https://github.com/maximbaz/arch-secure-boot) + [snap-pac](https://github.com/wesbarnett/snap-pac) - UEFI Secure Boot for Arch Linux + btrfs snapshots during system update.
 
 ## Fun things you can find in this repo:
 
@@ -70,7 +70,7 @@
 
 ☑ btrfs snapshots for easy system recovery.
 
-> Snapshots are automatically taken before and after each pacman transaction and added to GRUB.
+> Snapshots are automatically taken before and after each pacman transaction for easy system recovery.
 
 ## Usage:
 
