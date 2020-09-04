@@ -40,7 +40,7 @@ echo "==========================="
 echo "Setting up user dotfiles..."
 echo "==========================="
 
-link ".gnupg/gpg.conf"
+link ".gnupg/$(cut -d'-' -f1 /etc/hostname)-gpg.conf" ".gnupg/gpg.conf"
 link ".gnupg/gpg-agent.conf"
 link ".ignore"
 link ".magic"
