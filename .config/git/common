@@ -25,6 +25,9 @@ old = red bold
 new = green bold
 whitespace = red reverse
 
+[commit]
+gpgsign = true
+
 [core]
 autocrlf = input
 pager = diff-so-fancy | less -RFXMx4

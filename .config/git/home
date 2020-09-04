@@ -1,9 +1,6 @@
 [include]
 path = ~/.config/git/common
 
-[commit]
-gpgsign = true
-
 [user]
 email = git@maximbaz.com
 signingkey = 8053EB88879A68CB4873D32B011FDC52DA839335
