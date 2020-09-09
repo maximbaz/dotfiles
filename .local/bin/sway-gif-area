@@ -3,7 +3,7 @@
 pkill -x wf-recorder
 
 [ $? -ne 0 ] && {
-    pkill -x inactive-window
+    systemctl --user stop sway-inactive-window-transparency.service
 
     path="/tmp/record_$(date +%s)"
     notify-send -t 2000 'GIF recording' 'Select an area to start the recording...'
@@ -16,5 +16,5 @@ pkill -x wf-recorder
     wl-copy -t image/gif < "$path.gif"
     notify-send 'GIF recording' "Recording is ready: $path.gif"
 
-    inactive-windows-transparency.py -o 0.7 &
+    systemctl --user start sway-inactive-window-transparency.service
 } &

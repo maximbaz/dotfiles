@@ -3,7 +3,7 @@
 mkdir -p /tmp/screenshots
 cd /tmp/screenshots
 
-pkill -x inactive-window
+systemctl --user stop sway-inactive-window-transparency.service
 
 OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
 grim -o $OUTPUT -t png screen.png
@@ -20,6 +20,6 @@ kill $!
 
 [ -f area.png ] && swappy -f area.png
 
-inactive-windows-transparency.py -o 0.7 &
+systemctl --user start sway-inactive-window-transparency.service
 
 rm -f screen.png area.png
