@@ -13,7 +13,14 @@ time_blocks = [
 ]
 
 
-def format(duration, max_suffixes=2):
+def format(start, now, max_suffixes=2):
+    if start <= now:
+        duration = now - start
+        word = "ago"
+    else:
+        duration = start - now
+        word = "later"
+
     result = ""
     num_suffixes = 0
 
@@ -26,7 +33,7 @@ def format(duration, max_suffixes=2):
         if num_suffixes >= max_suffixes:
             break
 
-    return result + "ago"
+    return result + word
 
 
 def main():
@@ -34,10 +41,7 @@ def main():
         print("Usage: {} <timestamp>".format(sys.argv[0]))
         sys.exit(1)
 
-    start = float(sys.argv[1])
-    duration = time.time() - start
-
-    print(format(duration))
+    print(format(float(sys.argv[1]), time.time()))
 
 
 if __name__ == "__main__":
