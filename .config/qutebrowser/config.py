@@ -32,6 +32,7 @@ config.set("content.register_protocol_handler", True, "*://app.slack.com")
 config.set("content.media_capture", True, "*://app.wire.com")
 config.set("content.media_capture", True, "*://teams.microsoft.com")
 config.set("content.media_capture", True, "*://app.slack.com")
+config.set("content.cookies.accept", "all", "*://teams.microsoft.com")
 
 # privacy
 c.content.cookies.accept = "no-3rdparty"
