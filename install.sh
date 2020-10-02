@@ -118,10 +118,17 @@ sgdisk --change-name=1:primary --change-name=2:ESP "${device}"
 part_root="$(ls ${device}* | grep -E "^${device}p?1$")"
 part_boot="$(ls ${device}* | grep -E "^${device}p?2$")"
 
+if [ "$device" != "$luks_header_device" ]; then
+    cryptargs="--header $luks_header_device"
+else
+    cryptargs=""
+    luks_header_device="$part_root"
+fi
+
 echo -e "\n### Formatting partitions"
 mkfs.vfat -n "EFI" -F32 "${part_boot}"
-echo -n ${password} | cryptsetup luksFormat --type luks2 --pbkdf argon2id --label luks --header "${luks_header_device}" "${part_root}"
-echo -n ${password} | cryptsetup luksOpen --header "${luks_header_device}" "${part_root}" luks
+echo -n ${password} | cryptsetup luksFormat --type luks2 --pbkdf argon2id --label luks $cryptargs "${part_root}"
+echo -n ${password} | cryptsetup luksOpen $cryptargs "${part_root}" luks
 mkfs.btrfs -L btrfs /dev/mapper/luks
 
 echo -e "\n### Setting up BTRFS subvolumes"
