@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ $# -gt 0 ] && /usr/bin/kak "$@" || printf '' | /usr/bin/kak
