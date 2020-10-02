@@ -96,7 +96,12 @@ clear
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac | tr '\n' ' ')
 read -r -a devicelist <<< $devicelist
+
 device=$(get_choice "Installation" "Select installation disk" "${devicelist[@]}") || exit 1
+clear
+
+luks_header_device=$(get_choice "Installation" "Select disk to write LUKS header to" "${devicelist[@]}") || exit 1
+
 clear
 
 echo -e "\n### Setting up fastest mirrors"
@@ -106,16 +111,17 @@ echo -e "\n### Setting up partitions"
 umount -R /mnt 2> /dev/null || true
 cryptsetup luksClose luks 2> /dev/null || true
 
-wipefs --all "${device}"
-sgdisk --clear "${device}" --new 1::-551MiB "${device}" --new 2::0 --type 2:ef00 --change-name=2:"EFI" "${device}"
+lsblk -plnx size -o name "${device}" | xargs -n1 wipefs --all
+sgdisk --clear "${device}" --new 1::-551MiB "${device}" --new 2::0 --type 2:ef00 "${device}"
+sgdisk --change-name=1:primary --change-name=2:ESP "${device}"
 
 part_root="$(ls ${device}* | grep -E "^${device}p?1$")"
 part_boot="$(ls ${device}* | grep -E "^${device}p?2$")"
 
 echo -e "\n### Formatting partitions"
 mkfs.vfat -n "EFI" -F32 "${part_boot}"
-echo -n ${password} | cryptsetup luksFormat --type luks2 --pbkdf argon2id --label=luks "${part_root}"
-echo -n ${password} | cryptsetup luksOpen "${part_root}" luks
+echo -n ${password} | cryptsetup luksFormat --type luks2 --pbkdf argon2id --label luks --header "${luks_header_device}" "${part_root}"
+echo -n ${password} | cryptsetup luksOpen --header "${luks_header_device}" "${part_root}" luks
 mkfs.btrfs -L btrfs /dev/mapper/luks
 
 echo -e "\n### Setting up BTRFS subvolumes"
@@ -173,7 +179,13 @@ pacstrap -i /mnt maximbaz
 
 echo -e "\n### Generating base config files"
 ln -sfT dash /mnt/usr/bin/sh
-echo "cryptdevice=LABEL=luks:luks:allow-discards root=LABEL=btrfs rw rootflags=subvol=root quiet mem_sleep_default=deep" > /mnt/etc/kernel/cmdline
+
+cryptsetup luksHeaderBackup "${luks_header_device}" --header-backup-file /tmp/header.img
+luks_header_size="$(stat -c '%s' /tmp/header.img)"
+rm -f /tmp/header.img
+
+echo "cryptdevice=PARTLABEL=primary:luks:allow-discards cryptheader=LABEL=luks:0:$luks_header_size root=LABEL=btrfs rw rootflags=subvol=root quiet mem_sleep_default=deep" > /mnt/etc/kernel/cmdline
+
 echo "FONT=$font" > /mnt/etc/vconsole.conf
 genfstab -L /mnt >> /mnt/etc/fstab
 echo "${hostname}" > /mnt/etc/hostname
@@ -185,7 +197,7 @@ cat << EOF > /mnt/etc/mkinitcpio.conf
 MODULES=()
 BINARIES=()
 FILES=()
-HOOKS=(base consolefont udev autodetect modconf block encrypt filesystems keyboard)
+HOOKS=(base consolefont udev autodetect modconf block encrypt-dh filesystems keyboard)
 EOF
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt arch-secure-boot initial-setup
