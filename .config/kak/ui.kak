@@ -19,6 +19,10 @@ hook global BufOpenFile .* %{ evaluate-commands -buffer %val(hook_param) %{ try 
   set-option buffer indentwidth 0
 }}}
 
+hook global BufCreate '^\*scratch\*$' %{
+    execute-keys '%d'
+}
+
 evaluate-commands %sh{
     cwd='at {cyan}%sh{ pwd | sed "s|^$HOME|~|" }{default}'
     bufname='in {green}%val{bufname}{default}'
