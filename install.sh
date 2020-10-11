@@ -141,11 +141,12 @@ btrfs subvolume create /mnt/archbuild
 btrfs subvolume create /mnt/docker
 btrfs subvolume create /mnt/logs
 btrfs subvolume create /mnt/temp
+btrfs subvolume create /mnt/swap
 btrfs subvolume create /mnt/snapshots
 umount /mnt
 
 mount -o noatime,nodiratime,compress=zstd,subvol=root /dev/mapper/luks /mnt
-mkdir -p /mnt/{mnt/btrfs-root,efi,home,var/{cache/pacman,log,tmp,lib/{aurbuild,archbuild,docker}},.snapshots}
+mkdir -p /mnt/{mnt/btrfs-root,efi,home,var/{cache/pacman,log,tmp,lib/{aurbuild,archbuild,docker}},swap,.snapshots}
 mount "${part_boot}" /mnt/efi
 mount -o noatime,nodiratime,compress=zstd,subvol=/         /dev/mapper/luks /mnt/mnt/btrfs-root
 mount -o noatime,nodiratime,compress=zstd,subvol=home      /dev/mapper/luks /mnt/home
@@ -155,6 +156,7 @@ mount -o noatime,nodiratime,compress=zstd,subvol=archbuild /dev/mapper/luks /mnt
 mount -o noatime,nodiratime,compress=zstd,subvol=docker    /dev/mapper/luks /mnt/var/lib/docker
 mount -o noatime,nodiratime,compress=zstd,subvol=logs      /dev/mapper/luks /mnt/var/log
 mount -o noatime,nodiratime,compress=zstd,subvol=temp      /dev/mapper/luks /mnt/var/tmp
+mount -o noatime,nodiratime,compress=zstd,subvol=swap      /dev/mapper/luks /mnt/swap
 mount -o noatime,nodiratime,compress=zstd,subvol=snapshots /dev/mapper/luks /mnt/.snapshots
 
 echo -e "\n### Configuring custom repo"
@@ -208,6 +210,15 @@ HOOKS=(base consolefont udev autodetect modconf block encrypt-dh filesystems key
 EOF
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt arch-secure-boot initial-setup
+
+echo -e "\n### Configuring swap file"
+truncate -s 0 /mnt/swap/swapfile
+chattr +C /mnt/swap/swapfile
+btrfs property set /mnt/swap/swapfile compression none
+dd if=/dev/zero of=/mnt/swap/swapfile bs=1M count=4096
+chmod 600 /mnt/swap/swapfile
+mkswap /mnt/swap/swapfile
+echo "/swap/swapfile none swap defaults 0 0" >> /mnt/etc/fstab
 
 echo -e "\n### Creating user"
 arch-chroot /mnt useradd -m -s /usr/bin/zsh "$user"
