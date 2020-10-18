@@ -116,6 +116,7 @@ set auto_tag = yes
 macro index a "<tag-entry><clear-flag>N<save-message>=Archive<enter><enter>"
 macro pager a "<save-message>=Archive<enter><enter>"
 macro index A "<tag-thread><clear-flag>N<save-message>=Archive<enter><enter>"
+macro index s "<tag-entry><clear-flag>N<save-message>=Junk<enter><enter>"
 macro index,pager D "<purge-message>"
 macro index,pager I "<save-message>=INBOX<enter><enter>"
 bind index \\ vfolder-from-query
