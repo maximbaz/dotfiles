@@ -17,7 +17,7 @@ WINDOW_ICONS = {
     "firefox": "",
     "gcr-prompter": "",
     "kitty": "",
-    "ksnip": "",
+    "org.ksnip.ksnip": "",
     "krita": "",
     "libreoffice-startcenter": "",
     "microsoft teams - preview": "",
