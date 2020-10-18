@@ -38,7 +38,7 @@ config.set("content.cookies.accept", "all", "*://teams.microsoft.com")
 c.content.cookies.accept = "no-3rdparty"
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.site_specific_quirks = False
-c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"
+c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36"
 
 # urls
 c.url.searchengines = {
