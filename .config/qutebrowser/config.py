@@ -29,9 +29,12 @@ c.qt.args += ["enable-gpu-rasterization", "enable-features=WebRTCPipeWireCapture
 config.set("content.register_protocol_handler", True, "*://calendar.google.com")
 config.set("content.register_protocol_handler", True, "*://teams.microsoft.com")
 config.set("content.register_protocol_handler", True, "*://app.slack.com")
-config.set("content.media_capture", True, "*://app.wire.com")
-config.set("content.media_capture", True, "*://teams.microsoft.com")
-config.set("content.media_capture", True, "*://app.slack.com")
+config.set("content.media.audio_video_capture", True, "*://app.wire.com")
+config.set("content.media.audio_video_capture", True, "*://teams.microsoft.com")
+config.set("content.media.audio_video_capture", True, "*://app.slack.com")
+config.set("content.desktop_capture", True, "*://app.wire.com")
+config.set("content.desktop_capture", True, "*://teams.microsoft.com")
+config.set("content.desktop_capture", True, "*://app.slack.com")
 config.set("content.cookies.accept", "all", "*://teams.microsoft.com")
 
 # privacy
