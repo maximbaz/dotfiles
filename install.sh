@@ -166,7 +166,7 @@ if [[ "${hostname}" == "home-"* ]]; then
     wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P '/mnt/var/cache/pacman/maximbaz-local' 'https://pkgbuild.com/~maximbaz/repo/'
     rename -- 'maximbaz.' 'maximbaz-local.' /mnt/var/cache/pacman/maximbaz-local/*
 else
-    repo-add /var/cache/pacman/maximbaz-local/maximbaz-local.db.tar
+    repo-add /mnt/var/cache/pacman/maximbaz-local/maximbaz-local.db.tar
 fi
 
 if ! grep maximbaz /etc/pacman.conf > /dev/null; then
