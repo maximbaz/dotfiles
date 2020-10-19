@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.13.0
+pkgver=2.14.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -34,6 +34,7 @@ depends=(
     'linux-firmware'
     'linux-headers'
     'kernel-modules-hook'
+    'mkinitcpio-encrypt-detached-header'
     'logrotate'
     'man-pages'
     'btrfs-progs'
@@ -149,6 +150,7 @@ depends=(
     'upower'
     'acpi'
     'droidcam'
+    'bolt'
 
     # audio
     'pulseaudio'
@@ -233,6 +235,7 @@ depends=(
     # go dev
     'go'
     'go-tools'
+    'gopls'
 
     # js dev
     'yarn'
