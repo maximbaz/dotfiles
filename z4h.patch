@@ -16,6 +16,26 @@
      else
        local dirs=($_z4h_path_prefix${^${(Q)_z4h_words:#.*}}/*(Y1N:h:t))
      fi
+@@ -42,7 +42,7 @@
+       } | {
+         -z4h-cursor-show
+         2>$TTY -z4h-fzf                                     \
+-          --query=${_z4h_word_prefix:+"^$_z4h_word_prefix"} \
++          --query="$_z4h_word_prefix"                       \
+           --color=hl:201,hl+:201                            \
+           --with-nth=2                                      \
+           --delimiter='\000'                                \
+--- a/fn/-z4h-comp-words
++++ b/fn/-z4h-comp-words
+@@ -52,7 +52,7 @@
+       } | {
+         -z4h-cursor-show
+         2>$TTY -z4h-fzf                                     \
+-          --query=${_z4h_word_prefix:+"^$_z4h_word_prefix"} \
++          --query="$_z4h_word_prefix"                       \
+           --color=hl:201,hl+:201                            \
+           --with-nth=2                                      \
+           --delimiter='\000'                                \
 --- a/fn/z4h-cd-down
 +++ b/fn/z4h-cd-down
 @@ -19,7 +19,7 @@ local -i list_colors=$((!$?))
