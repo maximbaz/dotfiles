@@ -1,10 +1,11 @@
 zstyle    ':z4h:'                                        auto-update            no
 zstyle    ':z4h:*'                                       channel                stable
 zstyle    ':z4h:autosuggestions'                         forward-char           accept
+zstyle    ':z4h:(fzf-complete|fzf-history|cd-down)'      fzf-flags              --no-exact --color=hl:14,hl+:14
+zstyle    ':z4h:(fzf-complete|cd-down)'                  fzf-bindings           'tab:repeat'
 zstyle    ':z4h:ssh:*'                                   ssh-command            command ssh
 zstyle    ':z4h:ssh:*'                                   send-extra-files       '~/.zsh-aliases'
 zstyle    ':z4h:ssh:router'                              passthrough            yes
-zstyle    ':fzf-tab:*'                                   continuous-trigger     tab
 zstyle    ':zle:(up|down)-line-or-beginning-search'      leave-cursor           no
 zstyle    ':z4h:term-title:ssh'                          preexec                '%* | %n@%m: ${1//\%/%%}'
 zstyle    ':z4h:term-title:local'                        preexec                '%* | ${1//\%/%%}'
@@ -82,11 +83,10 @@ command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
 ###
 
-z4h source -c -- /etc/bash_completion.d/azure-cli
-z4h source -c -- /usr/share/LS_COLORS/dircolors.sh
-z4h source -c -- /usr/share/nnn/quitcd/quitcd.bash_zsh
-z4h source -c -- $ZDOTDIR/.zsh-aliases
-z4h source -c -- $ZDOTDIR/.zshrc-private
-z4h compile   -- $ZDOTDIR/{.zshenv,.zprofile,.zshrc,.zlogin,.zlogout}
+z4h source -- /etc/bash_completion.d/azure-cli
+z4h source -- /usr/share/LS_COLORS/dircolors.sh
+z4h source -- /usr/share/nnn/quitcd/quitcd.bash_zsh
+z4h source -- $ZDOTDIR/.zsh-aliases
+z4h source -- $ZDOTDIR/.zshrc-private
 
 # patch -Np1 -i ~/.dotfiles/z4h.patch -r /dev/null -d $Z4H/zsh4humans/
