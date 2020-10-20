@@ -1,16 +1,15 @@
 zstyle    ':z4h:'                                        auto-update            no
 zstyle    ':z4h:*'                                       channel                stable
 zstyle    ':z4h:autosuggestions'                         forward-char           accept
+zstyle    ':z4h:fzf-complete'                            fzf-command            my-fzf
 zstyle    ':z4h:(fzf-complete|fzf-history|cd-down)'      fzf-flags              --no-exact --color=hl:14,hl+:14
 zstyle    ':z4h:(fzf-complete|cd-down)'                  fzf-bindings           'tab:repeat'
 zstyle    ':z4h:ssh:*'                                   ssh-command            command ssh
 zstyle    ':z4h:ssh:*'                                   send-extra-files       '~/.zsh-aliases'
 zstyle    ':z4h:ssh:router'                              passthrough            yes
-zstyle    ':zle:(up|down)-line-or-beginning-search'      leave-cursor           no
+zstyle    ':zle:(up|down)-line-or-beginning-search'      leave-cursor           yes
 zstyle    ':z4h:term-title:ssh'                          preexec                '%* | %n@%m: ${1//\%/%%}'
 zstyle    ':z4h:term-title:local'                        preexec                '%* | ${1//\%/%%}'
-zstyle    ':zle:up-line-or-beginning-search'             leave-cursor           true
-zstyle    ':zle:down-line-or-beginning-search'           leave-cursor           true
 
 ###
 
@@ -23,6 +22,17 @@ fpath+=($Z4H/romkatv/archive)
 autoload -Uz archive lsarchive unarchive edit-command-line
 
 zle -N edit-command-line
+
+my-fzf() {
+    emulate -L zsh
+
+    args=("$@")
+    for ((i = 0; i < $#args; i++)); do
+        [[ "${args[$i]}" == "--query="* ]] && args[i]+=' '
+    done
+
+    fzf "${args[@]}"
+}
 
 my-ctrl-z() {
     if [[ $#BUFFER -eq 0 ]]; then
