@@ -23,15 +23,10 @@ autoload -Uz archive lsarchive unarchive edit-command-line
 
 zle -N edit-command-line
 
-my-fzf() {
-    emulate -L zsh
-
-    args=("$@")
-    for ((i = 0; i < $#args; i++)); do
-        [[ "${args[$i]}" == "--query="* ]] && args[i]+=' '
-    done
-
-    fzf "${args[@]}"
+my-fzf () {
+    emulate -L zsh -o extended_glob
+    local MATCH MBEGIN MEND
+    fzf "${@:/(#m)--query=?*/$MATCH }"
 }
 
 my-ctrl-z() {
