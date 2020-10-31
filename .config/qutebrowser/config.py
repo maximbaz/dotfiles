@@ -71,6 +71,9 @@ bindings = {
     "<Ctrl-Shift-K>": "tab-move -",
     "M": "nop",
     "co": "nop",
+    "<Shift-Escape>": "fake-key <Escape>",
+    "o": "set-cmd-text -s :open -s",
+    "O": "set-cmd-text -s :open -t -s",
 }
 
 for key, bind in bindings.items():
