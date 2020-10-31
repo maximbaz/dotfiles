@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pkill -x wf-recorder
+pkill -x wf-recorder -SIGINT
 
 [ $? -ne 0 ] && {
     systemctl --user stop sway-inactive-window-transparency.service
