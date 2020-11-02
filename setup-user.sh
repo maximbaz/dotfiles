@@ -161,7 +161,6 @@ if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
     echo "5\ny\n" | gpg --command-fd 0 --no-tty --batch --edit-key "$MY_GPG_KEY_ID" trust
 fi
 
-find "$HOME/.gnupg" -type f -path "*#*" -delete
 find "$HOME/.gnupg" -type f -not -path "*#*" -exec chmod 600 {} \;
 find "$HOME/.gnupg" -type d -exec chmod 700 {} \;
 
