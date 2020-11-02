@@ -34,8 +34,6 @@ alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPw
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 alias gpg-change-card='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
-ssh() { z4h ssh "$@" }
-
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 
