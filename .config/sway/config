@@ -144,8 +144,8 @@ mode $mode_workspaces_monitors {
 bindsym --to-code {
     # Terminal
     $hyper+Return exec kitty
-    $win+Return exec kitty
-    $win+Shift+Return exec kitty /bin/bash
+    $win+Return exec kitty --config NONE
+    $win+Shift+Return exec kitty --config NONE /bin/bash
 
     # Launcher
     $hyper+equal exec bash -c "echo 'enter expression to calculate' | dmenu -p "calc" | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
