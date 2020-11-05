@@ -223,3 +223,8 @@ name: "Yubico security advisories"
 url: "https://www.yubico.com/support/security-advisories/"
 filter: css:.content,html2text
 max_tries: 3
+---
+name: "curlie"
+url: "https://github.com/rs/curlie/releases/latest"
+filter: css:.markdown-body,html2text
+max_tries: 3
