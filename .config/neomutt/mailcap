@@ -1,5 +1,5 @@
 text/plain; kak %s;
-text/html; qutebrowser --temp-basedir -s content.images false -s content.javascript.enabled false %s; needsterminal; nametemplate=%s.html;
+text/html; qutebrowser --temp-basedir -s content.images false -s content.javascript.enabled false -s tabs.last_close close %s; needsterminal; nametemplate=%s.html;
 application/pdf; zathura %s;
 application/pdf; pdftotext -l 10 -nopgbrk -q -- %s - | fmt -w 120; copiousoutput;
 image/jpeg; vimiv %s;
