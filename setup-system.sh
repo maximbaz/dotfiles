@@ -176,7 +176,7 @@ echo "Configuring NTP"
 timedatectl set-ntp true
 
 echo "Configuring aurutils"
-ln -sf /etc/pacman.conf /usr/share/devtools/pacman-aur.conf
+ln -sf /etc/pacman.conf /etc/aurutils/pacman-maximbaz-local.conf
 
 if is_chroot; then
     echo >&2 "=== Running in chroot, skipping firewall setup..."
