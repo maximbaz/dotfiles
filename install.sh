@@ -24,7 +24,7 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 exec 1> >(tee "stdout.log")
-exec 2> >(tee "stderr.log")
+exec 2> >(tee "stderr.log" >&2)
 
 export SNAP_PAC_SKIP=y
 
