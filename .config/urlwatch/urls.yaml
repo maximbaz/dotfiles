@@ -228,3 +228,8 @@ name: "curlie"
 url: "https://github.com/rs/curlie/releases/latest"
 filter: css:.markdown-body,html2text
 max_tries: 3
+---
+name: "rmtrash"
+url: "https://github.com/PhrozenByte/rmtrash/releases/latest"
+filter: css:.markdown-body,html2text
+max_tries: 3
