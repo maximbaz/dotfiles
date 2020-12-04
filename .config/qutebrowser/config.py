@@ -27,6 +27,7 @@ c.qt.args += [
     "enable-gpu-rasterization",
     "enable-features=WebRTCPipeWireCapturer",
     "enable-experimental-web-platform-features",
+    "blink-settings=preferredColorScheme=1",
 ]
 
 # per-domain settings
