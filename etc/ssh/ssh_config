@@ -10,6 +10,5 @@ Host *
   ControlMaster auto
   ControlPath ~/.ssh/ssh-%r@%h:%p
   ControlPersist 60m
-  UseRoaming no
   StrictHostKeyChecking accept-new
   ExitOnForwardFailure yes
