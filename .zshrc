@@ -99,5 +99,3 @@ z4h source -- /usr/share/LS_COLORS/dircolors.sh
 z4h source -- /usr/share/nnn/quitcd/quitcd.bash_zsh
 z4h source -- $ZDOTDIR/.zsh-aliases
 z4h source -- $ZDOTDIR/.zshrc-private
-
-# patch -Np1 -i ~/.dotfiles/z4h.patch -r /dev/null -d $Z4H/zsh4humans/
