@@ -50,17 +50,6 @@ my-ctrl-z() {
 }
 zle -N my-ctrl-z
 
-toggle-sudo() {
-    [[ -z "$BUFFER" ]] && zle up-history -w
-    if [[ "$BUFFER" != "sudo "* ]]; then
-        BUFFER="sudo $BUFFER"
-        CURSOR=$(( CURSOR + 5 ))
-    else
-        BUFFER="${BUFFER#sudo }"
-    fi
-}
-zle -N toggle-sudo
-
 ###
 
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace
@@ -75,7 +64,6 @@ z4h bindkey z4h-cd-forward          Alt+L
 z4h bindkey z4h-cd-up               Alt+K
 z4h bindkey z4h-cd-down             Alt+J
 
-z4h bindkey toggle-sudo             Alt+S
 z4h bindkey my-ctrl-z               Ctrl+Z
 z4h bindkey edit-command-line       Alt+E
 
