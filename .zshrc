@@ -24,6 +24,10 @@ z4h init || return
 
 ####
 
+zstyle ':completion:*' matcher-list "m:{a-z}={A-Z}" "l:|=* r:|=*"
+
+####
+
 fpath+=($Z4H/romkatv/archive)
 autoload -Uz archive lsarchive unarchive edit-command-line
 
