@@ -122,7 +122,8 @@ name: "MikroTik"
 url: "https://mikrotik.com/download/changelogs/stable-release-tree"
 filter:
   - css: "section.active-def li.active"
-  - html2text,strip
+  - html2text
+  - strip
 max_tries: 3
 ---
 name: "neomutt"
@@ -150,7 +151,8 @@ name: "pam-u2f"
 url: "https://github.com/Yubico/pam-u2f/releases/latest"
 filter:
   - css: ".release-timeline-tags .release-entry:first-child h4 a"
-  - html2text,strip
+  - html2text
+  - strip
 max_tries: 3
 ---
 name: "playerctl"
@@ -171,7 +173,8 @@ name: "python-black"
 url: "https://github.com/ambv/black/releases/latest"
 filter:
   - css: ".release-timeline-tags .release-entry:first-child h4 a"
-  - html2text,strip
+  - html2text
+  - strip
 max_tries: 3
 ---
 name: "python-jsonrpc-server"
