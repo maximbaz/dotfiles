@@ -282,13 +282,6 @@ filter:
   - html2text
 max_tries: 3
 ---
-name: "dell-command-configure"
-url: "https://www.dell.com/support/article/en-us/sln311302/dell-command-configure?lang=en"
-filter:
-  - css: "#tabcontent"
-  - html2text
-max_tries: 3
----
 name: "earlyoom"
 url: "https://github.com/rfjakob/earlyoom/releases/latest"
 filter:
