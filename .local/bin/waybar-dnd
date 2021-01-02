@@ -13,9 +13,11 @@ show() {
 toggle() {
     if [ -e "$marker" ]; then
         makoctl set invisible=false
+        safeeyes -e
         rm -f "$marker"
     else
         makoctl set invisible=true
+        safeeyes -d
         touch "$marker"
     fi
     pkill -RTMIN+2 -x waybar
