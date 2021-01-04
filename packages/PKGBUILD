@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.14.0
+pkgver=2.15.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -96,6 +96,7 @@ depends=(
     'pdftk'
     'inotify-tools'
     'xournalpp'
+    'bfs'
 
     # archiving
     'lbzip2'
@@ -125,6 +126,7 @@ depends=(
     'speedtest-cli'
     'wireguard-tools'
     'systemd-resolvconf'
+    'vnstat'
 
     # security
     'arch-audit'
@@ -171,7 +173,8 @@ depends=(
     'python-i3ipc'
     'mako'
     'gtk-theme-arc-gruvbox-git'
-    'gammastep'
+    'wlsunset'
+    'safeeyes'
     'waybar'
     'light'
     'slurp'
@@ -246,6 +249,10 @@ depends=(
     # c dev
     'meson'
 
+    # android
+    'android-tools'
+    'android-udev'
+
     # terminal
     'kitty'
     'zsh'
@@ -309,4 +316,5 @@ depends=(
     'wofi'
     'intel-gpu-tools'
     'wev'
+    'signal-desktop'
 )
