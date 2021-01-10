@@ -1,6 +1,6 @@
 {
     "allow_postpone": true,
-    "long_break_duration": 60,
+    "long_break_duration": 10,
     "long_break_interval": 75,
     "long_breaks": [
         {
@@ -27,7 +27,7 @@
             "settings": {
                 "skip_break_windows": "",
                 "take_break_windows": "",
-                "unfullscreen": true,
+                "unfullscreen": false,
                 "while_on_battery": false
             },
             "version": "0.0.2"
@@ -88,7 +88,7 @@
             "id": "screensaver",
             "settings": {
                 "command": "sway-exit lock",
-                "min_seconds": 5.0
+                "min_seconds": 10.0
             },
             "version": "0.0.2"
         },
