@@ -316,3 +316,10 @@ filter:
   - css: ".markdown-body"
   - html2text
 max_tries: 3
+---
+name: "traefik"
+url: "https://github.com/traefik/traefik/releases/latest"
+filter:
+  - css: ".markdown-body"
+  - html2text
+max_tries: 3
