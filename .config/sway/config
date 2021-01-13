@@ -56,6 +56,7 @@ for_window    [title="Firefox - Sharing Indicator"]      floating enable
 for_window    [app_id="dmenu.*"]                         floating enable, resize set width 60ppt height 80ppt
 for_window    [app_id="dmenu-browser"]                   resize set height 20ppt
 for_window    [app_id="dmenu-calc"]                      resize set width 40ppt height 30ppt
+for_window    [app_id="qalculate-gtk"]                   floating enable
 
 # Color scheme (Gruvbox dark)
 set $color_normal_white  #a89984
@@ -149,7 +150,7 @@ bindsym --to-code {
     $win+Shift+Return exec kitty --config NONE /bin/bash
 
     # Launcher
-    $hyper+equal exec bash -c "echo 'enter expression to calculate' | dmenu -p "calc" | xargs -r qalc -t | tee >(wl-copy) >(xargs -I{} notify-send 'calc result' '{}')"
+    $hyper+equal exec bash -c "pkill -x qalculate-gtk || qalculate-gtk"
     $hyper+d     fullscreen disable, exec wofi
     $hyper+p     fullscreen disable, exec "wl-clipboard-manager lock; passmenu -p pass; wl-clipboard-manager unlock"
     $hyper+m     fullscreen disable, exec udiskie-dmenu
