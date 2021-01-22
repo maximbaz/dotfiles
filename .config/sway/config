@@ -55,6 +55,7 @@ for_window    [app_id="dmenu.*"]                         floating enable, resize
 for_window    [app_id="dmenu-browser"]                   resize set height 20ppt
 for_window    [app_id="dmenu-calc"]                      resize set width 40ppt height 30ppt
 for_window    [app_id="qalculate-gtk"]                   floating enable
+for_window    [app_id="mpv"]                             floating enable, resize set width 531 height 300, move position 1005 113
 
 # Color scheme (Gruvbox dark)
 set $color_normal_white  #a89984
