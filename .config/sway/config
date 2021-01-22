@@ -86,6 +86,7 @@ mode $mode_audio {
         s            exec pacmd set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-speaker, mode "default"
         h            exec pacmd set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-headphones, mode "default"
         b            exec "bluetoothctl disconnect; bluetoothctl connect 20:74:CF:5C:1F:68", mode "default"
+        Shift+s      exec "bluetoothctl disconnect; bluetoothctl connect 00:02:3C:7E:5F:31", mode "default"
         Shift+b      exec bluetoothctl disconnect, mode "default"
         Shift+i      exec pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-internal-mic, mode "default"
         Shift+h      exec pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-headset-mic, mode "default"
