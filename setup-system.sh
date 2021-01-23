@@ -71,6 +71,7 @@ copy "etc/fwupd/uefi_capsule.conf"
 copy "etc/modules-load.d/v4l2loopback.conf"
 copy "etc/modprobe.d/v4l2loopback.conf"
 copy "etc/modprobe.d/droidcam.conf"
+copy "etc/nftables.conf"
 copy "etc/pacman.conf"
 copy "etc/pacman.d/hooks"
 copy "etc/pam.d/polkit-1"
@@ -126,6 +127,7 @@ systemctl_enable_start "earlyoom.service"
 systemctl_enable_start "fstrim.timer"
 systemctl_enable_start "iwd.service"
 systemctl_enable_start "linux-modules-cleanup.service"
+systemctl_enable_start "nftables.service"
 systemctl_enable_start "pcscd.socket"
 systemctl_enable_start "reflector.timer"
 systemctl_enable_start "snapper-cleanup.timer"
@@ -133,7 +135,6 @@ systemctl_enable_start "system-dotfiles-sync.timer"
 systemctl_enable_start "systemd-networkd.socket"
 systemctl_enable_start "systemd-resolved.service"
 systemctl_enable_start "tlp.service"
-systemctl_enable_start "ufw.service"
 systemctl_enable_start "usbguard.service"
 systemctl_enable_start "usbguard-dbus.service"
 
@@ -177,16 +178,3 @@ timedatectl set-ntp true
 
 echo "Configuring aurutils"
 ln -sf /etc/pacman.conf /etc/aurutils/pacman-maximbaz-local.conf
-
-if is_chroot; then
-    echo >&2 "=== Running in chroot, skipping firewall setup..."
-else
-    echo "Configuring firewall"
-    ufw --force reset > /dev/null
-    ufw default allow outgoing
-    ufw default deny incoming
-    ufw enable
-    find /etc/ufw -type f -name '*.rules.*' -delete
-
-    sleep 1
-fi
