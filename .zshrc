@@ -9,9 +9,13 @@ zstyle    ':z4h:ssh:*'                                   ssh-command            
 zstyle    ':z4h:ssh:*'                                   send-extra-files       '~/.zsh-aliases'
 zstyle    ':z4h:ssh:*'                                   enable                 yes
 zstyle    ':z4h:ssh:router'                              enable                 no
+zstyle    ':z4h:ssh:work-*'                              enable                 no
 zstyle    ':zle:(up|down)-line-or-beginning-search'      leave-cursor           yes
 zstyle    ':z4h:term-title:ssh'                          preexec                '%* | %n@%m: ${1//\%/%%}'
 zstyle    ':z4h:term-title:local'                        preexec                '%* | ${1//\%/%%}'
+zstyle    ':completion:*:ssh:argument-1:'                tag-order              hosts users
+zstyle    ':completion:*:scp:argument-rest:'             tag-order              hosts files users
+zstyle    ':completion:*:(ssh|scp|rdp):*:hosts'          hosts
 
 if ! (( P9K_SSH )); then
     zstyle ':z4h:sudo' term ''
