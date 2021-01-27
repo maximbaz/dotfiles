@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.15.0
+pkgver=2.16.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -109,7 +109,8 @@ depends=(
 
     # network
     'iwd'
-    'ufw'
+    'nftables'
+    'iptables-nft'
     'bandwhich'
     'net-tools'
     'nmap'
@@ -151,7 +152,7 @@ depends=(
     'dmidecode'
     'upower'
     'acpi'
-    'droidcam'
+    'iriunwebcam-bin'
     'bolt'
 
     # audio
@@ -308,7 +309,7 @@ depends=(
     'fzf'
     'calibre'
     'krita'
-    'libqalculate'
+    'qalculate-gtk'
     'libreoffice-fresh'
     'transmission-gtk'
     'strace'
