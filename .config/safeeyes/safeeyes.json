@@ -1,7 +1,7 @@
 {
     "allow_postpone": true,
-    "long_break_duration": 10,
-    "long_break_interval": 75,
+    "long_break_duration": 15,
+    "long_break_interval": 120,
     "long_breaks": [
         {
             "name": "Walk for a while"
@@ -84,7 +84,7 @@
             "version": "0.0.3"
         },
         {
-            "enabled": true,
+            "enabled": false,
             "id": "screensaver",
             "settings": {
                 "command": "sway-exit lock",
