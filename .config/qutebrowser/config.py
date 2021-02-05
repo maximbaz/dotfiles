@@ -33,27 +33,6 @@ c.qt.args += [
     "blink-settings=preferredColorScheme=1",
 ]
 
-# per-domain settings
-config.set("content.register_protocol_handler", True, "*://calendar.google.com")
-
-config.set("content.media.audio_video_capture", True, "*://app.wire.com")
-config.set("content.media.audio_capture", True, "*://app.wire.com")
-config.set("content.media.video_capture", True, "*://app.wire.com")
-config.set("content.desktop_capture", True, "*://app.wire.com")
-
-config.set("content.register_protocol_handler", True, "*://teams.microsoft.com")
-config.set("content.media.audio_video_capture", True, "*://teams.microsoft.com")
-config.set("content.media.audio_capture", True, "*://teams.microsoft.com")
-config.set("content.media.video_capture", True, "*://teams.microsoft.com")
-config.set("content.desktop_capture", True, "*://teams.microsoft.com")
-config.set("content.cookies.accept", "all", "*://teams.microsoft.com")
-
-config.set("content.register_protocol_handler", True, "*://app.slack.com")
-config.set("content.media.audio_video_capture", True, "*://app.slack.com")
-config.set("content.media.audio_capture", True, "*://app.slack.com")
-config.set("content.media.video_capture", True, "*://app.slack.com")
-config.set("content.desktop_capture", True, "*://app.slack.com")
-
 # privacy
 c.content.cookies.accept = "no-3rdparty"
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
@@ -67,6 +46,20 @@ c.url.searchengines = {
 }
 c.url.default_page = "~/.config/qutebrowser/blank.html"
 c.url.start_pages = ["~/.config/qutebrowser/blank.html"]
+
+# per-domain settings
+config.set("content.register_protocol_handler", True, "*://calendar.google.com")
+
+config.set("content.media.audio_video_capture", True, "*://app.wire.com")
+config.set("content.media.audio_capture", True, "*://app.wire.com")
+config.set("content.media.video_capture", True, "*://app.wire.com")
+config.set("content.desktop_capture", True, "*://app.wire.com")
+
+config.set("content.register_protocol_handler", True, "*://teams.microsoft.com")
+config.set("content.media.audio_video_capture", True, "*://teams.microsoft.com")
+config.set("content.media.audio_capture", True, "*://teams.microsoft.com")
+config.set("content.media.video_capture", True, "*://teams.microsoft.com")
+config.set("content.desktop_capture", True, "*://teams.microsoft.com")
 
 # keys
 bindings = {
