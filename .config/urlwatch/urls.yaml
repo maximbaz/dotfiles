@@ -14,13 +14,6 @@ filter:
   - html2text
 max_tries: 3
 ---
-name: "docker-compose"
-url: "https://github.com/docker/compose/releases/latest"
-filter:
-  - css: ".release-header>div>div>a"
-  - html2text
-max_tries: 3
----
 name: "fd"
 url: "https://github.com/sharkdp/fd/releases/latest"
 filter:
@@ -285,14 +278,14 @@ max_tries: 3
 name: "earlyoom"
 url: "https://github.com/rfjakob/earlyoom/releases/latest"
 filter:
-  - css: ".markdown-body"
+  - css: ".release-header>div>div>a"
   - html2text
 max_tries: 3
 ---
 name: "systembus-notify"
 url: "https://github.com/rfjakob/systembus-notify/releases/latest"
 filter:
-  - css: ".markdown-body"
+  - css: ".release-header>div>div>a"
   - html2text
 max_tries: 3
 ---
@@ -306,20 +299,41 @@ max_tries: 3
 name: "curlie"
 url: "https://github.com/rs/curlie/releases/latest"
 filter:
-  - css: ".markdown-body"
+  - css: ".release-header>div>div>a"
   - html2text
 max_tries: 3
 ---
 name: "rmtrash"
 url: "https://github.com/PhrozenByte/rmtrash/releases/latest"
 filter:
-  - css: ".markdown-body"
+  - css: ".release-header>div>div>a"
   - html2text
 max_tries: 3
 ---
 name: "traefik"
 url: "https://github.com/traefik/traefik/releases/latest"
 filter:
-  - css: ".markdown-body"
+  - css: ".release-header>div>div>a"
+  - html2text
+max_tries: 3
+---
+name: "swappy"
+url: "https://github.com/jtheoof/swappy/releases/latest"
+filter:
+  - css: ".release-header>div>div>a"
+  - html2text
+max_tries: 3
+---
+name: "shfmt"
+url: "https://github.com/mvdan/sh/releases/latest"
+filter:
+  - css: ".release-header>div>div>a"
+  - html2text
+max_tries: 3
+---
+name: "xdg-desktop-portal-wlr"
+url: "https://github.com/emersion/xdg-desktop-portal-wlr/releases/latest"
+filter:
+  - css: ".release-header>div>div>a"
   - html2text
 max_tries: 3
