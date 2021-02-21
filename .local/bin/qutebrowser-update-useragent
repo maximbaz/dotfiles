@@ -1,0 +1,10 @@
+#!/bin/sh
+
+chromium_version="$(pacman -Si chromium | grep Version | cut -d':' -f2 | cut -d'-' -f1 | tr -d '[:space:]')"
+[ -n "$chromium_version" ] || {
+    echo >&2 "error retrieving chromium version"
+    exit 1
+}
+
+sed -ri "s|Chrome/[^ ]+|Chrome/$chromium_version|g" ~/.local/share/qutebrowser/greasemonkey/fingerprint-protector.js
+sed -ri "s|Chrome/[^ ]+|Chrome/$chromium_version|g" ~/.config/qutebrowser/config.py

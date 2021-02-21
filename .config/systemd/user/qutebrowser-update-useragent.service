@@ -1,0 +1,5 @@
+[Unit]
+Description=Update qutebrowser useragent
+
+[Service]
+ExecStart=%h/.local/bin/qutebrowser-update-useragent
