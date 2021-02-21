@@ -17,12 +17,12 @@
         }
     ],
     "meta": {
-        "config_version": "6.0.2"
+        "config_version": "6.0.3"
     },
     "persist_state": false,
     "plugins": [
         {
-            "enabled": false,
+            "enabled": true,
             "id": "donotdisturb",
             "settings": {
                 "skip_break_windows": "",
@@ -108,6 +108,7 @@
     ],
     "postpone_duration": 5,
     "pre_break_warning_time": 10,
+    "random_order": true,
     "rpc_port": 7200,
     "short_break_duration": 15,
     "short_break_interval": 15,
