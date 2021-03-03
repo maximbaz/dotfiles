@@ -28,8 +28,6 @@ c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
 c.qt.args += [
     "enable-gpu-rasterization",
-    "enable-features=WebRTCPipeWireCapturer",
-    "enable-experimental-web-platform-features",
     "blink-settings=preferredColorScheme=1",
 ]
 
