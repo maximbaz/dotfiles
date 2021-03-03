@@ -59,7 +59,7 @@ load-module module-jackdbus-detect channels=2
 
 ### Automatically load driver modules for Bluetooth hardware
 .ifexists module-bluetooth-policy.so
-load-module module-bluetooth-policy
+load-module module-bluetooth-policy auto_switch=2
 .endif
 
 .ifexists module-bluetooth-discover.so
