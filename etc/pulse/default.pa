@@ -95,7 +95,6 @@ load-module module-gsettings
 .fail
 .endif
 
-
 ### Automatically restore the default sink/source when changed by the user
 ### during runtime
 ### NOTE: This should be loaded as early as possible so that subsequent modules
@@ -137,6 +136,7 @@ load-module module-filter-apply
 #set-default-sink output
 #set-default-source input
 
-# automatically connect to new bluetooth devices
-# make sure to trust them in bluetoothctl: # trust xx:xx:xx:xx:xx:xx
-load-module module-switch-on-connect
+### Allow including a default.pa.d directory, which if present, can be used
+### for additional configuration snippets.
+.nofail
+.include /etc/pulse/default.pa.d
