@@ -108,6 +108,7 @@ link ".config/user-tmpfiles.d"
 link ".config/vimiv"
 link ".config/waybar"
 link ".config/wofi"
+link ".config/xdg-desktop-portal-wlr"
 link ".config/xkb"
 
 link ".local/bin"
