@@ -12,3 +12,5 @@ Host *
   ControlPersist 60m
   StrictHostKeyChecking accept-new
   ExitOnForwardFailure yes
+  IdentitiesOnly yes
+  User root
