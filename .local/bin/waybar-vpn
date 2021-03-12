@@ -2,10 +2,10 @@
 
 vpn() {
     if [ -e "/sys/class/net/warp" ]; then
-        icon=''
+        icon="<span foreground='#928374'></span>"
         class=on
     else
-        icon=''
+        icon="<span foreground='#928374'></span>"
         class=off
     fi
     printf '{"text": " %s ", "class": "%s"}\n' "$icon" "$class"

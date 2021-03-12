@@ -4,9 +4,9 @@ marker="$HOME/.cache/waybar-tablet"
 
 show() {
     if [ -e "$marker" ]; then
-        printf '{"text": "  ", "class": "on"}\n'
+        printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"on\"}\n"
     else
-        printf '{"text": "  ", "class": "off"}\n'
+        printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"off\"}\n"
     fi
 }
 

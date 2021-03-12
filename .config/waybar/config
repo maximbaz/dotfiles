@@ -88,24 +88,24 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " {:%a, %d %b    %H:%M}"
+        "format": "<span foreground='#928374'></span> {:%a, %d %b  <span foreground='#928374'></span> %H:%M}"
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": "<span foreground='#928374'></span> {usage}%",
         "states": {
             "warning": 70,
             "critical": 90
         }
     },
     "memory": {
-        "format": " {}%",
+        "format": "<span foreground='#928374'></span> {}%",
         "states": {
             "warning": 70,
             "critical": 90
         }
     },
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "<span foreground='#928374'>{icon}</span> {percent}%",
         "format-icons": [""]
     },
     "battery": {
@@ -114,27 +114,27 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-alt": "{time} {icon}",
+        "format": "<span foreground='#928374'>{icon}</span> {capacity}%",
+        "format-charging": "<span foreground='#928374'></span> {capacity}%",
+        "format-alt": "{time} <span foreground='#928374'>{icon}</span>",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
         "interval": 2,
         "interface": "wlan0",
-        "format-wifi": " {essid}",
-        "format-ethernet": " {ifname}",
-        "format-linked": " {ifname}",
-        "format-disconnected": "  ",
+        "format-wifi": "<span foreground='#928374'></span> {essid}",
+        "format-ethernet": "<span foreground='#928374'></span> {ifname}",
+        "format-linked": "<span foreground='#928374'></span> {ifname}",
+        "format-disconnected": " <span foreground='#928374'></span> ",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%   {format_source}",
-        "format-bluetooth": "{icon} {volume}%   {format_source}",
-        "format-bluetooth-muted": " {icon}   {format_source}",
-        "format-muted": "   {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
+        "format": "<span foreground='#928374'>{icon}</span> {volume}%   {format_source}",
+        "format-bluetooth": "<span foreground='#928374'>{icon}</span> {volume}%   {format_source}",
+        "format-bluetooth-muted": "<span foreground='#928374'> {icon}</span>   {format_source}",
+        "format-muted": "<span foreground='#928374'></span>   {format_source}",
+        "format-source": "<span foreground='#928374'></span> {volume}%",
+        "format-source-muted": "<span foreground='#928374'></span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
