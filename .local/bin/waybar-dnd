@@ -12,11 +12,11 @@ show() {
 
 toggle() {
     if [ -e "$marker" ]; then
-        makoctl set invisible=false
+        systemctl --user start mako
         safeeyes -e
         rm -f "$marker"
     else
-        makoctl set invisible=true
+        systemctl --user stop mako
         safeeyes -d
         touch "$marker"
     fi

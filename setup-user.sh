@@ -114,6 +114,7 @@ link ".config/xkb"
 link ".local/bin"
 link ".local/share/applications"
 link ".local/share/qutebrowser/greasemonkey"
+link ".local/share/dbus-1/services/fr.emersion.mako.service"
 
 if is_chroot; then
     echo >&2 "=== Running in chroot, skipping user services..."
@@ -126,6 +127,7 @@ else
     systemctl --user daemon-reload
     systemctl_enable_start "backup-packages.timer"
     systemctl_enable_start "flashfocus.service"
+    systemctl_enable_start "mako.service"
     systemctl_enable_start "polkit-gnome.service"
     systemctl_enable_start "qutebrowser-update-useragent.timer"
     systemctl_enable_start "safeeyes.service"
