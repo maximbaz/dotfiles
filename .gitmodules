@@ -12,6 +12,3 @@
 [submodule ".config/kak/surround.kak"]
 	path = .config/kak/surround.kak
 	url = https://github.com/alexherbo2/surround.kak
-[submodule ".config/kak/prelude.kak"]
-	path = .config/kak/prelude.kak
-	url = https://github.com/alexherbo2/prelude.kak

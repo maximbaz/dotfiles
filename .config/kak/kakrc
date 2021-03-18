@@ -1,5 +1,5 @@
 # External plugins
-source "~/.config/kak/prelude.kak/rc/prelude.kak"
+evaluate-commands %sh{ kcr init kakoune }
 source "~/.config/kak/auto-pairs/rc/auto-pairs.kak"; require-module auto-pairs; auto-pairs-enable
 source "~/.config/kak/surround.kak/rc/surround.kak"; require-module surround
 source "~/.config/kak/vertical-selection/vertical-selection.kak"
