@@ -51,6 +51,7 @@ link ".zsh-aliases"
 link ".zshenv"
 link ".zshrc"
 
+link ".config/bat"
 link ".config/chromium-flags.conf"
 link ".config/environment.d"
 link ".config/flashfocus"
