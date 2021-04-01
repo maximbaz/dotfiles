@@ -59,6 +59,9 @@ config.set("content.media.audio_capture", True, "*://teams.microsoft.com")
 config.set("content.media.video_capture", True, "*://teams.microsoft.com")
 config.set("content.desktop_capture", True, "*://teams.microsoft.com")
 
+# MS Teams: setting to root domain due to https://bugreports.qt.io/browse/QTBUG-90231
+config.set("content.cookies.accept", "all", "*://microsoft.com")
+
 # keys
 bindings = {
     ",m": "spawn --userscript view_in_mpv",
