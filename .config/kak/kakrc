@@ -4,6 +4,7 @@ source "~/.config/kak/surround.kak/rc/surround.kak"; require-module surround
 source "~/.config/kak/toggle-highlighter.kak/rc/toggle-highlighter.kak"; require-module toggle-highlighter
 source "~/.config/kak/word-select.kak/rc/word-select.kak"; require-module word-select; word-select-add-mappings
 source "~/.config/kak/out-of-view.kak/rc/out-of-view.kak"; require-module out-of-view; out-of-view-enable
+source "~/.config/kak/sleuth.kak/rc/sleuth.kak"; require-module sleuth; sleuth-enable
 source "~/.config/kak/vertical-selection/vertical-selection.kak"
 source "~/.config/kak/restclient.kak/restclient.kak"
 

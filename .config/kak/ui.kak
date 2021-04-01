@@ -16,11 +16,6 @@ set-option global out_of_view_format '↑ %opt{out_of_view_selection_above_count
 
 set-option global lsp_auto_highlight_references true
 
-hook global BufOpenFile .* %{ evaluate-commands -buffer %val(hook_param) %{ try %{
-  execute-keys '%s^\t<ret>'
-  set-option buffer indentwidth 0
-}}}
-
 hook global BufCreate '^\*scratch\*$' %{
     execute-keys '%d'
 }

@@ -21,3 +21,6 @@
 [submodule ".config/kak/out-of-view.kak"]
 	path = .config/kak/out-of-view.kak
 	url = https://github.com/alexherbo2/out-of-view.kak
+[submodule ".config/kak/sleuth.kak"]
+	path = .config/kak/sleuth.kak
+	url = https://github.com/alexherbo2/sleuth.kak
