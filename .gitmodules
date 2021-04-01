@@ -24,3 +24,6 @@
 [submodule ".config/kak/sleuth.kak"]
 	path = .config/kak/sleuth.kak
 	url = https://github.com/alexherbo2/sleuth.kak
+[submodule ".config/kak/change-directory.kak"]
+	path = .config/kak/change-directory.kak
+	url = https://github.com/alexherbo2/change-directory.kak
