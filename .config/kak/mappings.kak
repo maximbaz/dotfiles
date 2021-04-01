@@ -42,7 +42,8 @@ map global user -docstring 'select up and down'       v      ': vertical-selecti
 map global user -docstring 'new terminal in cwd'      n      ': kitty-terminal zsh<ret>'
 map global user -docstring 'disable autoformat'       d      ': disable-autoformat<ret>'
 map global user -docstring 'LSP mode'                 l      ': enter-user-mode lsp<ret>'
-
+map global user -docstring 'Toggle line numbers'      L      ': toggle-highlighter global/ number-lines -hlcursor<ret>'
+map global user -docstring 'Toggle line wrap'         W      ': toggle-highlighter global/ wrap -word -indent<ret>'
 
 define-command -hidden -params 1 extend-line-down %{ execute-keys "<a-:>%arg{1}X" }
 define-command -hidden -params 1 extend-line-up   %{
