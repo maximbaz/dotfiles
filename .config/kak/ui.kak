@@ -12,6 +12,10 @@ set-option global tabstop      4
 set-option global indentwidth  4
 set-option global scrolloff    2,5
 
+set-option global windowing_modules ''
+require-module kitty
+alias global popup kitty-terminal
+
 set-option global out_of_view_format '↑ %opt{out_of_view_selection_above_count} | ↓ %opt{out_of_view_selection_below_count}'
 
 set-option global lsp_auto_highlight_references true
