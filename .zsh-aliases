@@ -13,9 +13,9 @@ command -v exa       &> /dev/null    && alias ls='exa --group --git --group-dire
 command -v exa       &> /dev/null    && alias la='ll -a'                                           || alias la='ll -A'
 command -v exa       &> /dev/null    && alias lk='ll -s=size'                                      || alias lk='ll -r --sort=size'
 command -v exa       &> /dev/null    && alias lm='ll -s=modified'                                  || alias lm='ll -r --sort=time'
+command -v dog       &> /dev/null    && alias d='dog'                                              || alias d='dig +nocmd +multiline +noall +answer'
 
 alias e="$EDITOR"
-alias d='dig +nocmd +multiline +noall +answer'
 alias cp='cp -r --reflink=auto'
 alias mkdir='mkdir -p'
 alias hexdump='od -A x -t x1z -v'
