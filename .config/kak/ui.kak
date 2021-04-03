@@ -5,6 +5,7 @@ face global Information rgb:ebdbb2,rgb:282828
 add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ show-matching
 add-highlighter global/ wrap -word -indent
+add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
 
 set-option global ui_options   ncurses_assistant=off
 set-option global autoreload   yes
