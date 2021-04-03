@@ -242,4 +242,5 @@ arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup-user.sh
 arch-chroot /mnt sudo -u $user zsh -ic true
 
 echo -e "\n### DONE - reboot and re-run both ~/.dotfiles/setup-*.sh scripts"
+echo -e "\n### Remember to unplug the installation USB stick before the next boot!"
 umount -R /mnt
