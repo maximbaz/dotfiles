@@ -147,3 +147,5 @@
         "on-click": "pavucontrol"
     }
 }
+
+// vi: ft=json
