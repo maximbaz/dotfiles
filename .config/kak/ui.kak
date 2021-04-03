@@ -25,6 +25,18 @@ hook global BufCreate '^\*scratch\*$' %{
     execute-keys '%d'
 }
 
+hook global KakBegin .* %{
+    state-save-reg-load colon
+    state-save-reg-load pipe
+    state-save-reg-load slash
+}
+
+hook global KakEnd .* %{
+    state-save-reg-save colon
+    state-save-reg-save pipe
+    state-save-reg-save slash
+}
+
 evaluate-commands %sh{
     out_of_view='{yellow}%sh{ [ -n "${kak_opt_out_of_view_status_line}" ] && echo "${kak_opt_out_of_view_status_line} " }{default}'
     cwd='at {cyan}%sh{ pwd | sed "s|^$HOME|~|" }{default}'
