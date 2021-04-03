@@ -30,3 +30,6 @@
 [submodule ".config/kak/state-save"]
 	path = .config/kak/state-save
 	url = https://gitlab.com/Screwtapello/kakoune-state-save
+[submodule ".config/kak/view-mode.kak"]
+	path = .config/kak/view-mode.kak
+	url = https://github.com/alexherbo2/view-mode.kak
