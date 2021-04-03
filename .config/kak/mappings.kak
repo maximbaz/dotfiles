@@ -17,6 +17,7 @@ map global normal <left>  ': bp<ret>'
 map global normal <right> ': bn<ret>'
 map global normal <up>    ': git prev-hunk<ret>'
 map global normal <down>  ': git next-hunk<ret>'
+map global normal <c-n>   ': connect-terminal<ret>'
 
 map global insert <c-w> '<esc>bdi'
 map global insert <c-u> '<esc>xdO'
