@@ -1,0 +1,28 @@
+#!/bin/bash
+
+error() {
+    echo >&2 "$*"
+    exit 1
+}
+
+[ $# -gt 0 ] || error "Usage: $0 <action> (e.g. $0 swipe-3-left_up)"
+
+app="$(swaymsg -t get_tree | jq -r '..|try select(.focused == true).app_id')"
+
+case "$app" in
+    org.qutebrowser.qutebrowser)
+        case $1 in
+            swipe-3-left)    wtype -k escape -s 100 -M shift H -m shift ;;
+            swipe-3-right)   wtype -k escape -s 100 -M shift L -m shift ;;
+            swipe-3-up)      wtype -k escape -s 100 -M shift K -m shift ;;
+            swipe-3-down)    wtype -k escape -s 100 -M shift J -m shift ;;
+            swipe-3-left_up) wtype -k escape -s 100 r ;;
+            swipe-4-up)      wtype -k escape -s 100 u ;;
+            swipe-4-down)    wtype -k escape -s 100 d ;;
+            *)               error "Unknown action '$1' for app '$app'" ;;
+        esac
+        ;;
+    *)
+        error "No actions defined for app '$app'"
+        ;;
+esac
