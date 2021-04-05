@@ -337,3 +337,10 @@ filter:
   - css: ".release-header>div>div>a"
   - html2text
 max_tries: 3
+---
+name: "teehee"
+url: "https://github.com/Gskartwii/teehee/releases/latest"
+filter:
+  - css: ".release-header>div>div>a"
+  - html2text
+max_tries: 3
