@@ -245,8 +245,8 @@ pacs() {
     tmp=$(mktemp -d)
 
     {
-        NO_COLOR=true aur search -n -k NumVotes "$@"
-        pacman -Ss "$@"
+        NO_COLOR=true aur search -n -k NumVotes $(basename -a "$@" | xargs)
+        pacman -Ss $(basename -a "$@" | xargs)
     } |
     while read -r pkg; do
         read -r desc
