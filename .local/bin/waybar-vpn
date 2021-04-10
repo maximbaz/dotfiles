@@ -1,7 +1,7 @@
 #!/bin/sh
 
 vpn() {
-    if [ -e "/sys/class/net/warp" ]; then
+    if curl -s https://www.cloudflare.com/cdn-cgi/trace | grep -q warp=on; then
         icon="<span foreground='#928374'></span>"
         class=on
     else
@@ -12,6 +12,8 @@ vpn() {
 }
 
 if grep '^home-' /etc/hostname > /dev/null; then
-    vpn
-    ip monitor link | while read -r line; do vpn; done
+    while true; do
+        vpn
+        sleep 5m
+    done
 fi
