@@ -8,7 +8,7 @@ text-color=#ebdbb2
 format=<b>%s</b>\n\n%b
 height=600
 width=600
-margin=16
+margin=50
 padding=8
 default-timeout=20000
 

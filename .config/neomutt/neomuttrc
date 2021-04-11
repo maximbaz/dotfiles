@@ -45,7 +45,7 @@ set forward_format = "Fwd: %s"
 set mark_old = no
 set mime_forward = ask-no
 set rfc2047_parameters = yes
-set wrap = 120
+set wrap = 220
 set markers = no
 
 set wait_key = no
