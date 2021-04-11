@@ -10,17 +10,27 @@ show() {
     fi
 }
 
-toggle() {
-    if [ -e "$marker" ]; then
-        systemctl --user start mako
-        safeeyes -e
-        rm -f "$marker"
-    else
-        systemctl --user stop mako
-        safeeyes -d
-        touch "$marker"
-    fi
+on() {
+    systemctl --user stop mako
+    safeeyes -d
+    touch "$marker"
     pkill -RTMIN+2 -x waybar
 }
 
-[ $# -gt 0 ] && toggle || show
+off() {
+    systemctl --user start mako
+    safeeyes -e
+    rm -f "$marker"
+    pkill -RTMIN+2 -x waybar
+}
+
+toggle() {
+    [ -e "$marker" ] && off || on
+}
+
+case "$1" in
+    on)     on ;;
+    off)    off ;;
+    toggle) toggle ;;
+    '')     show ;;
+esac
