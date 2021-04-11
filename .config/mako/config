@@ -1,3 +1,5 @@
+layer=overlay
+anchor=bottom-right
 background-color=#282828
 border-size=2
 border-radius=8
