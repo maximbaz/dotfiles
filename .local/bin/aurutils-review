@@ -1,0 +1,16 @@
+#!/bin/bash
+
+[ $# -ne 1 ] && {
+    echo >&2 "usage: $0 <tmp_view>"
+    exit 1
+}
+
+tmp_view="$1"
+seen_dir="${XDG_DATA_HOME:-$HOME/.local/share}/aurutils/view"
+
+cd "$tmp_view"
+for f in *; do
+    [[ -f "$f" || -s "$seen_dir/$f" ]] || mv "$f" "_$f"
+done
+
+xplr

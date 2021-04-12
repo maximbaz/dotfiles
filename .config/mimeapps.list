@@ -12,4 +12,4 @@ x-scheme-handler/http=browser.desktop
 x-scheme-handler/https=browser.desktop
 x-scheme-handler/about=browser.desktop
 x-scheme-handler/unknown=browser.desktop
-inode/directory=nnn.desktop
+inode/directory=xplr.desktop

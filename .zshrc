@@ -90,6 +90,5 @@ command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
 z4h source -- /etc/bash_completion.d/azure-cli
 z4h source -- /usr/share/LS_COLORS/dircolors.sh
-z4h source -- /usr/share/nnn/quitcd/quitcd.bash_zsh
 z4h source -- $ZDOTDIR/.zsh-aliases
 z4h source -- $ZDOTDIR/.zshrc-private

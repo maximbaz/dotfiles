@@ -15,7 +15,7 @@
 - [wl-clipboard-manager](https://github.com/maximbaz/wl-clipboard-manager) - clipboard manager for Wayland.
 - [ttf-joypixels](https://www.archlinux.org/packages/community/any/ttf-joypixels/) - latest JoyPixels font that provides colorful emojis for almost all apps on Linux (formerly EmojiOne).
 - [aurutils](https://github.com/AladW/aurutils) - the most reasonable AUR helper out there.
-- [nnn](https://github.com/jarun/nnn/) - extremely fast file manager.
+- [xplr](https://github.com/sayanarijit/xplr) - hackable, minimal and fast file manager.
 - [arch-secure-boot](https://github.com/maximbaz/arch-secure-boot) + [snap-pac](https://github.com/wesbarnett/snap-pac) - UEFI Secure Boot for Arch Linux + btrfs snapshots during system update.
 
 ## Fun things you can find in this repo:
