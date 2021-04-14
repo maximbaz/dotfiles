@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=visidata
+Comment=Spreadsheet editor
+Exec=vd %U
+Terminal=true
+MimeType=text/csv;text/tab-separated-values
+Categories=Editor
