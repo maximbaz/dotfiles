@@ -313,3 +313,15 @@ post_aur() {
 refresh-waybar-updates() {
     systemctl --user start waybar-updates.service
 }
+
+rga-fzf() {
+    RG_PREFIX="rga --files-with-matches"
+    xdg-open "$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX $@" \
+            fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+                --bind=tab:down,btab:up \
+                --phony -q "$1" \
+                --bind "change:reload:$RG_PREFIX {q}" \
+                --preview-window="70%:wrap"
+    )"
+}
