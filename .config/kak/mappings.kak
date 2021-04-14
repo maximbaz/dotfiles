@@ -55,3 +55,11 @@ define-command -hidden -params 1 extend-line-up   %{
         execute-keys "<a-:><a-;>%arg{1}K<a-x>"
     }
 }
+
+hook global InsertChar \t %{ try %{
+    execute-keys -draft "h<a-h><a-k>\A\h+\z<ret><a-;>;%opt{indentwidth}@"
+}}
+
+hook global InsertDelete ' ' %{ try %{
+    execute-keys -draft 'h<a-h><a-k>\A\h+\z<ret>i<space><esc><lt>'
+}}
