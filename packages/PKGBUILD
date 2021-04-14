@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.16.0
+pkgver=2.17.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -13,14 +13,12 @@ source=(
     'InputMonoNarrow-Italic.ttf'
     'InputMonoNarrow-Regular.ttf'
 )
-sha256sums=(
-    '2011ae62cec0d42728ffb62a1991f6a7c667acd9449aaace56cfb2d5febbdea8'
-    '423b204c54f6f9dd197f4d1df3ec178ea665d1386b9011c4116e0cbe4574d36d'
+sha256sums=('2011ae62cec0d42728ffb62a1991f6a7c667acd9449aaace56cfb2d5febbdea8'
+    '4bdf58ee96641954c9cf65dd5f5f3202134a672b80a0d1380de682d7c09db9f2'
     'dda57db7007f47185cf9be4e39184f73fecf052c4e49179cabab6ab5169cc501'
     'c0ad5882ff0b90e2d319ba98c96b95dac2fde03b86e92c92277c4ea424e86fa9'
     'f18d42ecce8d549c3ff4022fed2cc96ab9311fea39f00675fb67442d47a774df'
-    'a910ba1e7a1489edd7f89e49af0237aae5a918e0afd7de34bb7f115a7f9ce2e6'
-)
+    'a910ba1e7a1489edd7f89e49af0237aae5a918e0afd7de34bb7f115a7f9ce2e6')
 
 package() {
     # http://input.fontbureau.com/download/?customize&fontSelection=fourStyleFamily&regular=InputMonoNarrow-Regular&italic=InputMonoNarrow-Italic&bold=InputMonoNarrow-Bold&boldItalic=InputMonoNarrow-BoldItalic&a=0&g=0&i=serifs_round&l=serifs_round&zero=slash&asterisk=height&braces=0&preset=default&line-height=1.1&email=
@@ -71,6 +69,7 @@ depends=(
     'pacman-contrib'
     'devtools'
     'reflector'
+    'pkgstats'
 
     # boot
     'arch-secure-boot'
@@ -84,7 +83,7 @@ depends=(
     'sshfs'
     'udiskie'
     'udiskie-dmenu-git'
-    'nnn'
+    'xplr'
     'vimiv-qt'
     'ncdu'
     'croc'
@@ -97,7 +96,7 @@ depends=(
     'rmtrash'
     'imagemagick'
     'jq'
-    'pydf'
+    'dfrs'
     'seafile-client'
     'zathura-pdf-mupdf'
     'pdftk'
@@ -124,7 +123,7 @@ depends=(
     'nzbget'
     'nzbget-systemd'
     'openbsd-netcat'
-    'bind-tools'
+    'dog'
     'mtr'
     'sipcalc'
     'wget'
@@ -135,6 +134,7 @@ depends=(
     'wireguard-tools'
     'systemd-resolvconf'
     'vnstat'
+    'proxychains-ng'
 
     # security
     'arch-audit'
@@ -172,7 +172,7 @@ depends=(
     'bluez'
     'bluez-utils'
 
-    # sway
+    # ui
     'sway'
     'swaylock'
     'xorg-server-xwayland'
@@ -191,6 +191,9 @@ depends=(
     'vulkan-headers'
     'flashfocus-git'
     'qt5-wayland'
+    'wtype'
+    'wlrctl'
+    'wofi'
 
     # fonts
     'ttf-dejavu'
@@ -222,12 +225,17 @@ depends=(
     # dev tools
     'kakoune'
     'kak-lsp'
+    'kakoune.cr'
     'prettier'
     'dos2unix'
     'editorconfig-core-c'
     'docker'
     'direnv'
     'terraform'
+    'terraform-ls'
+    'teehee'
+    'strace'
+    'fzf'
 
     # shell dev
     'bash-language-server'
@@ -247,12 +255,15 @@ depends=(
     'go'
     'go-tools'
     'gopls'
+    'revive'
+    'staticcheck'
 
     # js dev
     'yarn'
 
     # rust dev
     'rust'
+    'rust-analyzer'
 
     # c dev
     'meson'
@@ -280,6 +291,7 @@ depends=(
 
     # browsers
     'qutebrowser'
+    'python-adblock'
     'chromium-widevine'
     'pdfjs'
     'python-tldextract'
@@ -292,6 +304,7 @@ depends=(
     'v4l2loopback-dkms'
     'xdg-desktop-portal-wlr'
     'libpipewire02'
+    'pipewire-media-session'
 
     # video
     'mpv'
@@ -312,17 +325,13 @@ depends=(
     'edk2-ovmf'
 
     # misc
+    'anydesk'
     'dmenu-term'
-    'fzf'
     'calibre'
     'krita'
     'qalculate-gtk'
     'libreoffice-fresh'
     'transmission-gtk'
-    'strace'
-    'code'
-    'wofi'
-    'intel-gpu-tools'
-    'wev'
     'signal-desktop'
+    'libinput-gestures'
 )
