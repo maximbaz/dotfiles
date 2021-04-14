@@ -113,6 +113,7 @@ link ".config/waybar"
 link ".config/wofi"
 link ".config/xdg-desktop-portal-wlr"
 link ".config/xkb"
+link ".config/xplr"
 
 link ".local/bin"
 link ".local/share/applications"
