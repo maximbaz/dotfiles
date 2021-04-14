@@ -15,7 +15,7 @@ c.tabs.title.format_pinned = "{index}: {audio}{current_title}"
 c.auto_save.session = True
 c.content.default_encoding = "utf-8"
 c.content.javascript.can_access_clipboard = True
-c.content.notifications = True  # notifications aren't supported now anyway
+c.content.notifications.enabled = True
 c.content.pdfjs = True
 c.editor.command = ["kitty", "kak", "-e", "exec {line}g{column0}l", "{}"]
 c.fileselect.handler = "external"
@@ -34,7 +34,7 @@ c.qt.args += [
 # privacy
 c.content.cookies.accept = "no-3rdparty"
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
-c.content.site_specific_quirks = False
+c.content.site_specific_quirks.enabled = False
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
 
 # urls
@@ -52,6 +52,8 @@ config.set("content.media.audio_video_capture", True, "*://app.wire.com")
 config.set("content.media.audio_capture", True, "*://app.wire.com")
 config.set("content.media.video_capture", True, "*://app.wire.com")
 config.set("content.desktop_capture", True, "*://app.wire.com")
+config.set("content.desktop_capture", True, "*://app.wire.com")
+config.set("content.notifications.show_origin", False, "*://app.wire.com")
 
 config.set("content.register_protocol_handler", True, "*://teams.microsoft.com")
 config.set("content.media.audio_video_capture", True, "*://teams.microsoft.com")
