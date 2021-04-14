@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=kakoune
+Comment=Text editor
+Exec=kak
+Terminal=true
+MimeType=text/plain
+Categories=Editor
