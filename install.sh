@@ -247,5 +247,5 @@ else
     echo -e "\n### DONE - reboot and clone your dotfiles (if you are using mine, consider forking and grepping for 'maximbaz' and replacing those first)"
 fi
 
-echo -e "\n### Remember to unplug the installation USB stick before the next boot!"
+echo -e "\n### Reboot now, and after power off remember to unplug the installation USB"
 umount -R /mnt
