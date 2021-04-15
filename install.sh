@@ -233,14 +233,19 @@ arch-chroot /mnt passwd -dl root
 echo -e "\n### Setting permissions on the custom repo"
 arch-chroot /mnt chown -R "$user:$user" /var/cache/pacman/maximbaz-local/
 
-echo -e "\n### Cloning dotfiles"
-arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
+if [ "$user" = "maximbaz" ]; then
+    echo -e "\n### Cloning dotfiles"
+    arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
 
-echo -e "\n### Running initial setup"
-arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
-arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup-user.sh
-arch-chroot /mnt sudo -u $user zsh -ic true
+    echo -e "\n### Running initial setup"
+    arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
+    arch-chroot /mnt sudo -u $user /home/$user/.dotfiles/setup-user.sh
+    arch-chroot /mnt sudo -u $user zsh -ic true
 
-echo -e "\n### DONE - reboot and re-run both ~/.dotfiles/setup-*.sh scripts"
+    echo -e "\n### DONE - reboot and re-run both ~/.dotfiles/setup-*.sh scripts"
+else
+    echo -e "\n### DONE - reboot and clone your dotfiles (if you are using mine, consider forking and grepping for 'maximbaz' and replacing those first)"
+fi
+
 echo -e "\n### Remember to unplug the installation USB stick before the next boot!"
 umount -R /mnt
