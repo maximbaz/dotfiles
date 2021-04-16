@@ -135,11 +135,13 @@ systemctl_enable_start "system-dotfiles-sync.timer"
 systemctl_enable_start "systemd-networkd.socket"
 systemctl_enable_start "systemd-resolved.service"
 systemctl_enable_start "tlp.service"
-systemctl_enable_start "usbguard.service"
-systemctl_enable_start "usbguard-dbus.service"
 
 if [ ! -s "/etc/usbguard/rules.conf" ]; then
     echo >&2 "=== Remember to set usbguard rules: usbguard generate-policy >! /etc/usbguard/rules.conf"
+else
+    chmod 600 /etc/usbguard/rules.conf
+    systemctl_enable_start "usbguard.service"
+    systemctl_enable_start "usbguard-dbus.service"
 fi
 
 if [ -d "/home/maximbaz/.ccnet" ]; then
