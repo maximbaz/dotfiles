@@ -148,38 +148,38 @@ umount /mnt
 mount -o noatime,nodiratime,compress=zstd,subvol=root /dev/mapper/luks /mnt
 mkdir -p /mnt/{mnt/btrfs-root,efi,home,var/{cache/pacman,log,tmp,lib/{aurbuild,archbuild,docker}},swap,.snapshots}
 mount "${part_boot}" /mnt/efi
-mount -o noatime,nodiratime,compress=zstd,subvol=/         /dev/mapper/luks /mnt/mnt/btrfs-root
-mount -o noatime,nodiratime,compress=zstd,subvol=home      /dev/mapper/luks /mnt/home
-mount -o noatime,nodiratime,compress=zstd,subvol=pkgs      /dev/mapper/luks /mnt/var/cache/pacman
-mount -o noatime,nodiratime,compress=zstd,subvol=aurbuild  /dev/mapper/luks /mnt/var/lib/aurbuild
+mount -o noatime,nodiratime,compress=zstd,subvol=/ /dev/mapper/luks /mnt/mnt/btrfs-root
+mount -o noatime,nodiratime,compress=zstd,subvol=home /dev/mapper/luks /mnt/home
+mount -o noatime,nodiratime,compress=zstd,subvol=pkgs /dev/mapper/luks /mnt/var/cache/pacman
+mount -o noatime,nodiratime,compress=zstd,subvol=aurbuild /dev/mapper/luks /mnt/var/lib/aurbuild
 mount -o noatime,nodiratime,compress=zstd,subvol=archbuild /dev/mapper/luks /mnt/var/lib/archbuild
-mount -o noatime,nodiratime,compress=zstd,subvol=docker    /dev/mapper/luks /mnt/var/lib/docker
-mount -o noatime,nodiratime,compress=zstd,subvol=logs      /dev/mapper/luks /mnt/var/log
-mount -o noatime,nodiratime,compress=zstd,subvol=temp      /dev/mapper/luks /mnt/var/tmp
-mount -o noatime,nodiratime,compress=zstd,subvol=swap      /dev/mapper/luks /mnt/swap
+mount -o noatime,nodiratime,compress=zstd,subvol=docker /dev/mapper/luks /mnt/var/lib/docker
+mount -o noatime,nodiratime,compress=zstd,subvol=logs /dev/mapper/luks /mnt/var/log
+mount -o noatime,nodiratime,compress=zstd,subvol=temp /dev/mapper/luks /mnt/var/tmp
+mount -o noatime,nodiratime,compress=zstd,subvol=swap /dev/mapper/luks /mnt/swap
 mount -o noatime,nodiratime,compress=zstd,subvol=snapshots /dev/mapper/luks /mnt/.snapshots
 
 echo -e "\n### Configuring custom repo"
-mkdir /mnt/var/cache/pacman/maximbaz-local
+mkdir "/mnt/var/cache/pacman/${user}-local"
 
 if [[ "${hostname}" == "home-"* ]]; then
-    wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P '/mnt/var/cache/pacman/maximbaz-local' 'https://pkgbuild.com/~maximbaz/repo/'
-    rename -- 'maximbaz.' 'maximbaz-local.' /mnt/var/cache/pacman/maximbaz-local/*
+    wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P "/mnt/var/cache/pacman/${user}-local" 'https://pkgbuild.com/~maximbaz/repo/'
+    rename -- 'maximbaz.' "${user}-local." "/mnt/var/cache/pacman/${user}-local"/*
 else
-    repo-add /mnt/var/cache/pacman/maximbaz-local/maximbaz-local.db.tar
+    repo-add "/mnt/var/cache/pacman/${user}-local/${user}-local.db.tar"
 fi
 
-if ! grep maximbaz /etc/pacman.conf > /dev/null; then
+if ! grep "${user}" /etc/pacman.conf > /dev/null; then
     cat >> /etc/pacman.conf << EOF
-[maximbaz-local]
-Server = file:///mnt/var/cache/pacman/maximbaz-local
+[${user}-local]
+Server = file:///mnt/var/cache/pacman/${user}-local
 
 [maximbaz]
 Server = https://pkgbuild.com/~maximbaz/repo
 
 [options]
 CacheDir = /mnt/var/cache/pacman/pkg
-CacheDir = /mnt/var/cache/pacman/maximbaz-local
+CacheDir = /mnt/var/cache/pacman/${user}-local
 EOF
 fi
 
@@ -231,9 +231,9 @@ echo "$user:$password" | arch-chroot /mnt chpasswd
 arch-chroot /mnt passwd -dl root
 
 echo -e "\n### Setting permissions on the custom repo"
-arch-chroot /mnt chown -R "$user:$user" /var/cache/pacman/maximbaz-local/
+arch-chroot /mnt chown -R "$user:$user" "/var/cache/pacman/${user}-local/"
 
-if [ "$user" = "maximbaz" ]; then
+if [ "${user}" = "maximbaz" ]; then
     echo -e "\n### Cloning dotfiles"
     arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
 
