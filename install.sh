@@ -126,7 +126,7 @@ else
 fi
 
 echo -e "\n### Formatting partitions"
-mkfs.vfat -n "EFI" -F32 "${part_boot}"
+mkfs.vfat -n "EFI" -F 32 "${part_boot}"
 echo -n ${password} | cryptsetup luksFormat --type luks2 --pbkdf argon2id --label luks $cryptargs "${part_root}"
 echo -n ${password} | cryptsetup luksOpen $cryptargs "${part_root}" luks
 mkfs.btrfs -L btrfs /dev/mapper/luks
