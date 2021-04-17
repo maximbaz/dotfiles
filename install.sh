@@ -162,7 +162,7 @@ mount -o noatime,nodiratime,compress=zstd,subvol=snapshots /dev/mapper/luks /mnt
 echo -e "\n### Configuring custom repo"
 mkdir "/mnt/var/cache/pacman/${user}-local"
 
-if [[ "${hostname}" == "home-"* ]]; then
+if [[ "${user}" == "maximbaz" && "${hostname}" == "home-"* ]]; then
     wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P "/mnt/var/cache/pacman/${user}-local" 'https://pkgbuild.com/~maximbaz/repo/'
     rename -- 'maximbaz.' "${user}-local." "/mnt/var/cache/pacman/${user}-local"/*
 else
@@ -244,7 +244,7 @@ if [ "${user}" = "maximbaz" ]; then
 
     echo -e "\n### DONE - reboot and re-run both ~/.dotfiles/setup-*.sh scripts"
 else
-    echo -e "\n### DONE - reboot and clone your dotfiles (if you are using mine, consider forking and grepping for 'maximbaz' and replacing those first)"
+    echo -e "\n### DONE - read POST_INSTALL.md for tips on configuring your setup"
 fi
 
 echo -e "\n### Reboot now, and after power off remember to unplug the installation USB"

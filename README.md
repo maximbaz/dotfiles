@@ -1,12 +1,24 @@
 # ~/.dotfiles
 
+Explore the repo and incorporate what you like into your own setup. If you have any questions, comments or suggestions, feel free to open an issue or PR!
+
+When you fork, remember to grep for `maximbaz` and replace with your username.
+
+[Installation script](https://github.com/maximbaz/dotfiles/blob/master/install.sh) is deploying an opinionated Arch Linux setup, but in general can be used by anyone. If you want to learn more, I highly recommend to at least read the installation script first, and maybe modify to your own needs.
+
+If you want to try my entire setup in a VM, make sure to use `maximbaz` as the username - it will install additional things and my dotfiles.
+
+For daily usage, I recommend forking [my repo](https://github.com/maximbaz/dotfiles) instead of using it directly, as I am changing things on daily basis 🙂
+
+Enjoy! 🚀
+
 ![screenshot](https://user-images.githubusercontent.com/1177900/82881781-6f2a7c00-9f40-11ea-936c-78044aeaf52e.png)
 
 ## Some of the worthy tools that I use, develop or help maintain:
 
 - [sway](https://github.com/swaywm/sway) (window manager) + [waybar](https://github.com/Alexays/Waybar) (status bar)
-- [kitty](https://github.com/kovidgoyal/kitty) (fast GPU-accelerated terminal)
-- [kakoune](https://github.com/mawww/kakoune) (modular text editor with multiple cursors)
+- [kitty](https://github.com/kovidgoyal/kitty) - fast GPU-accelerated terminal
+- [kakoune](https://github.com/mawww/kakoune) - modular text editor with multiple cursors
 - [zsh](https://www.zsh.org) + [powerlevel10k](https://github.com/romkatv/powerlevel10k) and various other plugins
 - [yubikey-touch-detector](https://github.com/maximbaz/yubikey-touch-detector) - a tool that can detect when your YubiKey is waiting for a touch.
 - [browserpass](https://github.com/browserpass/browserpass-extension) - browser extension for `pass` and `gopass`.
