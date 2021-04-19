@@ -5,6 +5,8 @@ config.source("gruvbox.py")
 c.colors.webpage.preferred_color_scheme = "dark"
 c.completion.shrink = True
 c.completion.use_best_match = True
+c.downloads.position = "bottom"
+c.downloads.remove_finished = 2000
 c.statusbar.widgets = ["progress", "keypress", "url", "history"]
 c.scrolling.bar = "always"
 c.tabs.position = "left"
