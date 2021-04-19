@@ -1,33 +1,28 @@
-version: v0.4.4
+version: v0.5.1
 
 general:
-  default_ui:
-    prefix: "   "
-    suffix: " "
   focus_ui:
-    prefix: "▸[ "
-    suffix: " ]"
     style:
       fg: Cyan
-  selection_ui:
-    prefix: " { "
-    suffix: " }"
 
 node_types:
   directory:
     meta:
-      icon: " "
+      icon: ""
     style:
       fg: Blue
   file:
     meta:
-      icon: " "
+      icon: ""
     style:
       add_modifier:
         bits: 2
   symlink:
     meta:
-      icon: " "
+      icon: ""
+    style:
+      add_modifier:
+        bits: 0
 
 modes:
   builtin:
@@ -38,3 +33,8 @@ modes:
             help: editor
             messages:
               - BashExec: '${EDITOR:-vi} "${XPLR_FOCUS_PATH:?}"'
+          D:
+            help: disk usage
+            messages:
+              - BashExec: ncdu
+              - ClearScreen
