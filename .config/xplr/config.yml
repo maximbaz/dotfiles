@@ -38,3 +38,8 @@ modes:
             messages:
               - BashExec: ncdu
               - ClearScreen
+
+    search:
+      key_bindings:
+        remaps:
+          tab: right
