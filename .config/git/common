@@ -1,75 +1,75 @@
 [branch]
-autosetuprebase = always
+	autosetuprebase = always
 
 [color "branch"]
-current = green reverse
-local = green
-remote = yellow
+	current = green reverse
+	local = green
+	remote = yellow
 
 [color "status"]
-added = green
-changed = yellow
-untracked = blue
+	added = green
+	changed = yellow
+	untracked = blue
 
 [color "diff-highlight"]
-oldNormal = red bold
-oldHighlight = red bold 52
-newNormal = green bold
-newHighlight = green bold 22
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 
 [color "diff"]
-meta = 11
-frag = magenta bold
-commit = yellow bold
-old = red bold
-new = green bold
-whitespace = red reverse
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 
 [commit]
-gpgsign = true
+	gpgsign = true
 
 [core]
-autocrlf = input
-pager = diff-so-fancy | less -RFXMx4
-excludesfile = ~/.config/git/ignore
-untrackedCache = true
+	autocrlf = input
+	pager = diff-so-fancy | less -RFXMx4
+	excludesfile = ~/.config/git/ignore
+	untrackedCache = true
 
 [diff]
-tool = kitty
+	tool = kitty
 
 [difftool]
-prompt = false
-trustExitCode = true
+	prompt = false
+	trustExitCode = true
 
 [difftool "kitty"]
-cmd = kitty +kitten diff $LOCAL $REMOTE
+	cmd = kitty +kitten diff $LOCAL $REMOTE
 
 [init]
-defaultBranch = main
+	defaultBranch = main
 
 [merge]
-tool = meld
+	tool = meld
 
 [mergetool]
-keepBackup = false
-prompt = false
+	keepBackup = false
+	prompt = false
 
 [mergetool "meld"]
-cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 [diff "gpg"]
-binary = true
-textconv = gpg --decrypt --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
+	binary = true
+	textconv = gpg --decrypt --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent
 
 [push]
-default = current
+	default = current
 
 [rebase]
-autostash = true
-autosquash = true
+	autostash = true
+	autosquash = true
 
 [user]
-name = Maxim Baz
-useConfigOnly = true
+	name = Maxim Baz
+	useConfigOnly = true
 
 # vim:ft=ini

@@ -1,8 +1,11 @@
 [include]
-path = ~/.config/git/common
+	path = ~/.config/git/common
 
 [user]
-email = git@maximbaz.com
-signingkey = 8053EB88879A68CB4873D32B011FDC52DA839335
+	email = git@maximbaz.com
+	signingkey = 8053EB88879A68CB4873D32B011FDC52DA839335
+
+[aurutils]
+	rebase = true
 
 # vim:ft=ini
