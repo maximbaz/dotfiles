@@ -24,3 +24,4 @@ x-scheme-handler/unknown=browser.desktop
 inode/directory=xplr.desktop
 text/csv=visidata.desktop
 text/tab-separated-values=visidata.desktop
+x-scheme-handler/mailto=neomutt.desktop
