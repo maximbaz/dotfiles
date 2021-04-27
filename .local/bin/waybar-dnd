@@ -12,14 +12,12 @@ show() {
 
 on() {
     systemctl --user stop mako
-    safeeyes -d
     touch "$marker"
     pkill -RTMIN+2 -x waybar
 }
 
 off() {
     systemctl --user start mako
-    safeeyes -e
     rm -f "$marker"
     pkill -RTMIN+2 -x waybar
 }

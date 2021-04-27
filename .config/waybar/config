@@ -8,6 +8,7 @@
     "modules-right": [
         "custom/progress",
         "custom/usbguard",
+        "custom/eyes",
         "custom/yubikey",
         "custom/decrypted",
         "custom/systemd",
@@ -36,6 +37,11 @@
         "return-type": "json",
         "on-click": "waybar-usbguard allow",
         "on-click-right": "waybar-usbguard reject"
+    },
+    "custom/eyes": {
+        "exec": "waybar-eyes",
+        "return-type": "json",
+        "on-click": "waybar-eyes done"
     },
     "custom/yubikey": {
         "exec": "waybar-yubikey",

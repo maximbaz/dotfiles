@@ -1,0 +1,14 @@
+#!/bin/sh
+
+marker="${XDG_CACHE_HOME:-$HOME/.cache}/waybar-eyes"
+
+run() {
+    printf '{"text": ""}\n'
+    touch "$marker"
+    sleep 15m
+    printf '{"text": ""}\n'
+    inotifywait -q "$marker"
+    run
+}
+
+[ "$1" = "done" ] && rm "$marker" || run

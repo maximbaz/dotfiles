@@ -10,7 +10,6 @@ before_lock() {
     bluetoothctl disconnect
     reset_kbd
     sudo systemctl stop pcscd.service
-    [ -f /tmp/waybar-dnd ] || safeeyes -d
 }
 
 case "$1" in
@@ -21,14 +20,12 @@ case "$1" in
     lock)
         before_lock
         swaylock
-        [ -f /tmp/waybar-dnd ] || safeeyes -e
         ;;
     suspend)
         before_lock
         systemctl -i suspend
         swaylock
         systemctl --user restart wlsunset
-        [ -f /tmp/waybar-dnd ] || safeeyes -e
         ;;
     reboot)
         systemctl -i reboot

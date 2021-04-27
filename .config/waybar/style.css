@@ -59,6 +59,7 @@ window#waybar {
 #memory.critical,
 #cpu.critical,
 #custom-yubikey,
+#custom-eyes,
 #custom-recording {
   border-bottom: 3px solid @red;
 }
@@ -71,6 +72,7 @@ window#waybar {
 #pulseaudio,
 #custom-usbguard,
 #custom-yubikey,
+#custom-eyes,
 #custom-decrypted,
 #custom-systemd,
 #custom-updates,
