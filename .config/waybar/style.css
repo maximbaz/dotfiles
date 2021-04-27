@@ -50,8 +50,7 @@ window#waybar {
 #battery.warning,
 #memory.warning,
 #cpu.warning,
-#custom-dnd.on,
-#custom-tablet.on {
+#custom-dnd.on {
   border-bottom: 3px solid @yellow;
 }
 
@@ -88,7 +87,6 @@ window#waybar {
 
 #custom-vpn,
 #custom-dnd,
-#custom-tablet,
 #custom-recording {
   padding: 0;
   margin: 0 6px;
