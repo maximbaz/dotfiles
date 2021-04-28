@@ -22,6 +22,7 @@
         "cpu",
         "memory",
         "backlight",
+        "sway/language",
         "battery",
         "clock",
         "tray"
@@ -105,6 +106,9 @@
     "backlight": {
         "format": "<span foreground='#928374'>{icon}</span> {percent}%",
         "format-icons": [""]
+    },
+    "sway/language": {
+        "format": "<span foreground='#928374'></span> {}",
     },
     "battery": {
         "bat": "BAT0",
