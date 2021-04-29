@@ -109,6 +109,7 @@
     },
     "sway/language": {
         "format": "<span foreground='#928374'></span> {}",
+        "min-length": 5,
     },
     "battery": {
         "bat": "BAT0",
