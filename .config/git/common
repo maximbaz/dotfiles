@@ -72,4 +72,7 @@
 	name = Maxim Baz
 	useConfigOnly = true
 
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+
 # vim:ft=ini
