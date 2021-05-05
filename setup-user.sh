@@ -86,6 +86,7 @@ link ".config/sway"
 link ".config/swaylock"
 link ".config/systemd/user/backup-packages.service"
 link ".config/systemd/user/backup-packages.timer"
+link ".config/systemd/user/battery-low-notify.service"
 link ".config/systemd/user/mbsync.service"
 link ".config/systemd/user/mbsync.timer"
 link ".config/systemd/user/polkit-gnome.service"
@@ -127,6 +128,7 @@ else
 
     systemctl --user daemon-reload
     systemctl_enable_start "backup-packages.timer"
+    systemctl_enable_start "battery-low-notify.service"
     systemctl_enable_start "flashfocus.service"
     systemctl_enable_start "libinput-gestures.service"
     systemctl_enable_start "mako.service"
