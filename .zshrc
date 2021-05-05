@@ -14,6 +14,7 @@ zstyle    ':z4h:term-title:local'                        preexec                
 zstyle    ':completion:*:ssh:argument-1:'                tag-order              hosts users
 zstyle    ':completion:*:scp:argument-rest:'             tag-order              hosts files users
 zstyle    ':completion:*:(ssh|scp|rdp):*:hosts'          hosts
+zstyle    ':z4h:'                                        start-tmux             no
 
 if ! (( P9K_SSH )); then
     zstyle ':z4h:sudo' term ''
