@@ -78,7 +78,7 @@ alias dcu='dc up -d'
 alias dcd='dc down'
 alias dcr='dcd; dcu'
 alias dcp='dc pull'
-alias dcl='dc logs -f --tail=1000'
+alias dcl='dc logs -t -f --tail=1000'
 alias dce='dc exec'
 alias dcs='dc ps'
 
