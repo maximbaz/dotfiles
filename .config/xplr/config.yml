@@ -1,4 +1,4 @@
-version: v0.5.7
+version: v0.8.4
 
 general:
   focus_ui:
@@ -15,14 +15,12 @@ node_types:
     meta:
       icon: ""
     style:
-      add_modifier:
-        bits: 2
+      add_modifiers: [Dim]
   symlink:
     meta:
       icon: ""
     style:
-      add_modifier:
-        bits: 0
+      sub_modifiers: [Italic]
 
 modes:
   builtin:
