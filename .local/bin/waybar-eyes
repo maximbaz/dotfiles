@@ -5,7 +5,7 @@ eyes=""
 
 run() {
     while true; do
-        printf '{"text": "%s"}\n' "$eyes"
+        printf '{"text": "%s"}\n' "$(echo "$eyes" | xargs)"
         touch "$marker"
         inotifywait -t 900 -q "$marker"
         [ -f "$marker" ] && eyes="$eyes " || eyes=""
