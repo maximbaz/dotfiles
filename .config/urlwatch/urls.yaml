@@ -344,3 +344,10 @@ filter:
   - css: ".release-header>div>div>a"
   - html2text
 max_tries: 3
+---
+name: "xplr"
+url: "https://github.com/sayanarijit/xplr/releases/latest"
+filter:
+  - css: ".release-header>div>div>a"
+  - html2text
+max_tries: 3
