@@ -15,9 +15,6 @@
 [submodule ".config/kak/toggle-highlighter.kak"]
 	path = .config/kak/toggle-highlighter.kak
 	url = https://github.com/alexherbo2/toggle-highlighter.kak
-[submodule ".config/kak/word-select.kak"]
-	path = .config/kak/word-select.kak
-	url = https://github.com/alexherbo2/word-select.kak
 [submodule ".config/kak/out-of-view.kak"]
 	path = .config/kak/out-of-view.kak
 	url = https://github.com/alexherbo2/out-of-view.kak
