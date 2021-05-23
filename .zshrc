@@ -81,7 +81,7 @@ setopt GLOB_DOTS
 
 export DIRENV_LOG_FORMAT=
 export FZF_DEFAULT_OPTS="--reverse --multi"
-export SYSTEMD_LESS=FRXMK
+export SYSTEMD_LESS="${LESS}S"
 
 ###
 
