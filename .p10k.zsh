@@ -16,6 +16,7 @@
         context
         dir
         direnv
+        xplr
         vcs
         kubecontext
         azure
@@ -109,6 +110,10 @@
     #######################[ direnv: direnv status (https://direnv.net/) ]########################
     typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=179
     typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION=" "
+
+    ##################[ xplr: xplr shell (https://github.com/sayanarijit/xplr) ]##################
+    typeset -g POWERLEVEL9K_XPLR_FOREGROUND=43
+    typeset -g POWERLEVEL9K_XPLR_VISUAL_IDENTIFIER_EXPANSION=" "
 
     #####################################[ vcs: git status ]######################################
     function my_git_formatter() {
