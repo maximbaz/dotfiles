@@ -1,4 +1,4 @@
-version = '0.10.1'
+version = '0.11.0'
 
 -- ui
 xplr.config.general.focus_ui.style.fg = 'Cyan'
@@ -13,15 +13,15 @@ xplr.config.node_types.symlink.style.sub_modifiers = { 'Italic' }
 -- keys: default mode
 key = xplr.config.modes.builtin.default.key_bindings.on_key
 
-key.a = key['ctrl-a']; key['ctrl-a'] = nil
-key['/'] = key['ctrl-f']; key['ctrl-f'] = nil
+key.a = key['ctrl-a']
+key['ctrl-f'] = nil
 key.e = xplr.config.modes.builtin.action.key_bindings.on_key.e
 key.o = xplr.config.modes.builtin.go_to.key_bindings.on_key.x
 
+key['ctrl-a'] = nil
 key['ctrl-w'] = nil
 key['ctrl-r'] = nil
 key.v = nil
-xplr.config.modes.builtin.default.key_bindings.remaps['tab'] = nil
 
 key['!'] = {
   help = "shell",
@@ -107,14 +107,8 @@ key.D = {
 key = xplr.config.modes.builtin.go_to.key_bindings.on_key
 
 key.k = key.g
+key.j = xplr.config.modes.builtin.default.key_bindings.on_key.G
 key.x = nil
-key.j = {
-  help = "go to bottom",
-  messages = {
-    "FocusLast",
-    "PopMode"
-  }
-}
 
 
 -- keys: search mode
@@ -125,5 +119,3 @@ key['tab'] = key.right
 key['ctrl-j'] = key.down
 key['ctrl-k'] = key.up
 key['ctrl-n'] = nil
-
-xplr.config.modes.builtin.search.key_bindings.remaps['ctrl-p'] = nil
