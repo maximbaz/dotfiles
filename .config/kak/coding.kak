@@ -75,7 +75,7 @@ hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|
 }
 
 hook global WinSetOption filetype=sh %{
-    set-option buffer formatcmd 'shfmt -i 4 -ci -sr'
+    set-option buffer formatcmd "shfmt -i %opt{indentwidth} -ci -sr"
     hook buffer -group format BufWritePre .* format
 
     set-option buffer lintcmd 'shellcheck -x -fgcc'
