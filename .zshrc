@@ -1,20 +1,20 @@
-zstyle    ':z4h:'                                        auto-update            no
-zstyle    ':z4h:*'                                       channel                stable
-zstyle    ':z4h:autosuggestions'                         forward-char           accept
-zstyle    ':z4h:fzf-complete'                            fzf-command            my-fzf
-zstyle    ':z4h:(fzf-complete|cd-down|fzf-history)'      fzf-flags              --no-exact --color=hl:14,hl+:14
-zstyle    ':z4h:(fzf-complete|cd-down)'                  fzf-bindings           'tab:repeat'
-zstyle    ':z4h:(fzf-complete|cd-down)'                  find-flags             -name '.git' -prune -print -o -print
-zstyle    ':z4h:ssh:*'                                   ssh-command            command ssh
-zstyle    ':z4h:ssh:*'                                   send-extra-files       '~/.zsh-aliases'
-zstyle    ':z4h:ssh:*'                                   enable                 no
-zstyle    ':zle:(up|down)-line-or-beginning-search'      leave-cursor           yes
-zstyle    ':z4h:term-title:ssh'                          preexec                '%* | %n@%m: ${1//\%/%%}'
-zstyle    ':z4h:term-title:local'                        preexec                '%* | ${1//\%/%%}'
-zstyle    ':completion:*:ssh:argument-1:'                tag-order              hosts users
-zstyle    ':completion:*:scp:argument-rest:'             tag-order              hosts files users
-zstyle    ':completion:*:(ssh|scp|rdp):*:hosts'          hosts
-zstyle    ':z4h:'                                        start-tmux             no
+zstyle    ':z4h:'                                              auto-update            no
+zstyle    ':z4h:*'                                             channel                stable
+zstyle    ':z4h:autosuggestions'                               forward-char           accept
+zstyle    ':z4h:fzf-complete'                                  fzf-command            my-fzf
+zstyle    ':z4h:(fzf-complete|fzf-dir-history|fzf-history)'    fzf-flags              --no-exact --color=hl:14,hl+:14
+zstyle    ':z4h:(fzf-complete|fzf-dir-history)'                fzf-bindings           'tab:repeat'
+zstyle    ':z4h:fzf-complete'                                  find-flags             -name '.git' -prune -print -o -print
+zstyle    ':z4h:ssh:*'                                         ssh-command            command ssh
+zstyle    ':z4h:ssh:*'                                         send-extra-files       '~/.zsh-aliases'
+zstyle    ':z4h:ssh:*'                                         enable                 no
+zstyle    ':zle:(up|down)-line-or-beginning-search'            leave-cursor           yes
+zstyle    ':z4h:term-title:ssh'                                preexec                '%* | %n@%m: ${1//\%/%%}'
+zstyle    ':z4h:term-title:local'                              preexec                '%* | ${1//\%/%%}'
+zstyle    ':completion:*:ssh:argument-1:'                      tag-order              hosts users
+zstyle    ':completion:*:scp:argument-rest:'                   tag-order              hosts files users
+zstyle    ':completion:*:(ssh|scp|rdp):*:hosts'                hosts
+zstyle    ':z4h:'                                              start-tmux             no
 
 if ! (( P9K_SSH )); then
     zstyle ':z4h:sudo' term ''
@@ -65,7 +65,7 @@ z4h bindkey z4h-backward-zword      Ctrl+Alt+Left
 z4h bindkey z4h-cd-back             Alt+H
 z4h bindkey z4h-cd-forward          Alt+L
 z4h bindkey z4h-cd-up               Alt+K
-z4h bindkey z4h-cd-down             Alt+J
+z4h bindkey z4h-fzf-dir-history     Alt+J
 
 z4h bindkey my-ctrl-z               Ctrl+Z
 z4h bindkey edit-command-line       Alt+E
