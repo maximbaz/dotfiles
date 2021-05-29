@@ -1,4 +1,4 @@
-version = '0.11.0'
+version = '0.13.1'
 
 -- ui
 xplr.config.general.focus_ui.style.fg = 'Cyan'
@@ -21,7 +21,10 @@ key.o = xplr.config.modes.builtin.go_to.key_bindings.on_key.x
 key['ctrl-a'] = nil
 key['ctrl-w'] = nil
 key['ctrl-r'] = nil
+key['ctrl-i'] = nil
+key['ctrl-o'] = nil
 key.v = nil
+key.V = nil
 
 key['!'] = {
   help = "shell",
