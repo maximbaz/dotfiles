@@ -85,3 +85,8 @@ hook global WinSetOption filetype=sh %{
 hook global WinSetOption filetype=terraform %{
     hook buffer -group format BufWritePre .* lsp-formatting-sync
 }
+
+hook global WinSetOption filetype=lua %{
+    set-option buffer formatcmd 'stylua --config-path ~/.config/stylua/stylua.toml -- -'
+    hook buffer -group format BufWritePre .* format
+}
