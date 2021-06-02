@@ -1,0 +1,29 @@
+#!/bin/sh
+
+error() {
+    echo >&2 "$*"
+    exit 1
+}
+
+[ $# -gt 0 ] || error "Usage: $0 <action> (e.g. $0 output-mute)"
+
+bt_card=$(pactl list | grep "Name: bluez_card." | cut -d ' ' -f 2)
+
+case "$1" in
+    bt-toggle-profile)
+        a2dp=$(pactl list | grep Active | grep a2dp-sink-sbc)
+        [ -n "$bt_card" ] || error "No bluetooth device connected"
+        [ -n "$a2dp" ] && new=headset-head-unit-msbc || new=a2dp-sink-sbc
+        pactl set-card-profile "$bt_card" "$new"
+        ;;
+    bt-connect-headphones) bluetoothctl connect 20:74:CF:5C:1F:68 ;;
+    bt-connect-speakers)   bluetoothctl connect 00:02:3C:7E:5F:31 ;;
+    bt-disconnect)         bluetoothctl disconnect ;;
+    output-mute)           pactl set-sink-mute     @DEFAULT_SINK@   toggle ;;
+    input-mute)            pactl set-source-mute   @DEFAULT_SOURCE@ toggle ;;
+    output-volume-up)      pactl set-sink-volume   @DEFAULT_SINK@   +5% ;;
+    output-volume-down)    pactl set-sink-volume   @DEFAULT_SINK@   -5% ;;
+    input-volume-up)       pactl set-source-volume @DEFAULT_SOURCE@ +5% ;;
+    input-volume-down)     pactl set-source-volume @DEFAULT_SOURCE@ -5% ;;
+    *)                     error "Unknown action '$1'" ;;
+esac

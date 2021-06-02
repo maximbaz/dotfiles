@@ -84,14 +84,10 @@ floating_modifier $hyper
 set $mode_audio "Audio"
 mode $mode_audio {
     bindsym --to-code {
-        s            exec pacmd set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-speaker, mode "default"
-        h            exec pacmd set-sink-port alsa_output.pci-0000_00_1f.3.analog-stereo analog-output-headphones, mode "default"
-        b            exec bluetoothctl connect 20:74:CF:5C:1F:68, mode "default"
-        Shift+s      exec bluetoothctl connect 00:02:3C:7E:5F:31, mode "default"
-        Shift+b      exec bluetoothctl disconnect, mode "default"
-        Shift+i      exec pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-internal-mic, mode "default"
-        Shift+h      exec pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-headset-mic, mode "default"
-        Shift+m      exec pacmd set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-mic, mode "default"
+        h exec sway-audio bt-connect-headphones, mode "default"
+        s exec sway-audio bt-connect-speakers, mode "default"
+        i exec sway-audio bt-toggle-profile, mode "default"
+        d exec sway-audio bt-disconnect, mode "default"
 
         # back to normal: Enter or Escape
         Return mode default
@@ -224,17 +220,17 @@ bindsym --to-code {
     $hyper+Left   exec playerctl --player playerctld previous
     $hyper+Right  exec playerctl --player playerctld next
 
-    XF86AudioMute        exec pamixer -t
-    XF86AudioRaiseVolume exec pamixer -i 5
-    XF86AudioLowerVolume exec pamixer -d 5
-    $win+Up              exec pamixer -t
-    $win+Down            exec pamixer -t
-    $win+Right           exec pamixer -i 5
-    $win+Left            exec pamixer -d 5
-    $win+Shift+Up        exec pamixer -t --source alsa_input.pci-0000_00_1f.3.analog-stereo
-    $win+Shift+Down      exec pamixer -t --source alsa_input.pci-0000_00_1f.3.analog-stereo
-    $win+Shift+Right     exec pamixer -i 5 --source alsa_input.pci-0000_00_1f.3.analog-stereo
-    $win+Shift+Left      exec pamixer -d 5 --source alsa_input.pci-0000_00_1f.3.analog-stereo
+    XF86AudioMute        exec sway-audio output-mute
+    XF86AudioRaiseVolume exec sway-audio output-volume-up
+    XF86AudioLowerVolume exec sway-audio output-volume-down
+    $win+Up              exec sway-audio output-mute
+    $win+Down            exec sway-audio output-mute
+    $win+Right           exec sway-audio output-volume-up
+    $win+Left            exec sway-audio output-volume-down
+    $win+Shift+Up        exec sway-audio input-mute
+    $win+Shift+Down      exec sway-audio input-mute
+    $win+Shift+Right     exec sway-audio input-volume-up
+    $win+Shift+Left      exec sway-audio input-volume-down
 
     # Reload the configuration file
     $win+r reload

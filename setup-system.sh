@@ -75,7 +75,6 @@ copy "etc/pacman.conf"
 copy "etc/pacman.d/hooks"
 copy "etc/pam.d/polkit-1"
 copy "etc/pam.d/sudo"
-copy "etc/pulse/default.pa"
 copy "etc/snap-pac.conf"
 copy "etc/snapper/configs/root"
 copy "etc/ssh/ssh_config"
@@ -94,6 +93,7 @@ copy "etc/systemd/system/system-dotfiles-sync.service"
 copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
+copy "usr/share/pipewire/media-session.d/bluez-monitor.conf"
 
 if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@pkgbuild"
