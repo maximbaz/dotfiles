@@ -12,8 +12,14 @@ app="$(swaymsg -t get_tree | jq -r '..|try select(.focused == true).app_id')"
 case "$app" in
     org.qutebrowser.qutebrowser)
         case $1 in
-            swipe-3-left)    wtype -k escape -s 100 -M shift L -m shift ;;
-            swipe-3-right)   wtype -k escape -s 100 -M shift H -m shift ;;
+            swipe-3-left)
+                swaymsg seat seat0 cursor press   BTN_EXTRA
+                swaymsg seat seat0 cursor release BTN_EXTRA
+                ;;
+            swipe-3-right)
+                swaymsg seat seat0 cursor press   BTN_SIDE
+                swaymsg seat seat0 cursor release BTN_SIDE
+                ;;
             swipe-3-up)      wtype -k escape -s 100 -M shift K -m shift ;;
             swipe-3-down)    wtype -k escape -s 100 -M shift J -m shift ;;
             swipe-3-left_up) wtype -k escape -s 100 r ;;
