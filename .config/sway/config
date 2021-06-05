@@ -86,7 +86,7 @@ mode $mode_audio {
     bindsym --to-code {
         h exec sway-audio bt-connect-headphones, mode "default"
         s exec sway-audio bt-connect-speakers, mode "default"
-        i exec sway-audio bt-toggle-profile, mode "default"
+        t exec sway-audio bt-toggle-profile, mode "default"
         d exec sway-audio bt-disconnect, mode "default"
 
         # back to normal: Enter or Escape
