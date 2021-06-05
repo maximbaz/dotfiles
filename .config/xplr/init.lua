@@ -1,4 +1,4 @@
-version = "0.13.1"
+version = "0.13.7"
 
 -- ui
 xplr.config.general.focus_ui.style.fg = "Cyan"
@@ -31,7 +31,6 @@ key["!"] = {
         { Call = { command = "zsh", args = { "-i" } } },
         "ExplorePwdAsync",
         "PopMode",
-        "Refresh",
     },
 }
 
@@ -59,7 +58,6 @@ key.l = {
     messages = {
         { BashExec = [[ cat -- "${XPLR_PIPE_LOGS_OUT}" | less -+F ]] },
         "PopMode",
-        "Refresh",
     },
 }
 
@@ -76,7 +74,6 @@ key.d = {
             ]===],
         },
         "PopMode",
-        "Refresh",
     },
 }
 
@@ -90,7 +87,6 @@ key.D = {
             ]===],
         },
         "PopMode",
-        "Refresh",
     },
 }
 
