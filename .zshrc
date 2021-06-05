@@ -59,6 +59,10 @@ z4h bindkey z4h-backward-kill-word  Ctrl+Backspace
 z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
 z4h bindkey z4h-kill-zword          Ctrl+Alt+Delete
 
+z4h bindkey backward-kill-line      Ctrl+U
+z4h bindkey kill-line               Alt+U
+z4h bindkey kill-whole-line         Alt+I
+
 z4h bindkey z4h-forward-zword       Ctrl+Alt+Right
 z4h bindkey z4h-backward-zword      Ctrl+Alt+Left
 
