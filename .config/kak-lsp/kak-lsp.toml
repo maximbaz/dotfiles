@@ -1,13 +1,6 @@
 snippet_support = false
 verbosity = 2
 
-[semantic_scopes]
-variable = "variable"
-entity_name_function = "function"
-entity_name_type = "type"
-variable_other_enummember = "variable"
-entity_name_namespace = "module"
-
 [semantic_tokens]
 type = "type"
 variable = "variable"
