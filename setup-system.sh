@@ -10,7 +10,7 @@ dotfiles_dir="$(
 )"
 cd "$dotfiles_dir"
 
-if (( "$EUID" )); then
+if (("$EUID")); then
     sudo -s "$dotfiles_dir/$script_name" "$@"
     exit 0
 fi
@@ -94,6 +94,8 @@ copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
 copy "usr/share/pipewire/media-session.d/bluez-monitor.conf"
+copy "usr/share/devtools/pacman-extra.conf"
+copy "usr/share/devtools/pacman-staging.conf"
 
 if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@pkgbuild"
@@ -101,7 +103,7 @@ if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@.timer"
 fi
 
-(( "$reverse" ))&& exit 0
+(("$reverse")) && exit 0
 
 echo ""
 echo "================================="
