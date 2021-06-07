@@ -1,4 +1,4 @@
-version = "0.13.7"
+version = "0.14.0"
 
 -- ui
 xplr.config.general.focus_ui.style.fg = "Cyan"
