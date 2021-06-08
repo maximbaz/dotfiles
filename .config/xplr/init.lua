@@ -29,8 +29,8 @@ key["!"] = {
     help = "shell",
     messages = {
         { Call = { command = "zsh", args = { "-i" } } },
-        "ExplorePwdAsync",
-        "PopMode",
+        ExplorePwdAsync,
+        PopMode,
     },
 }
 
@@ -38,14 +38,14 @@ key.D = {
     help = "disk usage",
     messages = {
         { Call = { command = "ncdu" } },
-        "ClearScreen",
+        ClearScreen,
     },
 }
 
 key.n = {
     help = "go to nzb",
     messages = {
-        { BashExecSilently = [[ echo 'ChangeDirectory: "/home/nzbget/dst/"' >> "${XPLR_PIPE_MSG_IN:?}" ]] },
+        { ChangeDirectory = "/home/nzbget/dst" },
     },
 }
 
@@ -57,7 +57,7 @@ key.l = {
     help = "logs",
     messages = {
         { BashExec = [[ cat -- "${XPLR_PIPE_LOGS_OUT}" | less -+F ]] },
-        "PopMode",
+        PopMode,
     },
 }
 
@@ -68,12 +68,12 @@ key.d = {
     help = "delete",
     messages = {
         {
-            BashExec = [===[
+            BashExecSilently = [===[
                 while IFS= read -r line; do rmtrash -rf -- "${line:?}"; done < "${XPLR_PIPE_RESULT_OUT:?}"
                 echo ExplorePwdAsync >> "${XPLR_PIPE_MSG_IN:?}"
             ]===],
         },
-        "PopMode",
+        PopMode,
     },
 }
 
@@ -81,12 +81,12 @@ key.D = {
     help = "force delete",
     messages = {
         {
-            BashExec = [===[
+            BashExecSilently = [===[
                 while IFS= read -r line; do rm -rf -- "${line:?}"; done < "${XPLR_PIPE_RESULT_OUT:?}"
                 echo ExplorePwdAsync >> "${XPLR_PIPE_MSG_IN:?}"
             ]===],
         },
-        "PopMode",
+        PopMode,
     },
 }
 
