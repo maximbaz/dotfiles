@@ -93,7 +93,6 @@ copy "etc/systemd/system/system-dotfiles-sync.service"
 copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
-copy "usr/share/pipewire/media-session.d/bluez-monitor.conf"
 copy "usr/share/devtools/pacman-extra.conf"
 copy "usr/share/devtools/pacman-staging.conf"
 
