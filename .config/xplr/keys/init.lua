@@ -37,6 +37,11 @@ local function setup()
         messages = { { ChangeDirectory = "/home/nzbget/dst" } },
     }
 
+    key.Q = {
+        help = "quit cd",
+        messages = { "PrintPwdAndQuit" },
+    }
+
     -- action mode
     key = xplr.config.modes.builtin.action.key_bindings.on_key
 
