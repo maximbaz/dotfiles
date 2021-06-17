@@ -351,3 +351,10 @@ filter:
   - css: ".release-header>div>div>a"
   - html2text
 max_tries: 30
+---
+name: "goimapnotify"
+url: "https://gitlab.com/shackra/goimapnotify/-/tags"
+filter:
+  - css: ".tags>ul>li:first-child>div>a"
+  - html2text
+max_tries: 30
