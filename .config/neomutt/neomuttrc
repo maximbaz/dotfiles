@@ -57,8 +57,7 @@ set menu_scroll
 set menu_context = 5
 
 alternative_order text/plain text/enriched text/html
-auto_view text/html
-auto_view application/pdf
+auto_view text/html text/calendar application/ics application/pdf
 set mailcap_path = ~/.config/neomutt/mailcap
 
 source colors
