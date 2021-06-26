@@ -30,3 +30,6 @@
 [submodule ".config/kak/view-mode.kak"]
 	path = .config/kak/view-mode.kak
 	url = https://github.com/alexherbo2/view-mode.kak
+[submodule ".config/mpv/uosc"]
+	path = .config/mpv/uosc
+	url = https://github.com/darsain/uosc/
