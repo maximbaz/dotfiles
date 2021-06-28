@@ -42,6 +42,14 @@ local function setup()
         messages = { "PrintPwdAndQuit" },
     }
 
+    key.y = {
+        help = "copy",
+        messages = {
+            "PopMode",
+            { SwitchModeCustom = "copy" },
+        },
+    }
+
     -- action mode
     key = xplr.config.modes.builtin.action.key_bindings.on_key
 
@@ -100,6 +108,30 @@ local function setup()
     key["ctrl-j"] = key.down
     key["ctrl-k"] = key.up
     key["ctrl-n"] = nil
+
+    -- copy mode
+    xplr.config.modes.custom.copy = {
+        name = "copy",
+        key_bindings = {
+            on_key = {
+                y = {
+                    help = "selected file path",
+                    messages = {
+                        { BashExecSilently = [[ wl-copy < "${XPLR_PIPE_RESULT_OUT:?}" ]] },
+                        "PopMode",
+                    },
+                },
+                ["ctrl-c"] = {
+                    help = "terminate",
+                    messages = { "Terminate" },
+                },
+                esc = {
+                    help = "cancel",
+                    messages = { "PopMode" },
+                },
+            },
+        },
+    }
 end
 
 return { setup = setup }
