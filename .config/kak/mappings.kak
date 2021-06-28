@@ -40,7 +40,6 @@ map global user -docstring 'surround'                 s      ': enter-user-mode 
 map global user -docstring 'select down'              V      ': vertical-selection-down<ret>'
 map global user -docstring 'select up'                <a-v>  ': vertical-selection-up<ret>'
 map global user -docstring 'select up and down'       v      ': vertical-selection-up-and-down<ret>'
-map global user -docstring 'new terminal in cwd'      n      ': kitty-terminal zsh<ret>'
 map global user -docstring 'disable autoformat'       d      ': disable-autoformat<ret>'
 map global user -docstring 'LSP mode'                 l      ': enter-user-mode lsp<ret>'
 map global user -docstring 'toggle line numbers'      L      ': toggle-highlighter global/ number-lines -hlcursor<ret>'
@@ -53,6 +52,12 @@ define-command -hidden -params 1 extend-line-up   %{
         execute-keys "<a-:><a-;>%arg{1}KJ<a-x>"
     } catch %{
         execute-keys "<a-:><a-;>%arg{1}K<a-x>"
+    }
+}
+
+define-command cd-buffer -docstring 'Change the working directory to the current buffer directory' %{
+    evaluate-commands -buffer %val{buffile}%{
+        change-directory %sh(dirname "$kak_buffile")
     }
 }
 

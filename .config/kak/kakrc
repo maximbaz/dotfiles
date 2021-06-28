@@ -1,11 +1,7 @@
 # External plugins
-source "~/.config/kak/auto-pairs/rc/auto-pairs.kak"; require-module auto-pairs; auto-pairs-enable
-source "~/.config/kak/surround.kak/rc/surround.kak"; require-module surround
-source "~/.config/kak/toggle-highlighter.kak/rc/toggle-highlighter.kak"; require-module toggle-highlighter
-source "~/.config/kak/out-of-view.kak/rc/out-of-view.kak"; require-module out-of-view; out-of-view-enable
-source "~/.config/kak/sleuth.kak/rc/sleuth.kak"; require-module sleuth; sleuth-enable
-source "~/.config/kak/change-directory.kak/rc/change-directory.kak"; require-module change-directory
-source "~/.config/kak/view-mode.kak/rc/view-mode.kak"; require-module view-mode
+source "/usr/share/kcr/rc/lib.kak"
+source "/usr/share/kcr/rc/auto-pairs.kak"; enable-auto-pairs
+source "/usr/share/kcr/rc/surround.kak"
 source "~/.config/kak/state-save/state-save.kak"
 source "~/.config/kak/vertical-selection/vertical-selection.kak"
 source "~/.config/kak/restclient.kak/restclient.kak"
@@ -16,3 +12,4 @@ source "~/.config/kak/files.kak"
 source "~/.config/kak/mappings.kak"
 source "~/.config/kak/ui.kak"
 source "~/.config/kak/asterisk.kak"
+source "~/.config/kak/toggle-highlighter.kak"

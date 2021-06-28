@@ -2,34 +2,12 @@
 	path = .config/kak/vertical-selection
 	url = https://github.com/occivink/kakoune-vertical-selection
 	branch = master
-[submodule ".config/kak/auto-pairs"]
-	path = .config/kak/auto-pairs
-	url = https://github.com/alexherbo2/auto-pairs.kak
-	branch = master
 [submodule ".config/kak/restclient.kak"]
 	path = .config/kak/restclient.kak
 	url = https://github.com/maximbaz/restclient.kak
-[submodule ".config/kak/surround.kak"]
-	path = .config/kak/surround.kak
-	url = https://github.com/alexherbo2/surround.kak
-[submodule ".config/kak/toggle-highlighter.kak"]
-	path = .config/kak/toggle-highlighter.kak
-	url = https://github.com/alexherbo2/toggle-highlighter.kak
-[submodule ".config/kak/out-of-view.kak"]
-	path = .config/kak/out-of-view.kak
-	url = https://github.com/alexherbo2/out-of-view.kak
-[submodule ".config/kak/sleuth.kak"]
-	path = .config/kak/sleuth.kak
-	url = https://github.com/alexherbo2/sleuth.kak
-[submodule ".config/kak/change-directory.kak"]
-	path = .config/kak/change-directory.kak
-	url = https://github.com/alexherbo2/change-directory.kak
 [submodule ".config/kak/state-save"]
 	path = .config/kak/state-save
-	url = https://gitlab.com/Screwtapello/kakoune-state-save
-[submodule ".config/kak/view-mode.kak"]
-	path = .config/kak/view-mode.kak
-	url = https://github.com/alexherbo2/view-mode.kak
+	url = https://gitlab.com/Screwtapello/kakoune-state-save.git/
 [submodule ".config/mpv/uosc"]
 	path = .config/mpv/uosc
 	url = https://github.com/darsain/uosc/

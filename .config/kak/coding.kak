@@ -21,6 +21,22 @@ define-command disable-autoformat -docstring 'disable auto-format' %{
     remove-hooks buffer format
 }
 
+define-command detect-indentwidth -docstring 'detect indentwidth' %{
+    try %{
+        evaluate-commands -draft %{
+            # Search the first indent level
+            execute-keys 'gg' '/' '^\h+' '<ret>'
+
+            try %{
+                execute-keys '<a-k>' '\t' '<ret>'
+                set-option buffer indentwidth 0
+            } catch %{
+                set-option buffer indentwidth %val{selection_length}
+            }
+        }
+    }
+}
+
 
 # Hooks
 
@@ -29,6 +45,8 @@ hook global BufCreate    .* %{ editorconfig-load; set buffer eolformat lf }
 hook global BufWritePre  .* %{ nop %sh{ mkdir -p $(dirname "$kak_hook_param") }}
 hook global BufWritePost .* %{ git show-diff }
 hook global BufReload    .* %{ git show-diff }
+hook global BufOpenFile  .* %{ detect-indentwidth }
+hook global BufWritePost .* %{ detect-indentwidth }
 hook global WinDisplay   .* %{ evaluate-commands %sh{
     cd "$(dirname "$kak_buffile")"
     project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
