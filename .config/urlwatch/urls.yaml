@@ -358,3 +358,10 @@ filter:
   - css: ".tags>ul>li:first-child>div>a"
   - html2text
 max_tries: 30
+---
+name: "aspell-da"
+url: "https://ftp.gnu.org/gnu/aspell/dict/da/"
+filter:
+  - css: "table td a"
+  - html2text
+max_tries: 30
