@@ -113,7 +113,7 @@ alias gap='ga -p'
 alias gb='g branch'
 alias gba='g branch --all'
 alias gbd='g branch -D'
-alias gbda='g branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 g branch -d'
+alias gbda='g branch --no-color --merged | command grep -vE "^(\*|\s*(main|master|develop|dev)\s*$)" | command xargs -n 1 g branch -d'
 alias gbo='g branch --set-upstream-to=origin/$(g symbolic-ref --short HEAD) $(g symbolic-ref --short HEAD)'
 alias gbu='g branch --set-upstream-to=upstream/$(g symbolic-ref --short HEAD) $(g symbolic-ref --short HEAD)'
 alias gbsb='g bisect bad'
@@ -140,6 +140,7 @@ alias gcpc='gcp --continue'
 alias gd='g diff'
 alias gds='gd --cached'
 alias gf='g fetch --tags'
+alias gu='gf origin main:main'
 alias gl='g pull --tags -f --rebase --autostash'
 alias glog="g log --graph --pretty='%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
 alias gloga="glog --all"
@@ -155,7 +156,7 @@ alias grv='g remote -v'
 alias grba='g rebase --abort'
 alias grbc='g rebase --continue'
 alias grbi='g rebase -i'
-alias grbm='g rebase -i master'
+alias grbm='g rebase -i main'
 alias grbom='g rebase -i origin/main'
 alias gr='g reset'
 alias gr!='gr --hard'
@@ -163,8 +164,11 @@ alias grh='gr HEAD'
 alias grh!='gr! HEAD'
 alias garh!='gaa && gr! HEAD'
 alias gs='g show --show-signature'
-alias gst='g status'
-alias gss='gst -sb'
+alias gst='g stash'
+alias gstp='gst pop'
+alias gstc='gst clear'
+alias gss!='g status'
+alias gss='gss! -sb'
 alias gsa='g submodule add'
 alias gsu='g submodule update --remote'
 alias gsr='g submodule-remove'
@@ -198,7 +202,7 @@ grf() {
         git fetch upstream
         git fetch origin
 
-        git branch --set-upstream-to=upstream/master master
+        git branch --set-upstream-to=upstream/main main
     fi
 }
 
