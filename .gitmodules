@@ -11,3 +11,6 @@
 [submodule ".config/mpv/uosc"]
 	path = .config/mpv/uosc
 	url = https://github.com/darsain/uosc/
+[submodule ".config/xplr/trash-cli"]
+	path = .config/xplr/trash-cli
+	url = https://github.com/sayanarijit/trash-cli.xplr.git

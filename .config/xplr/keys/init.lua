@@ -67,19 +67,6 @@ local function setup()
     -- delete mode
     key = xplr.config.modes.builtin.delete.key_bindings.on_key
 
-    key.d = {
-        help = "delete",
-        messages = {
-            {
-                BashExecSilently = [===[
-                    while IFS= read -r line; do rmtrash -rf -- "${line:?}"; done < "${XPLR_PIPE_RESULT_OUT:?}"
-                    echo ExplorePwdAsync >> "${XPLR_PIPE_MSG_IN:?}"
-                ]===],
-            },
-            "PopMode",
-        },
-    }
-
     key.D = {
         help = "force delete",
         messages = {
