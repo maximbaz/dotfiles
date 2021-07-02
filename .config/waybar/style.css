@@ -55,6 +55,7 @@ window#waybar {
 }
 
 #custom-systemd,
+#custom-seafile,
 #battery.critical,
 #memory.critical,
 #cpu.critical,
@@ -75,6 +76,7 @@ window#waybar {
 #custom-eyes,
 #custom-decrypted,
 #custom-systemd,
+#custom-seafile,
 #custom-updates,
 #custom-mail,
 #network,

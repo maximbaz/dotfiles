@@ -1,0 +1,11 @@
+#!/bin/sh
+
+output="$(seaf-cli status | tail -n+2 | awk '{print $1, $2}')"
+failed="$(echo "$output" | grep -v synchronized | grep -c '^')"
+
+if [ "$failed" -eq 0 ]; then
+    printf '{"text": ""}\n'
+else
+    output="$(printf "$ seaf-cli status\n\n$output" | perl -pe 's/\n/\\n/g' | perl -pe 's/(?:\\n)+$//')"
+    printf '{"text": " %s", "tooltip": "%s" }\n' "$failed" "$output"
+fi
