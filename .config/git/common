@@ -1,3 +1,9 @@
+[advice]
+	detachedHead = false
+
+[aurutils]
+	rebase = true
+
 [branch]
 	autosetuprebase = always
 
