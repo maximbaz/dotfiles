@@ -4,9 +4,7 @@ lsp-auto-hover-insert-mode-enable
 
 set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --column'
 
-hook global ModuleLoaded kitty %{
-   set-option global kitty_window_type 'os'
-}
+hook global ModuleLoaded kitty %{ set-option global kitty_window_type 'os' }
 
 # Commands
 
@@ -41,12 +39,13 @@ define-command detect-indentwidth -docstring 'detect indentwidth' %{
 # Hooks
 
 hook global BufOpenFile  .* modeline-parse
-hook global BufCreate    .* %{ editorconfig-load; set buffer eolformat lf }
+hook global BufOpenFile  .* %{ editorconfig-load; set buffer eolformat lf }
+hook global BufNewFile   .* %{ editorconfig-load; set buffer eolformat lf }
 hook global BufWritePre  .* %{ nop %sh{ mkdir -p $(dirname "$kak_hook_param") }}
 hook global BufWritePost .* %{ git show-diff }
 hook global BufReload    .* %{ git show-diff }
-hook global BufOpenFile  .* %{ detect-indentwidth }
-hook global BufWritePost .* %{ detect-indentwidth }
+hook global BufOpenFile  .* detect-indentwidth
+hook global BufWritePost .* detect-indentwidth
 hook global WinDisplay   .* %{ evaluate-commands %sh{
     cd "$(dirname "$kak_buffile")"
     project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
