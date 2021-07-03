@@ -1,6 +1,5 @@
-@define-color background #282828;
+@define-color background #1d2021;
 @define-color foreground #ebdbb2;
-@define-color black      #222222;
 @define-color yellow     #fabd2f;
 @define-color red        #fb4934;
 @define-color green      #b8bb26;
@@ -37,8 +36,8 @@ window#waybar {
 }
 
 #mode {
-  background-color: @black;
-  border-top: 3px solid @black;
+  background-color: @background;
+  border-top: 3px solid @background;
   border-bottom: 3px solid @red;
 }
 

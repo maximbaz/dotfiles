@@ -1,7 +1,5 @@
 colorscheme gruvbox
 
-face global Information rgb:ebdbb2,rgb:282828
-
 hook global WinCreate .* %{ try %{
     add-highlighter buffer/numbers  number-lines -hlcursor
     add-highlighter buffer/matching show-matching

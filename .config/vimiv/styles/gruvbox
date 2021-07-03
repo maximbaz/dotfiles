@@ -1,4 +1,4 @@
-; base16-gruvbox-dark-medium
+; base16-gruvbox-dark-hard
 ;
 ; base16: (https://github.com/chriskempson/base16)
 ;
@@ -7,7 +7,7 @@
 
 [STYLE]
 ; Colors
-base00 = #282828
+base00 = #1d2021
 base01 = #3c3836
 base02 = #504945
 base03 = #665c54

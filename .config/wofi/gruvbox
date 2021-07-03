@@ -1,33 +1,33 @@
 window {
     margin: 5px;
-    border: 5px solid #282828;
-    background-color: #282828;
+    border: 2px solid #282828;
+    background-color: #1d2021;
     border-radius: 15px;
     font-family: monospace;
 }
 
 #input {
     margin: 5px;
-    border: 2px solid #32302f;
-    background-color: #32302f;
+    border: 2px solid #1d2021;
+    background-color: #1d2021;
 }
 
 #inner-box {
     margin: 5px;
-    border: 2px solid #32302f;
-    background-color: #32302f;
+    border: 2px solid #1d2021;
+    background-color: #1d2021;
 }
 
 #outer-box {
     margin: 5px;
-    border: 2px solid #282828;
-    background-color: #282828;
+    border: 2px solid #1d2021;
+    background-color: #1d2021;
 }
 
 #scroll {
     margin: 5px;
-    border: 2px solid #32302f;
-    background-color: #32302f;
+    border: 2px solid #1d2021;
+    background-color: #1d2021;
 }
 
 #text {
