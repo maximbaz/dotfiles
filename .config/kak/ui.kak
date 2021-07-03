@@ -22,7 +22,11 @@ alias global popup kitty-terminal
 set-option global lsp_auto_highlight_references true
 
 hook global BufCreate '^\*scratch\*$' %{
-    execute-keys '%d'
+    execute-keys -buffer *scratch* '%d'
+    hook -once -always global BufCreate '^(?!\*scratch\*).*$' %{ try %{
+        execute-keys -buffer *scratch* '%s\A\n\z<ret>'
+        delete-buffer *scratch*
+    }}
 }
 
 hook global KakBegin .* %{
