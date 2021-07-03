@@ -45,16 +45,6 @@ map global user -docstring 'LSP mode'                 l      ': enter-user-mode 
 map global user -docstring 'toggle line numbers'      L      ': toggle-highlighter buffer/numbers number-lines -hlcursor<ret>'
 map global user -docstring 'toggle line wrap'         W      ': toggle-highlighter buffer/wrap wrap -word -indent<ret>'
 
-define-command -hidden -params 1 extend-line-down %{ execute-keys "<a-:>%arg{1}X" }
-define-command -hidden -params 1 extend-line-up   %{
-    try %{
-        execute-keys "<a-K>\n<ret>"
-        execute-keys "<a-:><a-;>%arg{1}KJ<a-x>"
-    } catch %{
-        execute-keys "<a-:><a-;>%arg{1}K<a-x>"
-    }
-}
-
 define-command cd-buffer -docstring 'Change the working directory to the current buffer directory' %{
     evaluate-commands -buffer %val{buffile}%{
         change-directory %sh(dirname "$kak_buffile")
