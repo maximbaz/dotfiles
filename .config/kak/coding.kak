@@ -35,6 +35,8 @@ define-command detect-indentwidth -docstring 'detect indentwidth' %{
     }
 }
 
+define-command leading-spaces-to-tabs -docstring "Convert all leading spaces to tabs" %{ execute-keys -draft %{%s^\h+<ret><a-@>} }
+define-command leading-tabs-to-spaces -docstring "Convert all leading tabs to spaces" %{ execute-keys -draft %{%s^\h+<ret>@} }
 
 # Hooks
 
