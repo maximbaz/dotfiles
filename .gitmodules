@@ -14,3 +14,6 @@
 [submodule ".config/xplr/trash-cli"]
 	path = .config/xplr/trash-cli
 	url = https://github.com/sayanarijit/trash-cli.xplr.git
+[submodule ".config/kak/smarttab"]
+	path = .config/kak/smarttab
+	url = https://github.com/andreyorst/smarttab.kak.git

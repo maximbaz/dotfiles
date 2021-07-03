@@ -22,12 +22,12 @@ define-command disable-autoformat -docstring 'disable auto-format' %{
 define-command detect-indentwidth -docstring 'detect indentwidth' %{
     try %{
         evaluate-commands -draft %{
-            # Search the first indent level
+            expandtab
             execute-keys 'gg' '/' '^\h+' '<ret>'
 
             try %{
                 execute-keys '<a-k>' '\t' '<ret>'
-                set-option buffer indentwidth 0
+                noexpandtab
             } catch %{
                 set-option buffer indentwidth %val{selection_length}
             }

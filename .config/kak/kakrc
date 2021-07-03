@@ -5,6 +5,7 @@ source "/usr/share/kcr/rc/surround.kak"
 source "~/.config/kak/state-save/state-save.kak"
 source "~/.config/kak/vertical-selection/vertical-selection.kak"
 source "~/.config/kak/restclient.kak/restclient.kak"
+source "~/.config/kak/smarttab/rc/smarttab.kak"
 
 # My configs
 source "~/.config/kak/coding.kak"

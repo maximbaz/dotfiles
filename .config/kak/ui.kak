@@ -15,6 +15,10 @@ set-option global tabstop      4
 set-option global indentwidth  4
 set-option global scrolloff    2,5
 
+hook global ModuleLoaded smarttab %{
+    set-option global softtabstop 4
+}
+
 set-option global windowing_modules ''
 require-module kitty
 alias global popup kitty-terminal
