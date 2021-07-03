@@ -42,8 +42,8 @@ map global user -docstring 'select up'                <a-v>  ': vertical-selecti
 map global user -docstring 'select up and down'       v      ': vertical-selection-up-and-down<ret>'
 map global user -docstring 'disable autoformat'       d      ': disable-autoformat<ret>'
 map global user -docstring 'LSP mode'                 l      ': enter-user-mode lsp<ret>'
-map global user -docstring 'toggle line numbers'      L      ': toggle-highlighter global/ number-lines -hlcursor<ret>'
-map global user -docstring 'toggle line wrap'         W      ': toggle-highlighter global/ wrap -word -indent<ret>'
+map global user -docstring 'toggle line numbers'      L      ': toggle-highlighter buffer/numbers number-lines -hlcursor<ret>'
+map global user -docstring 'toggle line wrap'         W      ': toggle-highlighter buffer/wrap wrap -word -indent<ret>'
 
 define-command -hidden -params 1 extend-line-down %{ execute-keys "<a-:>%arg{1}X" }
 define-command -hidden -params 1 extend-line-up   %{
