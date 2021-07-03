@@ -36,22 +36,40 @@
 
 [core]
 	autocrlf = input
-	pager = diff-so-fancy | less -RFXMx4
 	excludesfile = ~/.config/git/ignore
 	untrackedCache = true
 
 [diff]
-	tool = kitty
+	colorMoved = default
 
-[difftool]
-	prompt = false
-	trustExitCode = true
-
-[difftool "kitty"]
-	cmd = kitty +kitten diff $LOCAL $REMOTE
+[delta]
+	features = hyperlinks
+	width = 1
+	minus-emph-style = syntax bold "#780000"
+	minus-style = syntax "#400000"
+	plus-emph-style = syntax bold "#007800"
+	plus-style = syntax "#004000"
+	hunk-header-style = syntax italic "#303030"
+	hunk-header-decoration-style = omit
+	file-style = yellow bold
+	file-decoration-style = yellow ul
+	file-added-label = [+]
+	file-copied-label = [C]
+	file-modified-label = [M]
+	file-removed-label = [-]
+	file-renamed-label = [R]
 
 [init]
 	defaultBranch = main
+
+[interactive]
+	diffFilter = delta --color-only
+
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 
 [merge]
 	tool = meld
