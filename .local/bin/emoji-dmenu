@@ -1,0 +1,13 @@
+#!/bin/sh
+
+data="${XDG_CACHE_HOME:-$HOME/.cache}/emoji.data"
+[ -f "$data" ] || {
+    echo >&2 "No emoji data, run 'import-joypixels.sh' script to generate it"
+    exit 1
+}
+
+wl-clipboard-manager lock
+
+cat "$data" | dmenu -p emoji | cut -d' ' -f1 | tr -d '\n' | wl-copy
+
+wl-clipboard-manager unlock
