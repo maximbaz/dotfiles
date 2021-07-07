@@ -10,6 +10,10 @@ for line in sys.stdin:
     print(code, parts[1], end="")
 EOF
 
-jq -r '. | .[] | [.code_points.fully_qualified] + .ascii + [.shortname[1:-1]] + [.shortname_alternatives[1:-1]] + .keywords[:-1] | join(" ")' ~/emoji-assets/emoji.json |
+dir="$(mktemp -d)"
+git clone --depth 1 https://github.com/joypixels/emoji-assets.git "$dir"
+trap 'rm -rf "$dir"' EXIT
+
+jq -r '. | .[] | [.code_points.fully_qualified] + .ascii + [.shortname[1:-1]] + [.shortname_alternatives[1:-1]] + .keywords[:-1] | join(" ")' "$dir/emoji.json" |
     tr -s " " |
     python -c "$code" > "${XDG_CACHE_HOME:-$HOME/.cache}/emoji.data"
