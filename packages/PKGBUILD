@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.17.0
+pkgver=2.18.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -13,7 +13,7 @@ source=(
     'InputMonoNarrow-Italic.ttf'
     'InputMonoNarrow-Regular.ttf'
 )
-sha256sums=('2011ae62cec0d42728ffb62a1991f6a7c667acd9449aaace56cfb2d5febbdea8'
+sha256sums=('ef60468018a9791442a15394723c0436477ee64064c21f8ee9dc0d078eed4834'
     '4bdf58ee96641954c9cf65dd5f5f3202134a672b80a0d1380de682d7c09db9f2'
     'dda57db7007f47185cf9be4e39184f73fecf052c4e49179cabab6ab5169cc501'
     'c0ad5882ff0b90e2d319ba98c96b95dac2fde03b86e92c92277c4ea424e86fa9'
@@ -87,6 +87,7 @@ depends=(
     'vimiv-qt'
     'ncdu'
     'croc'
+    'webwormhole-git'
     'bat'
     'exa'
     'fd'
@@ -104,6 +105,7 @@ depends=(
     'inotify-tools'
     'xournalpp'
     'bfs'
+    'lftp'
 
     # archiving
     'lbzip2'
@@ -219,7 +221,7 @@ depends=(
 
     # git
     'git'
-    'diff-so-fancy'
+    'git-delta'
     'meld'
     'tig'
 
@@ -231,6 +233,7 @@ depends=(
     'dos2unix'
     'editorconfig-core-c'
     'docker'
+    'docker-compose'
     'direnv'
     'terraform'
     'terraform-ls'
@@ -270,6 +273,14 @@ depends=(
     # c dev
     'meson'
 
+    # lua dev
+    'stylua-bin'
+
+    # spell
+    'aspell-da'
+    'aspell-en'
+    'aspell-ru'
+
     # android
     'android-tools'
     'android-udev'
@@ -290,6 +301,8 @@ depends=(
     'neomutt'
     'urlscan'
     'goimapnotify'
+    'mutt-ics'
+    'w3m'
 
     # browsers
     'qutebrowser'
@@ -330,6 +343,7 @@ depends=(
     'anydesk'
     'dmenu-term'
     'calibre'
+    'hugo'
     'krita'
     'qalculate-gtk'
     'libreoffice-fresh'
