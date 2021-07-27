@@ -11,13 +11,13 @@ show() {
 }
 
 on() {
-    systemctl --user stop mako
+    makoctl set-mode dnd
     touch "$marker"
     pkill -RTMIN+2 -x waybar
 }
 
 off() {
-    systemctl --user start mako
+    makoctl set-mode default
     rm -f "$marker"
     pkill -RTMIN+2 -x waybar
 }
