@@ -50,6 +50,8 @@ c.url.start_pages = ["~/.config/qutebrowser/blank.html"]
 # per-domain settings
 config.set("content.register_protocol_handler", True, "*://calendar.google.com")
 
+config.set("content.register_protocol_handler", False, "*://outlook.office365.com")
+
 config.set("content.media.audio_video_capture", True, "*://app.wire.com")
 config.set("content.media.audio_capture", True, "*://app.wire.com")
 config.set("content.media.video_capture", True, "*://app.wire.com")
