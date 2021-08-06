@@ -73,7 +73,7 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 
 echo -e "\n### Installing additional tools"
-pacman -Sy --noconfirm --needed git reflector terminus-font dialog wget
+pacman -Sy --noconfirm --needed git reflector archlinux-keyring terminus-font dialog wget
 
 echo -e "\n### HiDPI screens"
 noyes=("Yes" "The font is too small" "No" "The font size is just fine")
@@ -225,6 +225,7 @@ arch-chroot /mnt useradd -m -s /usr/bin/zsh "$user"
 for group in wheel network nzbget video input; do
     arch-chroot /mnt groupadd -rf "$group"
     arch-chroot /mnt gpasswd -a "$user" "$group"
+    arch-chroot /mnt usermod -aG "$group" "$user"
 done
 arch-chroot /mnt chsh -s /usr/bin/zsh
 echo "$user:$password" | arch-chroot /mnt chpasswd
@@ -233,9 +234,9 @@ arch-chroot /mnt passwd -dl root
 echo -e "\n### Setting permissions on the custom repo"
 arch-chroot /mnt chown -R "$user:$user" "/var/cache/pacman/${user}-local/"
 
-if [ "${user}" = "maximbaz" ]; then
+if [ "${user}" = "ben" ]; then
     echo -e "\n### Cloning dotfiles"
-    arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
+    arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/Bencyril/dotfiles-1.git ~/.dotfiles'
 
     echo -e "\n### Running initial setup"
     arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
