@@ -4,7 +4,7 @@ quiet = false
 default_profile = "default"
 
 [profiles.default]
-  repo = "/var/cache/pacman/maximbaz-local/maximbaz-local.db.tar"
+  repo = "/var/cache/pacman/ben-local/ben-local.db.tar"
   add_params = ["-s"]
   rm_params = ["-s"]
   ignore_aur = []
@@ -16,7 +16,7 @@ default_profile = "default"
   post_action = ""
 
 [profiles.nobackup]
-  repo = "/var/cache/pacman/maximbaz-local/maximbaz-local.db.tar"
+  repo = "/var/cache/pacman/ben-local/ben-local.db.tar"
   add_params = ["-s"]
   rm_params = ["-s"]
   ignore_aur = []

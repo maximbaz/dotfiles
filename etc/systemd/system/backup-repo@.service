@@ -3,7 +3,7 @@ Description=Backup pacman repository to %I
 
 [Service]
 Type=oneshot
-User=maximbaz
+User=ben
 EnvironmentFile=/etc/systemd/system/backup-repo@%i
 ExecStart=/usr/bin/rsync --archive --partial --delete ${LOCAL_PATH} ${REMOTE_ADDR}:${REMOTE_PATH}
 ExecStart=/usr/bin/ssh ${REMOTE_ADDR} "/usr/bin/rename -- '-local' '' ${REMOTE_PATH}/*"

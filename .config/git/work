@@ -2,10 +2,14 @@
 	path = ~/.config/git/common
 
 [user]
-	email = Maxim.Baz@maersk.com
-	signingkey = 256CFDF971216A011DE08CD2C44E48E507AA28B1
+	name = Ben
+	email = Bencyril@protonmail.com
+	signingkey = E128982D47F4E7E7768D0AC9D0722C10A8234AE9
 
-[url "git@github.com:Maersk-Global"]
-	insteadOf = https://github.com/Maersk-Global
+[diff "sopsdiffer"]
+	textconv = sops -d
+
+[pull]
+	rebase = true
 
 # vim:ft=ini

@@ -209,7 +209,7 @@ echo "Ignoring further changes to often changing config"
 git update-index --assume-unchanged ".config/transmission/settings.json"
 
 echo "Configure repo-local git settings"
-git config user.email "git@maximbaz.com"
-git config user.signingkey "8053EB88879A68CB4873D32B011FDC52DA839335"
+git config user.email "klippos@protonmail.com"
+git config user.signingkey "E128982D47F4E7E7768D0AC9D0722C10A8234AE9"
 git config commit.gpgsign true
-git remote set-url origin "git@github.com:maximbaz/dotfiles.git"
+git remote set-url origin "git@github.com:Bencyril/dotfiles-1.git"

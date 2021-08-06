@@ -38,7 +38,7 @@ copy() {
     if [ -z "$reverse" ]; then
         [ -n "$2" ] && chmod "$2" "$dest_file"
     else
-        chown -R maximbaz "$dest_file"
+        chown -R ben "$dest_file"
     fi
     echo "$dest_file <= $orig_file"
 }
@@ -145,8 +145,8 @@ else
     systemctl_enable_start "usbguard-dbus.service"
 fi
 
-if [ -d "/home/maximbaz/.ccnet" ]; then
-    systemctl_enable_start "seaf-cli@maximbaz.service"
+if [ -d "/home/ben/.ccnet" ]; then
+    systemctl_enable_start "seaf-cli@ben.service"
 else
     echo >&2 "=== Seafile is not initialized, skipping..."
 fi
@@ -180,4 +180,4 @@ echo "Configuring NTP"
 timedatectl set-ntp true
 
 echo "Configuring aurutils"
-ln -sf /etc/pacman.conf /etc/aurutils/pacman-maximbaz-local.conf
+ln -sf /etc/pacman.conf /etc/aurutils/pacman-ben-local.conf

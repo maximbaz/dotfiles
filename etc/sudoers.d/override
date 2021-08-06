@@ -9,5 +9,5 @@ Defaults timestamp_timeout=0
     /usr/bin/arch-nspawn, \
     /usr/bin/makechrootpkg, \
     /usr/bin/mkarchroot, \
-    /usr/bin/paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local, \
-    /usr/bin/paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local
+    /usr/bin/paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/ben-local, \
+    /usr/bin/paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/ben-local
