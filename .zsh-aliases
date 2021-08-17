@@ -5,7 +5,7 @@
 command -v curlie    &> /dev/null    && alias curl='curlie'
 command -v dfrs      &> /dev/null    && alias df='dfrs'
 command -v git       &> /dev/null    && alias diff='git diff --no-index'
-command -v rmtrash   &> /dev/null    && alias rm='rmtrash -rf'
+command -v trash-put &> /dev/null    && alias rm='trash-put'
 command -v bat       &> /dev/null    && alias c='bat'                                              || alias c='cat'
 command -v fd        &> /dev/null    && alias fd='fd --hidden --follow'                            || alias fd='find . -name'
 command -v rg        &> /dev/null    && alias rg='rg --hidden --follow --smart-case 2>/dev/null'   || alias rg='grep --color=auto --exclude-dir=.git -R'
