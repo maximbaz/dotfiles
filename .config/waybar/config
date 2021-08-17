@@ -22,6 +22,7 @@
         "custom/vpn",
         "cpu",
         "memory",
+        "custom/movie",
         "backlight",
         "sway/language",
         "battery",
@@ -90,6 +91,13 @@
         "return-type": "json",
         "signal": 3,
         "interval": "once"
+    },
+    "custom/movie": {
+        "exec": "waybar-movie",
+        "return-type": "json",
+        "signal": 4,
+        "interval": "once",
+        "on-click": "waybar-movie toggle"
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",

@@ -49,6 +49,7 @@ window#waybar {
 #battery.warning,
 #memory.warning,
 #cpu.warning,
+#custom-movie.on,
 #custom-dnd.on {
   border-bottom: 3px solid @yellow;
 }

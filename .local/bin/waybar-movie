@@ -1,0 +1,35 @@
+#!/bin/sh
+
+marker="/tmp/waybar-movie"
+
+show() {
+    if [ -e "$marker" ]; then
+        printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"on\"}\n"
+    else
+        printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"off\"}\n"
+    fi
+}
+
+on() {
+    touch "$marker"
+    systemctl --user stop wluma
+    light -S 100
+    pkill -RTMIN+4 -x waybar
+}
+
+off() {
+    systemctl --user start wluma
+    rm -f "$marker"
+    pkill -RTMIN+4 -x waybar
+}
+
+toggle() {
+    [ -e "$marker" ] && off || on
+}
+
+case "$1" in
+    on)     on ;;
+    off)    off ;;
+    toggle) toggle ;;
+    '')     show ;;
+esac
