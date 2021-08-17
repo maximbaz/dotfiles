@@ -26,6 +26,7 @@ c.fileselect.multiple_files.command = ["kitty", "sh", "-c", "xplr > {}"]
 c.downloads.location.prompt = False
 c.input.insert_mode.auto_load = True
 c.spellcheck.languages = ["en-US", "da-DK"]
+c.tabs.show = "multiple"
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
 c.qt.args += [
