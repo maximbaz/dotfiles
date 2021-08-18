@@ -17,3 +17,12 @@
 [submodule ".config/kak/smarttab"]
 	path = .config/kak/smarttab
 	url = https://github.com/andreyorst/smarttab.kak.git
+[submodule ".config/kak/auto-pairs.kak"]
+	path = .config/kak/auto-pairs.kak
+	url = https://github.com/alexherbo2/auto-pairs.kak.git
+[submodule ".config/kak/surround.kak"]
+	path = .config/kak/surround.kak
+	url = https://github.com/alexherbo2/surround.kak.git
+[submodule ".config/kak/alexherbo2-lib.kak"]
+	path = .config/kak/alexherbo2-lib.kak
+	url = https://github.com/alexherbo2/lib.kak.git
