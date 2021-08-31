@@ -1,5 +1,6 @@
 zstyle    ':z4h:'                                              auto-update            no
 zstyle    ':z4h:'                                              iterm2-integration     yes
+zstyle    ':z4h:'                                              propagate-cwd          yes
 zstyle    ':z4h:*'                                             channel                stable
 zstyle    ':z4h:autosuggestions'                               forward-char           accept
 zstyle    ':z4h:fzf-complete'                                  fzf-command            my-fzf
@@ -15,7 +16,6 @@ zstyle    ':z4h:term-title:local'                              preexec          
 zstyle    ':completion:*:ssh:argument-1:'                      tag-order              hosts users
 zstyle    ':completion:*:scp:argument-rest:'                   tag-order              hosts files users
 zstyle    ':completion:*:(ssh|scp|rdp):*:hosts'                hosts
-zstyle    ':z4h:'                                              start-tmux             no
 
 if ! (( P9K_SSH )); then
     zstyle ':z4h:sudo' term ''
@@ -24,6 +24,7 @@ fi
 ###
 
 z4h install romkatv/archive || return
+z4h tty-wait --timeout-seconds 1.0 --lines-columns-pattern '<70-> <->'
 z4h init || return
 
 ####
