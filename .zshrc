@@ -1,4 +1,5 @@
 zstyle    ':z4h:'                                              auto-update            no
+zstyle    ':z4h:'                                              iterm2-integration     yes
 zstyle    ':z4h:*'                                             channel                stable
 zstyle    ':z4h:autosuggestions'                               forward-char           accept
 zstyle    ':z4h:fzf-complete'                                  fzf-command            my-fzf
