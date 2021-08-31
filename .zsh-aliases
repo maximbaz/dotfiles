@@ -16,7 +16,6 @@ command -v exa       &> /dev/null    && alias lm='ll -s=modified'               
 command -v dog       &> /dev/null    && alias d='dog'                                              || alias d='dig +nocmd +multiline +noall +answer'
 
 alias e="$EDITOR"
-alias x='cd "${$(PAGER="less -+F" xplr):-.}"'
 alias cp='cp -r --reflink=auto'
 alias mkdir='mkdir -p'
 alias hexdump='od -A x -t x1z -v'
@@ -44,6 +43,8 @@ d64() { [[ $# == 1 ]] && base64 --decode <<<"$1" || base64 --decode }
 p() { ping "${1:-1.1.1.1}" }
 
 tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
+
+x() { PAGER="less -+F" xplr | IFS= read -r dir && cd -- "${dir:-.}" }
 
 ## kubectl
 
