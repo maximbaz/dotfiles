@@ -1,20 +1,6 @@
 snippet_support = false
 verbosity = 2
 
-[semantic_tokens]
-type = "type"
-variable = "variable"
-namespace = "module"
-function = "function"
-string = "string"
-keyword = "keyword"
-operator = "operator"
-comment = "comment"
-
-[semantic_token_modifiers]
-documentation = "documentation"
-readonly = "default+d"
-
 [server]
 timeout = 1800 # seconds = 30 minutes
 
@@ -33,17 +19,63 @@ offset_encoding = "utf-8"
 [language.python]
 filetypes = ["python"]
 roots = ["requirements.txt", "setup.py", ".git", ".hg"]
-command = "pyls"
+command = "pylsp"
 offset_encoding = "utf-8"
 
 [language.rust]
 filetypes = ["rust"]
 roots = ["Cargo.toml"]
-command = "sh"
-args = ["-c", "if command -v rustup >/dev/null; then $(rustup which rust-analyzer); else rust-analyzer; fi"]
+command = "rust-analyzer"
 
 [language.terraform]
 filetypes = ["terraform"]
 roots = ["*.tf"]
 command = "terraform-ls"
 args = ["serve"]
+
+[[semantic_tokens]]
+token = "comment"
+face = "documentation"
+modifiers = ["documentation"]
+
+[[semantic_tokens]]
+token = "comment"
+face = "comment"
+
+[[semantic_tokens]]
+token = "function"
+face = "function"
+
+[[semantic_tokens]]
+token = "keyword"
+face = "keyword"
+
+[[semantic_tokens]]
+token = "namespace"
+face = "module"
+
+[[semantic_tokens]]
+token = "operator"
+face = "operator"
+
+[[semantic_tokens]]
+token = "string"
+face = "string"
+
+[[semantic_tokens]]
+token = "type"
+face = "type"
+
+[[semantic_tokens]]
+token = "variable"
+face = "default+d"
+modifiers = ["readonly"]
+
+[[semantic_tokens]]
+token = "variable"
+face = "default+d"
+modifiers = ["constant"]
+
+[[semantic_tokens]]
+token = "variable"
+face = "variable"
