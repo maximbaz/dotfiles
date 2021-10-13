@@ -7,7 +7,7 @@ hook global WinCreate .* %{ try %{
     add-highlighter buffer/todo     regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
 }}
 
-set-option global ui_options   ncurses_assistant=off
+set-option global ui_options   terminal_assistant=off
 set-option global autoreload   yes
 set-option global tabstop      4
 set-option global indentwidth  4
