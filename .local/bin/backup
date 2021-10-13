@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCE=".dotfiles .ssh .gnupg .mail cloud Seafile"
+SOURCE=".dotfiles .ssh .gnupg .mail cloud nextcloud"
 BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
 BACKUP_DIR="$BACKUP_PATH/$(date +%Y-%m-%d)"
 
@@ -20,7 +20,8 @@ fi
 
 cd "$HOME"
 echo -e "\nBackup STARTED\n\nSource(s):   $SOURCE\nDestination: $BACKUP_DIR\n"
-rsync -a --info=progress2 $SOURCE $BACKUP_DIR
+mkdir -p "$BACKUP_DIR"
+cp -a $SOURCE "$BACKUP_DIR"
 exitcode=$?
 
 if [ "$exitcode" -eq "0" ]; then

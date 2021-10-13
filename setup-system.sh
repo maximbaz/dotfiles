@@ -145,12 +145,6 @@ else
     systemctl_enable_start "usbguard-dbus.service"
 fi
 
-if [ -d "/home/maximbaz/.ccnet" ]; then
-    systemctl_enable_start "seaf-cli@maximbaz.service"
-else
-    echo >&2 "=== Seafile is not initialized, skipping..."
-fi
-
 if [[ $HOSTNAME == home-* ]]; then
     systemctl_enable_start "backup-repo@pkgbuild.timer"
 fi

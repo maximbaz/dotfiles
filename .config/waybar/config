@@ -12,7 +12,6 @@
         "custom/yubikey",
         "custom/decrypted",
         "custom/systemd",
-        "custom/seafile",
         "custom/updates",
         "custom/mail",
         "custom/recording",
@@ -56,11 +55,6 @@
     },
     "custom/systemd": {
         "exec": "waybar-systemd",
-        "return-type": "json",
-        "interval": 10
-    },
-    "custom/seafile": {
-        "exec": "waybar-seafile",
         "return-type": "json",
         "interval": 10
     },

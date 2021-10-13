@@ -99,7 +99,6 @@ depends=(
     'imagemagick'
     'jq'
     'dfrs'
-    'seafile-client'
     'zathura-pdf-mupdf'
     'pdftk'
     'inotify-tools'
