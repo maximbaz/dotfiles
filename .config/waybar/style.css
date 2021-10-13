@@ -47,6 +47,7 @@ window#waybar {
 #custom-mail,
 #custom-vpn.off,
 #battery.warning,
+#disk.warning,
 #memory.warning,
 #cpu.warning,
 #custom-movie.on,
@@ -56,6 +57,7 @@ window#waybar {
 
 #custom-systemd,
 #battery.critical,
+#disk.critical,
 #memory.critical,
 #cpu.critical,
 #custom-yubikey,
@@ -79,6 +81,7 @@ window#waybar {
 #custom-mail,
 #network,
 #cpu,
+#disk,
 #memory,
 #backlight,
 #battery,

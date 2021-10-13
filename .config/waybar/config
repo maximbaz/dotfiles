@@ -21,6 +21,7 @@
         "custom/vpn",
         "cpu",
         "memory",
+        "disk",
         "custom/movie",
         "backlight",
         "sway/language",
@@ -104,8 +105,15 @@
             "critical": 90
         }
     },
+    "disk": {
+        "format": "<span foreground='#928374'></span> {percentage_free}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
     "memory": {
-        "format": "<span foreground='#928374'></span> {}%",
+        "format": "<span foreground='#928374'></span> {}%",
         "states": {
             "warning": 70,
             "critical": 90
