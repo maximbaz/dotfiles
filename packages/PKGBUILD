@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.18.0
+pkgver=2.19.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -95,7 +95,7 @@ depends=(
     'ripgrep'
     'ripgrep-all'
     'tree'
-    'rmtrash'
+    'trash-cli'
     'imagemagick'
     'jq'
     'dfrs'
@@ -105,6 +105,7 @@ depends=(
     'xournalpp'
     'bfs'
     'lftp'
+    'nextcloud-client'
 
     # archiving
     'lbzip2'
@@ -227,7 +228,6 @@ depends=(
     # dev tools
     'kakoune'
     'kak-lsp'
-    'kakoune.cr'
     'prettier'
     'dos2unix'
     'editorconfig-core-c'
@@ -246,9 +246,10 @@ depends=(
     'checkbashisms'
     'shellcheck'
     'shfmt'
+    'bash-completion'
 
     # python dev
-    'python-language-server'
+    'python-lsp-server'
     'python-black'
     'python-pip'
     'python-pylint'
@@ -293,6 +294,10 @@ depends=(
     'pass'
     'pwgen'
     'msitools'
+    'browserpass-chromium'
+    'browserpass-firefox'
+    'gnome-keyring'
+    'libgnome-keyring'
 
     # email
     'isync'
@@ -310,6 +315,8 @@ depends=(
     'pdfjs'
     'python-tldextract'
     'intel-media-driver'
+    'chromium'
+    'firefox'
 
     # screenshots & gifs & desktop sharing
     'grim'
@@ -349,4 +356,5 @@ depends=(
     'transmission-gtk'
     'signal-desktop'
     'libinput-gestures'
+    'urlwatch'
 )
