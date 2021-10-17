@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ $# -eq 1 ] || {
+    echo >&2 "Usage: $0 <url>"
+    exit 1
+}
+
+yt-dlp --external-downloader aria2c "$1" -o - | mpv -
