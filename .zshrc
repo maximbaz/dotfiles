@@ -13,6 +13,7 @@ zstyle    ':z4h:ssh:*'                                         enable           
 zstyle    ':zle:(up|down)-line-or-beginning-search'            leave-cursor           yes
 zstyle    ':z4h:term-title:ssh'                                preexec                '%* | %n@%m: ${1//\%/%%}'
 zstyle    ':z4h:term-title:local'                              preexec                '%* | ${1//\%/%%}'
+zstyle    ':z4h:direnv'                                        enable                 yes
 zstyle    ':completion:*:ssh:argument-1:'                      tag-order              hosts users
 zstyle    ':completion:*:scp:argument-rest:'                   tag-order              hosts files users
 zstyle    ':completion:*:(ssh|scp|rdp):*:hosts'                hosts
@@ -91,10 +92,6 @@ setopt IGNORE_EOF
 export DIRENV_LOG_FORMAT=
 export FZF_DEFAULT_OPTS="--reverse --multi"
 export SYSTEMD_LESS="${LESS}S"
-
-###
-
-command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
 ###
 
