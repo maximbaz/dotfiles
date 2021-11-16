@@ -3,6 +3,6 @@
 
 [user]
 	email = git@maximbaz.com
-	signingkey = 8053EB88879A68CB4873D32B011FDC52DA839335
+	signingkey = 04D7A219B0ABE4C2B62A5E654A2B758631E1FD91
 
 # vim:ft=ini

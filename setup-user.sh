@@ -208,6 +208,6 @@ git update-index --assume-unchanged ".config/transmission/settings.json"
 
 echo "Configure repo-local git settings"
 git config user.email "git@maximbaz.com"
-git config user.signingkey "8053EB88879A68CB4873D32B011FDC52DA839335"
+git config user.signingkey "04D7A219B0ABE4C2B62A5E654A2B758631E1FD91"
 git config commit.gpgsign true
 git remote set-url origin "git@github.com:maximbaz/dotfiles.git"
