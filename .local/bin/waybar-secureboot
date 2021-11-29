@@ -1,0 +1,6 @@
+#!/bin/sh
+
+tooltip="$(mokutil --sb-state | grep -v 'enabled')"
+[ -n "$tooltip" ] && icon="" || icon=""
+
+printf '{"text": "%s", "tooltip": "%s"}\n' "$icon" "$tooltip"

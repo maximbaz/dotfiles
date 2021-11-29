@@ -55,6 +55,7 @@ window#waybar {
   border-bottom: 3px solid @yellow;
 }
 
+#custom-secureboot,
 #custom-systemd,
 #battery.critical,
 #disk.critical,
@@ -76,6 +77,7 @@ window#waybar {
 #custom-yubikey,
 #custom-eyes,
 #custom-decrypted,
+#custom-secureboot,
 #custom-systemd,
 #custom-updates,
 #custom-mail,
