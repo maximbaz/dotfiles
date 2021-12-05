@@ -1,5 +1,4 @@
 # External plugins
-source "~/.config/kak/alexherbo2-lib.kak/rc/lib.kak"
 source "~/.config/kak/auto-pairs.kak/rc/auto-pairs.kak"; enable-auto-pairs
 source "~/.config/kak/surround.kak/rc/surround.kak"
 source "~/.config/kak/state-save/state-save.kak"
