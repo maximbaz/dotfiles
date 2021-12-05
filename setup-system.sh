@@ -91,6 +91,7 @@ copy "etc/systemd/system/reflector.service"
 copy "etc/systemd/system/reflector.timer"
 copy "etc/systemd/system/system-dotfiles-sync.service"
 copy "etc/systemd/system/system-dotfiles-sync.timer"
+copy "etc/systemd/system.conf.d/kill-fast.conf"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
 copy "usr/share/devtools/pacman-extra.conf"
