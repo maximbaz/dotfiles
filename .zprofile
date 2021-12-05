@@ -10,6 +10,6 @@ systemctl --user import-environment GPG_TTY SSH_AUTH_SOCK
 
 if [[ -z $DISPLAY && "$TTY" == "/dev/tty1" ]]; then
     systemd-cat -t sway sway
-    systemctl --user stop sway-session.target
+    systemctl --user stop graphical-session.target
     systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 fi
