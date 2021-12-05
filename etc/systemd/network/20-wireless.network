@@ -3,6 +3,7 @@ Name = wlan0
 
 [Network]
 DHCP = yes
+Domains = ~lan
 
 [DHCP]
 RouteMetric = 20
