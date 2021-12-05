@@ -18,7 +18,6 @@ c.auto_save.session = True
 c.content.default_encoding = "utf-8"
 c.content.javascript.can_access_clipboard = True
 c.content.notifications.enabled = True
-c.content.pdfjs = True
 c.editor.command = ["kitty", "kak", "-e", "exec {line}g{column0}l", "{}"]
 c.fileselect.handler = "external"
 c.fileselect.single_file.command = ["kitty", "sh", "-c", "xplr > {}"]
