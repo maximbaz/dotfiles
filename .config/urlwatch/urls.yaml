@@ -126,13 +126,6 @@ filter:
   - html2text
 max_tries: 30
 ---
-name: "nnn"
-url: "https://github.com/jarun/nnn/releases/latest"
-filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
-max_tries: 30
----
 name: "p10k"
 url: "https://github.com/romkatv/powerlevel10k/releases/latest"
 filter:
@@ -305,13 +298,6 @@ max_tries: 30
 ---
 name: "rmtrash"
 url: "https://github.com/PhrozenByte/rmtrash/releases/latest"
-filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
-max_tries: 30
----
-name: "traefik"
-url: "https://github.com/traefik/traefik/releases/latest"
 filter:
   - css: "#repo-content-pjax-container h1"
   - html2text
