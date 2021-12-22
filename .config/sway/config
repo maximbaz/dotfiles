@@ -30,7 +30,6 @@ hide_edge_borders --i3 none
 # Disable cursor jumping
 mouse_warping none
 focus_follows_mouse no
-focus_wrapping no
 tiling_drag disable
 
 # Workspaces
