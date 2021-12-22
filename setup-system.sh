@@ -103,6 +103,10 @@ if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@.timer"
 fi
 
+if [[ $HOSTNAME == work-* ]]; then
+    copy "etc/systemd/network/10-wireless-work.network"
+fi
+
 (("$reverse")) && exit 0
 
 echo ""
