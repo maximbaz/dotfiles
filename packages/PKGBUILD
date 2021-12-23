@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.19.0
+pkgver=2.20.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -159,6 +159,7 @@ depends=(
     'dell-command-configure'
     'fwupd'
     'tlp'
+    'throttled'
     'dmidecode'
     'upower'
     'acpi'
@@ -185,7 +186,6 @@ depends=(
     'mako'
     'gtk-theme-arc-gruvbox-git'
     'wlsunset'
-    'safeeyes'
     'waybar'
     'light'
     'slurp'
@@ -323,15 +323,18 @@ depends=(
     'swappy'
     'wf-recorder'
     'v4l2loopback-dkms'
+
+    # media
     'xdg-desktop-portal-wlr'
     'libpipewire02'
-    'pipewire-media-session'
+    'wireplumber'
 
     # video
     'mpv'
     'mpv-mpris'
-    'youtube-dl'
     'ffmpeg'
+    'yt-dlp'
+    'aria2'
 
     # kubernetes
     'kubectl'
