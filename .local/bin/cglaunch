@@ -1,9 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$1" = "--term" ]; then
     shift
+
+    title="${1##*/}"
+    title="${title:-kitty}"
+    app="kitty --class $title"
 else
-    ARGS="--scope"
+    title="${1##*/}"
+    args="--scope"
 fi
 
-systemd-run --user --slice app.slice --unit "launch-$1-$(date '+%s%N')" $ARGS -- "$@"
+exec systemd-run --quiet --no-block --user --slice app.slice --unit "launch-$title-$(date '+%s%N')" $args -- $app "$@"

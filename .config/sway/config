@@ -143,8 +143,8 @@ mode $mode_workspaces_monitors {
 
 bindsym --to-code {
     # Terminal
-    $hyper+Return exec cglaunch --term kitty
-    $hyper+XF86AudioMute exec cglaunch --term kitty
+    $hyper+Return exec cglaunch --term
+    $hyper+XF86AudioMute exec cglaunch --term
     $win+Return exec kitty --config NONE
     $win+Shift+Return exec kitty --config NONE /bin/bash
 
