@@ -1,5 +1,6 @@
 zstyle    ':z4h:'                                              auto-update            no
-zstyle    ':z4h:'                                              iterm2-integration     yes
+zstyle    ':z4h:'                                              start-tmux             isolated
+zstyle    ':z4h:'                                              term-shell-integration yes
 zstyle    ':z4h:'                                              propagate-cwd          yes
 zstyle    ':z4h:*'                                             channel                stable
 zstyle    ':z4h:autosuggestions'                               forward-char           accept
