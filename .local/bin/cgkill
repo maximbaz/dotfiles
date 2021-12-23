@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+unit=$(systemctl --user --type=service --type scope --no-pager --no-legend list-units | awk '{ print $1 }' | grep 'launch-' | sort --reverse | fzf)
+
+systemctl --user kill "$unit"

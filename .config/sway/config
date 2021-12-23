@@ -143,20 +143,20 @@ mode $mode_workspaces_monitors {
 
 bindsym --to-code {
     # Terminal
-    $hyper+Return exec kitty
+    $hyper+Return exec cglaunch --term kitty
     $win+Return exec kitty --config NONE
     $win+Shift+Return exec kitty --config NONE /bin/bash
 
     # Launcher
-    $hyper+equal      exec bash -c "pkill -x qalculate-gtk || qalculate-gtk"
-    $hyper+d          fullscreen disable, exec wofi
-    $hyper+p          fullscreen disable, exec "wl-clipboard-manager lock; passmenu -p pass; wl-clipboard-manager unlock"
-    $hyper+m          fullscreen disable, exec udiskie-dmenu
-    $win+grave        fullscreen disable, exec wl-clipboard-manager dmenu
-    $hyper+Backspace  fullscreen disable, exec emoji-dmenu
-    Print             exec sway-screenshot-area
-    $hyper+Print      exec sway-gif-area
-    $win+Print        exec sway-screenshare
+    $hyper+equal      exec bash -c "pkill -x qalculate-gtk || cglaunch qalculate-gtk"
+    $hyper+d          fullscreen disable, exec cglaunch wofi
+    $hyper+p          fullscreen disable, exec "wl-clipboard-manager lock; cglaunch passmenu -p pass; wl-clipboard-manager unlock"
+    $hyper+m          fullscreen disable, exec cglaunch udiskie-dmenu
+    $win+grave        fullscreen disable, exec cglaunch wl-clipboard-manager dmenu
+    $hyper+Backspace  fullscreen disable, exec cglaunch emoji-dmenu
+    Print             exec cglaunch sway-screenshot-area
+    $hyper+Print      exec cglaunch sway-gif-area
+    $win+Print        exec cglaunch sway-screenshare
 
     # Kill focused window
     $win+q kill
