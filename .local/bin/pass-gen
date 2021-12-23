@@ -1,0 +1,21 @@
+#!/bin/sh
+
+case $(echo "default\nno special chars\nshort" | dmenu -p "pass generator") in
+    default)
+        length=40
+        symbols="-y"
+        ;;
+    "no special chars")
+        length=40
+        ;;
+    short)
+        length=16
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+wl-clipboard-manager lock
+pwgen -s "$length" $symbols | wl-copy -n
+wl-clipboard-manager unlock
