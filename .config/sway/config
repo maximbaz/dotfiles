@@ -3,7 +3,7 @@ font pango: Taskbar, Cantarell 9
 
 input type:keyboard {
     xkb_layout us-hyper,ru
-    xkb_options grp:shifts_toggle,compose:ralt,caps:hyper,numpad:mac
+    xkb_options grp:shifts_toggle,grp:menu_toggle,compose:ralt,caps:hyper,numpad:mac
     xkb_numlock enable
 }
 
