@@ -7,7 +7,7 @@ run() {
     while true; do
         printf '{"text": "%s"}\n' "$(echo "$eyes" | xargs)"
         touch "$marker"
-        inotifywait -t 900 -q "$marker"
+        inotifywait -t 900 -q -e delete_self "$marker"
         [ -f "$marker" ] && eyes="$eyes " || eyes=""
     done
 }
