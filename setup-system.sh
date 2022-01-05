@@ -82,7 +82,6 @@ copy "etc/sudoers.d/override"
 copy "etc/sysctl.d/99-sysctl.conf"
 copy "etc/systemd/journald.conf.d/override.conf"
 copy "etc/systemd/logind.conf.d/override.conf"
-copy "etc/systemd/network/20-wireless.network"
 copy "etc/systemd/network/50-wired.network"
 copy "etc/systemd/resolved.conf.d/dnssec.conf"
 copy "etc/systemd/system/getty@tty1.service.d/override.conf"
@@ -98,13 +97,14 @@ copy "usr/share/devtools/pacman-extra.conf"
 copy "usr/share/devtools/pacman-staging.conf"
 
 if [[ $HOSTNAME == home-* ]]; then
+    copy "etc/systemd/network/20-wireless.network"
     copy "etc/systemd/system/backup-repo@pkgbuild"
     copy "etc/systemd/system/backup-repo@.service"
     copy "etc/systemd/system/backup-repo@.timer"
 fi
 
 if [[ $HOSTNAME == work-* ]]; then
-    copy "etc/systemd/network/10-wireless-work.network"
+    copy "etc/systemd/network/20-wireless-work.network"
 fi
 
 (("$reverse")) && exit 0
