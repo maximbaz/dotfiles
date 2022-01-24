@@ -3,7 +3,7 @@
 set -e
 exec 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
 
-MY_GPG_KEY_ID="12C87A28FEAC6B20"
+MY_PGP_KEY_ID="56C3E775E72B0C8B1C0C1BD0B5DB77409B11B601"
 
 dotfiles_dir="$(
     cd "$(dirname "$0")"
@@ -170,10 +170,10 @@ echo "======================================="
 echo "Configuring MIME types"
 file --compile --magic-file "$HOME/.magic"
 
-if ! gpg -k | grep "$MY_GPG_KEY_ID" > /dev/null; then
+if ! gpg -k | grep "$MY_PGP_KEY_ID" > /dev/null; then
     echo "Importing my public PGP key"
     curl -s https://maximbaz.com/pgp_keys.asc | gpg --import
-    echo "5\ny\n" | gpg --command-fd 0 --no-tty --batch --edit-key "$MY_GPG_KEY_ID" trust
+    echo "5\ny\n" | gpg --command-fd 0 --no-tty --batch --edit-key "$MY_PGP_KEY_ID" trust
 fi
 
 find "$HOME/.gnupg" -type f -not -path "*#*" -exec chmod 600 {} \;
