@@ -4,7 +4,7 @@ lsp-auto-hover-insert-mode-enable
 
 set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --column'
 
-hook global ModuleLoaded kitty %{ set-option global kitty_window_type 'os' }
+hook global ModuleLoaded kitty %{ set-option global kitty_window_type 'os-window' }
 
 # Commands
 
