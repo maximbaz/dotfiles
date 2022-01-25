@@ -1,5 +1,6 @@
 [database]
-path=/home/maximbaz/.mail/maximbaz
+path=/home/maximbaz/.mail
 
 [new]
 ignore=.uidvalidity;.mbsyncstate
+tags=unread;inbox;new

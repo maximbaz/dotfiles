@@ -9,10 +9,14 @@ mbsync -c "$MBSYNC_CONFIG" -a
 notmuch new
 
 # Mark emails archived on phone as read and processed
-notmuch tag -unread 'tag:unread AND NOT folder:INBOX'
-notmuch tag -inbox 'NOT folder:INBOX'
+notmuch tag -unread -inbox -new 'NOT folder:/INBOX/'
 
-count=$(notmuch count 'tag:unread AND tag:inbox')
-notmuch tag -inbox '*'
+# Tag emails appropriately
+notmuch tag +maximbaz 'folder:/maximbaz/'
+notmuch tag +archlinux 'folder:/archlinux/'
+notmuch-tag-private
+
+count=$(notmuch count 'tag:unread AND tag:new')
+notmuch tag -new '*'
 [ "$count" != "0" ] && notify-send --icon mail-message-new 'Email' "There are $count new message(s)"
 exit 0

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for ((i = 1; i < "$#"; i++)); do
+    if [[ "${!i}" == "-f" ]]; then
+        account=$((i + 1))
+        account="${!account}"
+        account="${account#*@}"
+        account="${account%%.*}"
+
+        exec msmtp -a "$account" "$@"
+    fi
+done
+
+echo >&2 "Unable to find the right msmtp account"
+exit 1
