@@ -6,7 +6,7 @@
   "use strict";
 
   const userAgent =
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36";
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36";
   const appVersion = userAgent.substr(8);
 
   Object.defineProperty(window.navigator, "userAgent", {
