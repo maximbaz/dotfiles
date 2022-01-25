@@ -63,6 +63,7 @@ echo "=========================="
 echo "Setting up /etc configs..."
 echo "=========================="
 
+copy "etc/aurutils/pacman-x86_64.conf"
 copy "etc/bluetooth/main.conf"
 copy "etc/conf.d/snapper"
 copy "etc/default/earlyoom"
@@ -93,8 +94,6 @@ copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/systemd/system.conf.d/kill-fast.conf"
 copy "etc/updatedb.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
-copy "usr/share/devtools/pacman-extra.conf"
-copy "usr/share/devtools/pacman-staging.conf"
 
 if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/network/20-wireless.network"
