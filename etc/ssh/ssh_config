@@ -8,7 +8,7 @@ Host *
   ServerAliveInterval 60
   Compression yes
   ControlMaster auto
-  ControlPath ~/.ssh/ssh-%r@%h:%p
+  ControlPath ~/.ssh/ssh-%r@%n:%p
   ControlPersist 60m
   StrictHostKeyChecking accept-new
   ExitOnForwardFailure yes
