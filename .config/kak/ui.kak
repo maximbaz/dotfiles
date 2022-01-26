@@ -19,6 +19,7 @@ hook global ModuleLoaded smarttab %{
 
 set-option global windowing_modules ''
 require-module kitty
+set-option global kitty_window_type 'os-window'
 alias global popup kitty-terminal
 
 hook global BufCreate '^\*scratch\*$' %{

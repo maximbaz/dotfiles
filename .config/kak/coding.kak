@@ -7,8 +7,6 @@ set-option global lsp_auto_highlight_references true
 
 set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --column'
 
-hook global ModuleLoaded kitty %{ set-option global kitty_window_type 'os-window' }
-
 # Commands
 
 define-command disable-autolint -docstring 'disable auto-lint' %{
