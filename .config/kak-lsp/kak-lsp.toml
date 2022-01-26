@@ -14,18 +14,19 @@ args = ["start"]
 filetypes = ["go"]
 roots = ["Gopkg.toml", "go.mod", ".git", ".hg"]
 command = "gopls"
-offset_encoding = "utf-8"
 
 [language.python]
 filetypes = ["python"]
 roots = ["requirements.txt", "setup.py", ".git", ".hg"]
 command = "pylsp"
-offset_encoding = "utf-8"
 
 [language.rust]
 filetypes = ["rust"]
 roots = ["Cargo.toml"]
 command = "rust-analyzer"
+settings_section = "rust-analyzer"
+[language.rust.settings.rust-analyzer]
+hoverActions.enable = false # kak-lsp doesn't support this at the moment
 
 [language.terraform]
 filetypes = ["terraform"]
@@ -33,49 +34,23 @@ roots = ["*.tf"]
 command = "terraform-ls"
 args = ["serve"]
 
-[[semantic_tokens]]
-token = "comment"
-face = "documentation"
-modifiers = ["documentation"]
+[language.typescript]
+filetypes = ["typescript"]
+roots = ["package.json", "tsconfig.json", ".git", ".hg"]
+command = "typescript-language-server"
+args = ["--stdio"]
 
-[[semantic_tokens]]
-token = "comment"
-face = "comment"
-
-[[semantic_tokens]]
-token = "function"
-face = "function"
-
-[[semantic_tokens]]
-token = "keyword"
-face = "keyword"
-
-[[semantic_tokens]]
-token = "namespace"
-face = "module"
-
-[[semantic_tokens]]
-token = "operator"
-face = "operator"
-
-[[semantic_tokens]]
-token = "string"
-face = "string"
-
-[[semantic_tokens]]
-token = "type"
-face = "type"
-
-[[semantic_tokens]]
-token = "variable"
-face = "default+d"
-modifiers = ["readonly"]
-
-[[semantic_tokens]]
-token = "variable"
-face = "default+d"
-modifiers = ["constant"]
-
-[[semantic_tokens]]
-token = "variable"
-face = "variable"
+[semantic_tokens]
+faces = [
+    {face="documentation", token="comment", modifiers=["documentation"]},
+    {face="comment", token="comment"},
+    {face="function", token="function"},
+    {face="keyword", token="keyword"},
+    {face="module", token="namespace"},
+    {face="operator", token="operator"},
+    {face="string", token="string"},
+    {face="type", token="type"},
+    {face="default+d", token="variable", modifiers=["readonly"]},
+    {face="default+d", token="variable", modifiers=["constant"]},
+    {face="variable", token="variable"},
+]
