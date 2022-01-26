@@ -7,9 +7,9 @@ source "~/.config/kak/restclient.kak/restclient.kak"
 source "~/.config/kak/smarttab/rc/smarttab.kak"
 
 # My configs
+source "~/.config/kak/ui.kak"
 source "~/.config/kak/coding.kak"
 source "~/.config/kak/files.kak"
 source "~/.config/kak/mappings.kak"
-source "~/.config/kak/ui.kak"
 source "~/.config/kak/asterisk.kak"
 source "~/.config/kak/toggle-highlighter.kak"

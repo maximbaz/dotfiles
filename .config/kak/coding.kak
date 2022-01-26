@@ -1,6 +1,7 @@
 source /usr/share/kak-lsp/rc/lsp.kak
 lsp-enable
 lsp-auto-hover-insert-mode-enable
+set-option global lsp_auto_highlight_references true
 
 set-option global grepcmd 'rg --hidden --follow --smart-case --with-filename --column'
 
