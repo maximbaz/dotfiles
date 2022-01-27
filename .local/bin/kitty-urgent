@@ -1,0 +1,3 @@
+#!/bin/sh
+
+swaymsg "[pid=$KITTY_PID]" urgent enable
