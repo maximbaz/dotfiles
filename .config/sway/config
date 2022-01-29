@@ -239,6 +239,9 @@ bindsym --to-code {
     # Reload the configuration file
     $win+r reload
 
+    # Jump between windows
+    $hyper+Tab exec swayr switch-to-urgent-or-lru-window
+
     # Switch to workspace using number row
     $hyper+1 $workspace1
     $hyper+2 $workspace2
