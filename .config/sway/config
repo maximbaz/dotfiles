@@ -149,16 +149,17 @@ bindsym --to-code {
     $win+Shift+Return exec kitty --config NONE /bin/bash
 
     # Launcher
-    $hyper+equal      exec bash -c "pkill -x qalculate-gtk || cglaunch qalculate-gtk"
-    $hyper+d          fullscreen disable, exec cglaunch wldash
-    $hyper+p          fullscreen disable, exec "wl-clipboard-manager lock; cglaunch passmenu -p pass; wl-clipboard-manager unlock"
-    $win+p            fullscreen disable, exec cglaunch pass-gen
-    $hyper+m          fullscreen disable, exec cglaunch udiskie-dmenu
-    $win+grave        fullscreen disable, exec cglaunch wl-clipboard-manager dmenu
-    $hyper+Backspace  fullscreen disable, exec cglaunch emoji-dmenu
-    Print             exec cglaunch sway-screenshot-area
-    $hyper+Print      exec cglaunch sway-gif-area
-    $win+Print        exec cglaunch sway-screenshare
+    $hyper+equal                 exec bash -c "pkill -x qalculate-gtk || cglaunch qalculate-gtk"
+    $hyper+d                     fullscreen disable, exec cglaunch wldash
+    $hyper+p                     fullscreen disable, exec "wl-clipboard-manager lock; cglaunch passmenu -p pass; wl-clipboard-manager unlock"
+    $win+p                       fullscreen disable, exec cglaunch pass-gen
+    $hyper+m                     fullscreen disable, exec cglaunch udiskie-dmenu
+    $win+grave                   fullscreen disable, exec cglaunch wl-clipboard-manager dmenu
+    $hyper+Backspace             fullscreen disable, exec cglaunch emoji-dmenu
+    $hyper+XF86AudioLowerVolume  fullscreen disable, exec cglaunch emoji-dmenu
+    Print                        exec cglaunch sway-screenshot-area
+    $hyper+Print                 exec cglaunch sway-gif-area
+    $win+Print                   exec cglaunch sway-screenshare
 
     # Kill focused window
     $win+q kill
