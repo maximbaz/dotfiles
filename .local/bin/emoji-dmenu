@@ -2,8 +2,8 @@
 
 data="${XDG_CACHE_HOME:-$HOME/.cache}/emoji.data"
 [ -f "$data" ] || {
-    echo >&2 "No emoji data, run 'import-joypixels.sh' script to generate it"
-    exit 1
+    notify-send "emoji-dmenu" "Bootstrapping emojis, please wait..."
+    emoji-bootstrap
 }
 
 line="$(cat "$data" | dmenu -p emoji)"
