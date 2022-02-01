@@ -1,15 +1,291 @@
-# External plugins
+source "~/.config/kak/state-save/state-save.kak"
+
+hook global KakBegin .* %{
+    state-save-reg-load colon
+    state-save-reg-load pipe
+    state-save-reg-load slash
+}
+
+hook global KakEnd .* %{
+    state-save-reg-save colon
+    state-save-reg-save pipe
+    state-save-reg-save slash
+}
+
+hook global BufCreate '^\*scratch\*$' %{
+    execute-keys -buffer *scratch* '%d'
+    hook -once -always global BufCreate '^(?!\*scratch\*).*$' %{ try %{
+        execute-keys -buffer *scratch* '%s\A\n\z<ret>'
+        delete-buffer *scratch*
+    }}
+}
+
+colorscheme gruvbox
+
+map global normal a       'li'
+map global normal <space> ','
+map global normal ,       '<space>'
+map global normal c       '<a-c>'
+map global normal <a-c>   'c'
+map global normal d       '<a-d>'
+map global normal <a-d>   'd'
+map global normal /       '/(?i)'
+map global normal <a-/>   '<a-/>(?i)'
+map global normal ?       '?(?i)'
+map global normal <a-?>   '<a-?>(?i)'
+map global normal '#'     ': comment-line<ret>'
+map global normal x       '<a-x>'
+map global normal J       'J<a-x>'
+map global normal K       'K<a-x>'
+map global normal <left>  ': bp<ret>'
+map global normal <right> ': bn<ret>'
+map global normal <up>    ': git prev-hunk<ret>'
+map global normal <down>  ': git next-hunk<ret>'
+map global normal <c-n>   ': connect-terminal<ret>'
+map global normal '*'     ': select-or-add-cursor<ret>'
+
+map global insert <c-w>   '<esc>bdi'
+map global insert <c-u>   '<esc>xdO'
+
+map global user -docstring 'clip-paste (before)'      p      '<a-!>wl-paste --no-newline | dos2unix<ret>'
+map global user -docstring 'clip-paste (after)'       P      '!wl-paste --no-newline | dos2unix<ret>'
+map global user -docstring 'clip-replace'             R      '|wl-paste --no-newline | dos2unix<ret>'
+map global user -docstring 'clip-yank'                y      '<a-|>wl-copy<ret>'
+map global user -docstring 'save buffer'              w      ': w<ret>'
+map global user -docstring 'close buffer'             c      ': db<ret>'
+map global user -docstring 'kill buffer'              C      ': db!<ret>'
+map global user -docstring 'save all and exit'        q      ': waq<ret>'
+map global user -docstring 'exit without save'        Q      ': q!<ret>'
+map global user -docstring 'buffers'                  b      ': buffers<ret>'
+map global user -docstring 'files'                    f      ': files<ret>'
+map global user -docstring 'edit kakrc'               e      ': e ~/.config/kak/kakrc<ret>'
+map global user -docstring 'lsp hover'                h      ': lsp-hover<ret>'
+map global user -docstring 'lsp hover buffer'         H      ': lsp-hover-buffer lsp-hover<ret>'
+map global user -docstring 'codepoint'                i      ': echo %sh{ printf "codepoint: U+%04x" "$kak_cursor_char_value" }<ret>'
+map global user -docstring 'surround'                 s      ': enter-user-mode surround<ret>'
+map global user -docstring 'select down'              V      ': vertical-selection-down<ret>'
+map global user -docstring 'select up'                <a-v>  ': vertical-selection-up<ret>'
+map global user -docstring 'select up and down'       v      ': vertical-selection-up-and-down<ret>'
+map global user -docstring 'disable autoformat'       d      ': disable-autoformat<ret>'
+map global user -docstring 'LSP mode'                 l      ': enter-user-mode lsp<ret>'
+map global user -docstring 'toggle line numbers'      L      ': toggle-highlighter buffer/numbers number-lines -hlcursor<ret>'
+map global user -docstring 'toggle line wrap'         W      ': toggle-highlighter buffer/wrap wrap -word -indent<ret>'
+
+set-option global windowing_modules ''
+require-module kitty
+set-option global kitty_window_type 'os-window'
+alias global popup kitty-terminal
+
+set-option global ui_options   terminal_assistant=off
+set-option global autoreload   yes
+set-option global tabstop      4
+set-option global indentwidth  4
+set-option global scrolloff    2,5
+set-option global grepcmd      'rg --hidden --follow --smart-case --with-filename --column'
+
+evaluate-commands %sh{
+    cwd='at {cyan}%sh{ pwd | sed "s|^$HOME|~|" }{default}'
+    bufname='in {green}%val{bufname}{default}'
+    modified='{yellow+b}%sh{ $kak_modified && echo "[+] " }{default}'
+    ft='as {magenta}%sh{ echo "${kak_opt_filetype:-noft}" }{default}'
+    eol='with {yellow}%val{opt_eolformat}{default}'
+    cursor='on {cyan}%val{cursor_line}{default}:{cyan}%val{cursor_char_column}{default}'
+    readonly='{red+b}%sh{ [ -f "$kak_buffile" ] && [ ! -w "$kak_buffile" ] && echo "[] " }{default}'
+    echo set global modelinefmt "'{{mode_info}} ${cwd} ${bufname} ${readonly}${modified}${ft} ${eol} ${cursor}'"
+}
+
+source /usr/share/kak-lsp/rc/lsp.kak
+lsp-enable
+lsp-auto-hover-insert-mode-enable
+lsp-auto-signature-help-enable
+set-option global lsp_auto_highlight_references true
+
+define-command detect-indentwidth -docstring 'Detect indentwidth' %{
+    try %{
+        evaluate-commands -draft %{
+            expandtab
+            execute-keys 'gg' '/' '^\h+' '<ret>'
+
+            try %{
+                execute-keys '<a-k>' '\t' '<ret>'
+                noexpandtab
+            } catch %{
+                set-option buffer indentwidth %val{selection_length}
+            }
+        }
+    }
+}
+
+define-command leading-spaces-to-tabs -docstring 'Convert all leading spaces to tabs' %{ execute-keys -draft %{%s^\h+<ret><a-@>} }
+define-command leading-tabs-to-spaces -docstring 'Convert all leading tabs to spaces' %{ execute-keys -draft %{%s^\h+<ret>@} }
+
+define-command disable-autolint -docstring 'Disable auto-lint' %{
+    lint-hide-diagnostics
+    unset-option buffer lintcmd
+    remove-hooks buffer lint
+}
+
+define-command disable-autoformat -docstring 'Disable auto-format' %{
+    unset-option buffer formatcmd
+    remove-hooks buffer format
+}
+
+define-command files -docstring 'Open one or many files' %{ evaluate-commands %sh{
+    FILES=$(rg --hidden --files | dmenu -k -p files)
+    for file in $FILES; do
+        printf 'eval -client %%{%s} edit %%{%s}\n' "$kak_client" "$file" | kak -p "$kak_session"
+    done
+} }
+
+define-command buffers -docstring 'Switch to a buffer' %{ evaluate-commands %sh{
+    BUFFER=$(eval set -- "$kak_buflist"; for buf in "$@"; do echo "$buf"; done | dmenu -k -p buffer)
+    [ -n "$BUFFER" ] && echo "eval -client '$kak_client' 'buffer $BUFFER'" | kak -p "$kak_session"
+} }
+
+define-command cd-buffer -docstring 'Change the working directory to the current buffer directory' %{
+    evaluate-commands -buffer %val{buffile}%{
+        change-directory %sh(dirname "$kak_buffile")
+    }
+}
+
+define-command select-or-add-cursor -docstring 'Search the word under cursor, auto-select if necessary' %{
+    try %{
+        execute-keys "<a-k>\A.\z<ret>"
+        execute-keys -save-regs '' -with-hooks "_<a-i>w*"
+    } catch %{
+        execute-keys -save-regs '' -with-hooks "*"
+    } catch nop
+}
+
+define-command toggle-highlighter -params 2.. -docstring 'toggle-highlighter <path>/[name] <type> [type-params…]' %{
+    try %{
+        add-highlighter %arg{@}
+        echo -markup "{green}add-highlighter %arg{@}{Default}"
+    } catch %{
+        evaluate-commands %sh{
+            auto_name() {
+                printf '%s' "$*" | sed '
+                    s_/_<slash>_g
+                    s/ /_/g
+                '
+            }
+
+            path=$1
+            case "$path" in
+                *'/')
+                    auto_name=$(shift; auto_name "$@")
+                    path=${path}${auto_name}
+                    ;;
+            esac
+
+            printf 'remove-highlighter "%s"\n' "$path"
+            printf 'echo -markup "{red}remove-highlighter %s{Default}"\n' "$path"
+        }
+    }
+}
+
+source "~/.config/kak/smarttab/rc/smarttab.kak"
+hook global ModuleLoaded smarttab %{ set-option global softtabstop 4 }
+
+hook global NormalKey [/?*nN]|<a-[/?*nN]> %{ try %{
+    add-highlighter window/search-results-highlighter dynregex '%reg{/}' '0:black,yellow'
+}}
+
+hook global NormalKey <esc> %{ try %{
+    remove-highlighter window/search-results-highlighter
+}}
+
+hook global WinCreate .* %{ try %{
+    add-highlighter buffer/numbers  number-lines -hlcursor
+    add-highlighter buffer/matching show-matching
+    add-highlighter buffer/wrap     wrap -word -indent
+    add-highlighter buffer/todo     regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
+}}
+
+hook global BufOpenFile  .* modeline-parse
+hook global BufOpenFile  .* %{ editorconfig-load; set buffer eolformat lf }
+hook global BufNewFile   .* %{ editorconfig-load; set buffer eolformat lf }
+hook global BufWritePre  .* %{ nop %sh{ mkdir -p $(dirname "$kak_hook_param") }}
+hook global BufWritePost .* %{ git show-diff }
+hook global BufReload    .* %{ git show-diff }
+hook global BufOpenFile  .* detect-indentwidth
+hook global BufWritePost .* detect-indentwidth
+hook global WinDisplay   .* %{ evaluate-commands %sh{
+    cd "$(dirname "$kak_buffile")"
+    project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
+    [ -n "$project_dir" ] && dir="$project_dir" || dir="${PWD%/.git}"
+    printf "cd %%{%s}\n" "$dir"
+    [ -n "$project_dir" ] && [ "$kak_buffile" = "${kak_buffile#\*}" ] && printf "git show-diff"
+} }
+
+hook global WinSetOption filetype=.* %{
+    disable-autoformat
+    disable-autolint
+
+    hook buffer -group format BufWritePre .* %{
+        try %{ execute-keys -draft '%s\h+$<ret>d' }
+        try %{ execute-keys -draft '%s\u000d<ret>d' }
+    }
+}
+
+hook global WinSetOption filetype=python %{
+    set-option buffer formatcmd 'isort -q - | black -q -'
+    hook buffer -group format BufWritePre .* format
+
+    set-option buffer lintcmd 'pylint --msg-template="{path}:{line}:{column}: {category}: {msg}" -rn -sn'
+    lint
+    hook buffer -group lint BufWritePost .* lint
+}
+
+hook global WinSetOption filetype=go %{
+    hook buffer -group format BufWritePre .* lsp-formatting-sync
+
+    set-option buffer lintcmd "run() { revive $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; staticcheck $1; } && run"
+    lint
+    hook buffer -group lint BufWritePost .* lint
+}
+
+hook global WinSetOption filetype=rust %{
+    hook buffer -group format BufWritePre .* lsp-formatting-sync
+
+    hook window -group rust-inlay-hints BufReload .* rust-analyzer-inlay-hints
+    hook window -group rust-inlay-hints NormalIdle .* rust-analyzer-inlay-hints
+    hook window -group rust-inlay-hints InsertIdle .* rust-analyzer-inlay-hints
+    hook -once -always window WinSetOption filetype=.* %{
+        remove-hooks window rust-inlay-hints
+    }
+
+    hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
+    hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
+    hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
+    hook -once -always window WinSetOption filetype=.* %{
+        remove-hooks window semantic-tokens
+    }
+}
+
+hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml|html) %{
+    set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+    hook buffer -group format BufWritePre .* format
+}
+
+hook global WinSetOption filetype=sh %{
+    set-option buffer formatcmd "shfmt -i %opt{indentwidth} -ci -sr"
+    hook buffer -group format BufWritePre .* format
+
+    set-option buffer lintcmd 'shellcheck -x -fgcc'
+    lint
+}
+
+hook global WinSetOption filetype=terraform %{
+    hook buffer -group format BufWritePre .* lsp-formatting-sync
+}
+
+hook global WinSetOption filetype=lua %{
+    set-option buffer formatcmd 'stylua --config-path ~/.config/stylua/stylua.toml -- -'
+    hook buffer -group format BufWritePre .* format
+}
+
 source "~/.config/kak/auto-pairs.kak/rc/auto-pairs.kak"; enable-auto-pairs
 source "~/.config/kak/surround.kak/rc/surround.kak"
-source "~/.config/kak/state-save/state-save.kak"
 source "~/.config/kak/vertical-selection/vertical-selection.kak"
 source "~/.config/kak/restclient.kak/restclient.kak"
-source "~/.config/kak/smarttab/rc/smarttab.kak"
-
-# My configs
-source "~/.config/kak/ui.kak"
-source "~/.config/kak/coding.kak"
-source "~/.config/kak/files.kak"
-source "~/.config/kak/mappings.kak"
-source "~/.config/kak/asterisk.kak"
-source "~/.config/kak/toggle-highlighter.kak"
