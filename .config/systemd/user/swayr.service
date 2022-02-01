@@ -6,6 +6,7 @@ After=graphical-session.target
 [Service]
 ExecStart=/usr/bin/swayrd
 Restart=always
+StandardOutput=null
 
 [Install]
 WantedBy=graphical-session.target
