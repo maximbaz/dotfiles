@@ -1,10 +1,11 @@
 pkgname='maximbaz'
-pkgver=2.20.0
+pkgver=2.22.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
 url='https://github.com/maximbaz/dotfiles'
 license=('MIT')
+provides=('dmenu')
 source=(
     '30-font-aliases.conf'
     '75-joypixels.conf'
@@ -91,7 +92,6 @@ depends=(
     'bat'
     'exa'
     'fd'
-    'mlocate'
     'ripgrep'
     'ripgrep-all'
     'tree'
@@ -181,7 +181,6 @@ depends=(
     'swaylock'
     'xorg-server-xwayland'
     'wl-clipboard'
-    'wl-clipboard-manager'
     'python-i3ipc'
     'mako'
     'gtk-theme-arc-gruvbox-git'
@@ -196,7 +195,8 @@ depends=(
     'qt5-wayland'
     'wtype'
     'wlrctl'
-    'wofi'
+    'wldash'
+    'swayr'
 
     # fonts
     'ttf-dejavu'
@@ -350,7 +350,6 @@ depends=(
 
     # misc
     'anydesk'
-    'dmenu-term'
     'calibre'
     'hugo'
     'krita'
@@ -358,6 +357,8 @@ depends=(
     'libreoffice-fresh'
     'transmission-gtk'
     'signal-desktop'
+    'scli'
+    'python-urwid_readline'
     'libinput-gestures'
     'urlwatch'
 )
