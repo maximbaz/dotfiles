@@ -1,0 +1,3 @@
+#!/bin/sh
+
+systemctl --plain --no-legend --user list-units | grep "^launch-$1"
