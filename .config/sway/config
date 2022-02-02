@@ -9,6 +9,7 @@ input type:keyboard {
 
 input type:touchpad {
     natural_scroll enabled
+    pointer_accel 0.2
     tap enabled
 }
 
