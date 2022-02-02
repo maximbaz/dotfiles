@@ -13,6 +13,7 @@ WINDOW_ICONS = {
     "calibre": "",
     "chromium": "",
     "code-oss": "",
+    "discord": "",
     "draw.io": "",
     "firefox": "",
     "gcr-prompter": "",

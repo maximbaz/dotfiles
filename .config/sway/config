@@ -51,6 +51,7 @@ for_window    [window_role="pop-up"]                     floating enable
 for_window    [app_id="udiskie"]                         floating enable
 for_window    [app_id="org.qutebrowser.qutebrowser"]     move container to $workspace2
 for_window    [app_id="Signal"]                          move container to $workspace3
+for_window    [app_id="discord"]                         move container to $workspace3
 for_window    [app_id="neomutt"]                         move container to $workspace4, title_format "NeoMutt"
 for_window    [app_id="dmenu.*"]                         floating enable, resize set width 60ppt height 80ppt
 for_window    [app_id="dmenu-browser"]                   resize set height 20ppt
