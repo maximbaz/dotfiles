@@ -1,0 +1,83 @@
+#!/bin/bash
+
+self="$(realpath "$0")"
+
+if [ -n "$PREVIEW_MODE" ]; then
+    while IFS= read -r -d '' file; do
+        clear
+        $PREVIEW_SCRIPT "$file"
+    done < fifo
+    exit 0
+fi
+
+if [ -n "$FILTER_MODE" ]; then
+    if [ -n "$PREVIEW_SCRIPT" ]; then
+        mkfifo fifo
+        tail -f /dev/null > fifo &
+
+        FZF_OPTS="$FZF_OPTS --preview-window=:0% --preview='printf \"%s\0\" {} >$PWD/fifo'"
+        kitty @ launch --cwd "$PWD" --keep-focus --env "PREVIEW_MODE=1" --env "PREVIEW_SCRIPT=$PREVIEW_SCRIPT" "$self"
+    fi
+
+    env FZF_DEFAULT_OPTS="$FZF_OPTS" fzf < in > out
+
+    [ -n "$PREVIEW_SCRIPT" ] && kill $!
+    touch done/1
+    exit 0
+fi
+
+tmp="$(mktemp -d)"
+trap 'rm -rf $tmp' EXIT
+
+fzf_args="--print-query --reverse --multi"
+kitty_class="dmenu"
+
+while getopts "vp:kr:0f:" OPTION; do
+    case "$OPTION" in
+        v)
+            echo 'dmenu-term v1.2.0'
+            exit 0
+            ;;
+        p)
+            fzf_args="$fzf_args --prompt='$OPTARG> '"
+            kitty_class="$kitty_class-$OPTARG"
+            ;;
+
+        # custom options
+        k)
+            kitty_panel=1
+            ;;
+        r)
+            preview_script="$OPTARG"
+            ;;
+        0)
+            fzf_args="$fzf_args --read0"
+            null_separated=1
+            ;;
+        f)
+            fzf_args="$fzf_args $OPTARG"
+            ;;
+    esac
+done
+
+mkdir "$tmp/done"
+cat > "$tmp/in"
+
+if [ -n "$kitty_panel" ]; then
+    kitty @ launch --no-response --cwd "$tmp" --env "FILTER_MODE=1" --env "FZF_OPTS=$fzf_args" --env "PREVIEW_SCRIPT=$preview_script" "$self" > /dev/null 2>&1
+    inotifywait -q -e create "$tmp/done" > /dev/null
+else
+    env "FILTER_MODE=1" "FZF_OPTS=$fzf_args" "PREVIEW_SCRIPT=$preview_script" \
+        kitty --class "$kitty_class" --directory "$tmp" -o font_size=12 -o background='#242828' -o active_border_color='#242828' -o window_padding_width=5 "$self" > /dev/null 2>&1
+fi
+
+lines=$(wc -l "$tmp/out" | awk '{ print $1 }')
+if [ "$lines" != "1" ]; then
+    tail -n +2 "$tmp/out"
+else
+    cat "$tmp/out"
+fi
+
+[ -n "$null_separated" ] && printf '\0'
+
+exit 0
