@@ -32,6 +32,7 @@ WINDOW_ICONS = {
     "qutepreview": "",
     "org.qutebrowser.qutebrowser": "",
     "riot": "",
+    "scli": "",
     "signal": "",
     "slack": "",
     "spotify": "",

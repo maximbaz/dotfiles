@@ -50,6 +50,7 @@ for_window    [app_id=".*"]                              sticky enable
 for_window    [window_role="pop-up"]                     floating enable
 for_window    [app_id="udiskie"]                         floating enable
 for_window    [app_id="org.qutebrowser.qutebrowser"]     move container to $workspace2
+for_window    [app_id="scli"]                            move container to $workspace3
 for_window    [app_id="Signal"]                          move container to $workspace3
 for_window    [app_id="discord"]                         move container to $workspace3
 for_window    [app_id="neomutt"]                         move container to $workspace4, title_format "NeoMutt"

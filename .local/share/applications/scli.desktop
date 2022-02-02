@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Network;
+Exec=/usr/bin/scli %u
+GenericName=Signal CLI
+Icon=/usr/share/icons/hicolor/128x128/apps/signal-desktop.png
+Name=scli
+StartupNotify=true
+Type=Application
+Terminal=true
