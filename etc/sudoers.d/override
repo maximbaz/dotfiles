@@ -1,4 +1,5 @@
 Defaults timestamp_timeout=0
+Defaults passwd_timeout=0
 
 %wheel ALL=(ALL) ALL
 %wheel ALL=(ALL) NOPASSWD:SETENV: \
