@@ -1,6 +1,3 @@
-# Set font
-font pango: Taskbar, Cantarell 9
-
 input type:keyboard {
     xkb_layout us-hyper,ru
     xkb_options grp:shifts_toggle,grp:shift_caps_toggle,compose:ralt,caps:hyper,numpad:mac
