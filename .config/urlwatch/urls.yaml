@@ -255,9 +255,9 @@ filter:
 max_tries: 30
 ---
 name: "wlroots"
-url: "https://github.com/swaywm/wlroots/releases/latest"
+url: "https://gitlab.freedesktop.org/wlroots/wlroots/-/tags"
 filter:
-  - css: "#repo-content-pjax-container h1"
+  - css: ".tags>ul>li:first-child>div>a"
   - html2text
 max_tries: 30
 ---
