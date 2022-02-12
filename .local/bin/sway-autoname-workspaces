@@ -32,8 +32,8 @@ WINDOW_ICONS = {
     "qutepreview": "",
     "org.qutebrowser.qutebrowser": "",
     "riot": "",
-    "scli": "",
-    "signal": "",
+    "scli": "",
+    "signal": "",
     "slack": "",
     "spotify": "",
     "transmission-gtk": "",
@@ -43,7 +43,7 @@ WINDOW_ICONS = {
     "org.pwmt.zathura": "",
 }
 
-DEFAULT_ICON = "󰀏"
+DEFAULT_ICON = ""
 
 
 def icon_for_window(window):
