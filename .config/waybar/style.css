@@ -52,6 +52,7 @@ window#waybar {
 #cpu.warning,
 #custom-movie.on,
 #custom-dnd.on {
+  border-top: 3px solid @background;
   border-bottom: 3px solid @yellow;
 }
 
@@ -64,10 +65,12 @@ window#waybar {
 #custom-yubikey,
 #custom-eyes,
 #custom-recording {
+  border-top: 3px solid @background;
   border-bottom: 3px solid @red;
 }
 
 #battery.charging {
+  border-top: 3px solid @background;
   border-bottom: 3px solid @green;
 }
 
