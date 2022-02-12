@@ -1,5 +1,5 @@
 zstyle    ':z4h:'                                              auto-update            no
-zstyle    ':z4h:'                                              start-tmux             isolated
+zstyle    ':z4h:'                                              start-tmux             no
 zstyle    ':z4h:'                                              term-shell-integration yes
 zstyle    ':z4h:'                                              propagate-cwd          yes
 zstyle    ':z4h:*'                                             channel                stable
@@ -26,7 +26,6 @@ fi
 ###
 
 z4h install romkatv/archive || return
-z4h tty-wait --timeout-seconds 1.0 --lines-columns-pattern '<70-> <->'
 z4h init || return
 
 ####
