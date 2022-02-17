@@ -238,7 +238,10 @@ hook global WinSetOption filetype=python %{
 }
 
 hook global WinSetOption filetype=go %{
-    hook buffer -group format BufWritePre .* lsp-formatting-sync
+    hook buffer -group format BufWritePre .* %{
+        try %{ lsp-code-action-sync '^Organize Imports$' }
+        lsp-formatting-sync
+    }
 
     set-option buffer lintcmd "run() { revive $1; go vet $1 2>&1 | sed -E 's/: /: error: /'; staticcheck $1; } && run"
     lint
