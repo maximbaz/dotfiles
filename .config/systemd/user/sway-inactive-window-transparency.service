@@ -6,6 +6,7 @@ After=graphical-session.target
 [Service]
 ExecStart=%h/.local/bin/sway-inactive-window-transparency
 Restart=always
+RestartSec=10s
 
 [Install]
 WantedBy=graphical-session.target
