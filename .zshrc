@@ -25,6 +25,10 @@ fi
 
 ###
 
+[ ! -f /etc/motd ] || cat /etc/motd
+
+###
+
 z4h install romkatv/archive || return
 z4h init || return
 
