@@ -34,7 +34,7 @@ roots = ["*.tf"]
 command = "terraform-ls"
 args = ["serve"]
 
-[language.typescript]
+[language.tsx]
 filetypes = ["typescript"]
 roots = ["package.json", "tsconfig.json", ".git", ".hg"]
 command = "typescript-language-server"
