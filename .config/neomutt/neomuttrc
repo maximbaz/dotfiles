@@ -132,11 +132,11 @@ macro attach s "<save-entry><bol>~/Downloads/<eol>"
 
 set auto_tag = yes
 macro index a "<tag-entry><clear-flag>N<modify-tags>!archive<enter><untag-pattern>.<enter>"
-macro pager a "<modify-tags>!archive<enter><next-undeleted>"
+macro pager a "<modify-tags>!archive<enter>"
 macro index A "<tag-thread><clear-flag>N<modify-tags>+archive<enter><untag-pattern>.<enter>"
 macro pager A "<exit><tag-thread><clear-flag>N<modify-tags>+archive<enter><untag-pattern>.<enter>"
 macro index s "<tag-entry><clear-flag>N<modify-tags>!spam<enter><untag-pattern>.<enter>"
-macro pager s "<modify-tags>!spam<enter><next-undeleted>"
+macro pager s "<modify-tags>!spam<enter>"
 macro index,pager D "<purge-message>"
 macro index I "<tag-entry><clear-flag>N<modify-tags>!ham<enter><untag-pattern>.<enter>"
 macro pager I "<modify-tags>!ham<enter><untag-pattern>.<enter>"
