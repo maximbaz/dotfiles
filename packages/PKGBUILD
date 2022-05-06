@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.22.0
+pkgver=2.23.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -182,7 +182,6 @@ depends=(
     'xorg-server-xwayland'
     'wl-clipboard'
     'python-i3ipc'
-    'mako'
     'gtk-theme-arc-gruvbox-git'
     'wlsunset'
     'waybar'
@@ -197,6 +196,7 @@ depends=(
     'wlrctl'
     'wldash'
     'swayr'
+    'swaync'
 
     # fonts
     'ttf-dejavu'
@@ -209,7 +209,6 @@ depends=(
     'ttf-lato'
     'ttf-opensans'
     'ttf-signika'
-    'xorg-fonts-misc'
     'otf-font-awesome'
     'ttf-joypixels'
 
@@ -265,6 +264,7 @@ depends=(
 
     # js dev
     'yarn'
+    'typescript-language-server'
 
     # rust dev
     'rust'
@@ -276,9 +276,15 @@ depends=(
     # lua dev
     'stylua-bin'
 
+    # db
+    'postgresql-libs'
+    'pgcli'
+    'mariadb-clients'
+
     # spell
     'aspell-da'
     'aspell-en'
+    'aspell-uk'
     'aspell-ru'
 
     # android
@@ -359,6 +365,7 @@ depends=(
     'signal-desktop'
     'scli'
     'python-urwid_readline'
-    'libinput-gestures'
     'urlwatch'
+    'discord'
+    'mkcert'
 )
