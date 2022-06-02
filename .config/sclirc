@@ -5,4 +5,3 @@ enable-notifications = true
 notification-command = notify-send -i "%a" "%s" "New Signal message"
 one-sided = true
 save-history = true
-use-formatting = true
