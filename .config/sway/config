@@ -207,8 +207,7 @@ bindsym --to-code {
     $hyper+space focus mode_toggle
 
     # Notification actions
-    $hyper+q exec makoctl dismiss
-    $hyper+o exec makoctl menu dmenu
+    $hyper+q exec swaync-client --close-all
 
     # Brightness control
     XF86MonBrightnessUp         exec light -A 1%

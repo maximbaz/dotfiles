@@ -51,7 +51,8 @@ window#waybar {
 #memory.warning,
 #cpu.warning,
 #custom-movie.on,
-#custom-dnd.on {
+#custom-dnd.dnd-notification,
+#custom-dnd.dnd-none {
   border-top: 3px solid @background;
   border-bottom: 3px solid @yellow;
 }

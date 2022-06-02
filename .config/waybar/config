@@ -81,11 +81,18 @@
         "return-type": "json"
     },
     "custom/dnd": {
-        "exec": "waybar-dnd",
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='#928374'></span>",
+            "none": "<span foreground='#928374'></span>",
+            "dnd-notification": "<span foreground='#928374'></span>",
+            "dnd-none": "<span foreground='#928374'></span>"
+        },
         "return-type": "json",
-        "signal": 2,
-        "interval": "once",
-        "on-click": "waybar-dnd toggle"
+        "exec": "swaync-client --subscribe-waybar",
+        "on-click": "swaync-client --toggle-dnd --skip-wait",
+        "escape": true
     },
     "custom/recording": {
         "exec": "waybar-recording",

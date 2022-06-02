@@ -1,9 +1,7 @@
 #!/bin/sh
 
-marker="/tmp/waybar-dnd"
-
 show() {
-    if [ -e "$marker" ]; then
+    if [ "$(swaync-client --get-dnd)" = "true" ]; then
         printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"on\"}\n"
     else
         printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"off\"}\n"
@@ -11,24 +9,23 @@ show() {
 }
 
 on() {
-    makoctl set-mode dnd
-    touch "$marker"
+    [ "$(swaync-client --get-dnd)" = "true" ] || swaync-client --toggle-dnd
     pkill -RTMIN+2 -x waybar
 }
 
 off() {
-    makoctl set-mode default
-    rm -f "$marker"
+    [ "$(swaync-client --get-dnd)" = "false" ] || swaync-client --toggle-dnd
     pkill -RTMIN+2 -x waybar
 }
 
 toggle() {
-    [ -e "$marker" ] && off || on
+    swaync-client --toggle-dnd
+    pkill -RTMIN+2 -x waybar
 }
 
 case "$1" in
-    on)     on ;;
-    off)    off ;;
+    on) on ;;
+    off) off ;;
     toggle) toggle ;;
-    '')     show ;;
+    '') show ;;
 esac
