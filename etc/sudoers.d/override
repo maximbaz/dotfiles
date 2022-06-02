@@ -3,6 +3,7 @@ Defaults passwd_timeout=0
 
 %wheel ALL=(ALL) ALL
 %wheel ALL=(ALL) NOPASSWD:SETENV: \
+    /usr/local/bin/checkluksheader, \
     /usr/bin/systemctl stop pcscd.service, \
     /usr/bin/pacman -Sy, \
     /usr/bin/pacman -Syu, \

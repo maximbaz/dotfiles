@@ -8,7 +8,7 @@
     "modules-right": [
         "custom/progress",
         "custom/usbguard",
-        "custom/secureboot",
+        "custom/security",
         "custom/eyes",
         "custom/yubikey",
         "custom/decrypted",
@@ -31,8 +31,8 @@
         "tray"
     ],
 
-    "custom/secureboot": {
-        "exec": "waybar-secureboot",
+    "custom/security": {
+        "exec": "waybar-security",
         "return-type": "json",
         "interval": "once"
     },

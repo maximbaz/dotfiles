@@ -59,6 +59,13 @@ systemctl_enable_start() {
 }
 
 echo ""
+echo "============================"
+echo "Setting up /usr/local/bin..."
+echo "============================"
+
+copy "usr/local/bin/checkluksheader"
+
+echo ""
 echo "=========================="
 echo "Setting up /etc configs..."
 echo "=========================="
