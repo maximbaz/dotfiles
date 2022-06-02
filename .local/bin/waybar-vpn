@@ -1,7 +1,7 @@
 #!/bin/sh
 
 vpn() {
-    if curl -s https://www.cloudflare.com/cdn-cgi/trace | grep -q warp=on; then
+    if curl -s https://www.cloudflare.com/cdn-cgi/trace | grep -Eq 'warp=(on|plus)'; then
         icon="<span foreground='#928374'></span>"
         class=on
     else
