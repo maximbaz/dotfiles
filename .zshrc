@@ -8,9 +8,10 @@ zstyle    ':z4h:fzf-complete'                                  fzf-command      
 zstyle    ':z4h:(fzf-complete|fzf-dir-history|fzf-history)'    fzf-flags              --no-exact --color=hl:14,hl+:14
 zstyle    ':z4h:(fzf-complete|fzf-dir-history)'                fzf-bindings           'tab:repeat'
 zstyle    ':z4h:fzf-complete'                                  find-flags             -name '.git' -prune -print -o -print
-zstyle    ':z4h:ssh:*'                                         ssh-command            kitty +kitten ssh
-zstyle    ':z4h:ssh:*'                                         send-extra-files       '~/.zsh-aliases'
 zstyle    ':z4h:ssh:*'                                         enable                 no
+zstyle    ':z4h:ssh:*'                                         ssh-command            command ssh
+zstyle    ':z4h:ssh:*'                                         term                   'xterm-256color'
+zstyle    ':z4h:ssh:*'                                         send-extra-files       '~/.zsh-aliases'
 zstyle    ':zle:(up|down)-line-or-beginning-search'            leave-cursor           yes
 zstyle    ':z4h:term-title:ssh'                                preexec                '%* | %n@%m: ${1//\%/%%}'
 zstyle    ':z4h:term-title:local'                              preexec                '%* | ${1//\%/%%}'
