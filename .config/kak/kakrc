@@ -98,6 +98,7 @@ source /usr/share/kak-lsp/rc/lsp.kak
 lsp-enable
 lsp-auto-hover-insert-mode-enable
 lsp-auto-signature-help-enable
+lsp-inlay-hints-enable global
 set-option global lsp_auto_highlight_references true
 
 define-command detect-indentwidth -docstring 'Detect indentwidth' %{
@@ -250,13 +251,6 @@ hook global WinSetOption filetype=go %{
 
 hook global WinSetOption filetype=rust %{
     hook buffer -group format BufWritePre .* lsp-formatting-sync
-
-    hook window -group rust-inlay-hints BufReload .* rust-analyzer-inlay-hints
-    hook window -group rust-inlay-hints NormalIdle .* rust-analyzer-inlay-hints
-    hook window -group rust-inlay-hints InsertIdle .* rust-analyzer-inlay-hints
-    hook -once -always window WinSetOption filetype=.* %{
-        remove-hooks window rust-inlay-hints
-    }
 
     hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
     hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
