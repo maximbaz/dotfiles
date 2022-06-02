@@ -84,6 +84,7 @@ set-option global scrolloff    2,5
 set-option global grepcmd      'rg --hidden --follow --smart-case --with-filename --column'
 
 evaluate-commands %sh{
+    langmap='%sh{ [ "$kak_opt_langmap_current_lang" = "ua" ] && echo "🇺🇦 " }'
     cwd='at {cyan}%sh{ pwd | sed "s|^$HOME|~|" }{default}'
     bufname='in {green}%val{bufname}{default}'
     modified='{yellow+b}%sh{ $kak_modified && echo "[+] " }{default}'
@@ -91,7 +92,7 @@ evaluate-commands %sh{
     eol='with {yellow}%val{opt_eolformat}{default}'
     cursor='on {cyan}%val{cursor_line}{default}:{cyan}%val{cursor_char_column}{default}'
     readonly='{red+b}%sh{ [ -f "$kak_buffile" ] && [ ! -w "$kak_buffile" ] && echo "[] " }{default}'
-    echo set global modelinefmt "'{{mode_info}} ${cwd} ${bufname} ${readonly}${modified}${ft} ${eol} ${cursor}'"
+    echo set global modelinefmt "'{{mode_info}} ${langmap}${cwd} ${bufname} ${readonly}${modified}${ft} ${eol} ${cursor}'"
 }
 
 source /usr/share/kak-lsp/rc/lsp.kak
@@ -286,3 +287,6 @@ source "~/.config/kak/auto-pairs.kak/rc/auto-pairs.kak"; enable-auto-pairs
 source "~/.config/kak/surround.kak/rc/surround.kak"
 source "~/.config/kak/vertical-selection/vertical-selection.kak"
 source "~/.config/kak/restclient.kak/restclient.kak"
+
+source "~/.config/kak/langmap.kak/rc/langmap.kak"; require-module langmap
+set-option global langmap %opt{langmap_ua_jcuken}

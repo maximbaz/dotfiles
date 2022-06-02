@@ -29,3 +29,6 @@
 [submodule ".config/mpv/youtube-quality"]
 	path = .config/mpv/youtube-quality
 	url = https://github.com/christoph-heinrich/mpv-youtube-quality.git
+[submodule ".config/kak/langmap.kak"]
+	path = .config/kak/langmap.kak
+	url = https://github.com/andreyorst/langmap.kak.git
