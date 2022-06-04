@@ -32,7 +32,7 @@ alias utc='env TZ=UTC date'
 alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 alias gpg-change-card='gpg-connect-agent "scd serialno" "learn --force" /bye'
-alias yd='yt-dlp --external-downloader aria2c'
+alias yd='yt-dlp --external-downloader aria2c --sponsorblock-mark all'
 
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
