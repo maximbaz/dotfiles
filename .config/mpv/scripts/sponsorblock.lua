@@ -1,0 +1,1 @@
+../sponsorblock/sponsorblock.lua
