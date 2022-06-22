@@ -346,8 +346,8 @@ filter:
 max_tries: 30
 ---
 name: "aspell-da"
-url: "https://ftp.gnu.org/gnu/aspell/dict/da/"
+url: "https://github.com/mortenivar/aspell-da/releases/latest"
 filter:
-  - css: "table td a"
+  - css: "#repo-content-pjax-container h1"
   - html2text
 max_tries: 30
