@@ -274,6 +274,11 @@ hook global WinSetOption filetype=sh %{
     lint
 }
 
+hook global WinSetOption filetype=sql %{
+    set-option buffer formatcmd "pg_format -iu1 -"
+    hook buffer -group format BufWritePre .* format
+}
+
 hook global WinSetOption filetype=terraform %{
     hook buffer -group format BufWritePre .* lsp-formatting-sync
 }
