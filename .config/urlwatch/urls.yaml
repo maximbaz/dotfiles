@@ -2,58 +2,64 @@
 name: "bash-language-server"
 url: "https://github.com/mads-hartmann/bash-language-server/tags"
 filter:
-  - css: ".Box-row:first-child h4 a"
+  - xpath: (//div[contains(@class,"commit js-details-container Details")]//h4//a)[1]
   - html2text
   - strip
 max_tries: 30
 ---
 name: "croc"
-url: "https://github.com/schollz/croc/releases/latest"
+url: "https://github.com/schollz/croc/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "fd"
-url: "https://github.com/sharkdp/fd/releases/latest"
+url: "https://github.com/sharkdp/fd/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "gocryptfs"
-url: "https://github.com/rfjakob/gocryptfs/releases/latest"
+url: "https://github.com/rfjakob/gocryptfs/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "grub-btrfs"
-url: "https://github.com/Antynea/grub-btrfs/releases/latest"
+url: "https://github.com/Antynea/grub-btrfs/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "i3ipc-python"
-url: "https://github.com/acrisci/i3ipc-python/releases/latest"
+url: "https://github.com/acrisci/i3ipc-python/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "JoyPixels font"
-url: "https://github.com/joypixels/emoji-assets/releases/latest"
+url: "https://github.com/joypixels/emoji-assets/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "JoyPixels License"
 url: "https://cdn.joypixels.com/arch-linux/license/free-license.pdf"
 max_tries: 30
 ---
-name: "JoyPixels License appendix "
+name: "JoyPixels License appendix"
 url: "https://cdn.joypixels.com/arch-linux/appendix/joypixels-license-appendix.pdf"
 max_tries: 30
 ---
@@ -62,24 +68,27 @@ url: "https://raw.githubusercontent.com/joypixels/emoji-assets/master/emoji.json
 max_tries: 30
 ---
 name: "kak-lsp"
-url: "https://github.com/ul/kak-lsp/releases/latest"
+url: "https://github.com/ul/kak-lsp/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "kakoune"
-url: "https://github.com/mawww/kakoune/releases/latest"
+url: "https://github.com/mawww/kakoune/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "kitty"
-url: "https://github.com/kovidgoyal/kitty/releases/latest"
+url: "https://github.com/kovidgoyal/kitty/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "Kitty config"
@@ -91,24 +100,19 @@ url: "https://raw.githubusercontent.com/kovidgoyal/kitty/master/docs/changelog.r
 max_tries: 30
 ---
 name: "light"
-url: "https://github.com/haikarainen/light/releases/latest"
+url: "https://github.com/haikarainen/light/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
-max_tries: 30
----
-name: "mailcow"
-url: "https://mailcow.email/category/news/"
-filter:
-  - css: ".entry-content"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "mako"
-url: "https://github.com/emersion/mako/releases/latest"
+url: "https://github.com/emersion/mako/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "MikroTik"
@@ -120,144 +124,153 @@ filter:
 max_tries: 30
 ---
 name: "neomutt"
-url: "https://github.com/neomutt/neomutt/releases/latest"
+url: "https://github.com/neomutt/neomutt/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "p10k"
-url: "https://github.com/romkatv/powerlevel10k/releases/latest"
+url: "https://github.com/romkatv/powerlevel10k/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "pam-u2f"
 url: "https://github.com/Yubico/pam-u2f/tags"
 filter:
-  - css: ".Box-row:first-child h4 a"
+  - xpath: (//div[contains(@class,"commit js-details-container Details")]//h4//a)[1]
   - html2text
   - strip
 max_tries: 30
 ---
 name: "playerctl"
-url: "https://github.com/altdesktop/playerctl/releases/latest"
+url: "https://github.com/altdesktop/playerctl/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "prettier"
-url: "https://github.com/prettier/prettier/releases/latest"
+url: "https://github.com/prettier/prettier/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "python-black"
 url: "https://github.com/ambv/black/tags"
 filter:
-  - css: ".Box-row:first-child h4 a"
+  - xpath: (//div[contains(@class,"commit js-details-container Details")]//h4//a)[1]
   - html2text
   - strip
 max_tries: 30
 ---
 name: "python-jsonrpc-server"
-url: "https://github.com/palantir/python-jsonrpc-server/releases/latest"
+url: "https://github.com/palantir/python-jsonrpc-server/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "python-language-server"
-url: "https://github.com/palantir/python-language-server/releases/latest"
+url: "https://github.com/palantir/python-language-server/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "ripgrep"
-url: "https://github.com/BurntSushi/ripgrep/releases/latest"
+url: "https://github.com/BurntSushi/ripgrep/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "slurp"
-url: "https://github.com/emersion/slurp/releases/latest"
+url: "https://github.com/emersion/slurp/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "sway"
-url: "https://github.com/swaywm/sway/releases/latest"
+url: "https://github.com/swaywm/sway/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "swaybg"
-url: "https://github.com/swaywm/swaybg/releases/latest"
+url: "https://github.com/swaywm/swaybg/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "swaylock"
-url: "https://github.com/swaywm/swaylock/releases/latest"
+url: "https://github.com/swaywm/swaylock/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "urlscan"
-url: "https://github.com/firecat53/urlscan/releases/latest"
+url: "https://github.com/firecat53/urlscan/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "volumerize"
-url: "https://github.com/blacklabelops/volumerize/releases/latest"
+url: "https://github.com/blacklabelops/volumerize/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "waybar"
-url: "https://github.com/Alexays/Waybar/releases/latest"
+url: "https://github.com/Alexays/Waybar/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "wire-desktop"
-url: "https://github.com/wireapp/wire-desktop/releases/latest"
+url: "https://github.com/wireapp/wire-desktop/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
-max_tries: 30
----
-name: "wire-webapp"
-url: "https://github.com/wireapp/wire-webapp/releases/latest"
-filter:
-  - css: ".markdown-body"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "wl-clipboard"
-url: "https://github.com/bugaevc/wl-clipboard/releases/latest"
+url: "https://github.com/bugaevc/wl-clipboard/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "wlroots"
 url: "https://gitlab.freedesktop.org/wlroots/wlroots/-/tags"
 filter:
-  - css: ".tags>ul>li:first-child>div>a"
+  - xpath: (//a[contains(@class,"item-title ref-name")])[1]
   - html2text
 max_tries: 30
 ---
@@ -269,17 +282,19 @@ filter:
 max_tries: 30
 ---
 name: "earlyoom"
-url: "https://github.com/rfjakob/earlyoom/releases/latest"
+url: "https://github.com/rfjakob/earlyoom/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "systembus-notify"
-url: "https://github.com/rfjakob/systembus-notify/releases/latest"
+url: "https://github.com/rfjakob/systembus-notify/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "Yubico security advisories"
@@ -290,64 +305,72 @@ filter:
 max_tries: 30
 ---
 name: "curlie"
-url: "https://github.com/rs/curlie/releases/latest"
+url: "https://github.com/rs/curlie/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "rmtrash"
-url: "https://github.com/PhrozenByte/rmtrash/releases/latest"
+url: "https://github.com/PhrozenByte/rmtrash/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "swappy"
-url: "https://github.com/jtheoof/swappy/releases/latest"
+url: "https://github.com/jtheoof/swappy/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "shfmt"
-url: "https://github.com/mvdan/sh/releases/latest"
+url: "https://github.com/mvdan/sh/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "xdg-desktop-portal-wlr"
-url: "https://github.com/emersion/xdg-desktop-portal-wlr/releases/latest"
+url: "https://github.com/emersion/xdg-desktop-portal-wlr/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "teehee"
-url: "https://github.com/Gskartwii/teehee/releases/latest"
+url: "https://github.com/Gskartwii/teehee/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "xplr"
-url: "https://github.com/sayanarijit/xplr/releases/latest"
+url: "https://github.com/sayanarijit/xplr/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
 ---
 name: "goimapnotify"
 url: "https://gitlab.com/shackra/goimapnotify/-/tags"
 filter:
-  - css: ".tags>ul>li:first-child>div>a"
+  - xpath: (//a[contains(@class,"item-title ref-name")])[1]
   - html2text
 max_tries: 30
 ---
 name: "aspell-da"
-url: "https://github.com/mortenivar/aspell-da/releases/latest"
+url: "https://github.com/mortenivar/aspell-da/releases"
 filter:
-  - css: "#repo-content-pjax-container h1"
-  - html2text
+  - xpath: '(//div[contains(@class,"d-flex flex-column flex-md-row my-5 flex-justify-center")]//h1//a)[1]'
+  - html2text: re
+  - strip
 max_tries: 30
