@@ -14,7 +14,7 @@ if [ "$1" = "--term" ]; then
 
     title="${1##*/}"
     title="${title:-kitty}"
-    app="kitty ${kitty_args[@]} --class $title"
+    app="kitty ${kitty_args[*]} --class $title"
 else
     title="${1##*/}"
     args="--scope"
