@@ -1,0 +1,17 @@
+#!/bin/sh
+
+token="$HOME/.vault-token"
+vault="$HOME/.nix-profile/bin/vault"
+
+if [ ! -f "$token" ]; then
+    echo >&2 "First usage - logging in..."
+    "$vault" login -method=oidc >&2
+fi
+
+age=$(( $(date +%s) - $(stat -c%Y "$token") ))
+if [ $age -ge $(( 60 * 60 * 23)) ]; then
+    echo >&2 "Token expired - logging in..."
+    "$vault" login -method=oidc >&2
+fi
+
+"$vault" "$@"

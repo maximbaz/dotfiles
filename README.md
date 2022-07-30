@@ -106,3 +106,18 @@ In case system doesn't boot:
    ```
 
 1. Reboot
+
+# MacOS tricks
+
+## qute-pass
+
+Download into ~/.config/qutebrowser/userscripts/qute-pass
+
+## Nix cheatsheet
+
+https://github.com/brainrake/nixos-tutorial/blob/master/cheatsheet.md
+
+1. Update pkgs
+
+sudo nix-channel --update
+nix-env -iA nixpkgs.maximbaz

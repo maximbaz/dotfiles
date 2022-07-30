@@ -103,7 +103,14 @@ export SYSTEMD_LESS="${LESS}S"
 
 ###
 
+fpath+=($HOME/.nix-profile/share/zsh/site-functions(-/N))
+
+# z4h source -- /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 z4h source -- /etc/bash_completion.d/azure-cli
-z4h source -- /usr/share/LS_COLORS/dircolors.sh
+z4h source -- /usr/local/share/LS_COLORS/dircolors.sh
 z4h source -- $ZDOTDIR/.zsh-aliases
 z4h source -- $ZDOTDIR/.zshrc-private
+
+gpgconf --launch gpg-agent
+
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}' >/dev/null

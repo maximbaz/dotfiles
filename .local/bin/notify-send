@@ -1,0 +1,3 @@
+#!/bin/sh
+
+terminal-notifier -title "$1" -message "$2"

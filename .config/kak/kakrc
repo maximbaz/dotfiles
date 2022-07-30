@@ -93,7 +93,8 @@ evaluate-commands %sh{
     echo set global modelinefmt "'{{mode_info}} ${langmap}${cwd} ${bufname} ${readonly}${modified}${ft} ${eol} ${cursor}'"
 }
 
-source /usr/share/kak-lsp/rc/lsp.kak
+# source /usr/share/kak-lsp/rc/lsp.kak
+eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
 lsp-auto-hover-insert-mode-enable
 lsp-auto-signature-help-enable
