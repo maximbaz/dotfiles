@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.23.0
+pkgver=2.24.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -150,6 +150,7 @@ depends=(
     'gcr'
     'checksec'
     'polkit-gnome'
+    'mokutil'
 
     # oom prevention
     'earlyoom'
@@ -167,7 +168,7 @@ depends=(
     'bolt'
 
     # audio
-    'pulseaudio'
+    'pipewire-pulse'
     'pulseaudio-alsa'
     'pulseaudio-bluetooth'
     'pamixer'
@@ -178,6 +179,7 @@ depends=(
 
     # ui
     'sway'
+    'swaybg'
     'swaylock'
     'xorg-server-xwayland'
     'wl-clipboard'
@@ -192,6 +194,7 @@ depends=(
     'vulkan-headers'
     'flashfocus-git'
     'qt5-wayland'
+    'qt6-wayland'
     'wtype'
     'wlrctl'
     'wldash'
@@ -278,7 +281,9 @@ depends=(
 
     # db
     'postgresql-libs'
+    'pgformatter'
     'pgcli'
+    'dbmate'
     'mariadb-clients'
 
     # spell
@@ -318,7 +323,6 @@ depends=(
     'qutebrowser'
     'python-adblock'
     'chromium-widevine'
-    'pdfjs'
     'python-tldextract'
     'intel-media-driver'
     'chromium'
