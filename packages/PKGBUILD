@@ -4,7 +4,7 @@ pkgname=(
     'maximbaz-x86_64'
     'maximbaz-aarch64'
 )
-pkgver=3.0.0
+pkgver=3.0.1
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -152,7 +152,6 @@ package_maximbaz-base() {
         'dmidecode'
         'upower'
         'acpi'
-        'iriunwebcam-bin'
         'bolt'
 
         # audio
@@ -382,6 +381,7 @@ package_maximbaz-x86_64() {
         'vulkan-intel'
         'vulkan-headers'
         'wluma'
+        'iriunwebcam-bin'
     )
 }
 
