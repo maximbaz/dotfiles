@@ -142,7 +142,6 @@
     },
     "battery": {
         "bat": "BAT0",
-        "design-capacity": true,
         "states": {
             "warning": 30,
             "critical": 15
