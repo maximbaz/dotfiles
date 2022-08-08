@@ -65,6 +65,9 @@
 [interactive]
 	diffFilter = delta --color-only
 
+[add.interactive]
+    useBuiltin = false
+
 [pager]
 	diff = delta
 	log = delta
