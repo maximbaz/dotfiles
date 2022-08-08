@@ -1,11 +1,15 @@
-pkgname='maximbaz'
-pkgver=2.25.0
+pkgbase='maximbaz'
+pkgname=(
+    'maximbaz-base'
+    'maximbaz-x86_64'
+    'maximbaz-aarch64'
+)
+pkgver=3.0.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
 url='https://github.com/maximbaz/dotfiles'
-license=('MIT')
-provides=('dmenu')
+license=('ISC')
 source=(
     '30-font-aliases.conf'
     '75-joypixels.conf'
@@ -21,354 +25,371 @@ sha256sums=('ef60468018a9791442a15394723c0436477ee64064c21f8ee9dc0d078eed4834'
     'f18d42ecce8d549c3ff4022fed2cc96ab9311fea39f00675fb67442d47a774df'
     'a910ba1e7a1489edd7f89e49af0237aae5a918e0afd7de34bb7f115a7f9ce2e6')
 
-package() {
-    # http://input.fontbureau.com/download/?customize&fontSelection=fourStyleFamily&regular=InputMonoNarrow-Regular&italic=InputMonoNarrow-Italic&bold=InputMonoNarrow-Bold&boldItalic=InputMonoNarrow-BoldItalic&a=0&g=0&i=serifs_round&l=serifs_round&zero=slash&asterisk=height&braces=0&preset=default&line-height=1.1&email=
+package_maximbaz-base() {
+    provides=('dmenu')
+
+    depends=(
+        # base
+        'base'
+        'dash'
+        'linux'
+        'linux-firmware'
+        'linux-headers'
+        'kernel-modules-hook'
+        'mkinitcpio-encrypt-detached-header'
+        'logrotate'
+        'man-pages'
+        'btrfs-progs'
+        'htop'
+        'vi'
+
+        # base-devel
+        'posix'
+        'autoconf'
+        'automake'
+        'bison'
+        'fakeroot'
+        'flex'
+        'gcc'
+        'gettext'
+        'groff'
+        'gzip'
+        'libtool'
+        'make'
+        'pacman'
+        'pkgconf'
+        'sudo'
+        'texinfo'
+        'which'
+
+        # other arch
+        'pacman-contrib'
+        'pkgstats'
+
+        # files
+        'progress'
+        'gocryptfs'
+        'ntfs-3g'
+        'sshfs'
+        'udiskie'
+        'udiskie-dmenu-git'
+        'xplr'
+        'vimiv-qt'
+        'ncdu'
+        'croc'
+        'webwormhole-git'
+        'bat'
+        'exa'
+        'fd'
+        'ripgrep'
+        'ripgrep-all'
+        'tree'
+        'trash-cli'
+        'imagemagick'
+        'jq'
+        'dfrs'
+        'zathura-pdf-mupdf'
+        'pdftk'
+        'inotify-tools'
+        'xournalpp'
+        'bfs'
+        'lftp'
+        'nextcloud-client'
+
+        # archiving
+        'lbzip2'
+        'pigz'
+        'pixz'
+        'p7zip'
+        'unrar'
+        'unzip'
+        'zip'
+
+        # network
+        'iwd'
+        'nftables'
+        'iptables-nft'
+        'bandwhich'
+        'net-tools'
+        'nmap'
+        'nzbget'
+        'nzbget-systemd'
+        'openbsd-netcat'
+        'dog'
+        'mtr'
+        'sipcalc'
+        'wget'
+        'rsync'
+        'openssh'
+        'curlie'
+        'speedtest-cli'
+        'wireguard-tools'
+        'systemd-resolvconf'
+        'vnstat'
+        'proxychains-ng'
+
+        # security
+        'arch-audit'
+        'overdue'
+        'ccid'
+        'pam-u2f'
+        'yubikey-touch-detector'
+        'usbguard'
+        'pinentry'
+        'gcr'
+        'checksec'
+        'polkit-gnome'
+        'mokutil'
+
+        # oom prevention
+        'earlyoom'
+        'systembus-notify'
+
+        # hardware
+        'fwupd'
+        'tlp'
+        'throttled'
+        'dmidecode'
+        'upower'
+        'acpi'
+        'iriunwebcam-bin'
+        'bolt'
+
+        # audio
+        'pipewire-pulse'
+        'pulseaudio-alsa'
+        'pulseaudio-bluetooth'
+        'pamixer'
+        'pavucontrol'
+        'playerctl'
+        'bluez'
+        'bluez-utils'
+
+        # ui
+        'sway'
+        'swaybg'
+        'swaylock'
+        'xorg-server-xwayland'
+        'wl-clipboard'
+        'python-i3ipc'
+        'gtk-theme-arc-gruvbox-git'
+        'wlsunset'
+        'waybar'
+        'light'
+        'slurp'
+        'flashfocus-git'
+        'qt5-wayland'
+        'qt6-wayland'
+        'wtype'
+        'wlrctl'
+        'wldash'
+        'swayr'
+        'swaync'
+
+        # fonts
+        'ttf-dejavu'
+        'ttf-courier-prime'
+        'ttf-heuristica'
+        'ttf-liberation'
+        'noto-fonts'
+        'cantarell-fonts'
+        'ttf-droid'
+        'ttf-lato'
+        'ttf-opensans'
+        'ttf-signika'
+        'otf-font-awesome'
+        'ttf-joypixels'
+
+        # aur
+        'aurpublish'
+        'aurutils'
+        'repoctl'
+        'rebuild-detector'
+
+        # git
+        'git'
+        'git-delta'
+        'meld'
+        'tig'
+
+        # dev tools
+        'kakoune'
+        'kak-lsp'
+        'prettier'
+        'dos2unix'
+        'editorconfig-core-c'
+        'docker'
+        'docker-compose'
+        'direnv'
+        'terraform'
+        'terraform-ls'
+        'teehee'
+        'strace'
+        'fzf'
+        'visidata'
+
+        # shell dev
+        'bash-language-server'
+        'checkbashisms'
+        'shfmt'
+        'bash-completion'
+
+        # python dev
+        'python-lsp-server'
+        'python-black'
+        'python-pip'
+        'python-pylint'
+        'yapf'
+        'bpython'
+
+        # go dev
+        'go'
+        'go-tools'
+        'gopls'
+        'revive'
+        'staticcheck'
+
+        # js dev
+        'yarn'
+        'typescript-language-server'
+
+        # rust dev
+        'rust'
+        'rust-analyzer'
+
+        # c dev
+        'meson'
+
+        # lua dev
+        'stylua-bin'
+
+        # db
+        'postgresql-libs'
+        'pgformatter'
+        'pgcli'
+        'dbmate'
+        'mariadb-clients'
+
+        # spell
+        'aspell-da'
+        'aspell-en'
+        'aspell-uk'
+        'aspell-ru'
+
+        # android
+        'android-tools'
+        'android-udev'
+
+        # terminal
+        'kitty'
+        'zsh'
+        'lscolors-git'
+
+        # passwords
+        'pass'
+        'pwgen'
+        'msitools'
+        'browserpass-chromium'
+        'browserpass-firefox'
+        'gnome-keyring'
+        'libgnome-keyring'
+
+        # email
+        'isync'
+        'msmtp'
+        'neomutt'
+        'urlscan'
+        'goimapnotify'
+        'mutt-ics'
+        'w3m'
+
+        # browsers
+        'qutebrowser'
+        'python-adblock'
+        'chromium-widevine'
+        'python-tldextract'
+        'chromium'
+        'firefox'
+
+        # screenshots & gifs & desktop sharing
+        'grim'
+        'swappy'
+        'wf-recorder'
+        'v4l2loopback-dkms'
+
+        # media
+        'xdg-desktop-portal-wlr'
+        'wireplumber'
+
+        # video
+        'mpv'
+        'mpv-mpris'
+        'ffmpeg'
+        'yt-dlp'
+        'aria2'
+
+        # kubernetes
+        'kubectl'
+        'kubectx'
+
+        # misc
+        'anydesk'
+        'calibre'
+        'hugo'
+        'krita'
+        'qalculate-gtk'
+        'libreoffice-fresh'
+        'transmission-gtk'
+        'scli'
+        'python-urwid_readline'
+        'urlwatch'
+        'mkcert'
+    )
 
     for font in InputMono*; do
-        install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgname}/" "${font}"
+        install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgbase}/" "${font}"
     done
 
     install -Dm644 -t "${pkgdir}/etc/fonts/conf.d/" 30-font-aliases.conf
     install -Dm644 -t "${pkgdir}/etc/fonts/conf.d/" 75-joypixels.conf
 }
 
-depends=(
-    # base
-    'base'
-    'dash'
-    'linux'
-    'linux-firmware'
-    'linux-headers'
-    'kernel-modules-hook'
-    'mkinitcpio-encrypt-detached-header'
-    'logrotate'
-    'man-pages'
-    'btrfs-progs'
-    'htop'
-    'vi'
+package_maximbaz-x86_64() {
+    depends=(
+        # temporary - does not work in ARM
+        'shellcheck'
 
-    # base-devel
-    'posix'
-    'autoconf'
-    'automake'
-    'bison'
-    'fakeroot'
-    'flex'
-    'gcc'
-    'gettext'
-    'groff'
-    'gzip'
-    'libtool'
-    'make'
-    'pacman'
-    'pkgconf'
-    'sudo'
-    'texinfo'
-    'which'
+        # arch
+        'devtools'
+        'reflector'
 
-    # other arch
-    'pacman-contrib'
-    'devtools'
-    'reflector'
-    'pkgstats'
+        # boot
+        'arch-secure-boot'
+        'intel-ucode'
+        'terminus-font'
 
-    # boot
-    'arch-secure-boot'
-    'intel-ucode'
-    'terminus-font'
+        # virtual machines
+        'libvirt'
+        'virt-manager'
+        'qemu'
+        'dnsmasq'
+        'ebtables'
+        'edk2-ovmf'
 
-    # files
-    'progress'
-    'gocryptfs'
-    'ntfs-3g'
-    'sshfs'
-    'udiskie'
-    'udiskie-dmenu-git'
-    'xplr'
-    'vimiv-qt'
-    'ncdu'
-    'croc'
-    'webwormhole-git'
-    'bat'
-    'exa'
-    'fd'
-    'ripgrep'
-    'ripgrep-all'
-    'tree'
-    'trash-cli'
-    'imagemagick'
-    'jq'
-    'dfrs'
-    'zathura-pdf-mupdf'
-    'pdftk'
-    'inotify-tools'
-    'xournalpp'
-    'bfs'
-    'lftp'
-    'nextcloud-client'
+        # hardware
+        'dell-command-configure'
+        'intel-media-driver'
+        'vulkan-intel'
+        'vulkan-headers'
+        'wluma'
+    )
+}
 
-    # archiving
-    'lbzip2'
-    'pigz'
-    'pixz'
-    'p7zip'
-    'unrar'
-    'unzip'
-    'zip'
-
-    # network
-    'iwd'
-    'nftables'
-    'iptables-nft'
-    'bandwhich'
-    'net-tools'
-    'nmap'
-    'nzbget'
-    'nzbget-systemd'
-    'openbsd-netcat'
-    'dog'
-    'mtr'
-    'sipcalc'
-    'wget'
-    'rsync'
-    'openssh'
-    'curlie'
-    'speedtest-cli'
-    'wireguard-tools'
-    'systemd-resolvconf'
-    'vnstat'
-    'proxychains-ng'
-
-    # security
-    'arch-audit'
-    'overdue'
-    'ccid'
-    'pam-u2f'
-    'yubikey-touch-detector'
-    'usbguard'
-    'pinentry'
-    'gcr'
-    'checksec'
-    'polkit-gnome'
-    'mokutil'
-
-    # oom prevention
-    'earlyoom'
-    'systembus-notify'
-
-    # hardware
-    'dell-command-configure'
-    'fwupd'
-    'tlp'
-    'throttled'
-    'dmidecode'
-    'upower'
-    'acpi'
-    'iriunwebcam-bin'
-    'bolt'
-
-    # audio
-    'pipewire-pulse'
-    'pulseaudio-alsa'
-    'pulseaudio-bluetooth'
-    'pamixer'
-    'pavucontrol'
-    'playerctl'
-    'bluez'
-    'bluez-utils'
-
-    # ui
-    'sway'
-    'swaybg'
-    'swaylock'
-    'xorg-server-xwayland'
-    'wl-clipboard'
-    'python-i3ipc'
-    'gtk-theme-arc-gruvbox-git'
-    'wlsunset'
-    'waybar'
-    'light'
-    'slurp'
-    'wluma'
-    'vulkan-intel'
-    'vulkan-headers'
-    'flashfocus-git'
-    'qt5-wayland'
-    'qt6-wayland'
-    'wtype'
-    'wlrctl'
-    'wldash'
-    'swayr'
-    'swaync'
-
-    # fonts
-    'ttf-dejavu'
-    'ttf-courier-prime'
-    'ttf-heuristica'
-    'ttf-liberation'
-    'noto-fonts'
-    'cantarell-fonts'
-    'ttf-droid'
-    'ttf-lato'
-    'ttf-opensans'
-    'ttf-signika'
-    'otf-font-awesome'
-    'ttf-joypixels'
-
-    # aur
-    'aurpublish'
-    'aurutils'
-    'repoctl'
-    'rebuild-detector'
-
-    # git
-    'git'
-    'git-delta'
-    'meld'
-    'tig'
-
-    # dev tools
-    'kakoune'
-    'kak-lsp'
-    'prettier'
-    'dos2unix'
-    'editorconfig-core-c'
-    'docker'
-    'docker-compose'
-    'direnv'
-    'terraform'
-    'terraform-ls'
-    'teehee'
-    'strace'
-    'fzf'
-    'visidata'
-
-    # shell dev
-    'bash-language-server'
-    'checkbashisms'
-    'shellcheck'
-    'shfmt'
-    'bash-completion'
-
-    # python dev
-    'python-lsp-server'
-    'python-black'
-    'python-pip'
-    'python-pylint'
-    'yapf'
-    'bpython'
-
-    # go dev
-    'go'
-    'go-tools'
-    'gopls'
-    'revive'
-    'staticcheck'
-
-    # js dev
-    'yarn'
-    'typescript-language-server'
-
-    # rust dev
-    'rust'
-    'rust-analyzer'
-
-    # c dev
-    'meson'
-
-    # lua dev
-    'stylua-bin'
-
-    # db
-    'postgresql-libs'
-    'pgformatter'
-    'pgcli'
-    'dbmate'
-    'mariadb-clients'
-
-    # spell
-    'aspell-da'
-    'aspell-en'
-    'aspell-uk'
-    'aspell-ru'
-
-    # android
-    'android-tools'
-    'android-udev'
-
-    # terminal
-    'kitty'
-    'zsh'
-    'lscolors-git'
-
-    # passwords
-    'pass'
-    'pwgen'
-    'msitools'
-    'browserpass-chromium'
-    'browserpass-firefox'
-    'gnome-keyring'
-    'libgnome-keyring'
-
-    # email
-    'isync'
-    'msmtp'
-    'neomutt'
-    'urlscan'
-    'goimapnotify'
-    'mutt-ics'
-    'w3m'
-
-    # browsers
-    'qutebrowser'
-    'python-adblock'
-    'chromium-widevine'
-    'python-tldextract'
-    'intel-media-driver'
-    'chromium'
-    'firefox'
-
-    # screenshots & gifs & desktop sharing
-    'grim'
-    'swappy'
-    'wf-recorder'
-    'v4l2loopback-dkms'
-
-    # media
-    'xdg-desktop-portal-wlr'
-    'wireplumber'
-
-    # video
-    'mpv'
-    'mpv-mpris'
-    'ffmpeg'
-    'yt-dlp'
-    'aria2'
-
-    # kubernetes
-    'kubectl'
-    'kubectx'
-
-    # virtual machines
-    'libvirt'
-    'virt-manager'
-    'qemu'
-    'dnsmasq'
-    'ebtables'
-    'edk2-ovmf'
-
-    # misc
-    'anydesk'
-    'calibre'
-    'hugo'
-    'krita'
-    'qalculate-gtk'
-    'libreoffice-fresh'
-    'transmission-gtk'
-    'signal-desktop'
-    'scli'
-    'python-urwid_readline'
-    'urlwatch'
-    'discord'
-    'mkcert'
-)
+package_maximbaz-aarch64() {
+    depends=(
+        # arch
+        'devtools-alarm'
+        'archlinuxarm-keyring'
+        'asahi-meta'
+    )
+}

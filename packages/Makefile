@@ -7,7 +7,7 @@ build: ## Build the meta-package
 
 .PHONY: install
 install: ## Install the meta-package
-	SNAP_PAC_SKIP=true sudo -E pacman --noconfirm -U *.pkg.tar.zst
+	SNAP_PAC_SKIP=true sudo -E pacman --noconfirm -U maximbaz-base-*.pkg.tar.zst maximbaz-$(shell uname -m)-*.pkg.tar.zst
 
 .PHONY: refresh
 refresh: ## Refresh the backup lists
@@ -19,7 +19,7 @@ refresh: ## Refresh the backup lists
 
 .PHONY: publish
 publish: ## Publish the meta-package in the local repo
-	gpg --detach-sign --yes *.pkg.tar.zst
+	for pkg in *.pkg.tar.zst; do gpg --detach-sign --yes $$pkg; done
 	repo-add -s /var/cache/pacman/maximbaz-local/maximbaz-local.db.tar *.pkg.tar.zst
 	cp *.pkg.tar* /var/cache/pacman/maximbaz-local/
 

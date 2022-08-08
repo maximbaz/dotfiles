@@ -184,7 +184,7 @@ EOF
 fi
 
 echo -e "\n### Installing packages"
-pacstrap -i /mnt maximbaz
+pacstrap -i /mnt maximbaz-base maximbaz-$(uname -m)
 
 echo -e "\n### Generating base config files"
 ln -sfT dash /mnt/usr/bin/sh
