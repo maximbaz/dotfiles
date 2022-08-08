@@ -233,8 +233,8 @@ pac() {
     fi
 
     echo "\nCleaning up repo cache..."
-    sudo -E paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local
-    sudo -E paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local
+    sudo -E paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local -i maximbaz-aarch64 -i maximbaz-x86_64
+    sudo -E paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local -i maximbaz-aarch64 -i maximbaz-x86_64
 
     refresh-waybar-updates
     rehash
