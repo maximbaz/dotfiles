@@ -1,5 +1,5 @@
 pkgname='maximbaz'
-pkgver=2.24.0
+pkgver=2.25.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -336,7 +336,6 @@ depends=(
 
     # media
     'xdg-desktop-portal-wlr'
-    'libpipewire02'
     'wireplumber'
 
     # video
