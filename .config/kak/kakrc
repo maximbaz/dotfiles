@@ -266,6 +266,11 @@ hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|
     hook buffer -group format BufWritePre .* format
 }
 
+# https://github.com/kak-lsp/kak-lsp/issues/592
+define-command tsserver-organize-imports -docstring "Ask the typescript language server to organize imports in the buffer" %{
+    lsp-execute-command _typescript.organizeImports """[\""%val{buffile}\""]"""
+}
+
 hook global WinSetOption filetype=sh %{
     set-option buffer formatcmd "shfmt -i %opt{indentwidth} -ci -sr"
     hook buffer -group format BufWritePre .* format
