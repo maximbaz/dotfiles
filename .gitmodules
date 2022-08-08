@@ -29,6 +29,6 @@
 [submodule ".config/kak/langmap.kak"]
 	path = .config/kak/langmap.kak
 	url = https://github.com/andreyorst/langmap.kak.git
-[submodule ".config/mpv/sponsorblock"]
-	path = .config/mpv/sponsorblock
-	url = https://github.com/po5/mpv_sponsorblock
+[submodule ".config/mpv/scripts/sponsorblock"]
+	path = .config/mpv/scripts/sponsorblock
+	url = https://github.com/maximbaz/mpv_sponsorblock.git
