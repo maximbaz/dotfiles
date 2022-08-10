@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case $(echo "default\nno special chars\nshort" | dmenu -p "pass generator") in
+case $(echo -e "default\nno special chars\nshort" | dmenu -p "pass generator") in
     default)
         length=40
         symbols="-y"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-menu=$(echo "qutebrowser\ncopy to clipboard\nplay" | dmenu -p browser)
+menu=$(echo -e "qutebrowser\ncopy to clipboard\nplay" | dmenu -p browser)
 
 case $menu in
     "qutebrowser")
