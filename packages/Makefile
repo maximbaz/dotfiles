@@ -19,9 +19,12 @@ refresh: ## Refresh the backup lists
 
 .PHONY: publish
 publish: ## Publish the meta-package in the local repo
-	for pkg in *.pkg.tar.zst; do gpg --detach-sign --yes $$pkg; done
-	repo-add -s /var/cache/pacman/maximbaz-local/maximbaz-local.db.tar *.pkg.tar.zst
-	cp *.pkg.tar* /var/cache/pacman/maximbaz-local/
+	for type in base $(shell uname -m); do \
+		pkg=maximbaz-$$type-*.pkg.tar.zst; \
+		gpg --detach-sign --yes $$pkg; \
+		repo-add -s /var/cache/pacman/maximbaz-local/maximbaz-local.db.tar $$pkg; \
+		cp $$pkg* /var/cache/pacman/maximbaz-local/; \
+	done
 
 .PHONY: clean
 clean: ## Cleanup
