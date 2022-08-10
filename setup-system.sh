@@ -64,6 +64,7 @@ echo "Setting up /usr/local/bin..."
 echo "============================"
 
 copy "usr/local/bin/checkluksheader"
+copy "usr/local/bin/backup-repo"
 
 echo ""
 echo "=========================="
