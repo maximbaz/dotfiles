@@ -4,6 +4,8 @@ Name = wlan0
 [Network]
 DHCP = yes
 Domains = ~lan
+DNSDefaultRoute = yes
+DNSSEC = allow-downgrade
 
 [DHCP]
 RouteMetric = 20

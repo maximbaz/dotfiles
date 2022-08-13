@@ -1,9 +1,0 @@
-[Match]
-Name = wlan0
-
-[Network]
-DHCP = yes
-DNSSEC = no
-
-[DHCP]
-RouteMetric = 20
