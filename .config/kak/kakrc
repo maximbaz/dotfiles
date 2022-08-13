@@ -46,6 +46,7 @@ map global normal '*'     ': select-or-add-cursor<ret>'
 
 map global insert <c-w>   '<esc>bdi'
 map global insert <c-u>   '<esc>xdO'
+map global insert <tab>   '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>'
 
 map global user -docstring 'clip-paste (before)'      p      '<a-!>wl-paste --no-newline | dos2unix<ret>'
 map global user -docstring 'clip-paste (after)'       P      '!wl-paste --no-newline | dos2unix<ret>'
