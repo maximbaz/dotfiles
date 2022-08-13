@@ -8,6 +8,7 @@ input type:touchpad {
     natural_scroll enabled
     pointer_accel 0.2
     tap enabled
+    click_method button_areas
 }
 
 seat * hide_cursor 10000
