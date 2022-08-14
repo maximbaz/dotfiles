@@ -71,7 +71,6 @@ echo "=========================="
 echo "Setting up /etc configs..."
 echo "=========================="
 
-copy "etc/aurutils/pacman-x86_64.conf"
 copy "etc/bluetooth/main.conf"
 copy "etc/conf.d/snapper"
 copy "etc/default/earlyoom"
@@ -175,4 +174,6 @@ echo "Configuring NTP"
 timedatectl set-ntp true
 
 echo "Configuring aurutils"
-ln -sf /etc/pacman.conf /etc/aurutils/pacman-maximbaz-local.conf
+mkdir -p /etc/aurutils
+ln -sf /etc/pacman.conf "/etc/aurutils/pacman-maximbaz-local.conf"
+ln -sf /etc/pacman.conf "/etc/aurutils/pacman-$(uname -m).conf"
