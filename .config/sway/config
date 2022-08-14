@@ -57,7 +57,7 @@ for_window    [app_id="dmenu.*"]                         floating enable, resize
 for_window    [app_id="dmenu-browser"]                   resize set height 20ppt
 for_window    [app_id="dmenu-emoji"]                     resize set height 20ppt
 for_window    [app_id="qalculate-gtk"]                   floating enable
-for_window    [app_id="mpv"]                             floating enable, resize set width 531 height 300, move position 1345 125
+for_window    [app_id="mpv"]                             floating enable
 for_window    [app_id="iriunwebcam"]                     floating disable
 
 # Color scheme (Gruvbox dark)
@@ -145,7 +145,6 @@ mode $mode_workspaces_monitors {
 bindsym --to-code {
     # Terminal
     $hyper+Return exec cglaunch --term
-    $hyper+XF86AudioMute exec cglaunch --term
     $win+Return exec kitty --config NONE
     $win+Shift+Return exec kitty --config NONE /bin/bash
 
@@ -157,10 +156,6 @@ bindsym --to-code {
     $hyper+m                     fullscreen disable, exec cglaunch udiskie-dmenu
     $win+grave                   fullscreen disable, exec cglaunch wl-clipboard-manager dmenu
     $hyper+Backspace             fullscreen disable, exec cglaunch emoji-dmenu
-    $hyper+XF86AudioLowerVolume  fullscreen disable, exec cglaunch emoji-dmenu
-    Print                        exec cglaunch sway-screenshot-area
-    $hyper+Print                 exec cglaunch sway-gif-area
-    $win+Print                   exec cglaunch sway-screenshare
 
     # Kill focused window
     $win+q kill
@@ -299,7 +294,7 @@ bindsym --to-code {
 }
 
 # Load host-specific configs
-include "~/.config/sway/$(cut -d'-' -f1 /etc/hostname).conf"
+include "~/.config/sway/$(cat /etc/hostname).conf"
 
 # Load systemd integration
 include /etc/sway/config.d/*
