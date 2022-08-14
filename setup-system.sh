@@ -23,9 +23,9 @@ fi
 copy() {
     if [ -z "$reverse" ]; then
         orig_file="$dotfiles_dir/$1"
-        dest_file="/$1"
+        [ -n "$3" ] && dest_file="/$3" || dest_file="/$1"
     else
-        orig_file="/$1"
+        [ -n "$3" ] && orig_file="/$3" || orig_file="/$1"
         dest_file="$dotfiles_dir/$1"
     fi
 
@@ -81,7 +81,7 @@ copy "etc/modules-load.d/v4l2loopback.conf"
 copy "etc/modprobe.d/v4l2loopback.conf"
 copy "etc/modprobe.d/hid_apple.conf"
 copy "etc/nftables.conf"
-copy "etc/pacman.conf"
+copy "etc/pacman-$(uname -m).conf" 644 "etc/pacman.conf"
 copy "etc/pacman.d/hooks"
 copy "etc/pam.d/polkit-1"
 copy "etc/pam.d/sudo"
