@@ -153,6 +153,7 @@ else
 
     if [[ $HOSTNAME == home-* ]]; then
         if [ -d "$HOME/.mail" ]; then
+            mkdir -p "$HOME/.mail/"{archlinux,maximbaz}
             systemctl_enable_start "mbsync.timer"
             systemctl_enable_start "goimapnotify@archlinux.service"
             systemctl_enable_start "goimapnotify@maximbaz.service"
