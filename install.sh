@@ -161,9 +161,10 @@ mount -o noatime,nodiratime,compress=zstd,subvol=snapshots /dev/mapper/luks /mnt
 
 echo -e "\n### Configuring custom repo"
 mkdir "/mnt/var/cache/pacman/${user}-local"
+march="$(uname -m)"
 
 if [[ "${user}" == "maximbaz" && "${hostname}" == "home-"* ]]; then
-    wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P "/mnt/var/cache/pacman/${user}-local" 'https://pkgbuild.com/~maximbaz/repo/'
+    wget -m -nH -np -q --show-progress --progress=bar:force --reject='index.html*' --cut-dirs=2 -P "/mnt/var/cache/pacman/${user}-local" "https://pkgbuild.com/~maximbaz/repo/${march}"
     rename -- 'maximbaz.' "${user}-local." "/mnt/var/cache/pacman/${user}-local"/*
 else
     repo-add "/mnt/var/cache/pacman/${user}-local/${user}-local.db.tar"
@@ -175,7 +176,7 @@ if ! grep "${user}" /etc/pacman.conf > /dev/null; then
 Server = file:///mnt/var/cache/pacman/${user}-local
 
 [maximbaz]
-Server = https://pkgbuild.com/~maximbaz/repo
+Server = https://pkgbuild.com/~maximbaz/repo/${march}
 
 [options]
 CacheDir = /mnt/var/cache/pacman/pkg
