@@ -16,7 +16,7 @@ case "$1" in
         [ -n "$a2dp" ] && new=headset-head-unit-msbc || new=a2dp-sink-sbc
         pactl set-card-profile "$bt_card" "$new"
         ;;
-    bt-connect-headphones) bluetoothctl connect 20:74:CF:5C:1F:68 ;;
+    bt-connect-headphones) bluetoothctl connect 20:74:CF:B2:29:7D ;;
     bt-connect-speakers)   bluetoothctl connect 00:02:3C:8A:6A:60 ;;
     bt-disconnect)         bluetoothctl disconnect ;;
     output-mute)           pactl set-sink-mute     @DEFAULT_SINK@   toggle ;;
