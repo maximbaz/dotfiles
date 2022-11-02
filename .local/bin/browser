@@ -1,10 +1,13 @@
 #!/bin/sh
 
-menu=$(echo -e "qutebrowser\ncopy to clipboard\nplay" | dmenu -p browser)
+menu=$(echo -e "qutebrowser\nchromium\ncopy to clipboard\nplay" | dmenu -p browser)
 
 case $menu in
     "qutebrowser")
         qutebrowser "$@" &
+        ;;
+    "chromium")
+        chromium "$@" &
         ;;
     "copy to clipboard")
         echo "$@" | wl-copy
