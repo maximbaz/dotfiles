@@ -7,9 +7,7 @@ Defaults passwd_timeout=0
     /usr/bin/systemctl stop pcscd.service, \
     /usr/bin/pacman -Sy, \
     /usr/bin/pacman -Syu, \
-    /usr/bin/extra-x86_64-build, \
     /usr/bin/arch-nspawn, \
     /usr/bin/makechrootpkg, \
-    /usr/bin/mkarchroot, \
     /usr/bin/paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local -i maximbaz-aarch64 -i maximbaz-x86_64, \
     /usr/bin/paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local -i maximbaz-aarch64 -i maximbaz-x86_64
