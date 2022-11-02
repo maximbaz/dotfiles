@@ -4,7 +4,7 @@ pkgname=(
     'maximbaz-x86_64'
     'maximbaz-aarch64'
 )
-pkgver=3.0.1
+pkgver=3.0.2
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -32,9 +32,7 @@ package_maximbaz-base() {
         # base
         'base'
         'dash'
-        'linux'
         'linux-firmware'
-        'linux-headers'
         'kernel-modules-hook'
         'mkinitcpio-encrypt-detached-header'
         'logrotate'
@@ -212,6 +210,7 @@ package_maximbaz-base() {
         'tig'
 
         # dev tools
+        'github-cli'
         'kakoune'
         'kak-lsp'
         'prettier'
@@ -249,6 +248,7 @@ package_maximbaz-base() {
         'staticcheck'
 
         # js dev
+        'npm'
         'yarn'
         'typescript-language-server'
 
@@ -358,6 +358,10 @@ package_maximbaz-x86_64() {
         # temporary - does not work in ARM
         'shellcheck'
 
+        # base
+        'linux'
+        'linux-headers'
+
         # arch
         'devtools'
         'reflector'
@@ -387,9 +391,16 @@ package_maximbaz-x86_64() {
 
 package_maximbaz-aarch64() {
     depends=(
+        # base
+        'linux-asahi'
+        'linux-asahi-headers'
+
         # arch
         'devtools-alarm'
         'archlinuxarm-keyring'
         'asahi-meta'
+
+        # boot
+        'grub'
     )
 }
