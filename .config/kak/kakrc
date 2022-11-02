@@ -98,6 +98,7 @@ lsp-enable
 lsp-auto-hover-insert-mode-enable
 lsp-auto-signature-help-enable
 lsp-inlay-hints-enable global
+lsp-inlay-code-lenses-enable global
 set-option global lsp_auto_highlight_references true
 
 define-command detect-indentwidth -docstring 'Detect indentwidth' %{
