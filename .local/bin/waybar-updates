@@ -50,7 +50,7 @@ case "$1" in
         if [ -z "$text" ]; then
             printf '{"text": ""}\n' > "$cache_path"
         else
-            printf "{\"text\": \"<span foreground='#928374'></span> %s\", \"tooltip\": \"%s\" }\n" "$text" "$tooltip" > "$cache_path"
+            printf '{"text": "%s", "tooltip": "%s", "alt": "icon" }\n' "$text" "$tooltip" > "$cache_path"
         fi
 
         pkill -RTMIN+1 -x waybar

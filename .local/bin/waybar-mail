@@ -9,7 +9,7 @@ check() {
     if [ "$count" = "0" ]; then
         printf '{"text": ""}\n'
     else
-        printf "{\"text\": \"<span foreground='#928374'></span> %s\", \"tooltip\": \"%s\"}\n" "$count" "$tooltip"
+        printf '{"text": "%s", "tooltip": "%s", "alt": "icon"}\n' "$count" "$tooltip"
     fi
     inotifywait -q -e move -e create -e delete "$HOME/.mail/maximbaz/INBOX/cur" > /dev/null
     check

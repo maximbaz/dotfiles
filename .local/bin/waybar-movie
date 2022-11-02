@@ -4,9 +4,9 @@ marker="/tmp/waybar-movie"
 
 show() {
     if [ -e "$marker" ]; then
-        printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"on\"}\n"
+        printf '{"text": "", "class": "on"}\n'
     else
-        printf "{\"text\": \" <span foreground='#928374'></span> \", \"class\": \"off\"}\n"
+        printf '{"text": "", "class": "off"}\n'
     fi
 }
 
