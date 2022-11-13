@@ -3,13 +3,16 @@
 case $(echo -e "default\nno special chars\nshort" | dmenu -p "pass generator") in
     default)
         length=40
+        filter="[:print:]"
         symbols="-y"
         ;;
     "no special chars")
         length=40
+        filter="[:alnum:]"
         ;;
     short)
         length=16
+        filter="[:alnum:]"
         ;;
     *)
         exit 1
@@ -17,5 +20,12 @@ case $(echo -e "default\nno special chars\nshort" | dmenu -p "pass generator") i
 esac
 
 wl-clipboard-manager lock
-pwgen -s "$length" $symbols | wl-copy -n
+
+random="$(echo -n "scd random 512" | gpg-connect-agent)"
+if [ -z "${random%ERR*}" ]; then
+    notify-send -i dialog-warning "Generating password using /dev/urandom"
+    random="$(pwgen -s "$length" $symbols)"
+fi
+
+printf '%s' "$random" | tr -cd "$filter" | tr -d '[:space:]' | cut -c-$length | wl-copy -n
 wl-clipboard-manager unlock
