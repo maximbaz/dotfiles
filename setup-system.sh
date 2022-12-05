@@ -150,6 +150,13 @@ if [[ $HOSTNAME == home-* ]]; then
 fi
 
 echo ""
+echo "===================="
+echo "Reload udev rules..."
+echo "===================="
+udevadm control --reload
+udevadm trigger
+
+echo ""
 echo "==============================="
 echo "Creating top level Trash dir..."
 echo "==============================="
