@@ -1,8 +1,11 @@
 #!/bin/bash
 
+set -euo pipefail
+
+app="$(basename "$0")"
 workdir="${XDG_DATA_HOME:-$HOME/.local/share}/wl-clipboard-manager"
 mkdir -p "$workdir"
-cd "$workdir"
+cd "$workdir" || return
 
 query() {
     echo "$@" | sqlite3 -line "history.db"
@@ -22,35 +25,22 @@ if [ ! -f "history.db" ]; then
     "
 fi
 
-#### History migration ###
+list-entries() {
+    python -u << EOF
+import sqlite3
+for row in sqlite3.connect("history.db").cursor().execute("SELECT id, mime, contents FROM entries ORDER BY id DESC"):
+    print(row[0], '| ', end='')
+    if row[1] == "application/json" or row[1].startswith("text/"):
+        print(row[2].decode("utf-8", errors="ignore"), end='')
+    else:
+        print(row[1], end='')
+    print('\0', end='')
+EOF
+}
 
-if [ -d "history" ]; then
-    echo >&2 "History migration started..."
-
-    for file in "history/"*; do
-        [[ $(find "$file" -type f -size 0) ]] && continue
-        [[ $(find "$file" -type f -size +10000000c) ]] && continue
-
-        mime="$(file --mime-type "$file" | awk '{ print $2 }')"
-        if [[ "$mime" == "application/json" || "$mime" == text/* ]]; then
-            sed -i -Ez 's/\s+$//' "$file"
-        fi
-
-        timestamp="${file%%.*}"
-        timestamp="datetime('${timestamp##*/}', 'unixepoch')"
-
-        query "INSERT OR REPLACE INTO entries (mime, timestamp, contents) VALUES ('$mime', $timestamp, readfile('$file'))"
-    done
-
-    echo >&2 "History migration completed!"
-    rm -rf history
-fi
-
-#########################
-
-case "$1" in
-    daemon) wl-paste -w $0 on-copy ;;
-    lock)   touch .lock ;;
+case "${1:-dmenu}" in
+    daemon) wl-paste -w "$app" on-copy ;;
+    lock) touch .lock ;;
     unlock) rm -f .lock ;;
 
     on-copy)
@@ -72,18 +62,7 @@ case "$1" in
         ;;
 
     dmenu)
-        {
-            python -u << EOF
-import sqlite3
-for row in sqlite3.connect("history.db").cursor().execute("SELECT id, mime, contents FROM entries ORDER BY id DESC"):
-    print(row[0], '| ', end='')
-    if row[1] == "application/json" or row[1].startswith("text/"):
-        print(row[2].decode("utf-8", errors="ignore"), end='')
-    else:
-        print(row[1], end='')
-    print('\0', end='')
-EOF
-        } | dmenu -0 -p clipboard -r "$(realpath "$0") preview" | {
+        list-entries | dmenu -0 -p clipboard -r "$(realpath "$0") preview" -f "--bind 'alt-bspace:execute-silent(wl-clipboard-manager delete "{}")+reload(wl-clipboard-manager list-entries)'" | {
             read -r -d '' result
             [ -z "$result" ] && exit 0
 
@@ -94,6 +73,10 @@ EOF
             query "SELECT writefile('$file', contents) FROM entries WHERE id='$id'" > /dev/null
             wl-copy < "$file"
         }
+        ;;
+
+    list-entries)
+        list-entries
         ;;
 
     preview)
@@ -107,18 +90,25 @@ EOF
             kitty +kitten icat --silent --stdin=no "$file"
         else
             language="bash"
-            [[ "$mime" == application/json ]]     && language=json
-            [[ "$mime" == text/x-c ]]             && language=c
-            [[ "$mime" == text/x-c++ ]]           && language=c++
-            [[ "$mime" == text/x-diff ]]          && language=diff
-            [[ "$mime" == text/x-makefile ]]      && language=makefile
-            [[ "$mime" == text/x-script.python ]] && language=python
+            [[ "$mime" == application/json ]] && language="json"
+            [[ "$mime" == text/x-c ]] && language="c"
+            [[ "$mime" == text/x-c++ ]] && language="c++"
+            [[ "$mime" == text/x-diff ]] && language="diff"
+            [[ "$mime" == text/x-makefile ]] && language="makefile"
+            [[ "$mime" == text/x-script.python ]] && language="python"
 
-            cat "$file" | bat -l "$language" --color always -pp
+            bat -l "$language" --color always -pp < "$file"
         fi
         ;;
+
+    delete)
+        [ -z "${2:-}" ] && echo >&2 "Usage: $app delete <id>" && exit 1
+        id="${2%\|*}"
+        query "DELETE FROM entries WHERE id='$id'" > /dev/null
+        ;;
+
     *)
-        echo >&2 "Usage: $0 <daemon|lock|unlock|on-copy|dmenu|preview>"
+        echo >&2 "Usage: $app <daemon|lock|unlock|on-copy|dmenu|preview|delete>"
         exit 1
         ;;
 esac
