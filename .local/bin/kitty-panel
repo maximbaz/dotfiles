@@ -1,7 +1,0 @@
-#!/bin/sh
-
-tmp="$(mktemp)"
-trap 'rm -rf $tmp' EXIT
-
-"$@" > "$tmp"
-kitty @ send-text -m id:1 --from-file="$tmp"

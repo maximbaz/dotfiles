@@ -74,7 +74,10 @@ case "$subcommand" in
             trap 'rm $file' EXIT
 
             query "SELECT writefile('$file', contents) FROM entries WHERE id='$id'" > /dev/null
-            wl-copy < "$file"
+            case "$*" in
+                *overlay*) cat "$file" ;;
+                *) wl-copy < "$file" ;;
+            esac
         }
         ;;
 
