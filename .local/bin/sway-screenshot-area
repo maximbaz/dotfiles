@@ -9,7 +9,7 @@ OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name'
 grim -o $OUTPUT -t png screen.png
 vimiv -f -s statusbar.show false screen.png &
 
-geometry="$(slurp)"
+geometry="$(slurp -b '#AFAFAFAF' -c '#FF3F3FAF' -s '#00000000' -w 3 -d -o)"
 if [ -n "$geometry" ]; then
     grim -g "$geometry" -t png area.png
 else
