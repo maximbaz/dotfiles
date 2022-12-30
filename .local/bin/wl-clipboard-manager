@@ -56,7 +56,7 @@ case "$subcommand" in
         [[ $(find "$file" -type f -size 0) ]] && exit 0
         [[ $(find "$file" -type f -size +10000000c) ]] && exit 0
 
-        mime="$(file --mime-type "$file" | awk '{ print $2 }')"
+        mime="$(file -b --mime-type "$file")"
         if [[ "$mime" == "application/json" || "$mime" == text/* ]]; then
             sed -i -Ez 's/\s+$//' "$file"
         fi

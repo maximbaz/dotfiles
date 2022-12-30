@@ -77,7 +77,7 @@ else
         kitty --class "$kitty_class" --directory "$tmp" -o font_size=12 -o background='#242828' -o active_border_color='#242828' -o window_padding_width=5 "$self" > /dev/null 2>&1
 fi
 
-lines=$(wc -l "$tmp/out" | awk '{ print $1 }')
+lines=$(wc -l < "$tmp/out")
 if [ "$lines" != "1" ]; then
     tail -n +2 "$tmp/out"
 else
