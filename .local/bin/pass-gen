@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case $(echo -e "default\nno special chars\nshort" | dmenu -p "pass generator") in
+case $(printf "default\nno special chars\nshort" | dmenu -p "pass generator") in
     default)
         length=40
         filter="[:print:]"
