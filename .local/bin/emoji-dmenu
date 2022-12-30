@@ -6,13 +6,24 @@ data="${XDG_CACHE_HOME:-$HOME/.cache}/emoji.data"
     emoji-bootstrap
 }
 
-line="$(cat "$data" | dmenu -p emoji)"
+case "$*" in
+    *overlay*)
+        output() { cat; }
+        ;;
 
+    *)
+        output() {
+            wl-clipboard-manager lock
+            wl-copy
+            wl-clipboard-manager unlock
+        }
+        ;;
+esac
+
+line="$(dmenu -p emoji "$@" < "$data")"
 if [ -n "$line" ]; then
     sed -i "/$line/d" "$data"
     sed -i "1s;^;$line\n;;" "$data"
 
-    wl-clipboard-manager lock
-    printf '%s' "$line" | cut -d' ' -f1 | tr -d '\n' | wl-copy
-    wl-clipboard-manager unlock
+    printf '%s' "$line" | cut -d' ' -f1 | tr -d '\n' | output
 fi
