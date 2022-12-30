@@ -35,7 +35,7 @@ kitty_class="dmenu"
 while getopts "vp:kr:0f:" OPTION; do
     case "$OPTION" in
         v)
-            echo 'dmenu-term v1.2.0'
+            echo 'dmenu-term v1.3.0'
             exit 0
             ;;
         p)
@@ -45,7 +45,13 @@ while getopts "vp:kr:0f:" OPTION; do
 
         # custom options
         k)
-            kitty_panel=1
+            nextopt="${!OPTIND}"
+            if [[ -n "$nextopt" && "$nextopt" != -* ]]; then
+                OPTIND=$((OPTIND + 1))
+                kitty_launch_type="$nextopt"
+            else
+                kitty_launch_type="window"
+            fi
             ;;
         r)
             preview_script="$OPTARG"
@@ -63,9 +69,9 @@ done
 mkdir "$tmp/done"
 cat > "$tmp/in"
 
-if [ -n "$kitty_panel" ]; then
-    kitty @ launch --no-response --cwd "$tmp" --env "FILTER_MODE=1" --env "FZF_OPTS=$fzf_args" --env "PREVIEW_SCRIPT=$preview_script" "$self" > /dev/null 2>&1
-    inotifywait -q -e create "$tmp/done" > /dev/null
+if [ -n "$kitty_launch_type" ]; then
+    kitty @ launch --type "$kitty_launch_type" --no-response --cwd "$tmp" --env "FILTER_MODE=1" --env "FZF_OPTS=$fzf_args" --env "PREVIEW_SCRIPT=$preview_script" "$self" > /dev/null 2>&1
+    inotifywait -q -e create "$tmp/done" > /dev/null 2>&1
 else
     env "FILTER_MODE=1" "FZF_OPTS=$fzf_args" "PREVIEW_SCRIPT=$preview_script" \
         kitty --class "$kitty_class" --directory "$tmp" -o font_size=12 -o background='#242828' -o active_border_color='#242828' -o window_padding_width=5 "$self" > /dev/null 2>&1
