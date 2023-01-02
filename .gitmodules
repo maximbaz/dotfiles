@@ -32,3 +32,6 @@
 [submodule ".config/mpv/scripts/sponsorblock"]
 	path = .config/mpv/scripts/sponsorblock
 	url = https://github.com/maximbaz/mpv_sponsorblock.git
+[submodule ".config/xplr/wl-clipboard"]
+	path = .config/xplr/wl-clipboard
+	url = https://github.com/sayanarijit/wl-clipboard.xplr.git
