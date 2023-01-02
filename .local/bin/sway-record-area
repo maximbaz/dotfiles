@@ -1,0 +1,22 @@
+#!/bin/sh
+
+pkill -x wf-recorder -SIGINT
+
+[ $? -ne 0 ] && {
+    systemctl --user stop sway-inactive-window-transparency.service
+
+    path="/tmp/record_$(date +%s)"
+    notify-send -t 2000 'Screen recording' 'Select an area to start the recording...'
+    geometry="$(slurp -b '#AFAFAFAF' -c '#FF3F3FAF' -s '#00000000' -w 3 -d -o)"
+    { sleep 1 && pkill -RTMIN+3 -x waybar; } &
+    wf-recorder -g "$geometry" -f "$path.mkv"
+    pkill -RTMIN+3 -x waybar
+
+    systemctl --user start sway-inactive-window-transparency.service
+
+    ffmpeg -i "$path.mkv" -vf "fps=15,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "$path.gif"
+    notify-send -t 2000 'Screen recording' "Recording is ready: $path.{mkv,gif}"
+
+    wl-copy -t image/gif < "$path.gif"
+    echo "file://$path.mkv" | wl-copy -t text/uri-list
+} &
