@@ -16,7 +16,7 @@ Enjoy! 🚀
 
 ## Some of the worthy tools that I use, develop or help maintain:
 
-- [sway](https://github.com/swaywm/sway) (window manager) + [waybar](https://github.com/Alexays/Waybar) (status bar)
+- [Hyprland](hyprctl monitors -j) (window manager) + [waybar](https://github.com/Alexays/Waybar) (status bar)
 - [kitty](https://github.com/kovidgoyal/kitty) - fast GPU-accelerated terminal
 - [kakoune](https://github.com/mawww/kakoune) - modular text editor with multiple cursors
 - [zsh](https://www.zsh.org) + [powerlevel10k](https://github.com/romkatv/powerlevel10k) and various other plugins
@@ -32,11 +32,11 @@ Enjoy! 🚀
 
 ## Fun things you can find in this repo:
 
-☑ A common color scheme for kakoune, terminal and sway itself.
+☑ A common color scheme for kakoune, terminal and Hyprland itself.
 
 > It is called [Gruvbox dark](https://github.com/morhetz/gruvbox).
 
-☑ Unobtrusive and minimalistic design of sway, waybar and terminal.
+☑ Unobtrusive and minimalistic design of Hyprland, waybar and terminal.
 
 > Display only actionable items, use color to highlight importance, slightly dim inactive windows.
 
@@ -56,7 +56,7 @@ Enjoy! 🚀
 
 > Extremely nicely integrated with YubiKey, with forwarding to selected remote hosts.
 
-☑ sway automatically renames workspaces to show currently opened apps.
+☑ Hyprland automatically renames workspaces to show currently opened apps.
 
 > Using iconic font to fit a lot of info even on laptop screens.
 

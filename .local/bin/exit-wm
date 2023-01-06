@@ -1,21 +1,16 @@
 #!/bin/sh
 
-reset_kbd() {
-    kbd="$(swaymsg -r -t get_inputs | jq '.[] | select(.name | contains("keyboard")) | .identifier')"
-    swaymsg input "$kbd" xkb_switch_layout 0
-}
-
 before_lock() {
     playerctl -a pause
     bluetoothctl disconnect
-    reset_kbd
+    hyprctl switchxkblayout 'apple-internal-keyboard-/-trackpad' 0
     sudo systemctl stop pcscd.service
 }
 
 case "$1" in
-    exit)
-        systemctl --user stop sway-session.target
-        swaymsg exit
+    tty)
+        systemctl --user stop hyprland-session.target
+        hyprctl keyword exit
         ;;
     lock)
         before_lock
@@ -36,7 +31,7 @@ case "$1" in
         systemctl -i poweroff
         ;;
     *)
-        echo "Usage: $0 {exit|lock|suspend|reboot|shutdown}"
+        echo "Usage: $0 {tty|lock|suspend|reboot|shutdown}"
         exit 2
         ;;
 esac

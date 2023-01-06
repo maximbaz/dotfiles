@@ -3,7 +3,7 @@
 pkill -x wf-recorder -SIGINT
 
 [ $? -ne 0 ] && {
-    systemctl --user stop sway-inactive-window-transparency.service
+    hyprctl keyword decoration:dim_strength 0
 
     path="/tmp/record_$(date +%s)"
     notify-send -t 2000 'Screen recording' 'Select an area to start the recording...'
@@ -12,7 +12,7 @@ pkill -x wf-recorder -SIGINT
     wf-recorder -g "$geometry" -f "$path.mkv"
     pkill -RTMIN+3 -x waybar
 
-    systemctl --user start sway-inactive-window-transparency.service
+    hyprctl keyword decoration:dim_strength 0.2
 
     ffmpeg -i "$path.mkv" -vf "fps=15,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "$path.gif"
     notify-send -t 2000 'Screen recording' "Recording is ready: $path.{mkv,gif}"
