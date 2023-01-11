@@ -10,7 +10,7 @@ before_lock() {
 case "$1" in
     tty)
         systemctl --user stop hyprland-session.target
-        hyprctl keyword exit
+        hyprctl dispatch exit ''
         ;;
     lock)
         before_lock
