@@ -7,8 +7,9 @@ pkill -x wf-recorder -SIGINT
 
     path="/tmp/record_$(date +%s)"
     notify-send -t 2000 'Screen recording' 'Select an area to start the recording...'
-    geometry="$(slurp -b '#AFAFAFAF' -c '#FF3F3FAF' -s '#00000000' -w 3 -d -o)"
-    { sleep 1 && pkill -RTMIN+3 -x waybar; } &
+    geometry="$(slurp -c '#ff3f3faf' -w 2 -d -o)"
+    sleep 0.2 # slurp needs time to remove the red border...
+    pkill -RTMIN+3 -x waybar
     wf-recorder -g "$geometry" -f "$path.mkv"
     pkill -RTMIN+3 -x waybar
 

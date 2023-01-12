@@ -9,7 +9,9 @@ OUTPUT=$(hyprctl monitors -j | jq -r '.[] | select(.focused)' | jq -r '.name')
 grim -o $OUTPUT -t png screen.png
 vimiv -f -s statusbar.show false screen.png &
 
-geometry="$(slurp -b '#AFAFAFAF' -c '#FF3F3FAF' -s '#00000000' -w 3 -d -o)"
+geometry="$(slurp -c '#ff3f3faf' -w 2 -d -o)"
+sleep 0.2 # slurp needs time to remove the red border...
+
 if [ -n "$geometry" ]; then
     grim -g "$geometry" -t png area.png
 else
