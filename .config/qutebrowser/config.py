@@ -65,7 +65,7 @@ config.set("content.cookies.accept", "all", "*://teams.microsoft.com")
 # keys
 bindings = {
     ",d": "download-open",
-    ",m": "hint links spawn mpv '{hint-url}'",
+    ",m": "hint links spawn cglaunch mpv '{hint-url}'",
     ",p": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation 'dmenu -p credentials'",
     ",P": "spawn --userscript qute-pass --username-target secret --username-pattern 'user: (.+)' --dmenu-invocation 'dmenu -p password' --password-only",
     ",b": "config-cycle colors.webpage.bg '#1d2021' 'white'",
