@@ -17,7 +17,6 @@ if [ "$1" = "--term" ]; then
     app="kitty ${kitty_args[*]} --class $title"
 else
     title="${1##*/}"
-    args="--scope"
 fi
 
-exec systemd-run --quiet --no-block --user --slice app.slice --unit "launch-$title-$(date '+%s%N')" $args -- $app "$@"
+exec systemd-run --quiet --user --scope --slice app.slice --unit "launch-$title-$(date '+%s%N')" $args -- $app "$@"
