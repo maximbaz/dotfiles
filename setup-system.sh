@@ -120,7 +120,7 @@ sysctl --system > /dev/null
 systemctl daemon-reload
 systemctl_enable_start "bluetooth.service"
 systemctl_enable_start "btrfs-scrub@-.timer"
-systemctl_enable_start "docker.socket"
+systemctl_enable_start "docker.service"
 systemctl_enable_start "earlyoom.service"
 systemctl_enable_start "fstrim.timer"
 systemctl_enable_start "iwd.service"
