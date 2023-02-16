@@ -13,6 +13,7 @@ license=('ISC')
 source=(
     '30-font-aliases.conf'
     '75-joypixels.conf'
+    # My preferred font customization: https://input.djr.com/download/?customize&fontSelection=fourStyleFamily&regular=InputMonoNarrow-Regular&italic=InputMonoNarrow-Italic&bold=InputMonoNarrow-Bold&boldItalic=InputMonoNarrow-BoldItalic&a=0&g=0&i=serifs_round&l=serifs_round&zero=slash&asterisk=height&braces=0&preset=default&line-height=1.1&email=
     'InputMonoNarrow-Bold.ttf'
     'InputMonoNarrow-BoldItalic.ttf'
     'InputMonoNarrow-Italic.ttf'
