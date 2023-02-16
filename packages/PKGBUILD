@@ -4,7 +4,7 @@ pkgname=(
     'maximbaz-x86_64'
     'maximbaz-aarch64'
 )
-pkgver=3.0.2
+pkgver=3.0.3
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -32,6 +32,7 @@ package_maximbaz-base() {
     depends=(
         # base
         'base'
+        'base-devel'
         'dash'
         'linux-firmware'
         'kernel-modules-hook'
@@ -74,7 +75,7 @@ package_maximbaz-base() {
         'udiskie-dmenu-git'
         'xplr'
         'vimiv-qt'
-        'ncdu'
+        'dua-cli'
         'croc'
         'webwormhole-git'
         'bat'
@@ -114,6 +115,7 @@ package_maximbaz-base() {
         'nzbget'
         'nzbget-systemd'
         'openbsd-netcat'
+        'bind'
         'dog'
         'mtr'
         'sipcalc'
@@ -126,6 +128,7 @@ package_maximbaz-base() {
         'systemd-resolvconf'
         'vnstat'
         'proxychains-ng'
+        'socat'
 
         # security
         'arch-audit'
@@ -162,11 +165,14 @@ package_maximbaz-base() {
         'playerctl'
         'bluez'
         'bluez-utils'
+        'helvum'
 
         # ui
-        'sway'
+        'hyprland'
+        'hyprland-autoname-workspaces-git'
         'swaybg'
         'swaylock'
+        'swayidle'
         'xorg-server-xwayland'
         'wl-clipboard'
         'python-i3ipc'
@@ -175,13 +181,11 @@ package_maximbaz-base() {
         'waybar'
         'light'
         'slurp'
-        'flashfocus-git'
         'qt5-wayland'
         'qt6-wayland'
         'wtype'
         'wlrctl'
         'wldash'
-        'swayr'
         'swaync'
 
         # fonts
@@ -315,7 +319,6 @@ package_maximbaz-base() {
         'grim'
         'swappy'
         'wf-recorder'
-        'v4l2loopback-dkms'
 
         # media
         'xdg-desktop-portal-wlr'
@@ -344,6 +347,7 @@ package_maximbaz-base() {
         'python-urwid_readline'
         'urlwatch'
         'mkcert'
+        'qrencode'
     )
 
     for font in InputMono*; do
@@ -394,6 +398,7 @@ package_maximbaz-aarch64() {
     depends=(
         # base
         'linux-asahi'
+        'linux-asahi-edge'
         'linux-asahi-headers'
 
         # arch
