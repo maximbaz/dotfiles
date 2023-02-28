@@ -51,6 +51,9 @@ link ".zsh-aliases"
 link ".zshenv"
 link ".zshrc"
 
+link ".mozilla/firefox/profile/user.js"
+link ".mozilla/firefox/profile/chrome"
+
 link ".config/bat"
 link ".config/chromium-flags.conf"
 link ".config/environment.d"
