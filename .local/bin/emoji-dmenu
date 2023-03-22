@@ -22,8 +22,9 @@ esac
 
 line="$(dmenu -p emoji -f '--no-sort' "$@" < "$data")"
 if [ -n "$line" ]; then
-    sed -i "/$line/d" "$data"
-    sed -i "1s;^;$line\n;;" "$data"
+    symbol="$(echo "$line" | cut -d' ' -f1)"
+    sed -i "/^$symbol /d" "$data"
+    sed -i '1i'"$line" "$data"
 
     printf '%s' "$line" | cut -d' ' -f1 | tr -d '\n' | output
 fi
