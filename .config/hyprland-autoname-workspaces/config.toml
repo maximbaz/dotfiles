@@ -1,3 +1,8 @@
+[format]
+dedup = true
+client_active = "<span color='#b8bb26'>{icon}</span>"
+more_dedup_on_inactive_workspaces = true
+
 [icons]
 "calibre-gui" = ""
 "chromium" = ""
@@ -12,6 +17,7 @@
 "draw.io" = ""
 "firefox" = ""
 "kak" = ""
+"Alacritty" = ""
 "kitty" = ""
 "krita" = ""
 "libreoffice-calc" = ""
@@ -27,6 +33,7 @@
 "qalculate-gtk" = ""
 "qutepreview" = ""
 "scli" = ""
+"gurk" = ""
 "swappy" = ""
 "transmission-gtk" = ""
 "vimiv" = ""
