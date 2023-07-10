@@ -279,8 +279,9 @@ hook global WinSetOption filetype=sh %{
 }
 
 hook global WinSetOption filetype=sql %{
-    set-option buffer formatcmd "pg_format -iu1 -"
+    set-option buffer formatcmd "pg_format -iu1 --no-space-function -"
     hook buffer -group format BufWritePre .* format
+    set-option buffer comment_line '--'
 }
 
 hook global WinSetOption filetype=terraform %{
