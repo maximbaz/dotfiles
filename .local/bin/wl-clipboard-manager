@@ -93,7 +93,7 @@ case "$subcommand" in
         mime="$(query "SELECT mime, writefile('$file', contents) FROM entries WHERE id='$id'" | awk 'NR == 1 { print $3 }')"
 
         if [[ "$mime" == image/* ]]; then
-            kitty +kitten icat --silent --stdin=no "$file"
+            cat "$file" | kitty +kitten icat --silent
         else
             language="bash"
             [[ "$mime" == application/json ]] && language="json"
