@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ "$(uname -m)" = "aarch64" ]; then
-    env LIBGL_ALWAYS_SOFTWARE=1 /usr/bin/kitty "$@"
-else
-    /usr/bin/kitty "$@"
-fi
