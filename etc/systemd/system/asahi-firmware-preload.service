@@ -1,0 +1,12 @@
+[Unit]
+Description=Asahi hook to preload firmware during boot
+DefaultDependencies=no
+Before=initrd.target
+After=initrd-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/ash -c '. /init_functions && . /hooks/sd-asahi-addon && run_latehook'
+
+[Install]
+WantedBy=initrd.target

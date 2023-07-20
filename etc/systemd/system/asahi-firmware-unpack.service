@@ -1,0 +1,13 @@
+[Unit]
+Description=Asahi hook to unpack firmware during boot
+DefaultDependencies=no
+Before=sysinit.target
+After=dev-disk-by\x2dlabel-esp0.device
+Requires=dev-disk-by\x2dlabel-esp0.device
+
+[Service]
+Type=oneshot
+ExecStart=/bin/ash -c '. /init_functions && . /hooks/sd-asahi-addon && run_earlyhook'
+
+[Install]
+WantedBy=sysinit.target
