@@ -29,7 +29,7 @@
     shift_up: Some(( code: Char('K'), modifiers: ( bits: 1,),)),
     shift_down: Some(( code: Char('J'), modifiers: ( bits: 1,),)),
 
-    edit_file: Some(( code: Char('I'), modifiers: ( bits: 1,),)),
+    edit_file: Some(( code: Char('e'), modifiers: ( bits: 0,),)),
 
     status_reset_item: Some(( code: Char('U'), modifiers: ( bits: 1,),)),
 
