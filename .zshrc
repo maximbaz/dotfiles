@@ -20,9 +20,6 @@ zstyle    ':completion:*:ssh:argument-1:'                      tag-order        
 zstyle    ':completion:*:scp:argument-rest:'                   tag-order              hosts files users
 zstyle    ':completion:*:(ssh|scp|rdp):*:hosts'                hosts
 
-# asahi hack
-unset LIBGL_ALWAYS_SOFTWARE
-
 if ! (( P9K_SSH )); then
     zstyle ':z4h:sudo' term ''
 fi
