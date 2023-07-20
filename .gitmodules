@@ -32,3 +32,6 @@
 [submodule ".config/xplr/wl-clipboard"]
 	path = .config/xplr/wl-clipboard
 	url = https://github.com/sayanarijit/wl-clipboard.xplr.git
+[submodule ".config/kak/kak-ansi"]
+	path = .config/kak/kak-ansi
+	url = https://github.com/eraserhd/kak-ansi
