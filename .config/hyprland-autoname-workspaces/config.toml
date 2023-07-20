@@ -34,6 +34,7 @@ more_dedup_on_inactive_workspaces = true
 "qutepreview" = ""
 "scli" = ""
 "gurk" = ""
+"signal" = ""
 "swappy" = ""
 "transmission-gtk" = ""
 "vimiv" = ""
