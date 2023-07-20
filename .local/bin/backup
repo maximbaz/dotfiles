@@ -1,27 +1,31 @@
 #!/bin/bash
 
-SOURCE=".dotfiles .ssh .gnupg .mail cloud nextcloud"
-BACKUP_PATH="/run/media/maximbaz/Transcend/maximbaz"
+SOURCE=".dotfiles .dotfiles-private .ssh .gnupg .zsh_history $XDG_DATA_HOME/wl-clipboard-manager $XDG_DATA_HOME/aurutils .password-store .password-store-g .mozilla .mail giveffektivt enowise cloud decrypted"
+BACKUP_PATH="/run/media/$USER/backup_wd_data"
 BACKUP_DIR="$BACKUP_PATH/$(date +%Y-%m-%d)"
 
-if [ ! -d "$BACKUP_PATH" ]; then
-    echo "Backup device '$BACKUP_PATH' does not exist, aborting."
+error() {
+    echo >&2 "$@"
     exit 1
-fi
+}
+
+cd "$HOME"
+
+[ -d "$BACKUP_PATH" ] || error "Backup destination '$BACKUP_PATH' does not exist, aborting."
+
+for src in $SOURCE; do
+    [[ -f "$src" || (-d "$src" && -n "$(ls -A "$src")") ]] || error "Backup source '$src' is empty or absent, aborting."
+done
 
 if [ -d "$BACKUP_DIR" ]; then
     read -p "Backup directory '$BACKUP_DIR' already exists, merge? [y/n] " -n 1 -r
     echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo "Aborted."
-        exit 1
-    fi
+    [[ $REPLY =~ ^[Yy]$ ]] || error "Aborted."
 fi
 
-cd "$HOME"
 echo -e "\nBackup STARTED\n\nSource(s):   $SOURCE\nDestination: $BACKUP_DIR\n"
 mkdir -p "$BACKUP_DIR"
-cp -a $SOURCE "$BACKUP_DIR"
+rsync -a --info=progress2 $SOURCE "$BACKUP_DIR"
 exitcode=$?
 
 if [ "$exitcode" -eq "0" ]; then
