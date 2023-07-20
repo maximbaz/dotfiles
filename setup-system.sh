@@ -72,6 +72,7 @@ echo "Setting up /etc configs..."
 echo "=========================="
 
 copy "etc/bluetooth/main.conf"
+copy "etc/crypttab"
 copy "etc/conf.d/snapper"
 copy "etc/default/earlyoom"
 copy "etc/docker/daemon.json"
@@ -101,6 +102,7 @@ copy "etc/systemd/system/system-dotfiles-sync.service"
 copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/systemd/system.conf.d/kill-fast.conf"
 copy "etc/udev/rules.d/50-usb_yubikey_power_save.rules"
+copy "etc/udisks2/mount_options.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
 
 if [[ $HOSTNAME == home-* ]]; then
