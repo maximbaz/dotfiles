@@ -6,3 +6,7 @@
 #TabsToolbar {
   visibility: collapse !important;
 }
+
+#navigator-toolbox[fullscreenShouldAnimate] {
+  transition: none !important;
+}
