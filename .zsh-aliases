@@ -36,6 +36,8 @@ alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPw
 alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 alias gpg-change-card='gpg-connect-agent "scd serialno" "learn --force" /bye'
 alias yd='yt-dlp --external-downloader aria2c --sponsorblock-mark all'
+alias wws='ww send'
+alias wwr='ww receive'
 
 compdef trash-put=rm
 
