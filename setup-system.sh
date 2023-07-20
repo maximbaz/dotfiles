@@ -71,7 +71,6 @@ echo "=========================="
 echo "Setting up /etc configs..."
 echo "=========================="
 
-copy "etc/bluetooth/main.conf"
 copy "etc/crypttab"
 copy "etc/conf.d/snapper"
 copy "etc/default/earlyoom"
