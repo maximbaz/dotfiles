@@ -4,7 +4,7 @@ pkgname=(
     'maximbaz-x86_64'
     'maximbaz-aarch64'
 )
-pkgver=3.0.3
+pkgver=3.2.0
 pkgrel=1
 pkgdesc='Packages installed by maximbaz'
 arch=('any')
@@ -36,12 +36,13 @@ package_maximbaz-base() {
         'dash'
         'linux-firmware'
         'kernel-modules-hook'
-        'mkinitcpio-encrypt-detached-header'
         'logrotate'
         'man-pages'
         'btrfs-progs'
         'htop'
         'vi'
+        'cpio'
+        'terminus-font'
 
         # base-devel
         'posix'
@@ -67,6 +68,8 @@ package_maximbaz-base() {
         'pkgstats'
 
         # files
+        'snapper'
+        'snap-pac'
         'progress'
         'gocryptfs'
         'ntfs-3g'
@@ -76,13 +79,11 @@ package_maximbaz-base() {
         'xplr'
         'vimiv-qt'
         'dua-cli'
-        'croc'
         'webwormhole-git'
         'bat'
         'exa'
         'fd'
         'ripgrep'
-        'ripgrep-all'
         'tree'
         'trash-cli'
         'imagemagick'
@@ -126,32 +127,26 @@ package_maximbaz-base() {
         'speedtest-cli'
         'wireguard-tools'
         'systemd-resolvconf'
-        'vnstat'
         'proxychains-ng'
         'socat'
+        'freerdp'
 
         # security
-        'arch-audit'
-        'overdue'
         'ccid'
         'pam-u2f'
         'yubikey-touch-detector'
         'usbguard'
         'pinentry'
-        'gcr'
         'checksec'
         'polkit-gnome'
-        'mokutil'
+        'yubikey-manager-qt'
 
         # oom prevention
         'earlyoom'
         'systembus-notify'
 
         # hardware
-        'fwupd'
         'tlp'
-        'throttled'
-        'dmidecode'
         'upower'
         'acpi'
         'bolt'
@@ -177,14 +172,11 @@ package_maximbaz-base() {
         'wl-clipboard'
         'python-i3ipc'
         'gtk-theme-arc-gruvbox-git'
-        'wlsunset'
         'waybar'
         'light'
         'slurp'
         'qt5-wayland'
         'qt6-wayland'
-        'wtype'
-        'wlrctl'
         'wldash'
         'swaync'
 
@@ -193,6 +185,7 @@ package_maximbaz-base() {
         'ttf-courier-prime'
         'ttf-heuristica'
         'ttf-liberation'
+        'ttf-literata'
         'noto-fonts'
         'cantarell-fonts'
         'ttf-droid'
@@ -222,6 +215,7 @@ package_maximbaz-base() {
         'dos2unix'
         'editorconfig-core-c'
         'docker'
+        'docker-buildx'
         'docker-compose'
         'direnv'
         'terraform'
@@ -229,11 +223,9 @@ package_maximbaz-base() {
         'teehee'
         'strace'
         'fzf'
-        'visidata'
 
         # shell dev
         'bash-language-server'
-        'checkbashisms'
         'shfmt'
         'bash-completion'
 
@@ -242,15 +234,10 @@ package_maximbaz-base() {
         'python-black'
         'python-pip'
         'python-pylint'
-        'yapf'
-        'bpython'
 
         # go dev
         'go'
-        'go-tools'
         'gopls'
-        'revive'
-        'staticcheck'
 
         # js dev
         'npm'
@@ -262,10 +249,8 @@ package_maximbaz-base() {
         'rust-analyzer'
 
         # c dev
+        'clang'
         'meson'
-
-        # lua dev
-        'stylua-bin'
 
         # db
         'postgresql-libs'
@@ -330,24 +315,22 @@ package_maximbaz-base() {
         'ffmpeg'
         'yt-dlp'
         'aria2'
+        'ff2mpv-go-git'
 
         # kubernetes
         'kubectl'
         'kubectx'
 
         # misc
-        'anydesk'
         'calibre'
-        'hugo'
         'krita'
+        'inkscape'
         'qalculate-gtk'
         'libreoffice-fresh'
         'transmission-gtk'
-        'scli'
-        'python-urwid_readline'
-        'urlwatch'
         'mkcert'
         'qrencode'
+        'freerdp'
     )
 
     for font in InputMono*; do
@@ -360,12 +343,10 @@ package_maximbaz-base() {
 
 package_maximbaz-x86_64() {
     depends=(
-        # temporary - does not work in ARM
-        'shellcheck'
-
         # base
         'linux'
         'linux-headers'
+        'mkinitcpio-encrypt-detached-header'
 
         # arch
         'devtools'
@@ -373,8 +354,8 @@ package_maximbaz-x86_64() {
 
         # boot
         'arch-secure-boot'
+        'mokutil'
         'intel-ucode'
-        'terminus-font'
 
         # virtual machines
         'libvirt'
@@ -385,12 +366,21 @@ package_maximbaz-x86_64() {
         'edk2-ovmf'
 
         # hardware
-        'dell-command-configure'
         'intel-media-driver'
         'vulkan-intel'
         'vulkan-headers'
         'wluma'
-        'iriunwebcam-bin'
+        'fwupd'
+        'dmidecode'
+
+        ########################
+        # do not work on aarch64
+
+        # shell dev
+        'shellcheck'
+
+        # ui
+        'wlsunset'
     )
 }
 
@@ -406,7 +396,10 @@ package_maximbaz-aarch64() {
         'archlinuxarm-keyring'
         'asahi-meta'
 
-        # boot
-        'grub'
+        # mesa
+        'mesa-asahi-edge'
+
+        # other
+        'signal-desktop-arm'
     )
 }
