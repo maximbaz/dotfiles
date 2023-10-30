@@ -16,7 +16,7 @@ Enjoy! 🚀
 
 ## Some of the worthy tools that I use, develop or help maintain:
 
-- [Hyprland](hyprctl monitors -j) (window manager) + [waybar](https://github.com/Alexays/Waybar) (status bar)
+- [Hyprland](https://github.com/hyprwm/Hyprland) (window manager) + [waybar](https://github.com/Alexays/Waybar) (status bar)
 - [kitty](https://github.com/kovidgoyal/kitty) - fast GPU-accelerated terminal
 - [kakoune](https://github.com/mawww/kakoune) - modular text editor with multiple cursors
 - [zsh](https://www.zsh.org) + [powerlevel10k](https://github.com/romkatv/powerlevel10k) and various other plugins
