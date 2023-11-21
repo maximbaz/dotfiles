@@ -105,3 +105,43 @@ z4h source -- /etc/bash_completion.d/azure-cli
 z4h source -- /usr/share/LS_COLORS/dircolors.sh
 z4h source -- $ZDOTDIR/.zsh-aliases
 z4h source -- $ZDOTDIR/.zshrc-private
+
+###
+
+zsh_notify_bg_finish_pre() {
+    declare -g zsh_notify_bg_finish_cmd="${1:-$2}"
+    declare -g zsh_notify_bg_finish_start=$EPOCHSECONDS
+}
+
+zsh_notify_bg_finish_post() {
+    local last_status=$?
+    [ -n "$zsh_notify_bg_finish_start" ] || return 0
+
+    (( time_elapsed = EPOCHSECONDS - zsh_notify_bg_finish_start ))
+    local took=$(zsh_notify_bg_finish_duration "$time_elapsed")
+    local title="$(((last_status == 0)) && echo 'SUCCESS 🥳' || echo 'FAILURE 🤬')"
+    ! (( P9K_SSH )) || title="$title on $HOST 💻"
+    title="$title after $took!"
+    local id=$EPOCHSECONDS
+    printf '\x1b]99;i=%d:d=0:o=unfocused;%s\x1b\\' "$id" "$title"
+    printf '\x1b]99;i=%d:d=1:p=body;%s\x1b\\' "$id" "$zsh_notify_bg_finish_cmd"
+
+    unset zsh_notify_bg_finish_cmd zsh_notify_bg_finish_start
+}
+
+zsh_notify_bg_finish_duration() {
+    local total_seconds=$1
+    local hours=$((total_seconds / 3600))
+    local minutes=$(( (total_seconds % 3600) / 60 ))
+    local seconds=$((total_seconds % 60))
+    local result=""
+
+    (( hours > 0 )) && result+="${hours}h "
+    (( minutes > 0 )) && result+="${minutes}m "
+    (( seconds > 0 || total_seconds == 0 )) && result+="${seconds}s"
+
+    echo "${result% }"
+}
+
+add-zsh-hook preexec zsh_notify_bg_finish_pre
+add-zsh-hook precmd zsh_notify_bg_finish_post
