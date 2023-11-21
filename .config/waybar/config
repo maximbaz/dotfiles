@@ -189,7 +189,8 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
-        "on-click-right": "env LIBGL_ALWAYS_SOFTWARE=1 helvum"
+        "on-click-right": "push2talk -t",
+        "on-click-middle": "helvum"
     }
 }
 
