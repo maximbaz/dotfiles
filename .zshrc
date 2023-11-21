@@ -82,6 +82,7 @@ z4h bindkey z4h-fzf-dir-history     Alt+J
 z4h bindkey my-ctrl-z               Ctrl+Z
 z4h bindkey edit-command-line       Alt+E
 
+z4h bindkey z4h-accept-line         Enter
 z4h bindkey z4h-exit                Ctrl+D
 
 ###
