@@ -2,7 +2,7 @@
     "layer": "top",
     "height": 25,
     "modules-left": [
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "hyprland/submap"
     ],
     "modules-right": [
@@ -19,21 +19,19 @@
         "custom/dnd",
         "pulseaudio",
         "network",
-        "custom/vpn",
+        //"custom/vpn",
         "cpu",
         "memory",
         "disk",
-        "custom/movie",
+        //"custom/movie",
         "backlight",
         "hyprland/language",
         "battery",
         "clock"
     ],
 
-    "wlr/workspaces": {
-         "sort-by-number": true,
-         "format": "{icon}",
-         "on-click": "activate"
+    "hyprland/workspaces": {
+         "format": "{name}"
     },
     "custom/security": {
         "exec": "waybar-security",
