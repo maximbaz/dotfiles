@@ -106,6 +106,7 @@ copy "etc/systemd/system.conf.d/kill-fast.conf"
 copy "etc/udev/rules.d/50-usb_yubikey_power_save.rules"
 copy "etc/udisks2/mount_options.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
+copy "etc/vconsole.conf"
 
 if [[ $HOSTNAME == home-* ]]; then
     copy "etc/systemd/system/backup-repo@pkgbuild"
