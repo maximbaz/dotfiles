@@ -1,0 +1,12 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-inlay-hints = true
