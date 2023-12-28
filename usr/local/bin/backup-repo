@@ -1,8 +1,0 @@
-#!/bin/sh
-
-arch="$(uname -m)"
-
-rsync --archive --partial --delete "${LOCAL_PATH}" "${REMOTE_ADDR}:${REMOTE_PATH}/${arch}"
-ssh "${REMOTE_ADDR}" "/usr/bin/rename -- '-local' '' ${REMOTE_PATH}/${arch}/*"
-ssh "${REMOTE_ADDR}" "/usr/bin/rename -s -- '-local' '' ${REMOTE_PATH}/${arch}/* || true"
-rsync --archive --partial --delete "${LOCAL_PATH_AURUTILS}" "${REMOTE_ADDR}:${REMOTE_PATH_AURUTILS}/${arch}"

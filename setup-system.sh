@@ -59,14 +59,6 @@ systemctl_enable_start() {
 }
 
 echo ""
-echo "============================"
-echo "Setting up /usr/local/bin..."
-echo "============================"
-
-copy "usr/local/bin/checkluksheader"
-copy "usr/local/bin/backup-repo"
-
-echo ""
 echo "=========================="
 echo "Setting up /etc configs..."
 echo "=========================="
