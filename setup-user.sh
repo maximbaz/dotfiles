@@ -198,10 +198,11 @@ else
 fi
 
 if is_chroot; then
-    echo >&2 "=== Running in chroot, skipping GTK file chooser dialog configuration..."
+    echo >&2 "=== Running in chroot, skipping GTK configuration..."
 else
-    echo "Configuring GTK file chooser dialog"
+    echo "Configuring GTK"
     gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 fi
 
 echo "Ignoring further changes to often changing config"
