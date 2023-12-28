@@ -102,7 +102,7 @@ export SYSTEMD_LESS="${LESS}S"
 ###
 
 z4h source -- /etc/bash_completion.d/azure-cli
-z4h source -- /usr/share/LS_COLORS/dircolors.sh
+z4h source -- $HOME/.dotfiles/lscolors/lscolors.sh
 z4h source -- $ZDOTDIR/.zsh-aliases
 z4h source -- $ZDOTDIR/.zshrc-private
 

@@ -35,3 +35,6 @@
 [submodule ".config/kak/kak-ansi"]
 	path = .config/kak/kak-ansi
 	url = https://github.com/eraserhd/kak-ansi
+[submodule "lscolors"]
+	path = lscolors
+	url = https://github.com/trapd00r/LS_COLORS.git
