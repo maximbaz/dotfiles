@@ -4,8 +4,8 @@ build() {
     add_file /etc/systemd/system/asahi-firmware-preload.service
     add_file /etc/systemd/system/asahi-firmware-unpack.service
 
-    add_symlink /etc/systemd/system/sysinit.target.wants/asahi-firmware-unpack.service ../asahi-unpack-firmware.service
-    add_symlink /etc/systemd/system/initrd.target.wants/asahi-firmware-preload.service ../asahi-preload-firmware.service
+    add_symlink /etc/systemd/system/sysinit.target.wants/asahi-firmware-unpack.service ../asahi-firmware-unpack.service
+    add_symlink /etc/systemd/system/initrd.target.wants/asahi-firmware-preload.service ../asahi-firmware-preload.service
 
     sed 's/new_root/sysroot/g' /usr/lib/initcpio/hooks/asahi > "${BUILDROOT}/hooks/sd-asahi-addon"
 }
