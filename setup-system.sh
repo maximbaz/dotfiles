@@ -65,7 +65,6 @@ echo "=========================="
 
 copy "etc/crypttab"
 copy "etc/default/earlyoom"
-copy "etc/fwupd/uefi_capsule.conf"
 copy "etc/initcpio/install/sd-asahi-addon"
 copy "etc/iwd/main.conf"
 copy "etc/modprobe.d/hid_apple.conf"
