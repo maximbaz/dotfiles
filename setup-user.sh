@@ -131,6 +131,7 @@ else
 
     systemctl --user daemon-reload
     systemctl_enable_start "backup-packages.timer"
+    systemctl_enable_start "docker.service"
     systemctl_enable_start "battery-low-notify.service"
     systemctl_enable_start "hyprland-autoname-workspaces.service"
     systemctl_enable_start "swaync.service"
