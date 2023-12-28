@@ -1,6 +1,6 @@
 set line-graphics = utf-8
 set tab-size = 4
-set diff-highlight = /usr/share/git/diff-highlight/diff-highlight
+set diff-highlight = /usr/share/git-core/contrib/diff-highlight
 
 color cursor 15 blue
 set main-view = date:relative id:yes author:full commit-title:yes,graph,refs,overflow=no
