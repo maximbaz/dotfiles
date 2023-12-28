@@ -54,6 +54,18 @@ tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
 
 x() { PAGER="less -+F" xplr | IFS= read -r dir && cd -- "${dir:-.}" }
 
+boox-push() {
+    if [[ $# < 1 || $# > 2 ]]; then
+        echo >&2 "Usage: $0 <text> [<link>]"
+        return 1
+    elif [[ $# == 2 ]]; then
+        [[ "$2" != http* ]] && url="https://$2" || url="$2"
+        curl -XPOST "https://push.maximbaz.com/message?token=$(pass personal/push-boox-token)" -d '{ "message": "'"$1"'", "extras": { "client::notification": { "click": { "url": "'"$url"'" } } } }'
+    else
+        curl -XPOST "https://push.maximbaz.com/message?token=$(pass personal/push-boox-token)" -d '{ "message": "'"$1"'" }'
+    fi
+}
+
 ## kubectl
 
 alias k='kubectl'
