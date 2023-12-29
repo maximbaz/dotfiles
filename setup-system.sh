@@ -101,12 +101,9 @@ sysctl --system > /dev/null
 
 systemctl daemon-reload
 systemctl_enable_start "bluetooth.service"
-systemctl_enable_start "btrfs-scrub@-.timer"
 systemctl_enable_start "earlyoom.service"
 systemctl_enable_start "fstrim.timer"
 systemctl_enable_start "iwd.service"
-systemctl_enable_start "linux-modules-cleanup.service"
-systemctl_enable_start "lenovo_fix.service"
 systemctl_enable_start "nftables.service"
 systemctl_enable_start "pcscd.socket"
 systemctl_enable_start "system-dotfiles-sync.timer"
