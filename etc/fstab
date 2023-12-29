@@ -1,0 +1,3 @@
+LABEL=main0 /           btrfs   x-systemd.growfs,compress=zstd:1,defaults,noatime,nodiratime,subvol=root 0 1
+LABEL=main0 /home       btrfs   x-systemd.growfs,compress=zstd:1,noatime,nodiratime,subvol=home 0 0
+LABEL=ESP0  /boot/efi   vfat    defaults,umask=0077,shortname=winnt 0 0

@@ -65,6 +65,7 @@ echo "=========================="
 
 copy "etc/crypttab"
 copy "etc/default/earlyoom"
+copy "etc/fstab"
 copy "etc/iwd/main.conf"
 copy "etc/modprobe.d/hid_apple.conf"
 copy "etc/pam.d/polkit-1"
