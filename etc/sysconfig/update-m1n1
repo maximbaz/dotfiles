@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -e
+
+M1N1="/usr/lib64/m1n1/m1n1.bin"
+DTBS=/boot/dtb/apple/*
+U_BOOT="/usr/share/uboot/apple_m1/u-boot-nodtb.bin"
+
+echo "Generating m1n1 boot.bin"
+
+kver=$(ls /lib/modules/ | sort -rV | head -1)
+target=/boot/efi/m1n1/boot.bin
+luks_label=luks0
+luks_uuid=$(blkid | awk -F'"' '/"'"$luks_label"'"/ {print $2}')
+
+[ -n "$luks_uuid" ] || {
+    echo >&2 "Unable to locate UUID of LUKS partition, aborting."
+    exit 1
+}
+
+tmpdir="$(mktemp -d)"
+cd "$tmpdir"
+
+cat $M1N1 > "$target.new"
+echo "chosen.bootargs=rd.luks.name=$luks_uuid=$luks_label rd.luks.options=discard root=/dev/mapper/$luks_label rootflags=subvol=root,noatime,nodiratime quiet" >> "$target.new"
+cat $DTBS >> "$target.new"
+cat "/boot/initramfs-$kver.img" >> "$target.new"
+binwalk --run-as=root -e "/boot/vmlinuz-$kver" > /dev/null
+gzip -c "$(find . -type f)" >> "$target.new"
+
+mv "$target.new" "$target"
+
+rm -rf "$tmpdir"
+
+M1N1_UPDATE_DISABLED=1
