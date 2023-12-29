@@ -1,4 +1,4 @@
-%global pkgver 1.2.0
+%global pkgver 1.3.0
 
 Name:       maximbaz
 Version:    %pkgver
@@ -64,6 +64,7 @@ Recommends: dejavu-fonts-all
 Recommends: dfrs
 Recommends: direnv
 Recommends: docker-ce
+Recommends: doggo
 Recommends: dos2unix
 Recommends: dua-cli
 Recommends: earlyoom
@@ -88,6 +89,7 @@ Recommends: golang-x-tools-gopls
 Recommends: google-droid-fonts-all
 Recommends: google-noto-sans-fonts
 Recommends: google-noto-serif-fonts
+Recommends: helix
 Recommends: helvum
 Recommends: htop
 Recommends: hyprland
@@ -164,6 +166,8 @@ Recommends: swaybg
 Recommends: swaylock
 Recommends: SwayNotificationCenter
 Recommends: systembus-notify
+Recommends: systemd-oomd-defaults
+Recommends: teehee
 Recommends: terminus-fonts-console
 Recommends: tig
 Recommends: tlp
@@ -180,6 +184,7 @@ Recommends: wireguard-tools
 Recommends: wl-clipboard
 Recommends: wldash
 Recommends: yarnpkg
+Recommends: yq
 Recommends: yt-dlp
 Recommends: yubikey-touch-detector
 Recommends: zathura-pdf-mupdf
@@ -187,6 +192,23 @@ Recommends: zip
 Recommends: zsh
 
 %description base
+%{summary}.
+
+%package    asahi
+Version:    %pkgver
+Release:    %autorelease
+Summary:    Required Asahi packages
+License:    ISC
+BuildArch:  noarch
+
+Recommends: asahi-platform-metapackage
+Recommends: asahi-repos
+Recommends: fedora-asahi-remix-scripts
+Recommends: grub2-efi-aa64
+Recommends: grub2-efi-aa64-modules
+Recommends: shim-aa64
+
+%description asahi
 %{summary}.
 
 %prep
@@ -198,6 +220,8 @@ Recommends: zsh
 %files
 
 %files base
+
+%files asahi
 
 %changelog
 %autochangelog
