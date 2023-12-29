@@ -3,32 +3,25 @@ all: build install refresh publish clean
 
 .PHONY: build
 build: ## Build the meta-package
-	PKGEXT='.pkg.tar.zst' makepkg -sf
+	mockbuild
 
 .PHONY: install
 install: ## Install the meta-package
-	SNAP_PAC_SKIP=true sudo -E pacman --noconfirm -U maximbaz-base-*.pkg.tar.zst maximbaz-$(shell uname -m)-*.pkg.tar.zst
+	sudo dnf install *.noarch.rpm
 
 .PHONY: refresh
 refresh: ## Refresh the backup lists
 	backup-packages
-	if [ -s unknown.list ]; then \
-		xargs -a unknown.list sudo -E pacman -D --asdeps; \
-	fi
+	xargs -r -a unknown.list sudo dnf -q mark remove
 	backup-packages
 
 .PHONY: publish
-publish: ## Publish the meta-package in the local repo
-	for type in base $(shell uname -m); do \
-		pkg=maximbaz-$$type-*.pkg.tar.zst; \
-		gpg --detach-sign --yes $$pkg; \
-		repo-add -s /var/cache/pacman/maximbaz-local/maximbaz-local.db.tar $$pkg; \
-		cp $$pkg* /var/cache/pacman/maximbaz-local/; \
-	done
+publish: ## Publish the meta-package to the repo
+	copr build personal maximbaz.spec
 
 .PHONY: clean
 clean: ## Cleanup
-	rm -rf pkg src *.pkg.tar* *.log
+	rm -rf *.rpm *.log
 
 .PHONY: help
 help: ## This help

@@ -1,5 +1,6 @@
 *.log
 *.pkg.tar.xz
+*.rpm
 pkg
 src
 InputMonoNarrow*.ttf
