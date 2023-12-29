@@ -1,8 +1,0 @@
-[Unit]
-Description=Backup pacman repository to %I
-
-[Service]
-Type=oneshot
-User=maximbaz
-EnvironmentFile=/etc/systemd/system/backup-repo@%i
-ExecStart=/usr/local/bin/backup-repo

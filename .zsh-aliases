@@ -228,113 +228,49 @@ grf() {
     fi
 }
 
-### pacman
+### package management
 
-alias paci='SNAP_PAC_SKIP=true pac -Sy'
-alias paci!='pac -Sy -dd'
-alias pacr='SNAP_PAC_SKIP=true pac -Rs'
-alias pacr!='pac -Rs -dd'
-alias pacf='SNAP_PAC_SKIP=true pac -U'
-alias pacF='pacman -F'
-alias pacq='pacman -Si'
-alias pacl='pacman -Ql'
-alias pacdiff='sudo \pacdiff; refresh-waybar-updates'
+alias paci='pac install'
+alias pacr='pac remove'
+alias pacu='pac update'
+alias pacf='dnf provides'
+alias pacq='dnf info'
+alias pacl='rpm -ql'
+alias pacdiff='sudo rpmconf -a'
 
 pac() {
-    sudo -E pacman "$@" || return 1
-
-    is_removal=0
-    while [[ "$1" == -* ]]; do
-        [[ "$1" == "-R"* ]] && is_removal=1
-        shift
-    done
-    if (( is_removal )); then
-        echo "\nCleaning up AUR repo..."
-        repo-remove -s /var/cache/pacman/maximbaz-local/maximbaz-local.db.tar "$@"
-    fi
-
-    echo "\nCleaning up repo cache..."
-    sudo -E paccache -vr -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local -i maximbaz-aarch64 -i maximbaz-x86_64
-    sudo -E paccache -vruk0 -c /var/cache/pacman/pkg -c /var/cache/pacman/maximbaz-local -i maximbaz-aarch64 -i maximbaz-x86_64
-
-    refresh-waybar-updates
+    sudo dnf "$@" || return 1
+    pkill -RTMIN+1 -x waybar
     rehash
 }
-command -v pacman &> /dev/null && compdef pac=pacman
+command -v dnf &> /dev/null && compdef pac=dnf
 
 pacs() {
     [ $# -lt 1 ] && { >&2 echo "No search term provided"; return 1; }
-    sudo -E pacman -Sy
     tmp=$(mktemp -d)
 
-    {
-        NO_COLOR=true aur search -n -k NumVotes $(basename -a "$@" | xargs)
-        pacman -Ss $(basename -a "$@" | xargs)
-    } |
-    while read -r pkg; do
-        read -r desc
-        name="${pkg%% *}"
-        mkdir -p "$tmp/${name%/*}"
+    dnf -qC search "$@" 2>/dev/null | grep -v '^=' | while IFS=':' read -r pkg desc; do
+        pkg="${pkg%% *}"
+        [[ $pkg != *.src ]] || continue
+        [[ $pkg != *debuginfo.* ]] || continue
+        [[ $pkg != *debugsource.* ]] || continue
         echo "$pkg" >>$tmp/pkgs
-        echo "$desc" >$tmp/$name
+        echo "$desc" >$tmp/$pkg
     done
     [ -s $tmp/pkgs ] || { >&2 echo "No packages found"; rm -rf "$tmp"; return 2; }
 
-    aur_pkgs=()
-    repo_pkgs=()
-    cat $tmp/pkgs | fzf --tac --preview-window=wrap --preview="cat $tmp/{1}; echo; echo; pacman -Si \$(basename {1}) 2>/dev/null; true" |
+    pkgs=()
+    cat $tmp/pkgs | fzf --preview-window=wrap --preview="cat $tmp/{1}; echo; echo; dnf -qC info {1} 2>/dev/null; true" |
     while read -r pkg; do
-        title="${pkg%% *}"
-        if [ "${title%/*}" = "aur" ]; then
-            aur_pkgs+=("${title#*/}")
-        else
-            repo_pkgs+=("${title#*/}")
-        fi
+        pkgs+=("$pkg")
     done
     rm -rf "$tmp"
 
-    if (( ${#aur_pkgs[@]} )); then
-        aur sync -Sc "${aur_pkgs[@]}"
-        post_aur
+    if (( ${#pkgs[@]} )); then
+        paci "${pkgs[@]}"
+    else
+        echo "Nothing selected, aborting."
     fi
-    SNAP_PAC_SKIP=true pac -Sy "${aur_pkgs[@]}" "${repo_pkgs[@]}"
-}
-
-pacu() {
-    xargs -a <(aur vercmp-devel | cut -d' ' -f1) aur sync -Scu --rebuild "$@"
-    post_aur
-    pac -Syu
-}
-
-pacQ() {
-    [[ $# == 1 ]] || return 1;
-    [ -e "$1" ] && file="$1" || file="$(which "$1")"
-    [ -e "$file" ] || { echo >&2 "File '$1' not found, aborting."; return 1; }
-    pacman -Qo "$file"
-}
-
-aurs() {
-    aur sync -Sc "$@"
-    sudo -E pacman -Sy
-    refresh-waybar-updates
-    post_aur
-}
-alias aurs!='aurs --nover-argv -f'
-
-aurb() {
-    aur build -Scf --pkgver "$@"
-    sudo -E pacman -Sy
-    refresh-waybar-updates
-    post_aur
-}
-
-post_aur() {
-    find ~/.cache/aurutils/sync -name .git -execdir git clean -fx \; >/dev/null
-    find /var/cache/pacman/maximbaz-local -group root -delete >/dev/null
-}
-
-refresh-waybar-updates() {
-    systemctl --user start waybar-updates.service
 }
 
 rga-fzf() {

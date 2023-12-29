@@ -68,8 +68,6 @@ copy "etc/default/earlyoom"
 copy "etc/iwd/main.conf"
 copy "etc/modprobe.d/hid_apple.conf"
 copy "etc/nftables.conf"
-copy "etc/pacman-$(uname -m).conf" 644 "etc/pacman.conf"
-copy "etc/pacman.d/hooks"
 copy "etc/pam.d/polkit-1"
 copy "etc/pam.d/sudo"
 copy "etc/ssh/ssh_config"
@@ -82,8 +80,6 @@ copy "etc/systemd/network/50-wired.network"
 copy "etc/systemd/resolved.conf.d/dnssec.conf"
 copy "etc/systemd/system/getty@tty1.service.d/override.conf"
 copy "etc/systemd/system/usbguard.service.d/override.conf"
-copy "etc/systemd/system/reflector.service"
-copy "etc/systemd/system/reflector.timer"
 copy "etc/systemd/system/system-dotfiles-sync.service"
 copy "etc/systemd/system/system-dotfiles-sync.timer"
 copy "etc/systemd/system.conf.d/kill-fast.conf"
@@ -91,12 +87,6 @@ copy "etc/udev/rules.d/50-usb_yubikey_power_save.rules"
 copy "etc/udisks2/mount_options.conf"
 copy "etc/usbguard/usbguard-daemon.conf" 600
 copy "etc/vconsole.conf"
-
-if [[ $HOSTNAME == home-* ]]; then
-    copy "etc/systemd/system/backup-repo@pkgbuild"
-    copy "etc/systemd/system/backup-repo@.service"
-    copy "etc/systemd/system/backup-repo@.timer"
-fi
 
 (("$reverse")) && exit 0
 
@@ -117,7 +107,6 @@ systemctl_enable_start "linux-modules-cleanup.service"
 systemctl_enable_start "lenovo_fix.service"
 systemctl_enable_start "nftables.service"
 systemctl_enable_start "pcscd.socket"
-systemctl_enable_start "reflector.timer"
 systemctl_enable_start "system-dotfiles-sync.timer"
 systemctl_enable_start "systemd-networkd.socket"
 systemctl_enable_start "systemd-resolved.service"
@@ -129,10 +118,6 @@ else
     chmod 600 /etc/usbguard/rules.conf
     systemctl_enable_start "usbguard.service"
     systemctl_enable_start "usbguard-dbus.service"
-fi
-
-if [[ $HOSTNAME == home-* ]]; then
-    systemctl_enable_start "backup-repo@pkgbuild.timer"
 fi
 
 echo ""
@@ -165,8 +150,3 @@ fi
 
 echo "Configuring NTP"
 timedatectl set-ntp true
-
-echo "Configuring aurutils"
-mkdir -p /etc/aurutils
-ln -sf /etc/pacman.conf "/etc/aurutils/pacman-maximbaz-local.conf"
-ln -sf /etc/pacman.conf "/etc/aurutils/pacman-$(uname -m).conf"

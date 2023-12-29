@@ -1,5 +1,0 @@
-REMOTE_ADDR=pkgbuild-repo
-LOCAL_PATH=/var/cache/pacman/maximbaz-local/
-REMOTE_PATH=~/public_html/repo
-LOCAL_PATH_AURUTILS=/home/maximbaz/.local/share/aurutils/
-REMOTE_PATH_AURUTILS=~/aurutils-cache
