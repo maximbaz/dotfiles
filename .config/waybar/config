@@ -159,7 +159,7 @@
     },
     "network": {
         "interval": 2,
-        "interface": "wlan0",
+        "interface": "wlp1s0f0",
         "format-wifi": "<span foreground='#928374'></span> {essid}",
         "format-ethernet": "<span foreground='#928374'></span> {ifname}",
         "format-linked": "<span foreground='#928374'></span> {ifname}",
