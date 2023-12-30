@@ -35,3 +35,6 @@
 [submodule "lscolors"]
 	path = lscolors
 	url = https://github.com/trapd00r/LS_COLORS.git
+[submodule ".config/mpv/thumbfast"]
+	path = .config/mpv/thumbfast
+	url = https://github.com/po5/thumbfast
