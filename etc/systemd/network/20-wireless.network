@@ -4,7 +4,6 @@ Name = wlp*
 [Network]
 DHCP = yes
 Domains = ~lan
-DNSDefaultRoute = yes
 DNSSEC = allow-downgrade
 
 [DHCP]

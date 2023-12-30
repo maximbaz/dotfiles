@@ -3,6 +3,8 @@ Name = enp*
 
 [Network]
 DHCP = yes
+Domains = ~lan
+DNSSEC = allow-downgrade
 
 [DHCP]
 RouteMetric = 50
