@@ -60,6 +60,19 @@ systemctl_enable_start() {
 
 echo ""
 echo "=========================="
+echo "Setting up reverse sync..."
+echo "=========================="
+
+if [ -z "$reverse" ]; then
+    printf "#!/bin/sh\n$0 -r\n" > /usr/local/bin/system-dotfiles-sync
+    chmod +x /usr/local/bin/system-dotfiles-sync
+    echo "Done"
+else
+    echo "Skipped in reverse mode"
+fi
+
+echo ""
+echo "=========================="
 echo "Setting up /etc configs..."
 echo "=========================="
 

@@ -3,4 +3,4 @@ Description=Sync system dotfiles
 
 [Service]
 Type=oneshot
-ExecStart=/home/maximbaz/.dotfiles/setup-system.sh -r
+ExecStart=/usr/local/bin/system-dotfiles-sync
