@@ -134,6 +134,7 @@ else
     systemctl_enable_start "swaync.service"
     systemctl_enable_start "polkit-gnome.service"
     systemctl_enable_start "push2talk.service"
+    systemctl_enable_start "syncthing.service"
     systemctl_enable_start "systembus-notify.service"
     systemctl_enable_start "systemd-tmpfiles-setup.service"
     systemctl_enable_start "udiskie.service"
