@@ -17,7 +17,7 @@ refresh: ## Refresh the backup lists
 
 .PHONY: publish
 publish: ## Publish the meta-package to the repo
-	copr build personal maximbaz.spec
+	copr build --nowait personal maximbaz.spec
 
 .PHONY: clean
 clean: ## Cleanup

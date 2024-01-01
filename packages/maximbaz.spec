@@ -1,4 +1,4 @@
-%global pkgver 1.4.0
+%global pkgver 1.4.1
 
 Name:       maximbaz
 Version:    %pkgver
@@ -167,6 +167,7 @@ Recommends: sipcalc
 Recommends: socat
 Recommends: sqlite
 Recommends: strace
+Recommends: supertuxkart
 Recommends: swappy
 Recommends: swaybg
 Recommends: swaylock
