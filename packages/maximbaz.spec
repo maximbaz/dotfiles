@@ -1,4 +1,4 @@
-%global pkgver 1.3.0
+%global pkgver 1.4.0
 
 Name:       maximbaz
 Version:    %pkgver
@@ -71,6 +71,7 @@ Recommends: earlyoom
 Recommends: editorconfig
 Recommends: eza
 Recommends: fd-find
+Recommends: ff2mpv
 Recommends: ffmpeg-free
 Recommends: firefox
 Recommends: fontawesome-fonts-all
@@ -87,7 +88,9 @@ Recommends: goimapnotify
 Recommends: golang
 Recommends: golang-x-tools-gopls
 Recommends: google-droid-fonts-all
+Recommends: google-noto-sans-cjk-fonts
 Recommends: google-noto-sans-fonts
+Recommends: google-noto-serif-cjk-fonts
 Recommends: google-noto-serif-fonts
 Recommends: helix
 Recommends: helvum
@@ -117,6 +120,8 @@ Recommends: meld
 Recommends: meson
 Recommends: mock
 Recommends: mpv
+Recommends: mpv-mpris
+Recommends: msmtp
 Recommends: neomutt
 Recommends: nextcloud-client
 Recommends: nftables
@@ -148,6 +153,7 @@ Recommends: python3-lsp-server+all
 Recommends: python3-pip
 Recommends: qalculate-gtk
 Recommends: qrencode
+Recommends: qutebrowser
 Recommends: ripgrep
 Recommends: rpmconf
 Recommends: rpmdevtools
@@ -165,6 +171,7 @@ Recommends: swappy
 Recommends: swaybg
 Recommends: swaylock
 Recommends: SwayNotificationCenter
+Recommends: syncthing
 Recommends: systembus-notify
 Recommends: systemd-oomd-defaults
 Recommends: teehee
@@ -179,6 +186,7 @@ Recommends: unzip
 Recommends: usbguard
 Recommends: usbguard-dbus
 Recommends: vimiv-qt
+Recommends: w3m
 Recommends: waybar
 Recommends: wireguard-tools
 Recommends: wl-clipboard
