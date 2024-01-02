@@ -3,7 +3,7 @@
 before_lock() {
     playerctl -a pause
     bluetoothctl disconnect
-    light -s sysfs/leds/kbd_backlight -S 0%
+    brightnessctl set -d kbd_backlight 0
     hyprctl switchxkblayout 'apple-internal-keyboard-/-trackpad' 0
     sudo systemctl stop pcscd.service
 }
