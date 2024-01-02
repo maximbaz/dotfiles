@@ -50,7 +50,6 @@ window#waybar {
 #disk.warning,
 #memory.warning,
 #cpu.warning,
-#custom-movie.on,
 #custom-dnd.dnd-notification,
 #custom-dnd.dnd-none {
   border-top: 3px solid @background;
@@ -130,7 +129,6 @@ window#waybar {
 }
 
 #custom-decrypted,
-#custom-movie,
 #custom-vpn {
   color: @dim;
 }
