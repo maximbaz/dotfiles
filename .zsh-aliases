@@ -238,6 +238,10 @@ alias pacq='dnf info'
 alias pacl='rpm -ql'
 alias pacdiff='sudo rpmconf -a'
 
+alias paci!='sudo dnf makecache && paci'
+alias pacu!='sudo dnf makecache && pacu'
+alias pacs!='sudo dnf makecache && pacs'
+
 pac() {
     sudo dnf "$@" || return 1
     pkill -RTMIN+1 -x waybar
