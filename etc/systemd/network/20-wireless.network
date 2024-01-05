@@ -3,8 +3,6 @@ Name = wlp*
 
 [Network]
 DHCP = yes
-Domains = ~lan
-DNSSEC = allow-downgrade
 
 [DHCP]
 RouteMetric = 20

@@ -92,7 +92,6 @@ copy "etc/systemd/journald.conf.d/override.conf"
 copy "etc/systemd/logind.conf.d/override.conf"
 copy "etc/systemd/network/20-wireless.network"
 copy "etc/systemd/network/50-wired.network"
-copy "etc/systemd/resolved.conf.d/global.conf"
 copy "etc/systemd/system/getty@tty1.service.d/override.conf"
 copy "etc/systemd/system/usbguard.service.d/override.conf"
 copy "etc/systemd/system/system-dotfiles-sync.service"
@@ -117,11 +116,11 @@ systemctl_enable_start "bluetooth.service"
 systemctl_enable_start "earlyoom.service"
 systemctl_enable_start "fstrim.timer"
 systemctl_enable_start "iwd.service"
+systemctl_enable_start "kresd@1.service"
 systemctl_enable_start "nftables.service"
 systemctl_enable_start "pcscd.socket"
 systemctl_enable_start "system-dotfiles-sync.timer"
 systemctl_enable_start "systemd-networkd.socket"
-systemctl_enable_start "systemd-resolved.service"
 systemctl_enable_start "tlp.service"
 
 if [ ! -s "/etc/usbguard/rules.conf" ]; then
@@ -157,7 +156,10 @@ if is_chroot; then
     echo >&2 "=== Running in chroot, skipping /etc/resolv.conf setup..."
 else
     echo "Configuring /etc/resolv.conf"
-    ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+    chattr -i /etc/resolv.conf
+    rm -rf /etc/resolv.conf
+    echo 'nameserver 127.0.0.1' > /etc/resolv.conf
+    chattr +i /etc/resolv.conf
 fi
 
 echo "Configuring NTP"
