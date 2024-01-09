@@ -16,8 +16,8 @@
         context
         dir
         direnv
-        xplr
         vcs
+        virtualenv
         kubecontext
         azure
         command_execution_time
@@ -111,9 +111,11 @@
     typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=179
     typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION=" "
 
-    ##################[ xplr: xplr shell (https://github.com/sayanarijit/xplr) ]##################
-    typeset -g POWERLEVEL9K_XPLR_FOREGROUND=43
-    typeset -g POWERLEVEL9K_XPLR_VISUAL_IDENTIFIER_EXPANSION=" "
+    ##################[ virtualenv: python virtualenv ]##################
+    typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=40
+    typeset -g POWERLEVEL9K_VIRTUALENV_PREFIX='%fwith '
+    typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION=" "
+    typeset -g POWERLEVEL9K_VIRTUALENV_CONTENT_EXPANSION='${P9K_CONTENT%% *}'
 
     #####################################[ vcs: git status ]######################################
     function my_git_formatter() {
