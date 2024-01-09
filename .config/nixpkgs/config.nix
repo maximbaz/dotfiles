@@ -6,13 +6,14 @@
         maximbaz = pkgs.buildEnv {
             name = "maximbaz";
             paths = [
-                (python310.withPackages (ps: with ps; [
+                (python311.withPackages (ps: with ps; [
                     pyyaml
                     pynacl
                     pylint
                     tldextract
                     isort
                     black
+                    pip
                 ]))
 
                 azure-cli
@@ -25,7 +26,7 @@
                 direnv
                 dos2unix
                 editorconfig-core-c
-                exa
+                eza
                 fd
                 findutils
                 fzf
@@ -52,6 +53,7 @@
                 less
                 nodePackages.prettier
                 openssh
+                sshpass
                 pass
                 patch
                 pgcli
