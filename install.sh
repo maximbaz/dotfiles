@@ -2,6 +2,12 @@
 #
 # Arch Linux installation
 #
+# ========================================================================
+# DO NOT RUN IT AS IS!
+# Use as a reference for how my own opinionated setup look like.
+# Refer to it e.g. when installing using the official Arch Linux installer.
+# ========================================================================
+#
 # Bootable USB:
 # - [Download](https://archlinux.org/download/) ISO and GPG files
 # - Verify the ISO file: `$ pacman-key -v archlinux-<version>-dual.iso.sig`

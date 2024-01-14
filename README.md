@@ -2,13 +2,8 @@
 
 Explore the repo and incorporate what you like into your own setup. If you have any questions, comments or suggestions, feel free to open an issue or PR!
 
-When you fork, remember to grep for `maximbaz` and replace with your username.
-
-[Installation script](https://github.com/maximbaz/dotfiles/blob/master/install.sh) is deploying an opinionated Arch Linux setup, but in general can be used by anyone. If you want to learn more, I highly recommend to at least read the installation script first, and maybe modify to your own needs.
-
-If you want to try my entire setup in a VM, make sure to use `maximbaz` as the username - it will install additional things and my dotfiles.
-
 For daily usage, I recommend forking [my repo](https://github.com/maximbaz/dotfiles) instead of using it directly, as I am changing things on daily basis 🙂
+Remember to grep for `maximbaz` and replace with your username.
 
 Enjoy! 🚀
 
@@ -75,10 +70,6 @@ Enjoy! 🚀
 ☑ Setup script that configures user and system dotfiles, systemd services and other little things.
 
 > This script is safe to re-run at any time.
-
-☑ Arch Linux installation script.
-
-> Fully automated script that installs Arch Linux from scratch and configures it exactly as I like.
 
 ☑ btrfs snapshots for easy system recovery.
 
