@@ -16,7 +16,7 @@ c.tabs.title.format_pinned = "{index}: {audio}{current_title}"
 # general
 c.auto_save.session = True
 c.content.default_encoding = "utf-8"
-c.content.javascript.can_access_clipboard = True
+c.content.javascript.clipboard = "access"
 c.content.notifications.enabled = True
 c.editor.command = ["kitty", "kak", "-e", "exec {line}g{column0}l", "{}"]
 c.fileselect.handler = "external"
