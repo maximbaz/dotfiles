@@ -101,6 +101,21 @@ lsp-inlay-hints-enable global
 lsp-inlay-code-lenses-enable global
 set-option global lsp_auto_highlight_references true
 
+evaluate-commands %sh{
+  skyspell-kak init
+}
+
+declare-user-mode skyspell
+map global skyspell -docstring 'clear spelling highlighters'      D ': skyspell-disable<ret>'
+map global skyspell -docstring 'enable spell checking in English' e ': skyspell-enable en_US<ret>'
+map global skyspell -docstring 'enable spell checking in Danish'  d ': skyspell-enable da_DK<ret>'
+map global skyspell -docstring 'list spelling errors in a buffer' l ': skyspell-list <ret>'
+map global skyspell -docstring 'show help message'                h ': skyspell-help <ret>'
+map global skyspell -docstring 'go to next spell error'           n ': skyspell-next<ret>'
+map global skyspell -docstring 'go to previous spell error'       p ': skyspell-previous<ret>'
+map global skyspell -docstring 'suggest a list of replacements'   r ': skyspell-replace<ret>'
+map global user     -docstring 'spell mode'                       S ': enter-user-mode skyspell<ret>'
+
 define-command detect-indentwidth -docstring 'Detect indentwidth' %{
     try %{
         evaluate-commands -draft %{
