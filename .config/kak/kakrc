@@ -260,8 +260,13 @@ hook global WinSetOption filetype=rust %{
     }
 }
 
-hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml|html) %{
-    set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+hook global WinSetOption filetype=(css|scss|markdown|yaml|html) %{
+    set-option buffer formatcmd "prettier --stdin-filepath='%val{buffile}'"
+    hook buffer -group format BufWritePre .* format
+}
+
+hook global WinSetOption filetype=(javascript|typescript|json) %{
+    set-option buffer formatcmd "biome format --indent-style=space --stdin-file-path='%val{buffile}'"
     hook buffer -group format BufWritePre .* format
 }
 
