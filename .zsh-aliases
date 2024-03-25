@@ -95,7 +95,7 @@ kout() {
 
 ## docker-compose
 
-alias dc='docker-compose'
+command -v docker-compose &> /dev/null && alias dc='docker-compose' || alias dc='docker compose'
 alias dcu='dc up -d'
 alias dcd='dc down'
 alias dcr='dcd; dcu'
