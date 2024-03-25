@@ -7,7 +7,7 @@ menu=$(printf "firefox temp$containers\nqutebrowser\nchromium\ncopy to clipboard
 
 case $menu in
     "firefox temp")
-        firefox "ext+container:name=%TEMP%&url=$url_encoded" &
+        firefox "ext+container:name=%NEW_TEMP_CONTAINER%&url=$url_encoded" &
         ;;
     "firefox "*)
         container=$(echo "$menu" | awk -F'[()]' '{print $2}')
