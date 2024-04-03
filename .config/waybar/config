@@ -2,8 +2,8 @@
     "layer": "top",
     "height": 25,
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/submap"
+        "sway/workspaces",
+        "sway/mode"
     ],
     "modules-right": [
         "custom/progress",
@@ -23,14 +23,11 @@
         "memory",
         "disk",
         "backlight",
-        "hyprland/language",
+        "sway/language",
         "battery",
         "clock"
     ],
 
-    "hyprland/workspaces": {
-         "format": "{name}"
-    },
     "custom/progress": {
         "exec": "waybar-progress",
         "return-type": "json",
@@ -136,8 +133,7 @@
         "format": "<span foreground='#928374'>{icon}</span> {percent}%",
         "format-icons": [""]
     },
-    "hyprland/language": {
-        // "format": "{flag}",
+    "sway/language": {
         "min-length": 3,
     },
     "battery": {

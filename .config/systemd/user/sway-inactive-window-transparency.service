@@ -1,0 +1,12 @@
+[Unit]
+Description=Make inactive windows in sway semi-transparent
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/sway-inactive-window-transparency
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=graphical-session.target

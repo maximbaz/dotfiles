@@ -1,0 +1,13 @@
+[Unit]
+Description=swayr daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/local/bin/swayrd
+Restart=always
+RestartSec=10s
+StandardOutput=null
+
+[Install]
+WantedBy=graphical-session.target

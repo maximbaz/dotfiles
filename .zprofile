@@ -9,7 +9,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 systemctl --user import-environment GPG_TTY SSH_AUTH_SOCK
 
 if [[ -z $DISPLAY && "$TTY" == "/dev/tty1" ]]; then
-    systemd-cat -t hyprland Hyprland
+    systemd-cat -t sway sway
     systemctl --user stop graphical-session.target
-    systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY
+    systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 fi

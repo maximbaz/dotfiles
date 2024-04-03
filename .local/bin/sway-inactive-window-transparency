@@ -1,0 +1,56 @@
+#!/usr/bin/python
+
+import signal
+import sys
+
+import i3ipc
+
+INACTIVE_OPACITY = 0.7
+
+
+class Monitor:
+    def __init__(self):
+        self.ipc = i3ipc.Connection()
+        self.prev_workspace = self.ipc.get_tree().find_focused().workspace().num
+
+        for window in self.ipc.get_tree():
+            if window.focused:
+                self.prev_focused = window
+            else:
+                self.deactivate(window)
+
+    def on_window_focus(self, _, event):
+        focused = event.container
+        workspace = self.ipc.get_tree().find_focused().workspace().num
+
+        # https://github.com/swaywm/sway/issues/2859
+        if focused.id != self.prev_focused.id:
+            focused.command("opacity 1")
+            if workspace == self.prev_workspace:
+                self.deactivate(self.prev_focused)
+            self.prev_focused = focused
+            self.prev_workspace = workspace
+
+    def deactivate(self, window):
+        if window.type != "floating_con":
+            window.command(f"opacity {INACTIVE_OPACITY}")
+
+    def start(self):
+        self.ipc.on("window::focus", self.on_window_focus)
+        self.ipc.main()
+
+    def stop(self):
+        for workspace in self.ipc.get_tree().workspaces():
+            for w in workspace:
+                w.command("opacity 1")
+        self.ipc.main_quit()
+        sys.exit(0)
+
+
+if __name__ == "__main__":
+    monitor = Monitor()
+
+    for sig in [signal.SIGINT, signal.SIGTERM]:
+        signal.signal(sig, lambda _a, _b: monitor.stop())
+
+    monitor.start()
