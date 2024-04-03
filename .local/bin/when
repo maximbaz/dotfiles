@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys
-from datetime import datetime
+from datetime import UTC, datetime
 from time import time
 
 time_blocks = [
@@ -46,7 +46,7 @@ def main():
     while timestamp > 9999999999:
         print("(dividing by 1000 to reach timestamp in seconds...)")
         timestamp /= 1000
-    print(datetime.utcfromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S UTC"))
+    print(datetime.fromtimestamp(timestamp, UTC).strftime("%Y-%m-%d %H:%M:%S UTC"))
     print(format(timestamp, time()))
 
 
