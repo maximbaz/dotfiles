@@ -11,9 +11,10 @@ bt_card=$(pactl list | grep "Name: bluez_card." | cut -d ' ' -f 2)
 
 case "$1" in
     bt-toggle-profile)
-        a2dp=$(pactl list | grep Active | grep a2dp-sink-sbc)
+        a2dp=$(pactl list | grep Active | grep a2dp-sink)
         [ -n "$bt_card" ] || error "No bluetooth device connected"
-        [ -n "$a2dp" ] && new=headset-head-unit-msbc || new=a2dp-sink-sbc
+        [ -n "$a2dp" ] && new=headset-head-unit-msbc || new=a2dp-sink
+        echo pactl set-card-profile "$bt_card" "$new"
         pactl set-card-profile "$bt_card" "$new"
         ;;
     bt-connect-headset)    bluetoothctl connect 20:74:CF:B2:B0:BD ;;
