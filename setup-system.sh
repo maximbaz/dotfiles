@@ -164,3 +164,4 @@ fi
 
 echo "Configuring NTP"
 timedatectl set-ntp true
+timedatectl set-local-rtc 0

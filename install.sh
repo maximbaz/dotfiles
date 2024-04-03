@@ -70,6 +70,7 @@ fi
 
 echo -e "\n### Setting up clock"
 timedatectl set-ntp true
+timedatectl set-local-rtc 0
 hwclock --systohc --utc
 
 echo -e "\n### Installing additional tools"
