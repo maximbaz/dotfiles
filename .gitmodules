@@ -38,3 +38,6 @@
 [submodule ".config/mpv/thumbfast"]
 	path = .config/mpv/thumbfast
 	url = https://github.com/po5/thumbfast
+[submodule ".config/helix/themes"]
+	path = .config/helix/themes
+	url = https://github.com/jeronimobarea/helix_gruvbox_community

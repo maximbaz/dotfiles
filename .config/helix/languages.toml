@@ -1,0 +1,77 @@
+[language-server.biome]
+command = "biome"
+args = ["lsp-proxy"]
+
+[language-server.gpt]
+command = "helix-gpt"
+args = ["--handler", "copilot"]
+
+[[language]]
+name = "javascript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.ts"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.tsx"] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.jsx"] }
+auto-format = true
+
+[[language]]
+name = "json"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.json"] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.jsonc"] }
+auto-format = true
+
+[[language]]
+name = "python"
+formatter = {command = "sh", args = ["-c", "isort --profile black - | black -q -"]}
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = {command = "prettier", args = ["--stdin-filepath", "file.md"]}
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = {command = "prettier", args = ["--stdin-filepath", "file.css"]}
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = {command = "prettier", args = ["--stdin-filepath", "file.scss"]}
+auto-format = true
+
+[[language]]
+name = "html"
+formatter = {command = "prettier", args = ["--stdin-filepath", "file.html"]}
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = {command = "prettier", args = ["--stdin-filepath", "file.yaml"]}
+auto-format = true
+
+[[language]]
+name = "sql"
+formatter = {command = "pg_format", args = ["-iu1", "--no-space-function", "-"]}
+auto-format = true
