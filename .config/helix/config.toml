@@ -50,7 +50,7 @@ A-T = "extend_till_prev_char"
 A-F = "extend_prev_char"
 A-j = "join_selections"
 A-k = "keep_selections"
-M = ["select_mode", "match_brackets", "normal_mode" ]
+M = ["select_mode", "match_brackets", "normal_mode"]
 "#" = "toggle_comments"
 A-l = "extend_to_line_end"
 A-h = "extend_to_line_start"
@@ -81,8 +81,8 @@ w = ":write"
 "." = ":toggle file-picker.git-ignore"
 
 [keys.insert]
-C-d = ["page_cursor_half_down", "align_view_center"]
-C-u = ["page_cursor_half_up", "align_view_center"]
+C-u = ["extend_to_line_bounds", "delete_selection_noyank", "open_above"]
+C-w = ["move_prev_word_start", "delete_selection_noyank"]
 C-space = "completion"
 S-tab = "move_parent_node_start"
 
