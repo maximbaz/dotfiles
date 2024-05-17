@@ -73,12 +73,12 @@ k = "goto_file_start"
 
 [keys.normal.space]
 c = ":buffer-close"
-"." = ":toggle auto-format"
+A-f = ":toggle auto-format"
 q = ":write-quit-all"
 Q = ":quit!"
 e = ":config-open"
 w = ":write"
-A-f = ":toggle file-picker.git-ignore"
+"." = ":toggle file-picker.git-ignore"
 
 [keys.insert]
 C-d = ["page_cursor_half_down", "align_view_center"]
