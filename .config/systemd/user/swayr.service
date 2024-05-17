@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 After=graphical-session.target
 
 [Service]
-ExecStart=/usr/local/bin/swayrd
+ExecStart=/usr/bin/swayrd
 Restart=always
 RestartSec=10s
 StandardOutput=null
