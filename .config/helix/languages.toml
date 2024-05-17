@@ -1,3 +1,5 @@
+# === LSP ===
+
 [language-server.biome]
 command = "biome"
 args = ["lsp-proxy"]
@@ -6,72 +8,108 @@ args = ["lsp-proxy"]
 command = "helix-gpt"
 args = ["--handler", "copilot"]
 
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.yaml-language-server.config.yaml.schemas]
+kubernetes = 'k8s/*.yaml'
+
+# === Languages ===
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "gpt"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.css"] }
+auto-format = true
+
+[[language]]
+name = "go"
+language-servers = ["gopls", "golangci-lint-lsp", "gpt"]
+formatter = { command = "goimports" }
+auto-format = true
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "gpt"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.html"] }
+auto-format = true
+
 [[language]]
 name = "javascript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
-auto-format = true
-
-[[language]]
-name = "typescript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
-formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.ts"] }
-auto-format = true
-
-[[language]]
-name = "tsx"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
-formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.tsx"] }
-auto-format = true
-
-[[language]]
-name = "jsx"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "gpt" ]
-formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.jsx"] }
+language-servers = [{ name = "typescript-language-server", except-features = ["format"] }, "biome", "gpt"]
 auto-format = true
 
 [[language]]
 name = "json"
-language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [{ name = "vscode-json-language-server", except-features = ["format"] }, "biome", "gpt"]
 formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.json"] }
 auto-format = true
 
 [[language]]
 name = "jsonc"
-language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [{ name = "vscode-json-language-server", except-features = ["format"] }, "biome", "gpt"]
 formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.jsonc"] }
 auto-format = true
 
 [[language]]
-name = "python"
-formatter = {command = "sh", args = ["-c", "isort --profile black - | black -q -"]}
+name = "jsx"
+language-servers = [{ name = "typescript-language-server", except-features = ["format"] }, "biome", "gpt"]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.jsx"] }
 auto-format = true
 
 [[language]]
 name = "markdown"
-formatter = {command = "prettier", args = ["--stdin-filepath", "file.md"]}
+language-servers = ["marksman", "gpt"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.md"] }
 auto-format = true
 
 [[language]]
-name = "css"
-formatter = {command = "prettier", args = ["--stdin-filepath", "file.css"]}
+name = "python"
+language-servers = ["pylsp", "gpt"]
+formatter = { command = "sh", args = ["-c", "isort --profile black - | black -q -"] }
+auto-format = true
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer", "gpt"]
 auto-format = true
 
 [[language]]
 name = "scss"
-formatter = {command = "prettier", args = ["--stdin-filepath", "file.scss"]}
-auto-format = true
-
-[[language]]
-name = "html"
-formatter = {command = "prettier", args = ["--stdin-filepath", "file.html"]}
-auto-format = true
-
-[[language]]
-name = "yaml"
-formatter = {command = "prettier", args = ["--stdin-filepath", "file.yaml"]}
+language-servers = ["vscode-css-language-server", "gpt"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.scss"] }
 auto-format = true
 
 [[language]]
 name = "sql"
-formatter = {command = "pg_format", args = ["-iu1", "--no-space-function", "-"]}
+language-servers = ["sql-language-server", "gpt"]
+formatter = { command = "pg_format", args = ["-iu1", "--no-space-function", "-"] }
+auto-format = true
+
+[[language]]
+name = "toml"
+language-servers = ["taplo", "gpt"]
+formatter = { command = "taplo", args = ["fmt", "-o", "column_width=120", "-"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [{ name = "typescript-language-server", except-features = ["format"] }, "biome", "gpt"]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.tsx"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [{ name = "typescript-language-server", except-features = ["format"] }, "biome", "gpt"]
+formatter = { command = "biome", args = ["format", "--indent-style", "space", "--stdin-file-path", "file.ts"] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server", "gpt"]
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.yaml"] }
 auto-format = true
