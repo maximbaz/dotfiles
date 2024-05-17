@@ -28,7 +28,8 @@ cat "/boot/initramfs-$kver.img" >> "$target.new"
 binwalk --run-as=root -e "/boot/vmlinuz-$kver" > /dev/null
 gzip -c "$(find . -type f)" >> "$target.new"
 
-mv "$target.new" "$target"
+[ -e "$target" ] && mv -f "$target" "$target.old"
+mv -f "$target.new" "$target"
 
 rm -rf "$tmpdir"
 
