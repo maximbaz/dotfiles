@@ -64,6 +64,11 @@ formatter = { command = "prettier", args = ["--stdin-filepath", "file.md"] }
 auto-format = true
 
 [[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt" }
+auto-format = true
+
+[[language]]
 name = "python"
 language-servers = ["pylsp", "gpt"]
 formatter = { command = "sh", args = ["-c", "isort --profile black - | black -q -"] }
