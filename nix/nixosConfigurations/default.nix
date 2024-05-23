@@ -12,7 +12,7 @@
     initrd.systemd.enable = true;
   };
 
-  # sound.enable = true;
+  sound.enable = true;
 
   time.timeZone = "Europe/Copenhagen";
   i18n = {
@@ -82,6 +82,7 @@
   programs.adb.enable = true;
 
   security = {
+    rtkit.enable = true;
     polkit.enable = true;
     pam = {
       services.sudo.u2fAuth = true;
@@ -89,12 +90,6 @@
       u2f.cue = true;
     };
   };
-
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   pulse.enable = true;
-  # };
 
   services = {
     #   upower.enable = true;

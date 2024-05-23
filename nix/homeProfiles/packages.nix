@@ -75,6 +75,7 @@
     pigz
     pass
     pavucontrol
+    pamixer
     pwgen
     qalculate-gtk
     qrencode
@@ -111,6 +112,7 @@
     go
     nodejs
     nodePackages.pnpm
+    python3
 
     glib
 
