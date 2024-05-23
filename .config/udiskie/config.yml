@@ -1,3 +1,0 @@
-device_config:
-  - device_file: /dev/mmcblk0
-    automount: False

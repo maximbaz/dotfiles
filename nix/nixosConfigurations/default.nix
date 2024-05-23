@@ -75,9 +75,10 @@
   programs.adb.enable = true;
 
   security = {
-    # polkit.enable = true;
+    polkit.enable = true;
     pam = {
       services.sudo.u2fAuth = true;
+      services.polkit-1.u2fAuth = true;
       u2f.cue = true;
     };
   };
@@ -88,12 +89,12 @@
   #   pulse.enable = true;
   # };
 
-  #   services = {
-  #   upower.enable = true;
-  #   fstrim.enable = true;
-  #   timesyncd.enable = true;
-  #   udisks2.enable = true;
-  # };
+  services = {
+    #   upower.enable = true;
+    #   fstrim.enable = true;
+    #   timesyncd.enable = true;
+    udisks2.enable = true;
+  };
 
   swapDevices = [{
     device = "/swap/swapfile";
@@ -106,28 +107,52 @@
     memoryPercent = 100;
   };
 
-  # systemd = {
-  #     network.enable = true;
-  #     network.wait-online.enable = false;
-  #     network.networks."20-wlan0" = {
-  #       matchConfig.Name = "wlan0";
-  #       networkConfig = {
-  #         DHCP = "yes";
-  #         IPv6AcceptRA = "yes";
-  #       };
-  #     };
-  #   };
+  systemd = {
+    #     network.enable = true;
+    #     network.wait-online.enable = false;
+    #     network.networks."20-wlan0" = {
+    #       matchConfig.Name = "wlan0";
+    #       networkConfig = {
+    #         DHCP = "yes";
+    #         IPv6AcceptRA = "yes";
+    #       };
+    #     };
+    #   };
 
 
-  # fonts = {
-  #   fontDir.enable = true;
-  #   packages = with pkgs; [
-  #     noto-fonts-cjk
-  #     iosevka
-  #     wqy_zenhei
-  #     fira-code-nerdfont
-  #   ];
-  # };
+    # fonts = {
+    #   fontDir.enable = true;
+    #   packages = with pkgs; [
+    #     noto-fonts-cjk
+    #     iosevka
+    #     wqy_zenhei
+    #     fira-code-nerdfont
+    #   ];
+    # };
+
+    # xdg = {
+    #   portal = {
+    #     enable = true;
+    #     extraPortals = with pkgs; [
+    #       xdg-desktop-portal-gtk
+    #       xdg-desktop-portal-wlr
+    #     ];
+    #   };
+
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
 
   # xdg = {
   #   portal = {

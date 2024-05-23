@@ -2,7 +2,13 @@
 {
   programs.browserpass.enable = true;
 
+  services.udiskie.enable = true;
+
   home.packages = with pkgs; [
+    font-awesome
+    libnotify
+    polkit_gnome
+
     asahi-bless
     helix
     vscode
@@ -140,6 +146,7 @@
     (pkgs.writeScriptBin "sway-autoname-workspaces" (builtins.readFile ../../.local/bin/sway-autoname-workspaces))
     (pkgs.writeScriptBin "sway-inactive-window-transparency" (builtins.readFile ../../.local/bin/sway-inactive-window-transparency))
     (pkgs.writeShellScriptBin "sway-unfullscreen" (builtins.readFile ../../.local/bin/sway-unfullscreen))
+    (pkgs.writeScriptBin "udiskie-dmenu" (builtins.readFile ../../.local/bin/udiskie-dmenu))
     (pkgs.writeShellScriptBin "waybar-decrypted" (builtins.readFile ../../.local/bin/waybar-decrypted))
     (pkgs.writeShellScriptBin "waybar-dnd" (builtins.readFile ../../.local/bin/waybar-dnd))
     (pkgs.writeShellScriptBin "waybar-eyes" (builtins.readFile ../../.local/bin/waybar-eyes))
