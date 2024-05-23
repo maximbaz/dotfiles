@@ -101,6 +101,7 @@
     #   fstrim.enable = true;
     #   timesyncd.enable = true;
     udisks2.enable = true;
+    getty.autologinUser = "maximbaz";
   };
 
   swapDevices = [{
