@@ -8,10 +8,6 @@ args = ["lsp-proxy"]
 command = "helix-gpt"
 args = ["--handler", "copilot"]
 
-[language-server.sql-language-server]
-command = "sql-language-server"
-args = ["up", "--method", "stdio"]
-
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
@@ -86,7 +82,7 @@ auto-format = true
 
 [[language]]
 name = "sql"
-language-servers = ["sql-language-server", "gpt"]
+language-servers = ["gpt"]
 formatter = { command = "pg_format", args = ["-iu1", "--no-space-function", "-"] }
 auto-format = true
 
