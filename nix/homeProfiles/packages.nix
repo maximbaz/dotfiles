@@ -11,6 +11,10 @@
 
     asahi-bless
     helix
+    (kakoune.override
+      {
+        plugins = with kakounePlugins; [ kakoune-lsp ];
+      })
     vscode
 
     ffmpeg
@@ -106,18 +110,41 @@
     nftables
     iptables-nftables-compat
 
+    biome
     cargo
-    rust-analyzer
+    clang-tools
+    docker-compose-language-service
+    dockerfile-language-server-nodejs
+    gcc
     go
-    nodejs
-    nodePackages.pnpm
-    python3
-
-    glib
-
-    # nix lsp and format
+    golangci-lint
+    golangci-lint-langserver
+    gopls
+    gotools
+    helix-gpt
+    marksman
     nil
     nixpkgs-fmt
+    nodejs
+    nodePackages.bash-language-server
+    nodePackages.pnpm
+    nodePackages.prettier
+    nodePackages.typescript-language-server
+    pgformatter
+    pkg-config
+    (python3.withPackages (p: (with p; [
+      python-lsp-server
+      python-lsp-black
+      black
+    ])))
+    rust-analyzer
+    taplo
+    taplo-lsp
+    terraform-ls
+    vscode-langservers-extracted
+    yaml-language-server
+
+    glib
 
     (pkgs.writeShellScriptBin "cglaunch" (builtins.readFile ../../.local/bin/cglaunch))
     (pkgs.writeShellScriptBin "audio" (builtins.readFile ../../.local/bin/audio))
