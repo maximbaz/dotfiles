@@ -109,6 +109,8 @@
     cargo
     rust-analyzer
     go
+    nodejs
+    nodePackages.pnpm
 
     glib
 
