@@ -75,7 +75,6 @@
     pigz
     pass
     pavucontrol
-    pamixer
     pwgen
     qalculate-gtk
     qrencode
