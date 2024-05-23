@@ -32,7 +32,7 @@
     BAT_THEME = "gruvbox-dark";
     DIFFPROG = "meld";
     DOCKER_BUILDKIT = "1";
-    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
+    # DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
     MOZ_GMP_PATH = "/var/lib/widevine/gmp-widevinecdm/system-installed:/usr/lib64/mozilla/plugins/gmp-gmpopenh264/system-installed";
 
     MOZ_ENABLE_WAYLAND = "1";

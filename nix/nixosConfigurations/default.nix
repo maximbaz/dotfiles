@@ -154,15 +154,10 @@
     };
   };
 
-  # xdg = {
-  #   portal = {
-  #     enable = true;
-  #     extraPortals = with pkgs; [
-  #       xdg-desktop-portal-gtk
-  #       xdg-desktop-portal-wlr
-  #     ];
-  #   };
-  # };
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   system.stateVersion = "24.05";
 }
