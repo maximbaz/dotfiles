@@ -4,8 +4,12 @@
 
   services.udiskie.enable = true;
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     font-awesome
+    (pkgs.callPackage ../pkgs/input-fonts-maximbaz { })
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     libnotify
     polkit_gnome
 
