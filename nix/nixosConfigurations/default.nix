@@ -162,5 +162,8 @@
     setSocketVariable = true;
   };
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   system.stateVersion = "24.05";
 }
