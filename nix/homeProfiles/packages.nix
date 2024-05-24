@@ -12,6 +12,8 @@
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     libnotify
     polkit_gnome
+    libreoffice
+    zathura
 
     asahi-bless
     helix
@@ -108,6 +110,8 @@
     yubikey-touch-detector
     zip
     zsh
+    grim
+    slurp
 
 
 
