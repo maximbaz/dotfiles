@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     font-awesome
-    (pkgs.callPackage ../pkgs/input-fonts-maximbaz { })
+    input-fonts
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     libnotify
     polkit_gnome
