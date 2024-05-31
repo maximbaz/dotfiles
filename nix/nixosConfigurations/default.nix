@@ -38,6 +38,7 @@ in
 
   networking = {
     hostName = "home-manitoba";
+    useDHCP = false;
     wireless.iwd = {
       enable = true;
       settings.General.EnableNetworkConfiguration = true;
@@ -130,36 +131,22 @@ in
   };
 
   systemd = {
-    #     network.enable = true;
-    #     network.wait-online.enable = false;
-    #     network.networks."20-wlan0" = {
-    #       matchConfig.Name = "wlan0";
-    #       networkConfig = {
-    #         DHCP = "yes";
-    #         IPv6AcceptRA = "yes";
-    #       };
-    #     };
-    #   };
-
-
-    # fonts = {
-    #   fontDir.enable = true;
-    #   packages = with pkgs; [
-    #     noto-fonts-cjk
-    #     iosevka
-    #     wqy_zenhei
-    #     fira-code-nerdfont
-    #   ];
-    # };
-
-    # xdg = {
-    #   portal = {
-    #     enable = true;
-    #     extraPortals = with pkgs; [
-    #       xdg-desktop-portal-gtk
-    #       xdg-desktop-portal-wlr
-    #     ];
-    #   };
+    network = {
+      enable = true;
+      # wait-online.enable = false;
+      networks = {
+        "20-wireless" = {
+          matchConfig.Name = "wlan0";
+          networkConfig.DHCP = "yes";
+          dhcpConfig.RouteMetric = 20;
+        };
+        "50-wired" = {
+          matchConfig.Name = "enp*";
+          networkConfig.DHCP = "yes";
+          dhcpConfig.RouteMetric = 50;
+        };
+      };
+    };
 
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
@@ -175,6 +162,16 @@ in
       };
     };
   };
+
+  # xdg = {
+  #   portal = {
+  #     enable = true;
+  #     extraPortals = with pkgs; [
+  #       xdg-desktop-portal-gtk
+  #       xdg-desktop-portal-wlr
+  #     ];
+  #   };
+
 
   virtualisation.docker.rootless = {
     enable = true;
