@@ -21,6 +21,8 @@
     polkit_gnome
     libreoffice
     zathura
+    sqlite
+    nix-index
 
     asahi-bless
     helix
@@ -43,10 +45,11 @@
     gcr
     pinentry-gnome3
     firefox-wayland
-    # chromium
+    chromium
     qutebrowser
 
     mysql-client
+    postgresql_16
     dbmate
     pgcli
 
@@ -75,9 +78,10 @@
     earlyoom
     editorconfig-core-c
     eza
-    ff2mpv
+    ff2mpv-rust
     mpv
     mpvScripts.mpris
+    mpvScripts.uosc
     playerctl
     freerdp
     fzf
@@ -141,15 +145,14 @@
     nixpkgs-fmt
     nodejs
     nodePackages.bash-language-server
-    nodePackages.pnpm
     nodePackages.prettier
     nodePackages.typescript-language-server
     pgformatter
-    pkg-config
     (python3.withPackages (p: (with p; [
       python-lsp-server
       python-lsp-black
       black
+      isort
     ])))
     rust-analyzer
     taplo
@@ -172,7 +175,6 @@
     (pkgs.writeShellScriptBin "cglaunch" (builtins.readFile ../../.local/bin/cglaunch))
     (pkgs.writeShellScriptBin "cgtoggle" (builtins.readFile ../../.local/bin/cgtoggle))
     (pkgs.writeShellScriptBin "checkmail" (builtins.readFile ../../.local/bin/checkmail))
-    (pkgs.writeShellScriptBin "chromium-browser" (builtins.readFile ../../.local/bin/chromium-browser))
     (pkgs.writeShellScriptBin "dmenu" (builtins.readFile ../../.local/bin/dmenu))
     (pkgs.writeShellScriptBin "dmenu-wl" (builtins.readFile ../../.local/bin/dmenu))
     (pkgs.writeShellScriptBin "emoji-bootstrap" (builtins.readFile ../../.local/bin/emoji-bootstrap))
