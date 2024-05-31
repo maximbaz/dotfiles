@@ -4,6 +4,6 @@
   hardware.asahi = {
     peripheralFirmwareDirectory = /boot/asahi;
     useExperimentalGPUDriver = true;
-    experimentalGPUInstallMode = "overlay";
+    experimentalGPUInstallMode = "replace";
   };
 }
