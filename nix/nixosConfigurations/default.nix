@@ -117,6 +117,13 @@ in
     #   timesyncd.enable = true;
     udisks2.enable = true;
     getty.autologinUser = "maximbaz";
+
+    logind = {
+      lidSwitch = "ignore";
+      lidSwitchExternalPower = "ignore";
+      powerKey = "lock";
+      powerKeyLongPress = "suspend";
+    };
   };
 
   swapDevices = [{
