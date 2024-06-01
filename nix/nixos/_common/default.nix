@@ -12,6 +12,7 @@
     ./ssh.nix
     ./systemd.nix
     ./swap.nix
+    ./udisks2.nix
     ./users.nix
   ];
 
@@ -25,11 +26,9 @@
   programs.zsh.enable = true;
   programs.adb.enable = true;
 
-  services = {
-    #   upower.enable = true;
-    #   fstrim.enable = true;
-    udisks2.enable = true;
-  };
+  # services = {
+  #   fstrim.enable = true;
+  # };
 
   system.stateVersion = "24.05";
 }
