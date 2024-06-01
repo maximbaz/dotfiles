@@ -5,4 +5,6 @@
     powerKey = "lock";
     powerKeyLongPress = "suspend";
   };
+
+  services.upower.enable = true;
 }
