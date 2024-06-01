@@ -9,6 +9,8 @@
     wireless.iwd = {
       enable = true;
       settings.General.EnableNetworkConfiguration = true;
+      settings.General.AddressRandomization = "network";
+      settings.General.AddressRandomizationRange = "full";
     };
 
     nftables.enable = true;
