@@ -62,7 +62,7 @@
         "dirtyRev": "1d3ab8027c07b87eb213a2466ce904a075eb859e-dirty",
         "dirtyShortRev": "1d3ab80-dirty",
         "lastModified": 1717195464,
-        "narHash": "sha256-Yh6OlaTYReNw89kLXUTWFPHhPnKvnvyzAdFuTCo1H+M=",
+        "narHash": "sha256-LE7Z4pjuguZPvTA1Vj9ceAF8r7ljkhl+HNHH/bzutP0=",
         "type": "git",
         "url": "file:///home/maximbaz/.dotfiles-private"
       },
