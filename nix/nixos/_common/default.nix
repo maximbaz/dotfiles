@@ -13,6 +13,7 @@
     ./systemd.nix
     ./swap.nix
     ./udisks2.nix
+    ./usbguard.nix
     ./users.nix
   ];
 
