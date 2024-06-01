@@ -9,6 +9,7 @@
     ./pkgs.nix
     ./power.nix
     ./security.nix
+    ./ssh.nix
     ./swap.nix
     ./users.nix
   ];
