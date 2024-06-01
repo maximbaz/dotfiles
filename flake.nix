@@ -14,10 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    maximbaz-private = {
-      url = "git+file:///home/maximbaz/.dotfiles-private";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    maximbaz-private.url = "git+file:///home/maximbaz/.dotfiles-private";
   };
 
   outputs = { nixpkgs, home-manager, apple-silicon-support, maximbaz-private, ... }: {
@@ -30,7 +27,7 @@
             apple-silicon-support.nixosModules.apple-silicon-support
             home-manager.nixosModules.home-manager
             maximbaz-private.nixosModules.default
-            ./nix/default.nix
+            ./nix/nixos/home-manitoba
           ];
         };
     };

@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ./sway
+    ./sway.nix
     ./packages.nix
   ];
 

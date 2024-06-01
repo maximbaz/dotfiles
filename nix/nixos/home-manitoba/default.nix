@@ -1,5 +1,5 @@
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ../_common ];
 
   hardware.asahi = {
     peripheralFirmwareDirectory = /boot/asahi;

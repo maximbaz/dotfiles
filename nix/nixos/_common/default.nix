@@ -42,27 +42,16 @@
     };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # nix = {
-  #     package = pkgs.nixVersions.git;
-  #     channel.enable = false;
-  #     settings = {
-  #       substituters = [ "https://nix-community.cachix.org" ];
-  #       trusted-public-keys = [
-  #         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-  #       ];
-  #       experimental-features = [ "nix-command" "flakes" ];
-  #       auto-optimise-store = true;
-  #     };
-  #   };
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
 
   nixpkgs = {
     config = {
       allowUnfree = true;
       input-fonts.acceptLicense = true;
     };
-    overlays = [ (import ../overlay) ];
+    overlays = [ (import ../../overlay) ];
   };
 
   users.users.maximbaz = {
@@ -185,6 +174,13 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    backupFileExtension = "backup";
+    users.maximbaz = import ../../home;
+  };
 
   system.stateVersion = "24.05";
 }
