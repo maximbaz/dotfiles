@@ -9,17 +9,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1716390732,
-        "narHash": "sha256-9AXAYiIX9sxyQv+mF2NE2BQ4J/+BjEKLUq+7eVGOOHY=",
-        "owner": "flokli",
+        "lastModified": 1716699938,
+        "narHash": "sha256-AzTYm22tTDJy0tSqMDf95rmCxxoGTPClu0paGPeh5a0=",
+        "owner": "tpwrules",
         "repo": "nixos-apple-silicon",
-        "rev": "89a8f646019c6990bca14b55104afa1817dca7d5",
+        "rev": "842306255856d7f5677c113e699101eb253e2e3f",
         "type": "github"
       },
       "original": {
-        "owner": "flokli",
+        "owner": "tpwrules",
         "repo": "nixos-apple-silicon",
-        "rev": "89a8f646019c6990bca14b55104afa1817dca7d5",
         "type": "github"
       }
     },
@@ -45,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716457508,
-        "narHash": "sha256-ZxzffLuWRyuMrkVVq7wastNUqeO0HJL9xqfY1QsYaqo=",
+        "lastModified": 1717097707,
+        "narHash": "sha256-HC5vJ3oYsjwsCaSbkIPv80e4ebJpNvFKQTBOGlHvjLs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "850cb322046ef1a268449cf1ceda5fd24d930b05",
+        "rev": "0eb314b4f0ba337e88123e0b1e57ef58346aafd9",
         "type": "github"
       },
       "original": {
@@ -58,13 +57,27 @@
         "type": "github"
       }
     },
+    "maximbaz-private": {
+      "locked": {
+        "dirtyRev": "1d3ab8027c07b87eb213a2466ce904a075eb859e-dirty",
+        "dirtyShortRev": "1d3ab80-dirty",
+        "lastModified": 1717195464,
+        "narHash": "sha256-Yh6OlaTYReNw89kLXUTWFPHhPnKvnvyzAdFuTCo1H+M=",
+        "type": "git",
+        "url": "file:///home/maximbaz/.dotfiles-private"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/maximbaz/.dotfiles-private"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716330097,
-        "narHash": "sha256-8BO3B7e3BiyIDsaKA0tY8O88rClYRTjvAp66y+VBUeU=",
+        "lastModified": 1716948383,
+        "narHash": "sha256-SzDKxseEcHR5KzPXLwsemyTR/kaM9whxeiJohbL04rs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5710852ba686cc1fd0d3b8e22b3117d43ba374c2",
+        "rev": "ad57eef4ef0659193044870c731987a6df5cf56b",
         "type": "github"
       },
       "original": {
@@ -78,6 +91,7 @@
       "inputs": {
         "apple-silicon-support": "apple-silicon-support",
         "home-manager": "home-manager",
+        "maximbaz-private": "maximbaz-private",
         "nixpkgs": "nixpkgs"
       }
     },
