@@ -10,6 +10,7 @@
     ./power.nix
     ./security.nix
     ./ssh.nix
+    ./systemd.nix
     ./swap.nix
     ./users.nix
   ];
