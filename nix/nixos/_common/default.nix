@@ -4,6 +4,7 @@
     ./crypttab.nix
     ./docker.nix
     ./earlyoom.nix
+    ./fstrim.nix
     ./locale.nix
     ./network.nix
     ./nix.nix
@@ -28,10 +29,6 @@
   programs.waybar.enable = true;
   programs.zsh.enable = true;
   programs.adb.enable = true;
-
-  # services = {
-  #   fstrim.enable = true;
-  # };
 
   system.stateVersion = "24.05";
 }
