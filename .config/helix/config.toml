@@ -24,9 +24,6 @@ skip-levels = 1
 display-inlay-hints = true
 display-messages = true
 
-[editor.search]
-smart-case = false
-
 [editor.statusline]
 left = ["mode", "file-name", "spinner", "read-only-indicator", "file-modification-indicator"]
 right = ["diagnostics", "selections", "register", "file-type", "file-line-ending", "position"]
