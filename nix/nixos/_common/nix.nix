@@ -8,6 +8,7 @@
     config = {
       allowUnfree = true;
       input-fonts.acceptLicense = true;
+      joypixels.acceptLicense = true;
     };
     overlays = [ (import ../../overlay) ];
   };

@@ -10,7 +10,13 @@
 
   services.udiskie.enable = true;
 
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = [ "Input" ];
+      emoji = [ "JoyPixels" ];
+    };
+  };
 
   home.packages = with pkgs; [
     android-tools
@@ -63,6 +69,7 @@
     iptables-nftables-compat
     isync
     jq
+    joypixels
     (kakoune.override { plugins = with kakounePlugins; [ kakoune-lsp ]; })
     kitty
     libnotify
