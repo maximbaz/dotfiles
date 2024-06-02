@@ -8,161 +8,145 @@
     };
   };
 
-
   services.udiskie.enable = true;
 
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    font-awesome
-    input-fonts
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-    libnotify
-    polkit_gnome
-    libreoffice
-    zathura
-    sqlite
-    nix-index
-    wldash
-
-    asahi-bless
-    helix
-    (kakoune.override
-      {
-        plugins = with kakounePlugins; [ kakoune-lsp ];
-      })
-    vscode
-
-    ffmpeg
     android-tools
     android-udev-rules
-
-    wl-clipboard
-    kitty
-
-    meld
-    pam_u2f
-    gnupg
-    gcr
-    pinentry-gnome3
-    firefox-wayland
-    chromium
-    qutebrowser
-
-    mysql-client
-    postgresql_16
-    dbmate
-    pgcli
-
-    notmuch
-    neomutt
-    isync
-    msmtp
-
-    tree
-    progress
-    inotify-tools
-    rsync
-    signal-desktop
-    ripgrep
-    fd
+    asahi-bless
     bat
     bfs
+    biome
     brightnessctl
-    jq
-    file
     calibre
+    cargo
+    chromium
+    clang-tools
+    dbmate
+    delta
     dfrs
-    dos2unix
+    docker-compose-language-service
+    dockerfile-language-server-nodejs
     doggo
+    dos2unix
     dua
     earlyoom
     editorconfig-core-c
     eza
+    fd
     ff2mpv-rust
-    mpv
-    mpvScripts.mpris
-    mpvScripts.uosc
-    playerctl
+    ffmpeg
+    file
+    firefox-wayland
+    font-awesome
     freerdp
     fzf
+    gcc
+    gcr
     git
-    delta
+    git
+    glib
+    gnupg
+    go
     gocryptfs
     goimapnotify
-    htop
-    nzbget
-    p7zip
-    pigz
-    pass
-    pavucontrol
-    pwgen
-    qalculate-gtk
-    qrencode
-    sipcalc
-    socat
-    swappy
-    swaybg
-    swaylock
-    swaynotificationcenter
-    syncthing
-    systembus-notify
-    git
-    tig
-    trash-cli
-    udiskie
-    unrar
-    unzip
-    usbguard
-    vimiv-qt
-    w3m
-    wireguard-tools
-    yt-dlp
-    yubikey-touch-detector
-    zip
-    zsh
-    grim
-    slurp
-
-
-
-    nftables
-    iptables-nftables-compat
-
-    biome
-    cargo
-    clang-tools
-    docker-compose-language-service
-    dockerfile-language-server-nodejs
-    gcc
-    go
     golangci-lint
     golangci-lint-langserver
     gopls
     gotools
+    grim
+    helix
     helix-gpt
+    htop
+    inotify-tools
+    input-fonts
+    iptables-nftables-compat
+    isync
+    jq
+    (kakoune.override { plugins = with kakounePlugins; [ kakoune-lsp ]; })
+    kitty
+    libnotify
+    libreoffice
     marksman
+    meld
+    mpv
+    mpvScripts.mpris
+    mpvScripts.uosc
+    msmtp
+    mysql-client
+    neomutt
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    nftables
     nil
+    nix-index
     nixpkgs-fmt
     nodejs
     nodePackages.bash-language-server
     nodePackages.prettier
     nodePackages.typescript-language-server
+    notmuch
+    nzbget
+    p7zip
+    pam_u2f
+    pass
+    pavucontrol
+    pgcli
     pgformatter
+    pigz
+    pinentry-gnome3
+    playerctl
+    polkit_gnome
+    postgresql_16
+    progress
+    pwgen
     (python3.withPackages (p: (with p; [
       python-lsp-server
       python-lsp-black
       black
       isort
     ])))
+    qalculate-gtk
+    qrencode
+    qutebrowser
+    ripgrep
+    rsync
     rust-analyzer
+    signal-desktop
+    sipcalc
+    slurp
+    socat
+    sqlite
+    swappy
+    swaybg
+    swaylock
+    swaynotificationcenter
+    syncthing
+    systembus-notify
     taplo
     taplo-lsp
     terraform-ls
+    tig
+    trash-cli
+    tree
+    udiskie
+    unrar
+    unzip
+    usbguard
+    vimiv-qt
+    vscode
     vscode-langservers-extracted
+    w3m
+    wireguard-tools
+    wl-clipboard
+    wldash
     yaml-language-server
-
-    glib
+    yt-dlp
+    yubikey-touch-detector
+    zathura
+    zip
+    zsh
 
     (pkgs.writeShellScriptBin "cglaunch" (builtins.readFile ../../.local/bin/cglaunch))
     (pkgs.writeShellScriptBin "audio" (builtins.readFile ../../.local/bin/audio))

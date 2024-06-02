@@ -13,7 +13,6 @@
     users.maximbaz = import ../../home;
   };
 
-
   services = {
     getty.autologinUser = "maximbaz";
   };
