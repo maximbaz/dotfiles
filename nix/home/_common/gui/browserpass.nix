@@ -1,0 +1,3 @@
+{
+  programs.browserpass.enable = true;
+}

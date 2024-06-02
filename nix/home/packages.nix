@@ -1,33 +1,5 @@
 { pkgs, ... }: {
-  programs = {
-    bat = {
-      enable = true;
-      config = { plain = true; };
-    };
-    bottom = {
-      enable = true;
-      settings = {
-        flags = {
-          basic = true;
-        };
-      };
-    };
-    browserpass.enable = true;
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-  };
-
   services.udiskie.enable = true;
-
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      monospace = [ "Input" ];
-      emoji = [ "JoyPixels" ];
-    };
-  };
 
   home.packages = with pkgs; [
     android-tools
@@ -56,7 +28,6 @@
     ffmpeg
     file
     firefox-wayland
-    font-awesome
     freerdp
     fzf
     gcc
@@ -74,11 +45,9 @@
     helix
     helix-gpt
     inotify-tools
-    input-fonts
     iptables-nftables-compat
     isync
     jq
-    joypixels
     (kakoune.override { plugins = with kakounePlugins; [ kakoune-lsp ]; })
     kitty
     libnotify
@@ -91,7 +60,6 @@
     msmtp
     mysql-client
     neomutt
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     nftables
     nil
     nix-index
