@@ -1,8 +1,0 @@
-[Match]
-Name = enp*
-
-[Network]
-DHCP = yes
-
-[DHCP]
-RouteMetric = 50

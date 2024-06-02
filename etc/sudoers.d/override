@@ -1,7 +1,0 @@
-Defaults timestamp_timeout=0
-Defaults passwd_timeout=0
-
-Defaults:%wheel !always_set_home
-%wheel ALL=(ALL) NOPASSWD: \
-    /usr/bin/systemctl stop pcscd.service, \
-    /usr/bin/dnf -q mark remove *

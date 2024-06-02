@@ -1,1 +1,0 @@
-EARLYOOM_ARGS="-r 3600 -n --avoid '^(systemd|sshd|[Hh]yprland|waybar)$'"
