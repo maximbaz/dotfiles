@@ -5,6 +5,14 @@
       enable = true;
       config = { plain = true; };
     };
+    bottom = {
+      enable = true;
+      settings = {
+        flags = {
+          basic = true;
+        };
+      };
+    };
     browserpass.enable = true;
     direnv = {
       enable = true;
@@ -66,7 +74,6 @@
     grim
     helix
     helix-gpt
-    htop
     inotify-tools
     input-fonts
     iptables-nftables-compat
