@@ -103,7 +103,6 @@
     swappy
     swaybg
     swaylock
-    swaynotificationcenter
     syncthing
     systembus-notify
     taplo
