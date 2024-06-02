@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{
   imports = [
-    ./_common/gui
-    ./_common/tui
-    ./packages.nix
+    ../_common/gui
+    ../_common/tui
+    ../packages.nix
   ];
 
   # TODO doesn't work

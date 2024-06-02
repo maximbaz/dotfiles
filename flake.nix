@@ -19,17 +19,22 @@
 
   outputs = { nixpkgs, home-manager, apple-silicon-support, maximbaz-private, ... }: {
     nixosConfigurations = {
-      home-manitoba =
-        let system = "aarch64-linux";
-        in nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            apple-silicon-support.nixosModules.apple-silicon-support
-            home-manager.nixosModules.home-manager
-            maximbaz-private.nixosModules.default
-            ./nix/nixos/home-manitoba
-          ];
-        };
+      home-manitoba = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          apple-silicon-support.nixosModules.apple-silicon-support
+          ./nix/nixos/home-manitoba
+          maximbaz-private.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              users.maximbaz = import ./nix/home/home-manitoba;
+            };
+          }
+        ];
+      };
     };
   };
 }
