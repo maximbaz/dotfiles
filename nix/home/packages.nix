@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
   programs = {
+    bat = {
+      enable = true;
+      config = { plain = true; };
+    };
     browserpass.enable = true;
     direnv = {
       enable = true;
@@ -22,7 +26,6 @@
     android-tools
     android-udev-rules
     asahi-bless
-    bat
     bfs
     biome
     brightnessctl
