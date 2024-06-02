@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [
+    ./_common
     ./sway.nix
     ./packages.nix
   ];

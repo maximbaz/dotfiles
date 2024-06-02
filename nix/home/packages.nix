@@ -44,11 +44,9 @@
     freerdp
     fzf
     gcc
-    gcr
     git
     git
     glib
-    gnupg
     go
     gocryptfs
     goimapnotify
