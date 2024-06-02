@@ -23,6 +23,7 @@
     zathura
     sqlite
     nix-index
+    wldash
 
     asahi-bless
     helix
