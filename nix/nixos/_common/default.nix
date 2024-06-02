@@ -3,6 +3,7 @@
     ./bluetooth.nix
     ./crypttab.nix
     ./docker.nix
+    ./earlyoom.nix
     ./locale.nix
     ./network.nix
     ./nix.nix
