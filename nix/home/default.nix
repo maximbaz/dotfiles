@@ -1,11 +1,9 @@
 { pkgs, ... }: {
   imports = [
-    ./_common
-    ./sway.nix
+    ./_common/gui
+    ./_common/tui
     ./packages.nix
   ];
-
-  xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 ../../.config/sway/config;
 
   home.pointerCursor = {
     name = "Adwaita";
