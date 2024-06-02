@@ -10,8 +10,9 @@
     ./power.nix
     ./security.nix
     ./ssh.nix
-    ./systemd.nix
+    ./sudo.nix
     ./swap.nix
+    ./systemd.nix
     ./udisks2.nix
     ./usbguard.nix
     ./users.nix
