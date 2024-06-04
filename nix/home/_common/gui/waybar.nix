@@ -160,9 +160,9 @@
           car = "";
           default = [ "" "" "" ];
         };
-        on-click = "pavucontrol";
+        on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
         on-click-right = "push2talk -t";
-        on-click-middle = "helvum";
+        on-click-middle = "${pkgs.helvum}/bin/helvum";
       };
     }];
 
@@ -466,7 +466,7 @@
 
           if [ ! -e "''$socket" ]; then
               printf '{"text": "Waiting for YubiKey socket"}\n'
-              while [ ! -e "''$socket" ]; do sleep 1; done
+              while [ ! -e "''$socket" ]; do ${pkgs.coreutils}/bin/sleep 1; done
           fi
           printf '{"text": ""}\n'
 

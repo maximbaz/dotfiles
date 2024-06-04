@@ -44,6 +44,7 @@
     grim
     helix
     helix-gpt
+    helvum
     inotify-tools
     iptables-nftables-compat
     isync
