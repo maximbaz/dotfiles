@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs.gpg = {
     enable = true;
     settings = {
@@ -6,7 +6,7 @@
       default-key = "04D7A219B0ABE4C2B62A5E654A2B758631E1FD91";
       keyserver = "hkps://keys.openpgp.org";
       keyserver-options = "auto-key-retrieve";
-      keyring = "/home/maximbaz/.dotfiles-private/.gnupg/private.kbx";
+      keyring = "${config.home.homeDirectory}/.dotfiles-private/.gnupg/private.kbx";
     };
   };
 
