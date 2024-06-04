@@ -123,6 +123,7 @@
     wireguard-tools
     wl-clipboard
     wldash
+    workstyle
     yaml-language-server
     yt-dlp
     yubikey-touch-detector

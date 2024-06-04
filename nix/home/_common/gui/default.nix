@@ -7,5 +7,6 @@
     ./sway.nix
     ./waybar.nix
     ./wldash.nix
+    ./workstyle.nix
   ];
 }
