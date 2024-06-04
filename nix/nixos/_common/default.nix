@@ -28,6 +28,7 @@
   };
   programs.zsh.enable = true;
   programs.adb.enable = true;
+  programs.yubikey-touch-detector.enable = true;
 
   system.stateVersion = "24.05";
 }

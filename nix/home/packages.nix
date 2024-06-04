@@ -126,7 +126,6 @@
     workstyle
     yaml-language-server
     yt-dlp
-    yubikey-touch-detector
     zathura
     zip
     zsh

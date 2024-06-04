@@ -33,4 +33,11 @@ final: prev: {
       });
     };
   });
+
+  # it was never meant to be packaged with --libnotify by default ☹️
+  yubikey-touch-detector = prev.yubikey-touch-detector.overrideAttrs (old: {
+    postInstall = old.postInstall + ''
+      substituteInPlace $out/lib/systemd/user/*.service --replace "--libnotify" ""
+    '';
+  });
 }
