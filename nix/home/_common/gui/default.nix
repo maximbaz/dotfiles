@@ -5,6 +5,7 @@
     ./fonts.nix
     ./swaync.nix
     ./sway.nix
+    ./waybar.nix
     ./wldash.nix
   ];
 }

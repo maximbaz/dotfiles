@@ -60,6 +60,7 @@
     msmtp
     mysql-client
     neomutt
+    netcat-openbsd
     nftables
     nil
     nix-index

@@ -26,7 +26,6 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
-  programs.waybar.enable = true;
   programs.zsh.enable = true;
   programs.adb.enable = true;
 
