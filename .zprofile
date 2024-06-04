@@ -2,7 +2,7 @@
 
 [[ "$TTY" == /dev/tty* ]] || return 0
 
-export $(systemctl --user show-environment)
+source /etc/profiles/per-user/maximbaz/etc/profile.d/hm-session-vars.sh
 
 export GPG_TTY="$TTY"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
