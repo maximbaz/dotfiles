@@ -1,4 +1,149 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }:
+
+let
+  waybar-decrypted = (pkgs.writeShellScript "waybar-decrypted" ''
+    output() {
+        if [ -f "''$HOME/decrypted/.lock" ]; then
+            printf '{"text": ""}\n'
+        else
+            printf '{"text": ""}\n'
+        fi
+    }
+
+    check() {
+        [ ! -d "''$HOME/decrypted" ] && return
+
+        output
+        ${pkgs.inotify-tools}/bin/inotifywait -q "''$HOME/decrypted/.lock" > /dev/null 2>&1
+        output
+        ${pkgs.inotify-tools}/bin/inotifywait -q "''$HOME/decrypted" > /dev/null
+        check
+    }
+
+    check
+  '');
+
+  waybar-mail = (pkgs.writeShellScript "waybar-mail" ''
+    check() {
+        [ ! -d "''$HOME/.mail" ] && return
+
+        ${pkgs.notmuch}/bin/notmuch new > /dev/null
+        count="''$(${pkgs.notmuch}/bin/notmuch count 'tag:unread')"
+        tooltip="There are ''$count new emails"
+        if [ "''$count" = "0" ]; then
+            printf '{"text": ""}\n'
+        else
+            printf '{"text": "%s", "tooltip": "%s", "alt": "icon"}\n' "''$count" "''$tooltip"
+        fi
+        ${pkgs.inotify-tools}/bin/inotifywait -q -e move -e create -e delete "''$HOME/.mail/maximbaz/INBOX/cur" > /dev/null
+        check
+    }
+
+    check
+  '');
+
+  waybar-progress = (pkgs.writeShellScript "waybar-progress" ''
+    output="$(${pkgs.progress}/bin/progress -q)"
+    text="''$(printf "%s" "''$output" | ${pkgs.gnused}/bin/sed 's/\[[^]]*\] //g' | ${pkgs.gawk}/bin/awk 'BEGIN { ORS=" " } NR%3==1 { op=''$1 } NR%3==2 { pct=(''$1+0); if (op != "gpg" && pct > 0 && pct < 100) { print op, ''$1 } }')"
+    tooltip="''$(printf "%s" "''$output" | ${pkgs.perl}/bin/perl -pe 's/\n/\\n/g' | ${pkgs.perl}/bin/perl -pe 's/(?:\\n)+''$//')"
+
+    printf '{"text": "%s", "tooltip": "%s"}\n' "''$text" "''$tooltip"
+  '');
+
+  waybar-systemd = (pkgs.writeShellScript "waybar-systemd" ''
+    failed_user="''$(${pkgs.systemd}/bin/systemctl --plain --no-legend --user list-units --state=failed | ${pkgs.gawk}/bin/awk '{ print ''$1 }')"
+    failed_system="''$(${pkgs.systemd}/bin/systemctl --plain --no-legend list-units --state=failed | ${pkgs.gawk}/bin/awk '{ print ''$1 }')"
+
+    failed_systemd_count="''$(echo -n "''$failed_system" | ${pkgs.gnugrep}/bin/grep -c '^')"
+    failed_user_count="''$(echo -n "''$failed_user" | ${pkgs.gnugrep}/bin/grep -c '^')"
+
+    text=''$(( failed_systemd_count + failed_user_count ))
+
+    if [ "''$text" -eq 0 ]; then
+        printf '{"text": ""}\n'
+    else
+        tooltip=""
+
+        [ -n "''$failed_system" ] && tooltip="Failed system services:\n\n''${failed_system}\n\n''${tooltip}"
+        [ -n "''$failed_user" ]   && tooltip="Failed user services:\n\n''${failed_user}\n\n''${tooltip}"
+
+        tooltip="''$(printf "''$tooltip" | ${pkgs.perl}/bin/perl -pe 's/\n/\\n/g' | ${pkgs.perl}/bin/perl -pe 's/(?:\\n)+''$//')"
+
+        printf '{"text": " %s", "tooltip": "%s" }\n' "''$text" "''$tooltip"
+    fi
+  '');
+
+  waybar-usbguard = (pkgs.writeShellScript "waybar-usbguard" ''
+    listen() {
+        ${pkgs.dbus}/bin/dbus-monitor --system --profile "interface='org.usbguard.Devices1'" |
+            while read -r line; do
+                blocked="''$(${pkgs.usbguard}/bin/usbguard list-devices -b | ${pkgs.coreutils}/bin/head -n1 | ${pkgs.gnugrep}/bin/grep -Po 'name "\K[^"]+')"
+                if [ -n "''$blocked" ]; then
+                    printf '{"text": "%s"}\n' "''$blocked"
+                else
+                    printf '{"text": ""}\n'
+                fi
+            done
+    }
+
+    allow() {
+        blocked_id="''$(${pkgs.usbguard}/bin/usbguard list-devices -b | ${pkgs.coreutils}/bin/head -n1 | ${pkgs.gnugrep}/bin/grep -Po '^[^:]+')"
+        ${pkgs.usbguard}/bin/usbguard allow-device "''$blocked_id"
+    }
+
+    reject() {
+        blocked_id="''$(${pkgs.usbguard}/bin/usbguard list-devices -b | ${pkgs.coreutils}/bin/head -n1 | ${pkgs.gnugrep}/bin/grep -Po '^[^:]+')"
+        ${pkgs.usbguard}/bin/usbguard reject-device "''$blocked_id"
+    }
+
+    if [ "''$1" = "allow" ]; then
+        allow
+    elif [ "''$1" = "reject" ]; then
+        reject
+    else
+        listen
+    fi
+  '');
+
+  waybar-yubikey = (pkgs.writeShellScript "waybar-yubikey" ''
+    socket="''${XDG_RUNTIME_DIR:-/run/user/''$UID}/yubikey-touch-detector.socket"
+
+    while true; do
+        touch_reasons=()
+
+        if [ ! -e "''$socket" ]; then
+            printf '{"text": "Waiting for YubiKey socket"}\n'
+            while [ ! -e "''$socket" ]; do ${pkgs.coreutils}/bin/sleep 1; done
+        fi
+        printf '{"text": ""}\n'
+
+        while read -n5 cmd; do
+            reason="''${cmd:0:3}"
+
+            if [ "''${cmd:4:1}" = "1" ]; then
+                touch_reasons+=("''$reason")
+            else
+                for i in "''${!touch_reasons[@]}"; do
+                    if [ "''${touch_reasons[i]}" = "''$reason" ]; then
+                        unset 'touch_reasons[i]'
+                        break
+                    fi
+                done
+            fi
+
+            if [ "''${#touch_reasons[@]}" -eq 0 ]; then
+                printf '{"text": ""}\n'
+            else
+                tooltip="YubiKey is waiting for a touch, reasons: ''${touch_reasons[@]}"
+                printf '{"text": "  ", "tooltip": "%s"}\n' "''$tooltip"
+            fi
+        done < <(${pkgs.netcat-openbsd}/bin/nc -U "''$socket")
+
+        ${pkgs.coreutils}/bin/sleep 1
+    done
+  '');
+in
+{
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -31,7 +176,7 @@
       ];
 
       "custom/progress" = {
-        exec = config.xdg.configFile."waybar/bin/progress".target;
+        exec = waybar-progress;
         return-type = "json";
         interval = 1;
       };
@@ -41,24 +186,24 @@
           icon = "<span foreground='#928374'> </span>";
         };
         format = "{icon}{}";
-        exec = config.xdg.configFile."waybar/bin/usbguard".target;
+        exec = waybar-usbguard;
         return-type = "json";
-        on-click = "${config.xdg.configFile."waybar/bin/yubikey".target} allow";
-        on-click-right = "${config.xdg.configFile."waybar/bin/yubikey".target} reject";
+        on-click = "${waybar-usbguard} allow";
+        on-click-right = "${waybar-usbguard} reject";
       };
 
       "custom/yubikey" = {
-        exec = config.xdg.configFile."waybar/bin/yubikey".target;
+        exec = waybar-yubikey;
         return-type = "json";
       };
 
       "custom/decrypted" = {
-        exec = config.xdg.configFile."waybar/bin/decrypted".target;
+        exec = waybar-decrypted;
         return-type = "json";
       };
 
       "custom/systemd" = {
-        exec = config.xdg.configFile."waybar/bin/systemd".target;
+        exec = waybar-systemd;
         return-type = "json";
         interval = 10;
       };
@@ -68,7 +213,7 @@
           icon = "<span foreground='#928374'> </span>";
         };
         format = "{icon}{}";
-        exec = config.xdg.configFile."waybar/bin/mail".target;
+        exec = waybar-mail;
         return-type = "json";
       };
 
@@ -296,205 +441,5 @@
         color: @dim;
       }
     '';
-  };
-
-  xdg.configFile."waybar/bin/decrypted" = {
-    text = ''
-      #!/bin/sh
-
-      output() {
-          if [ -f "''$HOME/decrypted/.lock" ]; then
-              printf '{"text": ""}\n'
-          else
-              printf '{"text": ""}\n'
-          fi
-      }
-
-      check() {
-          [ ! -d "''$HOME/decrypted" ] && return
-
-          output
-          ${pkgs.inotify-tools}/bin/inotifywait -q "''$HOME/decrypted/.lock" > /dev/null 2>&1
-          output
-          ${pkgs.inotify-tools}/bin/inotifywait -q "''$HOME/decrypted" > /dev/null
-          check
-      }
-
-      check
-    '';
-    executable = true;
-  };
-
-  xdg.configFile."waybar/bin/dnd" = {
-    text = ''
-      #!/bin/sh
-
-      on() {
-          [ "''$(${pkgs.swaynotificationcenter}/bin/swaync-client --get-dnd)" = "true" ] || ${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-dnd
-          pkill -RTMIN+2 -x waybar
-      }
-
-      off() {
-          [ "''$(${pkgs.swaynotificationcenter}/bin/swaync-client --get-dnd)" = "false" ] || ${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-dnd
-          pkill -RTMIN+2 -x waybar
-      }
-
-      toggle() {
-          ${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-dnd
-          pkill -RTMIN+2 -x waybar
-      }
-
-      case "''$1" in
-          on) on ;;
-          off) off ;;
-          toggle) toggle ;;
-      esac
-    '';
-    executable = true;
-  };
-
-  xdg.configFile."waybar/bin/mail" = {
-    text = ''
-      #!/bin/sh
-
-      check() {
-          [ ! -d "''$HOME/.mail" ] && return
-
-          ${pkgs.notmuch}/bin/notmuch new > /dev/null
-          count="''$(${pkgs.notmuch}/bin/notmuch count 'tag:unread')"
-          tooltip="There are ''$count new emails"
-          if [ "''$count" = "0" ]; then
-              printf '{"text": ""}\n'
-          else
-              printf '{"text": "%s", "tooltip": "%s", "alt": "icon"}\n' "''$count" "''$tooltip"
-          fi
-          ${pkgs.inotify-tools}/bin/inotifywait -q -e move -e create -e delete "''$HOME/.mail/maximbaz/INBOX/cur" > /dev/null
-          check
-      }
-
-      check
-    '';
-    executable = true;
-  };
-
-  xdg.configFile."waybar/bin/progress" = {
-    text = ''
-      #!/bin/sh
-
-      output="$(${pkgs.progress}/bin/progress -q)"
-      text="''$(printf "%s" "''$output" | ${pkgs.gnused}/bin/sed 's/\[[^]]*\] //g' | ${pkgs.gawk}/bin/awk 'BEGIN { ORS=" " } NR%3==1 { op=''$1 } NR%3==2 { pct=(''$1+0); if (op != "gpg" && pct > 0 && pct < 100) { print op, ''$1 } }')"
-      tooltip="''$(printf "%s" "''$output" | ${pkgs.perl}/bin/perl -pe 's/\n/\\n/g' | ${pkgs.perl}/bin/perl -pe 's/(?:\\n)+''$//')"
-
-      printf '{"text": "%s", "tooltip": "%s"}\n' "''$text" "''$tooltip"
-    '';
-    executable = true;
-  };
-
-  xdg.configFile."waybar/bin/systemd" = {
-    text = ''
-      #!/bin/sh
-
-      failed_user="''$(${pkgs.systemd}/bin/systemctl --plain --no-legend --user list-units --state=failed | ${pkgs.gawk}/bin/awk '{ print ''$1 }')"
-      failed_system="''$(${pkgs.systemd}/bin/systemctl --plain --no-legend list-units --state=failed | ${pkgs.gawk}/bin/awk '{ print ''$1 }')"
-
-      failed_systemd_count="''$(echo -n "''$failed_system" | ${pkgs.gnugrep}/bin/grep -c '^')"
-      failed_user_count="''$(echo -n "''$failed_user" | ${pkgs.gnugrep}/bin/grep -c '^')"
-
-      text=''$(( failed_systemd_count + failed_user_count ))
-
-      if [ "''$text" -eq 0 ]; then
-          printf '{"text": ""}\n'
-      else
-          tooltip=""
-
-          [ -n "''$failed_system" ] && tooltip="Failed system services:\n\n''${failed_system}\n\n''${tooltip}"
-          [ -n "''$failed_user" ]   && tooltip="Failed user services:\n\n''${failed_user}\n\n''${tooltip}"
-
-          tooltip="''$(printf "''$tooltip" | ${pkgs.perl}/bin/perl -pe 's/\n/\\n/g' | ${pkgs.perl}/bin/perl -pe 's/(?:\\n)+''$//')"
-
-          printf '{"text": " %s", "tooltip": "%s" }\n' "''$text" "''$tooltip"
-      fi
-    '';
-    executable = true;
-  };
-
-  xdg.configFile."waybar/bin/usbguard" = {
-    text = ''
-      #!/bin/sh
-
-      listen() {
-          ${pkgs.dbus}/bin/dbus-monitor --system --profile "interface='org.usbguard.Devices1'" |
-              while read -r line; do
-                  blocked="''$(${pkgs.usbguard}/bin/usbguard list-devices -b | ${pkgs.coreutils}/bin/head -n1 | ${pkgs.gnugrep}/bin/grep -Po 'name "\K[^"]+')"
-                  if [ -n "''$blocked" ]; then
-                      printf '{"text": "%s"}\n' "''$blocked"
-                  else
-                      printf '{"text": ""}\n'
-                  fi
-              done
-      }
-
-      allow() {
-          blocked_id="''$(${pkgs.usbguard}/bin/usbguard list-devices -b | ${pkgs.coreutils}/bin/head -n1 | ${pkgs.gnugrep}/bin/grep -Po '^[^:]+')"
-          ${pkgs.usbguard}/bin/usbguard allow-device "''$blocked_id"
-      }
-
-      reject() {
-          blocked_id="''$(${pkgs.usbguard}/bin/usbguard list-devices -b | ${pkgs.coreutils}/bin/head -n1 | ${pkgs.gnugrep}/bin/grep -Po '^[^:]+')"
-          ${pkgs.usbguard}/bin/usbguard reject-device "''$blocked_id"
-      }
-
-      if [ "''$1" = "allow" ]; then
-          allow
-      elif [ "''$1" = "reject" ]; then
-          reject
-      else
-          listen
-      fi
-    '';
-    executable = true;
-  };
-
-  xdg.configFile."waybar/bin/yubikey" = {
-    text = ''
-      #!/bin/sh
-
-      socket="''${XDG_RUNTIME_DIR:-/run/user/''$UID}/yubikey-touch-detector.socket"
-
-      while true; do
-          touch_reasons=()
-
-          if [ ! -e "''$socket" ]; then
-              printf '{"text": "Waiting for YubiKey socket"}\n'
-              while [ ! -e "''$socket" ]; do ${pkgs.coreutils}/bin/sleep 1; done
-          fi
-          printf '{"text": ""}\n'
-
-          while read -n5 cmd; do
-              reason="''${cmd:0:3}"
-
-              if [ "''${cmd:4:1}" = "1" ]; then
-                  touch_reasons+=("''$reason")
-              else
-                  for i in "''${!touch_reasons[@]}"; do
-                      if [ "''${touch_reasons[i]}" = "''$reason" ]; then
-                          unset 'touch_reasons[i]'
-                          break
-                      fi
-                  done
-              fi
-
-              if [ "''${#touch_reasons[@]}" -eq 0 ]; then
-                  printf '{"text": ""}\n'
-              else
-                  tooltip="YubiKey is waiting for a touch, reasons: ''${touch_reasons[@]}"
-                  printf '{"text": "  ", "tooltip": "%s"}\n' "''$tooltip"
-              fi
-          done < <(${pkgs.netcat-openbsd}/bin/nc -U "''$socket")
-
-          ${pkgs.coreutils}/bin/sleep 1
-      done
-    '';
-    executable = true;
   };
 }
