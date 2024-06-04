@@ -85,10 +85,10 @@
     progress
     pwgen
     (python3.withPackages (p: (with p; [
-      python-lsp-server
-      python-lsp-black
       black
       isort
+      python-lsp-black
+      python-lsp-server
     ])))
     qalculate-gtk
     qrencode
