@@ -15,7 +15,6 @@
     QT_STYLE_OVERRIDE = "Adwaita-dark";
 
     DOCKER_CONFIG = "${config.xdg.configHome}/docker";
-    MBSYNC_CONFIG = "${config.xdg.configHome}/mbsync/config";
     CARGO_HOME = "${config.xdg.stateHome}/cargo";
     GOPATH = "${config.xdg.stateHome}/go";
     npm_config_cache = "${config.xdg.cacheHome}/npm";

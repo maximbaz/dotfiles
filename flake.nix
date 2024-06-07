@@ -2,7 +2,7 @@
   description = "maximbaz";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/ad57eef4ef0659193044870c731987a6df5cf56b";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -24,13 +24,16 @@
         modules = [
           apple-silicon-support.nixosModules.apple-silicon-support
           ./nix/nixos/home-manitoba
-          maximbaz-private.nixosModules.default
+          maximbaz-private.nixosModules.nixos
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = true;
-              users.maximbaz = import ./nix/home/home-manitoba;
+              users.maximbaz.imports = [
+                ./nix/home/home-manitoba
+                maximbaz-private.nixosModules.home
+              ];
             };
           }
         ];

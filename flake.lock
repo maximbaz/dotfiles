@@ -44,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717316182,
-        "narHash": "sha256-Xi0EpZcu39N0eW7apLjFfUOR9y80toyjYizez7J1wMI=",
+        "lastModified": 1717525419,
+        "narHash": "sha256-5z2422pzWnPXHgq2ms8lcCfttM0dz+hg+x1pCcNkAws=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9b53a10f4c91892f5af87cf55d08fba59ca086af",
+        "rev": "a7117efb3725e6197dd95424136f79147aa35e5b",
         "type": "github"
       },
       "original": {
@@ -59,10 +59,10 @@
     },
     "maximbaz-private": {
       "locked": {
-        "dirtyRev": "9eb285094a0f0452c59b31c9f2c10e04e1c2c447-dirty",
-        "dirtyShortRev": "9eb2850-dirty",
-        "lastModified": 1717280541,
-        "narHash": "sha256-sMHYDa68eag9i2IZto3SF2T7MYPWK7ZlTg3OeXcyE68=",
+        "dirtyRev": "d8afdb6b947a4e80e541907639506871521d4a54-dirty",
+        "dirtyShortRev": "d8afdb6-dirty",
+        "lastModified": 1717535590,
+        "narHash": "sha256-L+5tCUpJ2frCnfcVc03bnntVje4BIorIOrI9ul8Pj9U=",
         "type": "git",
         "url": "file:///home/maximbaz/.dotfiles-private"
       },
@@ -82,8 +82,8 @@
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "rev": "ad57eef4ef0659193044870c731987a6df5cf56b",
         "type": "github"
       }
     },
