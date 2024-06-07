@@ -59,9 +59,9 @@
     },
     "maximbaz-private": {
       "locked": {
-        "dirtyRev": "d8afdb6b947a4e80e541907639506871521d4a54-dirty",
-        "dirtyShortRev": "d8afdb6-dirty",
-        "lastModified": 1717535590,
+        "dirtyRev": "054bec275ab655450859fb6abe36b17c9ca139bd-dirty",
+        "dirtyShortRev": "054bec2-dirty",
+        "lastModified": 1717753363,
         "narHash": "sha256-L+5tCUpJ2frCnfcVc03bnntVje4BIorIOrI9ul8Pj9U=",
         "type": "git",
         "url": "file:///home/maximbaz/.dotfiles-private"

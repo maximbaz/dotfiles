@@ -55,9 +55,6 @@
     libreoffice
     marksman
     meld
-    mpv
-    mpvScripts.mpris
-    mpvScripts.uosc
     msmtp
     mysql-client
     neomutt
