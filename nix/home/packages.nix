@@ -146,7 +146,41 @@
     (pkgs.writeShellScriptBin "dmenu-wl" (builtins.readFile ../../.local/bin/dmenu))
     (pkgs.writeShellScriptBin "emoji-bootstrap" (builtins.readFile ../../.local/bin/emoji-bootstrap))
     (pkgs.writeShellScriptBin "emoji-dmenu" (builtins.readFile ../../.local/bin/emoji-dmenu))
-    (pkgs.writeShellScriptBin "exit-wm" (builtins.readFile ../../.local/bin/exit-wm))
+    (pkgs.writeShellScriptBin "exit-wm" ''
+      before_lock() {
+          ${lib.getExe pkgs.playerctl} -a pause
+          ${lib.getExe' pkgs.bluez "bluetoothctl"} disconnect
+          ${lib.getExe pkgs.brightnessctl} set -d kbd_backlight 0
+          ${lib.getExe pkgs.sudo} ${lib.getExe' pkgs.systemd "systemctl"} stop pcscd.service
+      }
+
+      case "''$1" in
+          tty)
+              ${lib.getExe' pkgs.systemd "systemctl"} --user stop sway-session.target
+              ${lib.getExe' pkgs.sway "swaymsg"} exit
+              ;;
+          lock)
+              before_lock
+              ${pkgs.swaylock}/bin/swaylock
+              ;;
+          suspend)
+              before_lock
+              ${lib.getExe' pkgs.systemd "systemctl"} -i suspend
+              ${pkgs.swaylock}/bin/swaylock
+              # ${lib.getExe' pkgs.systemd "systemctl"} --user restart wlsunset
+              ;;
+          reboot)
+              ${lib.getExe' pkgs.systemd "systemctl"} -i reboot
+              ;;
+          shutdown)
+              ${lib.getExe' pkgs.systemd "systemctl"} -i poweroff
+              ;;
+          *)
+              echo "Usage: ''$0 {tty|lock|suspend|reboot|shutdown}"
+              exit 2
+              ;;
+      esac
+    '')
     (pkgs.writeShellScriptBin "git-submodule-remove" (builtins.readFile ../../.local/bin/git-submodule-remove))
     (pkgs.writeShellScriptBin "gitui" (builtins.readFile ../../.local/bin/gitui))
     (pkgs.writeShellScriptBin "gnome-terminal" (builtins.readFile ../../.local/bin/gnome-terminal))
