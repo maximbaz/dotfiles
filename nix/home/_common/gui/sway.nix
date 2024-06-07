@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   wayland.windowManager.sway = {
+    package = null;
     enable = true;
     xwayland = true;
     systemd.enable = true;
