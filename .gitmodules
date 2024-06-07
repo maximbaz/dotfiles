@@ -1,6 +1,3 @@
 [submodule "lscolors"]
 	path = lscolors
 	url = https://github.com/trapd00r/LS_COLORS.git
-[submodule ".config/helix/themes"]
-	path = .config/helix/themes
-	url = https://github.com/jeronimobarea/helix_gruvbox_community

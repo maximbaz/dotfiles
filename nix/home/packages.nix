@@ -6,17 +6,13 @@
     android-udev-rules
     asahi-bless
     bfs
-    biome
     brightnessctl
     calibre
     cargo
     chromium
-    clang-tools
     dbmate
     delta
     dfrs
-    docker-compose-language-service
-    dockerfile-language-server-nodejs
     doggo
     dos2unix
     dua
@@ -32,18 +28,11 @@
     fzf
     gcc
     git
-    git
     glib
     go
     gocryptfs
     goimapnotify
-    golangci-lint
-    golangci-lint-langserver
-    gopls
-    gotools
     grim
-    helix
-    helix-gpt
     helvum
     inotify-tools
     iptables-nftables-compat
@@ -52,20 +41,14 @@
     kitty
     libnotify
     libreoffice
-    marksman
     meld
     msmtp
     mysql-client
     neomutt
     netcat-openbsd
     nftables
-    nil
     nix-index
-    nixpkgs-fmt
     nodejs
-    nodePackages.bash-language-server
-    nodePackages.prettier
-    nodePackages.typescript-language-server
     notmuch
     nzbget
     p7zip
@@ -73,7 +56,6 @@
     pass
     pavucontrol
     pgcli
-    pgformatter
     pigz
     pinentry-gnome3
     playerctl
@@ -81,18 +63,12 @@
     postgresql_16
     progress
     pwgen
-    (python3.withPackages (p: (with p; [
-      black
-      isort
-      python-lsp-black
-      python-lsp-server
-    ])))
+    python3
     qalculate-gtk
     qrencode
     qutebrowser
     ripgrep
     rsync
-    rust-analyzer
     signal-desktop
     sipcalc
     slurp
@@ -103,9 +79,6 @@
     swaylock
     syncthing
     systembus-notify
-    taplo
-    taplo-lsp
-    terraform-ls
     tig
     trash-cli
     tree
@@ -115,13 +88,11 @@
     usbguard
     vimiv-qt
     vscode
-    vscode-langservers-extracted
     w3m
     wireguard-tools
     wl-clipboard
     wldash
     workstyle
-    yaml-language-server
     yt-dlp
     zathura
     zip
