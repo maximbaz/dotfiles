@@ -49,7 +49,6 @@
     iptables-nftables-compat
     isync
     jq
-    (kakoune.override { plugins = with kakounePlugins; [ kakoune-lsp ]; })
     kitty
     libnotify
     libreoffice
@@ -181,7 +180,6 @@
     (pkgs.writeShellScriptBin "git-submodule-remove" (builtins.readFile ../../.local/bin/git-submodule-remove))
     (pkgs.writeShellScriptBin "gitui" (builtins.readFile ../../.local/bin/gitui))
     (pkgs.writeShellScriptBin "gnome-terminal" (builtins.readFile ../../.local/bin/gnome-terminal))
-    (pkgs.writeShellScriptBin "kak-man-pager" (builtins.readFile ../../.local/bin/kak-man-pager))
     (pkgs.writeShellScriptBin "mockbuild" (builtins.readFile ../../.local/bin/mockbuild))
     (pkgs.writeShellScriptBin "neomutt-sendmail" (builtins.readFile ../../.local/bin/neomutt-sendmail))
     (pkgs.writeShellScriptBin "pass-gen" (builtins.readFile ../../.local/bin/pass-gen))

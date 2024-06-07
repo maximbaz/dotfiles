@@ -1,37 +1,6 @@
-[submodule ".config/kak/kakoune-vertical-selection"]
-	path = .config/kak/vertical-selection
-	url = https://github.com/occivink/kakoune-vertical-selection
-	branch = master
-[submodule ".config/kak/restclient.kak"]
-	path = .config/kak/restclient.kak
-	url = https://github.com/maximbaz/restclient.kak
-[submodule ".config/kak/state-save"]
-	path = .config/kak/state-save
-	url = https://gitlab.com/Screwtapello/kakoune-state-save.git/
-[submodule ".config/kak/smarttab"]
-	path = .config/kak/smarttab
-	url = https://github.com/andreyorst/smarttab.kak.git
-[submodule ".config/kak/surround.kak"]
-	path = .config/kak/surround.kak
-	url = https://github.com/maximbaz/surround.kak.git
-[submodule ".config/kak/auto-pairs.kak"]
-	path = .config/kak/auto-pairs.kak
-	url = https://github.com/alexherbo2/auto-pairs.kak.git
-[submodule ".config/kak/langmap.kak"]
-	path = .config/kak/langmap.kak
-	url = https://github.com/andreyorst/langmap.kak.git
-[submodule ".config/mpv/scripts/sponsorblock"]
-	path = .config/mpv/scripts/sponsorblock
-	url = https://github.com/maximbaz/mpv_sponsorblock.git
-[submodule ".config/kak/kak-ansi"]
-	path = .config/kak/kak-ansi
-	url = https://github.com/eraserhd/kak-ansi
 [submodule "lscolors"]
 	path = lscolors
 	url = https://github.com/trapd00r/LS_COLORS.git
-[submodule ".config/mpv/thumbfast"]
-	path = .config/mpv/thumbfast
-	url = https://github.com/po5/thumbfast
 [submodule ".config/helix/themes"]
 	path = .config/helix/themes
 	url = https://github.com/jeronimobarea/helix_gruvbox_community

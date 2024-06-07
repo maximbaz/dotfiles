@@ -1,4 +1,4 @@
-text/plain; kak %s;
+text/plain; hx %s;
 text/html; qutebrowser --desktop-file-name qutepreview --temp-basedir -C ~/.config/qutebrowser/qutepreview.py %s; needsterminal; nametemplate=%s.html;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 application/pdf; zathura %s;

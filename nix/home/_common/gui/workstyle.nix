@@ -5,7 +5,6 @@
     "code" = ""
     "dmenu" = ""
     "firefox" = ""
-    "kak" = ""
     "kitty" = ""
     "krita" = ""
     "libreoffice-calc" = ""

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-kak -e "map global normal q :quit<ret>; set buffer filetype man; $*"
