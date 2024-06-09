@@ -59,7 +59,6 @@
     pigz
     pinentry-gnome3
     playerctl
-    polkit_gnome
     postgresql_16
     progress
     pwgen
