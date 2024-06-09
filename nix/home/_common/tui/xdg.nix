@@ -1,0 +1,3 @@
+{
+  xdg.enable = true;
+}
