@@ -4,7 +4,7 @@ let
   app = pkgs.symlinkJoin {
     name = name;
     paths = with pkgs; [
-      (writeShellScriptBin name (builtins.readFile ./${name}))
+      (writeShellScriptBin name (builtins.readFile ./bin/${name}))
       bat
       coreutils
       file

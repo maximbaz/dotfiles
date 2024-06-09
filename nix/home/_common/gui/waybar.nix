@@ -4,13 +4,13 @@ let
   app = pkgs.symlinkJoin {
     name = "waybar-scripts";
     paths = with pkgs; [
-      (writeShellScriptBin "waybar-decrypted" (builtins.readFile ./waybar-decrypted))
-      (writeShellScriptBin "waybar-mail" (builtins.readFile ./waybar-mail))
-      (writeShellScriptBin "waybar-progress" (builtins.readFile ./waybar-progress))
-      (writeShellScriptBin "waybar-recording" (builtins.readFile ./waybar-recording))
-      (writeShellScriptBin "waybar-systemd" (builtins.readFile ./waybar-systemd))
-      (writeShellScriptBin "waybar-usbguard" (builtins.readFile ./waybar-usbguard))
-      (writeShellScriptBin "waybar-yubikey" (builtins.readFile ./waybar-yubikey))
+      (writeShellScriptBin "waybar-decrypted" (builtins.readFile ./bin/waybar-decrypted))
+      (writeShellScriptBin "waybar-mail" (builtins.readFile ./bin/waybar-mail))
+      (writeShellScriptBin "waybar-progress" (builtins.readFile ./bin/waybar-progress))
+      (writeShellScriptBin "waybar-recording" (builtins.readFile ./bin/waybar-recording))
+      (writeShellScriptBin "waybar-systemd" (builtins.readFile ./bin/waybar-systemd))
+      (writeShellScriptBin "waybar-usbguard" (builtins.readFile ./bin/waybar-usbguard))
+      (writeShellScriptBin "waybar-yubikey" (builtins.readFile ./bin/waybar-yubikey))
       coreutils
       dbus
       gawk
