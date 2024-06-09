@@ -55,6 +55,7 @@
     pam_u2f
     pass
     pavucontrol
+    perlPackages.vidir
     pgcli
     pigz
     pinentry-gnome3
