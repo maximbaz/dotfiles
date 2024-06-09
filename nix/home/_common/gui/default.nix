@@ -7,6 +7,7 @@
     ./swaync.nix
     ./sway.nix
     ./waybar.nix
+    ./wl-clipboard-manager.nix
     ./wldash.nix
     ./workstyle.nix
   ];

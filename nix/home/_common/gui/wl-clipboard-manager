@@ -3,7 +3,7 @@
 set -euo pipefail
 
 app="$(basename "$0")"
-workdir="${XDG_DATA_HOME:-$HOME/.local/share}/wl-clipboard-manager"
+workdir="${XDG_STATE_HOME:-$HOME/.local/state}/wl-clipboard-manager"
 mkdir -p "$workdir"
 cd "$workdir" || return
 
@@ -65,7 +65,7 @@ case "$subcommand" in
         ;;
 
     dmenu)
-        list-entries | dmenu "$@" -0 -p clipboard -r "$(realpath "$0") preview" -f "--bind 'alt-bspace:execute-silent(wl-clipboard-manager delete "{}")+reload(wl-clipboard-manager list-entries)'" | {
+        list-entries | dmenu "$@" -0 -p clipboard -r "$(realpath "$0") preview" -f "--bind 'alt-bspace:execute-silent(wl-clipboard-manager delete {})+reload(wl-clipboard-manager list-entries)'" | {
             read -r -d '' result
             [ -z "$result" ] && exit 0
 
@@ -93,7 +93,7 @@ case "$subcommand" in
         mime="$(query "SELECT mime, writefile('$file', contents) FROM entries WHERE id='$id'" | awk 'NR == 1 { print $3 }')"
 
         if [[ "$mime" == image/* ]]; then
-            cat "$file" | kitty +kitten icat --silent
+            kitty +kitten icat --silent < "$file"
         else
             language="bash"
             [[ "$mime" == application/json ]] && language="json"
