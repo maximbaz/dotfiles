@@ -1,6 +1,7 @@
 {
   imports = [
     ./bluetooth.nix
+    ./boot.nix
     ./crypttab.nix
     ./docker.nix
     ./earlyoom.nix
