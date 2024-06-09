@@ -1,0 +1,21 @@
+#!/bin/sh
+
+output() {
+    if [ -f "$HOME/decrypted/.lock" ]; then
+        printf '{"text": ""}\n'
+    else
+        printf '{"text": ""}\n'
+    fi
+}
+
+check() {
+    [ ! -d "$HOME/decrypted" ] && return
+
+    output
+    inotifywait -q "$HOME/decrypted/.lock" > /dev/null 2>&1
+    output
+    inotifywait -q "$HOME/decrypted" > /dev/null
+    check
+}
+
+check
