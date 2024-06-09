@@ -1,36 +1,36 @@
 { pkgs, ... }: {
-  programs.helix = {
+  programs.helix = with pkgs; {
     enable = true;
     defaultEditor = true;
     extraPackages = [
-      pkgs.biome
-      pkgs.clang-tools
-      pkgs.docker-compose-language-service
-      pkgs.dockerfile-language-server-nodejs
-      pkgs.golangci-lint
-      pkgs.golangci-lint-langserver
-      pkgs.gopls
-      pkgs.gotools
-      pkgs.helix-gpt
-      pkgs.marksman
-      pkgs.nil
-      pkgs.nixpkgs-fmt
-      pkgs.nodePackages.bash-language-server
-      pkgs.nodePackages.prettier
-      pkgs.nodePackages.typescript-language-server
-      pkgs.pgformatter
-      (pkgs.python3.withPackages (p: (with p; [
+      biome
+      clang-tools
+      docker-compose-language-service
+      dockerfile-language-server-nodejs
+      golangci-lint
+      golangci-lint-langserver
+      gopls
+      gotools
+      helix-gpt
+      marksman
+      nil
+      nixpkgs-fmt
+      nodePackages.bash-language-server
+      nodePackages.prettier
+      nodePackages.typescript-language-server
+      pgformatter
+      (python3.withPackages (p: (with p; [
         black
         isort
         python-lsp-black
         python-lsp-server
       ])))
-      pkgs.rust-analyzer
-      pkgs.taplo
-      pkgs.taplo-lsp
-      pkgs.terraform-ls
-      pkgs.vscode-langservers-extracted
-      pkgs.yaml-language-server
+      rust-analyzer
+      taplo
+      taplo-lsp
+      terraform-ls
+      vscode-langservers-extracted
+      yaml-language-server
     ];
 
     settings = {
