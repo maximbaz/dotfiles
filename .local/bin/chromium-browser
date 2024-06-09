@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec xargs /usr/bin/chromium-browser < "$XDG_CONFIG_HOME/chromium-flags.conf"

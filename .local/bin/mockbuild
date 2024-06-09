@@ -1,8 +1,0 @@
-#!/bin/sh
-
-set -e
-
-rpmlint *.spec
-spectool -g *.spec
-SRPM=$(mock "$@" -v --resultdir . --buildsrpm --spec *.spec --sources . 2>&1 | awk "/ Wrote: /{ print gensub(\".*/([^/]+)$\",\"\\\1\",\"g\",\$3) }")
-mock "$@" --resultdir . "${SRPM:?ERROR: Missing SRPM}"

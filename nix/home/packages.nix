@@ -149,9 +149,7 @@
       esac
     '')
     (pkgs.writeShellScriptBin "git-submodule-remove" (builtins.readFile ../../.local/bin/git-submodule-remove))
-    (pkgs.writeShellScriptBin "gitui" (builtins.readFile ../../.local/bin/gitui))
     (pkgs.writeShellScriptBin "gnome-terminal" (builtins.readFile ../../.local/bin/gnome-terminal))
-    (pkgs.writeShellScriptBin "mockbuild" (builtins.readFile ../../.local/bin/mockbuild))
     (pkgs.writeShellScriptBin "neomutt-sendmail" (builtins.readFile ../../.local/bin/neomutt-sendmail))
     (pkgs.writeShellScriptBin "pass-gen" (builtins.readFile ../../.local/bin/pass-gen))
     (pkgs.writeShellScriptBin "record-area" (builtins.readFile ../../.local/bin/record-area))
