@@ -37,9 +37,9 @@ fi
 echo -e "\n-------------------------------------------------------------------"
 
 echo -e "\nBackup size:\n"
-du -hs "$BACKUP_DIR"
+dua "$BACKUP_DIR" | tail -1
 
 echo -e "\nRemaining disk space\n"
-df -kh "$BACKUP_PATH"
+dfrs -kh "$BACKUP_PATH"
 
 exit $exitcode
