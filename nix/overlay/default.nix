@@ -9,16 +9,6 @@ self: super: {
     };
   });
 
-  # not sure why it's stuck to 6.6.0 when it's 8.0.0 in nixpkgs github
-  joypixels = super.joypixels.overrideAttrs (_old: rec {
-    version = "8.0.0";
-    src = super.fetchurl {
-      name = "joypixels-android.ttf";
-      url = "https://cdn.joypixels.com/distributions/nixos/font/${version}/joypixels-android.ttf";
-      sha256 = "1bkyclgmvl6ppbdvidc5xr1g6f215slf0glnh5p6fsfbxc5h95bw";
-    };
-  });
-
   wldash = super.wldash.override (old: {
     rustPlatform = old.rustPlatform // {
       buildRustPackage = args: old.rustPlatform.buildRustPackage (args // {

@@ -2,7 +2,7 @@
   description = "maximbaz";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/ad57eef4ef0659193044870c731987a6df5cf56b";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
