@@ -29,7 +29,7 @@ let
       wrapProgram $out/bin/waybar-decrypted --prefix PATH : $out/bin
       wrapProgram $out/bin/waybar-mail      --prefix PATH : $out/bin
       wrapProgram $out/bin/waybar-progress  --prefix PATH : $out/bin
-      wrapProgram $out/bin/waybar-recording  --prefix PATH : $out/bin
+      wrapProgram $out/bin/waybar-recording --prefix PATH : $out/bin
       wrapProgram $out/bin/waybar-systemd   --prefix PATH : $out/bin
       wrapProgram $out/bin/waybar-usbguard  --prefix PATH : $out/bin
       wrapProgram $out/bin/waybar-yubikey   --prefix PATH : $out/bin

@@ -10,6 +10,7 @@
       input-fonts.acceptLicense = true;
       joypixels.acceptLicense = true;
     };
-    overlays = [ (import ../../overlay) ];
   };
+
+  imports = [ ../../overlay ];
 }

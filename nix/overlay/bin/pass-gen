@@ -21,7 +21,7 @@ esac
 
 wl-clipboard-manager lock
 
-random="$(echo -n "scd random 512" | gpg-connect-agent)"
+random="$(printf "scd random 512" | gpg-connect-agent)"
 if [ -z "${random%ERR*}" ]; then
     notify-send -i dialog-warning "Generating password using /dev/urandom"
     random="$(pwgen -s "$length" $symbols)"

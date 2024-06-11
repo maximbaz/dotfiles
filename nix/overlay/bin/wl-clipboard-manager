@@ -42,7 +42,7 @@ subcommand="${1:-dmenu}"
 shift
 
 case "$subcommand" in
-    daemon) wl-paste -w "$app" on-copy ;;
+    daemon) wl-paste -w "$0" on-copy ;;
     lock) touch .lock ;;
     unlock) rm -f .lock ;;
 

@@ -7,22 +7,23 @@ error() {
 
 [ $# -gt 0 ] || error "Usage: $0 <action> (e.g. $0 output-mute)"
 
-bt_card=$(pactl list | grep "Name: bluez_card." | cut -d ' ' -f 2)
+# TODO
+# bt_card=$(pactl list | grep "Name: bluez_card." | cut -d ' ' -f 2)
 
 case "$1" in
     bt-toggle-profile)
-        a2dp=$(pactl list | grep Active | grep a2dp-sink)
-        [ -n "$bt_card" ] || error "No bluetooth device connected"
-        [ -n "$a2dp" ] && new=headset-head-unit-msbc || new=a2dp-sink
-        echo pactl set-card-profile "$bt_card" "$new"
-        pactl set-card-profile "$bt_card" "$new"
+        # TODO
+        # a2dp=$(pactl list | grep Active | grep a2dp-sink)
+        # [ -n "$bt_card" ] || error "No bluetooth device connected"
+        # [ -n "$a2dp" ] && new=headset-head-unit-msbc || new=a2dp-sink
+        # pactl set-card-profile "$bt_card" "$new"
         ;;
     bt-connect-headset)    bluetoothctl connect 20:74:CF:B2:B0:BD ;;
     bt-connect-headphones) bluetoothctl connect 20:74:CF:2D:D1:67 ;;
     bt-connect-speakers)   bluetoothctl connect 00:02:3C:8A:6A:60 ;;
     bt-disconnect)         bluetoothctl disconnect ;;
     output-mute)           wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
-    input-mute)            push2talk -t ;;
+    # input-mute)            push2talk -t ;;
     output-volume-up)      wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ ;;
     output-volume-down)    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ;;
     input-volume-up)       wpctl set-volume @DEFAULT_SOURCE@ 5%+ ;;
