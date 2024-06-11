@@ -8,7 +8,6 @@
     ./helix.nix
     ./keyboard.nix
     ./pgcli.nix
-    ./scripts.nix
     ./tig.nix
     ./xdg.nix
   ];

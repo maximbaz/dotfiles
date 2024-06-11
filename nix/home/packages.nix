@@ -42,6 +42,7 @@
     kitty
     libnotify
     libreoffice
+    maximbaz-scripts
     meld
     msmtp
     mysql-client
