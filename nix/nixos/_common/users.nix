@@ -2,7 +2,7 @@
   users.users.maximbaz = {
     password = "CHANGEME";
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" "video" "input" ];
     shell = pkgs.zsh;
   };
 

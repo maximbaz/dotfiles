@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, push2talk, ... }: {
   services.udiskie.enable = true;
 
   home.packages = with pkgs; [
@@ -64,6 +64,7 @@
     playerctl
     postgresql_16
     progress
+    push2talk
     pwgen
     python3
     qalculate-gtk

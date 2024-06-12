@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, push2talk, ... }:
 
 let
   app = pkgs.symlinkJoin {
@@ -207,7 +207,7 @@ in
           default = [ "" "" "" ];
         };
         on-click = lib.getExe pkgs.pavucontrol;
-        on-click-right = "push2talk -t";
+        on-click-right = "${lib.getExe push2talk} -t";
         on-click-middle = lib.getExe pkgs.helvum;
       };
     }];

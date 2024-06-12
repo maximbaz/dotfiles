@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, push2talk, ... }:
 let
   systemdService = { Description, ExecStart, Environment ? "" }: {
     Unit = {
@@ -38,6 +38,12 @@ in
     battery-low-notify = systemdService {
       Description = "Notify when battery level is low";
       ExecStart = lib.getExe' pkgs.maximbaz-scripts "battery-low-notify";
+    };
+
+    push2talk = systemdService {
+      Description = "push2talk";
+      Environment = "PUSH2TALK_KEYBIND=Super_R";
+      ExecStart = lib.getExe push2talk;
     };
 
     sway-inactive-windows-transparency = systemdService {
