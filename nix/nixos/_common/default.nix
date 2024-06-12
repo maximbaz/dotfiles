@@ -1,4 +1,4 @@
-{
+{ lib, pkgs, ... }: {
   imports = [
     ./bluetooth.nix
     ./boot.nix
@@ -30,6 +30,17 @@
   programs.zsh.enable = true;
   programs.adb.enable = true;
   programs.yubikey-touch-detector.enable = true;
+
+  xdg.portal.wlr = {
+    enable = true;
+    settings = {
+      screencast = {
+        chooser_type = "none";
+        exec_before = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --dnd-on --skip-wait";
+        exec_after = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --dnd-off --skip-wait";
+      };
+    };
+  };
 
   system.stateVersion = "24.05";
 }
