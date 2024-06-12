@@ -21,6 +21,7 @@ in
     ./cursor.nix
     ./fonts.nix
     ./gtk.nix
+    ./kitty.nix
     ./mpv.nix
     ./polkit.nix
     ./swappy.nix
