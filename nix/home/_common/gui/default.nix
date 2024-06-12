@@ -58,5 +58,10 @@ in
       Description = "Clipboard manager daemon";
       ExecStart = "${lib.getExe' pkgs.maximbaz-scripts "wl-clipboard-manager"} daemon";
     };
+
+    workstyle = systemdService {
+      Description = "Autoname sway workspaces";
+      ExecStart = lib.getExe pkgs.workstyle;
+    };
   };
 }
