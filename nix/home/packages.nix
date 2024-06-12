@@ -64,6 +64,7 @@
     playerctl
     postgresql_16
     progress
+    pulseaudio
     push2talk
     pwgen
     python3
