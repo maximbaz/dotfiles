@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   app = pkgs.symlinkJoin {
@@ -121,8 +121,8 @@ in
           dnd-none = "<span foreground='#928374'></span>";
         };
         return-type = "json";
-        exec = "${pkgs.swaynotificationcenter}/bin/swaync-client --subscribe-waybar";
-        on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-dnd --skip-wait";
+        exec = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --subscribe-waybar";
+        on-click = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-dnd --skip-wait";
         escape = true;
       };
 
@@ -206,9 +206,9 @@ in
           car = "";
           default = [ "" "" "" ];
         };
-        on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+        on-click = lib.getExe pkgs.pavucontrol;
         on-click-right = "push2talk -t";
-        on-click-middle = "${pkgs.helvum}/bin/helvum";
+        on-click-middle = lib.getExe pkgs.helvum;
       };
     }];
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   security.sudo = {
     enable = true;
 
@@ -10,7 +10,7 @@
     extraRules = [{
       groups = [ "wheel" ];
       commands = [
-        { command = "${pkgs.systemd}/bin/systemctl stop pcscd.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "${lib.getExe' pkgs.systemd "systemctl"} stop pcscd.service"; options = [ "SETENV" "NOPASSWD" ]; }
       ];
     }];
   };
