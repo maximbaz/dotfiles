@@ -1,4 +1,4 @@
-{ lib, pkgs, extras, ... }: {
+{ lib, pkgs, ... }: {
   imports = [
     ./browserpass.nix
     ./cursor.nix
@@ -31,7 +31,7 @@
     Install.WantedBy = [ "graphical-session.target" ];
   };
 
-  systemd.user.services.sway-inactive-window-transparency = {
+  systemd.user.services.sway-inactive-windows-transparency = {
     Unit = {
       Description = "Make inactive windows in sway semi-transparent";
       PartOf = [ "graphical-session.target" ];
@@ -40,7 +40,7 @@
     Service = {
       Type = "simple";
       Environment = "INACTIVE_OPACITY=0.7";
-      ExecStart = lib.getExe' extras.sway-inactive-window-transparency "sway-inactive-window-transparency";
+      ExecStart = lib.getExe pkgs.sway-contrib.inactive-windows-transparency;
       Restart = "on-failure";
       RestartSec = 10;
       TimeoutStopSec = 10;
