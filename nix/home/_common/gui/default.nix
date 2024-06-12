@@ -23,6 +23,7 @@ in
     ./gtk.nix
     ./mpv.nix
     ./polkit.nix
+    ./swappy.nix
     ./swaync.nix
     ./sway.nix
     ./swaylock.nix
