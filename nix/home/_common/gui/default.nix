@@ -27,6 +27,7 @@ in
     ./swaync.nix
     ./sway.nix
     ./swaylock.nix
+    ./vimiv.nix
     ./waybar.nix
     ./wldash.nix
     ./workstyle.nix
