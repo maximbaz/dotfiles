@@ -40,7 +40,15 @@
         dontUnpack = true;
         nativeBuildInputs = [ pkgs.makeWrapper ];
         installPhase = "install -Dm755 $src/* -t $out/bin/";
-        postFixup = "for script in $out/bin/*; do wrapProgram $script --prefix PATH : /run/current-system/sw/bin/ --prefix PATH : /etc/profiles/per-user/maximbaz/bin/; done";
+        postFixup = ''
+          for script in $out/bin/*; do 
+            wrapProgram $script \
+              --suffix PATH : /run/wrappers/bin/ \
+              --suffix PATH : /etc/profiles/per-user/maximbaz/bin/ \
+              --suffix PATH : /run/current-system/sw/bin/ \
+              ;
+          done
+        '';
       };
     })
   ];
