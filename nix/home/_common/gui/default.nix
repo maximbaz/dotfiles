@@ -10,6 +10,7 @@
     ./waybar.nix
     ./wldash.nix
     ./workstyle.nix
+    ./xdg.nix
   ];
 
   systemd.user.services.wl-clipboard-manager = {

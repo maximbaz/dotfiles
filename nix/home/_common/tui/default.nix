@@ -9,6 +9,5 @@
     ./keyboard.nix
     ./pgcli.nix
     ./tig.nix
-    ./xdg.nix
   ];
 }
