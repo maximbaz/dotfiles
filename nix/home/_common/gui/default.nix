@@ -3,6 +3,7 @@
     ./browserpass.nix
     ./cursor.nix
     ./fonts.nix
+    ./gtk.nix
     ./mpv.nix
     ./polkit.nix
     ./swaync.nix
