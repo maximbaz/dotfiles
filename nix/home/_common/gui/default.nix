@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, extras, ... }: {
   imports = [
     ./browserpass.nix
     ./cursor.nix
@@ -24,6 +24,23 @@
     Service = {
       Type = "simple";
       ExecStart = "${lib.getExe' pkgs.maximbaz-scripts "wl-clipboard-manager"} daemon";
+      Restart = "on-failure";
+      RestartSec = 10;
+      TimeoutStopSec = 10;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
+  systemd.user.services.sway-inactive-window-transparency = {
+    Unit = {
+      Description = "Make inactive windows in sway semi-transparent";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      Environment = "INACTIVE_OPACITY=0.7";
+      ExecStart = lib.getExe' extras.sway-inactive-window-transparency "sway-inactive-window-transparency";
       Restart = "on-failure";
       RestartSec = 10;
       TimeoutStopSec = 10;

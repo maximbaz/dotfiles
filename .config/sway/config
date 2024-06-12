@@ -311,6 +311,7 @@ include "~/.config/sway/$(cat /etc/hostname).conf"
 
 # Load systemd integration
 # include /etc/sway/config.d/*
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK
 exec systemctl --user start sway-session.target
+exec_always "cggrep workstyle || cglaunch /etc/profiles/per-user/maximbaz/bin/workstyle"

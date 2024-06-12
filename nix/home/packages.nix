@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, extras, ... }: {
   services.udiskie.enable = true;
 
   home.packages = with pkgs; [
@@ -78,6 +78,7 @@
     sqlite
     swappy
     swaybg
+    extras.sway-inactive-window-transparency
     swaylock
     syncthing
     systembus-notify
