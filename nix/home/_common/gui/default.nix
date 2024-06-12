@@ -8,6 +8,7 @@
     ./polkit.nix
     ./swaync.nix
     ./sway.nix
+    ./swaylock.nix
     ./waybar.nix
     ./wldash.nix
     ./workstyle.nix
