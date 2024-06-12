@@ -3,7 +3,7 @@
 url="$1"
 url_encoded="$(jq -nr --arg input "$url" '$input|@uri')"
 containers="$(jq -r '.identities[] | select (.public) | .name' $HOME/.mozilla/firefox/*.default-release/containers.json 2> /dev/null | awk 'BEGIN{print ""} {print "firefox ("$0")"}')"
-menu=$(printf "firefox temp$containers\nqutebrowser\nchromium\ncopy to clipboard\nplay" | dmenu -p browser)
+menu=$(printf "firefox temp%s\nchromium\ncopy to clipboard\nplay" "$containers" | dmenu -p browser)
 
 case $menu in
     "firefox temp")
@@ -12,9 +12,6 @@ case $menu in
     "firefox "*)
         container=$(echo "$menu" | awk -F'[()]' '{print $2}')
         firefox "ext+container:name=$container&url=$url_encoded" &
-        ;;
-    "qutebrowser")
-        qutebrowser "$url" &
         ;;
     "chromium")
         chromium "$url" &

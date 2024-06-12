@@ -68,7 +68,6 @@
     python3
     qalculate-gtk
     qrencode
-    qutebrowser
     ripgrep
     rsync
     signal-desktop

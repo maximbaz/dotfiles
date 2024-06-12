@@ -1,5 +1,5 @@
 text/plain; hx %s;
-text/html; qutebrowser --desktop-file-name qutepreview --temp-basedir -C ~/.config/qutebrowser/qutepreview.py %s; needsterminal; nametemplate=%s.html;
+text/html; firefox file://%s;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 application/pdf; zathura %s;
 application/pdf; pdftotext -l 10 -nopgbrk -q -- %s - | fmt -w 120; copiousoutput;
