@@ -1,9 +1,0 @@
-[Unit]
-Description=Periodically backup list of installed packages
-
-[Timer]
-OnCalendar=hourly
-Persistent=true
-
-[Install]
-WantedBy=timers.target

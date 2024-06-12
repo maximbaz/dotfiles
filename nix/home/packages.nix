@@ -80,6 +80,7 @@
     swaybg
     sway-contrib.inactive-windows-transparency
     swaylock
+    swayr
     syncthing
     systembus-notify
     tig

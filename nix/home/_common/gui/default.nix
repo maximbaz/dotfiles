@@ -1,4 +1,21 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+let
+  systemdService = { Description, ExecStart, Environment ? "" }: {
+    Unit = {
+      Description = Description;
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Environment = Environment;
+      ExecStart = ExecStart;
+      Restart = "on-failure";
+      RestartSec = 10;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+in
+{
   imports = [
     ./browserpass.nix
     ./cursor.nix
@@ -15,32 +32,31 @@
     ./xdg.nix
   ];
 
-  systemd.user.services.wl-clipboard-manager = {
-    Unit = {
-      Description = "Clipboard manager daemon";
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
+  systemd.user.services = {
+    battery-low-notify = systemdService {
+      Description = "Notify when battery level is low";
+      ExecStart = lib.getExe' pkgs.maximbaz-scripts "battery-low-notify";
     };
-    Service = {
-      ExecStart = "${lib.getExe' pkgs.maximbaz-scripts "wl-clipboard-manager"} daemon";
-      Restart = "on-failure";
-      RestartSec = 10;
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
 
-  systemd.user.services.sway-inactive-windows-transparency = {
-    Unit = {
+    sway-inactive-windows-transparency = systemdService {
       Description = "Make inactive windows in sway semi-transparent";
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-    Service = {
       Environment = "INACTIVE_OPACITY=0.7";
       ExecStart = lib.getExe pkgs.sway-contrib.inactive-windows-transparency;
-      Restart = "on-failure";
-      RestartSec = 10;
     };
-    Install.WantedBy = [ "graphical-session.target" ];
+
+    sway-unfullscreen = systemdService {
+      Description = "Unfullscreen sway when opening another window";
+      ExecStart = lib.getExe' pkgs.maximbaz-scripts "sway-unfullscreen";
+    };
+
+    swayr = systemdService {
+      Description = "swayr daemon";
+      ExecStart = lib.getExe' pkgs.swayr "swayrd";
+    };
+
+    wl-clipboard-manager = systemdService {
+      Description = "Clipboard manager daemon";
+      ExecStart = "${lib.getExe' pkgs.maximbaz-scripts "wl-clipboard-manager"} daemon";
+    };
   };
 }

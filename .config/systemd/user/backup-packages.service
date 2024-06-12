@@ -1,5 +1,0 @@
-[Unit]
-Description=Backup list of installed packages
-
-[Service]
-ExecStart=%h/.local/bin/backup-packages
