@@ -42,11 +42,11 @@ in
       ExecStart = lib.getExe' pkgs.maximbaz-scripts "battery-low-notify";
     };
 
-    push2talk = systemdService {
-      Description = "push2talk";
-      Environment = "PUSH2TALK_KEYBIND=Super_R";
-      ExecStart = lib.getExe push2talk;
-    };
+    # push2talk = systemdService {
+    #   Description = "push2talk";
+    #   Environment = ["PUSH2TALK_KEYBIND=Super_R"];
+    #   ExecStart = lib.getExe push2talk;
+    # };
 
     sway-inactive-windows-transparency = systemdService {
       Description = "Make inactive windows in sway semi-transparent";
