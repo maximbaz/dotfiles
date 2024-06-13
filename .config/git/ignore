@@ -7,3 +7,4 @@ tags
 *.log
 .magic.mgc
 .uuid
+.DS_Store
