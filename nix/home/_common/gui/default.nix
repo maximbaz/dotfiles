@@ -26,8 +26,9 @@ in
     ./polkit.nix
     ./swappy.nix
     ./swaync.nix
-    ./sway.nix
     ./swaylock.nix
+    ./sway.nix
+    ./swayr.nix
     ./vimiv.nix
     ./waybar.nix
     ./wldash.nix
@@ -49,18 +50,13 @@ in
 
     sway-inactive-windows-transparency = systemdService {
       Description = "Make inactive windows in sway semi-transparent";
-      Environment = "INACTIVE_OPACITY=0.7";
+      Environment = [ "INACTIVE_OPACITY=0.7" ];
       ExecStart = lib.getExe pkgs.sway-contrib.inactive-windows-transparency;
     };
 
     sway-unfullscreen = systemdService {
       Description = "Unfullscreen sway when opening another window";
       ExecStart = lib.getExe' pkgs.maximbaz-scripts "sway-unfullscreen";
-    };
-
-    swayr = systemdService {
-      Description = "swayr daemon";
-      ExecStart = lib.getExe' pkgs.swayr "swayrd";
     };
 
     wl-clipboard-manager = systemdService {
