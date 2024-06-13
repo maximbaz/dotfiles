@@ -101,7 +101,6 @@ export SYSTEMD_LESS="${LESS}S"
 
 ###
 
-z4h source -- $HOME/.dotfiles/lscolors/lscolors.sh
 z4h source -- $ZDOTDIR/.zshrc-private
 z4h source -- $ZDOTDIR/.zsh-aliases
 
@@ -144,3 +143,5 @@ zsh_notify_bg_finish_duration() {
 
 add-zsh-hook preexec zsh_notify_bg_finish_pre
 add-zsh-hook precmd zsh_notify_bg_finish_post
+
+export LS_COLORS="$(vivid generate gruvbox-dark-hard)"
