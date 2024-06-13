@@ -70,7 +70,6 @@
     python3
     qalculate-gtk
     qrencode
-    ripgrep
     rsync
     signal-desktop
     sipcalc

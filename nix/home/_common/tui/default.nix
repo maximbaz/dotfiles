@@ -8,6 +8,7 @@
     ./helix.nix
     ./keyboard.nix
     ./pgcli.nix
+    ./ripgrep.nix
     ./tig.nix
   ];
 }
