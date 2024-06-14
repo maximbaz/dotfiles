@@ -1,0 +1,3 @@
+{
+  time.timeZone = "Europe/Copenhagen";
+}

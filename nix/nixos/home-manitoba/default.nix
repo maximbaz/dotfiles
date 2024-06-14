@@ -1,5 +1,8 @@
 {
-  imports = [ ./hardware-configuration.nix ../_common ];
+  imports = [
+    ./hardware-configuration.nix
+    ../_linux
+  ];
 
   networking.hostName = "home-manitoba";
 
