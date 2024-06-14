@@ -1,5 +1,5 @@
 {
-  includes = [
+  imports = [
     ../_macos
   ];
 }

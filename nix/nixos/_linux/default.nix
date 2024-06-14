@@ -13,6 +13,7 @@
     ./network.nix
     ./power.nix
     ./security.nix
+    ./ssh.nix
     ./sudo.nix
     ./swap.nix
     ./systemd.nix
