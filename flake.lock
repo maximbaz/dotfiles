@@ -108,6 +108,26 @@
         "type": "github"
       }
     },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718345812,
+        "narHash": "sha256-FJhA+YFsOFrAYe6EaiTEfomNf7jeURaPiG5/+a3DRSc=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "ff988d78f2f55641efacdf9a585d2937f7e32a9b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718160348,
@@ -164,6 +184,7 @@
         "apple-silicon-support": "apple-silicon-support",
         "home-manager": "home-manager",
         "maximbaz-private": "maximbaz-private",
+        "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "push2talk": "push2talk"
       }
