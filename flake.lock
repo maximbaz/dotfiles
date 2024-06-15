@@ -165,16 +165,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1718230506,
-        "narHash": "sha256-+nVGWSLZ7hwjo9GwLoZ3G9nU9c6EywxYB7nHGCw38sU=",
+        "lastModified": 1718449651,
+        "narHash": "sha256-br9RJH8FuAKNfu5hODJoxybP5C65qVPjVAuoL2vO1PA=",
         "owner": "cyrinux",
         "repo": "push2talk",
-        "rev": "c40e00a3945d443e77df12d7772bb145cf461bbe",
+        "rev": "4cdfc1822534bc8f57a2a08dc1f78355526543bb",
         "type": "github"
       },
       "original": {
         "owner": "cyrinux",
-        "ref": "flake",
         "repo": "push2talk",
         "type": "github"
       }

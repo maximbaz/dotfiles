@@ -22,7 +22,7 @@
     maximbaz-private.url = "git+file:///home/maximbaz/.dotfiles-private";
 
     push2talk = {
-      url = "github:cyrinux/push2talk/flake";
+      url = "github:cyrinux/push2talk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
