@@ -33,8 +33,6 @@ alias sudo='sudo -E '
 alias tree='tree -a -I .git --dirsfirst'
 alias ll='ls -l'
 alias utc='env TZ=UTC date'
-alias battery-normal='sudo cctk --PrimaryBattChargeCfg=custom:50-86 --ValSetupPwd="$(pass personal/bios)"'
-alias battery-full='sudo cctk --PrimaryBattChargeCfg=standard --ValSetupPwd="$(pass personal/bios)"'
 alias gpg-change-card='gpg-connect-agent "scd serialno" "learn --force" /bye'
 alias yd='yt-dlp --external-downloader aria2c --sponsorblock-mark all'
 alias ws='wormhole-rs tx'
@@ -52,8 +50,6 @@ qr()  { [[ $# == 1 ]] && qrencode -t utf8 <<<"$1" || qrencode -t utf8 }
 p() { ping "${1:-1.1.1.1}" }
 
 tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
-
-x() { PAGER="less -+F" xplr | IFS= read -r dir && cd -- "${dir:-.}" }
 
 boox-push() {
     if [[ $# < 1 || $# > 2 ]]; then
@@ -276,16 +272,4 @@ pacs() {
     else
         echo "Nothing selected, aborting."
     fi
-}
-
-rga-fzf() {
-    RG_PREFIX="rga --files-with-matches"
-    xdg-open "$(
-        FZF_DEFAULT_COMMAND="$RG_PREFIX $@" \
-            fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
-                --bind=tab:down,btab:up \
-                --phony -q "$1" \
-                --bind "change:reload:$RG_PREFIX {q}" \
-                --preview-window="70%:wrap"
-    )"
 }
