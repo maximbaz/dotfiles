@@ -2,7 +2,6 @@
 
 ## generic
 
-command -v atuin     &> /dev/null    && eval "$(atuin init zsh --disable-up-arrow)"
 command -v curlie    &> /dev/null    && alias curl='curlie'
 command -v dfrs      &> /dev/null    && alias df='dfrs'
 command -v git       &> /dev/null    && alias diff='git diff --no-index'
