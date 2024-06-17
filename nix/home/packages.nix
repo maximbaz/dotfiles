@@ -42,6 +42,7 @@
     kitty
     libnotify
     libreoffice
+    magic-wormhole-rs
     maximbaz-scripts
     meld
     msmtp
@@ -83,6 +84,7 @@
     swayr
     syncthing
     systembus-notify
+    teehee
     tig
     trash-cli
     tree
