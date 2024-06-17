@@ -144,4 +144,4 @@ zsh_notify_bg_finish_duration() {
 add-zsh-hook preexec zsh_notify_bg_finish_pre
 add-zsh-hook precmd zsh_notify_bg_finish_post
 
-export LS_COLORS="$(vivid generate gruvbox-dark-hard)"
+command -v vivid &> /dev/null && export LS_COLORS="$(vivid generate gruvbox-dark-hard)"
