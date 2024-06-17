@@ -11,5 +11,6 @@
     ./pgcli.nix
     ./ripgrep.nix
     ./tig.nix
+    ./w3m.nix
   ];
 }

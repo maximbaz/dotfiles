@@ -15,6 +15,7 @@ command -v eza       &> /dev/null    && alias la='ll -a'                        
 command -v eza       &> /dev/null    && alias lk='ll -s=size'                                      || alias lk='ll -r --sort=size'
 command -v eza       &> /dev/null    && alias lm='ll -s=modified'                                  || alias lm='ll -r --sort=time'
 command -v doggo     &> /dev/null    && alias d='doggo'                                            || alias d='dig +nocmd +multiline +noall +answer'
+command -v w3mman    &> /dev/null    && alias man='w3mman'
 
 alias e="$EDITOR"
 alias cp='cp -r --reflink=auto'
