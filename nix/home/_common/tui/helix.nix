@@ -3,6 +3,7 @@
     enable = true;
     defaultEditor = true;
     extraPackages = [
+      bash-language-server
       biome
       clang-tools
       docker-compose-language-service
@@ -15,7 +16,6 @@
       marksman
       nil
       nixpkgs-fmt
-      nodePackages.bash-language-server
       nodePackages.prettier
       nodePackages.typescript-language-server
       pgformatter
