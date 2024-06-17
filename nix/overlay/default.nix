@@ -39,7 +39,10 @@
         src = ./bin;
         dontUnpack = true;
         nativeBuildInputs = [ pkgs.makeWrapper ];
-        installPhase = "install -Dm755 $src/* -t $out/bin/";
+        installPhase = ''
+          install -Dm755 $src/* -t $out/bin/
+          install -Dm755 $src/dmenu $out/bin/dmenu-wl
+        '';
         postFixup = ''
           for script in $out/bin/*; do 
             wrapProgram $script \
