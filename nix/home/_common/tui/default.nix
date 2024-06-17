@@ -4,6 +4,7 @@
     ./bat.nix
     ./bottom.nix
     ./direnv.nix
+    ./git.nix
     ./gpg.nix
     ./helix.nix
     ./keyboard.nix
