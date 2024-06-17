@@ -1,13 +1,8 @@
 {
-  programs.zsh = {
-    enable = true;
-
-    envExtra = builtins.readFile ./zsh/.zshenv;
-    profileExtra = builtins.readFile ./zsh/.zprofile;
-
-    initExtraFirst = ''
-      ${builtins.readFile ./zsh/.zshrc}
-      ${builtins.readFile ./zsh/.zsh-aliases}
-    '';
+  home.file = {
+    ".zprofile".text = builtins.readFile ./zsh/.zprofile;
+    ".zsh-aliases".text = builtins.readFile ./zsh/.zsh-aliases;
+    ".zshenv".text = builtins.readFile ./zsh/.zshenv;
+    ".zshrc".text = builtins.readFile ./zsh/.zshrc;
   };
 }
