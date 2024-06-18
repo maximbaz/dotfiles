@@ -40,6 +40,7 @@ alias ws='wormhole-rs tx'
 alias wr='wormhole-rs rx'
 
 compdef trash-put=rm
+compdef w3mman=man
 
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
