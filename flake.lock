@@ -185,11 +185,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718568776,
-        "narHash": "sha256-J7OefmfBP6yIy1MqUmrRaoIT3cjNqckAPvhvd3hNzPA=",
+        "lastModified": 1718709150,
+        "narHash": "sha256-INpGBA3S3Exqq7tmdjDeG6OEw3uogFtc6bjvGZJaI4Y=",
         "owner": "cyrinux",
         "repo": "push2talk",
-        "rev": "6830041c9e151f9ae568aa0fac8cc6f6223f4fa4",
+        "rev": "4f35bd41c31d11a288c33d2a6831f21baf8e448d",
         "type": "github"
       },
       "original": {
