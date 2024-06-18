@@ -1,6 +1,18 @@
 { config, pkgs, ... }: {
   imports = [
     # ../_common/tui
+    ../_common/tui/atuin.nix
+    ../_common/tui/bat.nix
+    ../_common/tui/bottom.nix
+    ../_common/tui/direnv.nix
+    ../_common/tui/git.nix
+    # ../_common/tui/gpg.nix
+    ../_common/tui/helix.nix
+    # ../_common/tui/keyboard.nix
+    # ../_common/tui/pgcli.nix
+    ../_common/tui/ripgrep.nix
+    ../_common/tui/tig.nix
+    ../_common/tui/w3m.nix
   ];
 
   home.sessionVariables = {
@@ -18,80 +30,94 @@
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
-    (python3.withPackages (ps: with ps; [
-        pyyaml
-        pynacl
-        pylint
-        tldextract
-        isort
-        black
-        pip
-    ]))
+    # (python3.withPackages (ps: with ps; [
+    #     pyyaml
+    #     pynacl
+    #     pylint
+    #     tldextract
+    #     isort
+    #     black
+    #     pip
+    # ]))
 
-    azure-cli
+    # azure-cli
     bash
     bat
     coreutils
     curl
-    delta
     diffutils
-    direnv
-    dos2unix
-    editorconfig-core-c
-    eza
-    fd
-    findutils
-    fzf
     gawk
     gh
-    git
     gnugrep
     gnum4
     gnumake
     gnused
     gnutar
     gnutls
-    go
-    gopls
-    gzip
+    # gopls
+    # gzip
     kubelogin
     kubernetes-helm
-    htop
-    jq
-    kak-lsp
-    kakoune
     kubectl
     kubectx
-    less
-    nodePackages.prettier
-    openssh
-    sshpass
-    pass
-    patch
-    pgcli
-    postgresql
-    qrencode
-    ripgrep
-    rsync
-    rust-analyzer
-    shellcheck
-    sipcalc
+    # less
+    # nodePackages.prettier
+    # openssh
+    # sshpass
+    # patch
+    # rust-analyzer
+    # shellcheck
     #terraform
+    # unixtools.watch
+    #vault
+    # wget
+    # wireguard-go
+    # which
+    # yq
+    # zstd
+
+
+    bfs
+    delta
+    dfrs
+    doggo
+    dos2unix
+    dua
+    editorconfig-core-c
+    eza
+    fd
+    file
+    fzf
+    gcc
+    git
+    glib
+    go
+    jq
+    magic-wormhole-rs
+    maximbaz-scripts
+    nix-index
+    pass
+    perlPackages.vidir
+    pigz
+    postgresql_16
+    progress
+    pwgen
+    python3
+    qrencode
+    rsync
+    sipcalc
+    socat
+    sqlite
+    teehee
     tig
     tree
-    unixtools.watch
+    unrar
     unzip
-    #vault
-    vim
-    #webwormhole
-    wget
+    vivid
+    w3m
     wireguard-tools
-    wireguard-go
-    which
-    xplr
-    yq
+    yt-dlp
+    zip
     zsh
-    zstd
-    mtr
   ];
 }
