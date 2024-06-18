@@ -24,7 +24,6 @@
       save-position-on-quit = true;
       ignore-path-in-watch-later-config = true;
       ytdl-format = "best";
-      ytdl-raw-options = "sponsorblock-mark=all";
     };
     scriptOpts = {
       uosc = {
