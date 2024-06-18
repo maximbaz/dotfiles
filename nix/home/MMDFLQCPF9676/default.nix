@@ -95,7 +95,6 @@
     jq
     magic-wormhole-rs
     maximbaz-scripts
-    nix-index
     pass
     perlPackages.vidir
     pigz

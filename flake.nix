@@ -25,9 +25,14 @@
       url = "github:cyrinux/push2talk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, apple-silicon-support, nix-darwin, maximbaz-private, push2talk, ... }: {
+  outputs = { nixpkgs, home-manager, apple-silicon-support, nix-darwin, maximbaz-private, push2talk, nix-index-database, ... }: {
     nixosConfigurations = {
       home-manitoba = let system = "aarch64-linux"; in nixpkgs.lib.nixosSystem {
         inherit system;
@@ -44,6 +49,7 @@
                 push2talk = push2talk.defaultPackage.${system};
               };
               users.maximbaz.imports = [
+                nix-index-database.hmModules.nix-index
                 ./nix/home/home-manitoba
                 maximbaz-private.nixosModules.home
               ];
@@ -64,6 +70,7 @@
               useUserPackages = true;
               useGlobalPkgs = true;
               users.maximbaz.imports = [
+                nix-index-database.hmModules.nix-index
                 ./nix/home/MMDFLQCPF9676
               ];
             };

@@ -50,7 +50,6 @@
     neomutt
     netcat-openbsd
     nftables
-    nix-index
     nodejs
     notmuch
     nzbget

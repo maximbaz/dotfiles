@@ -8,6 +8,7 @@
     ./gpg.nix
     ./helix.nix
     ./keyboard.nix
+    ./nix-index.nix
     ./pgcli.nix
     ./ripgrep.nix
     ./tig.nix
