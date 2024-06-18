@@ -5,6 +5,7 @@
     ../_common
     ./bluetooth.nix
     ./boot.nix
+    ./btrfs.nix
     ./crypttab.nix
     ./docker.nix
     ./earlyoom.nix
