@@ -14,5 +14,6 @@
     ./tig.nix
     ./w3m.nix
     ./zsh.nix
+    ./yt-dlp.nix
   ];
 }

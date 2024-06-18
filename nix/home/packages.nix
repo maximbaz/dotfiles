@@ -99,7 +99,6 @@
     wl-clipboard
     wldash
     workstyle
-    yt-dlp
     zathura
     zip
     zsh
