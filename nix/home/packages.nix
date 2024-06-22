@@ -95,6 +95,7 @@
     vivid
     vscode
     w3m
+    wf-recorder
     wireguard-tools
     wl-clipboard
     wldash
