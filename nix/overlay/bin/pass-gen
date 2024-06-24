@@ -27,5 +27,5 @@ if [ -z "${random%ERR*}" ]; then
     random="$(pwgen -s "$length" $symbols)"
 fi
 
-printf '%s' "$random" | tr -cd "$filter" | tr -d '[:space:]' | cut -c-$length | wl-copy -n
+printf '%s' "$random" | cut -c3- | tr -cd "$filter" | tr -d '[:space:]' | cut -c-$length | wl-copy -n
 wl-clipboard-manager unlock
