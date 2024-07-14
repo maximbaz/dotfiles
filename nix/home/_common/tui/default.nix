@@ -11,6 +11,7 @@
     ./nix-index.nix
     ./pgcli.nix
     ./ripgrep.nix
+    ./syncthing.nix
     ./tig.nix
     ./w3m.nix
     ./zsh.nix
