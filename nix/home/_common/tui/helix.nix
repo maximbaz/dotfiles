@@ -239,6 +239,7 @@
             command = "biome";
             args = [ "format" "--indent-style" "space" "--stdin-file-path" "file.jsonc" ];
           };
+          file-types = [ "jsonc" "hujson" ];
           auto-format = true;
         }
         {
