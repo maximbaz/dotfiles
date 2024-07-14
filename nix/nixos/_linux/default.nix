@@ -7,6 +7,7 @@
     ./boot.nix
     ./btrfs.nix
     ./crypttab.nix
+    ./dbus.nix
     ./docker.nix
     ./earlyoom.nix
     ./fstrim.nix
