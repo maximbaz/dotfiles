@@ -8,6 +8,9 @@
       keyserver-options = "auto-key-retrieve";
       keyring = "${config.home.homeDirectory}/.dotfiles-private/.gnupg/private.kbx";
     };
+    scdaemonSettings = {
+      disable-ccid = true;
+    };
   };
 
   services.gpg-agent = {
