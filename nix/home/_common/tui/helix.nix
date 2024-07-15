@@ -29,6 +29,7 @@
       taplo
       taplo-lsp
       terraform-ls
+      typescript
       vscode-langservers-extracted
       yaml-language-server
     ];
@@ -177,6 +178,10 @@
 
       language-server.yaml-language-server.config.yaml.schemas = {
         kubernetes = "k8s/*.yaml";
+      };
+
+      language-server.typescript-language-server.config.tsserver = {
+        path = "${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js";
       };
 
       language = [
