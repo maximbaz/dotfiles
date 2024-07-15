@@ -29,7 +29,7 @@
 
   systemd.network = {
     enable = true;
-    # wait-online.enable = false;
+    wait-online.enable = false;
     networks = {
       "20-wireless" = {
         matchConfig.Name = "wlan0";
