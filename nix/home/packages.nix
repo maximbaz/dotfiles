@@ -11,6 +11,7 @@
     calibre
     cargo
     chromium
+    curlie
     dbmate
     delta
     dfrs
@@ -30,6 +31,7 @@
     gcc
     git
     glib
+    gnumake
     go
     gocryptfs
     goimapnotify
@@ -75,6 +77,7 @@
     sipcalc
     slurp
     socat
+    sops
     sqlite
     swappy
     swaybg
