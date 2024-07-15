@@ -225,7 +225,6 @@
           language-servers = [
             { name = "vscode-json-language-server"; except-features = [ "format" ]; }
             "biome"
-            "gpt"
           ];
           formatter = {
             command = "biome";
@@ -238,7 +237,6 @@
           language-servers = [
             { name = "vscode-json-language-server"; except-features = [ "format" ]; }
             "biome"
-            "gpt"
           ];
           formatter = {
             command = "biome";
@@ -310,7 +308,7 @@
         }
         {
           name = "toml";
-          language-servers = [ "taplo" "gpt" ];
+          language-servers = [ "taplo" ];
           formatter = {
             command = "taplo";
             args = [ "fmt" "-o" "column_width=120" "-" ];
@@ -345,7 +343,7 @@
         }
         {
           name = "yaml";
-          language-servers = [ "yaml-language-server" "gpt" ];
+          language-servers = [ "yaml-language-server" ];
           formatter = {
             command = "prettier";
             args = [ "--stdin-filepath" "file.yaml" ];
