@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,11 +37,12 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, apple-silicon-support, nix-darwin, maximbaz-private, push2talk, nix-index-database, ... }: {
+  outputs = { nixpkgs, sops-nix, home-manager, apple-silicon-support, nix-darwin, maximbaz-private, push2talk, nix-index-database, ... }: {
     nixosConfigurations = {
       home-manitoba = let system = "aarch64-linux"; in nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          sops-nix.nixosModules.sops
           apple-silicon-support.nixosModules.apple-silicon-support
           ./nix/nixos/home-manitoba
           maximbaz-private.nixosModules.nixos
