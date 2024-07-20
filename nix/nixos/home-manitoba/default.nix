@@ -10,6 +10,7 @@
     peripheralFirmwareDirectory = /boot/asahi;
     useExperimentalGPUDriver = true;
     experimentalGPUInstallMode = "replace";
+    setupAsahiSound = true;
   };
 
   boot = {
@@ -25,7 +26,4 @@
     '';
     initrd.systemd.enable = true;
   };
-
-  # this enables pipewire on Asahi, contrary to the official Nix docs
-  sound.enable = true;
 }
