@@ -102,7 +102,6 @@
     wireguard-tools
     wl-clipboard
     wldash
-    workstyle
     zathura
     zip
     zsh

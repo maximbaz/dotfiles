@@ -66,7 +66,7 @@ in
 
     workstyle = systemdService {
       Description = "Autoname sway workspaces";
-      ExecStart = lib.getExe pkgs.workstyle;
+      ExecStart = "${lib.getExe pkgs.swayest-workstyle} --deduplicate";
     };
   };
 }

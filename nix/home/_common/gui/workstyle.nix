@@ -1,9 +1,16 @@
 {
-  xdg.configFile."workstyle/config.toml".text = ''
+  xdg.configFile."sworkstyle/config.toml".text = ''
+    fallback = ""
+
+    [matching]
     "calibre-gui" = ""
     "chromium" = ""
     "code" = ""
     "dmenu" = ""
+    "dmenu-clipboard" = ""
+    "dmenu-browser" = ""
+    "dmenu-emoji" = ""
+    "dmenu-pass generator" = ""
     "firefox" = ""
     "kitty" = ""
     "krita" = ""
@@ -18,9 +25,5 @@
     "signal" = ""
     "swappy" = ""
     "vimiv" = ""
-
-    [other]
-    fallback_icon = ""
-    deduplicate_icons = true
   '';
 }
