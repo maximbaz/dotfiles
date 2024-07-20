@@ -1,4 +1,4 @@
-{ pkgs, push2talk, ... }: {
+{ pkgs, push2talk, network-dmenu, ... }: {
   services.udiskie.enable = true;
 
   home.packages = with pkgs; [
@@ -51,6 +51,7 @@
     mysql-client
     neomutt
     netcat-openbsd
+    network-dmenu
     nftables
     nodejs
     notmuch

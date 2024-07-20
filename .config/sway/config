@@ -155,6 +155,7 @@ bindsym --to-code {
     # Launcher
     $hyper+equal                 exec cgtoggle qalculate-gtk
     $hyper+d                     exec cgtoggle wldash
+    $hyper+n                     exec cgtoggle network-dmenu
     $hyper+p                     exec "wl-clipboard-manager lock; cglaunch passmenu -p pass; wl-clipboard-manager unlock"
     $win+p                       exec cgtoggle pass-gen
     $hyper+m                     exec cgtoggle udiskie-dmenu

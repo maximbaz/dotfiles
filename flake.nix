@@ -31,13 +31,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    network-dmenu = {
+      url = "github:cyrinux/network-dmenu";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, sops-nix, home-manager, apple-silicon-support, nix-darwin, maximbaz-private, push2talk, nix-index-database, ... }: {
+  outputs = { nixpkgs, sops-nix, home-manager, apple-silicon-support, nix-darwin, maximbaz-private, push2talk, network-dmenu, nix-index-database, ... }: {
     nixosConfigurations = {
       home-manitoba = let system = "aarch64-linux"; in nixpkgs.lib.nixosSystem {
         inherit system;
@@ -53,6 +58,7 @@
               useGlobalPkgs = true;
               extraSpecialArgs = {
                 push2talk = push2talk.defaultPackage.${system};
+                network-dmenu = network-dmenu.defaultPackage.${system};
               };
               users.maximbaz.imports = [
                 nix-index-database.hmModules.nix-index
