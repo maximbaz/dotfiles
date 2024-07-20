@@ -19,7 +19,7 @@
     pam = {
       services.sudo.u2fAuth = true;
       services.polkit-1.u2fAuth = true;
-      u2f.cue = true;
+      u2f.settings.cue = true;
     };
   };
 
