@@ -147,6 +147,11 @@
         select = {
           tab = "extend_parent_node_end";
           S-tab = "extend_parent_node_start";
+
+          g = {
+            j = "goto_last_line";
+            k = "goto_file_start";
+          };
         };
       };
     };
