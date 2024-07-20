@@ -1,6 +1,7 @@
 {
-  services = {
-    resolved.enable = false;
+  services.resolved = {
+    enable = true;
+    dnssec = "allow-downgrade";
   };
 
   networking = {
@@ -35,11 +36,13 @@
         matchConfig.Name = "wlan0";
         networkConfig.DHCP = "yes";
         dhcpConfig.RouteMetric = 20;
+        # dns = [ "94.140.14.14" "94.140.15.15" ];
       };
       "50-wired" = {
         matchConfig.Name = "enp*"; # TODO test this
         networkConfig.DHCP = "yes";
         dhcpConfig.RouteMetric = 50;
+        # dns = [ "94.140.14.14" "94.140.15.15" ];
       };
     };
   };
