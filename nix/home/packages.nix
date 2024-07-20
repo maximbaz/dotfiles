@@ -2,7 +2,6 @@
   services.udiskie.enable = true;
 
   home.packages = with pkgs; [
-    acpi
     android-tools
     android-udev-rules
     asahi-bless
