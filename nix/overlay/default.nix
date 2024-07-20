@@ -33,6 +33,15 @@
         '';
       });
 
+      joypixels = super.joypixels.overrideAttrs (_old: {
+        version = "9.0.0";
+        src = super.fetchurl {
+          name = "joypixels-android.ttf";
+          url = "https://maximbaz.com/joypixels-emoji.ttf";
+          sha256 = "0ghh5s4ri4lpf43nnpjck9g3y6s4cl9mwkjq78wzfaqj0rbaqqd6";
+        };
+      });
+
       maximbaz-scripts = pkgs.stdenv.mkDerivation {
         pname = "maximbaz-scripts";
         version = "1.0.0";
