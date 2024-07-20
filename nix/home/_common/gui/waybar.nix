@@ -165,6 +165,7 @@ in
       backlight = {
         format = "<span foreground='#928374'>{icon}</span> {percent}%";
         format-icons = [ "" ];
+        tooltip = false;
       };
 
       "sway/language" = {
