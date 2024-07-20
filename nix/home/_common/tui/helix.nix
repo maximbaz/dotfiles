@@ -39,11 +39,15 @@
 
       editor = {
         color-modes = true;
-        auto-save = true;
         cursorline = true;
         bufferline = "multiple";
 
         soft-wrap.enable = true;
+
+        auto-save = {
+          focus-lost = true;
+          after-delay.enable = true;
+        };
 
         cursor-shape = {
           insert = "bar";
