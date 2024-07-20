@@ -164,7 +164,7 @@
         "variable.parameter" = "blue1";
         "function.macro" = "red1";
         "operator" = "orange1";
-        "comment" = "gray1";
+        "comment" = "gray";
         "constant.builtin" = "orange1";
         "ui.background" = { };
       };
