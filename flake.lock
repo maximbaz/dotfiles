@@ -95,10 +95,10 @@
     },
     "maximbaz-private": {
       "locked": {
-        "dirtyRev": "a0e310eae86ba032d77d19458b5c9e874ba6680e-dirty",
-        "dirtyShortRev": "a0e310e-dirty",
-        "lastModified": 1721077173,
-        "narHash": "sha256-VGFoEqROBtBfvPI5Gz4phYtmTN+Yl7ZIQ8R2Tbafa/U=",
+        "dirtyRev": "73fd5226fabcbc8a68e2eee83f8f4d1f8fc38f76-dirty",
+        "dirtyShortRev": "73fd522-dirty",
+        "lastModified": 1721472376,
+        "narHash": "sha256-AmCbfOZoXcXajiAivQyjrynKIS7257hImFZ7zSND5K0=",
         "type": "git",
         "url": "file:///home/maximbaz/.dotfiles-private"
       },
@@ -154,11 +154,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721468902,
-        "narHash": "sha256-tFA5sDU4601+FdMIXHL5195sqXJdJOYyVaYwhyIaLuc=",
+        "lastModified": 1721471977,
+        "narHash": "sha256-x/oWdDKspEWyooViKss+di36xXb/4sovNku4IQqfDzs=",
         "owner": "cyrinux",
         "repo": "network-dmenu",
-        "rev": "36476e1e3e49e8fc2067c65a39b88892bb5225b8",
+        "rev": "537ac60896028361a09b0fa17ef7a7dfe621378f",
         "type": "github"
       },
       "original": {

@@ -61,6 +61,7 @@
                 network-dmenu = network-dmenu.defaultPackage.${system};
               };
               users.maximbaz.imports = [
+                sops-nix.homeManagerModules.sops
                 nix-index-database.hmModules.nix-index
                 ./nix/home/home-manitoba
                 maximbaz-private.nixosModules.home
