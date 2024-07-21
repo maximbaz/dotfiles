@@ -32,7 +32,6 @@
     glib
     gnumake
     go
-    gocryptfs
     goimapnotify
     grim
     helvum

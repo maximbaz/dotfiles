@@ -5,6 +5,7 @@
     ./bottom.nix
     ./direnv.nix
     ./git.nix
+    ./gocryptfs.nix
     ./gpg.nix
     ./helix.nix
     ./keyboard.nix
