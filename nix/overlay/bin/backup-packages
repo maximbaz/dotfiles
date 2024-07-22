@@ -1,5 +1,0 @@
-#!/bin/sh
-
-dnf -qC repoquery --userinstalled --queryformat '%{NAME}' 2> /dev/null | grep -vE 'maximbaz|maximbaz-base' > ~/.dotfiles/packages/unknown.list
-dnf -qC repoquery --unneeded --queryformat '%{NAME}' > ~/.dotfiles/packages/obsolete.list
-exit 0
