@@ -1,0 +1,14 @@
+diff --git a/app/main.ts b/app/main.ts
+index 8388480e6..baedcfb55 100644
+--- a/app/main.ts
++++ b/app/main.ts
+@@ -749,7 +749,7 @@ async function createWindow() {
+   const titleBarOverlay = await getTitleBarOverlay();
+
+   const windowOptions: Electron.BrowserWindowConstructorOptions = {
+-    show: false,
++    show: true,
+     width: DEFAULT_WIDTH,
+     height: DEFAULT_HEIGHT,
+     minWidth: MIN_WIDTH,
+
