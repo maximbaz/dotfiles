@@ -1,0 +1,43 @@
+{
+  system.stateVersion = "24.05";
+
+  imports = [
+    ../common
+    ./android.nix
+    ./bluetooth.nix
+    ./boot.nix
+    ./btrfs.nix
+    ./crypttab.nix
+    ./cursor.nix
+    ./dbus.nix
+    ./docker.nix
+    ./earlyoom.nix
+    ./fstrim.nix
+    ./i18n.nix
+    ./keyboard.nix
+    ./network.nix
+    ./ozone.nix
+    ./packages.nix
+    ./polkit.nix
+    ./power.nix
+    ./security.nix
+    ./ssh.nix
+    ./sudo.nix
+    ./swap.nix
+    ./sway.nix
+    ./swaylock.nix
+    ./swaync.nix
+    ./swayr.nix
+    ./systemd-services.nix
+    ./systemd.nix
+    ./tailscale.nix
+    ./udisks2.nix
+    ./usbguard.nix
+    ./users.nix
+    ./waybar.nix
+    ./wldash.nix
+    ./workstyle.nix
+    ./xdg.nix
+    ./yubikey.nix
+  ];
+}

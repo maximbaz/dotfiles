@@ -1,0 +1,3 @@
+{
+  services.tailscale.useRoutingFeatures = "client";
+}

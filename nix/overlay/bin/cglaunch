@@ -19,4 +19,8 @@ else
     title="${1##*/}"
 fi
 
-exec systemd-run --quiet --user --scope --slice app.slice --unit "launch-$title-$(date '+%s%N')" $args -- $app "$@"
+if [ "$(uname)" == "Darwin" ]; then
+    exec $app "$@"
+else
+    exec systemd-run --quiet --user --scope --slice app.slice --unit "launch-$title-$(date '+%s%N')" $args -- $app "$@"
+fi
