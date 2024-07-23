@@ -1,4 +1,4 @@
-{
+{ config, lib, ... }: {
   nix = {
     gc.automatic = true;
     settings = {
@@ -14,6 +14,10 @@
       input-fonts.acceptLicense = true;
       joypixels.acceptLicense = true;
     };
+  };
+
+  services = { } // lib.attrsets.optionalAttrs (builtins.hasAttr "nix-daemon" config.services) {
+    nix-daemon.enable = true;
   };
 
   imports = [ ../../overlay ];
