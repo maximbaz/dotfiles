@@ -37,6 +37,7 @@
     iptables-nftables-compat
     isync
     jq
+    just
     kitty
     libnotify
     libreoffice

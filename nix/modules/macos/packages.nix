@@ -26,6 +26,7 @@
     gnused
     gnutar
     gnutls
+    just
     pinentry_mac
     # gopls
     # gzip
