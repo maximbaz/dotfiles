@@ -3,6 +3,7 @@ inputs.nix-darwin.lib.darwinSystem {
   system = "aarch64-darwin";
   modules = [
     globals
+    inputs.maximbaz-private.nixosModules.default
     inputs.mac-app-util.darwinModules.default
     inputs.home-manager.darwinModules.home-manager
     ../../modules/macos

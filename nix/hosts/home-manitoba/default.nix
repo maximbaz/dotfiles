@@ -9,7 +9,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
     globals
     inputs.sops-nix.nixosModules.sops
     inputs.apple-silicon-support.nixosModules.apple-silicon-support
-    inputs.maximbaz-private.nixosModules.nixos
+    inputs.maximbaz-private.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../../modules/linux
@@ -40,7 +40,6 @@ inputs.nixpkgs.lib.nixosSystem rec {
       home-manager.users.${globals.user}.imports = [
         inputs.sops-nix.homeManagerModules.sops
         inputs.nix-index-database.hmModules.nix-index
-        inputs.maximbaz-private.nixosModules.home
       ];
     }
   ];
