@@ -6,6 +6,11 @@ z4h source -- /etc/profiles/per-user/maximbaz/etc/profile.d/hm-session-vars.sh
 
 export GPG_TTY="$TTY"
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+if [[ "$(uname)" == "Darwin" ]]; then
+    launchctl setenv GPG_TTY "$GPG_TTY"
+    launchctl setenv SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
+fi
+
 
 if [[ -z $DISPLAY && "$TTY" == "/dev/tty1" ]]; then
     systemd-cat -t sway sway

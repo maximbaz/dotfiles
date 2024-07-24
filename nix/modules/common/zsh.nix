@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
   programs.zsh.enable = true;
 
   home-manager.users.${config.user}.home.file = {
@@ -8,12 +8,5 @@
     ".zsh-aliases".source = ./zsh/.zsh-aliases;
     ".zshenv".source = ./zsh/.zshenv;
     ".zshrc".source = ./zsh/.zshrc;
-    ".zsh-platform".text =
-      if pkgs.stdenv.isDarwin then ''
-        export GPG_TTY="$TTY"
-        export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
-        launchctl setenv GPG_TTY "$GPG_TTY"
-        launchctl setenv SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
-      '' else "";
   };
 }
