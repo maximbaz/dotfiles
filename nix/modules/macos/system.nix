@@ -29,6 +29,9 @@
         persistent-apps = [
           "${pkgs.firefox-bin}/Applications/Firefox.app"
           "${pkgs.kitty}/Applications/Kitty.app"
+          "/Applications/Microsoft Teams (work or school).app"
+          "/Applications/Microsoft Outlook.app"
+          "/Applications/Microsoft Remote Desktop.app"
         ];
       };
 
