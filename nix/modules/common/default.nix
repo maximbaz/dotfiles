@@ -42,6 +42,8 @@
       type = lib.types.str;
       description = "Primary user of the system";
     };
+
+    personal.enable = lib.mkEnableOption "Personal setup";
   };
 
   # # TODO

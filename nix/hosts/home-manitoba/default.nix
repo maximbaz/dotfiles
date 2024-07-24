@@ -14,6 +14,8 @@ inputs.nixpkgs.lib.nixosSystem rec {
     ./hardware-configuration.nix
     ../../modules/linux
     {
+      personal.enable = true;
+
       networking.hostName = "home-manitoba";
 
       hardware.asahi = {
