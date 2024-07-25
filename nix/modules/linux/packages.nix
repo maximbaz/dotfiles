@@ -1,4 +1,4 @@
-{ config, pkgs, push2talk, network-dmenu, ... }: {
+{ config, pkgs, push2talk, ... }: {
   home-manager.users.${config.user}.home.packages = with pkgs; [
     android-tools
     android-udev-rules
@@ -48,7 +48,6 @@
     mysql-client
     neomutt
     netcat-openbsd
-    network-dmenu
     nftables
     nodejs
     notmuch
