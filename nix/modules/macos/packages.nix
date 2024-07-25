@@ -17,7 +17,6 @@
     curl
     diffutils
     flameshot
-    firefox-bin
     gawk
     gh
     gnugrep

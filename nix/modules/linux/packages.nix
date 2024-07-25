@@ -22,7 +22,6 @@
     ff2mpv-rust
     ffmpeg
     file
-    firefox-wayland
     freerdp
     fzf
     gcc
