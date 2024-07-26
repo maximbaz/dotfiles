@@ -1,22 +1,22 @@
 { config, pkgs, ... }: {
   home-manager.users.${config.user}.home.packages = with pkgs; [
-    # (python3.withPackages (ps: with ps; [
-    #   pyyaml
-    #   # pynacl
-    #   # pylint
-    #   # tldextract
-    #   # isort
-    #   # black
-    #   # pip
-    # ]))
+    (python3.withPackages (ps: with ps; [
+      pyyaml
+      # pynacl
+      # pylint
+      # tldextract
+      # isort
+      # black
+      # pip
+    ]))
 
-    # azure-cli
+    azure-cli
     bash
     bat
     coreutils
     curl
     diffutils
-    flameshot
+    # flameshot
     gawk
     gh
     gnugrep
@@ -74,7 +74,6 @@
     postgresql_16
     progress
     pwgen
-    python3
     qrencode
     rsync
     sipcalc
