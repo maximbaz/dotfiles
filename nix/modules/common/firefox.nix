@@ -59,7 +59,7 @@
         "browser.startup.homepage_override.mstone" = "ignore";
         "browser.startup.page" = 3;
         "browser.tabs.inTitlebar" = 0;
-        "browser.tabs.warnOnClose" = true;
+        "browser.tabs.warnOnClose" = false;
         "browser.theme.dark-private-windows" = true;
         "browser.toolbars.bookmarks.visibility" = false;
         "browser.urlbar.trimURLs" = false;
@@ -68,7 +68,7 @@
         "datareporting.healthreport.uploadEnabled" = false;
         "datareporting.policy.dataSubmissionEnabled" = false;
         "devtools.theme" = "auto";
-        "devtools.toolbox.host" = "right";
+        "devtools.toolbox.host" = "bottom";
         "dom.disable_window_move_resize" = true;
         "dom.forms.autocomplete.formautofill" = false;
         "dom.payments.defaults.saveAddress" = false;
@@ -89,6 +89,7 @@
         "network.gio.supported-protocols" = "";
         "network.http.referer.XOriginPolicy" = 2;
         "network.http.referer.XOriginTrimmingPolicy" = 2;
+        "network.protocol-handler.external.mailto" = false;
         "network.proxy.socks_remote_dns" = true;
         "permissions.delegation.enabled" = false;
         "privacy.clearOnShutdown.cache" = true;
