@@ -60,14 +60,6 @@
         };
       };
     };
-
-    activationScripts.postActivation.text = ''
-      echo "Allow apps from anywhere"
-      SPCTL=$(spctl --status)
-      if ! [ "$SPCTL" = "assessments disabled" ]; then
-          sudo spctl --master-disable
-      fi
-    '';
   };
 }
 
