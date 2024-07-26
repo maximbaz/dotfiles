@@ -1,6 +1,9 @@
 { inputs, globals, ... }:
-inputs.nix-darwin.lib.darwinSystem {
+inputs.nix-darwin.lib.darwinSystem rec {
   system = "aarch64-darwin";
+  specialArgs = {
+    firefox-addons = inputs.firefox-addons.packages.${system};
+  };
   modules = [
     globals
     inputs.maximbaz-private.nixosModules.macos
