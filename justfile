@@ -1,23 +1,24 @@
 default: switch
 
 [linux]
-switch flags="":
-    git -C $HOME/.dotfiles add --intent-to-add --all
+switch flags="": git-add
     sudo nixos-rebuild switch --flake $HOME/.dotfiles --impure {{flags}}
 
 [macos]
-switch flags="":
-    git -C $HOME/.dotfiles add --intent-to-add --all
+switch flags="": git-add
     nix run -- nix-darwin switch --flake $HOME/.dotfiles {{flags}}
 
 trace: (switch "--show-trace")
     
-home:
+home: git-add
     nix run -- home-manager switch --flake "$HOME/.dotfiles#$HOST"
 
-update:
+update: git-add
     nix flake update
 
-update-private:
-    git -C $HOME/.dotfiles-private add --intent-to-add --all
+update-private: git-add
     nix flake lock --update-input maximbaz-private
+
+git-add:
+    git -C $HOME/.dotfiles add --intent-to-add --all
+    git -C $HOME/.dotfiles-private add --intent-to-add --all
