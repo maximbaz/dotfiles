@@ -26,6 +26,7 @@
         # simple-temporary-containers
         # retainer
         # container-tab-flow
+        # open-external-links-in-a-container
       ];
 
       settings = {
