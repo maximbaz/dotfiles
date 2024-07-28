@@ -60,11 +60,11 @@
   outputs = inputs:
     let globals = { user = "maximbaz"; }; in rec {
       nixosConfigurations = {
-        home-manitoba = import ./nix/hosts/home-manitoba { inherit inputs globals; };
+        home-manitoba = import ./hosts/home-manitoba { inherit inputs globals; };
       };
 
       darwinConfigurations = {
-        MMDFLQCPF9676 = import ./nix/hosts/MMDFLQCPF9676 { inherit inputs globals; };
+        MMDFLQCPF9676 = import ./hosts/MMDFLQCPF9676 { inherit inputs globals; };
       };
 
       homeConfigurations = {
