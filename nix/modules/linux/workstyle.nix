@@ -17,7 +17,7 @@
     "libreoffice-calc" = ""
     "libreoffice-writer" = ""
     "mpv" = ""
-    "neomutt" = ""
+    "aerc" = ""
     "org.pwmt.zathura" = ""
     "pavucontrol" = ""
     "peek" = ""

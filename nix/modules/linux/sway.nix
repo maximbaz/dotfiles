@@ -39,7 +39,7 @@
         # Specific window configuration
         for_window    [app_id=".*"]                              sticky enable
         for_window    [app_id="signal"]                          move container to ${workspace3}
-        for_window    [app_id="neomutt"]                         move container to ${workspace4}
+        for_window    [app_id="aerc"]                            move container to ${workspace4}
         for_window    [app_id="dmenu.*"]                         floating enable, resize set width 60ppt height 80ppt
         for_window    [app_id="dmenu-browser"]                   resize set height 20ppt
         for_window    [app_id="dmenu-emoji"]                     resize set height 20ppt
@@ -363,7 +363,7 @@
 
         startup = [
           {
-            command = "cggrep neomutt || cglaunch --term neomutt";
+            command = "cggrep aerc || cglaunch --term aerc";
             always = true;
           }
           {

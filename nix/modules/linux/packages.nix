@@ -45,7 +45,6 @@
     meld
     msmtp
     mysql-client
-    neomutt
     netcat-openbsd
     nftables
     nodejs

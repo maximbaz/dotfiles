@@ -1,9 +1,0 @@
-text/plain; hx %s;
-text/html; firefox file://%s;
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
-application/pdf; zathura %s;
-application/pdf; pdftotext -l 10 -nopgbrk -q -- %s - | fmt -w 120; copiousoutput;
-image/jpeg; vimiv %s;
-image/png; vimiv %s;
-application/ics; mutt-ics; copiousoutput;
-text/calendar; mutt-ics; copiousoutput;

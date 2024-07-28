@@ -21,7 +21,7 @@
         "x-scheme-handler/about" = "browser.desktop";
         "x-scheme-handler/chrome" = "browser.desktop";
         "x-scheme-handler/unknown" = "browser.desktop";
-        "x-scheme-handler/mailto" = "neomutt.desktop";
+        "x-scheme-handler/mailto" = "aerc.desktop";
         "application/x-extension-htm" = "browser.desktop";
         "application/x-extension-html" = "browser.desktop";
         "application/x-extension-shtml" = "browser.desktop";
@@ -67,12 +67,12 @@
         terminal = true;
       };
 
-      neomutt = {
+      aerc = {
         categories = [ "Network" "Email" ];
-        exec = "${lib.getExe pkgs.neomutt} %u";
+        exec = "${lib.getExe pkgs.aerc} %u";
         genericName = "Email client";
         mimeType = [ "message/rfc822" "x-scheme-handler/mailto" ];
-        name = "neomutt";
+        name = "aerc";
         startupNotify = true;
         type = "Application";
         terminal = true;
