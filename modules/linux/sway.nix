@@ -134,6 +134,7 @@
         window.hideEdgeBorders = "none";
 
         focus = {
+          wrapping = "yes";
           mouseWarping = false;
           followMouse = false;
         };
