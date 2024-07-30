@@ -1,6 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, ... }@inputs: {
   nixpkgs.overlays = [
     (self: super: {
+      util = import ./util.nix inputs;
+
       input-fonts = super.input-fonts.overrideAttrs (_old: {
         src = super.fetchzip {
           # This URL is too long for fetchzip, and returns non-reproducible zips with new sha256 every time ☹️

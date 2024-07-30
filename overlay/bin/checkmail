@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if pgrep -x mbsync > /dev/null; then
+  echo "Sync is already in progress."
+  exit 0
+fi
+
+mbsync -a
+indexmail
