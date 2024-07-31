@@ -34,6 +34,7 @@
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;
         "app.shield.optoutstudies.enabled" = false;
+        "apz.gtk.kinetic_scroll.enabled" = false;
         "browser.aboutConfig.showWarning" = false;
         "browser.contentblocking.category" = "strict";
         "browser.ctrlTab.recentlyUsedOrder" = false;
@@ -83,6 +84,7 @@
         "extensions.getAddons.showPane" = false;
         "extensions.htmlaboutaddons.recommendations.enabled" = false;
         "extensions.pocket.enabled" = false;
+        "general.smoothScroll" = false;
         "gfx.webrender.all" = true;
         "layout.css.visited_links_enabled" = false;
         "media.memory_cache_max_size" = 65536;
