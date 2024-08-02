@@ -94,7 +94,7 @@
     unrar
     unzip
     usbguard
-    # vimiv-qt
+    vimiv-qt
     vivid
     vscode
     w3m
