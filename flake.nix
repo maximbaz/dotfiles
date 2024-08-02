@@ -34,7 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    maximbaz-private.url = "git+file:///home/maximbaz/.dotfiles-private";
+    # maximbaz-private.url = "git+file:///home/maximbaz/.dotfiles-private";
 
     push2talk = {
       url = "github:cyrinux/push2talk";

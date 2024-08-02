@@ -10,7 +10,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
     globals
     inputs.sops-nix.nixosModules.sops
     inputs.apple-silicon-support.nixosModules.apple-silicon-support
-    inputs.maximbaz-private.nixosModules.linux
+    # inputs.maximbaz-private.nixosModules.linux
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../../modules/linux
