@@ -17,7 +17,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
     {
       personal.enable = true;
 
-      networking.hostName = "home-manitoba";
+      networking.hostName = "ldr-asahi";
 
       hardware.asahi = {
         peripheralFirmwareDirectory = /boot/asahi;

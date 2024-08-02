@@ -58,18 +58,18 @@
   };
 
   outputs = inputs:
-    let globals = { user = "maximbaz"; }; in rec {
+    let globals = { user = "ldr"; }; in rec {
       nixosConfigurations = {
-        home-manitoba = import ./hosts/home-manitoba { inherit inputs globals; };
+        ldr-asahi = import ./hosts/ldr-asahi { inherit inputs globals; };
       };
 
       darwinConfigurations = {
-        MMDFLQCPF9676 = import ./hosts/MMDFLQCPF9676 { inherit inputs globals; };
+        ldr-darwin = import ./hosts/ldr-darwin { inherit inputs globals; };
       };
 
       homeConfigurations = {
-        home-manitoba = nixosConfigurations.home-manitoba.config.home-manager.users.${globals.user}.home;
-        MMDFLQCPF9676 = darwinConfigurations.MMDFLQCPF9676.config.home-manager.users.${globals.user}.home;
+        ldr-asahi = nixosConfigurations.ldr-asahi.config.home-manager.users.${globals.user}.home;
+        ldr-darwin = darwinConfigurations.ldr-darwin.config.home-manager.users.${globals.user}.home;
       };
     };
 }
