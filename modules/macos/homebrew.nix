@@ -21,6 +21,15 @@
       "clipy"
       "dmenu-mac"
       "docker"
+
+      # Apps
+      "microsoft-teams"
+      "microsoft-outlook"
+      "microsoft-remote-desktop"
+      "signal"
+      "slack"
+      "discord"
+      "notion"
     ];
   };
 }

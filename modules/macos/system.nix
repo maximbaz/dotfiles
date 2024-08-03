@@ -7,14 +7,30 @@
 
     defaults = {
       NSGlobalDomain = {
+        InitialKeyRepeat = 10;
+        KeyRepeat = 1;
         AppleInterfaceStyle = "Dark";
         AppleKeyboardUIMode = 3;
+        AppleShowAllFiles = true;
         NSDocumentSaveNewDocumentsToCloud = false;
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
+      };
+
+      menuExtraClock = {
+        ShowDayOfWeek = true;
+        ShowDate = 2;
+        Show24Hour = false;
+      };
+
+      universalaccess = {
+        reduceMotion = true;
+        closeViewScrollWheelToggle = true;
+        closeViewZoomFollowsFocus = true;
+        mouseDriverCursorSize = 1.5;
       };
 
       dock = {
