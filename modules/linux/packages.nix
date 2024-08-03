@@ -38,6 +38,10 @@
     jq
     just
     kitty
+    kubelogin
+    kubernetes-helm
+    kubectl
+    kubectx
     libnotify
     libreoffice
     magic-wormhole-rs
@@ -90,7 +94,7 @@
     unrar
     unzip
     usbguard
-    # vimiv-qt
+    vimiv-qt
     vivid
     vscode
     w3m

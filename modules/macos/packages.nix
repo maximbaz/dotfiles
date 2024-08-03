@@ -90,5 +90,6 @@
     yt-dlp
     zip
     zsh
+    sops
   ];
 }

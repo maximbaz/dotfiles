@@ -47,7 +47,7 @@
             repo = "Signal-Desktop";
             leaveDotGit = true; # signal calculates the release date via `git`
             rev = "v${version}";
-            hash = "sha256-HBLwDDjx4SEHtx2tv2S1m6qZ5NjV8F/nkMBmh8rvANE=";
+            hash = "sha256-HHpv+Kv7Y+653CBSpRePfWQmeRzznmdmUaU5AIxLQUw=";
           };
 
           # note that `package.json` locks the electron version, but we seem to not be strictly beholden to that.
@@ -292,7 +292,7 @@
               rev = "9cc29f2507a746ef6359dd081d9f2fe2f43c2a23";
               hash = "sha256-aATJIHETQDX1UXkn5/1jVESgdQFbTFySYuL01NvP54s=";
             };
-            cargoSha256 = "sha256-Ot+GnnbFFS6e86uhNDoujlX/oQX9Ckp+M467sXJOD60=";
+            cargoHash = "sha256-Ot+GnnbFFS6e86uhNDoujlX/oQX9Ckp+M467sXJOD60=";
             cargoPatches = [ ];
           });
         };
