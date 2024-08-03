@@ -2,12 +2,12 @@
   home-manager.users.${config.user}.programs.git = {
     enable = true;
 
-    userName = "Maxim Baz";
-    userEmail = "git@maximbaz.com";
+    userName = "LDR";
+    userEmail = "ldnshy@gmail.com";
 
     signing = {
       key = "04D7A219B0ABE4C2B62A5E654A2B758631E1FD91";
-      signByDefault = true;
+      signByDefault = false;
     };
 
     extraConfig = {
