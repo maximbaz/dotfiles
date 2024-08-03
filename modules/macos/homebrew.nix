@@ -17,15 +17,19 @@
     casks = [
       "bluesnooze"
       "browserosaurus"
-      "caffeine"
       "clipy"
-      "dmenu-mac"
-      "docker"
+      # "docker"
 
-      # Apps
+      "arc"
+      "utm"
+      "firefox@developer-edition"
+      "karabiner-elements"
+      "raycast"
+      "appcleaner"
       "microsoft-teams"
       "microsoft-outlook"
       "microsoft-remote-desktop"
+      "spotify"
       "signal"
       "slack"
       "discord"

@@ -4,7 +4,7 @@
     theme = "Gruvbox Dark Hard";
     font = {
       name = "Input";
-      size = if pkgs.stdenv.isLinux then 9 else 15;
+      size = if pkgs.stdenv.isLinux then 12 else 15;
     };
 
     settings = {
@@ -13,6 +13,7 @@
       cursor_shape = "block";
       enable_audio_bell = false;
       listen_on = if pkgs.stdenv.isLinux then "unix:@kitty" else "unix:/tmp/kitty";
+      # kitty_mod = if pkgs.stdenv.isLinux then "ctrl+shift" else "cmd+shift";
       mouse_hide_wait = 0;
       scrollback_lines = 100000;
       strip_trailing_spaces = "always";
@@ -23,14 +24,14 @@
       macos_titlebar_color = "background";
       macos_quit_when_last_window_closed = true;
       macos_show_window_title_in = "none";
-      remember_window_size = false;
+      remember_window_size = true;
       initial_window_width = 1000;
       initial_window_height = 600;
     };
 
     keybindings = {
       "kitty_mod+b" = "launch --type overlay --stdin-source=@screen_scrollback hx";
-      "kitty_mod+n" = if pkgs.stdenv.isLinux then "new_tab_with_cwd cglaunch kitty --detach" else "new_os_window_with_cwd";
+      "kitty_mod+n" = if pkgs.stdenv.isLinux then "new_tab_with_cwd cglaunch kitty --detach" else "new_os_window_wrth_cwd";
       "kitty_mod+u" = '' launch --type window --allow-remote-control sh -c 'kitty @ send-text -m id:1 "\e[200~$(emoji-dmenu -k overlay)\e[201~"' '';
       "kitty_mod+г" = '' launch --type window --allow-remote-control sh -c 'kitty @ send-text -m id:1 "\e[200~$(emoji-dmenu -k overlay)\e[201~"' '';
       "kitty_mod+i" = '' launch --type window --allow-remote-control sh -c 'kitty @ send-text -m id:1 "\e[200~$(wl-clipboard-manager dmenu -k overlay)\e[201~"' '';
