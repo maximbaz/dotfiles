@@ -4,7 +4,7 @@
     theme = "Gruvbox Dark Hard";
     font = {
       name = "Input";
-      size = if pkgs.stdenv.isLinux then 9 else 12;
+      size = if pkgs.stdenv.isLinux then 9 else 15;
     };
 
     settings = {
