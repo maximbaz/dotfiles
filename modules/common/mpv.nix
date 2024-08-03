@@ -23,7 +23,6 @@
       vlang = "en,eng,da,dan";
       save-position-on-quit = true;
       ignore-path-in-watch-later-config = true;
-      ytdl-format = "best";
     };
     scriptOpts = {
       uosc = {
