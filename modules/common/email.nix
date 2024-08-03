@@ -50,6 +50,7 @@
             thread-prefix-tip = 
             thread-prefix-unfolded = 
             threading-enabled = true
+            spinner="◜,◠,◝,◞,◡,◟"
           '';
 
           extraBinds = ''
@@ -88,6 +89,7 @@
 
             / = :search<space>
             \ = :change-tab notmuch<Enter>:cf<Space>
+            + = :query -n "{{.SubjectBase}} ({{.MessageId}})" -a notmuch thread:\{id:{{.MessageId}}\}<Enter>
             n = :next-result<Enter>
             N = :prev-result<Enter>
             <Esc> = :clear<Enter>
@@ -136,7 +138,7 @@
             p = :postpone<Enter> # Postpone
             q = :choose -o d discard abort -o p postpone postpone<Enter> # Abort or postpone
             e = :edit<Enter> # Edit
-            a = :attach -m<space> # Add attachment
+            a = :menu -c 'fd . --type=f | fzf -m' attach<Enter> # Add attachment
             d = :detach<space> # Remove attachment
             s = :sign<Enter> # PGP sign
 
