@@ -41,7 +41,7 @@
     libnotify
     libreoffice
     magic-wormhole-rs
-    maximbaz-scripts
+    ldr-scripts
     meld
     msmtp
     mysql-client

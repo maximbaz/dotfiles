@@ -1,5 +1,5 @@
 {
-  description = "maximbaz";
+  description = "ldr";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -34,7 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # maximbaz-private.url = "git+file:///home/maximbaz/.dotfiles-private";
+    # ldr-private.url = "git+file:///home/ldr/.dotfiles-private";
 
     push2talk = {
       url = "github:cyrinux/push2talk";

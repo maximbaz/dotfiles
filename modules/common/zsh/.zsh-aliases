@@ -60,9 +60,9 @@ boox-push() {
         return 1
     elif [[ $# == 2 ]]; then
         [[ "$2" != http* ]] && url="https://$2" || url="$2"
-        curl -XPOST "https://push.maximbaz.com/message?token=$(pass personal/push-boox-token)" -d '{ "message": "'"$1"'", "extras": { "client::notification": { "click": { "url": "'"$url"'" } } } }'
+        curl -XPOST "https://push.ldr.com/message?token=$(pass personal/push-boox-token)" -d '{ "message": "'"$1"'", "extras": { "client::notification": { "click": { "url": "'"$url"'" } } } }'
     else
-        curl -XPOST "https://push.maximbaz.com/message?token=$(pass personal/push-boox-token)" -d '{ "message": "'"$1"'" }'
+        curl -XPOST "https://push.ldr.com/message?token=$(pass personal/push-boox-token)" -d '{ "message": "'"$1"'" }'
     fi
 }
 

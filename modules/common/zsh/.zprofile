@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-z4h source -- /etc/profiles/per-user/maximbaz/etc/profile.d/hm-session-vars.sh
+z4h source -- /etc/profiles/per-user/ldr/etc/profile.d/hm-session-vars.sh
 
 [[ "$TTY" == /dev/tty* ]] || return 0
 

@@ -52,7 +52,7 @@
 
     desktopEntries = {
       browser = {
-        exec = "${lib.getExe' pkgs.maximbaz-scripts "browser"} %U";
+        exec = "${lib.getExe' pkgs.ldr-scripts "browser"} %U";
         genericName = "Browser selector";
         name = "browser";
         type = "Application";

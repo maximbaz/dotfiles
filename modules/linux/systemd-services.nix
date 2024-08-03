@@ -19,7 +19,7 @@ in
   home-manager.users.${config.user}.systemd.user.services = {
     battery-low-notify = systemdService {
       Description = "Notify when battery level is low";
-      ExecStart = lib.getExe' pkgs.maximbaz-scripts "battery-low-notify";
+      ExecStart = lib.getExe' pkgs.ldr-scripts "battery-low-notify";
     };
 
     push2talk = systemdService {
@@ -36,12 +36,12 @@ in
 
     sway-unfullscreen = systemdService {
       Description = "Unfullscreen sway when opening another window";
-      ExecStart = lib.getExe' pkgs.maximbaz-scripts "sway-unfullscreen";
+      ExecStart = lib.getExe' pkgs.ldr-scripts "sway-unfullscreen";
     };
 
     wl-clipboard-manager = systemdService {
       Description = "Clipboard manager daemon";
-      ExecStart = "${lib.getExe' pkgs.maximbaz-scripts "wl-clipboard-manager"} daemon";
+      ExecStart = "${lib.getExe' pkgs.ldr-scripts "wl-clipboard-manager"} daemon";
     };
 
     workstyle = systemdService {

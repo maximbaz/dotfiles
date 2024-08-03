@@ -20,7 +20,7 @@
       msmtp.enable = smtpHost != "";
       imapnotify = {
         enable = true;
-        onNotify = lib.getExe' pkgs.maximbaz-scripts "checkmail";
+        onNotify = lib.getExe' pkgs.ldr-scripts "checkmail";
         boxes = [ "INBOX" ];
       };
       aerc = {

@@ -265,7 +265,7 @@
         imapnotify.enable = true;
         mbsync = {
           enable = true;
-          postExec = "${lib.getExe' pkgs.maximbaz-scripts "indexmail"}";
+          postExec = "${lib.getExe' pkgs.ldr-scripts "indexmail"}";
         };
       };
 
