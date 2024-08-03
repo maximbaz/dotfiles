@@ -5,10 +5,10 @@
     userName = "LDR";
     userEmail = "ldnshy@gmail.com";
 
-    signing = {
-      key = "04D7A219B0ABE4C2B62A5E654A2B758631E1FD91";
-      signByDefault = false;
-    };
+    # signing = {
+    #   key = "04D7A219B0ABE4C2B62A5E654A2B758631E1FD91";
+    #   signByDefault = false;
+    # };
 
     extraConfig = {
       advice.detachedHead = false;
@@ -53,23 +53,23 @@
       user.useConfigOnly = true;
     };
 
-    includes = [{
-      condition = "gitdir:~/maersk/";
-      contents = {
-        user = {
-          email = "Maxim.Baz@maersk.com";
-          signingKey = "256CFDF971216A011DE08CD2C44E48E507AA28B1";
-        };
-        url = {
-          "git@github-maersk:Maersk-Global" = {
-            insteadOf = [
-              "https://github.com/Maersk-Global"
-              "git@github.com:Maersk-Global"
-            ];
-          };
-        };
-      };
-    }];
+    # includes = [{
+    #   condition = "gitdir:~/maersk/";
+    #   contents = {
+    #     user = {
+    #       email = "Maxim.Baz@maersk.com";
+    #       signingKey = "256CFDF971216A011DE08CD2C44E48E507AA28B1";
+    #     };
+    #     url = {
+    #       "git@github-maersk:Maersk-Global" = {
+    #         insteadOf = [
+    #           "https://github.com/Maersk-Global"
+    #           "git@github.com:Maersk-Global"
+    #         ];
+    #       };
+    #     };
+    #   };
+    # }];
 
     ignores = [
       ".direnv"
