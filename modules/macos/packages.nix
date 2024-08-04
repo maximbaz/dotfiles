@@ -51,6 +51,10 @@
 
 
     bfs
+    broot
+    neofetch
+    htop
+    nnn
     delta
     dfrs
     doggo

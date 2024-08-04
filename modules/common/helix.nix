@@ -32,6 +32,7 @@
       typescript
       vscode-langservers-extracted
       yaml-language-server
+      vscode-extensions.astro-build.astro-vscode
     ];
 
     settings = {
@@ -365,6 +366,7 @@
             { name = "typescript-language-server"; except-features = [ "format" ]; }
             "biome"
             "gpt"
+            "vscode-html-language-server"
           ];
           formatter = {
             command = "biome";

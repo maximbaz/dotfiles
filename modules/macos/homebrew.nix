@@ -21,6 +21,7 @@
       # "docker"
 
       "arc"
+      "zed"
       "utm"
       "firefox@developer-edition"
       "karabiner-elements"
