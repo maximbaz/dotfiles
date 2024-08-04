@@ -359,6 +359,19 @@
           };
           auto-format = true;
         }
+        {
+          name = "astro";
+          language-servers = [
+            { name = "typescript-language-server"; except-features = [ "format" ]; }
+            "biome"
+            "gpt"
+          ];
+          formatter = {
+            command = "biome";
+            args = [ "format" "--indent-style" "space" "--stdin-file-path" "file.astro" ];
+          };
+          auto-format = true;
+        }
       ];
     };
   };
