@@ -25,8 +25,22 @@
       macos_quit_when_last_window_closed = true;
       macos_show_window_title_in = "none";
       remember_window_size = true;
-      initial_window_width = 1000;
-      initial_window_height = 600;
+      initial_window_width = 1400;
+      initial_window_height = 1000;
+
+      window_margin_width = 0;
+      window_padding_width = 0;
+      window_padding_height = 0;
+      # enabled_layouts = "splits,grid,stack";
+
+
+      # Tab
+      tab_bar_style = "separator";
+      tab_bar_min_tabs = 1;
+      active_tab_background = "#3C3836";
+      active_tab_foreground = "#EBDBB2";
+      inactive_tab_foreground = "#665C54";
+      inactive_tab_background = "#3C3836";
     };
 
     keybindings = {
