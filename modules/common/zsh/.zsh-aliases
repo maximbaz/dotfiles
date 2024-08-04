@@ -18,6 +18,7 @@ command -v doggo     &> /dev/null    && alias d='doggo'                         
 command -v w3mman    &> /dev/null    && alias man='w3mman'
 
 alias e="$EDITOR"
+alias b='broot'
 alias cp='cp -r --reflink=auto'
 alias du='dua'
 alias dui='dua interactive'

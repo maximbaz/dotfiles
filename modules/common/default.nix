@@ -4,6 +4,7 @@
     ./base-packages.nix
     ./bat.nix
     ./bottom.nix
+    ./broot.nix
     ./browserpass.nix
     ./direnv.nix
     ./docker.nix
