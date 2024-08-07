@@ -17,15 +17,15 @@
     casks = [
       "bluesnooze"
       "browserosaurus"
-      "clipy"
       # "docker"
-
+      "figma"
+      "google-chrome"
       "arc"
       "zed"
       "utm"
       "firefox@developer-edition"
       "karabiner-elements"
-      "raycast"
+      # "raycast" 
       "appcleaner"
       "microsoft-teams"
       "microsoft-outlook"
@@ -35,6 +35,7 @@
       "slack"
       "discord"
       "notion"
+      "postman"
     ];
   };
 }
