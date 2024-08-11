@@ -23,6 +23,7 @@
       vlang = "en,eng,da,dan";
       save-position-on-quit = true;
       ignore-path-in-watch-later-config = true;
+      ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
     };
     scriptOpts = {
       uosc = {
