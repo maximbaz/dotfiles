@@ -277,3 +277,16 @@ pacs() {
         echo "Nothing selected, aborting."
     fi
 }
+
+### https://gist.github.com/lukepighetti/0ccb8fb318982c11cb287cac6cfdb5cd
+### Note taking
+
+function notes(){
+  SUBJECT="${1:=daily}"
+  if [ -z "$SUBJECT" ]
+  then
+    (cd ~/Documents/notes && hx NOTES.md)
+  else
+    (cd ~/Documents/notes && hx "${SUBJECT:u}.md" NOTES.md)
+  fi
+}
