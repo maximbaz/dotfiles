@@ -4,6 +4,7 @@
       curl
       git
       helix
+      marksman
       wget
     ];
 
