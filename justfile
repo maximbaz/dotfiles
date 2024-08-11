@@ -11,7 +11,7 @@ switch flags="": git-add
 trace: (switch "--show-trace")
     
 home: git-add
-    nix run -- home-manager switch --flake "$HOME/.dotfiles#$HOST"
+    nix run -- home-manager switch --flake $HOME/.dotfiles#$(hostname)
 
 update: git-add
     nix flake update
