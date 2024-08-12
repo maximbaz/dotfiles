@@ -72,8 +72,7 @@
     qalculate-gtk
     qrencode
     rsync
-    # signal-desktop
-    signal-desktop-from-src
+    signal-desktop
     sipcalc
     slurp
     socat
