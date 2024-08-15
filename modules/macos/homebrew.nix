@@ -14,6 +14,9 @@
       cleanup = "zap";
       upgrade = true;
     };
+    brews = [
+      "coreutils"
+    ];
     casks = [
       "bluesnooze"
       "browserosaurus"
