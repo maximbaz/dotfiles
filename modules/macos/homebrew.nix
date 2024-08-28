@@ -26,7 +26,7 @@
     casks = [
       "bluesnooze"
       "browserosaurus"
-      # "docker"
+      "docker"
       "figma"
       "google-chrome"
       "arc"
