@@ -48,7 +48,7 @@
     # which
     # yq
     # zstd
-
+    helix-gpt
     # nodejs_20
     # bun
 

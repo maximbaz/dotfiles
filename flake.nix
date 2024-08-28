@@ -34,7 +34,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ldr-private.url = "git+file:///home/ldr/.dotfiles-private";
+    # ldr-private.url = "git+file:///home/ldmsh/private-dotfiles";
+
+    nixpkgs-working-bun = {
+      url = "github:nixos/nixpkgs/9e58aca561e18f5197029926db8dbde1738a2ff5";
+    };
 
     push2talk = {
       url = "github:cyrinux/push2talk";

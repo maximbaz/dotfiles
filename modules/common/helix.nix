@@ -179,7 +179,6 @@
 
       language-server.gpt = {
         command = "helix-gpt";
-        args = [ "--handler" "copilot" ];
       };
 
       language-server.rust-analyzer.config.check = {
