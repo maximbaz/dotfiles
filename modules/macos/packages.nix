@@ -40,14 +40,17 @@
     # patch
     # rust-analyzer
     # shellcheck
-    #terraform
+    # terraform
     # unixtools.watch
-    #vault
+    # vault
     # wget
     # wireguard-go
     # which
     # yq
     # zstd
+
+    # nodejs_20
+    # bun
 
 
     bfs

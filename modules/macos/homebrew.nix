@@ -16,6 +16,12 @@
     };
     brews = [
       "coreutils"
+      # "cairo"
+      # "pango"
+      # "libpng"
+      # "jpeg"
+      # "giflib"
+      # "librsvg"
     ];
     casks = [
       "bluesnooze"
