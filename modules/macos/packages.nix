@@ -49,6 +49,7 @@
     # yq
     # zstd
     helix-gpt
+    elixir
     # nodejs_20
     # bun
 
