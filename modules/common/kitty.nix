@@ -31,8 +31,8 @@
       window_margin_width = 0;
       window_padding_width = 0;
       window_padding_height = 0;
-      # enabled_layouts = "splits,grid,stack";
-      adjust_line_height = 24;
+      enabled_layouts = "grid,stack";
+      adjust_line_height = 1;
 
 
       # Tab
@@ -54,6 +54,7 @@
       "kitty_mod+0" = "change_font_size all 0";
       "kitty_mod+с" = "copy_to_clipboard";
       "kitty_mod+м" = "paste_from_clipboard";
+      "kitty_mod+enter" = "new_window_with_cwd";
     };
   };
 }
