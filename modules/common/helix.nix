@@ -33,6 +33,7 @@
       vscode-langservers-extracted
       yaml-language-server
       vscode-extensions.astro-build.astro-vscode
+      tailwindcss-language-server
     ];
 
     settings = {
@@ -196,7 +197,7 @@
       language = [
         {
           name = "css";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
+          language-servers = [ "vscode-css-language-server" "gpt" "tailwindcss-ls" ];
           formatter = {
             command = "prettier";
             args = [ "--stdin-filepath" "file.css" ];
@@ -213,7 +214,7 @@
         }
         {
           name = "html";
-          language-servers = [ "vscode-html-language-server" "gpt" ];
+          language-servers = [ "vscode-html-language-server" "gpt" "tailwindcss-ls" ];
           formatter = {
             command = "prettier";
             args = [ "--stdin-filepath" "file.html" ];
@@ -226,6 +227,7 @@
             { name = "typescript-language-server"; except-features = [ "format" ]; }
             "biome"
             "gpt"
+            "tailwindcss-ls"
           ];
           auto-format = true;
         }
@@ -260,6 +262,7 @@
             { name = "typescript-language-server"; except-features = [ "format" ]; }
             "biome"
             "gpt"
+            "tailwindcss-ls"
           ];
           formatter = {
             command = "biome";
@@ -299,7 +302,7 @@
         }
         {
           name = "scss";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
+          language-servers = [ "vscode-css-language-server" "gpt" "tailwindcss-ls" ];
           formatter = {
             command = "prettier";
             args = [ "--stdin-filepath" "file.scss" ];
@@ -330,6 +333,7 @@
             { name = "typescript-language-server"; except-features = [ "format" ]; }
             "biome"
             "gpt"
+            "tailwindcss-ls"
           ];
           formatter = {
             command = "biome";
