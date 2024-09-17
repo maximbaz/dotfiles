@@ -32,6 +32,7 @@
       window_padding_width = 0;
       window_padding_height = 0;
       # enabled_layouts = "splits,grid,stack";
+      adjust_line_height = 24;
 
 
       # Tab
