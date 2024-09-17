@@ -9,7 +9,7 @@
     ./direnv.nix
     ./docker.nix
     ./email.nix
-    ./firefox.nix
+    # ./firefox.nix
     ./fonts.nix
     ./git.nix
     ./gocryptfs.nix
