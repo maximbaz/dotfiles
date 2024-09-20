@@ -1,7 +1,5 @@
 { config, pkgs, push2talk, ... }: {
   home-manager.users.${config.user}.home.packages = with pkgs; [
-    android-tools
-    android-udev-rules
     asahi-bless
     bfs
     brightnessctl
