@@ -127,9 +127,11 @@
 
             [compose]
             $noinherit = true
+            $ex = <C-x>
 
             [compose::editor]
             $noinherit = true
+            $ex = <C-x>
 
             [compose::review]
             y = :send<Enter> # Send
