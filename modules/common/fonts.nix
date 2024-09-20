@@ -13,6 +13,7 @@
       input-fonts
       joypixels
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      open-sans
     ];
   };
 }
