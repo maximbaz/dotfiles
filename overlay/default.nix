@@ -44,15 +44,6 @@
         };
       });
 
-      signal-desktop = super.signal-desktop.overrideAttrs (_old:
-        let version = "7.19.0"; in {
-          inherit version;
-          src = super.fetchurl {
-            url = "https://github.com/0mniteck/Signal-Desktop-Mobian/raw/${version}/builds/release/signal-desktop_${version}_arm64.deb";
-            hash = "sha256-L5Wj1ofMR+QJezd4V6pAhkINLF6y9EB5VNFAIOZE5PU=";
-          };
-        });
-
       maximbaz-scripts = pkgs.stdenv.mkDerivation {
         pname = "maximbaz-scripts";
         version = "1.0.0";
