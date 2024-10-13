@@ -314,7 +314,7 @@
           language-servers = [ "gpt" ];
           formatter = {
             command = "pg_format";
-            args = [ "-iu1" "--no-space-function" "-" ];
+            # args = [ ];
           };
           auto-format = true;
         }
