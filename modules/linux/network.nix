@@ -1,7 +1,7 @@
 {
   services.resolved = {
     enable = true;
-    dnssec = "allow-downgrade";
+    dnssec = "false";
   };
 
   networking = {
