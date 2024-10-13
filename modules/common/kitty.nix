@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   home-manager.users.${config.user}.programs.kitty = {
     enable = true;
-    themeFile = "Gruvbox Dark Hard";
+    theme = "Gruvbox Dark Hard";
     font = {
       name = "Input";
       size = if pkgs.stdenv.isLinux then 12 else 15;
