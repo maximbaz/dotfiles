@@ -24,6 +24,7 @@
     fzf
     gcc
     git
+    github-cli
     glib
     gnumake
     go
