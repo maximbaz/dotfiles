@@ -28,13 +28,6 @@
         };
       });
 
-      # it was never meant to be packaged with --libnotify by default ☹️
-      yubikey-touch-detector = super.yubikey-touch-detector.overrideAttrs (old: {
-        postInstall = old.postInstall + ''
-          substituteInPlace $out/lib/systemd/user/*.service --replace "--libnotify" ""
-        '';
-      });
-
       joypixels = super.joypixels.overrideAttrs (_old: {
         version = "9.0.0";
         src = super.fetchurl {

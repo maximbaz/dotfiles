@@ -1,3 +1,6 @@
 {
-  programs.yubikey-touch-detector.enable = true;
+  programs.yubikey-touch-detector = {
+    enable = true;
+    libnotify = false;
+  };
 }
