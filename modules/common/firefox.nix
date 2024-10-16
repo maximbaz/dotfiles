@@ -42,6 +42,8 @@
         "browser.discovery.enabled" = false;
         "browser.download.alwaysOpenPanel" = false;
         "browser.formfill.enable" = false;
+        "browser.gesture.swipe.left" = "";
+        "browser.gesture.swipe.right" = "";
         "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.feeds.snippets" = false;
