@@ -35,6 +35,7 @@
         "app.normandy.enabled" = false;
         "app.shield.optoutstudies.enabled" = false;
         "apz.gtk.kinetic_scroll.enabled" = false;
+        "apz.overscroll.enabled" = false;
         "browser.aboutConfig.showWarning" = false;
         "browser.contentblocking.category" = "strict";
         "browser.ctrlTab.recentlyUsedOrder" = false;
