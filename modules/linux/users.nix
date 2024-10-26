@@ -6,5 +6,11 @@
     shell = pkgs.zsh;
   };
 
-  services.getty.autologinUser = "${config.user}";
+  systemd.services."getty@tty1" = {
+    overrideStrategy = "asDropin";
+    serviceConfig.ExecStart = [
+      ""
+      "@${pkgs.util-linux}/sbin/agetty agetty --autologin ${config.user} --noclear %I $TERM"
+    ];
+  };
 }
