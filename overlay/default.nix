@@ -28,6 +28,21 @@
         };
       });
 
+      wluma = super.wluma.override (old: {
+        rustPlatform = old.rustPlatform // {
+          buildRustPackage = args: old.rustPlatform.buildRustPackage (args // rec {
+            version = "4.5.0";
+            src = super.fetchFromGitHub {
+              owner = "maximbaz";
+              repo = "wluma";
+              rev = version;
+              hash = "sha256-nZVy4PwABcYiH/K6SWlzXOhEn8MGt3IDcMys5hVc/bE=";
+            };
+            cargoHash = "sha256-GBtX5fq+s3llKPfYyOeQMsG6dF+fPfltWSOFN5sFE24=";
+          });
+        };
+      });
+
       joypixels = super.joypixels.overrideAttrs (_old: {
         version = "9.0.0";
         src = super.fetchurl {

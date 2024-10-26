@@ -36,6 +36,7 @@
     ./users.nix
     ./waybar.nix
     ./wldash.nix
+    ./wluma.nix
     ./workstyle.nix
     ./xdg.nix
     ./yubikey.nix
