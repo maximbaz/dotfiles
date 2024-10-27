@@ -31,14 +31,14 @@
       wluma = super.wluma.override (old: {
         rustPlatform = old.rustPlatform // {
           buildRustPackage = args: old.rustPlatform.buildRustPackage (args // rec {
-            version = "4.5.0";
+            version = "4.5.1";
             src = super.fetchFromGitHub {
               owner = "maximbaz";
               repo = "wluma";
               rev = version;
-              hash = "sha256-nZVy4PwABcYiH/K6SWlzXOhEn8MGt3IDcMys5hVc/bE=";
+              hash = "sha256-5uSExmh1a88kZDly4VrHzI8YwfTDB8wm2mMGZyvKsk4=";
             };
-            cargoHash = "sha256-GBtX5fq+s3llKPfYyOeQMsG6dF+fPfltWSOFN5sFE24=";
+            cargoHash = "sha256-hKxKEs88tB05AiWC/LuC/0jJ1RxeUnpp35A6UTQK4xw=";
           });
         };
       });
