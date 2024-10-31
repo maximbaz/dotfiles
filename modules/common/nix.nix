@@ -1,8 +1,11 @@
 { config, lib, ... }: {
   nix = {
-    gc.automatic = true;
+    optimise.automatic = true;
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
     settings = {
-      auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
     };
