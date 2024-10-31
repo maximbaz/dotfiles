@@ -3,21 +3,19 @@
 need_notify_low=1
 need_notify_critical=1
 
-upower -m | while read -r line; do
+upower -m | while read -r _; do
     battery_info="$(upower -i /org/freedesktop/UPower/devices/battery_macsmc_battery)"
-    percent=$(echo "$battery_info" | awk '/percentage/ {print $2}')
+    percent=$(echo "$battery_info" | awk '/percentage/ {print substr($2, 1, length($2)-1)}')
     state=$(echo "$battery_info" | awk '/state/ {print $2}')
 
     if [ "$state" = "discharging" ]; then
-        if [ "$need_notify_critical" -eq 1 ] && [ "${percent:0:-1}" -le 15 ]; then
-            notify-send -u critical -i battery-empty-symbolic "Battery level is critically low" "$percent% remaining"
+        if [ "$need_notify_critical" -eq 1 ] && [ "$percent" -le 15 ]; then
+            notify-send -u critical -i battery-empty-symbolic "Battery level is critically low" "$percent remaining"
             need_notify_critical=0
             need_notify_low=0
-            last=${percent:0:-1}
-        elif [ "$need_notify_low" -eq 1 ] && [ "${percent:0:-1}" -le 30 ]; then
-            notify-send -i battery-low-symbolic "Battery level is low" "$percent% remaining"
+        elif [ "$need_notify_low" -eq 1 ] && [ "$percent" -le 30 ]; then
+            notify-send -i battery-low-symbolic "Battery level is low" "$percent remaining"
             need_notify_low=0
-            last=${percent:0:-1}
         fi
     else
         need_notify_low=1
