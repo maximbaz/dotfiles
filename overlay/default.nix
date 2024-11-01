@@ -74,6 +74,20 @@
         };
       });
 
+      pik = super.rustPlatform.buildRustPackage rec {
+        pname = "pik";
+        version = "0.9.0";
+
+        src = super.fetchFromGitHub {
+          owner = "jacek-kurlit";
+          repo = pname;
+          rev = version;
+          hash = "sha256-YAnMSVQu/E+OyhHX3vugfBocyi++aGwG9vF6zL8T2RU=";
+        };
+
+        cargoHash = "sha256-a7mqtxZMJl8zR8oCfuGNAiT5MEAmNpbDLSgi8A6FfPA=";
+      };
+
       maximbaz-scripts = pkgs.stdenv.mkDerivation {
         pname = "maximbaz-scripts";
         version = "1.0.0";

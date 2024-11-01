@@ -60,6 +60,7 @@
     perlPackages.vidir
     pgcli
     pigz
+    pik
     pinentry-gnome3
     playerctl
     postgresql_16
