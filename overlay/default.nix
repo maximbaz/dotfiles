@@ -52,6 +52,28 @@
         };
       });
 
+      signal-desktop = super.signal-desktop.overrideAttrs (_old: rec {
+        dir = "Signal";
+        version = "7.31.0";
+
+        src = super.fetchurl {
+          url = "https://github.com/0mniteck/Signal-Desktop-Mobian/raw/${version}/builds/release/signal-desktop_${version}_arm64.deb";
+          hash = "sha256-XFlE0J2R9VvxgTYr4nD/U5bbAZzBIoFRLuXQxwQSme4=";
+
+          recursiveHash = true;
+          downloadToTemp = true;
+          nativeBuildInputs = with pkgs; [ dpkg asar ];
+
+          postFetch = ''
+            dpkg-deb -x $downloadedFile $out
+            asar extract "$out/opt/${dir}/resources/app.asar" $out/asar-contents
+            rm -r \
+              "$out/opt/${dir}/resources/app.asar"{,.unpacked} \
+              $out/asar-contents/node_modules/emoji-datasource-apple
+          '';
+        };
+      });
+
       maximbaz-scripts = pkgs.stdenv.mkDerivation {
         pname = "maximbaz-scripts";
         version = "1.0.0";
