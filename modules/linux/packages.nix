@@ -37,10 +37,11 @@
     jq
     just
     kitty
-    kubelogin
-    kubernetes-helm
+    krita
     kubectl
     kubectx
+    kubelogin
+    kubernetes-helm
     libnotify
     libreoffice
     magic-wormhole-rs
