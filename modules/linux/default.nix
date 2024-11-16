@@ -12,6 +12,7 @@
     ./dbus.nix
     ./docker.nix
     ./earlyoom.nix
+    ./flipper.nix
     ./fstrim.nix
     ./i18n.nix
     ./keyboard.nix
