@@ -54,11 +54,12 @@
 
       signal-desktop = super.signal-desktop.overrideAttrs (_old: rec {
         dir = "Signal";
-        version = "7.31.0";
+        version = "7.32.0";
 
         src = super.fetchurl {
-          url = "https://github.com/0mniteck/Signal-Desktop-Mobian/raw/${version}/builds/release/signal-desktop_${version}_arm64.deb";
-          hash = "sha256-XFlE0J2R9VvxgTYr4nD/U5bbAZzBIoFRLuXQxwQSme4=";
+          # url = "https://github.com/0mniteck/Signal-Desktop-Mobian/raw/${version}/builds/release/signal-desktop_${version}_arm64.deb";
+          url = "https://maximbaz.com/signal-desktop_${version}_arm64.deb";
+          hash = "sha256-5rkaSFmmwIgzt+8TclIVNMyEqKg4S9Nv+R6b/EsRnOc=";
 
           recursiveHash = true;
           downloadToTemp = true;
