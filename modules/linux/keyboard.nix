@@ -7,8 +7,8 @@
 
         replace key <CAPS> { [ Hyper_L ] };
         replace key <LWIN> { [ Super_L ] };
-        modifier_map Mod4 { <META>, Hyper_L };
-        modifier_map Mod3 { <META>, Super_L };
+        modifier_map Mod3 { <META>, Hyper_L };
+        modifier_map Mod4 { <META>, Super_L };
     };
   '';
 }

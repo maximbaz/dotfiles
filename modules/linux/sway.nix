@@ -203,7 +203,7 @@
         };
 
         bindkeysToCode = true;
-        keybindings = let win = "Mod3"; hyper = "Mod4"; in {
+        keybindings = let win = "Mod4"; hyper = "Mod3"; in {
           # Terminal
           "${hyper}+Return" = "exec cglaunch --term";
           "${hyper}+XF86MonBrightnessDown" = "exec cglaunch --term";
