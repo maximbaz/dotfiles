@@ -15,7 +15,7 @@
     };
 
     apple-silicon-support = {
-      url = "github:camuward/nixos-apple-silicon";
+      url = "github:oliverbestmann/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
