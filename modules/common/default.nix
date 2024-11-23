@@ -35,7 +35,7 @@
   config.home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${config.user}.home.stateVersion = "24.05";
+    users.${config.user}.home.stateVersion = "25.05";
   };
 
   options = {
