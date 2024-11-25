@@ -48,5 +48,11 @@ in
       Description = "Autoname sway workspaces";
       ExecStart = "${lib.getExe pkgs.swayest-workstyle} --deduplicate";
     };
+
+    ntfy = systemdService {
+      Description = "Subscribe for push notifications";
+      Environment = with pkgs; [ "PATH=${lib.makeBinPath [ bash libnotify ntfy-sh ]}" ];
+      ExecStart = "${lib.getExe' pkgs.ntfy-sh "ntfy"} subscribe --from-config";
+    };
   };
 }
