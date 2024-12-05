@@ -6,6 +6,7 @@
       helix
       marksman
       wget
+      devenv
     ];
 
     variables = {
