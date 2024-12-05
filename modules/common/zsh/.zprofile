@@ -17,3 +17,4 @@ if [[ -z $DISPLAY && "$TTY" == "/dev/tty1" ]]; then
     systemctl --user stop graphical-session.target
     systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK I3SOCK
 fi
+

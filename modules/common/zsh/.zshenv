@@ -32,3 +32,7 @@ fi
 . "$Z4H"/z4h.zsh || return
 
 setopt rcs
+
+## foundry toolchain
+export PATH="$PATH:/Users/ldr/.foundry/bin/foundryup"
+
