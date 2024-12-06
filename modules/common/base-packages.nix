@@ -3,6 +3,7 @@
     systemPackages = with pkgs; [
       curl
       git
+      git-lfs
       helix
       marksman
       wget
