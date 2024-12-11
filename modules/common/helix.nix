@@ -20,9 +20,8 @@
       nodePackages.typescript-language-server
       pgformatter
       (python3.withPackages (p: (with p; [
-        black
-        isort
-        python-lsp-black
+        ruff
+        python-lsp-ruff
         python-lsp-server
       ])))
       rust-analyzer
@@ -288,7 +287,7 @@
           language-servers = [ "pylsp" "gpt" ];
           formatter = {
             command = "sh";
-            args = [ "-c" "isort --profile black - | black -q -" ];
+            args = [ "-c" "ruff check --select I --fix - | ruff format --line-length 88 -" ];
           };
           auto-format = true;
         }
