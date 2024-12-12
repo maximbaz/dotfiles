@@ -45,6 +45,7 @@
       "discord"
       "notion"
       "postman"
+      "jupyterlab"
     ];
   };
 }

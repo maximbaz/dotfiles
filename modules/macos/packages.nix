@@ -50,6 +50,7 @@
     # zstd
     helix-gpt
     elixir
+    cocoapods
     # nodejs_20
     # bun
 
