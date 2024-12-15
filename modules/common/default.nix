@@ -7,7 +7,7 @@
     ./broot.nix
     ./browserpass.nix
     ./direnv.nix
-    ./docker.nix
+    # ./docker.nix
     ./email.nix
     # ./firefox.nix
     ./fonts.nix

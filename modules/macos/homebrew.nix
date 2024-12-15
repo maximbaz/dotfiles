@@ -16,6 +16,7 @@
     };
     brews = [
       "coreutils"
+      "sui"
       # "cairo"
       # "pango"
       # "libpng"

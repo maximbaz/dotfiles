@@ -7,7 +7,7 @@
       # tldextract
       # isort
       # black
-      # pip
+      pip
     ]))
 
     azure-cli
@@ -52,7 +52,8 @@
     elixir
     cocoapods
     # nodejs_20
-    # bun
+    bun
+    # sui
 
 
     bfs
