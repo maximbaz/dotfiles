@@ -26,7 +26,7 @@
         python-lsp-server
       ])))
       rust-analyzer
-      rustc
+      # rustc
       taplo
       taplo-lsp
       terraform-ls

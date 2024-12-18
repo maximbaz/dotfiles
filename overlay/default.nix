@@ -283,20 +283,20 @@
         }
       ;
 
-      wldash = super.wldash.override (old: {
-        rustPlatform = old.rustPlatform // {
-          buildRustPackage = args: old.rustPlatform.buildRustPackage (args // {
-            src = super.fetchFromGitHub {
-              owner = "cyrinux";
-              repo = "wldash";
-              rev = "9cc29f2507a746ef6359dd081d9f2fe2f43c2a23";
-              hash = "sha256-aATJIHETQDX1UXkn5/1jVESgdQFbTFySYuL01NvP54s=";
-            };
-            cargoHash = "sha256-Ot+GnnbFFS6e86uhNDoujlX/oQX9Ckp+M467sXJOD60=";
-            cargoPatches = [ ];
-          });
-        };
-      });
+      # wldash = super.wldash.override (old: {
+      #   rustPlatform = old.rustPlatform // {
+      #     buildRustPackage = args: old.rustPlatform.buildRustPackage (args // {
+      #       src = super.fetchFromGitHub {
+      #         owner = "cyrinux";
+      #         repo = "wldash";
+      #         rev = "9cc29f2507a746ef6359dd081d9f2fe2f43c2a23";
+      #         hash = "sha256-aATJIHETQDX1UXkn5/1jVESgdQFbTFySYuL01NvP54s=";
+      #       };
+      #       cargoHash = "sha256-Ot+GnnbFFS6e86uhNDoujlX/oQX9Ckp+M467sXJOD60=";
+      #       cargoPatches = [ ];
+      #     });
+      #   };
+      # });
 
       # it was never meant to be packaged with --libnotify by default ☹️
       yubikey-touch-detector = super.yubikey-touch-detector.overrideAttrs (old: {

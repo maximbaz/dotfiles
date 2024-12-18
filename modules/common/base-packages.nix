@@ -8,6 +8,7 @@
       marksman
       wget
       devenv
+      rustup
     ];
 
     variables = {
