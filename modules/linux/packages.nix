@@ -65,7 +65,7 @@
     pik
     pinentry-gnome3
     playerctl
-    postgresql_16
+    postgresql_17
     progress
     pulseaudio
     push2talk
