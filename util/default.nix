@@ -1,5 +1,20 @@
-{ lib, pkgs, ... }: {
-  makeEmailAccount = { passCmd, address, imapHost, smtpHost ? "", smtpPort ? 465, userName ? address, primary ? false, aercExtraAccounts ? { }, aercExtraBinds ? { } }:
+{
+  systemdService = { Description, ExecStart, Environment ? "" }: {
+    Unit = {
+      Description = Description;
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Environment = Environment;
+      ExecStart = ExecStart;
+      Restart = "on-failure";
+      RestartSec = 10;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
+  makeEmailAccount = { passCmd, address, imapHost, notifyCmd, smtpHost ? "", smtpPort ? 465, userName ? address, primary ? false, aercExtraAccounts ? { }, aercExtraBinds ? { } }:
     let
       realName = "Maxim Baz";
       pgp-key-id = "56C3E775E72B0C8B1C0C1BD0B5DB77409B11B601";
@@ -20,7 +35,7 @@
       msmtp.enable = smtpHost != "";
       imapnotify = {
         enable = true;
-        onNotify = lib.getExe' pkgs.maximbaz-scripts "checkmail";
+        onNotify = notifyCmd;
         boxes = [ "INBOX" ];
       };
       aerc = {

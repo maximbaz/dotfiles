@@ -2,6 +2,7 @@
 inputs.nix-darwin.lib.darwinSystem rec {
   system = "aarch64-darwin";
   specialArgs = {
+    util = (import ../../util);
     firefox-addons = inputs.firefox-addons.packages.${system};
   };
   modules = [
