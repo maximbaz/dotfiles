@@ -36,6 +36,8 @@
   config.home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+
+    # See here what bumping this value impacts: https://nix-community.github.io/home-manager/release-notes.xhtml
     users.${config.user}.home.stateVersion = "25.05";
   };
 
