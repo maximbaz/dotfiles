@@ -26,6 +26,7 @@
     ./tailscale.nix
     ./tig.nix
     ./timezone.nix
+    ./upgrade-diff.nix
     ./vimiv.nix
     ./w3m.nix
     ./yt-dlp.nix
