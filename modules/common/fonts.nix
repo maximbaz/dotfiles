@@ -12,7 +12,7 @@
       font-awesome
       input-fonts
       joypixels
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      nerd-fonts.symbols-only
       open-sans
     ];
   };
