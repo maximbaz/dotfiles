@@ -1,3 +1,6 @@
 {
-  boot.tmp.useTmpfs = true;
+  boot.tmp = {
+    useTmpfs = true;
+    tmpfsSize = "90%";
+  };
 }
