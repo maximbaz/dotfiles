@@ -6,6 +6,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
     push2talk = inputs.push2talk.defaultPackage.${system};
     network-dmenu = inputs.network-dmenu.defaultPackage.${system};
     firefox-addons = inputs.firefox-addons.packages.${system};
+    nix-index-with-small-db = inputs.nix-index-database.packages.${system}.nix-index-with-small-db;
   };
   modules = [
     globals
