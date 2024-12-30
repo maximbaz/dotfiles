@@ -1,4 +1,4 @@
-{ config, pkgs, lib, push2talk, ... }:
+{ config, pkgs, lib, push2talk, waybar-syncthing, ... }:
 let
   app = pkgs.symlinkJoin {
     name = "waybar-scripts";
@@ -36,305 +36,315 @@ let
   };
 in
 {
-  home-manager.users.${config.user}.programs.waybar = {
-    enable = true;
-    systemd.enable = true;
+  home-manager.users.${config.user} = { config, ... }: {
+    sops.secrets."syncthing-api-key" = { };
 
-    settings = [{
-      height = 25;
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
 
-      modules-left = [
-        "sway/workspaces"
-        "sway/mode"
-      ];
+      settings = [{
+        height = 25;
 
-      modules-right = [
-        "custom/progress"
-        "custom/usbguard"
-        "custom/yubikey"
-        "custom/decrypted"
-        "custom/systemd"
-        "custom/mail"
-        "custom/recording"
-        "custom/dnd"
-        "pulseaudio"
-        "network"
-        "cpu"
-        "memory"
-        "disk"
-        "backlight"
-        "sway/language"
-        "battery"
-        "clock"
-      ];
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+        ];
 
-      "custom/progress" = {
-        exec = "${app}/bin/waybar-progress";
-        return-type = "json";
-        interval = 1;
-      };
+        modules-right = [
+          "custom/syncthing"
+          "custom/progress"
+          "custom/usbguard"
+          "custom/yubikey"
+          "custom/decrypted"
+          "custom/systemd"
+          "custom/mail"
+          "custom/recording"
+          "custom/dnd"
+          "pulseaudio"
+          "network"
+          "cpu"
+          "memory"
+          "disk"
+          "backlight"
+          "sway/language"
+          "battery"
+          "clock"
+        ];
 
-      "custom/usbguard" = {
-        format-icons = {
-          icon = "<span foreground='#928374'> </span>";
+        "custom/syncthing" = {
+          exec = "${lib.getExe waybar-syncthing} --api-key ${config.sops.secrets."syncthing-api-key".path}";
+          return-type = "json";
         };
-        format = "{icon}{}";
-        exec = "${app}/bin/waybar-usbguard";
-        return-type = "json";
-        on-click = "${app}/bin/waybar-usbguard allow";
-        on-click-right = "${app}/bin/waybar-usbguard reject";
-      };
 
-      "custom/yubikey" = {
-        exec = "${app}/bin/waybar-yubikey";
-        return-type = "json";
-      };
-
-      "custom/decrypted" = {
-        exec = "${app}/bin/waybar-decrypted";
-        return-type = "json";
-      };
-
-      "custom/systemd" = {
-        exec = "${app}/bin/waybar-systemd";
-        return-type = "json";
-        interval = 10;
-      };
-
-      "custom/mail" = {
-        format-icons = {
-          icon = "<span foreground='#928374'> </span>";
+        "custom/progress" = {
+          exec = "${app}/bin/waybar-progress";
+          return-type = "json";
+          interval = 1;
         };
-        format = "{icon}{}";
-        exec = "${app}/bin/waybar-mail";
-        return-type = "json";
-      };
 
-      "custom/dnd" = {
-        tooltip = false;
-        format = "{icon}";
-        format-icons = {
-          notification = "<span foreground='#928374'></span>";
-          none = "<span foreground='#928374'></span>";
-          dnd-notification = "<span foreground='#928374'></span>";
-          dnd-none = "<span foreground='#928374'></span>";
+        "custom/usbguard" = {
+          format-icons = {
+            icon = "<span foreground='#928374'> </span>";
+          };
+          format = "{icon}{}";
+          exec = "${app}/bin/waybar-usbguard";
+          return-type = "json";
+          on-click = "${app}/bin/waybar-usbguard allow";
+          on-click-right = "${app}/bin/waybar-usbguard reject";
         };
-        return-type = "json";
-        exec = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --subscribe-waybar";
-        on-click = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-dnd --skip-wait";
-        escape = true;
-      };
 
-      "custom/recording" = {
-        exec = "${app}/bin/waybar-recording";
-        return-type = "json";
-        signal = 3;
-        interval = "once";
-      };
-
-      clock = {
-        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        format = "<span foreground='#928374'></span> {:%a, %d %b  <span foreground='#928374'></span> %H:%M}";
-      };
-
-      cpu = {
-        format = "<span foreground='#928374'></span> {usage}%";
-        states = {
-          warning = 70;
-          critical = 90;
+        "custom/yubikey" = {
+          exec = "${app}/bin/waybar-yubikey";
+          return-type = "json";
         };
-      };
 
-      disk = {
-        format = "<span foreground='#928374'></span> {percentage_free}%";
-        states = {
-          warning = 70;
-          critical = 90;
+        "custom/decrypted" = {
+          exec = "${app}/bin/waybar-decrypted";
+          return-type = "json";
         };
-      };
 
-      memory = {
-        format = "<span foreground='#928374'></span> {}%";
-        states = {
-          warning = 70;
-          critical = 90;
+        "custom/systemd" = {
+          exec = "${app}/bin/waybar-systemd";
+          return-type = "json";
+          interval = 10;
         };
-      };
 
-      backlight = {
-        format = "<span foreground='#928374'>{icon}</span> {percent}%";
-        format-icons = [ "" ];
-        tooltip = false;
-      };
-
-      "sway/language" = {
-        min-length = 3;
-      };
-
-      battery = {
-        states = {
-          warning = 30;
-          critical = 15;
+        "custom/mail" = {
+          format-icons = {
+            icon = "<span foreground='#928374'> </span>";
+          };
+          format = "{icon}{}";
+          exec = "${app}/bin/waybar-mail";
+          return-type = "json";
         };
-        format = "<span foreground='#928374'>{icon}</span> {capacity}%";
-        format-charging = "<span foreground='#928374'></span> {capacity}%";
-        format-icons = [ "" "" "" "" "" ];
-      };
 
-      network = {
-        interval = 2;
-        format-wifi = "<span foreground='#928374'></span> {essid}";
-        format-ethernet = "<span foreground='#928374'></span> {ifname}";
-        format-linked = "<span foreground='#928374'></span> {ifname}";
-        format-disconnected = " <span foreground='#928374'></span> ";
-        tooltip-format = "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}";
-      };
-
-      pulseaudio = {
-        format = "<span foreground='#928374'>{icon}</span> {volume}%   {format_source}";
-        format-bluetooth = "<span foreground='#928374'>{icon}</span> {volume}%   {format_source}";
-        format-bluetooth-muted = "<span foreground='#928374'> {icon}</span>   {format_source}";
-        format-muted = "<span foreground='#928374'></span>   {format_source}";
-        format-source = "<span foreground='#928374'></span> {volume}%";
-        format-source-muted = "<span foreground='#928374'></span>";
-        format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
-          phone = "";
-          portable = "";
-          car = "";
-          default = [ "" "" "" ];
+        "custom/dnd" = {
+          tooltip = false;
+          format = "{icon}";
+          format-icons = {
+            notification = "<span foreground='#928374'></span>";
+            none = "<span foreground='#928374'></span>";
+            dnd-notification = "<span foreground='#928374'></span>";
+            dnd-none = "<span foreground='#928374'></span>";
+          };
+          return-type = "json";
+          exec = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --subscribe-waybar";
+          on-click = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-dnd --skip-wait";
+          escape = true;
         };
-        on-click = lib.getExe pkgs.pavucontrol;
-        on-click-right = "${lib.getExe push2talk} -t";
-        on-click-middle = lib.getExe pkgs.helvum;
-      };
-    }];
 
-    style = ''
-      @define-color background #1d2021;
-      @define-color foreground #ebdbb2;
-      @define-color dim        #928374;
-      @define-color yellow     #fabd2f;
-      @define-color red        #fb4934;
-      @define-color green      #b8bb26;
+        "custom/recording" = {
+          exec = "${app}/bin/waybar-recording";
+          return-type = "json";
+          signal = 3;
+          interval = "once";
+        };
 
-      * {
-        background: @background;
-        border: none;
-        border-radius: 0;
-        font-family: Input, "Font Awesome 6 Free Solid";
-        font-size: 13px;
-        min-height: 0;
-      }
+        clock = {
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format = "<span foreground='#928374'></span> {:%a, %d %b  <span foreground='#928374'></span> %H:%M}";
+        };
 
-      window#waybar {
-        background: @background;
-        color: @foreground;
-        transition-property: background-color;
-        transition-duration: 0.5s;
-      }
+        cpu = {
+          format = "<span foreground='#928374'></span> {usage}%";
+          states = {
+            warning = 70;
+            critical = 90;
+          };
+        };
 
-      #workspaces button {
-        padding: 0 10px;
-        background: transparent;
-        color: @foreground;
-        border-top: 3px solid @background;
-        border-bottom: 3px solid transparent;
-      }
+        disk = {
+          format = "<span foreground='#928374'></span> {percentage_free}%";
+          states = {
+            warning = 70;
+            critical = 90;
+          };
+        };
 
-      #workspaces button.focused {
-        border-bottom: 3px solid @green;
-      }
+        memory = {
+          format = "<span foreground='#928374'></span> {}%";
+          states = {
+            warning = 70;
+            critical = 90;
+          };
+        };
 
-      #workspaces button.urgent {
-        border-bottom: 3px solid @yellow;
-      }
+        backlight = {
+          format = "<span foreground='#928374'>{icon}</span> {percent}%";
+          format-icons = [ "" ];
+          tooltip = false;
+        };
 
-      #mode {
-        border-bottom: 3px solid @red;
-      }
+        "sway/language" = {
+          min-length = 3;
+        };
 
-      #custom-usbguard,
-      #custom-decrypted,
-      #custom-mail,
-      #battery.warning,
-      #disk.warning,
-      #memory.warning,
-      #cpu.warning,
-      #custom-dnd.dnd-notification,
-      #custom-dnd.dnd-none {
-        border-top: 3px solid @background;
-        border-bottom: 3px solid @yellow;
-      }
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "<span foreground='#928374'>{icon}</span> {capacity}%";
+          format-charging = "<span foreground='#928374'></span> {capacity}%";
+          format-icons = [ "" "" "" "" "" ];
+        };
 
-      #custom-systemd,
-      #battery.critical,
-      #disk.critical,
-      #memory.critical,
-      #cpu.critical,
-      #custom-yubikey,
-      #custom-recording {
-        border-top: 3px solid @background;
-        border-bottom: 3px solid @red;
-      }
+        network = {
+          interval = 2;
+          format-wifi = "<span foreground='#928374'></span> {essid}";
+          format-ethernet = "<span foreground='#928374'></span> {ifname}";
+          format-linked = "<span foreground='#928374'></span> {ifname}";
+          format-disconnected = " <span foreground='#928374'></span> ";
+          tooltip-format = "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}";
+        };
 
-      #battery.charging {
-        border-top: 3px solid @background;
-        border-bottom: 3px solid @green;
-      }
+        pulseaudio = {
+          format = "<span foreground='#928374'>{icon}</span> {volume}%   {format_source}";
+          format-bluetooth = "<span foreground='#928374'>{icon}</span> {volume}%   {format_source}";
+          format-bluetooth-muted = "<span foreground='#928374'> {icon}</span>   {format_source}";
+          format-muted = "<span foreground='#928374'></span>   {format_source}";
+          format-source = "<span foreground='#928374'></span> {volume}%";
+          format-source-muted = "<span foreground='#928374'></span>";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = [ "" "" "" ];
+          };
+          on-click = lib.getExe pkgs.pavucontrol;
+          on-click-right = "${lib.getExe push2talk} -t";
+          on-click-middle = lib.getExe pkgs.helvum;
+        };
+      }];
 
-      #mode,
-      #pulseaudio,
-      #custom-usbguard,
-      #custom-yubikey,
-      #custom-decrypted,
-      #custom-systemd,
-      #custom-mail,
-      #network,
-      #cpu,
-      #disk,
-      #memory,
-      #backlight,
-      #battery,
-      #clock {
-        padding: 0 6px;
-        margin: 0 6px;
-      }
+      style = ''
+        @define-color background #1d2021;
+        @define-color foreground #ebdbb2;
+        @define-color dim        #928374;
+        @define-color yellow     #fabd2f;
+        @define-color red        #fb4934;
+        @define-color green      #b8bb26;
 
-      #custom-dnd,
-      #custom-recording,
-      #language {
-        padding: 0;
-        margin: 0 6px;
-      }
+        * {
+          background: @background;
+          border: none;
+          border-radius: 0;
+          font-family: Input, "Font Awesome 6 Free Solid";
+          font-size: 13px;
+          min-height: 0;
+        }
 
-      #tray {
-        margin-left: -1000000px;
-      }
+        window#waybar {
+          background: @background;
+          color: @foreground;
+          transition-property: background-color;
+          transition-duration: 0.5s;
+        }
 
-      #backlight,
-      #battery,
-      #clock,
-      #cpu,
-      #custom-mail,
-      #custom-progress,
-      #custom-recording,
-      #custom-systemd,
-      #custom-usbguard,
-      #custom-yubikey,
-      #disk,
-      #memory,
-      #mode,
-      #network,
-      #pulseaudio {
-        color: @foreground;
-      }
+        #workspaces button {
+          padding: 0 10px;
+          background: transparent;
+          color: @foreground;
+          border-top: 3px solid @background;
+          border-bottom: 3px solid transparent;
+        }
 
-      #custom-decrypted {
-        color: @dim;
-      }
-    '';
+        #workspaces button.focused {
+          border-bottom: 3px solid @green;
+        }
+
+        #workspaces button.urgent {
+          border-bottom: 3px solid @yellow;
+        }
+
+        #mode {
+          border-bottom: 3px solid @red;
+        }
+
+        #custom-usbguard,
+        #custom-decrypted,
+        #custom-mail,
+        #battery.warning,
+        #disk.warning,
+        #memory.warning,
+        #cpu.warning,
+        #custom-dnd.dnd-notification,
+        #custom-dnd.dnd-none {
+          border-top: 3px solid @background;
+          border-bottom: 3px solid @yellow;
+        }
+
+        #custom-systemd,
+        #battery.critical,
+        #disk.critical,
+        #memory.critical,
+        #cpu.critical,
+        #custom-yubikey,
+        #custom-recording {
+          border-top: 3px solid @background;
+          border-bottom: 3px solid @red;
+        }
+
+        #battery.charging {
+          border-top: 3px solid @background;
+          border-bottom: 3px solid @green;
+        }
+
+        #mode,
+        #pulseaudio,
+        #custom-usbguard,
+        #custom-yubikey,
+        #custom-decrypted,
+        #custom-systemd,
+        #custom-mail,
+        #network,
+        #cpu,
+        #disk,
+        #memory,
+        #backlight,
+        #battery,
+        #clock {
+          padding: 0 6px;
+          margin: 0 6px;
+        }
+
+        #custom-dnd,
+        #custom-recording,
+        #language {
+          padding: 0;
+          margin: 0 6px;
+        }
+
+        #tray {
+          margin-left: -1000000px;
+        }
+
+        #backlight,
+        #battery,
+        #clock,
+        #cpu,
+        #custom-mail,
+        #custom-progress,
+        #custom-recording,
+        #custom-systemd,
+        #custom-usbguard,
+        #custom-yubikey,
+        #disk,
+        #memory,
+        #mode,
+        #network,
+        #pulseaudio {
+          color: @foreground;
+        }
+
+        #custom-decrypted {
+          color: @dim;
+        }
+      '';
+    };
   };
 }

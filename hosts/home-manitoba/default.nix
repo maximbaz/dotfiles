@@ -3,9 +3,10 @@ inputs.nixpkgs.lib.nixosSystem rec {
   system = "aarch64-linux";
   specialArgs = {
     util = (import ../../util);
-    push2talk = inputs.push2talk.defaultPackage.${system};
-    network-dmenu = inputs.network-dmenu.defaultPackage.${system};
     firefox-addons = inputs.firefox-addons.packages.${system};
+    network-dmenu = inputs.network-dmenu.defaultPackage.${system};
+    push2talk = inputs.push2talk.defaultPackage.${system};
+    waybar-syncthing = inputs.waybar-syncthing.defaultPackage.${system};
   };
   modules = [
     globals
