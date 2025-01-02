@@ -19,6 +19,7 @@ let
       netcat-openbsd
       notmuch
       perl
+      procps
       progress
       systemd
       usbguard
