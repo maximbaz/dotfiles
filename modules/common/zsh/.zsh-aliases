@@ -230,48 +230,6 @@ grf() {
 
 ### package management
 
-alias paci='pac install'
-alias pacr='pac remove'
-alias pacu='pac update'
-alias pacf='dnf provides'
-alias pacq='dnf info'
-alias pacl='rpm -ql'
-alias pacdiff='sudo rpmconf -a'
-
-alias paci!='sudo dnf makecache && paci'
-alias pacu!='sudo dnf makecache && pacu'
-alias pacs!='sudo dnf makecache && pacs'
-
-pac() {
-    sudo dnf "$@" || return 1
-    rehash
-}
-command -v dnf &> /dev/null && compdef pac=dnf
-
-pacs() {
-    [ $# -lt 1 ] && { >&2 echo "No search term provided"; return 1; }
-    tmp=$(mktemp -d)
-
-    dnf -qC search "$@" 2>/dev/null | grep -v '^=' | while IFS=':' read -r pkg desc; do
-        pkg="${pkg%% *}"
-        [[ $pkg != *.src ]] || continue
-        [[ $pkg != *debuginfo.* ]] || continue
-        [[ $pkg != *debugsource.* ]] || continue
-        echo "$pkg" >>$tmp/pkgs
-        echo "$desc" >$tmp/$pkg
-    done
-    [ -s $tmp/pkgs ] || { >&2 echo "No packages found"; rm -rf "$tmp"; return 2; }
-
-    pkgs=()
-    cat $tmp/pkgs | fzf --preview-window=wrap --preview="cat $tmp/{1}; echo; echo; dnf -qC info {1} 2>/dev/null; true" |
-    while read -r pkg; do
-        pkgs+=("$pkg")
-    done
-    rm -rf "$tmp"
-
-    if (( ${#pkgs[@]} )); then
-        paci "${pkgs[@]}"
-    else
-        echo "Nothing selected, aborting."
-    fi
-}
+alias pacs='nix search nixpkgs'
+alias pacf='nix-locate'
+paci() { nix shell "nixpkgs#$1" }
