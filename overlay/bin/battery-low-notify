@@ -1,7 +1,7 @@
 #!/bin/sh
 
 need_notify_low=1
-need_notify_critical=1
+notification_id=0
 
 upower -m | while read -r _; do
     battery_info="$(upower -i /org/freedesktop/UPower/devices/battery_macsmc_battery)"
@@ -9,17 +9,19 @@ upower -m | while read -r _; do
     state=$(echo "$battery_info" | awk '/state/ {print $2}')
 
     if [ "$state" = "discharging" ]; then
-        if [ "$need_notify_critical" -eq 1 ] && [ "$percent" -le 15 ]; then
-            notify-send -u critical -i battery-empty-symbolic "Battery level is critically low" "$percent% remaining"
-            need_notify_critical=0
+        if [ "$percent" -le 15 ]; then
+            notification_id=$(notify-send --expire-time=100000 --replace-id="$notification_id" --print-id -u critical -i battery-empty-symbolic "Battery level is critically low" "$percent% remaining")
             need_notify_low=0
         elif [ "$need_notify_low" -eq 1 ] && [ "$percent" -le 30 ]; then
-            notify-send -i battery-low-symbolic "Battery level is low" "$percent% remaining"
+            notification_id=$(notify-send --replace-id="$notification_id" --print-id -i battery-low-symbolic "Battery level is low" "$percent% remaining")
             need_notify_low=0
         fi
     else
         need_notify_low=1
-        need_notify_critical=1
+        if [ "$notification_id" -ne 0 ]; then
+            gdbus call --session --dest org.freedesktop.Notifications --object-path /org/freedesktop/Notifications --method org.freedesktop.Notifications.CloseNotification "$notification_id" >/dev/null
+            notification_id=0
+        fi
     fi
 done
 
