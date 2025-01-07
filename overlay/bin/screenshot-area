@@ -8,7 +8,9 @@ systemctl --user stop sway-inactive-windows-transparency.service
 hyprpicker -rz &
 sleep 0.2 # it needs time to freeze the screen...
 
+cursor_delay=$(swaymsg -t get_config -p | rg -oP '(?<=hide_cursor )\d+')
 geometry="$(slurp -c '#ff3f3faf' -w 2 -d -o)"
+swaymsg seat '*' hide_cursor 1 # hide cursor...
 sleep 0.2 # slurp needs time to remove the red border...
 
 if [ -n "$geometry" ]; then
@@ -18,6 +20,7 @@ else
 fi
 
 kill $!
+swaymsg seat '*' hide_cursor "$cursor_delay" # restore cursor...
 
 [ -f area.png ] && swappy -f area.png
 
