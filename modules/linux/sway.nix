@@ -109,8 +109,8 @@
       config = {
         input = {
           "type:keyboard" = {
-            xkb_layout = "us-hyper,ua";
-            xkb_options = "grp:shifts_toggle,grp:shift_caps_toggle,compose:ralt,caps:hyper,numpad:mac";
+            xkb_layout = "us,ua";
+            xkb_options = "grp:shifts_toggle,compose:ralt,numpad:mac";
             xkb_numlock = "enable";
             repeat_delay = "300";
             repeat_rate = "60";
@@ -203,7 +203,7 @@
         };
 
         bindkeysToCode = true;
-        keybindings = let win = "Mod4"; hyper = "Mod3"; in {
+        keybindings = let win = "Mod4+Alt"; hyper = "Mod4"; in {
           # Terminal
           "${hyper}+Return" = "exec cglaunch --term";
           "${hyper}+XF86MonBrightnessDown" = "exec cglaunch --term";
@@ -267,7 +267,7 @@
           "${hyper}+minus" = "scratchpad show";
 
           # Change focus between tiling / floating windows
-          "${hyper}+space" = "focus mode_toggle";
+          "Alt+space" = "focus mode_toggle";
 
           # Notification actions
           "${hyper}+q" = "exec swaync-client --close-all";

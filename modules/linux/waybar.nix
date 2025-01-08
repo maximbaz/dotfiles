@@ -178,6 +178,7 @@ in
         };
 
         "sway/language" = {
+          on-click = "${lib.getExe' pkgs.sway "swaymsg"} input type:keyboard xkb_switch_layout next";
           min-length = 3;
         };
 

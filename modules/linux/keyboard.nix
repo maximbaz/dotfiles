@@ -1,14 +1,29 @@
-{ config, ... }: {
-  home-manager.users.${config.user}.xdg.configFile."xkb/symbols/us-hyper".text = ''
-    default partial alphanumeric_keys modifier_keys
+{
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      default = {
+        devices = [
+          "/dev/input/by-path/platform-39b10c000.spi-cs-0-event-kbd"
+        ];
+        extraDefCfg = "process-unmapped-keys yes";
+        config = ''
+          (defsrc)
 
-    xkb_symbols "basic" {
-        include "us"
+          (deftemplate charmod (char mod)
+            (switch
+              ((key-timing 3 less-than 140)) $char break
+              () (tap-hold-release 200 500 $char $mod) break
+            )
+          )
 
-        replace key <CAPS> { [ Hyper_L ] };
-        replace key <LWIN> { [ Super_L ] };
-        modifier_map Mod3 { <META>, Hyper_L };
-        modifier_map Mod4 { <META>, Super_L };
+          (deflayermap (main)
+            lmeta (multi lmeta lalt)
+            caps (t! charmod esc lctl)
+            spc (t! charmod spc lmet)
+          )
+        '';
+      };
     };
-  '';
+  };
 }
