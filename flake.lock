@@ -247,11 +247,11 @@
     },
     "maximbaz-private": {
       "locked": {
-        "lastModified": 1735581083,
-        "narHash": "sha256-wFmEt3JFvocEmZenfawc9Q1iz3GT1ZOE51QwdK1b/s0=",
+        "lastModified": 1736470707,
+        "narHash": "sha256-/4aD5VlCKdvIyNGe5Bat7U5uk6R6D6mCkQbcigJRvIM=",
         "ref": "refs/heads/main",
-        "rev": "ba5f78d827b09ca30ede0ba45f9dbb18c8b4a089",
-        "revCount": 17,
+        "rev": "89000071ec8c51f3efb0ea0198c3670195336ae4",
+        "revCount": 18,
         "type": "git",
         "url": "file:///home/maximbaz/.dotfiles-private"
       },
