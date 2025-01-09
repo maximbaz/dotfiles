@@ -11,7 +11,7 @@ while true; do
     fi
     printf '{"text": ""}\n'
 
-    while read -n5 cmd; do
+    while read -r -n5 cmd; do
         reason="${cmd:0:3}"
 
         if [ "${cmd:4:1}" = "1" ]; then
@@ -28,7 +28,7 @@ while true; do
         if [ "${#touch_reasons[@]}" -eq 0 ]; then
             printf '{"text": ""}\n'
         else
-            tooltip="YubiKey is waiting for a touch, reasons: ${touch_reasons[@]}"
+            tooltip="YubiKey is waiting for a touch, reasons: ${touch_reasons[*]}"
             printf '{"text": "  ", "tooltip": "%s"}\n' "$tooltip"
         fi
     done < <(nc -U "$socket")
