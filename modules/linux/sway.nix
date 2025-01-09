@@ -217,7 +217,7 @@
           "${hyper}+p" = "exec 'wl-clipboard-manager lock; cglaunch passmenu -p pass; wl-clipboard-manager unlock'";
           "${win}+p" = "exec cgtoggle pass-gen";
           "${hyper}+m" = "exec cgtoggle udiskie-dmenu";
-          "${win}+grave" = "exec cgtoggle wl-clipboard-manager dmenu";
+          "${hyper}+grave" = "exec cgtoggle wl-clipboard-manager dmenu";
           "${hyper}+Backspace" = "exec cgtoggle emoji-dmenu";
           "${hyper}+XF86MonBrightnessUp" = "exec cgtoggle emoji-dmenu";
           "XF86Search" = "exec cglaunch screenshot-area";
