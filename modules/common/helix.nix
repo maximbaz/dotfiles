@@ -65,6 +65,9 @@
           skip-levels = 1;
         };
 
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics.cursor-line = "warning";
+
         lsp = {
           display-inlay-hints = true;
           display-messages = true;
