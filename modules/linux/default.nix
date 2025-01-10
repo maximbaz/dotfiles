@@ -19,6 +19,7 @@
     ./keyboard.nix
     ./network.nix
     ./network-dmenu.nix
+    ./nix-serve.nix
     ./ozone.nix
     ./packages.nix
     ./polkit.nix
