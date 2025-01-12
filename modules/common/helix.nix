@@ -123,6 +123,11 @@
           tab = "move_parent_node_end";
           S-tab = "move_parent_node_start";
 
+          G = {
+            j = "@vgj<esc>";
+            k = "@vgk<esc>";
+          };
+
           g = {
             j = "goto_last_line";
             k = "goto_file_start";
