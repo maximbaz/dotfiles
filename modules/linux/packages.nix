@@ -99,6 +99,7 @@
     vivid
     vscode
     w3m
+    wev
     wf-recorder
     wireguard-tools
     wl-clipboard
