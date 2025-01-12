@@ -15,6 +15,7 @@
       helix-gpt
       marksman
       nil
+      nixd
       nixpkgs-fmt
       nodePackages.prettier
       nodePackages.typescript-language-server
