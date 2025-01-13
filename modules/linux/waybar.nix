@@ -143,8 +143,20 @@ in
         };
 
         clock = {
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          tooltip-format = "{calendar}\n\n<span color='#ebdbb2'>{tz_list}</span>";
           format = "<span foreground='#928374'></span> {:%a, %d %b  <span foreground='#928374'></span> %H:%M}";
+          timezones = [ "Europe/Copenhagen" "Australia/Melbourne" ];
+          calendar = {
+            mode = "month";
+            weeks-pos = "left";
+            format = {
+              months = "<span color='#ebdbb2'><b>{}</b></span>";
+              days = "<span color='#a89984'><b>{}</b></span>";
+              weeks = "<span color='#ebdbb2'><b>{:%V}</b></span>";
+              weekdays = "<span color='#ebdbb2'><b>{}</b></span>";
+              today = "<span color='#d79921'><b>{}</b></span>";
+            };
+          };
         };
 
         cpu = {
