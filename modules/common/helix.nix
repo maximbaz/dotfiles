@@ -20,8 +20,8 @@
       nodePackages.prettier
       nodePackages.typescript-language-server
       pgformatter
+      ruff
       (python3.withPackages (p: (with p; [
-        ruff
         python-lsp-ruff
         python-lsp-server
       ])))
