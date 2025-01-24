@@ -19,7 +19,7 @@
       nixpkgs-fmt
       nodePackages.prettier
       nodePackages.typescript-language-server
-      pgformatter
+      sql-formatter
       ruff
       (python3.withPackages (p: (with p; [
         python-lsp-ruff
@@ -318,8 +318,8 @@
           name = "sql";
           language-servers = [ "gpt" ];
           formatter = {
-            command = "pg_format";
-            args = [ "-iu1" "--no-space-function" "-" ];
+            command = "sql-formatter";
+            args = [ "-l" "postgresql" "-c" "{\"keywordCase\": \"lower\", \"dataTypeCase\": \"lower\", \"functionCase\": \"lower\", \"expressionWidth\": 120, \"tabWidth\": 4}" ];
           };
           auto-format = true;
         }
