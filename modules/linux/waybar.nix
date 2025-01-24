@@ -142,6 +142,10 @@ in
           interval = "once";
         };
 
+        "sway/workspaces" = {
+          disable-scroll = true;
+        };
+
         clock = {
           tooltip-format = "{calendar}\n\n<span color='#ebdbb2'>{tz_list}</span>";
           format = "<span foreground='#928374'></span> {:%a, %d %b  <span foreground='#928374'></span> %H:%M}";
