@@ -20,7 +20,8 @@
               rev = "9cc29f2507a746ef6359dd081d9f2fe2f43c2a23";
               hash = "sha256-aATJIHETQDX1UXkn5/1jVESgdQFbTFySYuL01NvP54s=";
             };
-            cargoHash = "sha256-Ot+GnnbFFS6e86uhNDoujlX/oQX9Ckp+M467sXJOD60=";
+            useFetchCargoVendor = true;
+            cargoHash = "sha256-xuyUKKAIGEJwl9mcNQLFhk5r6+YSl+0EkUHPk//gM9c=";
             cargoPatches = [ ];
           });
         };
@@ -36,7 +37,8 @@
               rev = version;
               hash = "sha256-ds/qBaQNyZ/HdetI1QdJOZcjVotz4xHgoIIuWI9xOEg=";
             };
-            cargoHash = "sha256-WUczKF9Mq39HpnQ077AiXWy8jN30IehzOxqCmUFGMh0=";
+            useFetchCargoVendor = true;
+            cargoHash = "sha256-1zBp6eTkIDSMzNN5jKKu6lZVzzBJY+oB6y5UESlm/yA=";
           });
         };
       });
@@ -83,7 +85,8 @@
           hash = "sha256-YAnMSVQu/E+OyhHX3vugfBocyi++aGwG9vF6zL8T2RU=";
         };
 
-        cargoHash = "sha256-a7mqtxZMJl8zR8oCfuGNAiT5MEAmNpbDLSgi8A6FfPA=";
+        useFetchCargoVendor = true;
+        cargoHash = "sha256-vXE9AL0+WCPhwJTqglwOhIeqhI+JQB3Cr8GBQjmW+zc=";
       };
 
       maximbaz-scripts = pkgs.stdenv.mkDerivation {
