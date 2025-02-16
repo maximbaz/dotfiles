@@ -1,5 +1,6 @@
 { config, pkgs, push2talk, ... }: {
   home-manager.users.${config.user}.home.packages = with pkgs; [
+    abiword
     asahi-bless
     bfs
     brightnessctl
@@ -27,6 +28,7 @@
     github-cli
     glib
     gnumake
+    gnumeric
     go
     goimapnotify
     grim
@@ -44,7 +46,6 @@
     kubelogin
     kubernetes-helm
     libnotify
-    libreoffice
     magic-wormhole-rs
     maximbaz-scripts
     meld
