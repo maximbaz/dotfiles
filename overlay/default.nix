@@ -54,18 +54,28 @@
 
       signal-desktop = super.signal-desktop.overrideAttrs (_old: rec {
         dir = "Signal";
-        version = "7.36.0";
+        version = "7.39.0";
 
         src = super.fetchurl {
-          url = "https://github.com/0mniteck/Signal-Desktop-Mobian/raw/${version}/builds/release/signal-desktop_${version}_arm64.deb";
-          hash = "sha256-nmAqFDw35pdZg5tiq9MUlqXnbRLRkSOX9SWhccnE2Xw=";
+          # url = "https://github.com/0mniteck/Signal-Desktop-Mobian/raw/${version}/builds/release/signal-desktop_${version}_arm64.deb";
+          # hash = "sha256-nmAqFDw35pdZg5tiq9MUlqXnbRLRkSOX9SWhccnE2Xw=";
+          url = "https://github.com/dennisameling/Signal-Desktop/releases/download/v${version}/signal-desktop-unofficial_${version}_arm64.deb";
+          hash = "sha256-FTIUr+eiTXcz0gOyGNqk6jX4RXWSIrwOJSZw+ZoSjNE=";
 
           recursiveHash = true;
           downloadToTemp = true;
-          nativeBuildInputs = with pkgs; [ dpkg asar ];
+          nativeBuildInputs = with pkgs; [ dpkg asar gnused ];
 
           postFetch = ''
             dpkg-deb -x $downloadedFile $out
+
+            # signal unofficial tweaks
+            mv "$out/opt/Signal Unofficial" "$out/opt/Signal"
+            mv "$out/usr/share/applications/signal-desktop-unofficial.desktop" "$out/usr/share/applications/signal-desktop.desktop"
+            sed -i -E 's/[ -]?[Uu]nofficial//g' "$out/usr/share/applications/signal-desktop.desktop"
+            mv "$out/opt/Signal/signal-desktop-unofficial" "$out/opt/Signal/signal-desktop"
+            mv "$out/usr/share/doc/signal-desktop-unofficial" "$out/usr/share/doc/signal-desktop"
+
             asar extract "$out/opt/${dir}/resources/app.asar" $out/asar-contents
             rm -r \
               "$out/opt/${dir}/resources/app.asar"{,.unpacked} \
