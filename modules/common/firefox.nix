@@ -10,7 +10,7 @@
         #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
       '';
 
-      extensions = with firefox-addons; [
+      extensions.packages = with firefox-addons; [
         browserpass
         clearurls
         container-tabs-sidebar
