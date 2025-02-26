@@ -17,7 +17,7 @@ update: git-add
     nix flake update
 
 update-private: git-add
-    nix flake lock --update-input maximbaz-private
+    nix flake update maximbaz-private
 
 git-add:
     git -C $HOME/.dotfiles add --intent-to-add --all
