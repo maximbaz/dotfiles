@@ -36,14 +36,15 @@
         matchConfig.Name = "wlan0";
         networkConfig.DHCP = "yes";
         dhcpConfig.RouteMetric = 20;
-        # dns = [ "94.140.14.14" "94.140.15.15" ];
       };
       "50-wired" = {
         matchConfig.Name = "enp*"; # TODO test this
         networkConfig.DHCP = "yes";
         dhcpConfig.RouteMetric = 50;
-        # dns = [ "94.140.14.14" "94.140.15.15" ];
       };
     };
   };
+
+  # https://gitlab.archlinux.org/archlinux/rfcs/-/merge_requests/51
+  boot.kernel.sysctl."net.ipv4.tcp_keepalive_time" = 120;
 }
