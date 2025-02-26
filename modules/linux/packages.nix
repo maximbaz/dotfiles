@@ -6,6 +6,7 @@
     brightnessctl
     calibre
     cargo
+    cargo-outdated
     chromium
     curlie
     dbmate
@@ -88,6 +89,7 @@
     swayr
     syncthing
     systembus-notify
+    tailspin
     teehee
     tig
     trash-cli
@@ -96,6 +98,7 @@
     unrar
     unzip
     usbguard
+    vault
     vimiv-qt
     vivid
     vscode
