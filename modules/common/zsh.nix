@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   programs.zsh.enable = true;
 
   home-manager.users.${config.user}.home.file = {
@@ -8,5 +8,9 @@
     ".zsh-aliases".source = ./zsh/.zsh-aliases;
     ".zshenv".source = ./zsh/.zshenv;
     ".zshrc".source = ./zsh/.zshrc;
+    ".zsh-extra".text = ''
+      JQ_ZSH_PLUGIN_EXPAND_ALIASES=0
+      z4h source -- ${pkgs.jq-zsh-plugin}/share/jq-zsh-plugin/jq.plugin.zsh
+    '';
   };
 }

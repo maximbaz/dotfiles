@@ -24,20 +24,12 @@ if ! (( P9K_SSH )); then
     zstyle ':z4h:sudo' term ''
 fi
 
-###
-
 [ ! -f /etc/motd ] || cat /etc/motd
-
-###
 
 z4h install romkatv/archive || return
 z4h init || return
 
-####
-
 zstyle ':completion:*' matcher-list "m:{a-z}={A-Z}" "l:|=* r:|=*"
-
-####
 
 fpath+=($Z4H/romkatv/archive)
 autoload -Uz archive lsarchive unarchive edit-command-line
@@ -61,36 +53,31 @@ my-ctrl-z() {
 }
 zle -N my-ctrl-z
 
-###
+z4h source -- "$ZDOTDIR/.zshrc-private"
+z4h source -- "$ZDOTDIR/.zsh-aliases"
+z4h source -- "$ZDOTDIR/.zsh-extra"
 
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace
 z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
 z4h bindkey z4h-kill-zword          Ctrl+Alt+Delete
-
 z4h bindkey backward-kill-line      Ctrl+U
 z4h bindkey kill-line               Alt+U
 z4h bindkey kill-whole-line         Alt+I
-
 z4h bindkey z4h-forward-zword       Ctrl+Alt+Right
 z4h bindkey z4h-backward-zword      Ctrl+Alt+Left
-
 z4h bindkey z4h-cd-back             Alt+H
 z4h bindkey z4h-cd-forward          Alt+L
 z4h bindkey z4h-cd-up               Alt+K
 z4h bindkey z4h-fzf-dir-history     Alt+J
-
 z4h bindkey my-ctrl-z               Ctrl+Z
 z4h bindkey edit-command-line       Alt+E
-
 z4h bindkey z4h-accept-line         Enter
 z4h bindkey z4h-exit                Ctrl+D
-
-###
+z4h bindkey jq-complete             Ctrl+J
 
 setopt GLOB_DOTS
 setopt IGNORE_EOF
-
-###
+unsetopt EXTENDED_GLOB
 
 [ -z "$EDITOR" ] && export EDITOR='vim'
 [ -z "$VISUAL" ] && export VISUAL='vim'
@@ -98,13 +85,6 @@ setopt IGNORE_EOF
 export DIRENV_LOG_FORMAT=
 export FZF_DEFAULT_OPTS="--reverse --multi"
 export SYSTEMD_LESS="${LESS}S"
-
-###
-
-z4h source -- $ZDOTDIR/.zshrc-private
-z4h source -- $ZDOTDIR/.zsh-aliases
-
-###
 
 zsh_notify_bg_finish_pre() {
     declare -g zsh_notify_bg_finish_cmd="${1:-$2}"
@@ -117,7 +97,7 @@ zsh_notify_bg_finish_post() {
 
     (( time_elapsed = EPOCHSECONDS - zsh_notify_bg_finish_start ))
     local took=$(zsh_notify_bg_finish_duration "$time_elapsed")
-    local title="$(((last_status == 0)) && echo 'SUCCESS 🥳' || echo 'FAILURE 🤬')"
+    local title="$( ((last_status == 0)) && echo 'SUCCESS 🥳' || echo 'FAILURE 🤬')"
     ! (( P9K_SSH )) || title="$title on $HOST 💻"
     title="$title after $took!"
     local id=$EPOCHSECONDS
@@ -145,5 +125,3 @@ add-zsh-hook preexec zsh_notify_bg_finish_pre
 add-zsh-hook precmd zsh_notify_bg_finish_post
 
 command -v vivid &> /dev/null && export LS_COLORS="$(vivid generate gruvbox-dark-hard)"
-
-unsetopt extended_glob
