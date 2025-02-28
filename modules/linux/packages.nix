@@ -102,7 +102,6 @@
     vault
     vimiv-qt
     vivid
-    vscode
     w3m
     wev
     wf-recorder

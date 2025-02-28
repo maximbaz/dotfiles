@@ -28,6 +28,7 @@
     ./timezone.nix
     ./upgrade-diff.nix
     ./vimiv.nix
+    ./vscode.nix
     ./w3m.nix
     ./yt-dlp.nix
     ./zsh.nix
