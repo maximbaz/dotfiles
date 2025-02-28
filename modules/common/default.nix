@@ -31,6 +31,7 @@
     ./vscode.nix
     ./w3m.nix
     ./yt-dlp.nix
+    ./zed.nix
     ./zsh.nix
   ];
 
