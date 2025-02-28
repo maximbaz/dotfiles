@@ -53,6 +53,9 @@ my-ctrl-z() {
 }
 zle -N my-ctrl-z
 
+[ -z "$EDITOR" ] && export EDITOR='vim'
+[ -z "$VISUAL" ] && export VISUAL='vim'
+
 z4h source -- "$ZDOTDIR/.zshrc-private"
 z4h source -- "$ZDOTDIR/.zsh-aliases"
 z4h source -- "$ZDOTDIR/.zsh-extra"
@@ -78,9 +81,6 @@ z4h bindkey jq-complete             Ctrl+J
 setopt GLOB_DOTS
 setopt IGNORE_EOF
 unsetopt EXTENDED_GLOB
-
-[ -z "$EDITOR" ] && export EDITOR='vim'
-[ -z "$VISUAL" ] && export VISUAL='vim'
 
 export DIRENV_LOG_FORMAT=
 export FZF_DEFAULT_OPTS="--reverse --multi"
