@@ -82,6 +82,7 @@
     socat
     sops
     sqlite
+    stern
     swappy
     swaybg
     sway-contrib.inactive-windows-transparency
