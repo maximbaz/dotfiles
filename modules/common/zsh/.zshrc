@@ -76,7 +76,8 @@ z4h bindkey my-ctrl-z               Ctrl+Z
 z4h bindkey edit-command-line       Alt+E
 z4h bindkey z4h-accept-line         Enter
 z4h bindkey z4h-exit                Ctrl+D
-z4h bindkey jq-complete             Ctrl+J
+z4h bindkey jq-complete             Ctrl+T
+z4h bindkey db-select               Ctrl+J
 
 setopt GLOB_DOTS
 setopt IGNORE_EOF

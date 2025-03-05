@@ -20,6 +20,7 @@
         virtualenv
         kubecontext
         azure
+        db
         command_execution_time
 
         newline
@@ -248,6 +249,16 @@
     typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=red
     typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%(#.#.$)'
 
+    ##########[ custom: db ]##########
+    function prompt_db() {
+        [ -n "$DATABASE_PROFILE" ] || return
+        [[ "$DATABASE_PROFILE" =~ (^|[^a-zA-Z0-9])prod([^a-zA-Z0-9]|$) ]] && env=PROD || env=DEFAULT
+        p10k segment -t "%B$DATABASE_PROFILE" -s "$env"
+    }
+    typeset -g POWERLEVEL9K_DB_PREFIX='%fat '
+    typeset -g POWERLEVEL9K_DB_VISUAL_IDENTIFIER_EXPANSION=" "
+    typeset -g POWERLEVEL9K_DB_FOREGROUND=140
+    typeset -g POWERLEVEL9K_DB_PROD_FOREGROUND=201
 
     (( ! $+functions[p10k] )) || p10k reload
 }

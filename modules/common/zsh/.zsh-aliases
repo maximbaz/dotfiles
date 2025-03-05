@@ -221,3 +221,51 @@ grf() {
 alias pacs='nix search nixpkgs'
 alias pacf='nix-locate'
 paci() { nix shell "nixpkgs#$1" }
+
+### database management
+
+db() {
+    local cache="${XDG_CACHE_HOME:-$HOME/.cache}/db_access_cache"
+    touch "$cache"
+
+    local entries=$(find "${PASSWORD_STORE_DIR:-$HOME/.password-store}" -type f -path '*/db/*.gpg' -printf '%P\n' | sed 's/\.gpg$//')
+    local selection=$( (tac "$cache" | grep -Fx -f <(echo "$entries"); echo "$entries") | awk '!seen[$0]++' | fzf)
+
+    [[ -n "$selection" ]] || return 1
+
+    sed -i "\|^$selection\$|d" "$cache"
+    echo "$selection" >> "$cache"
+
+    db_open() {
+        entry=$(pass "$selection")
+        type=$(echo "$entry" | grep -oP 'type:\s*\K.*')
+
+        unset MYSQL_HOST MYSQL_PORT MYSQL_DATABASE MYSQL_USER MYSQL_PWD PGHOST PGPORT PGDATABASE PGUSER PGPASSWORD DATABASE_URL
+
+        if [[ "$type" == "mysql" ]]; then
+            export MYSQL_HOST=$(echo "$entry" | grep -oP 'host:\s*\K.*')
+            export MYSQL_PORT=$(echo "$entry" | grep -oP 'port:\s*\K.*')
+            export MYSQL_DATABASE=$(echo "$entry" | grep -oP 'db:\s*\K.*')
+            export MYSQL_USER=$(echo "$entry" | grep -oP 'user:\s*\K.*')
+            export MYSQL_PWD=$(echo "$entry" | head -n1)
+        else
+            export PGHOST=$(echo "$entry" | grep -oP 'host:\s*\K.*')
+            export PGPORT=$(echo "$entry" | grep -oP 'port:\s*\K.*')
+            export PGDATABASE=$(echo "$entry" | grep -oP 'db:\s*\K.*')
+            export PGUSER=$(echo "$entry" | grep -oP 'user:\s*\K.*')
+            export PGPASSWORD=$(echo "$entry" | head -n1)
+            export DATABASE_URL="postgres://$PGUSER:$(jq -nr --arg str "$PGPASSWORD" '$str|@uri')@$PGHOST:$PGPORT/$PGDATABASE?sslmode=require&search_path=$(echo "$entry" | grep -oP 'schema:\s*\K.*')"
+        fi
+
+        export DATABASE_PROFILE="$selection"
+    }
+
+    if [[ -n "$DATABASE_PROFILE" ]]; then
+        db_open
+    else
+        ( db_open ; exec $SHELL )
+    fi
+}
+
+db-select() { BUFFER=" db"; zle accept-line; }
+zle -N db-select
