@@ -281,25 +281,25 @@
           "${win}+XF86MonBrightnessDown" = "exec brightnessctl set -d kbd_backlight -- -5%";
 
           # Media control
-          "XF86AudioPlay" = "exec playerctl --player playerctld play-pause";
-          "XF86AudioNext" = "exec playerctl --player playerctld next";
-          "XF86AudioPrev" = "exec playerctl --player playerctld previous";
-          "${hyper}+Up" = "exec playerctl --player playerctld play-pause";
-          "${hyper}+Down" = "exec playerctl --player playerctld play-pause";
-          "${hyper}+Left" = "exec playerctl --player playerctld previous";
-          "${hyper}+Right" = "exec playerctl --player playerctld next";
+          "--locked XF86AudioPlay" = "exec playerctl --player playerctld play-pause";
+          "--locked XF86AudioNext" = "exec playerctl --player playerctld next";
+          "--locked XF86AudioPrev" = "exec playerctl --player playerctld previous";
+          "--locked ${hyper}+Up" = "exec playerctl --player playerctld play-pause";
+          "--locked ${hyper}+Down" = "exec playerctl --player playerctld play-pause";
+          "--locked ${hyper}+Left" = "exec playerctl --player playerctld previous";
+          "--locked ${hyper}+Right" = "exec playerctl --player playerctld next";
 
-          "XF86AudioMute" = "exec audio output-mute";
-          "XF86AudioRaiseVolume" = "exec audio output-volume-up";
-          "XF86AudioLowerVolume" = "exec audio output-volume-down";
-          "${win}+Up" = "exec audio output-mute";
-          "${win}+Down" = "exec audio output-mute";
-          "${win}+Right" = "exec audio output-volume-up";
-          "${win}+Left" = "exec audio output-volume-down";
-          "${win}+Shift+Up" = "exec audio input-mute";
-          "${win}+Shift+Down" = "exec audio input-mute";
-          "${win}+Shift+Right" = "exec audio input-volume-up";
-          "${win}+Shift+Left" = "exec audio input-volume-down";
+          "--locked XF86AudioMute" = "exec audio output-mute";
+          "--locked XF86AudioRaiseVolume" = "exec audio output-volume-up";
+          "--locked XF86AudioLowerVolume" = "exec audio output-volume-down";
+          "--locked ${win}+Up" = "exec audio output-mute";
+          "--locked ${win}+Down" = "exec audio output-mute";
+          "--locked ${win}+Right" = "exec audio output-volume-up";
+          "--locked ${win}+Left" = "exec audio output-volume-down";
+          "--locked ${win}+Shift+Up" = "exec audio input-mute";
+          "--locked ${win}+Shift+Down" = "exec audio input-mute";
+          "--locked ${win}+Shift+Right" = "exec audio input-volume-up";
+          "--locked ${win}+Shift+Left" = "exec audio input-volume-down";
 
           # Reload the configuration file
           "${win}+r" = "reload";
