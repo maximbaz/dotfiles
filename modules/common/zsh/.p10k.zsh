@@ -15,6 +15,7 @@
         background_jobs
         context
         dir
+        nix_shell
         direnv
         vcs
         virtualenv
@@ -107,6 +108,11 @@
     typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION=''
     typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_FOREGROUND=221
     typeset -g POWERLEVEL9K_DIR_CLASSES=()
+
+    #######################[ nix_shell: nix shell ]########################
+    typeset -g POWERLEVEL9K_NIX_SHELL_FOREGROUND=67
+    typeset -g POWERLEVEL9K_NIX_SHELL_VISUAL_IDENTIFIER_EXPANSION=" "
+    typeset -g POWERLEVEL9K_NIX_SHELL_CONTENT_EXPANSION=
 
     #######################[ direnv: direnv status (https://direnv.net/) ]########################
     typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=179
