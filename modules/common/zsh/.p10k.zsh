@@ -258,7 +258,7 @@
     ##########[ custom: db ]##########
     function prompt_db() {
         [ -n "$DATABASE_PROFILE" ] || return
-        [[ "$DATABASE_PROFILE" =~ (^|[^a-zA-Z0-9])prod([^a-zA-Z0-9]|$) ]] && env=PROD || env=DEFAULT
+        [[ "$DATABASE_PROFILE" =~ (^|[^a-zA-Z0-9])(prod|production)([^a-zA-Z0-9]|$) ]] && env=PROD || env=DEFAULT
         p10k segment -t "%B$DATABASE_PROFILE" -s "$env"
     }
     typeset -g POWERLEVEL9K_DB_PREFIX='%fat '
