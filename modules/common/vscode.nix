@@ -3,16 +3,16 @@
     enable = true;
     enableUpdateCheck = false;
 
-    extensions = with pkgs; [
-      vscode-extensions.biomejs.biome
-      vscode-extensions.charliermarsh.ruff
-      vscode-extensions.github.copilot
-      vscode-extensions.github.copilot-chat
-      vscode-extensions.hediet.vscode-drawio
-      vscode-extensions.humao.rest-client
-      vscode-extensions.ms-python.debugpy
-      vscode-extensions.ms-python.python
-      vscode-extensions.ms-python.vscode-pylance
+    extensions = with pkgs.vscode-extensions; [
+      biomejs.biome
+      charliermarsh.ruff
+      github.copilot
+      github.copilot-chat
+      hediet.vscode-drawio
+      humao.rest-client
+      ms-python.debugpy
+      ms-python.python
+      ms-python.vscode-pylance
     ];
 
     userSettings = {
