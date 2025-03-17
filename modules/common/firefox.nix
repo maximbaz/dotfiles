@@ -6,14 +6,12 @@
     profiles.default = {
       userChrome = ''
         #sidebar-box[sidebarcommand^="containertabs"] #sidebar-header { display: none; }
-        #TabsToolbar { visibility: collapse !important; }
         #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
       '';
 
       extensions.packages = with firefox-addons; [
         browserpass
         clearurls
-        container-tabs-sidebar
         darkreader
         ff2mpv
         istilldontcareaboutcookies
@@ -25,7 +23,6 @@
         ublock-origin
         # simple-temporary-containers
         # retainer
-        # container-tab-flow
         # open-external-links-in-a-container
       ];
 
@@ -120,12 +117,14 @@
         "services.sync.engine.addons" = false;
         "services.sync.engine.creditcards" = false;
         "services.sync.engine.passwords" = false;
+        "sidebar.verticalTabs" = true;
         "signon.autofillForms" = false;
         "signon.formlessCapture.enabled" = false;
         "signon.rememberSignons" = false;
         "toolkit.coverage.endpoint.base" = "";
         "toolkit.coverage.opt-out" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "toolkit.scrollbox.smoothScroll" = false;
         "toolkit.telemetry.archive.enabled" = false;
         "toolkit.telemetry.bhrPing.enabled" = false;
         "toolkit.telemetry.coverage.opt-out" = true;
