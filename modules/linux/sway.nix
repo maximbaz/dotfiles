@@ -368,7 +368,7 @@
             always = true;
           }
           {
-            command = "cggrep signal-desktop || cglaunch signal-desktop";
+            command = "cggrep signal-desktop || cglaunch signal-desktop --js-flags=--no-decommit-pooled-pages";
             always = true;
           }
         ];
