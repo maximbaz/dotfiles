@@ -7,6 +7,7 @@
       userChrome = ''
         #sidebar-box[sidebarcommand^="containertabs"] #sidebar-header { display: none; }
         #navigator-toolbox[fullscreenShouldAnimate] { transition: none !important; }
+        .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged] { background-image: none !important; }
       '';
 
       extensions.packages = with firefox-addons; [
