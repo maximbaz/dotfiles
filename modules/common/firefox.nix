@@ -13,6 +13,7 @@
       extensions.packages = with firefox-addons; [
         browserpass
         clearurls
+        containerise
         darkreader
         ff2mpv
         istilldontcareaboutcookies
@@ -20,10 +21,9 @@
         privacy-badger
         refined-github
         sponsorblock
+        temporary-containers
         to-google-translate
         ublock-origin
-        # simple-temporary-containers
-        # retainer
         # open-external-links-in-a-container
       ];
 
