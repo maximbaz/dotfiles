@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, lib, pkgs, ... }: {
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -222,6 +222,7 @@
           "${hyper}+XF86MonBrightnessUp" = "exec cgtoggle emoji-dmenu";
           "XF86Search" = "exec cglaunch screenshot-area";
           "${hyper}+XF86Search" = "exec cglaunch record-area";
+          "${win}+i" = "exec cglaunch ${lib.getExe pkgs.hyprpicker} -al";
 
           # Kill focused window
           "${win}+q" = "kill";
