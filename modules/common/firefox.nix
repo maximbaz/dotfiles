@@ -21,9 +21,9 @@
         privacy-badger
         refined-github
         sponsorblock
-        temporary-containers
         to-google-translate
         ublock-origin
+        # temporary-containers-plus
         # open-external-links-in-a-container
       ];
 
