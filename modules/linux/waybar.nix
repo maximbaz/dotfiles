@@ -10,6 +10,7 @@ let
       (writeShellScriptBin "waybar-systemd" (builtins.readFile ./bin/waybar-systemd))
       (writeShellScriptBin "waybar-usbguard" (builtins.readFile ./bin/waybar-usbguard))
       (writeShellScriptBin "waybar-yubikey" (builtins.readFile ./bin/waybar-yubikey))
+      bash
       coreutils
       dbus
       gawk

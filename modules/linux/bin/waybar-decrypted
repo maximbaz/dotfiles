@@ -15,6 +15,7 @@ check() {
     inotifywait -q "$HOME/decrypted/.lock" > /dev/null 2>&1
     output
     inotifywait -q "$HOME/decrypted" > /dev/null
+    timeout 30 sh -c 'until [ -f "$HOME/decrypted/.lock" ]; do sleep 1; done'
     check
 }
 
