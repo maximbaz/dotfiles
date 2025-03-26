@@ -95,7 +95,6 @@
         "network.http.referer.XOriginTrimmingPolicy" = 2;
         "network.protocol-handler.external.mailto" = false;
         "network.proxy.socks_remote_dns" = true;
-        "permissions.default.shortcuts" = 2;
         "permissions.delegation.enabled" = false;
         "privacy.clearOnShutdown.cache" = true;
         "privacy.clearOnShutdown.cookies" = false;
