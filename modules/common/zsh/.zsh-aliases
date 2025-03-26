@@ -254,7 +254,9 @@ db() {
             export PGDATABASE=$(echo "$entry" | grep -oP 'db:\s*\K.*')
             export PGUSER=$(echo "$entry" | grep -oP 'user:\s*\K.*')
             export PGPASSWORD=$(echo "$entry" | head -n1)
-            export DATABASE_URL="postgres://$PGUSER:$(jq -nr --arg str "$PGPASSWORD" '$str|@uri')@$PGHOST:$PGPORT/$PGDATABASE?sslmode=require&search_path=$(echo "$entry" | grep -oP 'schema:\s*\K.*')"
+            sslmode=$(echo "$entry" | grep -oP 'sslmode:\s*\K.*' || echo require)
+            schema=$(echo "$entry" | grep -oP 'schema:\s*\K.*' || echo public)
+            export DATABASE_URL="postgres://$PGUSER:$(jq -nr --arg str "$PGPASSWORD" '$str|@uri')@$PGHOST:$PGPORT/$PGDATABASE?sslmode=$sslmode&search_path=$schema"
         fi
 
         export DATABASE_PROFILE="$selection"
