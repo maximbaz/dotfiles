@@ -25,6 +25,8 @@
 
       inlay_hints.enabled = true;
 
+      indent_guides.coloring = "indent_aware";
+
       telemetry = {
         diagnostics = false;
         metrics = false;
