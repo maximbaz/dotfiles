@@ -27,60 +27,12 @@
         };
       });
 
-      wluma = super.wluma.override (old: {
-        rustPlatform = old.rustPlatform // {
-          buildRustPackage = args: old.rustPlatform.buildRustPackage (args // rec {
-            version = "4.6.1";
-            src = super.fetchFromGitHub {
-              owner = "maximbaz";
-              repo = "wluma";
-              rev = version;
-              hash = "sha256-ds/qBaQNyZ/HdetI1QdJOZcjVotz4xHgoIIuWI9xOEg=";
-            };
-            useFetchCargoVendor = true;
-            cargoHash = "sha256-1zBp6eTkIDSMzNN5jKKu6lZVzzBJY+oB6y5UESlm/yA=";
-          });
-        };
-      });
-
       joypixels = super.joypixels.overrideAttrs (_old: {
         version = "9.0.0";
         src = super.fetchurl {
           name = "joypixels-android.ttf";
           url = "https://maximbaz.com/joypixels-emoji.ttf";
           sha256 = "0ghh5s4ri4lpf43nnpjck9g3y6s4cl9mwkjq78wzfaqj0rbaqqd6";
-        };
-      });
-
-      signal-desktop = super.signal-desktop.overrideAttrs (_old: rec {
-        dir = "Signal";
-        version = "7.45.1";
-
-        src = super.fetchurl {
-          # url = "https://github.com/0mniteck/Signal-Desktop-Mobian/raw/${version}/builds/release/signal-desktop_${version}_arm64.deb";
-          # hash = "sha256-nmAqFDw35pdZg5tiq9MUlqXnbRLRkSOX9SWhccnE2Xw=";
-          url = "https://github.com/dennisameling/Signal-Desktop/releases/download/v${version}/signal-desktop-unofficial_${version}_arm64.deb";
-          hash = "sha256-lNWJtZHk5sqRvx2xxvNF0zzp4xLEHj1KaJK02AFbSTc=";
-
-          recursiveHash = true;
-          downloadToTemp = true;
-          nativeBuildInputs = with pkgs; [ dpkg asar gnused ];
-
-          postFetch = ''
-            dpkg-deb -x $downloadedFile $out
-
-            # signal unofficial tweaks
-            mv "$out/opt/Signal Unofficial" "$out/opt/Signal"
-            mv "$out/usr/share/applications/signal-desktop-unofficial.desktop" "$out/usr/share/applications/signal-desktop.desktop"
-            sed -i -E 's/[ -]?[Uu]nofficial//g' "$out/usr/share/applications/signal-desktop.desktop"
-            mv "$out/opt/Signal/signal-desktop-unofficial" "$out/opt/Signal/signal-desktop"
-            mv "$out/usr/share/doc/signal-desktop-unofficial" "$out/usr/share/doc/signal-desktop"
-
-            asar extract "$out/opt/${dir}/resources/app.asar" $out/asar-contents
-            rm -r \
-              "$out/opt/${dir}/resources/app.asar"{,.unpacked} \
-              $out/asar-contents/node_modules/emoji-datasource-apple
-          '';
         };
       });
 

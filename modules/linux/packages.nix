@@ -4,7 +4,7 @@
     asahi-bless
     bfs
     brightnessctl
-    calibre
+    # calibre
     cargo
     cargo-outdated
     chromium
@@ -76,7 +76,7 @@
     qalculate-gtk
     qrencode
     rsync
-    signal-desktop
+    signal-desktop-bin
     sipcalc
     slurp
     socat
