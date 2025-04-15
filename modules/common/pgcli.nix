@@ -3,7 +3,7 @@
     xdg.configFile."pgcli/config".text = ''
       [main]
       keyring = False
-      pager = less -iRFXMx4S
+      table_format = double
       history_file = ${config.xdg.stateHome}/pgcli/history
     '';
   };
