@@ -5,6 +5,7 @@
 
     extensions = with pkgs.vscode-extensions; [
       biomejs.biome
+      bradlc.vscode-tailwindcss
       charliermarsh.ruff
       github.copilot
       github.copilot-chat
@@ -16,16 +17,32 @@
     ];
 
     userSettings = {
-      files.autoSave = "onFocusChange";
-      editor.formatOnSave = true;
+      "files.autoSave" = "onFocusChange";
+      "editor.formatOnSave" = true;
+      "prettier.enabled" = false;
 
-      "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
+      "chat.agent.enabled" = true;
+      "telemetry.telemetryLevel" = "off";
+      "github.copilot.nextEditSuggestions.enabled" = true;
+      "github.copilot.chat.agent.thinkingTool" = true;
+      "github.copilot.chat.editor.temporalContext.enabled" = true;
+
+      "[javascript]"."editor.defaultFormatter" = "biomejs.biome";
+      "[json]"."editor.defaultFormatter" = "biomejs.biome";
+      "[jsonc]"."editor.defaultFormatter" = "biomejs.biome";
       "[typescript]"."editor.defaultFormatter" = "biomejs.biome";
       "[typescriptreact]"."editor.defaultFormatter" = "biomejs.biome";
 
+      "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
+
       "editor.codeActionsOnSave" = {
+        "quickfix.biome" = "explicit";
         "source.fixAll.biome" = "explicit";
         "source.organizeImports.biome" = "explicit";
+      };
+
+      "editor.quickSuggestions" = {
+        "strings" = "on";
       };
     };
   };
