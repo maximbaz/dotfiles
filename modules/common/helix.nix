@@ -26,6 +26,7 @@
         python-lsp-server
       ])))
       rust-analyzer
+      tailwindcss-language-server
       taplo
       taplo-lsp
       terraform-ls
@@ -204,11 +205,7 @@
       language = [
         {
           name = "css";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
-          formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.css" ];
-          };
+          language-servers = [ "vscode-css-language-server" "tailwindcss-ls" "biome" "gpt" ];
           auto-format = true;
         }
         {
@@ -221,7 +218,7 @@
         }
         {
           name = "html";
-          language-servers = [ "vscode-html-language-server" "gpt" ];
+          language-servers = [ "vscode-html-language-server" "tailwindcss-ls" "gpt" ];
           formatter = {
             command = "prettier";
             args = [ "--stdin-filepath" "file.html" ];
@@ -266,6 +263,7 @@
           name = "jsx";
           language-servers = [
             { name = "typescript-language-server"; except-features = [ "format" ]; }
+            "tailwindcss-ls"
             "biome"
             "gpt"
           ];
@@ -306,15 +304,6 @@
           auto-format = true;
         }
         {
-          name = "scss";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
-          formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.scss" ];
-          };
-          auto-format = true;
-        }
-        {
           name = "sql";
           language-servers = [ "gpt" ];
           formatter = {
@@ -336,6 +325,7 @@
           name = "tsx";
           language-servers = [
             { name = "typescript-language-server"; except-features = [ "format" ]; }
+            "tailwindcss-ls"
             "biome"
             "gpt"
           ];
