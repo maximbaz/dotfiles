@@ -21,6 +21,7 @@
         virtualenv
         kubecontext
         azure
+        zed
         db
         command_execution_time
 
@@ -265,6 +266,19 @@
     typeset -g POWERLEVEL9K_DB_VISUAL_IDENTIFIER_EXPANSION=" "
     typeset -g POWERLEVEL9K_DB_FOREGROUND=140
     typeset -g POWERLEVEL9K_DB_PROD_FOREGROUND=201
+
+    ##########[ custom: zed ]##########
+    function prompt_zed() {
+        command -v zed &> /dev/null || return
+        context=$(zed context use)
+        [[ "$context" =~ (^|[^a-zA-Z0-9])(prod|production)([^a-zA-Z0-9]|$) ]] && env=PROD || env=DEFAULT
+        p10k segment -t "%B$context" -s "$env"
+    }
+    typeset -g POWERLEVEL9K_ZED_PREFIX='%fat '
+    typeset -g POWERLEVEL9K_ZED_VISUAL_IDENTIFIER_EXPANSION=" "
+    typeset -g POWERLEVEL9K_ZED_FOREGROUND=140
+    typeset -g POWERLEVEL9K_ZED_PROD_FOREGROUND=201
+    typeset -g POWERLEVEL9K_ZED_SHOW_ON_COMMAND='zed'
 
     (( ! $+functions[p10k] )) || p10k reload
 }
