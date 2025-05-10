@@ -122,6 +122,8 @@
           A-N = "extend_search_prev";
           C-d = [ "page_cursor_half_down" "align_view_center" ];
           C-u = [ "page_cursor_half_up" "align_view_center" ];
+          C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ];
+          C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ];
           tab = "move_parent_node_end";
           S-tab = "move_parent_node_start";
 
