@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   nixpkgs.overlays = [
     (self: super: {
       input-fonts = super.input-fonts.overrideAttrs (_old: {
@@ -49,6 +49,16 @@
 
         useFetchCargoVendor = true;
         cargoHash = "sha256-vXE9AL0+WCPhwJTqglwOhIeqhI+JQB3Cr8GBQjmW+zc=";
+      };
+
+      spicedb-zed = super.symlinkJoin {
+        name = "spicedb-zed";
+        paths = [ super.spicedb-zed ];
+        buildInputs = [ super.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/zed \
+            --set PASSWORD_STORE_DIR /home/${config.user}/.password-store-local
+        '';
       };
 
       maximbaz-scripts = pkgs.stdenv.mkDerivation {

@@ -81,6 +81,7 @@
     slurp
     socat
     sops
+    spicedb-zed
     sqlite
     stern
     swappy
