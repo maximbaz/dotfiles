@@ -1,31 +1,43 @@
 #!/bin/sh
 
-case $(printf "default\nno special chars\nshort" | dmenu -p "pass generator") in
-    default)
-        length=40
-        filter="[:print:]"
-        symbols="-y"
-        ;;
-    "no special chars")
-        length=40
-        filter="[:alnum:]"
-        ;;
-    short)
-        length=16
-        filter="[:alnum:]"
-        ;;
-    *)
-        exit 1
-        ;;
+generate_password() {
+    length=$1
+    filter=$2
+    symbols=$3
+
+    random="$(printf "scd random 512" | gpg-connect-agent)"
+    case "$random" in
+        ERR*)
+            notify-send -i dialog-warning "Generating password using /dev/urandom"
+            random="$(pwgen -s "$length" $symbols)"
+            ;;
+    esac
+
+    wl-clipboard-manager lock
+
+    printf '%s' "$random" \
+        | cut -c3- \
+        | tr -cd "$filter" \
+        | tr -d '[:space:]' \
+        | cut -c-"$length" \
+        | wl-copy -n
+
+    wl-clipboard-manager unlock
+}
+
+generate_uuid() {
+    wl-clipboard-manager lock
+    uuidgen $1 | wl-copy -n
+    wl-clipboard-manager unlock
+}
+
+choice=$(printf "default\nno special chars\nshort\nuuid v4\nuuid v7" | dmenu -p "pass generator")
+
+case "$choice" in
+    default)            generate_password 40 "[:print:]" "-y" ;;
+    "no special chars") generate_password 40 "[:alnum:]" ;;
+    short)              generate_password 16 "[:alnum:]" ;;
+    'uuid v4')          generate_uuid -r ;;
+    'uuid v7')          generate_uuid -7 ;;
+    *)                  exit 1 ;;
 esac
-
-wl-clipboard-manager lock
-
-random="$(printf "scd random 512" | gpg-connect-agent)"
-if [ -z "${random%ERR*}" ]; then
-    notify-send -i dialog-warning "Generating password using /dev/urandom"
-    random="$(pwgen -s "$length" $symbols)"
-fi
-
-printf '%s' "$random" | cut -c3- | tr -cd "$filter" | tr -d '[:space:]' | cut -c-$length | wl-copy -n
-wl-clipboard-manager unlock
