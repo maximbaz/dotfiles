@@ -24,6 +24,10 @@
       save-position-on-quit = true;
       ignore-path-in-watch-later-config = true;
       ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
+
+      # default is now vulkan, but it doesn't work well on asahi on x265 / hdr videos
+      # https://github.com/mpv-player/mpv/issues/16218
+      gpu-api = "opengl";
     };
     scriptOpts = {
       uosc = {
