@@ -34,6 +34,7 @@
     ./swayr.nix
     ./systemd-services.nix
     ./systemd.nix
+    ./timewarrior.nix
     ./udisks2.nix
     ./usbguard.nix
     ./users.nix
