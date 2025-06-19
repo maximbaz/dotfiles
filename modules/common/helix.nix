@@ -220,7 +220,7 @@
         }
         {
           name = "html";
-          language-servers = [ "vscode-html-language-server" "tailwindcss-ls" "gpt" ];
+          language-servers = [ "vscode-html-language-server" "tailwindcss-ls" ];
           formatter = {
             command = "prettier";
             args = [ "--stdin-filepath" "file.html" ];
@@ -277,7 +277,7 @@
         }
         {
           name = "markdown";
-          language-servers = [ "marksman" "gpt" ];
+          language-servers = [ "marksman" ];
           formatter = {
             command = "prettier";
             args = [ "--stdin-filepath" "file.md" ];
@@ -307,7 +307,6 @@
         }
         {
           name = "sql";
-          language-servers = [ "gpt" ];
           formatter = {
             command = "sql-formatter";
             args = [ "-l" "postgresql" "-c" "{\"keywordCase\": \"lower\", \"dataTypeCase\": \"lower\", \"functionCase\": \"lower\", \"expressionWidth\": 120, \"tabWidth\": 4}" ];
