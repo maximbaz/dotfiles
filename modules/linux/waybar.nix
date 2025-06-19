@@ -268,20 +268,20 @@ in
           padding: 0 10px;
           background: transparent;
           color: @foreground;
-          border-top: 3px solid @background;
-          border-bottom: 3px solid transparent;
+          border-top: 2px solid @background;
+          border-bottom: 2px solid transparent;
         }
 
         #workspaces button.focused {
-          border-bottom: 3px solid @green;
+          border-bottom: 2px solid @green;
         }
 
         #workspaces button.urgent {
-          border-bottom: 3px solid @yellow;
+          border-bottom: 2px solid @yellow;
         }
 
         #mode {
-          border-bottom: 3px solid @red;
+          border-bottom: 2px solid @red;
         }
 
         #custom-usbguard,
@@ -293,8 +293,8 @@ in
         #cpu.warning,
         #custom-dnd.dnd-notification,
         #custom-dnd.dnd-none {
-          border-top: 3px solid @background;
-          border-bottom: 3px solid @yellow;
+          border-top: 2px solid @background;
+          border-bottom: 2px solid @yellow;
         }
 
         #custom-systemd,
@@ -304,13 +304,13 @@ in
         #cpu.critical,
         #custom-yubikey,
         #custom-recording {
-          border-top: 3px solid @background;
-          border-bottom: 3px solid @red;
+          border-top: 2px solid @background;
+          border-bottom: 2px solid @red;
         }
 
         #battery.charging {
-          border-top: 3px solid @background;
-          border-bottom: 3px solid @green;
+          border-top: 2px solid @background;
+          border-bottom: 2px solid @green;
         }
 
         #mode,
