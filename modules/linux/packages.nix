@@ -4,7 +4,7 @@
     asahi-bless
     bfs
     brightnessctl
-    # calibre
+    calibre
     cargo
     cargo-outdated
     chromium
@@ -106,6 +106,7 @@
     w3m
     wev
     wf-recorder
+    whisper-cpp-vulkan
     wireguard-tools
     wl-clipboard
     wldash
