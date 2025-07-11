@@ -17,8 +17,7 @@ case "$1" in
         echo pactl set-card-profile "$bt_card" "$new"
         pactl set-card-profile "$bt_card" "$new"
         ;;
-    bt-connect-headset)    bluetoothctl connect 20:74:CF:B2:B0:BD ;;
-    bt-connect-headphones) bluetoothctl connect 20:74:CF:2D:D1:67 ;;
+    bt-connect-headset)    bluetoothctl connect A8:F5:E1:9C:AE:AB ;;
     bt-connect-speakers)   bluetoothctl connect 00:02:3C:8A:6A:60 ;;
     bt-disconnect)         bluetoothctl disconnect ;;
     output-mute)           pactl set-sink-mute     @DEFAULT_SINK@   toggle ;;

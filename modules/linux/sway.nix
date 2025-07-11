@@ -49,7 +49,6 @@
         mode $mode_audio {
             bindsym --to-code {
                 h exec audio bt-connect-headset, mode "default"
-                g exec audio bt-connect-headphones, mode "default"
                 s exec audio bt-connect-speakers, mode "default"
                 t exec audio bt-toggle-profile, mode "default"
                 d exec audio bt-disconnect, mode "default"
