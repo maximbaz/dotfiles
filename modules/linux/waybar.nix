@@ -143,6 +143,7 @@ in
           return-type = "json";
           exec = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --subscribe-waybar";
           on-click = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-dnd --skip-wait";
+          on-click-right = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --toggle-panel";
           escape = true;
         };
 
