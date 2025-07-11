@@ -25,5 +25,6 @@
     "signal" = ""
     "swappy" = ""
     "vimiv" = ""
+    "thunderbird" = ""
   '';
 }
