@@ -47,9 +47,9 @@ compdef w3mman=man
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 
-e64() { [[ $# == 1 ]] && base64 -w0 <<<"$1" || base64 -w0 }
-d64() { [[ $# == 1 ]] && base64 --decode <<<"$1" || base64 --decode }
-qr()  { [[ $# == 1 ]] && qrencode -t utf8 <<<"$1" || qrencode -t utf8 }
+e64() { { [[ $# == 1 ]] && printf '%s' "$1" || cat } | base64 -w0 }
+d64() { { [[ $# == 1 ]] && printf '%s' "$1" || cat } | base64 --decode }
+qr()  { { [[ $# == 1 ]] && printf '%s' "$1" || cat } | qrencode -t utf8 }
 
 p() { ping "${1:-1.1.1.1}" }
 
