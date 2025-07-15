@@ -187,13 +187,7 @@
 
       services = {
         imapnotify.enable = true;
-        mbsync = {
-          enable = true;
-          postExec = "${lib.getExe' pkgs.maximbaz-scripts "indexmail"}";
-        };
       };
-
-      systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
 
       home.packages = with pkgs; [
         aerc
