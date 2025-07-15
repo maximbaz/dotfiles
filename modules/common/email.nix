@@ -37,6 +37,7 @@
             mouse-enabled = true
             msglist-scroll-offset = 5
             show-thread-context = true
+            styleset-name = dracula
             thread-prefix-dummy = ┬
             thread-prefix-first-child = ┬
             thread-prefix-folded = +
