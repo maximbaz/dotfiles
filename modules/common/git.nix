@@ -35,7 +35,7 @@
     programs.git = {
       enable = true;
 
-      userName = "Maxim Baz";
+      userName = "Max Baz";
       userEmail = "git@maximbaz.com";
 
       signing = {

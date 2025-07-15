@@ -16,7 +16,7 @@
 
   makeEmailAccount = { passCmd, address, imapHost, notifyCmd, smtpHost ? "", smtpPort ? 465, userName ? address, primary ? false, aercExtraAccounts ? { }, aercExtraBinds ? { } }:
     let
-      realName = "Maxim Baz";
+      realName = "Max Baz";
       pgp-key-id = "56C3E775E72B0C8B1C0C1BD0B5DB77409B11B601";
     in
     {
@@ -44,7 +44,7 @@
         extraAccounts = {
           pgp-self-encrypt = true;
           pgp-key-id = pgp-key-id;
-          signature-cmd = "echo '${realName}'";
+          signature-cmd = "echo 'Max'";
           folders-sort = "INBOX";
         } // aercExtraAccounts;
       };
