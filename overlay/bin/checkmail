@@ -1,9 +1,25 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if pgrep -x mbsync > /dev/null || pgrep -x notmuch > /dev/null; then
-  echo "Sync is already in progress."
-  exit 0
+shopt -s nullglob
+
+account="${1:--a}"
+lock=/tmp/checkmail-lock
+
+# clean dangling locks
+pgrep -x mbsync >/dev/null || rm -f "$lock"*
+
+if [[ $account == "-a" ]]; then
+  check_locks=( "${lock}-"* )
+else
+  check_locks=( "${lock}-$account" "${lock}--a" )
 fi
 
-mbsync -a
-indexmail
+for f in "${check_locks[@]}"; do
+  [[ -e $f ]] && { echo "Sync already in progress."; exit 0; }
+done
+
+touch "$lock-$account"
+mbsync "$account"
+rm -f "$lock-$account"
+
+pgrep -x notmuch || indexmail
