@@ -37,7 +37,7 @@
             mouse-enabled = true
             msglist-scroll-offset = 5
             show-thread-context = true
-            styleset-name = dracula
+            styleset-name = gruvbox
             thread-prefix-dummy = ┬
             thread-prefix-first-child = ┬
             thread-prefix-folded = +
@@ -150,6 +150,81 @@
             $ex = <C-x>
             <C-p> = :prev-tab<Enter>
             <C-n> = :next-tab<Enter>
+          '';
+
+          stylesets.gruvbox = ''
+            # based on dracula, depends on terminal using gruvbox too
+            *.default=true
+            *.normal=true
+
+            title.bg=3
+
+            title.fg=0
+            title.bold=true
+
+            header.bold=true
+            header.fg=3
+
+            tab.selected.fg=0
+            tab.selected.bg=3
+            tab.selected.bold=false
+            dirlist*.selected.bg=0
+            dirlist*.selected.fg=white
+            dirlist*.selected.bold=false
+            dirlist*.selected.italic=false
+
+            *error.bold=true
+            *error.fg=red
+            *warning.fg=yellow
+            *success.fg=green
+
+            statusline_error.fg=red
+
+            msglist_unread.fg=15
+            msglist_unread.bold=true
+            msglist_deleted.fg=#666666
+            msglist_*.selected.bg=0
+            msglist_result.bg=#6272A4
+            msglist_marked.fg=0
+            msglist_marked.selected.fg=0
+            msglist_marked.bg=3
+            msglist_marked.selected.bg=3
+            msglist_marked.selected.bold=true
+            msglist_pill.reverse=true
+
+            part_*.fg=15
+            part_mimetype.fg=4
+            part_*.selected.fg=15
+            part_*.selected.bg=0
+            part_filename.selected.bold=true
+
+            completion_pill.reverse=false
+            selector_focused.bold=false
+            selector_focused.bg=0
+            selector_focused.fg=white
+            selector_chooser.bold=false
+            selector_chooser.bg=0
+            selector_chooser.fg=white
+            default.selected.bold=false
+            default.selected.fg=white
+            default.selected.bg=0
+
+            completion_default.selected.bg=0
+            completion_default.selected.fg=white
+
+            [viewer]
+            *.default=true
+            *.normal=true
+            url.fg=4
+            header.bold=true
+            signature.dim=true
+            diff_meta.bold=true
+            diff_chunk.dim=true
+            diff_add.fg=2
+            diff_del.fg=1
+            quote_*.fg=6
+            quote_*.dim=true
+            quote_1.dim=false
           '';
         };
 
