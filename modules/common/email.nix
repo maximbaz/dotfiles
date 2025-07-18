@@ -4,55 +4,60 @@
       programs = {
         aerc = {
           enable = true;
-          extraConfig = ''
-            [compose]
-            edit-headers = true
-            file-picker-cmd = fzf --multi --query=%s
-            reply-to-self = false
+          extraConfig = {
+            compose = {
+              edit-headers = true;
+              file-picker-cmd = "fzf --multi --query=%s";
+              reply-to-self = false;
+            };
 
-            [filters]
-            .headers = ${pkgs.aerc}/libexec/aerc/filters/colorize
-            text/calendar = ${pkgs.gawk}/bin/awk -f ${pkgs.aerc}/libexec/aerc/filters/calendar
-            text/html = ${pkgs.aerc}/libexec/aerc/filters/html -o display_link_number=true | ${pkgs.aerc}/libexec/aerc/filters/colorize
-            text/plain = ${pkgs.aerc}/libexec/aerc/filters/colorize
-            text/* = ${pkgs.bat}/bin/bat -fP --file-name="$AERC_FILENAME "
-            message/delivery-status = ${pkgs.aerc}/libexec/aerc/filters/colorize
-            message/rfc822 = ${pkgs.aerc}/libexec/aerc/filters/colorize
-            application/pdf = ${pkgs.zathura}/bin/zathura -
-            application/x-sh = ${pkgs.bat}/bin/bat -fP -l sh
-            audio/* = ${pkgs.mpv}/bin/mpv -
+            filters = ''
+              .headers = ${pkgs.aerc}/libexec/aerc/filters/colorize
+              text/calendar = ${pkgs.gawk}/bin/awk -f ${pkgs.aerc}/libexec/aerc/filters/calendar
+              text/html = ${pkgs.aerc}/libexec/aerc/filters/html -o display_link_number=true | ${pkgs.aerc}/libexec/aerc/filters/colorize
+              text/plain = ${pkgs.aerc}/libexec/aerc/filters/colorize
+              text/* = ${pkgs.bat}/bin/bat -fP --file-name="$AERC_FILENAME "
+              message/delivery-status = ${pkgs.aerc}/libexec/aerc/filters/colorize
+              message/rfc822 = ${pkgs.aerc}/libexec/aerc/filters/colorize
+              application/pdf = ${pkgs.zathura}/bin/zathura -
+              application/x-sh = ${pkgs.bat}/bin/bat -fP -l sh
+              audio/* = ${pkgs.mpv}/bin/mpv -
+            '';
 
-            [general]
-            default-menu-cmd = ${pkgs.fzf}/bin/fzf
-            enable-osc8 = true
-            pgp-provider = gpg
-            unsafe-accounts-conf = true
+            general = {
+              default-menu-cmd = "${pkgs.fzf}/bin/fzf";
+              enable-osc8 = true;
+              pgp-provider = "gpg";
+              unsafe-accounts-conf = true;
+            };
 
-            [viewer]
-            header-layout = From|To,Cc|Bcc,Date,Subject,DKIM+|SPF+|DMARC+
+            viewer = {
+              header-layout = "From|To,Cc|Bcc,Date,Subject,DKIM+|SPF+|DMARC+";
+            };
 
-            [ui]
-            tab-title-account = {{.Account}} {{if .Unread}}({{.Unread}}){{end}}
-            fuzzy-complete = true
-            mouse-enabled = true
-            msglist-scroll-offset = 5
-            show-thread-context = true
-            styleset-name = gruvbox
-            thread-prefix-dummy = ┬
-            thread-prefix-first-child = ┬
-            thread-prefix-folded = +
-            thread-prefix-has-siblings = ├
-            thread-prefix-indent = 
-            thread-prefix-last-sibling = ╰
-            thread-prefix-limb = ─
-            thread-prefix-lone =  
-            thread-prefix-orphan = ┌
-            thread-prefix-stem = │
-            thread-prefix-tip = 
-            thread-prefix-unfolded = 
-            threading-enabled = true
-            spinner="◜,◠,◝,◞,◡,◟"
-          '';
+            ui = {
+              tab-title-account = "{{.Account}} {{if .Unread}}({{.Unread}}){{end}}";
+              fuzzy-complete = true;
+              mouse-enabled = true;
+              msglist-scroll-offset = 5;
+              show-thread-context = true;
+              styleset-name = "gruvbox";
+              thread-prefix-dummy = "┬";
+              thread-prefix-first-child = "┬";
+              thread-prefix-folded = "+";
+              thread-prefix-has-siblings = "├";
+              thread-prefix-indent = "";
+              thread-prefix-last-sibling = "╰";
+              thread-prefix-limb = "─";
+              thread-prefix-lone = " ";
+              thread-prefix-orphan = "┌";
+              thread-prefix-stem = "│";
+              thread-prefix-tip = "";
+              thread-prefix-unfolded = "";
+              threading-enabled = true;
+              spinner = "◜,◠,◝,◞,◡,◟";
+            };
+          };
 
           extraBinds = ''
             <C-k> = :prev-tab<Enter>
