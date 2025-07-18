@@ -2,7 +2,7 @@ default: switch
 
 [linux]
 switch flags="": git-add
-    sudo nixos-rebuild switch --flake $HOME/.dotfiles --impure {{flags}}
+    sudo nixos-rebuild switch --flake $HOME/.dotfiles {{flags}}
 
 [macos]
 switch flags="": git-add
