@@ -1,48 +1,51 @@
 { config, pkgs, ... }: {
   home-manager.users.${config.user}.programs.vscode = {
     enable = true;
-    enableUpdateCheck = false;
 
-    extensions = with pkgs.vscode-extensions; [
-      biomejs.biome
-      bradlc.vscode-tailwindcss
-      charliermarsh.ruff
-      github.copilot
-      github.copilot-chat
-      hediet.vscode-drawio
-      humao.rest-client
-      ms-python.debugpy
-      ms-python.python
-      ms-python.vscode-pylance
-    ];
+    profiles.default = {
+      enableUpdateCheck = false;
 
-    userSettings = {
-      "files.autoSave" = "onFocusChange";
-      "editor.formatOnSave" = true;
-      "prettier.enabled" = false;
+      extensions = with pkgs.vscode-extensions; [
+        biomejs.biome
+        bradlc.vscode-tailwindcss
+        charliermarsh.ruff
+        github.copilot
+        github.copilot-chat
+        hediet.vscode-drawio
+        humao.rest-client
+        ms-python.debugpy
+        ms-python.python
+        ms-python.vscode-pylance
+      ];
 
-      "chat.agent.enabled" = true;
-      "telemetry.telemetryLevel" = "off";
-      "github.copilot.nextEditSuggestions.enabled" = true;
-      "github.copilot.chat.agent.thinkingTool" = true;
-      "github.copilot.chat.editor.temporalContext.enabled" = true;
+      userSettings = {
+        "files.autoSave" = "onFocusChange";
+        "editor.formatOnSave" = true;
+        "prettier.enabled" = false;
 
-      "[javascript]"."editor.defaultFormatter" = "biomejs.biome";
-      "[json]"."editor.defaultFormatter" = "biomejs.biome";
-      "[jsonc]"."editor.defaultFormatter" = "biomejs.biome";
-      "[typescript]"."editor.defaultFormatter" = "biomejs.biome";
-      "[typescriptreact]"."editor.defaultFormatter" = "biomejs.biome";
+        "chat.agent.enabled" = true;
+        "telemetry.telemetryLevel" = "off";
+        "github.copilot.nextEditSuggestions.enabled" = true;
+        "github.copilot.chat.agent.thinkingTool" = true;
+        "github.copilot.chat.editor.temporalContext.enabled" = true;
 
-      "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
+        "[javascript]"."editor.defaultFormatter" = "biomejs.biome";
+        "[json]"."editor.defaultFormatter" = "biomejs.biome";
+        "[jsonc]"."editor.defaultFormatter" = "biomejs.biome";
+        "[typescript]"."editor.defaultFormatter" = "biomejs.biome";
+        "[typescriptreact]"."editor.defaultFormatter" = "biomejs.biome";
 
-      "editor.codeActionsOnSave" = {
-        "quickfix.biome" = "explicit";
-        "source.fixAll.biome" = "explicit";
-        "source.organizeImports.biome" = "explicit";
-      };
+        "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
 
-      "editor.quickSuggestions" = {
-        "strings" = "on";
+        "editor.codeActionsOnSave" = {
+          "quickfix.biome" = "explicit";
+          "source.fixAll.biome" = "explicit";
+          "source.organizeImports.biome" = "explicit";
+        };
+
+        "editor.quickSuggestions" = {
+          "strings" = "on";
+        };
       };
     };
   };

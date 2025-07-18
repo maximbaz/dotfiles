@@ -44,7 +44,7 @@ inputs.nixpkgs.lib.nixosSystem rec {
 
       home-manager.users.${globals.user}.imports = [
         inputs.sops-nix.homeManagerModules.sops
-        inputs.nix-index-database.hmModules.nix-index
+        inputs.nix-index-database.homeModules.nix-index
       ];
     }
   ];

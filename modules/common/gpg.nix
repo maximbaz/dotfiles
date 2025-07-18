@@ -15,7 +15,7 @@
     services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
       enableSshSupport = true;
-      pinentryPackage = pkgs.pinentry-gnome3;
+      pinentry.package = pkgs.pinentry-gnome3;
     };
 
     home.file = lib.mkIf pkgs.stdenv.isDarwin {
