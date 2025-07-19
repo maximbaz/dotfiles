@@ -36,11 +36,10 @@
       enable = true;
 
       userName = "Max Baz";
-      userEmail = "git@maximbaz.com";
 
       signing = {
-        key = "04D7A219B0ABE4C2B62A5E654A2B758631E1FD91";
-        format = "openpgp";
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrS8858Xqs+RsxNpVNKdpCAYdbTtel1G28MQBVyIQe8";
+        format = "ssh";
         signByDefault = true;
       };
 
@@ -99,6 +98,8 @@
           };
         };
 
+        gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+
         init.defaultBranch = "main";
 
         merge.mergiraf = {
@@ -115,24 +116,6 @@
 
         user.useConfigOnly = true;
       };
-
-      includes = [{
-        condition = "gitdir:~/maersk/";
-        contents = {
-          user = {
-            email = "Maxim.Baz@maersk.com";
-            signingKey = "256CFDF971216A011DE08CD2C44E48E507AA28B1";
-          };
-          url = {
-            "git@github-maersk:Maersk-Global" = {
-              insteadOf = [
-                "https://github.com/Maersk-Global"
-                "git@github.com:Maersk-Global"
-              ];
-            };
-          };
-        };
-      }];
 
       ignores = [
         ".direnv"
