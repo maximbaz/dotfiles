@@ -32,15 +32,18 @@
       *.py merge=mergiraf
     '';
 
+    home.file.".ssh/allowed_signers".text =
+      "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrS8858Xqs+RsxNpVNKdpCAYdbTtel1G28MQBVyIQe8";
+
     programs.git = {
       enable = true;
 
       userName = "Max Baz";
-      userEmail = "git@maximbaz.com";
+      userEmail = "noreply-git@baz.nu";
 
       signing = {
-        key = "04D7A219B0ABE4C2B62A5E654A2B758631E1FD91";
-        format = "openpgp";
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrS8858Xqs+RsxNpVNKdpCAYdbTtel1G28MQBVyIQe8";
+        format = "ssh";
         signByDefault = true;
       };
 
@@ -98,6 +101,8 @@
             textconv = "${lib.getExe pkgs.gnupg} --decrypt --quiet --yes --compress-algo=none --no-encrypt-to --batch --use-agent";
           };
         };
+
+        gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
 
         init.defaultBranch = "main";
 
