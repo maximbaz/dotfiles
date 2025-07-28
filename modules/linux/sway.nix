@@ -44,6 +44,7 @@
         for_window    [app_id="dmenu-browser"]                   resize set height 20ppt
         for_window    [app_id="dmenu-emoji"]                     resize set height 20ppt
         for_window    [app_id="mpv"]                             resize set width 500, move position 1000 30
+        for_window    [app_id="thunderbird" title=".*Reminder"]  floating enable, resize set width 390 height 140, move position 1125 710
 
         set $mode_audio "Audio"
         mode $mode_audio {
