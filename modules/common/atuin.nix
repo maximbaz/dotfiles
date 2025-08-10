@@ -4,7 +4,6 @@
     settings = {
       update_check = false;
       style = "compact";
-      sync_address = "https://atuin.vpn.maximbaz.com";
     };
   };
 }
