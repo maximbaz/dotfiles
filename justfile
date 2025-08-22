@@ -21,8 +21,8 @@ update-private: git-add
 
 git-commit-flakes:
     #!/usr/bin/env sh
-    if git -C $HOME/.dotfiles status --porcelain -- flake.lock flake.nix | grep -q .; then
-       git -C $HOME/.dotfiles add flake.lock flake.nix
+    if git -C $HOME/.dotfiles status --porcelain -- flake.lock | grep -q .; then
+       git -C $HOME/.dotfiles add flake.lock
        git -C $HOME/.dotfiles commit -m "update flakes"
     fi
 
