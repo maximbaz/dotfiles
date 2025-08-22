@@ -14,7 +14,7 @@ home: git-add
     nix run -- home-manager switch --flake $HOME/.dotfiles#$(hostname)
 
 update: git-commit-flakes git-add
-    nix flake update
+    nix flake update --option access-tokens "github.com=$(gh auth token)"
 
 update-private: git-add
     nix flake update maximbaz-private
