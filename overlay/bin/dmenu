@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 self="$(realpath "$0")"
 
@@ -69,7 +69,11 @@ while getopts "vp:kr:0f:" OPTION; do
 done
 
 mkdir "$tmp/done"
-cat > "$tmp/in"
+mkfifo "$tmp/in"
+exec 3<&0
+cat <&3 >"$tmp/in" &
+forwarder=$!
+trap 'kill "$forwarder" 2>/dev/null; rm -rf "$tmp"' EXIT
 
 if [ -n "$kitty_launch_type" ]; then
     kitty @ launch --type "$kitty_launch_type" --no-response --cwd "$tmp" --env "FILTER_MODE=1" --env "FZF_OPTS=$fzf_args" --env "PREVIEW_SCRIPT=$preview_script" "$self" > /dev/null 2>&1
