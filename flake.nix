@@ -16,7 +16,6 @@
 
     apple-silicon-support = {
       url = "github:nix-community/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-darwin = {
