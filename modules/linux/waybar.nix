@@ -263,7 +263,7 @@ in
           background: @background;
           border: none;
           border-radius: 0;
-          font-family: Input, "Font Awesome 6 Free Solid";
+          font-family: Input, "Font Awesome 7 Free Solid";
           font-size: 13px;
           min-height: 0;
         }
