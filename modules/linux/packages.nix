@@ -86,7 +86,6 @@
     stern
     swappy
     swaybg
-    sway-contrib.inactive-windows-transparency
     swaylock
     swayr
     syncthing
@@ -110,6 +109,7 @@
     wireguard-tools
     wl-clipboard
     wldash
+    yarn
     zathura
     zip
     zsh
