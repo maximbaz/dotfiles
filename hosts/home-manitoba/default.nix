@@ -21,13 +21,6 @@ inputs.nixpkgs.lib.nixosSystem rec {
 
       networking.hostName = "home-manitoba";
 
-      hardware.asahi = {
-        peripheralFirmwareDirectory = /boot/asahi;
-        useExperimentalGPUDriver = true;
-        experimentalGPUInstallMode = "replace";
-        setupAsahiSound = true;
-      };
-
       boot = {
         loader = {
           efi.canTouchEfiVariables = false;
