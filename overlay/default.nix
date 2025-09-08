@@ -20,7 +20,6 @@
               rev = "9cc29f2507a746ef6359dd081d9f2fe2f43c2a23";
               hash = "sha256-aATJIHETQDX1UXkn5/1jVESgdQFbTFySYuL01NvP54s=";
             };
-            useFetchCargoVendor = true;
             cargoHash = "sha256-xuyUKKAIGEJwl9mcNQLFhk5r6+YSl+0EkUHPk//gM9c=";
             cargoPatches = [ ];
           });
@@ -39,15 +38,12 @@
       pik = super.rustPlatform.buildRustPackage rec {
         pname = "pik";
         version = "0.9.0";
-
         src = super.fetchFromGitHub {
           owner = "jacek-kurlit";
           repo = pname;
           rev = version;
           hash = "sha256-YAnMSVQu/E+OyhHX3vugfBocyi++aGwG9vF6zL8T2RU=";
         };
-
-        useFetchCargoVendor = true;
         cargoHash = "sha256-vXE9AL0+WCPhwJTqglwOhIeqhI+JQB3Cr8GBQjmW+zc=";
       };
 
