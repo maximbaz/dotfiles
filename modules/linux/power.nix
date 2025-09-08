@@ -1,10 +1,10 @@
 {
   services = {
-    logind = {
-      lidSwitch = "ignore";
-      lidSwitchExternalPower = "ignore";
-      powerKey = "lock";
-      powerKeyLongPress = "suspend";
+    logind.settings.Login = {
+      HandleLidSwitch = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
+      HandlePowerKey = "lock";
+      HandlePowerKeyLongPress = "suspend";
     };
 
     upower.enable = true;
