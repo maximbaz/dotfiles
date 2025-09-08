@@ -1,11 +1,11 @@
 default: switch
 
 [linux]
-switch flags="": git-add
+switch *flags: git-add
     sudo nixos-rebuild switch --flake $HOME/.dotfiles --impure {{flags}}
 
 [macos]
-switch flags="": git-add
+switch *flags: git-add
     nix run -- nix-darwin switch --flake $HOME/.dotfiles {{flags}}
 
 trace: (switch "--show-trace")
