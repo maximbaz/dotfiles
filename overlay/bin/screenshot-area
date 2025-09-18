@@ -12,8 +12,7 @@ swaymsg seat '*' hide_cursor 1 # hide cursor...
 sleep 0.2 # let it disappear...
 
 cursor_delay=$(swaymsg -t get_config -p | rg -oP '(?<=hide_cursor )\d+')
-geometry="$(slurp -c '#ff3f3faf' -w 2 -d -o)"
-sleep 0.2 # slurp needs time to remove the red border...
+geometry="$(waysip -s '#ff3f3faf' -w 2 -d)"
 
 if [ -n "$geometry" ]; then
     grim -g "$geometry" -t png area.png

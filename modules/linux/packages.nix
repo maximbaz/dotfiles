@@ -1,4 +1,4 @@
-{ config, pkgs, push2talk, ... }: {
+{ config, pkgs, push2talk, waysip, ... }: {
   home-manager.users.${config.user}.home.packages = with pkgs; [
     abiword
     asahi-bless
@@ -103,6 +103,7 @@
     vimiv-qt
     vivid
     w3m
+    waysip
     wev
     wf-recorder
     whisper-cpp-vulkan
