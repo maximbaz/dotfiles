@@ -18,5 +18,5 @@ pkill -x wf-recorder
     notify-send -t 2000 'Screen recording' "Recording is ready: $path.{mkv,gif}"
 
     wl-copy -t image/gif < "$path.gif"
-    echo "file://$path.mkv" | wl-copy -t text/uri-list
+    echo "file://$path.gif" | wl-copy -t text/uri-list
 } &
