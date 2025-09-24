@@ -4,7 +4,6 @@ inputs.nixpkgs.lib.nixosSystem rec {
   specialArgs = {
     util = (import ../../util);
     firefox-addons = inputs.firefox-addons.packages.${system};
-    network-dmenu = inputs.network-dmenu.defaultPackage.${system};
     waysip = inputs.waysip.packages.${system}.default;
   };
   modules = [

@@ -101,6 +101,29 @@
         };
       };
 
+      network-dmenu = super.stdenv.mkDerivation rec {
+        pname = "network-dmenu";
+        version = "2.13.1";
+        src = super.fetchurl {
+          url = "https://github.com/cyrinux/${pname}/releases/download/${version}/${pname}-aarch64-linux";
+          hash = "sha256-BgyKht/IYuCr0ZrALd18U3GBlIhyR+acfHa27OsWMSQ=";
+        };
+        dontUnpack = true;
+        nativeBuildInputs = [ super.autoPatchelfHook ];
+        buildInputs = with super; [
+          stdenv.cc.cc.lib
+          dbus
+        ];
+        installPhase = ''
+          mkdir -p $out/bin
+          install -Dm755 "$src" "$out/bin/${pname}"
+        '';
+        meta = {
+          platforms = [ "aarch64-linux" ];
+          mainProgram = pname;
+        };
+      };
+
       maximbaz-scripts = pkgs.stdenv.mkDerivation {
         pname = "maximbaz-scripts";
         version = "1.0.0";

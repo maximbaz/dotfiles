@@ -35,11 +35,6 @@
 
     maximbaz-private.url = "git+file:///home/maximbaz/.dotfiles-private";
 
-    network-dmenu = {
-      url = "github:cyrinux/network-dmenu";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     waysip = {
       url = "github:waycrate/waysip";
       inputs.nixpkgs.follows = "nixpkgs";

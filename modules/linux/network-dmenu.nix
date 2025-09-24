@@ -1,6 +1,6 @@
-{ config, network-dmenu, ... }: {
+{ config, pkgs, ... }: {
   home-manager.users.${config.user} = {
-    home.packages = [ network-dmenu ];
+    home.packages = [ pkgs.network-dmenu ];
     xdg.configFile."network-dmenu/config.toml".text = ''
       dmenu_cmd = "dmenu"
       dmenu_args = "-f --no-multi"
