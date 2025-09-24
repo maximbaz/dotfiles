@@ -65,13 +65,40 @@
           hash = "sha256-YJIDL+dfQbmgbgCXBOK6+3SZCgNn43ZapQVuiobqkuk=";
         };
         dontUnpack = true;
-        dontFixup = true;
-        dontStrip = true;
         installPhase = ''
           mkdir -p $out/bin
           install -Dm755 "$src" "$out/bin/${pname}"
         '';
-        meta.platforms = [ "aarch64-linux" ];
+        meta = {
+          platforms = [ "aarch64-linux" ];
+          mainProgram = pname;
+        };
+      };
+
+      push2talk = super.stdenv.mkDerivation rec {
+        pname = "push2talk";
+        version = "1.3.3";
+        src = super.fetchurl {
+          url = "https://github.com/cyrinux/${pname}/releases/download/${version}/${pname}-aarch64-linux";
+          hash = "sha256-Z3FtkpVVzDjNie8fY805F1j1f9GtFgngFxOWt6er68E=";
+        };
+        dontUnpack = true;
+        nativeBuildInputs = [ super.autoPatchelfHook ];
+        buildInputs = with super; [
+          stdenv.cc.cc.lib
+          libxkbcommon
+          libinput
+          libpulseaudio
+          systemd
+        ];
+        installPhase = ''
+          mkdir -p $out/bin
+          install -Dm755 "$src" "$out/bin/${pname}"
+        '';
+        meta = {
+          platforms = [ "aarch64-linux" ];
+          mainProgram = pname;
+        };
       };
 
       maximbaz-scripts = pkgs.stdenv.mkDerivation {

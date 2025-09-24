@@ -1,4 +1,4 @@
-{ config, pkgs, lib, push2talk, ... }:
+{ config, pkgs, lib, ... }:
 let
   app = pkgs.symlinkJoin {
     name = "waybar-scripts";
@@ -246,7 +246,7 @@ in
             default = [ "" "" "" ];
           };
           on-click = lib.getExe pkgs.pavucontrol;
-          on-click-right = "${lib.getExe push2talk} -t";
+          on-click-right = "${lib.getExe pkgs.push2talk} -t";
           on-click-middle = lib.getExe pkgs.helvum;
         };
       }];

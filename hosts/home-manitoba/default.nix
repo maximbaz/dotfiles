@@ -5,7 +5,6 @@ inputs.nixpkgs.lib.nixosSystem rec {
     util = (import ../../util);
     firefox-addons = inputs.firefox-addons.packages.${system};
     network-dmenu = inputs.network-dmenu.defaultPackage.${system};
-    push2talk = inputs.push2talk.defaultPackage.${system};
     waysip = inputs.waysip.packages.${system}.default;
   };
   modules = [

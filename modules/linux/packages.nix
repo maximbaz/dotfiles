@@ -1,4 +1,4 @@
-{ config, pkgs, push2talk, waysip, ... }: {
+{ config, pkgs, waysip, ... }: {
   home-manager.users.${config.user}.home.packages = with pkgs; [
     abiword
     asahi-bless

@@ -35,11 +35,6 @@
 
     maximbaz-private.url = "git+file:///home/maximbaz/.dotfiles-private";
 
-    push2talk = {
-      url = "github:cyrinux/push2talk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     network-dmenu = {
       url = "github:cyrinux/network-dmenu";
       inputs.nixpkgs.follows = "nixpkgs";
