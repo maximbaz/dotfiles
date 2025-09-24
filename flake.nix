@@ -40,11 +40,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    waybar-syncthing = {
-      url = "github:maximbaz/waybar-syncthing";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     network-dmenu = {
       url = "github:cyrinux/network-dmenu";
       inputs.nixpkgs.follows = "nixpkgs";

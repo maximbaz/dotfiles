@@ -57,6 +57,23 @@
         '';
       };
 
+      waybar-syncthing = super.stdenv.mkDerivation rec {
+        pname = "waybar-syncthing";
+        version = "1.0.0";
+        src = super.fetchurl {
+          url = "https://github.com/maximbaz/${pname}/releases/download/${version}/${pname}-aarch64-linux-musl";
+          hash = "sha256-YJIDL+dfQbmgbgCXBOK6+3SZCgNn43ZapQVuiobqkuk=";
+        };
+        dontUnpack = true;
+        dontFixup = true;
+        dontStrip = true;
+        installPhase = ''
+          mkdir -p $out/bin
+          install -Dm755 "$src" "$out/bin/${pname}"
+        '';
+        meta.platforms = [ "aarch64-linux" ];
+      };
+
       maximbaz-scripts = pkgs.stdenv.mkDerivation {
         pname = "maximbaz-scripts";
         version = "1.0.0";

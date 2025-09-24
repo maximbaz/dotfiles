@@ -6,7 +6,6 @@ inputs.nixpkgs.lib.nixosSystem rec {
     firefox-addons = inputs.firefox-addons.packages.${system};
     network-dmenu = inputs.network-dmenu.defaultPackage.${system};
     push2talk = inputs.push2talk.defaultPackage.${system};
-    waybar-syncthing = inputs.waybar-syncthing.defaultPackage.${system};
     waysip = inputs.waysip.packages.${system}.default;
   };
   modules = [

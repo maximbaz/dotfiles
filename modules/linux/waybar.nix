@@ -1,4 +1,4 @@
-{ config, pkgs, lib, push2talk, waybar-syncthing, ... }:
+{ config, pkgs, lib, push2talk, ... }:
 let
   app = pkgs.symlinkJoin {
     name = "waybar-scripts";
@@ -79,7 +79,7 @@ in
         ];
 
         "custom/syncthing" = {
-          exec = "${lib.getExe waybar-syncthing} --api-key ${config.sops.secrets."syncthing-api-key".path}";
+          exec = "${lib.getExe pkgs.waybar-syncthing} --api-key ${config.sops.secrets."syncthing-api-key".path}";
           return-type = "json";
         };
 
