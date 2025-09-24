@@ -142,7 +142,6 @@
             A-f = ":toggle auto-format";
             q = ":write-quit-all";
             Q = ":quit!";
-            e = ":config-open";
             w = ":write";
             "." = ":toggle file-picker.git-ignore";
           };
@@ -223,7 +222,7 @@
           language-servers = [ "vscode-html-language-server" "tailwindcss-ls" ];
           formatter = {
             command = "prettier";
-            args = [ "--stdin-filepath" "file.html" ];
+            args = [ "--stdin-filepath" "%{buffer_name}" ];
           };
           auto-format = true;
         }
@@ -244,7 +243,7 @@
           ];
           formatter = {
             command = "biome";
-            args = [ "format" "--indent-style" "space" "--stdin-file-path" "file.json" ];
+            args = [ "format" "--indent-style" "space" "--stdin-file-path" "%{buffer_name}" ];
           };
           auto-format = true;
         }
@@ -256,7 +255,7 @@
           ];
           formatter = {
             command = "biome";
-            args = [ "format" "--indent-style" "space" "--stdin-file-path" "file.jsonc" ];
+            args = [ "format" "--indent-style" "space" "--stdin-file-path" "%{buffer_name}" ];
           };
           file-types = [ "jsonc" "hujson" ];
           auto-format = true;
@@ -271,7 +270,7 @@
           ];
           formatter = {
             command = "biome";
-            args = [ "format" "--indent-style" "space" "--stdin-file-path" "file.jsx" ];
+            args = [ "format" "--indent-style" "space" "--stdin-file-path" "%{buffer_name}" ];
           };
           auto-format = true;
         }
@@ -280,7 +279,7 @@
           language-servers = [ "marksman" ];
           formatter = {
             command = "prettier";
-            args = [ "--stdin-filepath" "file.md" ];
+            args = [ "--stdin-filepath" "%{buffer_name}" ];
           };
           auto-format = true;
         }
@@ -332,7 +331,7 @@
           ];
           formatter = {
             command = "biome";
-            args = [ "format" "--indent-style" "space" "--stdin-file-path" "file.tsx" ];
+            args = [ "format" "--indent-style" "space" "--stdin-file-path" "%{buffer_name}" ];
           };
           auto-format = true;
         }
@@ -345,7 +344,7 @@
           ];
           formatter = {
             command = "biome";
-            args = [ "format" "--indent-style" "space" "--stdin-file-path" "file.ts" ];
+            args = [ "format" "--indent-style" "space" "--stdin-file-path" "%{buffer_name}" ];
           };
           auto-format = true;
         }
@@ -354,7 +353,7 @@
           language-servers = [ "yaml-language-server" ];
           formatter = {
             command = "prettier";
-            args = [ "--stdin-filepath" "file.yaml" ];
+            args = [ "--stdin-filepath" "%{buffer_name}" ];
           };
           auto-format = true;
         }
