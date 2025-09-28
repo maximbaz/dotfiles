@@ -1,10 +1,10 @@
-{ config, pkgs, waysip, ... }: {
+{ config, pkgs, stable, waysip, ... }: {
   home-manager.users.${config.user}.home.packages = with pkgs; [
     abiword
     asahi-bless
     bfs
     brightnessctl
-    calibre
+    stable.calibre
     cargo
     cargo-outdated
     chromium

@@ -5,6 +5,8 @@ inputs.nixpkgs.lib.nixosSystem rec {
     util = (import ../../util);
     firefox-addons = inputs.firefox-addons.packages.${system};
     waysip = inputs.waysip.packages.${system}.default;
+    stable = inputs.stable.legacyPackages.${system};
+    unstable = inputs.unstable.legacyPackages.${system};
   };
   modules = [
     globals
