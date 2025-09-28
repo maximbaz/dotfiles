@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, unstable, ... }: {
   home-manager.users.${config.user}.programs.mpv = {
     enable = true;
     scripts = lib.mkIf pkgs.stdenv.isLinux [
@@ -44,6 +44,9 @@
         spawn_first = true;
         network = true;
         hwdec = true;
+      };
+      ytdl_hook = {
+        ytdl_path = "${lib.getExe unstable.yt-dlp}";
       };
     };
     bindings = {
