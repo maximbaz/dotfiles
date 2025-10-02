@@ -1,15 +1,29 @@
 { inputs, globals, ... }:
+let
+  stable = { config, pkgs, ... }: {
+    _module.args.stable = import inputs.stable {
+      inherit (pkgs.stdenv.hostPlatform) system;
+      inherit (config.nixpkgs) config;
+    };
+  };
+  unstable = { config, pkgs, ... }: {
+    _module.args.unstable = import inputs.unstable {
+      inherit (pkgs.stdenv.hostPlatform) system;
+      inherit (config.nixpkgs) config;
+    };
+  };
+in
 inputs.nixpkgs.lib.nixosSystem rec {
   system = "aarch64-linux";
   specialArgs = {
     util = (import ../../util);
     firefox-addons = inputs.firefox-addons.packages.${system};
     waysip = inputs.waysip.packages.${system}.default;
-    stable = inputs.stable.legacyPackages.${system};
-    unstable = inputs.unstable.legacyPackages.${system};
   };
   modules = [
     globals
+    stable
+    unstable
     inputs.sops-nix.nixosModules.sops
     inputs.apple-silicon-support.nixosModules.apple-silicon-support
     inputs.maximbaz-private.nixosModules.linux
